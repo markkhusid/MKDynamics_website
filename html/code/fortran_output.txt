@@ -1,0 +1,36 @@
+ Hello World!
+ The data element read from current.dat file was ->
+        1.0000000000
+ The data element read from voltage.dat file was ->
+       50.0000000000
+ The data element read from current.dat file was ->
+        2.0000000000
+ The data element read from voltage.dat file was ->
+       50.0000000000
+ The data element read from current.dat file was ->
+        1.0000000000
+ The data element read from voltage.dat file was ->
+       50.0000000000
+ The data element read from current.dat file was ->
+        3.5000000000
+ The data element read from voltage.dat file was ->
+       50.0000000000
+ The data element read from current.dat file was ->
+        4.0000000000
+ The data element read from voltage.dat file was ->
+       50.0000000000
+ The calculated power dissipation is ->
+       50.0000000000
+      100.0000000000
+       50.0000000000
+      175.0000000000
+      200.0000000000
+ Below is a list of the cumulative energy ->
+       50.0000000000
+      250.0000000000
+      400.0000000000
+     1100.0000000000
+     2100.0000000000
+ The accumulated energy is ->
+     2100.0000000000
+ Program completed

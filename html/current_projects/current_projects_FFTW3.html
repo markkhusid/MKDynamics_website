@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-58919029-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+<html>
+
+<head>
+  <meta content="text/html; charset=ISO-8859-1" http-equiv="content-type">
+
+  <title>
+    MK Dynamics
+  </title>
+  
+  <link href="../css/styles.css" type = "text/css" rel = "stylesheet" />
+  
+</head>
+
+<body>
+
+  <h1> 
+    <big> <big> MK Dynamics </big> </big>
+  </h1>
+
+  <h2>
+    Current Projects - Discretized Fourier Transform of Arbitrary Signal Using FFTW3
+  </h2>
+  
+  <div id="nav">
+    <ul>
+      <li> <a href="../index.html">Home</a> </li>
+      <li> <a href="../HAM_radio/hamradio.html">HAM Radio</a> </li>
+      <li> <a href="../board_photos/board_photos.html">Board Photos</a> </li>
+      <li> <a href="../current_projects/current_projects.html">Current Projects</a></li>
+      <li> <a href="../about_me/about_me.html">About me</a></li>
+    </ul>
+  </div>
+  
+  <hr />
+  
+  <p>
+    <img src="../images/spacey.jpg" alt ="Space" class = "align-center medium" />
+  
+  <div id="content">
+    <h3>
+      Discretized Fourier Transform of Sine Wave Using SciLAB
+    </h3>
+    
+    <h4>
+      Discussion:
+      <hr />
+    </h4>
+    <p>
+      The plan here is to write a Fortran 2003 program that utilizes the FFTW3 library to generate a<br>
+      Discretized Fast Fourier Transforms of arbitrary waveforms.  To test the code we start with a<br>
+      function whose DFFT is easily identifiable by inspection.  SciLAB is used to generate the<br>
+      the time domain function, time domain and frequency domain plots and discretized time domain data.<br>
+      The Fortran 2003 code is then run on the discretized time domain data and the results plotted <br>
+      with GNUPlot.  A comparison is made to check the veracity of the Fortran 2003 code output.<br>
+      <hr /><br>
+    </p>
+    
+    
+    <p> <b> SciLAB code to generate a 10Hz sine wave sampled at 1000Hz </b> <br>
+      <iframe
+	src = "code_FFTW3/sine_wave2_10Hz.sce.txt"
+	width = "550"
+	height = "300"
+	frameborder = "1"
+	scrolling = "no">
+      </iframe> <br>
+      <a href="code_FFTW3/sine_wave2_10Hz.sce" target="_top">SciLAB code file to generate 10Hz sine wave</a><br><br>
+      
+      <img src="images/sine_wave2_10Hz.jpg" width="600" height="450" title="10Hz Sine Wave"/><br>
+      <a href="images/sine_wave2_10hz.png" target="_top">Image of 10Hz sine wave</a><br>
+      <a href="code_FFTW3/sine_wave2_10Hz.csv" target="_top">CSV file containing discretized sine wave data</a><br><br>
+      <img src="images/sine_wave2_10Hz_FFT.jpg" width="600" height="450" title="SciLAB FFT of 10Hz Sine Wave"/><br>
+      <a href="images/sine_wave2_10Hz_FFT.jpg" target="_top">Image of FFT of 10Hz sine wave generated in SciLAB</a><br>
+  
+    </p>
+    
+    <p> <b> Processing of CSV file by Python script to strip commas and produce one data element per line </b><br>
+	<iframe
+	  src = "code_FFTW3/convert_csv.txt"
+	  width = "550"
+	  height = "300"
+	  frameborder = "1"
+	  scrolling = "yes">
+	</iframe><br>
+	<a href="code_FFTW3/convert_csv.txt" target="_top">Python script that removes commas and produced one data element per line</a><br>
+	Run by typing: <b>./convert_csv.py infile.csv outfile.dat</b> <br>
+	where infile.csv is the data file in CSV format, and outfile.dat is the processed file <br>
+	Obtain the line count of the processed file by typing: <b>wc -l outfile.dat</b><br>
+	<a href="code_FFTW3/processed.dat" target="_top">Output of Python script</a><br>
+    </p>
+    
+    <p> <b> Perform Discretized Fast Fourier Transform on processed file </b><br>
+      <b> Fortran 2003 code </b><br>
+      <iframe
+	src = "code_FFTW3/data_file_FFTW_ver3.F03"
+	width = "900"
+	height = "800"
+	frameborder = "1"
+	scrolling = "yes">
+      </iframe><br>
+      <a href="code_FFTW3/data_file_FFTW.F03" target="_top">Fortran 2003 code that takes in parameters and performs DFFT to generate output file</a><br> 
+      Compile by typing: <b>gfortran -o a.out data_file_FFTW.F03 -lfftw3</b> <br>
+      Run by typing: <b>./a.out outfile.dat DFFT_mag_file.dat DFFT_phase_file.dat 1001</b> <br>
+      where outfile.dat is the output of the Python script, DFFT_mag_file.dat is the DFFT magnitude <br>
+      DFFT_phase_file.dat is the DFFT phase (if applicable), and 1001 is the line count. <br>
+      The line count can be obtained by typing: <b>wc -l outfile.dat</b> 
+    </p>
+    
+    <p> <b>Output files from running Fortran 2003 code</b><br>
+      <a href="code_FFTW3/dft_mag.dat" target="_top">Output of DFFT Fortran program as magnitude</a><br>
+      <a href="code_FFTW3/dft_phase.dat" target="_top">Output of DFFT Fortran progream as phase</a><br>
+    </p>
+    
+    <p> <b>Plots of the magnitude and phase output files using GNUPlot</b><br>
+      <b>GNUPlot script file</b><br>
+      <iframe
+	src = "code_FFTW3/sine_wv_10Hz_gnuplot_macro.txt"
+	width = "550"
+	height = "220"
+	frameborder = "1"
+	scrolling = "no">
+      </iframe><br>
+      Run by typing <b>gnuplot sine_wv_10Hz_gnuplot_macro.txt</b> or start GNUPlot and enter<br>
+      <b>load "sine_wv_10Hz_gnuplot_macro.txt"</b> at the gnuplot command prompt <br>
+      
+      <br><b> Magnitude Plot </b><br>
+      <img src="images/DFFT_mag_sine_wave_10Hz.jpeg" width="600" height="450" title="Magnitude plot of DFFT of 10Hz sine wave"/><br>
+      
+      <br><b> Phase Plot </b><br>
+      <img src="images/DFFT_phase_sine_wave_10Hz.jpeg" width="600" height="450" title="Phase plot of DFFT of 10Hz sine wave"/><br>
+      The phase plot above displays overall quantization noise and computation noise of FFTW3, since <br>
+      pure frequency sine wave with zero phase should have been a straight line at 0 degrees. <br>  
+      This plot gives a feel for the accuracy of the computational engine. <br>
+    </p>
+    
+    <h4>
+      Discussion:
+      <hr />
+    </h4>
+    <p>
+      There appears to be good correlation between the DFFT magnitude plot generated by SciLAB and <br>
+      the DFFT magnitude plot generated by the Fortran 2003 code.  Of note are the additional peaks<br>
+      visible at the harmonic frequencies in the output of the Fortran 2003 code.  This might be<br>
+      attributed to the abrupt discontinuity at the end of the sine wave which the FFTW3 library is<br>
+      responding to.  Windowing functions may need to be applied to the data to obtain better correlation.<br>
+      <hr />
+      <br><br>
+    </p>
+    
+    <h3>
+      Discretized Fourier Transform of Square Wave Using SciLAB
+    </h3>
+    
+    <h4>
+      Discussion:
+      <hr />
+    </h4>
+    <p>
+      In this section, we will continue verification of the Fortran 2003 code by running it against a<br>
+      1 Hz, 50% duty cycle square wave, with no DC offset.  We expect to see a sinc function for the<br>
+      magnitude, and a characteristic phase plot as shown below.  As before, we will first generate a<br>
+      DFFT in SciLAB to enable a meaningful comparison.<br>
+      <hr /><br>
+    </p>
+    
+    <p> <b> SciLAB code to generate a 1Hz square wave, 50% duty-cycle, sampled at 1000Hz </b> <br>
+      <iframe
+	src = "code_FFTW3/square_wave_1Hz.sce.txt"
+	width = "550"
+	height = "350"
+	frameborder = "1"
+	scrolling = "no">
+      </iframe> <br>
+      <a href="code_FFTW3/square_wave_1Hz.sce" target="_top">SciLAB code file to generate 1Hz square wave, 50% duty-cycle</a><br><br>
+    </p>
+      
+    <p>	<b> Plots of the results of SciLAB code </b> <br>
+      <img src="images/sq_wave_1Hz_50pct.jpeg" width="600" height="450" title="1Hz Square Wave, 50% Duty-Cycle"/><br>
+      <a href="images/sine_wave2_10hz.png" target="_top">Image of 10Hz sine wave</a><br>
+      <a href="code_FFTW3/square_wave_1Hz.csv" target="_top">CSV file containing discretized square wave data</a><br><br>
+      <img src="images/sq_wave_1Hz_50pct_DFFT.jpeg" width="600" height="450" title="SciLAB FFT of 1Hz 50% Duty-Cycle Square Wave"/><br>
+      <a href="images/sq_wave_1Hz_50pct_DFFT.jpeg" target="_top">Image of FFT of 1Hz 50% duty cycle square wave generated in SciLAB</a><br>
+    </p>
+
+    <p> <b> Running Python Script </b> <br>
+      Run Python script that removes commas and stores one data entry per line in text file.<br>
+      Execute by typing: <b>./convert_csv.py square_wave_1Hz.csv processed_sq_wv_1Hz.dat</b> <br>
+      <a href="code_FFTW3/processed_sq_wv_1Hz.dat" target="_top">Output of Python script</a><br>
+    </p>
+    
+    <p> <b> Running Fortran 2003 code that performs DFFT and generates magnitude and phase </b> <br>
+      Run Fortran 2003 code that performs DFFT on processsed data. <br>
+      Execute by typing: <b>./a.out processed_sq_wv_1Hz.dat DFFT_mag_sq_wv_1Hz.dat DFFT_phase_sq_wv_1Hz.dat 1001 </b> <br>
+    </p>
+    
+    <p> <b>Output files from running Fortran 2003 code</b> <br>
+      <a href="code_FFTW3/DFFT_mag_sq_wv_1Hz.dat" target="_top">Output of DFFT Fortran program as magnitude</a><br>
+      <a href="code_FFTW3/DFFT_phase_sq_wv_1Hz.dat" target="_top">Output of DFFT Fortran progream as phase</a><br>
+    </p>
+     
+    <p> <b>Plots of the magnitude and phase output files using GNUPlot</b><br>
+      <b>GNUPlot script file</b><br>
+      <iframe
+	src = "code_FFTW3/sq_wv_1Hz_50pct_gnuplot_macro.txt"
+	width = "550"
+	height = "220"
+	frameborder = "1"
+	scrolling = "no">
+      </iframe><br>
+      Run by typing <b>gnuplot sq_wv_1Hz_50pct_gnuplot_macro.txt</b> or start GNUPlot and enter<br>
+      <b>load "sq_wv_1Hz_50pct_gnuplot_macro.txt"</b> at the gnuplot command prompt <br>
+    </p>
+      
+    <p> <b> Magnitude Plot </b><br>
+      <img src="images/DFFT_mag_sq_wv_1Hz_50pct.jpeg" width="600" height="450" title="Magnitude plot of DFFT of 10Hz sine wave"/><br>
+      
+      <br><b> Phase Plot </b><br>
+      <img src="images/DFFT_phase_sq_wv_1Hz_50pct.jpeg" width="600" height="450" title="Phase plot of DFFT of 10Hz sine wave"/><br>
+      As before, the phase plot above displays overall quantization noise and computation noise of FFTW3, since <br>
+      pure a square wave with zero time delay should have been a straight line at 0 degrees. <br>  
+      Again, this plot gives a feel for the accuracy of the computational engine. <br>
+    </p>
+    
+     <h4>
+      Discussion:
+      <hr />
+    </h4>
+    <p>
+      There appears to be good correlation between the DFFT magnitude plot generated by SciLAB and <br>
+      the DFFT magnitude plot generated by the Fortran 2003 code.  As an additional test of the Fortran 2003<br>
+      code, we will apply the same procedure to a pulsed exponential waveform. <br>
+      <hr />
+      <br><br>
+    </p>
+    
+    
+    <h3>
+      Discretized Fourier Transform of Exponential Pulse Using SciLAB
+    </h3>
+    
+    <h4>
+      Discussion:
+      <hr />
+    </h4>
+    
+    <p>
+      In this section, we will continue verification of the Fortran 2003 code by running it against an<br>
+      exponential pulse.  We expect to see a 1/sqrt(a^2+w^2) plot for the magnitude, and an <br> 
+      -arctan(w/a) plot for the phase, where a is the time constant in [1/seconds] and w is the frequency in radians. <br>
+      As before, we will first generate a DFFT in SciLAB to enable a meaningful comparison.<br>
+      <hr /><br>
+    </p>
+    
+    <p> <b> SciLAB code to generate an exponential pulse of time constant 10/second, sampled at 1000Hz </b> <br>
+      <iframe
+	src = "code_FFTW3/exp_pulse.sce.txt"
+	width = "700"
+	height = "800"
+	frameborder = "1"
+	scrolling = "yes">
+      </iframe> <br>
+      <a href="code_FFTW3/exp_pulse.sce" target="_top">SciLAB code to generate an exponential pulse of time constant 10/second</a><br><br>
+    </p>
+    
+    
+    <p>	<b> Plots of the results of SciLAB code </b> <br>
+      <img src="images/exp_pulse_tc10.jpeg" width="600" height="450" title="Exponential pulse of time constant 10/second"/><br>
+      <a href="images/exp_pulse_tc10.jpeg" target="_top">Image of exponential pulse of time constant 10/second</a><br>
+      <a href="code_FFTW3/exp_pulse_10tc.csv" target="_top">CSV file containing exponential pulse FFT data</a><br><br>
+      <img src="images/exp_pulse_tc10_FFT_with_ideal.jpeg" width="600" height="450" title="SciLAB DFFT of exponential pulse of time constant 10/second"/><br>
+      <a href="images/exp_pulse_tc10_FFT_with_ideal.jpeg" target="_top">Image of DFFT of exponential pulse of time constant 10/second generated in SciLAB</a><br>
+      
+      To make the FFT in SciLAB, I normalized the magnitude to 1/time constant, and applied a Hamming window <br>
+      to prevent spectral leakage due to the aperiodic nature of the exponential pulse.  The Hamming <br>
+      window application resulted in a discrepancy between the DFFT and the ideal Fourier Transform. <br>
+      
+      <br>
+      <img src="images/exp_pulse_tc10_FFT_phase.jpeg" width="600" height="450" title="SciLAB DFFT phase of exponential pulse of time constant 10/second"/><br>
+      <a href="images/exp_pulse_tc10_FFT_phase.jpeg" target="_top">Image of DFFT of phase of exponential pulse of time constant 10/second generated in SciLAB</a><br>
+    </p>
+
+    <!--
+    <p> <b> Running Python Script </b> <br>
+      Run Python script that removes commas and stores one data entry per line in text file.<br>
+      Execute by typing: <b>./convert_csv.py square_wave_1Hz.csv processed_sq_wv_1Hz.dat</b> <br>
+      <a href="code_FFTW3/processed_sq_wv_1Hz.dat" target="_top">Output of Python script</a><br>
+    </p>
+    
+    <p> <b> Running Fortran 2003 code that performs DFFT and generates magnitude and phase </b> <br>
+      Run Fortran 2003 code that performs DFFT on processsed data. <br>
+      Execute by typing: <b>./a.out processed_sq_wv_1Hz.dat DFFT_mag_sq_wv_1Hz.dat DFFT_phase_sq_wv_1Hz.dat 1001 </b> <br>
+    </p>
+    
+    <p> <b>Output files from running Fortran 2003 code</b> <br>
+      <a href="code_FFTW3/DFFT_mag_sq_wv_1Hz.dat" target="_top">Output of DFFT Fortran program as magnitude</a><br>
+      <a href="code_FFTW3/DFFT_phase_sq_wv_1Hz.dat" target="_top">Output of DFFT Fortran progream as phase</a><br>
+    </p>
+     
+    <p> <b>Plots of the magnitude and phase output files using GNUPlot</b><br>
+      <b>GNUPlot script file</b><br>
+      <iframe
+	src = "code_FFTW3/sq_wv_1Hz_50pct_gnuplot_macro.txt"
+	width = "550"
+	height = "220"
+	frameborder = "1"
+	scrolling = "no">
+      </iframe><br>
+      Run by typing <b>gnuplot sq_wv_1Hz_50pct_gnuplot_macro.txt</b> or start GNUPlot and enter<br>
+      <b>load "sq_wv_1Hz_50pct_gnuplot_macro.txt"</b> at the gnuplot command prompt <br>
+    </p>
+      
+    <p> <b> Magnitude Plot </b><br>
+      <img src="images/DFFT_mag_sq_wv_1Hz_50pct.jpeg" width="600" height="450" title="Magnitude plot of DFFT of 10Hz sine wave"/><br>
+      
+      <br><b> Phase Plot </b><br>
+      <img src="images/DFFT_phase_sq_wv_1Hz_50pct.jpeg" width="600" height="450" title="Phase plot of DFFT of 10Hz sine wave"/><br>
+      As before, the phase plot above displays overall quantization noise and computation noise of FFTW3, since <br>
+      pure a square wave with zero time delay should have been a straight line at 0 degrees. <br>  
+      Again, this plot gives a feel for the accuracy of the computational engine. <br>
+    </p>
+    
+     <h4>
+      Discussion:
+      <hr />
+    </h4>
+    <p>
+      There appears to be good correlation between the DFFT magnitude plot generated by SciLAB and <br>
+      the DFFT magnitude plot generated by the Fortran 2003 code.  As an additional test of the Fortran 2003<br>
+      code, we will apply the same procedure to a pulsed exponential waveform. <br>
+      <hr />
+      <br><br>
+    </p>
+    -->
+      
+    <h3> 
+      <br><br>********* Archival *********<br>
+      Discretized Fourier Transform of Sine Wave Using FFTW3 in Fortran 
+    </h3>  
+    
+    <p> <b> 10Hz sine wave generating and converting to CSV file </b> <br>
+      <a href="code_archival/sine_wave_10hz.txt" target="_top">SciLAB code to generate 10Hz sine wave</a><br>
+      <br>
+      <img src="images/sine_wave_10hz.png" width="600" height="450" title="10Hz Sine Wave"/><br>
+      <a href="images/sine_wave_10hz.png" target="_top">Image of 10Hz sine wave</a><br>
+      <a href="code_archival/sine_wave_10hz.csv.txt" target="_top">CSV file containing discretized sine wave data</a><br>
+    </p>
+    
+    <p> <b> Processing of CSV file by Python script to strip commas and produce one data element per line </b> <br>
+      <a href="code_archival/convert_csv.txt" target="_top">Python script that removes commas and produced one data element per line</a><br>
+      <a href="code_archival/processed.dat" target="_top">Output file of Python script, with commas removed and one data element per line</a><br>
+    </p>
+      
+    <p> <b> Fortran 2003 code that uses the FFTW3 library to generate DFFT magnitude file </b> <br>
+      <a href="code_archival/data_file_FFTW.F03" target="_top">Fortran 2003 code that performs DFFT on output of Python Script</a><br>
+      <a href="code_archival/dft_mag.dat" target="_top">Output of DFFT Fortran program as magnitude</a><br>
+      <br>
+      <img src="images/spectrum.png" width="600" height="450" title="10Hz Sine Wave"/><br>
+      <a href="images/spectrum.png" target="_top">Output of GNUPlot of spectrum</a><br>
+    </div>
+  </p>
+
+</body>
+
+</html>

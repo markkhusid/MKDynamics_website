@@ -1,0 +1,13 @@
+set term wxt 0
+set xrange [0:50]
+set title "DFFT Magnitude of 1Hz 50% Duty Cycle Square Wave"
+set xlabel "Frequency [Hz]"
+set ylabel "Arbitrary Units [Arb]"
+plot "DFFT_mag_sq_wv_1Hz.dat" using 1 with lines
+
+set term wxt 1
+set xrange [0:200]
+set title "DFFT Phase of 1Hz 50% Duty Cycle Square Wave"
+set xlabel "Frequency [Hz]"
+set ylabel "Phase [degrees]"
+plot "DFFT_phase_sq_wv_1Hz.dat" using 1 with lines

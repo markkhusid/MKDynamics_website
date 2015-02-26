@@ -1,0 +1,13 @@
+set term wxt 0
+set xrange [0:50]
+set title "DFFT Magnitude of Exponential Pulse 10/s Time Constant"
+set xlabel "Frequency [Hz]"
+set ylabel "Arbitrary Units [Arb]"
+plot "DFFT_mag_exp_pulse_10tc.dat" using 1 with lines
+
+set term wxt 1
+set xrange [0:80]
+set title "DFFT Phase of Exponential Pulse 10/s Time Constant"
+set xlabel "Frequency [Hz]"
+set ylabel "Phase [degrees]"
+plot "DFFT_phase_exp_pulse_10tc.dat" using 1 with lines
