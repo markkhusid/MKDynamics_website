@@ -50,14 +50,12 @@
     <img src="../images/spacey.jpg" alt ="Space" class = "align-center medium" />
   
   <div id="content">
-    <h3>
-      Discretized Fourier Transform of Sine Wave Using SciLAB
-    </h3>
     
-    <h4>
+    
+    <h2>
       Discussion:
       <hr />
-    </h4>
+    </h2>
     <p>
       The plan here is to write a Fortran 2003 program that utilizes the FFTW3 library to generate a<br>
       Discretized Fast Fourier Transforms of arbitrary waveforms.  To test the code we start with a<br>
@@ -68,23 +66,13 @@
       <hr /><br>
     </p>
     
-    
-    <p> <b> SciLAB code to generate a 10Hz sine wave sampled at 1000Hz </b> <br>
-      <iframe
-	src = "code_FFTW3/sine_wave2_10Hz.sce.txt"
-	width = "550"
-	height = "300"
-	frameborder = "1"
-	scrolling = "no">
-      </iframe> <br>
-      <a href="code_FFTW3/sine_wave2_10Hz.sce" target="_top">SciLAB code file to generate 10Hz sine wave</a><br><br>
-      
-      <img src="images/sine_wave2_10Hz.jpg" width="600" height="450" title="10Hz Sine Wave"/><br>
-      <a href="images/sine_wave2_10hz.png" target="_top">Image of 10Hz sine wave</a><br>
-      <a href="code_FFTW3/sine_wave2_10Hz.csv" target="_top">CSV file containing discretized sine wave data</a><br><br>
-      <img src="images/sine_wave2_10Hz_FFT.jpg" width="600" height="450" title="SciLAB FFT of 10Hz Sine Wave"/><br>
-      <a href="images/sine_wave2_10Hz_FFT.jpg" target="_top">Image of FFT of 10Hz sine wave generated in SciLAB</a><br>
-  
+    <p>
+      Since the output of SciLAB is a comma separated value (CSV) file, a method is needed that will process<br>
+      that file into another file, where the commas are removed and each data element is on a separate line.<br>
+      This is most easily done using a Python script, with its powerful object-oriented file techniques and<br>
+      its included CSV library.  Additionaly, each data element is reformatted so that it is in fixed floating-point<br>
+      format, with a decimal precision of 20 places.  This is done so that the Fortran DFFT code can process<br>
+      the data error-free.  The Python script is shown below:
     </p>
     
     <p> <b> Processing of CSV file by Python script to strip commas and produce one data element per line </b><br>
@@ -99,11 +87,16 @@
 	Run by typing: <b>./convert_csv.py infile.csv outfile.dat</b> <br>
 	where infile.csv is the data file in CSV format, and outfile.dat is the processed file <br>
 	Obtain the line count of the processed file by typing: <b>wc -l outfile.dat</b><br>
-	<a href="code_FFTW3/processed.dat" target="_top">Output of Python script</a><br>
     </p>
     
-    <p> <b> Perform Discretized Fast Fourier Transform on processed file </b><br>
-      <b> Fortran 2003 code </b><br>
+    <p>
+      After the CSV file is processed into a suitable format, the following Fortran 2003 code is executed on it.<br>
+      The Fortran 2003 code reads in the processed data and outputs the DFFT magnitude and phase, using the FFTW3<br>
+      algorithm.
+    </p>
+    
+    <p> <b> Fortran 2003 Code to Perform Discretized Fast Fourier Transform on Processed File </b><br>
+      <b> Version 3 </b><br>
       <iframe
 	src = "code_FFTW3/data_file_FFTW_ver3.F03"
 	width = "900"
@@ -113,9 +106,9 @@
       </iframe><br>
       <a href="code_FFTW3/data_file_FFTW.F03" target="_top">Fortran 2003 code that takes in parameters and performs DFFT to generate output file</a><br> 
       Compile by typing: <b>gfortran -o a.out data_file_FFTW.F03 -lfftw3</b> <br>
-      Run by typing: <b>./a.out outfile.dat DFFT_mag_file.dat DFFT_phase_file.dat 1001</b> <br>
+      Run by typing: <b>./a.out outfile.dat DFFT_mag_file.dat DFFT_phase_file.dat</b> <br>
       where outfile.dat is the output of the Python script, DFFT_mag_file.dat is the DFFT magnitude <br>
-      DFFT_phase_file.dat is the DFFT phase (if applicable), and 1001 is the line count. <br>
+      DFFT_phase_file.dat is the DFFT phase (if applicable)<br>
       The line count can be obtained by typing: <b>wc -l outfile.dat</b> 
     </p>
     
@@ -159,6 +152,10 @@
       <hr />
       <br><br>
     </p>
+    
+    <h3>
+      <a href="sine_wv_10Hz.html" target="_top">Performance for Sine Wave at 10Hz</a><br>
+    </h3>
     
     <h3>
       Discretized Fourier Transform of Square Wave Using SciLAB
