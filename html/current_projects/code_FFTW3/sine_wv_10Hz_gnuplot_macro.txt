@@ -3,11 +3,11 @@ set xrange [0:50]
 set title "DFFT Magnitude of 10Hz Sine Wave"
 set xlabel "Frequency [Hz]"
 set ylabel "Arbitrary Units [Arb]"
-plot "dft_mag.dat" using 1 with lines
+plot "DFFT_mag_sn_wv_10Hz.dat" using 1 with lines
 
 set term wxt 1
-set autoscale x
+set xrange [0:50]
 set title "DFFT Phase of 10Hz Sine Wave"
 set xlabel "Frequency [Hz]"
 set ylabel "Phase [degrees]"
-plot "dft_phase.dat" using 1 with lines
+plot "DFFT_phase_sn_wv_10Hz.dat" using 1 with lines
