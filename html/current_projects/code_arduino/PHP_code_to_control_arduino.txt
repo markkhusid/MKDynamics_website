@@ -1,0 +1,23 @@
+<?PHP
+    echo "This is coming out of PHP, and is being interpreted by the PHP processor...<br>";
+        
+    $comPort = "/dev/ttyACM0"; /*change to correct com port */
+    $fp =fopen("/dev/ttyACM0", "w") or die("Can't open port!!");
+    
+    $count = 1;
+    while ($count <=5)
+    {
+      echo "Now outputting a 1 onto the serial port...<br>";
+      fwrite($fp,1);
+      
+      echo "Now outputting a 2 onto the serial port...<br>";
+      fwrite($fp,2);
+      
+      echo "Now outputting a 3 onto the serial port...<br>";
+      fwrite($fp,3);
+      ++$count;
+    }
+    
+    /*echo fgetc($fp);*/
+    fclose($fp);
+?>

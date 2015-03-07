@@ -114,13 +114,29 @@
       The line count can be obtained by typing: <b>wc -l outfile.dat</b> 
     </p>
     
-    <h3>
-      <a href="sine_wv_10Hz.html" target="_top">Performance for Fortran 2003 DFFT Program for Sine Wave at 10Hz</a><br>
-      <a href="sq_wv_1Hz.html" target="_top">Performance for Fortran 2003 DFFT Program for Square Wave at 1Hz</a><br>
+    <h3 id="DFFT Program Performance">
+      Perfmance of Fortran 2003 DFFT Program for: <br>
+      <a href="sine_wv_10Hz.html" target="_top">Sine Wave at 10Hz</a><br>
+      <img src="images/sine_wave2_10Hz.jpg" width="300" height="225" title="Magnitude plot of DFFT of 10Hz sine wave"/>
+      <img src="images/DFFT_mag_sine_wave2_10Hz.jpeg" width="300" height="225" title="Magnitude plot of DFFT of 10Hz sine wave"/><br>
+      
+      <br>
+      <a href="sq_wv_1Hz.html" target="_top">Square Wave at 1Hz</a><br>
+      <img src="images/sq_wave_1Hz_50pct.jpeg" width="300" height="225" title="Magnitude plot of DFFT of 10Hz sine wave"/>
+      <img src="images/DFFT_mag_sq_wv2_1Hz_50pct.jpeg" width="300" height="225" title="Magnitude plot of DFFT of 10Hz sine wave"/><br>
+      
+      <br>
+      <a href="exp_pulse_10tc.html" target="_top">Exponential Pulse of Time Constant 10 seconds</a><br>
+      <img src="images/exp_pulse_tc10.jpeg" width="300" height="225" title="Magnitude plot of DFFT of 10Hz sine wave"/>
+      <img src="images/DFFT_mag_exp_pulse_10tc.jpeg" width="300" height="225" title="Magnitude plot of DFFT of 10Hz sine wave"/><br>
     </h3>
     
+    <hr />
     
-    
+    <h3> Archival <br>
+      <a href="archival.html" target="_top">Link to Archival Stuff</a><br>
+    </h3>
+<!--     
     <p> <b> SciLAB code to generate a 1Hz square wave, 50% duty-cycle, sampled at 1000Hz </b> <br>
       <iframe
 	src = "code_FFTW3/square_wave_1Hz.sce.txt"
@@ -288,34 +304,10 @@
       <hr />
       <br><br>
     </p>
-    -->
-      
-    <h3> 
-      <br><br>********* Archival *********<br>
-      Discretized Fourier Transform of Sine Wave Using FFTW3 in Fortran 
-    </h3>  
-    
-    <p> <b> 10Hz sine wave generating and converting to CSV file </b> <br>
-      <a href="code_archival/sine_wave_10hz.txt" target="_top">SciLAB code to generate 10Hz sine wave</a><br>
-      <br>
-      <img src="images/sine_wave_10hz.png" width="600" height="450" title="10Hz Sine Wave"/><br>
-      <a href="images/sine_wave_10hz.png" target="_top">Image of 10Hz sine wave</a><br>
-      <a href="code_archival/sine_wave_10hz.csv.txt" target="_top">CSV file containing discretized sine wave data</a><br>
+-->
     </p>
-    
-    <p> <b> Processing of CSV file by Python script to strip commas and produce one data element per line </b> <br>
-      <a href="code_archival/convert_csv.txt" target="_top">Python script that removes commas and produced one data element per line</a><br>
-      <a href="code_archival/processed.dat" target="_top">Output file of Python script, with commas removed and one data element per line</a><br>
-    </p>
-      
-    <p> <b> Fortran 2003 code that uses the FFTW3 library to generate DFFT magnitude file </b> <br>
-      <a href="code_archival/data_file_FFTW.F03" target="_top">Fortran 2003 code that performs DFFT on output of Python Script</a><br>
-      <a href="code_archival/dft_mag.dat" target="_top">Output of DFFT Fortran program as magnitude</a><br>
-      <br>
-      <img src="images/spectrum.png" width="600" height="450" title="10Hz Sine Wave"/><br>
-      <a href="images/spectrum.png" target="_top">Output of GNUPlot of spectrum</a><br>
-    </div>
-  </p>
+
+  </div>
 
 </body>
 
