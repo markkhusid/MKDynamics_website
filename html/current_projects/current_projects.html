@@ -11,83 +11,173 @@
 
 </script>
 
-<html>
+<html lang="en-US">
 
 <head>
-  <meta content="text/html; charset=ISO-8859-1" http-equiv="content-type">
+  <meta content="text/html; charset=utf-8" http-equiv="content-type">
 
   <title>
     MK Dynamics
   </title>
   
-  <link href="../css/styles.css" type = "text/css" rel = "stylesheet" />
+  <link href="../css/styles.css" type = "text/css" rel = "stylesheet"/>
+  <style>
+    #current_project_1 {
+      background	: gray;
+      width		: 400px;
+      height		: 350px;
+      top		: 100px;
+      left		: 0px;
+      margin		: 10px;
+      padding		: 10px;
+    }
+    
+    #current_project_2 {
+      background	: gray;
+      position		: relative;
+      width		: 400px;
+      height		: 350px;
+      top		: -380px;
+      left		: 450px;
+      margin		: 10px;
+      padding		: 10px;
+    }
+    
+    #current_project_3 {
+      background	: gray;
+      position		: relative;
+      width		: 400px;
+      height		: 350px;
+      top		: -360px;
+      left		: 0px;
+      margin		: 10px;
+      padding		: 10px;
+    }
+    
+    #current_project_4 {
+      background	: gray;
+      position		: relative;
+      width		: 400px;
+      height		: 350px;
+      top		: -740px;
+      left		: 450px;
+      margin		: 10px;
+      padding		: 10px;
+    }
+    
+  </style>
   
 </head>
 
 <body>
-
-  <h1> 
-    <big> <big> MK Dynamics </big> </big>
-  </h1>
-
-  <h2>
-    Current Projects
-  </h2>
-  
-  <div id="nav">
-    <ul>
-      <li> <a href="../index.html">Home</a> </li>
-      <li> <a href="../HAM_radio/hamradio.html">HAM Radio</a> </li>
-      <li> <a href="../board_photos/board_photos.html">Board Photos</a> </li>
-      <li> <a href="../about_me/about_me.html">About me</a></li>
-    </ul>
-  </div>
-  
-  <hr />
-  
-  <p>
-    <img src="../images/spacey.jpg" alt ="Space" class = "align-center medium" />
-  
-  <div id="content">
-    <h3> 
-      <a href="current_projects_FFTW3.html">Discretized Fourier Transform of Arbitrary Signal Using FFTW3</a><br> 
-      <img src="images/FFTW3_project_datapath2.jpg" width="600" height="450" title="FFTW3 Project Datapath"/><br>
-    </h3>
+  <div class="wrapper">
+    <header>
     
-    <h3>
-      <a href="current_projects_cubietruck.html">Exploring the CubieTruck</a><br> 
-      <img src="images/cubietruck1.jpg" width="600" height="450" title="Cubie Truck"/><br>
-    </h3>
-    
-    <h3>
-      <a href="Exploring_PHP.html">Exploring PHP</a><br>
-      <img src="images/php-development.jpg" width="600" height="450" title="Cubie Truck"/><br>
-    </h3>
-    
-    <!--
-    <p> <b> 10Hz sine wave generating and converting to CSV file </b> <br>
-      <a href="code/sine_wave_10hz.txt" target="_top">SciLAB code to generate 10Hz sine wave</a><br>
-      <br>
-      <img src="images/sine_wave_10hz.png" width="600" height="450" title="10Hz Sine Wave"/><br>
-      <a href="images/sine_wave_10hz.png" target="_top">Image of 10Hz sine wave</a><br>
-      <a href="code/sine_wave_10hz.csv.txt" target="_top">CSV file containing discretized sine wave data</a><br>
-    </p>
-    
-    <p> <b> Processing of CSV file by Python script to strip commas and produce one data element per line </b> <br>
-      <a href="code/convert_csv.txt" target="_top">Python script that removes commas and produced one data element per line</a><br>
-      <a href="code/processed.dat" target="_top">Output file of Python script, with commas removed and one data element per line</a><br>
-    </p>
+      <hgroup>
+	<h1> 
+	  <big> <big> MK Dynamics </big> </big>
+	</h1>
       
-    <p> <b> Fortran 2003 code that uses the FFTW3 library to generate DFFT magnitude file </b> <br>
-      <a href="code/data_file_FFTW.F03" target="_top">Fortran 2003 code that performs DFFT on output of Python Script</a><br>
-      <a href="code/dft.dat" target="_top">Output of DFFT Fortran program as magnitude</a><br>
-      <br>
-      <img src="images/spectrum.png" width="600" height="450" title="10Hz Sine Wave"/><br>
-      <a href="images/spectrum.png" target="_top">Output of GNUPlot of spectrum</a><br>
-    </div>
-  </p>
-  -->
-
+	<h2>
+	  Current Projects
+	</h2>
+      </hgroup>
+  
+      <nav>
+	<ul>
+	  <li> <a href="../index.html">Home</a> </li>
+	  <li> <a href="../HAM_radio/hamradio.html">HAM Radio</a> </li>
+	  <li> <a href="../board_photos/board_photos.html">Board Photos</a> </li>
+	  <li> <a href="../about_me/about_me.html">About me</a></li>
+	</ul>
+      </nav>
+  
+      <hr />
+      
+    </header>
+  
+    
+    <section class="content">
+    
+      <p>
+	<img src="../images/spacey.jpg" alt ="Space" class = "align-center medium" />
+      </p>
+    
+      <div id="current_project_1">
+	<hgroup>
+	  <h3> 
+	    <a href="current_projects_FFTW3.html">Discretized Fourier Transform of Arbitrary Signal Using FFTW3</a><br>
+	    <figure>
+	      <img 
+		  src="images/FFTW3_project_datapath2.jpg" 
+		  width="300" 
+		  height="225" 
+		  title="FFTW3 Project Datapath"
+		  alt="Datapath"
+		  class="align-center small"
+	      /><br>
+	    </figure>
+	  </h3>
+	</hgroup>
+      </div> <!-- #current_project_1 -->
+      
+      <div id="current_project_2">
+	<hgroup>
+	  <h3>
+	    <a href="current_projects_cubietruck.html">Exploring the CubieTruck</a><br> 
+	    <figure>
+	      <img 
+		  src="images/cubietruck1.jpg" 
+		  width="300" 
+		  height="225" 
+		  title="Cubie Truck"
+		  alt="CubieTruck"
+		  class="align-center small"
+	      /><br>
+	    </figure>
+	  </h3>
+	</hgroup>
+      </div> <!-- #current_project_2 -->
+      
+      <div id="current_project_3">
+	<hgroup>
+	  <h3>
+	    <a href="Exploring_PHP.html">Exploring PHP</a><br>
+	    <figure>
+	      <img 
+		  src="images/php-development.jpg" 
+		  width="300" 
+		  height="225" 
+		  title="Exploring PHP"
+		  alt="Exploring PHP"
+		  class="align-center small"
+	      /><br>
+	    </figure>
+	  </h3>
+	</hgroup>
+      </div> <!-- #current_project_3 -->
+      
+      <div id="current_project_4">
+	<hgroup>
+	  <h3>
+	    <a href="Exploring_JavaScript.html">Exploring JavaScript</a><br>
+	    <figure>
+	      <img 
+		  src="images/Javascript.png" 
+		  width="300" 
+		  height="225" 
+		  title="Exploring JavaScript"
+		  alt="Exploring JavaScript"
+		  class="align-center small"
+	      /><br>
+	    </figure>
+	  </h3>
+	</hroup>
+      </div> <!-- #current_project_4 -->
+      
+    </section> <!-- .content -->
+      
+    </div> <!-- .wrapper -->
 </body>
 
 </html>

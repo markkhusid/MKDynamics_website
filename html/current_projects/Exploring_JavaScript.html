@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-58919029-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+<html>
+
+<head>
+  <meta content="text/html; charset=ISO-8859-1" http-equiv="content-type">
+  <meta name="robots" content="nofollow" />
+  
+  <title>
+    MK Dynamics - Exploring JavaScript
+  </title>
+  
+  <link href="../css/styles.css" type = "text/css" rel = "stylesheet" />
+  
+  <script src="code_exploring_JavaScript/OSC.js"></script>
+  
+</head>
+
+<body>
+
+
+  <h1> 
+    <big> <big> MK Dynamics </big> </big>
+  </h1>
+
+
+  <h2>
+    Exploring JavaScript
+  </h2>
+
+  <div id="nav">
+    <ul>
+      <li> <a href="../index.html">Home</a> </li>
+      <li> <a href="../HAM_radio/hamradio.html">HAM Radio</a></li>
+      <li> <a href="../board_photos/board_photos.html">Board Photos</a></li>
+      <li> <a href="../current_projects/current_projects.html">Current Projects</a></li>
+      <li> <a href="../about_me/about_me.html">About me</a></li>
+    </ul>
+  </div>
+  
+  <hr />
+  
+  <img src="../images/spacey.jpg" alt ="Space" class = "align-center medium" />
+
+  <div id="content">
+    <h3>
+    	Using JavaScript
+    </h3>
+    
+  </div> <!--div id="content" -->
+  
+  <p>
+    Trying creating classes and implementing them... <br>
+  </p>
+  <div id="simple_javaScript_stuff">
+    
+    <script type="text/javascript">
+      document.write('Hello World!!<br>')
+    </script>
+    
+    <a id="mylink" href="http://markkhusid.ddns.net">Click here to activate...</a><br>
+    
+    <script type="text/javascript">
+      url = document.links.mylink.href
+      document.write('The URL is ' + url + "<br>")
+    
+      counter=0
+      
+      while (counter<5)
+      {
+	document.write("Counter: " + counter + "<br>")
+	++counter
+      }
+      
+      function User(forename, username, phrase)
+      {
+	this.forename=forename
+	this.username=username
+	this.phrase=phrase
+	
+	this.showUser = function()
+	{
+	  document.write("Forename: "	+ this.forename	+ "<br>")
+	  document.write("Username: "	+ this.username	+ "<br>")
+	  document.write("Phrase: " 	+ this.phrase	+ "<br>")
+	}
+      }
+      document.write("<br><br>")
+      details = new User("Mark", "MarkK", "JavaScript is cool!")
+      details.showUser()
+      
+      document.write("<br><br>")
+      
+    </script>
+  </div> <!--<div id="simple_javaScript_stuff"> -->
+  
+  <p>
+    Combining JavaScript with HTML5... <br>
+  </p>
+  <div id="some_HTML5_stuff">
+    <canvas id='mycanvas' width='320' height='240'> </canvas>
+    
+    <script type="text/javascript">
+      canvas			= O('mycanvas')
+      context			= canvas.getContext('2d')
+      context.fillStyle		= 'red'
+      S(canvas).border		= '1px solid black'
+      context.beginPath()
+      context.moveTo(160,120)
+      context.arc(160, 120, 70, 0, Math.PI * 2, false)
+      context.closePath()
+      context.fill()
+    </script>
+  
+  </div> <!--<div id="some_HTML5_stuff"> -->
+  
+  <noscript>
+      Your browser does not support or has disabled JavaScript
+  </noscript>
+  
+</body>
+
+</html>
+  
+
