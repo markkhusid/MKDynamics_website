@@ -1,34 +1,57 @@
-      header, section, nav, figure {
+      header, section, footer, aside, nav, figure, figcaption {
 	display: block;
       }
-      
+            
       body {
 	background: url("../images/ggradient.png") no-repeat center center fixed; 
 	-webkit-background-size: cover;
 	-moz-background-size: cover;
 	-o-background-size: cover;
 	background-size: cover;
-      
+	background-position: center;
 	width: 1024px;
 	margin: 10px, auto;
 	
 	font-family: Arial, Veranda, sans-serif;
       }
       
+      .wrapper{
+	width: 1350px;
+      }
+      
       .content {
 	overflow: auto;
-	height: 100%; 
-	background-color: #efefef;
+	height: 80%; 
+	background: url("../images/hubble.jpg") no-repeat center center fixed;
+	background-size: cover;
+	background-position: center;
 	padding: 10px;
 	margin: 10px;
+	border: 5px solid black;
+      }
+      
+      header {
+	height: 275px;
+	color: white;
+	background-image: url(../images/blurbackground.jpg);
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+	background-position: center;
+	width: 1300px;
+	margin: 20px, auto;
+	padding: 20px;
+	border: 5px solid black;
       }
       
       nav {
-	color: #ffffff;
+	color: black;
 	background-color: #aeaca8;
 	padding: 30px;
 	margin: 5px, 5px;
 	height: 30px;
+	border: 5px solid white;
       }
       
       nav ul {
@@ -43,17 +66,29 @@
       }
       
       nav li a {
-	color: #ffffff;
+	color: black;
+	font-size: 150%
+      }
+            
+      img {
+	border: 5px solid blue;
       }
       
       img.align-center {
 	display: block;
-	margin: 0p auto;
+	margin: auto;
+	padding: auto;
       }
       
       img.medium {
-	width: 1024px;
+	width: 1225px;
 	height: 300px;
+	border: 5px solid black
+      }
+      
+      figcaption {
+	font-family: Arial, Veranda, sans-serif;
+	color: #ffffff;
       }
       
       p {
@@ -61,12 +96,11 @@
 	color: black;
       }
       
-      h1, h2 {
-	font-family: Arial;
-	color: black;
-      }
-      
       h3, h4 {
 	font-family: Arial;
 	color: blue;
+      }
+      
+      footer {
+	font-family: Arial, Veranda, sans-serif;
       }
