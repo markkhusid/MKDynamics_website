@@ -23,37 +23,60 @@
   
   <link href="../css/styles.css" type = "text/css" rel = "stylesheet" />
   
+  <style>
+    .content {
+	overflow: auto;
+	height: 80%; 
+	background: url("../images/saturn.jpg") no-repeat center center fixed;
+	background-size: cover;
+	background-position: center;
+	padding: 10px;
+	margin: 10px;
+	border: 5px solid black;
+      }
+    h3 {
+      color: white;
+    }
+  </style>
 </head>
 
 <body>
+  <div class="wrapper">
+    <header>
+    
+      <hgroup>
+	<h1> 
+	    <big> <big> MK Dynamics </big> </big>
+	</h1>
 
 
-  <h1> 
-    <big> <big> MK Dynamics </big> </big>
-  </h1>
+	<h2>
+	  Electronics
+	</h2>
+      </hgroup>
+    
 
-
-  <h2>
-    Electronics
-  </h2>
-
-  <div id="nav">
-    <ul>
-      <li> <a href="../index.html">Home</a> </li>
-      <!-- 
-      <li> <a href="../HAM_radio/hamradio.html">HAM Radio</a></li>
-      <li> <a href="../board_photos/board_photos.html">Board Photos</a></li>
-      <li> <a href="../current_projects/current_projects.html">Current Projects</a></li>
-      <li> <a href="../about_me/about_me.html">About me</a></li> 
-      -->
-    </ul>
-  </div>
+      <nav>
+	<ul>
+	  <li> <a href="../index.html">Home</a> </li>
+	  <!-- 
+	  <li> <a href="../HAM_radio/hamradio.html">HAM Radio</a></li>
+	  <li> <a href="../board_photos/board_photos.html">Board Photos</a></li>
+	  <li> <a href="../current_projects/current_projects.html">Current Projects</a></li>
+	  <li> <a href="../about_me/about_me.html">About me</a></li> 
+	  -->
+	</ul>
+      </nav>
   
-  <hr />
-  
+      <hr />
+    
+    </header>
+    
+  <!--
   <img src="../images/spacey.jpg" alt ="Space" class = "align-center medium" />
+  -->
 
-  <div id="content">
+  <section class="content">
     <h3>
       Analog Designs
     </h3>
@@ -145,8 +168,11 @@
     fclose($fp);
   ?>  
   -->
-  
-</body>
+    </section>	<!-- .content -->
+    
+  <div> <!-- .wrapper -->
+
+  </body>
 
 </html>
   
