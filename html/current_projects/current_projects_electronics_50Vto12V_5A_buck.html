@@ -18,7 +18,7 @@
   <meta name="robots" content="follow" />
   
   <title>
-    MK Dynamics - Electronics
+    MK Dynamics - Electronics - Power Electronics
   </title>
   
   <link href="../css/styles.css" type = "text/css" rel = "stylesheet" />
@@ -27,7 +27,7 @@
     .content {
 	overflow: auto;
 	height: 80%; 
-	background: url("../images/saturn.jpg") no-repeat center center fixed;
+	background: url("../images/galaxy1.jpg") no-repeat center center fixed;
 	background-size: cover;
 	background-position: center;
 	padding: 10px;
@@ -44,8 +44,8 @@
       border		: 5px solid black;
       background	: gray;
       position		: relative;
-      width		: 900px;
-      height		: 500px;
+      width		: 1250px;
+      height		: 600px;
       top		: 0px;
       left		: 0px;
       float		: left;
@@ -57,8 +57,8 @@
       border		: 5px solid black;
       background	: gray;
       position		: relative;
-      width		: 900px;
-      height		: 500px;
+      width		: 1250px;
+      height		: 2700px;
       top		: 000px;
       left		: 0px;
       float		: left;
@@ -70,8 +70,8 @@
       border		: 5px solid black;
       background	: gray;
       position		: relative;
-      width		: 900px;
-      height		: 500px;
+      width		: 1250px;
+      height		: 1000px;
       top		: 000px;
       left		: 0px;
       float		: left;
@@ -83,25 +83,12 @@
       border		: 5px solid black;
       background	: gray;
       position		: relative;
-      width		: 900px;
-      height		: 500px;
-      top		: 000px;
-      left		: 0px;
+      width		: 1250px;
+      height		: 1000px;
+      top		: 10px;
+      left		: 20px;
       float		: left;
-      margin		: 10px;
-      padding		: 10px;
-    }
-    
-    .current_project_5 {
-      border		: 5px solid black;
-      background	: gray;
-      position		: relative;
-      width		: 900px;
-      height		: 500px;
-      top		: 000px;
-      left		: 0px;
-      float		: left;
-      margin		: 10px;
+      margin		: 0px;
       padding		: 10px;
     }
     
@@ -125,6 +112,14 @@
       margin		: 5px;
       padding		: 10px;
     }
+    
+    ul {
+      color		: white;
+    }
+    
+    div .loose_text {
+      color		: white;
+    }
   </style>
 </head>
 
@@ -139,7 +134,7 @@
 
 
 	<h2>
-	  Electronics
+	  Electronics - 50V to 12V 5A Buck Converter
 	</h2>
       </hgroup>
     
@@ -166,209 +161,222 @@
 
   <section class="content">
     <section class="first_section">
-      <hgroup>
-	<h2>
-	  Analog/Digital Designs and Projects
-	</h2>
-      </hgroup>
-   
       <div class="current_project_1">
 	<hgroup>
+	  <h2>
+	    Description
+	  </h2>
 	  <h3>
-	    Variable Frequency Oscillator Using Direct Digital Synthesis
+	    Introduction
+	  </h3>
+	<hgroup>
+
+	<div class="loose_text">
+	  The item is a buck converter power supply that is fed with 50VDC and converts this input into 12VDC.
+	  The maximum load current is 5A.  The item is intended mainly for household use, but can see operation outdoors.
+	  Specific requirements are shown below:
+	</div> <!-- .loose-text -->
+	
+	<hgroup>
+	  <h3>
+	    Requirements:
 	  </h3>
 	</hgroup>
-	<iframe
-	  class="youtube-player"
-	  type="text/html"
-	  width="500"
-	  height="300"
-	  frameborder="1"
-	  src="http://www.youtube.com/embed/TFKsSs4Hgmo">
-	</iframe>
+	<ul>
+	  
+	  <li>Voltage input</li>
+	  <ul>
+	    <li>50V nominal</li>
+	    <li>40V maximum</li>
+	    <li>60V minimum</li>
+	  </ul>
+	  
+	  <li>Current available</li>
+	  <ul>
+	    <li>10A maximum</li>
+	  </ul>
+	  
+	  <li>Voltage Output</li>
+	  <ul>
+	    <li>Nominal output voltage: 12V</li>
+	    <li>Allowable ripple voltage: 50mV peak to peak</li>
+	  </ul>
+	  
+	  <li>Current Output</li>
+	  <ul>
+	    <li>Minimum load: 0 Amps</li>
+	    <li>Maximum load: 5 Amps</li>
+	  </ul>
+	  
+	  <li>Environment</li>
+	  <ul>
+	    <li>Interfaces to household wiring</li>
+	    <li>Will see outdoor use</li>
+	    <li>Exposed to lightning</li>
+	    <li>Must survive reversed input voltage</li>
+	    <li>Must survive overvoltage and undervoltage transients</li>
+	    <li>Must provide 20ms output holdup at maximum load</li>
+	  </ul>
+	  
+	  <li>Efficiency</li>
+	  <ul>
+	    <li>Must be greater than 90%</li>
+	  </ul>
+	</ul>
+
       </div> <!-- .current_project_1 -->
     </section> <!-- first_section -->
     
-    <section class="second_section">
-      <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-      <br><br><br><br><br><br><br><br>
-      <hgroup>
-	<h2>
-	  Power Electronics Designs and Projects
-	</h2>
-      </hgroup>
-	
-      
-      
+    <section class="1_5_section">
+
       <div class="current_project_2">
 	<hgroup>
-	  <h3>
-	    Power Supplies
-	  </h3>
+	  <h2>
+	    Design Analysis
+	  </h2>
 	</hgroup>
 	<figure>
 	  <div class="img">
+	    <img
+	      src="images/LTC3891 50V to 12V 5A Buck Converter Efficiency ver1.jpeg"
+	      width="1150"
+	      height="800"
+	      title="50V to 12V 5A Buck Converter Efficiency"
+	    >
+	    <div class="desc">
+	      Efficiency Simulation
+	    </div> <!-- .desc -->  
+	    
+	    <img
+	      src="images/LTC3891 50V to 12V 5A Buck Converter Loop Compensation ver2.jpeg"
+	      width="1150"
+	      height="800"
+	      title="50V to 12V 5A Buck Converter Loop Compensation"
+	    >
+	    
+	  </div> <!-- .img -->
+	  <div class="desc">
+	    Transient Response Simulation
+	  </div> <!-- .desc -->
+	  
+	  <div class="img">
+	    <img
+		src="images/LTC3891 50V to 12V 5A Buck Converter Power Stage Design ver1.jpeg"
+		width="1150"
+		height="800"
+		title="50V to 12V 5A Buck Converter Power Stage Design"
+	    >
+	  </div> <!-- .img -->
+	  <div class="desc">
+	    Power Stage Design
+	  </div> <!-- .desc -->
+	
+	</figure>
+    
+      </div> <!-- .current_project_2 -->
+
+    </section> <!-- .section 1_5_section -->
+     
+    <section class="second_section">
+      
+      
+	
+      <div class="current_project_3">
+      <hgroup>
+	<h2>
+	  Circuit Schematic
+	</h2>
+      </hgroup>
+	<div class="img">
+	  <img 
+	      src="images/LTC3891.jpeg"
+	      width="1200"
+	      height="800"
+	      title="50V to 12V 5A Buck Converter"
+	    >
+	
+	  </embed>
+	</div> <!-- .img -->
+	
+	<hgroup>
+	  <h2>
+	    Discussion:
+	  </h2>
+	</hgroup>
+	
+	<div class="loose_text">
+	  The power supply control IC was chosen to be the Linear Technology LTC3891.
+	  
+	  <!--High-Efficiency, 150V, 100mA, 
+	  Synchronous, Step-Down Regulator.  The IC has internal high-side and low-side MOSFETs and compensation.  
+	  The output voltage is programmed by selecting appropriate resistors for the feedback resistor divider string.
+	  Most importantly, during light load operation, the IC transitions into Burst Mode operation, which is a proprietart feature of Linear Technology.
+	  During Burst Mode Operation, the IC skips as many cycles as needed, while providing bursts in between, to maintain the set output voltage.
+	-->
+	</div> <!-- .loose_text -->
+	
+	<!--
+	<figure>
+	  <div class="img">
 	    <img 
-	      src="images/LTC3639.jpeg"
+	      src="images/LTC3639_sim2.jpeg"
 	      width="360"
 	      height="300"
 	      title="120V to 12V 100mA Buck Converter"
 	    >
-
+	    <!--
 	    <img
 	      src="images/LTC3639_sim.jpeg"
 	      width="360"
 	      height="300"
 	      title="120V to 12V 100mA Buck Converter Simulation"
-	    > 
-	  </div> <!-- .img -->
-	  <div class="desc">
-	    <a href="current_projects_electronics_120Vto12V_100mA_buck.html">120V to 12V 100mA Buck Converter and Simulation</a>
-	  </div> <!-- .desc -->
-	</figure>
-      </div> <!-- .current_project_2 -->
-   
-    
-      <div class="current_project_3">
-	<figure>
-	  <div class="img">
-	    <img
-	      src="images/LTC3891.jpeg"
-	      width="360"
-	      height="300"
-	      title="50V to 12V 5A Buck Converter"
 	    >
 	    
-	    <img
-	      src="images/LTC3891_sim.jpeg"
-	      width="360"
-	      height="300"
-	      title="50V to 12V 5A Buck Converter Simulation"
-	    >
-	  </div> <!-- .img -->
+	  </div> <!-- .img 
 	  <div class="desc">
-	    <a href="current_projects_electronics_50Vto12V_5A_buck.html">50V to 12V 5A Buck Converter and Simulation</a>
-	  </div> <!-- .desc -->
+	    <a href="">120V to 12V 100mA Buck Converter and Simulation</a>
+	  </div> <!-- .desc
 	</figure>
-      </div> <!-- .current_project_3 -->
+	-->
+	</div> <!-- .current_project_2 -->
+      </section> <!-- second_section --> 
+    
+    <section class="third_section">
     
       <div class="current_project_4">
+	<hgroup>
+	  <h2>
+	    Simulation Output
+	  </h2>
+	</hgroup>
 	<figure>
 	  <div class="img">
 	    <img
-	      src="images/100Vto12V_5A_forward_conv_arch.jpeg"
-	      width="775"
-	      height="425"
+	      src="images/LTC3891_sim.jpeg"
+	      width="1150"
+	      height="800"
 	      title="50V to 12V 5A Buck Converter"
 	    >
-	    
-	    <!--
+	    <!--  
 	    <img
 	      src="images/LTC3891_sim.jpeg"
 	      width="360"
 	      height="300"
 	      title="50V to 12V 5A Buck Converter Simulation"
 	    >
+	    -->
 	  </div> <!-- .img -->
 	  <div class="desc">
-	    105V to 12V 5A Synchronous Buck Converter Architecture
+	    120V to 12V 100mA Buck Simulation
 	  </div> <!-- .desc -->
 	</figure>
       </div> <!-- .current_project_3 -->
-         
-      
-      
-      <div class="current_project_5">
-	<hgroup>
-	  <h3>
-	    High-side Current Sense
-	  </h3>
-	</hgroup>
-	  <figure>
-	    <div class="img">
-	      <img
-		src="images/LTC6101HV.jpeg"
-		width="360"
-		height="300"
-		title="500V High-Side Current Sense"
-	      >
-	      
-	      <img
-		src="images/LTC6101HV_sim.jpeg"
-		width="360"
-		height="300"
-		title="500V High-Side Current Sense Simulation"
-	      >
-	    </div> <!-- .img -->
-	    <div class="desc">
-	      500V High-Side Current Sense
-	    </div> <!-- .desc -->
-	  </figure>
-	</div> <!-- .current_project_5 -->
-    </section> <!-- second_section --> 
+    </section> <!-- .third_section -->
     
     
+  </section>	<!-- .content -->
     
-    
-    
-    
-    
-    <!--
-    
-    <p> <b> Arduino Code </b> <br>  
-      The following code is uploaded to an Arduino UNO R3.  It listens to the serial port and <br>
-      activates a digital I/O pin based on the number it received from the serial port.  If it received <br>
-      a "1", then it illuminates the first LED, if it receives a "2", then it illuminated the second LED, <br>
-      if it receives a "3", it illuminates the third LED.
-      The code is shown below:
-      <iframe
-	  src = "code_arduino/PHP_Control_of_Arduino.ino.txt"
-	  width = "550"
-	  height = "300"
-	  frameborder = "1"
-	  scrolling = "yes">
-      </iframe><br>
-    </p>
-    
-    <p> <b>PHP Code</b><br>
-      The following PHP is run within an HTML page.  It opens the serial port and sends data to the Arduino. <br>
-      <iframe
-	  src = "code_arduino/PHP_code_to_control_arduino.txt"
-	  width = "550"
-	  height = "300"
-	  frameborder = "1"
-	  scrolling = "yes">
-      </iframe><br>
-    </p>
-  </div>
-  
-  <?PHP
-    echo "This is coming out of PHP, and is being interpreted by the PHP processor...<br>";
-        
-    $comPort = "/dev/ttyACM0"; /*change to correct com port */
-    $fp =fopen("/dev/ttyACM0", "w") or die("Can't open port!!");
-    
-    $count = 1;
-    while ($count <=5)
-    {
-      echo "Now outputting a 1 onto the serial port...<br>";
-      fwrite($fp,1);
-      
-      echo "Now outputting a 2 onto the serial port...<br>";
-      fwrite($fp,2);
-      
-      echo "Now outputting a 3 onto the serial port...<br>";
-      fwrite($fp,3);
-      ++$count;
-    }
-    
-    /*echo fgetc($fp);*/
-    fclose($fp);
-  ?>  
-  -->
-    </section>	<!-- .content -->
-    
-  <div> <!-- .wrapper -->
+  </div> <!-- .wrapper -->
 
   </body>
 
