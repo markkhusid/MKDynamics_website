@@ -18,7 +18,7 @@
   <meta name="robots" content="follow" />
   
   <title>
-    MK Dynamics - Electronics
+    MK Dynamics - Electronics - Solar Power Devices
   </title>
   
   <link href="../css/styles.css" type = "text/css" rel = "stylesheet" />
@@ -27,7 +27,7 @@
     .content {
 	overflow: auto;
 	height: 80%; 
-	background: url("../images/saturn.jpg") no-repeat center center fixed;
+	background: url("../images/galaxy1.jpg") no-repeat center center fixed;
 	background-size: cover;
 	background-position: center;
 	padding: 10px;
@@ -44,7 +44,7 @@
       border		: 5px solid black;
       background	: gray;
       position		: relative;
-      width		: 900px;
+      width		: 1250px;
       height		: 500px;
       top		: 0px;
       left		: 0px;
@@ -57,8 +57,8 @@
       border		: 5px solid black;
       background	: gray;
       position		: relative;
-      width		: 900px;
-      height		: 500px;
+      width		: 1250px;
+      height		: 1050px;
       top		: 000px;
       left		: 0px;
       float		: left;
@@ -70,8 +70,8 @@
       border		: 5px solid black;
       background	: gray;
       position		: relative;
-      width		: 900px;
-      height		: 500px;
+      width		: 1250px;
+      height		: 1000px;
       top		: 000px;
       left		: 0px;
       float		: left;
@@ -83,25 +83,12 @@
       border		: 5px solid black;
       background	: gray;
       position		: relative;
-      width		: 900px;
-      height		: 500px;
-      top		: 000px;
-      left		: 0px;
+      width		: 1250px;
+      height		: 1000px;
+      top		: 10px;
+      left		: 20px;
       float		: left;
-      margin		: 10px;
-      padding		: 10px;
-    }
-    
-    .current_project_5 {
-      border		: 5px solid black;
-      background	: gray;
-      position		: relative;
-      width		: 900px;
-      height		: 500px;
-      top		: 000px;
-      left		: 0px;
-      float		: left;
-      margin		: 10px;
+      margin		: 0px;
       padding		: 10px;
     }
     
@@ -125,6 +112,14 @@
       margin		: 5px;
       padding		: 10px;
     }
+    
+    ul {
+      color		: white;
+    }
+    
+    div .loose_text {
+      color		: white;
+    }
   </style>
 </head>
 
@@ -139,7 +134,7 @@
 
 
 	<h2>
-	  Electronics
+	  Solar Power Devices - Dual Diode Box
 	</h2>
       </hgroup>
     
@@ -166,209 +161,168 @@
 
   <section class="content">
     <section class="first_section">
-      <hgroup>
-	<h2>
-	  Analog/Digital Designs and Projects
-	</h2>
-      </hgroup>
-   
       <div class="current_project_1">
 	<hgroup>
+	  <h2>
+	    Description
+	  </h2>
 	  <h3>
-	    Variable Frequency Oscillator Using Direct Digital Synthesis
+	    Introduction
+	  </h3>
+	<hgroup>
+
+	<div class="loose_text">
+	  The item is an electrical box which selects from two independent DC power sources.  The
+	  two sources are diode-OR'd by Schottky diodes, and the voltage that exceeds <br> 
+	  the other in addition to a power Schottky diode voltage drop supplies power to the outlet.
+	  The presence of voltage is indicated via LED, and the level of current flowing <br> through the
+	  box, is shown via LED bar graph.  Each bar graph element corresponds to 1A of box load current.
+	  
+	  Specific requirements are shown below:
+	</div> <!-- .loose-text -->
+	
+	<hgroup>
+	  <h3>
+	    Requirements:
 	  </h3>
 	</hgroup>
-	<iframe
-	  class="youtube-player"
-	  type="text/html"
-	  width="500"
-	  height="300"
-	  frameborder="1"
-	  src="http://www.youtube.com/embed/TFKsSs4Hgmo">
-	</iframe>
+	<ul>
+	  
+	  <li>Dual Independent Voltage Inputs</li>
+	  <ul>
+	    <li>110VDC nominal</li>
+	    <li>150VDC maximum</li>
+	    <li>90V minimum (limited by internal +12VDC power supply)</li>
+	  </ul>
+	  
+	  <li>Current available</li>
+	  <ul>
+	    <li>10A maximum (fused)</li>
+	  </ul>
+	  
+	  <li>Voltage Output</li>
+	  <ul>
+	    <li>110VDC nominal</li>
+	    <li>150VDC maximum</li>
+	    <li>90V minimum (limited by internal +12VDC power supply)</li>
+	  </ul>
+	  
+	  <li>Environment</li>
+	  <ul>
+	    <li>Interfaces to household wiring</li>
+	    <li>Will see outdoor use</li>
+<!--	The following not implemented in prototype:	
+	    <li>Exposed to lightning</li>
+	    <li>Must survive reversed input voltage</li>
+	    <li>Must survive overvoltage and undervoltage transients</li>
+	    <li>Must provide 20ms output holdup at maximum load</li>
+-->	
+	  </ul>
+	</ul>
+
       </div> <!-- .current_project_1 -->
     </section> <!-- first_section -->
     
+
+     
     <section class="second_section">
-      <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-      <br><br><br><br><br><br><br><br><br><br><br><br>
-      <hgroup>
-	<h2>
-	  Power Electronics Designs and Projects
-	</h2>
-      </hgroup>
+      
+      
 	
-      
-      
       <div class="current_project_2">
 	<hgroup>
-	  <h3>
-	    Power Supplies
-	  </h3>
+	  <h2>
+	    Circuit Schematic
+	  </h2>
 	</hgroup>
+	<div class="img">
+	  <img 
+	      src="images/Current_Sense_Bar_Graph_Circuit.jpeg"
+	      width="1200"
+	      height="800"
+	      title="Current_Sense_Bar_Graph_Circuit_Sim.jpeg"
+	    >
+	
+	  </embed>
+	</div> <!-- .img -->
+	
+	<hgroup>
+	  <h2>
+	    Discussion:
+	  </h2>
+	</hgroup>
+	
+	<div class="loose_text">
+	  A differential amplifier stage was used to amplify the voltage developed across a current <br>
+	  sense resistor.  The differential amplifiers output a zero to 10V signal, corresponding to
+	  0A to 10A of load current.  This signal is then fed into an LED bar graph driver IC, which activates
+	  the appropriate number of bars on the bar graph.  Presense of power LED is controlled by an NPN BJT.
+	  Part numbers are for simulation purposes only.  For example, unless a 15mA LED is choses, anomolous
+	  simulation results are produced.
+	  
+	  <!--High-Efficiency, 150V, 100mA, 
+	  Synchronous, Step-Down Regulator.  The IC has internal high-side and low-side MOSFETs and compensation.  
+	  The output voltage is programmed by selecting appropriate resistors for the feedback resistor divider string.
+	  Most importantly, during light load operation, the IC transitions into Burst Mode operation, which is a proprietart feature of Linear Technology.
+	  During Burst Mode Operation, the IC skips as many cycles as needed, while providing bursts in between, to maintain the set output voltage.
+	-->
+	</div> <!-- .loose_text -->
+	
+	<!--
 	<figure>
 	  <div class="img">
 	    <img 
-	      src="images/LTC3639.jpeg"
+	      src="images/LTC3639_sim2.jpeg"
 	      width="360"
 	      height="300"
 	      title="120V to 12V 100mA Buck Converter"
 	    >
-
+	    <!--
 	    <img
 	      src="images/LTC3639_sim.jpeg"
 	      width="360"
 	      height="300"
 	      title="120V to 12V 100mA Buck Converter Simulation"
-	    > 
-	  </div> <!-- .img -->
+	    >
+	    
+	  </div> <!-- .img 
 	  <div class="desc">
-	    <a href="current_projects_electronics_120Vto12V_100mA_buck.html">120V to 12V 100mA Buck Converter and Simulation</a>
-	  </div> <!-- .desc -->
+	    <a href="">120V to 12V 100mA Buck Converter and Simulation</a>
+	  </div> <!-- .desc
 	</figure>
-      </div> <!-- .current_project_2 -->
-   
+	-->
+	</div> <!-- .current_project_2 -->
+      </section> <!-- second_section --> 
+    
+    <section class="third_section">
     
       <div class="current_project_3">
-	<figure>
-	  <div class="img">
-	    <img
-	      src="images/LTC3891.jpeg"
-	      width="360"
-	      height="300"
-	      title="50V to 12V 5A Buck Converter"
-	    >
-	    
-	    <img
-	      src="images/LTC3891_sim.jpeg"
-	      width="360"
-	      height="300"
-	      title="50V to 12V 5A Buck Converter Simulation"
-	    >
-	  </div> <!-- .img -->
-	  <div class="desc">
-	    <a href="current_projects_electronics_50Vto12V_5A_buck.html">50V to 12V 5A Buck Converter and Simulation</a>
-	  </div> <!-- .desc -->
-	</figure>
-      </div> <!-- .current_project_3 -->
-    
-      <div class="current_project_4">
-	<figure>
-	  <div class="img">
-	    <img
-	      src="images/100Vto12V_5A_forward_conv_arch.jpeg"
-	      width="775"
-	      height="425"
-	      title="50V to 12V 5A Buck Converter"
-	    >
-	    
-	    <!--
-	    <img
-	      src="images/LTC3891_sim.jpeg"
-	      width="360"
-	      height="300"
-	      title="50V to 12V 5A Buck Converter Simulation"
-	    -->
-	  </div> <!-- .img -->
-	  <div class="desc">
-	    105V to 12V 5A Synchronous Buck Converter Architecture
-	  </div> <!-- .desc -->
-	</figure>
-      </div> <!-- .current_project_3 -->
-         
-      
-      
-      <div class="current_project_5">
 	<hgroup>
-	  <h3>
-	    High-side Current Sense
-	  </h3>
+	  <h2>
+	    Simulation Output
+	  </h2>
 	</hgroup>
-	  <figure>
-	    <div class="img">
-	      <img
-		src="images/LTC6101HV.jpeg"
-		width="360"
-		height="300"
-		title="500V High-Side Current Sense"
-	      >
-	      
-	      <img
-		src="images/LTC6101HV_sim.jpeg"
-		width="360"
-		height="300"
-		title="500V High-Side Current Sense Simulation"
-	      >
-	    </div> <!-- .img -->
-	    <div class="desc">
-	      500V High-Side Current Sense
-	    </div> <!-- .desc -->
-	  </figure>
-	</div> <!-- .current_project_5 -->
-    </section> <!-- second_section --> 
+	  <div class="img">
+	    <img
+	      src="images/Current_Sense_Bar_Graph_Circuit_Sim.jpeg"
+	      width="1200"
+	      height="800"
+	      title="Current_Sense_Bar_Graph_Circuit_Sim"
+	    >
+	    </embed>
+	  </div> <!-- .img -->
+	  <div class="loose_text">
+	    Application of 110VDC and then 120VDC, and resulting load current.  Also shown is output of differential amplifiers.
+	    Load current rises to 11A, which in the real system will blow the fuse.  The simulation is run like this to show a definite
+	    transition between power sources.
+	  </div> <!-- .loose_text -->
+      </div> <!-- .current_project_3 -->
+    </section> <!-- .third_section -->
     
     
+  </section>	<!-- .content -->
     
-    
-    
-    
-    
-    <!--
-    
-    <p> <b> Arduino Code </b> <br>  
-      The following code is uploaded to an Arduino UNO R3.  It listens to the serial port and <br>
-      activates a digital I/O pin based on the number it received from the serial port.  If it received <br>
-      a "1", then it illuminates the first LED, if it receives a "2", then it illuminated the second LED, <br>
-      if it receives a "3", it illuminates the third LED.
-      The code is shown below:
-      <iframe
-	  src = "code_arduino/PHP_Control_of_Arduino.ino.txt"
-	  width = "550"
-	  height = "300"
-	  frameborder = "1"
-	  scrolling = "yes">
-      </iframe><br>
-    </p>
-    
-    <p> <b>PHP Code</b><br>
-      The following PHP is run within an HTML page.  It opens the serial port and sends data to the Arduino. <br>
-      <iframe
-	  src = "code_arduino/PHP_code_to_control_arduino.txt"
-	  width = "550"
-	  height = "300"
-	  frameborder = "1"
-	  scrolling = "yes">
-      </iframe><br>
-    </p>
-  </div>
-  
-  <?PHP
-    echo "This is coming out of PHP, and is being interpreted by the PHP processor...<br>";
-        
-    $comPort = "/dev/ttyACM0"; /*change to correct com port */
-    $fp =fopen("/dev/ttyACM0", "w") or die("Can't open port!!");
-    
-    $count = 1;
-    while ($count <=5)
-    {
-      echo "Now outputting a 1 onto the serial port...<br>";
-      fwrite($fp,1);
-      
-      echo "Now outputting a 2 onto the serial port...<br>";
-      fwrite($fp,2);
-      
-      echo "Now outputting a 3 onto the serial port...<br>";
-      fwrite($fp,3);
-      ++$count;
-    }
-    
-    /*echo fgetc($fp);*/
-    fclose($fp);
-  ?>  
-  -->
-    </section>	<!-- .content -->
-    
-  <div> <!-- .wrapper -->
+  </div> <!-- .wrapper -->
 
   </body>
 
