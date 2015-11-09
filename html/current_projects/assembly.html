@@ -45,7 +45,7 @@
       background	: gray;
       position		: relative;
       width		: 1250px;
-      height		: 500px;
+      height		: 200px;
       top		: 0px;
       left		: 0px;
       float		: left;
@@ -86,9 +86,35 @@
       width		: 1250px;
       height		: 1000px;
       top		: 10px;
-      left		: 20px;
+      left		: 0px;
       float		: left;
-      margin		: 0px;
+      margin		: 10px;
+      padding		: 10px;
+    }
+    
+    .current_project_5 {
+      border		: 5px solid black;
+      background	: gray;
+      position		: relative;
+      width		: 1250px;
+      height		: 1000px;
+      top		: 10px;
+      left		: 0px;
+      float		: left;
+      margin		: 10px;
+      padding		: 10px;
+    }
+    
+    .current_project_6 {
+      border		: 5px solid black;
+      background	: gray;
+      position		: relative;
+      width		: 1250px;
+      height		: 1000px;
+      top		: 10px;
+      left		: 0px;
+      float		: left;
+      margin		: 10px;
       padding		: 10px;
     }
     
@@ -172,62 +198,19 @@
 	<hgroup>
 
 	<div class="loose_text">
-	  loose text
+	  The purpose of this section is to demonstrate assembly language programming on a variety of platforms.  Attention
+	  is given to the i386 platform, but also as homage I demonstrate an assembly language program on an emulator of my first
+	  computer, the venerable Commodore 64.  The Commodore 64 is emulated using VICE.
 	</div> <!-- .loose-text -->
-	
-	<hgroup>
-	  <h3>
-	    Requirements:
-	  </h3>
-	</hgroup>
-	<ul>
-	  
-<!--
-	  <li>Dual Independent Voltage Inputs</li>
-	  <ul>
-	    <li>110VDC nominal</li>
-	    <li>150VDC maximum</li>
-	    <li>90V minimum (limited by internal +12VDC power supply)</li>
-	  </ul>
-	  
-	  <li>Current available</li>
-	  <ul>
-	    <li>10A maximum (fused)</li>
-	  </ul>
-	  
-	  <li>Voltage Output</li>
-	  <ul>
-	    <li>110VDC nominal</li>
-	    <li>150VDC maximum</li>
-	    <li>90V minimum (limited by internal +12VDC power supply)</li>
-	  </ul>
-	  
-	  <li>Environment</li>
-	  <ul>
-	    <li>Interfaces to household wiring</li>
-	    <li>Will see outdoor use</li>
--	The following not implemented in prototype:	
-	    <li>Exposed to lightning</li>
-	    <li>Must survive reversed input voltage</li>
-	    <li>Must survive overvoltage and undervoltage transients</li>
-	    <li>Must provide 20ms output holdup at maximum load</li>
--->	
-	  </ul>
-	</ul>
-
       </div> <!-- .current_project_1 -->
     </section> <!-- first_section -->
     
-
      
     <section class="second_section">
-      
-      
-	
       <div class="current_project_2">
 	<hgroup>
 	  <h2>
-	    i386 Assembly Language Program
+	    i386 Assembly Language Programming
 	  </h2>
 	</hgroup>
 	<div class="img">
@@ -237,8 +220,6 @@
 	      height="800"
 	      title="assembly1.jpeg"
 	    >
-	
-	  </embed>
 	</div> <!-- .img -->
 	
 	<hgroup>
@@ -248,68 +229,110 @@
 	</hgroup>
 	
 	<div class="loose_text">
-	  loose text
-	  
-	  <!--High-Efficiency, 150V, 100mA, 
-	  Synchronous, Step-Down Regulator.  The IC has internal high-side and low-side MOSFETs and compensation.  
-	  The output voltage is programmed by selecting appropriate resistors for the feedback resistor divider string.
-	  Most importantly, during light load operation, the IC transitions into Burst Mode operation, which is a proprietart feature of Linear Technology.
-	  During Burst Mode Operation, the IC skips as many cycles as needed, while providing bursts in between, to maintain the set output voltage.
-	-->
+	  Comments are provided on each line of this program.  The program is the assembled using NASM as an
+	  ELF (Executable and Linkable Format) file.  The object file is then linked using ld and an executable file is produced.
 	</div> <!-- .loose_text -->
 	
-	<!--
-	<figure>
-	  <div class="img">
-	    <img 
-	      src="images/LTC3639_sim2.jpeg"
-	      width="360"
-	      height="300"
-	      title="120V to 12V 100mA Buck Converter"
-	    >
-	    <!--
-	    <img
-	      src="images/LTC3639_sim.jpeg"
-	      width="360"
-	      height="300"
-	      title="120V to 12V 100mA Buck Converter Simulation"
-	    >
-	    
-	  </div> <!-- .img 
-	  <div class="desc">
-	    <a href="">120V to 12V 100mA Buck Converter and Simulation</a>
-	  </div> <!-- .desc
-	</figure>
-	-->
+
 	</div> <!-- .current_project_2 -->
       </section> <!-- second_section --> 
     
-<!--
+
     <section class="third_section">
     
       <div class="current_project_3">
 	<hgroup>
 	  <h2>
-	    Simulation Output
+	    Commodore 64 Assembly Language Programming
 	  </h2>
 	</hgroup>
 	  <div class="img">
 	    <img
-	      src="images/Current_Sense_Bar_Graph_Circuit_Sim.jpeg"
+	      src="images/c64_turbo_ass_run.jpeg"
 	      width="1200"
 	      height="800"
-	      title="Current_Sense_Bar_Graph_Circuit_Sim"
+	      title="c64_turbo_ass_run.jpeg"
 	    >
-	    </embed>
-	  </div> <!-- .img
+	  </div> <!-- .img -->
 	  <div class="loose_text">
-	    Application of 110VDC and then 120VDC, and resulting load current.  Also shown is output of differential amplifiers.
-	    Load current rises to 11A, which in the real system will blow the fuse.  The simulation is run like this to show a definite
-	    transition between power sources.
+	    This assembly language program is very similar to the i386 version except it is written for the Commodore 64.  Essentialy, a loop
+	    is setup that loads each character of the message into screen memory.  Execution of the program leads to the message being
+	    displayed on the screen.
 	  </div> <!-- .loose_text -->
+
       </div> <!-- .current_project_3 -->
     </section> <!-- .third_section -->
--->    
+
+    <section class="fourth_section">
+    
+      <div class="current_project_4">
+	<hgroup>
+	  <h2>
+	    Commodore 64 Assembly Language Programming
+	  </h2>
+	</hgroup>
+	  <div class="img">
+	    <img 
+	      src="images/c64_turbo_ass_assembled.jpeg"
+	      width="1200"
+	      height="800"
+	      title="c64_turbo_ass_assembled.jpeg"
+	    >
+	  </div> <!-- .img -->
+	  <div class="loose_text">
+	    The program is checked for errors and saved to disk.
+	  </div> <!-- .loose_text -->
+
+      </div> <!-- .current_project_4 -->
+    </section> <!-- .fourth_section -->
+
+    <section class="fifth_section">
+    
+      <div class="current_project_5">
+	<hgroup>
+	  <h2>
+	    Commodore 64 Assembly Language Programming 2
+	  </h2>
+	</hgroup>
+	  <div class="img">
+	    <img 
+	      src="images/c64_hello_world.jpeg"
+	      width="1200"
+	      height="800"
+	      title="c64_hello_world.jpeg"
+	    >
+	  </div> <!-- .img -->
+	  <div class="loose_text">
+	    The directory of the virtual disk is loaded by load "$",8 and listed.  The program HELLO1.ASM is loaded into memory.
+	  </div> <!-- .loose_text -->
+
+      </div> <!-- .current_project_5 -->
+    </section> <!-- .fifth_section -->
+    
+    <section class="sixth_section">
+    
+      <div class="current_project_6">
+	<hgroup>
+	  <h2>
+	    Commodore 64 Assembly Language Programming 2
+	  </h2>
+	</hgroup>
+	  <div class="img">
+	    <img 
+	      src="images/c64_hello_world_run.jpeg"
+	      width="1200"
+	      height="800"
+	      title="c64_hello_world_run.jpeg"
+	    >
+	  </div> <!-- .img -->
+	  <div class="loose_text">
+	    The program is now in memory and when listing, it shows that it is actually a system call to the memory location of the start of the machine code.
+	    Upon entering RUN, the system call executes the machine code that loads "Hello World!" into screen memory, where it is faithfully displayed in the
+	    upper left hand corner of the screen.
+	  </div> <!-- .loose_text -->
+
+      </div> <!-- .current_project_6 -->
+    </section> <!-- .sixth_section -->
     
   </section>	<!-- .content -->
     
