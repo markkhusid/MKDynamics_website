@@ -1,0 +1,1567 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="client-nojs">
+<head>
+<meta charset="UTF-8" />
+<title>VirtualBox - Whonix</title>
+<meta name="generator" content="MediaWiki 1.24.4" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:site" content="@Whonix" />
+<meta name="twitter:domain" content="Whonix" />
+<meta name="twitter:creator" content="@Whonix" />
+<meta name="twitter:image:src" content="https://www.whonix.org/w/skins/common/images/135px_Whonix_lock.png" />
+<meta name="description" content="Whonix in VirtualBox" />
+<meta name="twitter:description" content="Whonix in VirtualBox" />
+<link rel="alternate" type="application/x-wiki" title="Edit" href="/w/index.php?title=VirtualBox&amp;action=edit" />
+<link rel="edit" title="Edit" href="/w/index.php?title=VirtualBox&amp;action=edit" />
+<link rel="shortcut icon" href="/favicon.ico" />
+<link rel="search" type="application/opensearchdescription+xml" href="/w/opensearch_desc.php" title="Whonix (en)" />
+<link rel="EditURI" type="application/rsd+xml" href="https://www.whonix.org/w/api.php?action=rsd" />
+<link rel="alternate" hreflang="x-default" href="/wiki/VirtualBox" />
+<link rel="alternate" type="application/atom+xml" title="Whonix Atom feed" href="/w/index.php?title=Special:RecentChanges&amp;feed=atom" />
+<link rel="stylesheet" href="https://www.whonix.org/w/load.php?debug=false&amp;lang=en&amp;modules=ext.flaggedRevs.basic%7Cext.gadget.ReferenceTooltips%7Cext.rtlcite%7Cext.uls.nojs%7Cmediawiki.legacy.commonPrint%2Cshared%7Cmediawiki.ui.button&amp;only=styles&amp;skin=strapping&amp;*" />
+<link rel="stylesheet" href="/w/skins/strapping/bootstrap/css/bootstrap.css?303" media="screen" />
+<link rel="stylesheet" href="/w/skins/strapping/bootstrap/awesome/css/font-awesome.css?303" media="screen" />
+<link rel="stylesheet" href="/w/skins/strapping/screen.css?303" media="screen" />
+<link rel="stylesheet" href="/w/skins/strapping/theme.css?303" media="screen" /><meta name="ResourceLoaderDynamicStyles" content="" />
+<link rel="stylesheet" href="https://www.whonix.org/w/load.php?debug=false&amp;lang=en&amp;modules=site&amp;only=styles&amp;skin=strapping&amp;*" />
+<style>a:lang(ar),a:lang(kk-arab),a:lang(mzn),a:lang(ps),a:lang(ur){text-decoration:none}
+/* cache key: wiki:resourceloader:filter:minify-css:7:29b70323345a439ab9ed7007e0c178a6 */</style>
+<script src="https://www.whonix.org/w/load.php?debug=false&amp;lang=en&amp;modules=startup&amp;only=scripts&amp;skin=strapping&amp;*"></script>
+<script>if(window.mw){
+mw.config.set({"wgCanonicalNamespace":"","wgCanonicalSpecialPageName":false,"wgNamespaceNumber":0,"wgPageName":"VirtualBox","wgTitle":"VirtualBox","wgCurRevisionId":19108,"wgRevisionId":19108,"wgArticleId":74,"wgIsArticle":true,"wgIsRedirect":false,"wgAction":"view","wgUserName":null,"wgUserGroups":["*"],"wgCategories":["Documentation"],"wgBreakFrames":false,"wgPageContentLanguage":"en","wgPageContentModel":"wikitext","wgSeparatorTransformTable":["",""],"wgDigitTransformTable":["",""],"wgDefaultDateFormat":"dmy","wgMonthNames":["","January","February","March","April","May","June","July","August","September","October","November","December"],"wgMonthNamesShort":["","Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],"wgRelevantPageName":"VirtualBox","wgIsProbablyEditable":true,"wgRestrictionEdit":[],"wgRestrictionMove":[],"wgULSAcceptLanguageList":["ru-ru","ru","en-us","en"],"wgULSCurrentAutonym":"English","wgWikiEditorEnabledModules":{"toolbar":true,"dialogs":true,"hidesig":true,"preview":true,"previewDialog":false,"publish":true},"wgFlaggedRevsParams":{"tags":{"accuracy":{"levels":3,"quality":2,"pristine":4},"depth":{"levels":3,"quality":1,"pristine":4},"style":{"levels":3,"quality":1,"pristine":4}}},"wgStableRevisionId":19108,"wgTranslatePageTranslation":"source"});
+}</script><script>if(window.mw){
+mw.loader.implement("user.options",function($,jQuery){mw.user.options.set({"ccmeonemails":0,"cols":80,"date":"default","diffonly":0,"disablemail":0,"editfont":"default","editondblclick":0,"editsectiononrightclick":0,"enotifminoredits":0,"enotifrevealaddr":0,"enotifusertalkpages":1,"enotifwatchlistpages":1,"extendwatchlist":0,"fancysig":0,"forceeditsummary":0,"gender":"unknown","hideminor":0,"hidepatrolled":0,"imagesize":2,"math":1,"minordefault":0,"newpageshidepatrolled":0,"nickname":"","norollbackdiff":0,"numberheadings":0,"previewonfirst":0,"previewontop":1,"rcdays":7,"rclimit":50,"rows":25,"showhiddencats":0,"shownumberswatching":1,"showtoolbar":1,"skin":"strapping","stubthreshold":0,"thumbsize":5,"underline":2,"uselivepreview":0,"usenewrc":0,"watchcreations":1,"watchdefault":1,"watchdeletion":0,"watchlistdays":3,"watchlisthideanons":0,"watchlisthidebots":0,"watchlisthideliu":0,"watchlisthideminor":0,"watchlisthideown":0,"watchlisthidepatrolled":0,"watchmoves":0,"watchrollback":0,
+"wllimit":250,"useeditwarning":1,"prefershttps":1,"translate":0,"translate-editlangs":"default","translate-recent-groups":"","translate-sandbox":"","uls-preferences":"","usebetatoolbar":1,"usebetatoolbar-cgd":1,"wikieditor-preview":1,"wikieditor-publish":1,"openid-hide":0,"openid-update-on-login-nickname":false,"openid-update-on-login-email":false,"openid-update-on-login-fullname":false,"openid-update-on-login-language":false,"openid-update-on-login-timezone":false,"flaggedrevssimpleui":1,"flaggedrevsstable":0,"flaggedrevseditdiffs":true,"flaggedrevsviewdiffs":false,"language":"en","variant-gan":"gan","variant-iu":"iu","variant-kk":"kk","variant-ku":"ku","variant-shi":"shi","variant-sr":"sr","variant-tg":"tg","variant-uz":"uz","variant-zh":"zh","searchNs0":true,"searchNs1":false,"searchNs2":false,"searchNs3":false,"searchNs4":false,"searchNs5":false,"searchNs6":false,"searchNs7":false,"searchNs8":false,"searchNs9":false,"searchNs10":false,"searchNs11":false,"searchNs12":false,
+"searchNs13":false,"searchNs14":false,"searchNs15":false,"searchNs274":false,"searchNs275":false,"searchNs828":false,"searchNs829":false,"searchNs1198":false,"searchNs1199":false,"gadget-ReferenceTooltips":1,"variant":"en"});},{},{});mw.loader.implement("user.tokens",function($,jQuery){mw.user.tokens.set({"editToken":"+\\","patrolToken":"+\\","watchToken":"+\\"});},{},{});
+/* cache key: wiki:resourceloader:filter:minify-js:7:5e4701d0e0032326d51a42d2c34f8adf */
+}</script>
+<script>if(window.mw){
+mw.loader.load(["ext.translate","mediawiki.page.startup","mediawiki.legacy.wikibits","mediawiki.legacy.ajax","ext.uls.init"]);
+}</script>
+		<style type='text/css'>
+		li#pt-openidlogin {
+		  background: url(/w/extensions/OpenID/skin/icons/openid-inputicon.png) top left no-repeat;
+		  padding-left: 20px;
+		  text-transform: none;
+		}
+		</style>
+
+<meta property="og:description" content="Whonix in VirtualBox" />
+
+<meta property="article:author" content="https://www.facebook.com/patrick.schleizer" />
+
+<meta property="article:publisher" content="https://www.facebook.com/Whonix" />
+
+<meta property="fb:admins" content="100007482551659" />
+
+<meta property="fb:app_id" content="606207202785157" />
+
+	<meta property="og:type" content="article" />
+
+	<meta property="og:site_name" content="Whonix" />
+
+	<meta property="og:title" content="VirtualBox" />
+
+	<meta property="og:url" content="https://www.whonix.org/wiki/VirtualBox" />
+
+<!--[if lt IE 7]><style type="text/css">body{behavior:url("/w/skins/strapping/csshover.min.htc")}</style><![endif]-->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body class="mediawiki ltr sitedir-ltr ns-0 ns-subject page-VirtualBox skin-strapping action-view">
+
+<div id="userbar" class="navbar navbar-static">
+  <div class="navbar-inner">
+    <div style="width: auto;margin-left:auto;margin-right:auto;" class="container">
+
+      <div class="pull-left">
+        
+<!-- 0 -->
+          <ul class="nav" role="navigation">
+            <li class="dropdown" id="p-namespaces" class="vectorMenu">
+                            <a data-toggle="dropdown" class="dropdown-toggle brand" role="menu">Page <b class="caret"></b></a>
+                                                                                                      <ul aria-labelledby="Namespaces" role="menu" class="dropdown-menu" >
+
+                <li id="ca-nstab-main" class="selected"><a href="/wiki/VirtualBox"  title="View the content page [c]" accesskey="c" tabindex="-1">Page</a></li><li id="ca-talk" class="new"><a href="/w/index.php?title=Talk:VirtualBox&amp;action=edit&amp;redlink=1"  title="Discussion about the content page [t]" accesskey="t" tabindex="-1">Discussion</a></li><li id="ca-history" class="collapsible"><a href="/w/index.php?title=VirtualBox&amp;action=history"  title="Past revisions of this page [h]" accesskey="h" tabindex="-1">History</a></li></ul></li></ul>
+<!-- /0 -->
+
+<!-- 0 -->
+            <div class="actions pull-left nav">
+                <a id="b-edit" href="/w/index.php?title=VirtualBox&action=edit" class="btn"><i class="icon-edit"></i> Edit</a>
+            </div>
+          
+<!-- /0 -->
+
+<!-- 0 -->
+
+<!-- /0 -->
+
+<!-- 0 -->
+         </li>
+         </ul></ul>
+<!-- /Menu -->
+
+<!-- 0 -->
+
+          <ul class="nav" role="navigation">
+
+            <li class="dropdown" id="p-toolbox" class="vectorMenu">
+
+              <a data-toggle="dropdown" class="dropdown-toggle" role="button">Tools <b class="caret"></b></a>
+
+              <ul aria-labelledby="Tools" role="menu" class="dropdown-menu" >
+
+                <li id="t-info"><a href="/w/index.php?title=VirtualBox&amp;action=info">Page information</a></li><li id="t-permalink"><a href="/w/index.php?title=VirtualBox&amp;oldid=19108" title="Permanent link to this revision of the page">Permanent link</a></li><li id="t-print"><a href="/w/index.php?title=VirtualBox&amp;printable=yes" rel="alternate" title="Printable version of this page [p]" accesskey="p">Printable version</a></li><li class="divider"></li><li id="t-specialpages"><a href="/wiki/Special:SpecialPages" title="A list of all special pages [q]" accesskey="q">Special pages</a></li><li id="t-recentchangeslinked"><a href="/wiki/Special:RecentChangesLinked/VirtualBox" title="Recent changes in pages linked from this page [k]" accesskey="k">Related changes</a></li><li class="divider"></li><li id="t-whatlinkshere"><a href="/wiki/Special:WhatLinksHere/VirtualBox" title="A list of all wiki pages that link here [j]" accesskey="j">What links here</a></li>              </ul>
+
+            </li>
+
+          </ul>
+          
+<!-- /0 -->
+      </div>
+
+      <div class="pull-right">
+        
+<!-- 0 -->
+            <form class="navbar-search" action="/w/index.php" id="searchform">
+              <input id="searchInput" class="search-query" type="search" accesskey="f" title="Special:Search" placeholder="Search" name="search" value="">
+              <input type="submit" name="fulltext" value="Search" title="Search the pages for this text" id="mw-searchButton" class="searchButton btn hidden" />            </form>
+
+          
+<!-- /0 -->
+
+<!-- 0 -->
+          <ul class="nav pull-right" role="navigation">
+            <li class="dropdown" id="p-notifications" class="vectorMenu">
+                        </li>
+                                  </ul>
+          
+<!-- /0 -->
+      </div>
+
+    </div>
+  </div>
+</div>
+
+    <div id="mw-page-base" class="noprint"></div>
+    <div id="mw-head-base" class="noprint"></div>
+
+    <!-- Header -->
+    <div id="page-header" class="container signed-out">
+      <section class="span12">
+      		  <a href="/wiki/Main_Page"  title="Visit the main page"><img src="" alt="Whonix"></a>
+
+      <ul class="navigation nav nav-pills pull-right searchform-disabled">
+      
+<!-- 0 -->
+
+                <li class=""><a href="/wiki/Main_Page" id="n-HOME">HOME</a></li>
+                <li class=""><a href="/wiki/Main_Page#Download_Whonix" id="n-DOWNLOAD">DOWNLOAD</a></li>
+                <li class=""><a href="/wiki/Documentation" id="n-DOCUMENTATION">DOCUMENTATION</a></li>
+                <li class=""><a href="https://www.whonix.org/blog/" id="n-BLOG" target="_blank">BLOG</a></li>
+                <li class=""><a href="/wiki/Support" id="n-SUPPORT">SUPPORT</a></li>
+                <li class=""><a href="https://www.whonix.org/forum/" id="n-COMMUNITY" target="_blank">COMMUNITY</a></li>
+                <li class=""><a href="/wiki/Dev/Developer_Portal" id="n-DEVELOP">DEVELOP</a></li>
+<!-- /Menu -->
+
+      </ul>
+    
+    </section>
+    </div>
+
+    
+    
+    <!-- content -->
+    <section id="content" class="mw-body container 0">
+      <div id="top"></div>
+      <div id="mw-js-message" style="display:none;"></div>
+            <!-- sitenotice -->
+      <div id="siteNotice"><div id="localNotice" lang="en" dir="ltr"><p><style type="text/css">
+
+#banner {
+ position: relative;
+ overflow: hidden;
+ background-image:url('/w/images/0/0d/Gray-gradient1.png') bottom repeat-x;
+ margin-bottom: 0.5em !important;
+ margin-top: 0.5em !important;
+ background-color:#EEEEEE;
+ border: solid 1px #aaaaaa; 
+ height:66px;
+}
+
+#banner a.cn-full-banner-click {
+ display:block;
+ height:100%;
+ width:100%;
+ cursor: pointer;
+}
+
+
+#banner-logo {
+ position: absolute;
+ top: 8px;
+ left: 15px;
+ background-image: url(/w/images/d/d0/Donate50.png);
+ height: 50px;
+ width: 100%;
+ background-repeat: no-repeat;
+}
+
+#banner #black-text {
+ font-size: 1.1em;
+ color: black;
+ padding: 0.5em 40px 0.4em 60px;
+ line-height: 1.3em;
+ text-align: center;
+ font-weight:bold;
+}
+</style>
+
+<div id="banner">
+
+  <a class="cn-full-banner-click" href="/wiki/Donate" title="">
+<div id="banner-logo"></div>
+    <div id="black-text">
+   <translate><!--T:1-->
+Whonix fundraising campaign.</translate> <br /> <translate><!--T:2-->
+Please consider a recurring donation!</translate>
+     </div>
+  </a>
+
+
+</div>
+</p></div></div>
+      <!-- /sitenotice -->
+            <!-- bodyContent -->
+      <div id="bodyContent">
+                        <!-- jumpto -->
+        <div id="jump-to-nav" class="mw-jump">
+          Jump to: <a href="#mw-head">navigation</a>,
+          <a href="#p-search">search</a>
+        </div>
+        <!-- /jumpto -->
+        
+
+        <!-- innerbodycontent -->
+                  <div id="innerbodycontent" class="row nolayout"><div class="offset1 span10">
+            <h1 id="firstHeading" class="firstHeading page-header">
+              <span dir="auto">VirtualBox</span>
+            </h1>
+            <!-- subtitle -->
+            <div id="contentSub" ></div>
+            <!-- /subtitle -->
+                        <div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr"><div class="mw-pt-translate-header noprint nomobile" dir="ltr" lang="en">This page contains <span class="plainlinks"><a target="_blank" class="external text" href="https://www.whonix.org/w/index.php?title=VirtualBox&amp;diff=19108">changes</a></span> which are not marked for translation.</div><hr /><p><script type="application/ld+json">
+{ "@context" : "http://schema.org",
+  "@type" : "Organization",
+  "name" : "Whonix",
+  "url" : "https://www.whonix.org",
+  "sameAs" : [ "https://www.facebook.com/Whonix",
+      "https://twitter.com/Whonix",
+      "https://plus.google.com/108150429836421683225"], 
+   "logo": "https://www.whonix.org/w/images/e/e0/210-Banner.png"
+}
+</script>
+</p>
+<div style="padding-bottom:1px; padding-top:6px; border:thin solid black; background:#EEEEEE; text-align:center;"><u>Random News:</u>
+<p>Wondering why Whonix will always be Free? Check out <a target="_blank" class="external text" href="https://www.whonix.org/wiki/Why_Whonix_is_Free_Software">Why Whonix is Free Software</a>.
+</p>
+</div>
+<p></p>
+<div id="toc" class="toc"><div id="toctitle"><h2>Contents</h2></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Introduction"><span class="tocnumber">1</span> <span class="toctext">Introduction</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#First_time_user.3F"><span class="tocnumber">2</span> <span class="toctext">First time user?</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="#Download_Whonix"><span class="tocnumber">3</span> <span class="toctext">Download Whonix</span></a></li>
+<li class="toclevel-1 tocsection-4"><a href="#Verify_the_Whonix_images"><span class="tocnumber">4</span> <span class="toctext">Verify the Whonix images</span></a></li>
+<li class="toclevel-1 tocsection-5"><a href="#Install_Whonix"><span class="tocnumber">5</span> <span class="toctext">Install Whonix</span></a>
+<ul>
+<li class="toclevel-2 tocsection-6"><a href="#Before_installing"><span class="tocnumber">5.1</span> <span class="toctext">Before installing</span></a></li>
+<li class="toclevel-2 tocsection-7"><a href="#Install"><span class="tocnumber">5.2</span> <span class="toctext">Install</span></a></li>
+<li class="toclevel-2 tocsection-8"><a href="#In_case_you_need_help"><span class="tocnumber">5.3</span> <span class="toctext">In case you need help</span></a></li>
+<li class="toclevel-2 tocsection-9"><a href="#Starting_Whonix"><span class="tocnumber">5.4</span> <span class="toctext">Starting Whonix</span></a></li>
+<li class="toclevel-2 tocsection-10"><a href="#After_installing"><span class="tocnumber">5.5</span> <span class="toctext">After installing</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-11"><a href="#Stay_tuned"><span class="tocnumber">6</span> <span class="toctext">Stay tuned</span></a>
+<ul>
+<li class="toclevel-2"><a href="#Introduction_2"><span class="tocnumber">6.1</span> <span class="toctext">Introduction</span></a></li>
+<li class="toclevel-2"><a href="#Whonix_News_Blogs"><span class="tocnumber">6.2</span> <span class="toctext">Whonix News Blogs</span></a></li>
+<li class="toclevel-2"><a href="#Operating_System_Updates"><span class="tocnumber">6.3</span> <span class="toctext">Operating System Updates</span></a></li>
+<li class="toclevel-2"><a href="#Tor_Browser"><span class="tocnumber">6.4</span> <span class="toctext">Tor Browser</span></a></li>
+<li class="toclevel-2"><a href="#Whonix_Version_Check_and_Whonix_News"><span class="tocnumber">6.5</span> <span class="toctext">Whonix Version Check and Whonix News</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1"><a href="#Running_Whonixcheck"><span class="tocnumber">7</span> <span class="toctext">Running Whonixcheck</span></a>
+<ul>
+<li class="toclevel-2"><a href="#How_to_manually_run_Whonixcheck"><span class="tocnumber">7.1</span> <span class="toctext">How to manually run Whonixcheck</span></a></li>
+<li class="toclevel-2"><a href="#Example_of_Whonixcheck_printout"><span class="tocnumber">7.2</span> <span class="toctext">Example of Whonixcheck printout</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1"><a href="#Tor_Bootstrap"><span class="tocnumber">8</span> <span class="toctext">Tor Bootstrap</span></a>
+<ul>
+<li class="toclevel-2"><a href="#Social_Media_Profiles"><span class="tocnumber">8.1</span> <span class="toctext">Social Media Profiles</span></a></li>
+<li class="toclevel-2"><a href="#Source_Code"><span class="tocnumber">8.2</span> <span class="toctext">Source Code</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-12"><a href="#Known_bugs"><span class="tocnumber">9</span> <span class="toctext">Known bugs</span></a>
+<ul>
+<li class="toclevel-2 tocsection-13"><a href="#VirtualBox_Specific"><span class="tocnumber">9.1</span> <span class="toctext">VirtualBox Specific</span></a>
+<ul>
+<li class="toclevel-3 tocsection-14"><a href="#ATA_Freeze"><span class="tocnumber">9.1.1</span> <span class="toctext">ATA Freeze</span></a></li>
+</ul>
+</li>
+<li class="toclevel-2 tocsection-15"><a href="#Non-Qubes-Whonix"><span class="tocnumber">9.2</span> <span class="toctext">Non-Qubes-Whonix</span></a>
+<ul>
+<li class="toclevel-3"><a href="#Mounting_.28CD.2FDVD.29_Devices"><span class="tocnumber">9.2.1</span> <span class="toctext">Mounting (CD/DVD) Devices</span></a></li>
+<li class="toclevel-3"><a href="#VLC_.2F_Video_Player_Crash"><span class="tocnumber">9.2.2</span> <span class="toctext">VLC / Video Player Crash</span></a></li>
+<li class="toclevel-3"><a href="#Network_Manager_Systray_Unmanaged_Devices"><span class="tocnumber">9.2.3</span> <span class="toctext">Network Manager Systray Unmanaged Devices</span></a></li>
+</ul>
+</li>
+<li class="toclevel-2 tocsection-16"><a href="#Normal"><span class="tocnumber">9.3</span> <span class="toctext">Normal</span></a>
+<ul>
+<li class="toclevel-3"><a href="#Proxychains_Tor_Browser_Issue"><span class="tocnumber">9.3.1</span> <span class="toctext">Proxychains Tor Browser Issue</span></a></li>
+<li class="toclevel-3"><a href="#.22apt-get_source_package.22_will_show_.22dpkg-source:_warning:_failed_to_verify_signature.22"><span class="tocnumber">9.3.2</span> <span class="toctext">"apt-get source package" will show "dpkg-source: warning: failed to verify signature"</span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-17"><a href="#VirtualBox_import_instructions"><span class="tocnumber">10</span> <span class="toctext">VirtualBox import instructions</span></a>
+<ul>
+<li class="toclevel-2 tocsection-18"><a href="#Install_and_start_VirtualBox._Click_on_File_-.3E_Import_Appliance..."><span class="tocnumber">10.1</span> <span class="toctext">Install and start VirtualBox. Click on <i>File</i> -&gt; <i>Import Appliance...</i></span></a></li>
+<li class="toclevel-2 tocsection-19"><a href="#Click_on_Choose."><span class="tocnumber">10.2</span> <span class="toctext">Click on <i>Choose</i>.</span></a></li>
+<li class="toclevel-2 tocsection-20"><a href="#Select_the_Whonix-Gateway.ova_from_your_download_folder_and_press_open."><span class="tocnumber">10.3</span> <span class="toctext">Select the Whonix-Gateway.ova from your download folder and press <i>open</i>.</span></a></li>
+<li class="toclevel-2 tocsection-21"><a href="#Click_on_Next."><span class="tocnumber">10.4</span> <span class="toctext">Click on <i>Next</i>.</span></a></li>
+<li class="toclevel-2 tocsection-22"><a href="#Do_NOT_change_anything.21_Just_click_on_Import."><span class="tocnumber">10.5</span> <span class="toctext">Do NOT change anything! Just click on <i>Import</i>.</span></a></li>
+<li class="toclevel-2 tocsection-23"><a href="#Wait_until_Whonix-Gateway.ova_has_been_imported."><span class="tocnumber">10.6</span> <span class="toctext">Wait until Whonix-Gateway.ova has been imported.</span></a></li>
+<li class="toclevel-2 tocsection-24"><a href="#Repeat_the_import_step_also_for_Whonix-Workstation.ova."><span class="tocnumber">10.7</span> <span class="toctext">Repeat the import step also for Whonix-Workstation.ova.</span></a></li>
+<li class="toclevel-2 tocsection-25"><a href="#Do_NOT_change_anything.21_Just_click_on_Import._2"><span class="tocnumber">10.8</span> <span class="toctext">Do NOT change anything! Just click on <i>Import</i>.</span></a></li>
+<li class="toclevel-2 tocsection-26"><a href="#Wait_until_Whonix-Workstation.ova_has_been_imported."><span class="tocnumber">10.9</span> <span class="toctext">Wait until Whonix-Workstation.ova has been imported.</span></a></li>
+<li class="toclevel-2 tocsection-27"><a href="#Now_start_both_Whonix-Gateway_and_Whonix-Workstation"><span class="tocnumber">10.10</span> <span class="toctext">Now start both Whonix-Gateway and Whonix-Workstation</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-28"><a href="#Troubleshooting"><span class="tocnumber">11</span> <span class="toctext">Troubleshooting</span></a>
+<ul>
+<li class="toclevel-2 tocsection-29"><a href="#Whonix_does_not_start.3F"><span class="tocnumber">11.1</span> <span class="toctext">Whonix does not start?</span></a>
+<ul>
+<li class="toclevel-3 tocsection-30"><a href="#PAE_crash"><span class="tocnumber">11.1.1</span> <span class="toctext">PAE crash</span></a></li>
+<li class="toclevel-3 tocsection-31"><a href="#VERR_VMX_MSR_VMXON_DISABLED"><span class="tocnumber">11.1.2</span> <span class="toctext">VERR_VMX_MSR_VMXON_DISABLED</span></a></li>
+<li class="toclevel-3 tocsection-32"><a href="#VERR_SSM_FIELD_NOT_CONSECUTIVE"><span class="tocnumber">11.1.3</span> <span class="toctext">VERR_SSM_FIELD_NOT_CONSECUTIVE</span></a></li>
+<li class="toclevel-3 tocsection-33"><a href="#Kernel_Panic"><span class="tocnumber">11.1.4</span> <span class="toctext">Kernel Panic</span></a></li>
+<li class="toclevel-3 tocsection-34"><a href="#VT-x_is_disabled_in_the_BIOS."><span class="tocnumber">11.1.5</span> <span class="toctext">VT-x is disabled in the BIOS.</span></a></li>
+<li class="toclevel-3 tocsection-35"><a href="#Error_In_supR3HardenedWinReSpawn"><span class="tocnumber">11.1.6</span> <span class="toctext">Error In supR3HardenedWinReSpawn</span></a></li>
+<li class="toclevel-3 tocsection-36"><a href="#Other_reasons"><span class="tocnumber">11.1.7</span> <span class="toctext">Other reasons</span></a></li>
+</ul>
+</li>
+<li class="toclevel-2 tocsection-37"><a href="#Boot_Options"><span class="tocnumber">11.2</span> <span class="toctext">Boot Options</span></a></li>
+<li class="toclevel-2 tocsection-38"><a href="#Virtual_Box_Disk_Images"><span class="tocnumber">11.3</span> <span class="toctext">Virtual Box Disk Images</span></a>
+<ul>
+<li class="toclevel-3 tocsection-39"><a href="#INCONSISTENCY_BETWEEN_GRAIN_TABLE_AND_BACKUP_GRAIN_TABLE"><span class="tocnumber">11.3.1</span> <span class="toctext">INCONSISTENCY BETWEEN GRAIN TABLE AND BACKUP GRAIN TABLE</span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-40"><a href="#See_Also"><span class="tocnumber">12</span> <span class="toctext">See Also</span></a></li>
+<li class="toclevel-1 tocsection-41"><a href="#Footnotes"><span class="tocnumber">13</span> <span class="toctext">Footnotes</span></a></li>
+</ul>
+</div>
+
+<h1><span class="mw-headline" id="Introduction">Introduction</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=VirtualBox&amp;action=edit&amp;section=1" title="Edit section: Introduction">edit</a><span class="mw-editsection-bracket">]</span></span></h1>
+<p>VirtualBox<sup id="cite_ref-1" class="reference"><a href="#cite_note-1">[1]</a></sup> is a popular virtualizer that can run on top of Windows, Linux and Mac.
+</p><p>A supported platform that can run Whonix. There are also <a href="/wiki/Main_Page#Download_Whonix" title="Main Page">others</a>.
+</p>
+<h1><span class="mw-headline" id="First_time_user.3F">First time user?</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=VirtualBox&amp;action=edit&amp;section=2" title="Edit section: First time user?">edit</a><span class="mw-editsection-bracket">]</span></span></h1>
+<span id="Landing"></span><table class="metadata plainlinks ambox ambox-notice" style="">
+<tr><td class="mbox-image"><div style="width: 52px;"><a href="/w/index.php?title=File:Ambox_notice.png&amp;filetimestamp=20130717195411&amp;" class="image"><img alt="Whonix default password info box" src="/w/images/c/c8/Ambox_notice.png" width="40" height="40" /></a></div></td><td class="mbox-text" style=""><span class="mbox-text-span"><b>The default username is:</b> <i><b>user</b></i> <br />
+<b>The default password is:</b> <i><b>changeme</b></i><span class="hide-when-compact">  </span><span class="hide-when-compact"> </span></span></td></tr></table>
+<p><span id="Landing"></span>
+</p>
+<table class="metadata plainlinks ambox ambox-notice" style="">
+<tr><td class="mbox-image"><div style="width: 52px;"><a href="/w/index.php?title=File:Ambox_warning_pn.svg.png&amp;filetimestamp=20130717200816&amp;" class="image"><img alt="Whonix first time users warning" src="/w/images/thumb/f/f7/Ambox_warning_pn.svg.png/40px-Ambox_warning_pn.svg.png" width="40" height="35" srcset="/w/images/thumb/f/f7/Ambox_warning_pn.svg.png/60px-Ambox_warning_pn.svg.png 1.5x, /w/images/thumb/f/f7/Ambox_warning_pn.svg.png/80px-Ambox_warning_pn.svg.png 2x" /></a></div></td><td class="mbox-text" style=""><span class="mbox-text-span">Warning:
+<ul><li> If you don't know what a metadata or a man-in-the-middle attack is.</li>
+<li> If you think nobody can eavesdrop on your communications because you are using Tor.</li>
+<li> If you have no idea about how Whonix works.</li></ul>
+Then, have a look at the <a href="/wiki/About" title="About">About</a>, <a href="/wiki/Warning" title="Warning">Warning</a> and <a href="/wiki/DoNot" title="DoNot">Do Not</a> pages to make sure that Whonix is the right tool for you and you understand well its limitations.<span class="hide-when-compact">  </span><span class="hide-when-compact"> </span></span></td></tr></table>
+<p><span id="Download_Whonix_virtual_machine_images"></span>
+</p>
+<h1><span class="mw-headline" id="Download_Whonix">Download Whonix</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=VirtualBox&amp;action=edit&amp;section=3" title="Edit section: Download Whonix">edit</a><span class="mw-editsection-bracket">]</span></span></h1>
+<p><big>Version: <span style="color: green">11.0.0.3.0</span></big>
+</p><p><b>Note:</b> You need to download both Gateway and Workstation virtual machine images.
+</p>
+<table class="wikitable" style="text-align: center;background-color: #fff">
+
+<tr style="background-color: #f9f9f9">
+<td style="height: 47px;">
+</td>
+<td style="white-space: nowrap; width: 137px;"><b>Whonix-Gateway<br /></b>(1.5 GB)
+</td>
+<td style="white-space: nowrap; width: 137px;"><b>Whonix-Workstation<br /></b>(1.6 GB)
+</td>
+<td style="white-space: nowrap; width: 140px;"><b><a href="/wiki/Hide_Tor_and_Whonix_from_your_ISP" title="Hide Tor and Whonix from your ISP">Anonymous Download</a><br /> possible <sup id="cite_ref-anonymousdownload_2-0" class="reference"><a href="#cite_note-anonymousdownload-2">[2]</a></sup></b>
+</td>
+<td style="width: 135px;"><b><a href="/wiki/Download_Security" title="Download Security">Download Security</a><br /> without <a href="#Verify_the_Whonix_images">Verification</a></b>
+</td>
+<td style="width: 135px;"><b><a href="/wiki/Download_Security" title="Download Security">Download Security</a><br /> with <a href="#Verify_the_Whonix_images">Verification</a></b>
+</td></tr>
+
+<tr style="height: 47px">
+<td style="background-color: #f9f9f9"> <a href="/w/index.php?title=File:HTTP.png&amp;filetimestamp=20130709155915&amp;" class="image"><img alt="HTTP.png" src="/w/images/thumb/0/0c/HTTP.png/40px-HTTP.png" width="40" height="19" srcset="/w/images/thumb/0/0c/HTTP.png/60px-HTTP.png 1.5x, /w/images/thumb/0/0c/HTTP.png/80px-HTTP.png 2x" /></a><br /><sup id="cite_ref-3" class="reference"><a href="#cite_note-3">[3]</a></sup> <sup id="cite_ref-4" class="reference"><a href="#cite_note-4">[4]</a></sup> <span id="Whonix_signature"></span>
+</td>
+<td> <!--
+param1 link class
+param2 url
+param3 version
+param4 file name
+param5 file extension
+param6 link description
+-->
+<a class="" href="http://mirror.whonix.de/11.0.0.3.0/Whonix-Gateway-11.0.0.3.0.ova" target="_blank" download="">Download Easy</a>
+</td>
+<td> <!--
+param1 link class
+param2 url
+param3 version
+param4 file name
+param5 file extension
+param6 link description
+-->
+<a class="" href="http://mirror.whonix.de/11.0.0.3.0/Whonix-Workstation-11.0.0.3.0.ova" target="_blank" download="">Download Easy</a>
+</td>
+<td style="background-color: #90FF90"> Yes <sup id="cite_ref-anonymousdownload_2-1" class="reference"><a href="#cite_note-anonymousdownload-2">[2]</a></sup>
+</td>
+<td style="background-color: #FF9090"> Very Low <sup id="cite_ref-5" class="reference"><a href="#cite_note-5">[5]</a></sup>
+</td>
+<td style="background-color: #90FF90"> High <sup id="cite_ref-openpgpverification_6-0" class="reference"><a href="#cite_note-openpgpverification-6">[6]</a></sup>
+</td></tr>
+
+<tr style="height: 47px">
+<td style="background-color: #f9f9f9"> <a href="/w/index.php?title=File:Button_sig.png&amp;filetimestamp=20130709164702&amp;" class="image"><img alt="Button sig.png" src="/w/images/6/6d/Button_sig.png" width="25" height="24" /></a>
+</td>
+<td><!--
+param1 link class
+param2 url
+param3 version
+param4 file name
+param5 file extension
+param6 link description
+-->
+<a class="https-link" href="/download/11.0.0.3.0/Whonix-Gateway-11.0.0.3.0.ova.asc" target="_blank" download="">OpenPGP Signature</a>
+<p><font size="-3">(<!--
+param1 link class
+param2 url
+param3 version
+param4 file name
+param5 file extension
+param6 link description
+-->
+<a class="https-link" href="/download/11.0.0.3.0/Whonix-Gateway-11.0.0.3.0.sha512sums" target="_blank" download="">sha512</a>, <!--
+param1 link class
+param2 url
+param3 version
+param4 file name
+param5 file extension
+param6 link description
+-->
+<a class="https-link" href="/download/11.0.0.3.0/Whonix-Gateway-11.0.0.3.0.sha512sums.asc" target="_blank" download="">sig</a>)</font>
+</p>
+</td>
+<td><!--
+param1 link class
+param2 url
+param3 version
+param4 file name
+param5 file extension
+param6 link description
+-->
+<a class="https-link" href="/download/11.0.0.3.0/Whonix-Workstation-11.0.0.3.0.ova.asc" target="_blank" download="">OpenPGP Signature</a>
+<p><font size="-3">(<!--
+param1 link class
+param2 url
+param3 version
+param4 file name
+param5 file extension
+param6 link description
+-->
+<a class="https-link" href="/download/11.0.0.3.0/Whonix-Workstation-11.0.0.3.0.sha512sums" target="_blank" download="">sha512</a>, <!--
+param1 link class
+param2 url
+param3 version
+param4 file name
+param5 file extension
+param6 link description
+-->
+<a class="https-link" href="/download/11.0.0.3.0/Whonix-Workstation-11.0.0.3.0.sha512sums.asc" target="_blank" download="">sig</a>)</font>
+</p>
+</td>
+<td style="background-color: #90FF90"> Yes <sup id="cite_ref-anonymousdownload_2-2" class="reference"><a href="#cite_note-anonymousdownload-2">[2]</a></sup>
+</td>
+<td> -
+</td>
+<td> -
+</td></tr>
+
+<tr style="height: 47px">
+<td style="background-color: #f9f9f9"> <a href="/w/index.php?title=File:Crypto_key.png&amp;filetimestamp=20130709170516&amp;" class="image"><img alt="Crypto key.png" src="/w/images/thumb/5/5b/Crypto_key.png/25px-Crypto_key.png" width="25" height="13" srcset="/w/images/thumb/5/5b/Crypto_key.png/38px-Crypto_key.png 1.5x, /w/images/thumb/5/5b/Crypto_key.png/50px-Crypto_key.png 2x" /></a>
+</td>
+<td colspan="2">Verify the images using the <a href="/wiki/Whonix_Signing_Key" title="Whonix Signing Key">Signing Key</a>
+</td>
+<td style="background-color: #90FF90"> Yes <sup id="cite_ref-anonymousdownload_2-3" class="reference"><a href="#cite_note-anonymousdownload-2">[2]</a></sup>
+</td>
+<td> -
+</td>
+<td> -
+</td></tr>
+
+<tr style="height: 47px">
+<td style="background-color: #f9f9f9"> <a href="/w/index.php?title=File:Btorrent-icon.png&amp;filetimestamp=20130714211634&amp;" class="image"><img alt="Btorrent-icon.png" src="/w/images/thumb/c/c0/Btorrent-icon.png/25px-Btorrent-icon.png" width="25" height="25" srcset="/w/images/thumb/c/c0/Btorrent-icon.png/38px-Btorrent-icon.png 1.5x, /w/images/thumb/c/c0/Btorrent-icon.png/50px-Btorrent-icon.png 2x" /></a><sup id="cite_ref-7" class="reference"><a href="#cite_note-7">[7]</a></sup>
+</td>
+<td> <!--
+param1 link class
+param2 url
+param3 version
+param4 file name
+param5 file extension
+param6 link description
+-->
+<a class="https-link" href="/download/11.0.0.3.0/Whonix-Gateway-11.0.0.3.0.ova.torrent" target="_blank" download="">Torrent Download</a>
+<p><font size="-3">(<!--
+param1 link class
+param2 url
+param3 version
+param4 file name
+param5 file extension
+param6 link description
+-->
+<a class="https-link" href="/download/11.0.0.3.0/Whonix-Gateway-11.0.0.3.0.ova.torrent.asc" target="_blank" download="">sig</a>)</font>
+</p>
+</td>
+<td> <!--
+param1 link class
+param2 url
+param3 version
+param4 file name
+param5 file extension
+param6 link description
+-->
+<a class="https-link" href="/download/11.0.0.3.0/Whonix-Workstation-11.0.0.3.0.ova.torrent" target="_blank" download="">Torrent Download</a>
+<p><font size="-3">(<!--
+param1 link class
+param2 url
+param3 version
+param4 file name
+param5 file extension
+param6 link description
+-->
+<a class="https-link" href="/download/11.0.0.3.0/Whonix-Workstation-11.0.0.3.0.ova.torrent.asc" target="_blank" download="">sig</a>)</font>
+</p>
+</td>
+<td style="background-color: #FF9090"> No
+</td>
+<td style="background-color: #FFFB85"> Medium <sup id="cite_ref-atleastssl_8-0" class="reference"><a href="#cite_note-atleastssl-8">[8]</a></sup>
+</td>
+<td style="background-color: #90FF90"> High <sup id="cite_ref-openpgpverification_6-1" class="reference"><a href="#cite_note-openpgpverification-6">[6]</a></sup>
+</td></tr>
+
+
+<tr style="height: 47px">
+<td style="background-color: #f9f9f9"> <a href="/w/index.php?title=File:Onion1.png&amp;filetimestamp=20150108145324&amp;" class="image"><img alt="Onion1.png" src="/w/images/thumb/3/39/Onion1.png/25px-Onion1.png" width="25" height="25" srcset="/w/images/thumb/3/39/Onion1.png/38px-Onion1.png 1.5x, /w/images/thumb/3/39/Onion1.png/50px-Onion1.png 2x" /></a> <sup id="cite_ref-9" class="reference"><a href="#cite_note-9">[9]</a></sup><span id="Onion_Download"></span>
+</td>
+<td> <!--
+param1 link class
+param2 url
+param3 version
+param4 file name
+param5 file extension
+param6 link description
+-->
+<a class="" href="http://whonix4iscgg7zzk.onion/11.0.0.3.0/Whonix-Gateway-11.0.0.3.0.ova" target="_blank" download="">Onion Download</a>
+</td>
+<td> <!--
+param1 link class
+param2 url
+param3 version
+param4 file name
+param5 file extension
+param6 link description
+-->
+<a class="" href="http://whonix4iscgg7zzk.onion/11.0.0.3.0/Whonix-Workstation-11.0.0.3.0.ova" target="_blank" download="">Onion Download</a>
+</td>
+<td style="background-color: #90FF90"> Yes <sup id="cite_ref-anonymousdownload_2-4" class="reference"><a href="#cite_note-anonymousdownload-2">[2]</a></sup>
+</td>
+<td style="background-color: #FF9090"> Low
+</td>
+<td style="background-color: #90FF90"> High <sup id="cite_ref-openpgpverification_6-2" class="reference"><a href="#cite_note-openpgpverification-6">[6]</a></sup>
+</td></tr>
+
+<tr style="height: 47px">
+<td style="background-color: #f9f9f9"> <a href="/w/index.php?title=File:Template_source.png&amp;filetimestamp=20130710144215&amp;" class="image"><img alt="Template source.png" src="/w/images/thumb/c/cb/Template_source.png/25px-Template_source.png" width="25" height="25" srcset="/w/images/thumb/c/cb/Template_source.png/38px-Template_source.png 1.5x, /w/images/thumb/c/cb/Template_source.png/50px-Template_source.png 2x" /></a>
+</td>
+<td colspan="2"><a href="/wiki/Dev/Build_Documentation" title="Dev/Build Documentation">Build from source code</a>
+</td>
+<td> See <a href="/wiki/Dev/Build_Anonymity" title="Dev/Build Anonymity">Build Anonymity</a>
+</td>
+<td style="background-color: #90FF90"> Very High <sup id="cite_ref-fromsourcecode_10-0" class="reference"><a href="#cite_note-fromsourcecode-10">[10]</a></sup>
+</td>
+<td style="background-color: #90FF90"> Best <sup id="cite_ref-fromsourcecode_10-1" class="reference"><a href="#cite_note-fromsourcecode-10">[10]</a></sup> <sup id="cite_ref-11" class="reference"><a href="#cite_note-11">[11]</a></sup>
+</td></tr></table>
+<p><br />
+</p>
+<h1><span class="mw-headline" id="Verify_the_Whonix_images">Verify the Whonix images</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=VirtualBox&amp;action=edit&amp;section=4" title="Edit section: Verify the Whonix images">edit</a><span class="mw-editsection-bracket">]</span></span></h1>
+<p>It is important to check the integrity of the virtual machine images you downloaded to make sure no man-in-the-middle attack or file corruption happened. (See <a href="/wiki/Download_Security" title="Download Security">Download Security</a>.)
+</p>
+<table class="metadata plainlinks ambox ambox-notice" style="">
+<tr><td class="mbox-image"><div style="width: 52px;"><a href="/w/index.php?title=File:Ambox_warning_pn.svg.png&amp;filetimestamp=20130717200816&amp;" class="image"><img alt="OpenPGP verification warning box" src="/w/images/thumb/f/f7/Ambox_warning_pn.svg.png/40px-Ambox_warning_pn.svg.png" width="40" height="35" srcset="/w/images/thumb/f/f7/Ambox_warning_pn.svg.png/60px-Ambox_warning_pn.svg.png 1.5x, /w/images/thumb/f/f7/Ambox_warning_pn.svg.png/80px-Ambox_warning_pn.svg.png 2x" /></a></div></td><td class="mbox-text" style=""><span class="mbox-text-span">Warning:
+Do not continue if verification failed! You risk using infected or erroneous files! The whole point of verification is to confirm file integrity.<span class="hide-when-compact">  </span><span class="hide-when-compact"> </span></span></td></tr></table>
+<p>Whonix virtual machine images are cryptographically signed using OpenPGP<sup id="cite_ref-12" class="reference"><a href="#cite_note-12">[12]</a></sup> by Whonix developer Patrick Schleizer.
+</p><p>If you know how to use an OpenPGP key, download the <a href="/wiki/Whonix_Signing_Key" title="Whonix Signing Key">Whonix Signing Key</a> and the <a href="#Download_Whonix">Whonix signatures</a> straight away.
+</p><p>Otherwise, follow the instructions:
+</p>
+<ul><li> <a href="/wiki/Verify_the_virtual_machine_images_using_Linux" title="Verify the virtual machine images using Linux">For Linux: Ubuntu, Debian, Whonix, etc. using kgpg</a></li>
+<li> <a href="/wiki/Verify_the_virtual_machine_images_using_the_command_line" title="Verify the virtual machine images using the command line">For Linux: using the command line</a></li>
+<li> <a href="/wiki/Verify_the_virtual_machine_images_using_Windows" title="Verify the virtual machine images using Windows">For Windows</a></li>
+<li> <a href="/wiki/Verify_the_virtual_machine_images_using_Mac" title="Verify the virtual machine images using Mac">For Mac</a></li></ul>
+<h1><span class="mw-headline" id="Install_Whonix">Install Whonix</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=VirtualBox&amp;action=edit&amp;section=5" title="Edit section: Install Whonix">edit</a><span class="mw-editsection-bracket">]</span></span></h1>
+<h2><span class="mw-headline" id="Before_installing">Before installing</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=VirtualBox&amp;action=edit&amp;section=6" title="Edit section: Before installing">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>Read and apply the <a href="/wiki/Pre_Install_Advice" title="Pre Install Advice">Pre Installation Security Advice</a>.
+</p>
+<h2><span class="mw-headline" id="Install">Install</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=VirtualBox&amp;action=edit&amp;section=7" title="Edit section: Install">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<ul><li> Install VirtualBox.
+<ul><li> Windows, Mac: <a target="_blank" class="external text" href="https://www.virtualbox.org/wiki/Downloads">Download VirtualBox</a> and install. <sup id="cite_ref-13" class="reference"><a href="#cite_note-13">[13]</a></sup></li>
+<li> Linux and others: <span style="border:1px dotted #005cb9">sudo apt-get install virtualbox linux-headers-$(uname -r)</span> to install virtualbox.</li></ul></li>
+<li> <a href="#Download_Whonix">Download Whonix</a> and import both Whonix images<sup id="cite_ref-14" class="reference"><a href="#cite_note-14">[14]</a></sup> into VirtualBox. Do not change any settings when importing!</li></ul>
+<p><br />
+</p>
+<h2><span class="mw-headline" id="In_case_you_need_help">In case you need help</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=VirtualBox&amp;action=edit&amp;section=8" title="Edit section: In case you need help">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>There is a tutorial with screenshots, see <a href="#VirtualBox_import_instructions">#VirtualBox import instructions</a>.
+</p><p>There are also <a href="/wiki/Videos" title="Videos">Video Tutorials</a>.
+</p><p>If you still need help, please check the <a href="/wiki/Support" title="Support">Support</a> page.
+</p>
+<h2><span class="mw-headline" id="Starting_Whonix">Starting Whonix</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=VirtualBox&amp;action=edit&amp;section=9" title="Edit section: Starting Whonix">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<div class="thumb tright"><div class="thumbinner" style="width:402px;"><a href="/w/index.php?title=File:VirtualBox_main_window_after_importing_Whonix.jpg&amp;filetimestamp=20150908132010&amp;" class="image"><img alt="" src="/w/images/thumb/5/5f/VirtualBox_main_window_after_importing_Whonix.jpg/400px-VirtualBox_main_window_after_importing_Whonix.jpg" width="400" height="213" class="thumbimage" srcset="/w/images/thumb/5/5f/VirtualBox_main_window_after_importing_Whonix.jpg/600px-VirtualBox_main_window_after_importing_Whonix.jpg 1.5x, /w/images/thumb/5/5f/VirtualBox_main_window_after_importing_Whonix.jpg/800px-VirtualBox_main_window_after_importing_Whonix.jpg 2x" /></a>  <div class="thumbcaption"><div class="magnify"><a href="/w/index.php?title=File:VirtualBox_main_window_after_importing_Whonix.jpg&amp;filetimestamp=20150908132010" class="internal" title="Enlarge"></a></div>Showing VirtualBox with correctly imported Whonix Virtual Machines. RAM setting may differ.</div></div></div>
+<p>Starting Whonix is simple. Start VirtualBox -&gt; double click on the Whonix-Gateway and Whonix-Workstation.
+</p><p>If you need more help with starting, there are <a href="/wiki/Videos" title="Videos"> Video Tutorials</a>
+</p><p>(which explains installing and starting).
+</p><p><font size="-3">(<a href="/wiki/Videos#Video_Help" title="Videos"> 
+Video Help
+</a>)</font>
+</p><p><a href="#Whonix_does_not_start.3F">#Whonix does not start?</a>
+</p><p>If you still need help, please go to the <a target="_blank" class="external text" href="https://www.whonix.org/forum">Whonix User Help Forum</a>.
+</p><p><b>The default username is:</b> <i><b>user</b></i>
+</p><p><b>The default password is:</b> <i><b>changeme</b></i>
+</p>
+<h2><span class="mw-headline" id="After_installing">After installing</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=VirtualBox&amp;action=edit&amp;section=10" title="Edit section: After installing">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>Read and apply the <a href="/wiki/Post_Install_Advice" title="Post Install Advice">Post Installation Security Advice</a>.
+</p>
+<h1><span class="mw-headline" id="Stay_tuned">Stay tuned</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=VirtualBox&amp;action=edit&amp;section=11" title="Edit section: Stay tuned">edit</a><span class="mw-editsection-bracket">]</span></span></h1>
+<h2><span class="mw-headline" id="Introduction_2">Introduction</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=Template:Stay_tuned&amp;action=edit&amp;section=T-1" title="Template:Stay tuned">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>Reading the latest news is important to stay on top of latest developments. Should security vulnerabilities ever be found in Whonix, any major issues (such as with the updater) happen or should an improved version be released, you should be informed.
+</p>
+<h2><span class="mw-headline" id="Whonix_News_Blogs">Whonix News Blogs</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=Template:Stay_tuned&amp;action=edit&amp;section=T-2" title="Template:Stay tuned">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>For your convenience, there are multiple choices to get news. Choose at your preference.
+</p>
+<ol><li> <a target="_blank" class="external text" href="https://www.whonix.org/blog/category/important/">Whonix Important Blog</a> <a href="https://www.whonix.org/blog/category/important/feed/" target="_blank"><img alt="Whonix Important Blog Rss" src="/w/images/thumb/0/0c/Feed-icon.jpeg/12px-Feed-icon.jpeg" width="12" height="12" srcset="/w/images/thumb/0/0c/Feed-icon.jpeg/18px-Feed-icon.jpeg 1.5x, /w/images/thumb/0/0c/Feed-icon.jpeg/24px-Feed-icon.jpeg 2x" /></a> - Most important stuff only. Security vulnerabilities and new stable versions only. For people with very limited time and interest in Whonix development and news.</li>
+<li> <a target="_blank" class="external text" href="https://www.whonix.org/blog">Whonix Feature Blog</a> <a href="https://www.whonix.org/blog/feed/" target="_blank"><img alt="Whonix Feature Blog rss" src="/w/images/thumb/0/0c/Feed-icon.jpeg/12px-Feed-icon.jpeg" width="12" height="12" srcset="/w/images/thumb/0/0c/Feed-icon.jpeg/18px-Feed-icon.jpeg 1.5x, /w/images/thumb/0/0c/Feed-icon.jpeg/24px-Feed-icon.jpeg 2x" /></a> - Includes everything from Whonix Important Blog. Also testers-only and developers versions are announced. Has a relaxed posting policy. Also blog posts about updated articles, new features, future features, development, call for testing, general project thoughts and so on will be published.</li>
+<li> Other choices. <sup id="cite_ref-15" class="reference"><a href="#cite_note-15">[15]</a></sup></li></ol>
+<p>It's recommended at least to read Whonix Important Blog if you are in a hurry. Have a look into Whonix Feature Blog if you are generally interested to learn about anonymity/privacy/security related things or to see what's going on with Whonix.
+</p>
+<h2><span class="mw-headline" id="Operating_System_Updates">Operating System Updates</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=Template:Stay_tuned&amp;action=edit&amp;section=T-3" title="Template:Stay tuned">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>You should regularly check for operating system updates on your host operating system, on Whonix-Workstation and on Whonix-Gateway as highly recommended in the <a href="/wiki/Security_Guide" title="Security Guide">Security Guide</a>.
+</p>
+<h2><span class="mw-headline" id="Tor_Browser">Tor Browser</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=Template:Stay_tuned&amp;action=edit&amp;section=T-4" title="Template:Stay tuned">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<div class="thumb tright"><div class="thumbinner" style="width:302px;"><a href="/w/index.php?title=File:Whonixcheck_gui.png&amp;filetimestamp=20130627161903&amp;" class="image"><img alt="whonixcheck graphical user interface screenshot" src="/w/images/thumb/b/b4/Whonixcheck_gui.png/300px-Whonixcheck_gui.png" width="300" height="272" class="thumbimage" srcset="/w/images/thumb/b/b4/Whonixcheck_gui.png/450px-Whonixcheck_gui.png 1.5x, /w/images/thumb/b/b4/Whonixcheck_gui.png/600px-Whonixcheck_gui.png 2x" /></a>  <div class="thumbcaption"><div class="magnify"><a href="/w/index.php?title=File:Whonixcheck_gui.png&amp;filetimestamp=20130627161903" class="internal" title="Enlarge"></a></div><a href="/wiki/Whonixcheck" title="Whonixcheck">
+whonixcheck</a></div></div></div>
+<p>Tor Browser's built in update check mechanism also works in Whonix. Use it.
+</p><p>For additional information about Tor Browser updates see <a href="/wiki/Tor_Browser#Update_Tor_Browser" title="Tor Browser">Tor Browser</a>. Additionally it might also be wise to subscribe to <a target="_blank" class="external free" href="https://blog.torproject.org">https://blog.torproject.org</a> for news.
+</p><p><span id="Whonix_News"></span>
+</p>
+<h2><span class="mw-headline" id="Whonix_Version_Check_and_Whonix_News">Whonix Version Check and Whonix News</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=Template:Stay_tuned&amp;action=edit&amp;section=T-5" title="Template:Stay tuned">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<div class="thumb tright"><div class="thumbinner" style="width:302px;"><a href="/w/index.php?title=File:Whonixcheck_created_by_adrelanos.png&amp;filetimestamp=20130731225627&amp;" class="image"><img alt="whonixcheck graphical user interface screnshot" src="/w/images/thumb/b/b4/Whonixcheck_created_by_adrelanos.png/300px-Whonixcheck_created_by_adrelanos.png" width="300" height="272" class="thumbimage" srcset="/w/images/thumb/b/b4/Whonixcheck_created_by_adrelanos.png/450px-Whonixcheck_created_by_adrelanos.png 1.5x, /w/images/thumb/b/b4/Whonixcheck_created_by_adrelanos.png/600px-Whonixcheck_created_by_adrelanos.png 2x" /></a>  <div class="thumbcaption"><div class="magnify"><a href="/w/index.php?title=File:Whonixcheck_created_by_adrelanos.png&amp;filetimestamp=20130731225627" class="internal" title="Enlarge"></a></div>Whonix Version Check (first rectangle in black) and<br /> Whonix News <br /> (second rectangle in green)</div></div></div>
+<p>Furthermore you will be automatically notified about new Whonix versions and about the most important Whonix News updates
+<sup id="cite_ref-16" class="reference"><a href="#cite_note-16">[16]</a></sup> 
+by <a href="/wiki/Whonixcheck" title="Whonixcheck">Whonixcheck</a>.
+</p>
+<h1><span class="mw-headline" id="Running_Whonixcheck">Running <a href="/wiki/Whonixcheck" title="Whonixcheck">Whonixcheck</a></span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=Template:Running_Whonixcheck&amp;action=edit&amp;section=T-1" title="Template:Running Whonixcheck">edit</a><span class="mw-editsection-bracket">]</span></span></h1>
+<p>By default, Whonixcheck runs automatically from time to time whenever the user starts up a Whonix-Workstation (commonly called whonix-ws). When run, Whonixcheck will verify that the Whonix system is up-to-date and that everything is in proper working order.
+</p><p>Even though Whonixcheck should run automatically from time to time (i.e. not every time the user starts a Whonix-Workstation), you may want to manually run Whonixcheck just to make sure that everything is in order. To do that, follow the directions below
+</p>
+<h2><span class="mw-headline" id="How_to_manually_run_Whonixcheck">How to manually run <a href="/wiki/Whonixcheck" title="Whonixcheck">Whonixcheck</a></span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=Template:Running_Whonixcheck&amp;action=edit&amp;section=T-2" title="Template:Running Whonixcheck">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p><b>If you are using <a href="/wiki/Qubes" title="Qubes">Qubes-Whonix</a></b>, complete the following steps:
+</p><p><code>
+Qubes VM Manager -&gt; right-click on Whonix AppVM you want to check -&gt; select "Run command in VM"
+</code>
+</p><p>Type the following.
+</p><p><style>
+  .codeBoxArea {
+    border: 1px rgb(140, 140, 140) solid;
+    background-color: rgb(180, 180, 180);
+    margin-bottom: 0px;
+    width: 99%;
+    height: auto;
+    overflow: auto;
+    resize: none;
+    cursor: text !important; 
+    position: relative;
+    z-index: 0;
+  }
+  .selectLink {
+    float: right;
+    height: 0px;
+    line-height: 16px;
+    position: relative;
+    z-index: 1;
+  }
+  .preDiv {
+    display: block;
+  }
+  .textareaDiv {
+    display: none;
+  }
+  .smallText {
+    font-size: 66%;
+  }
+</style>
+
+<div class="codeContainer">
+<div class="selectBtnDiv"></div>
+<div class="preDiv">
+<pre>whonixcheck</pre>
+</div>
+<div class="textareaDiv">
+<textarea class="codeBoxArea" rows="1" readonly="readonly">whonixcheck</textarea>
+</div>
+</div>
+
+<script>
+  function SelectText(element) {
+    element.focus();
+    element.setSelectionRange(0, element.value.length);
+  }
+
+  function adjustHeight(element) {
+    element.style.height = "auto";
+    if (element.scrollHeight <= 45)
+      element.style.height = "24px";
+    else
+      element.style.height = (element.scrollHeight-6) + "px";
+  }
+
+  var btnDivs = document.getElementsByClassName("selectBtnDiv");
+  for (var i=0; i<btnDivs.length; i++) {
+    btnDivs[i].parentNode.children[1].style.display = "none";
+    btnDivs[i].parentNode.children[2].style.display = "block";
+    btnDivs[i].innerHTML = "<div class='smallText'><a href='#' class='selectLink' onclick='SelectText(this.parentNode.parentNode.parentNode.children[2].children[0]); return false;'>[select code]</a></div>";
+    adjustHeight(btnDivs[i].parentNode.children[2].children[0]);
+}
+</script>
+</p><p>Then press.
+</p>
+<pre>
+&lt;ENTER&gt;
+</pre>
+<p><b>If you are using a graphical Whonix</b>, complete the following steps:
+</p>
+<pre>
+Start Menu -&gt; System -&gt; whonixcheck
+</pre>
+<p><b>If you are using a terminal-only Whonix</b>, complete the following steps:
+<style>
+  .codeBoxArea {
+    border: 1px rgb(140, 140, 140) solid;
+    background-color: rgb(180, 180, 180);
+    margin-bottom: 0px;
+    width: 99%;
+    height: auto;
+    overflow: auto;
+    resize: none;
+    cursor: text !important; 
+    position: relative;
+    z-index: 0;
+  }
+  .selectLink {
+    float: right;
+    height: 0px;
+    line-height: 16px;
+    position: relative;
+    z-index: 1;
+  }
+  .preDiv {
+    display: block;
+  }
+  .textareaDiv {
+    display: none;
+  }
+  .smallText {
+    font-size: 66%;
+  }
+</style>
+
+<div class="codeContainer">
+<div class="selectBtnDiv"></div>
+<div class="preDiv">
+<pre>whonixcheck</pre>
+</div>
+<div class="textareaDiv">
+<textarea class="codeBoxArea" rows="1" readonly="readonly">whonixcheck</textarea>
+</div>
+</div>
+
+<script>
+  function SelectText(element) {
+    element.focus();
+    element.setSelectionRange(0, element.value.length);
+  }
+
+  function adjustHeight(element) {
+    element.style.height = "auto";
+    if (element.scrollHeight <= 45)
+      element.style.height = "24px";
+    else
+      element.style.height = (element.scrollHeight-6) + "px";
+  }
+
+  var btnDivs = document.getElementsByClassName("selectBtnDiv");
+  for (var i=0; i<btnDivs.length; i++) {
+    btnDivs[i].parentNode.children[1].style.display = "none";
+    btnDivs[i].parentNode.children[2].style.display = "block";
+    btnDivs[i].innerHTML = "<div class='smallText'><a href='#' class='selectLink' onclick='SelectText(this.parentNode.parentNode.parentNode.children[2].children[0]); return false;'>[select code]</a></div>";
+    adjustHeight(btnDivs[i].parentNode.children[2].children[0]);
+}
+</script>
+</p><p><a href="/wiki/Whonixcheck" title="Whonixcheck">Whonixcheck</a> will take a few minutes to run. Assuming everything is good, you should get a print out where each heading "INFO" is in green (not red).  See example printout below:
+</p>
+<h2><span class="mw-headline" id="Example_of_Whonixcheck_printout">Example of Whonixcheck printout</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=Template:Running_Whonixcheck&amp;action=edit&amp;section=T-3" title="Template:Running Whonixcheck">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<pre>
+INFO: SocksPort Test Result: Connected to Tor. IP: 146.10.104.240 
+INFO: TransPort Test Result: Connected to Tor. IP: 91.89.96.88 
+INFO: Stream Isolation Test Result: Functional. 
+INFO: Whonix News Result:
+√ Up to date: whonix-workstation-packages-dependencies 2.5-1
+√ Up to date: Whonix Build Version: 11.0.0.3.0 
+INFO: Debian Package Update Check Result: No updates found via apt-get. 
+INFO: Whonix APT Repository: Enabled. When the Whonix team releases JESSIE updates, they will be AUTOMATICALLY installed (when you run apt-get dist-upgrade) along with updated packages from the Debian team. Please read https://www.whonix.org/wiki/Trust to understand the risk. If you want to change this, use: 
+Start menu -&gt; Applications -&gt; System -&gt; Whonix Repository 
+INFO: Tor Browser Update Check Result: Up to date. 
+INFO: Please consider making a small reoccurring donation. See: https://www.whonix.org/wiki/Donate
+</pre>
+<h1><span class="mw-headline" id="Tor_Bootstrap">Tor Bootstrap</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=Template:Running_Whonixcheck&amp;action=edit&amp;section=T-4" title="Template:Running Whonixcheck">edit</a><span class="mw-editsection-bracket">]</span></span></h1>
+<p>Tor bootstrap refers to... It's "Tor connecting xx percent...", "Tor not connected", "Tor connected". That's all. It's not about "secure", "not secure", "anonymous", "not anonymous".
+</p>
+<h2><span class="mw-headline" id="Social_Media_Profiles">Social Media Profiles</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=Template:Stay_tuned&amp;action=edit&amp;section=T-6" title="Template:Stay tuned">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>There are some <a href="/wiki/Official_Whonix_Online_Profiles" title="Official Whonix Online Profiles">Whonix Social Media Profiles</a>, but please don't rely on them for getting Whonix News and please don't use them to contact Whonix developers. (See <a href="/wiki/Contact" title="Contact">Contact</a> for contact information.)
+</p><p>Because some people will do so even though it is not recommended, messages from the Whonix Feature Blog will be automatically mirrored to <a target="_blank" class="external text" href="https://twitter.com/Whonix">Whonix Twitter Profile</a>, to <a target="_blank" class="external text" href="https://www.facebook.com/Whonix">Whonix Facebook Profile</a> and to <a target="_blank" class="external text" href="https://plus.google.com/108150429836421683225/">Whonix Google+ Profile</a>.
+</p><p>If you won't get into trouble by letting others learn about Whonix, feel free to follow or like those profiles (with your anonymous account) as a little way to <a href="/wiki/Contribute" title="Contribute">Contribute</a>. You can share this page on: <a href="https://twitter.com/intent/tweet?url=https://www.whonix.org/wiki/VirtualBox&text=&via=Whonix">Twitter</a>
+&#x007C;
+<a href="https://facebook.com/sharer.php?u=https://www.whonix.org/wiki/VirtualBox">Facebook</a>
+&#x007C;
+<a href="https://plus.google.com/share?url=https://www.whonix.org/wiki/VirtualBox">Google+</a>.
+</p>
+<h2><span class="mw-headline" id="Source_Code">Source Code</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=Template:Stay_tuned&amp;action=edit&amp;section=T-7" title="Template:Stay tuned">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>In case you are interested in Whonix source code updates, <a href="/wiki/Dev/git#subscribe_to_code_changes" title="Dev/git">subscribe to code changes</a>.
+</p>
+<h1><span class="mw-headline" id="Known_bugs">Known bugs</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=VirtualBox&amp;action=edit&amp;section=12" title="Edit section: Known bugs">edit</a><span class="mw-editsection-bracket">]</span></span></h1>
+<h2><span class="mw-headline" id="VirtualBox_Specific">VirtualBox Specific</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=VirtualBox&amp;action=edit&amp;section=13" title="Edit section: VirtualBox Specific">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<h3><span class="mw-headline" id="ATA_Freeze">ATA Freeze</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=VirtualBox&amp;action=edit&amp;section=14" title="Edit section: ATA Freeze">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<p>If you see the following error and freezing.
+</p>
+<pre>
+433.348893] mptscsih: ioc0: attempting target reset! (sc=ffff81021b950940)
+433.348896] sd 0:0:0:0: [sda] CDB: ATA command pass through(16): 85 08
+0e 00 d5 00 01 00 09 00 4f 00 c2 00 b0 00
+433.605026] mptscsih: ioc0: target reset: SUCCESS (sc=ffff81021b950940
+</pre>
+<p>It's a <a target="_blank" class="external text" href="https://github.com/Whonix/Whonix/issues/274">known</a> issue. <br />
+VirtualBox upstream bug report: <a target="_blank" class="external free" href="https://www.virtualbox.org/ticket/10031">https://www.virtualbox.org/ticket/10031</a> <br />
+Cannot be fixed by the Whonix team. <a href="/wiki/FAQ#Patches_Required" title="FAQ">Patches required</a>.
+Hardware specific.<br />
+It has been <a target="_blank" class="external text" href="https://www.whonix.org/forum/index.php/topic,1778.msg10753.html#msg10753">reported</a> that running form internal hdd works better than running from external devices.<br />
+A workaround might be "avoid high load on your host operating system". If this bug causes a lot issues to you, your only option is to switch to another <a href="/wiki/Main_Page#Download_Whonix" title="Main Page">platform</a>.
+</p>
+<h2><span class="mw-headline" id="Non-Qubes-Whonix">Non-Qubes-Whonix</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=VirtualBox&amp;action=edit&amp;section=15" title="Edit section: Non-Qubes-Whonix">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>Non-Qubes-Whonix means all Whonix platforms except <a href="/wiki/Qubes" title="Qubes">Qubes-Whonix</a>. That includes <a href="/wiki/KVM" title="KVM">KVM</a>, <strong class="selflink">VirtualBox</strong> and <a href="/wiki/Dev/Build_Documentation/Physical_Isolation" title="Dev/Build Documentation/Physical Isolation" class="mw-redirect">Physical Isolation</a>.
+</p>
+<h4><span class="mw-headline" id="Mounting_.28CD.2FDVD.29_Devices">Mounting (CD/DVD) Devices</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=Template:Non-Qubes-Whonix_Known_bugs&amp;action=edit&amp;section=T-1" title="Template:Non-Qubes-Whonix Known bugs">edit</a><span class="mw-editsection-bracket">]</span></span></h4>
+<p>Device auto mounter is broken.
+</p><p>See if <i><span style="background-color:#FBFBFB">Start menu -&gt; System Settings -&gt; Removable Media</span></i> helps.
+</p><p>You can use the following workaround.
+</p><p><style>
+  .codeBoxArea {
+    border: 1px rgb(140, 140, 140) solid;
+    background-color: rgb(180, 180, 180);
+    margin-bottom: 0px;
+    width: 99%;
+    height: auto;
+    overflow: auto;
+    resize: none;
+    cursor: text !important; 
+    position: relative;
+    z-index: 0;
+  }
+  .selectLink {
+    float: right;
+    height: 0px;
+    line-height: 16px;
+    position: relative;
+    z-index: 1;
+  }
+  .preDiv {
+    display: block;
+  }
+  .textareaDiv {
+    display: none;
+  }
+  .smallText {
+    font-size: 66%;
+  }
+</style>
+
+<div class="codeContainer">
+<div class="selectBtnDiv"></div>
+<div class="preDiv">
+<pre>sudo mkdir /mnt/cdrom</pre>
+</div>
+<div class="textareaDiv">
+<textarea class="codeBoxArea" rows="1" readonly="readonly">sudo mkdir /mnt/cdrom</textarea>
+</div>
+</div>
+
+<script>
+  function SelectText(element) {
+    element.focus();
+    element.setSelectionRange(0, element.value.length);
+  }
+
+  function adjustHeight(element) {
+    element.style.height = "auto";
+    if (element.scrollHeight <= 45)
+      element.style.height = "24px";
+    else
+      element.style.height = (element.scrollHeight-6) + "px";
+  }
+
+  var btnDivs = document.getElementsByClassName("selectBtnDiv");
+  for (var i=0; i<btnDivs.length; i++) {
+    btnDivs[i].parentNode.children[1].style.display = "none";
+    btnDivs[i].parentNode.children[2].style.display = "block";
+    btnDivs[i].innerHTML = "<div class='smallText'><a href='#' class='selectLink' onclick='SelectText(this.parentNode.parentNode.parentNode.children[2].children[0]); return false;'>[select code]</a></div>";
+    adjustHeight(btnDivs[i].parentNode.children[2].children[0]);
+}
+</script>
+<style>
+  .codeBoxArea {
+    border: 1px rgb(140, 140, 140) solid;
+    background-color: rgb(180, 180, 180);
+    margin-bottom: 0px;
+    width: 99%;
+    height: auto;
+    overflow: auto;
+    resize: none;
+    cursor: text !important; 
+    position: relative;
+    z-index: 0;
+  }
+  .selectLink {
+    float: right;
+    height: 0px;
+    line-height: 16px;
+    position: relative;
+    z-index: 1;
+  }
+  .preDiv {
+    display: block;
+  }
+  .textareaDiv {
+    display: none;
+  }
+  .smallText {
+    font-size: 66%;
+  }
+</style>
+
+<div class="codeContainer">
+<div class="selectBtnDiv"></div>
+<div class="preDiv">
+<pre>sudo mount -o ro /dev/cdrom /mnt/cdrom/</pre>
+</div>
+<div class="textareaDiv">
+<textarea class="codeBoxArea" rows="1" readonly="readonly">sudo mount -o ro /dev/cdrom /mnt/cdrom/</textarea>
+</div>
+</div>
+
+<script>
+  function SelectText(element) {
+    element.focus();
+    element.setSelectionRange(0, element.value.length);
+  }
+
+  function adjustHeight(element) {
+    element.style.height = "auto";
+    if (element.scrollHeight <= 45)
+      element.style.height = "24px";
+    else
+      element.style.height = (element.scrollHeight-6) + "px";
+  }
+
+  var btnDivs = document.getElementsByClassName("selectBtnDiv");
+  for (var i=0; i<btnDivs.length; i++) {
+    btnDivs[i].parentNode.children[1].style.display = "none";
+    btnDivs[i].parentNode.children[2].style.display = "block";
+    btnDivs[i].innerHTML = "<div class='smallText'><a href='#' class='selectLink' onclick='SelectText(this.parentNode.parentNode.parentNode.children[2].children[0]); return false;'>[select code]</a></div>";
+    adjustHeight(btnDivs[i].parentNode.children[2].children[0]);
+}
+</script>
+</p><p>Using the <b>ro</b> flag will mount the CD/DVD read-only. If you are not mounting a CD/DVD, then you can drop the "-o ro" parameter.
+</p><p>Forum discussion:<br />
+<a target="_blank" class="external free" href="https://www.whonix.org/forum/index.php/topic,1526">https://www.whonix.org/forum/index.php/topic,1526</a>
+</p><p>Help fixing this bug is welcome! (<a target="_blank" class="external text" href="https://phabricator.whonix.org/T139">ticket</a>)
+</p>
+<h4><span class="mw-headline" id="VLC_.2F_Video_Player_Crash">VLC / Video Player Crash</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=Template:Non-Qubes-Whonix_Known_bugs&amp;action=edit&amp;section=T-2" title="Template:Non-Qubes-Whonix Known bugs">edit</a><span class="mw-editsection-bracket">]</span></span></h4>
+<p>You can use this workaround.
+</p>
+<pre>
+VLC -&gt; Tools -&gt; Preferences -&gt; Video -&gt; Output -&gt; X11 -&gt; Save
+</pre>
+<h4><span class="mw-headline" id="Network_Manager_Systray_Unmanaged_Devices">Network Manager Systray Unmanaged Devices</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=Template:Non-Qubes-Whonix_Known_bugs&amp;action=edit&amp;section=T-3" title="Template:Non-Qubes-Whonix Known bugs">edit</a><span class="mw-editsection-bracket">]</span></span></h4>
+<p><a href="/w/index.php?title=File:Network_manger_question_mark.png&amp;filetimestamp=20150818010349&amp;" class="image"><img alt="Network manger question mark.png" src="/w/images/2/2f/Network_manger_question_mark.png" width="30" height="28" /></a>
+Short answer: unrelated. Forget about it.<br />
+Long answer: <sup id="cite_ref-17" class="reference"><a href="#cite_note-17">[17]</a></sup>
+</p>
+<h2><span class="mw-headline" id="Normal">Normal</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=VirtualBox&amp;action=edit&amp;section=16" title="Edit section: Normal">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<h4><span class="mw-headline" id="Proxychains_Tor_Browser_Issue">Proxychains Tor Browser Issue</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=Template:Known_bugs&amp;action=edit&amp;section=T-1" title="Template:Known bugs">edit</a><span class="mw-editsection-bracket">]</span></span></h4>
+<p>Want to use Tor Browser in conjunction with proxychains for the connection scheme <i><span style="background-color:#FBFBFB">user -&gt; Tor -&gt; proxy -&gt; internet</span></i>?<br />
+This currently won't work. For more information, see <a href="/wiki/Tunnel_Proxy_or_SSH_or_VPN_through_Tor#Tor_Browser" title="Tunnel Proxy or SSH or VPN through Tor" class="mw-redirect">Tunnel_Proxy_or_SSH_or_VPN_through_Tor#Tor_Browser</a>.
+</p>
+<h4><span class="mw-headline" id=".22apt-get_source_package.22_will_show_.22dpkg-source:_warning:_failed_to_verify_signature.22">"apt-get source package" will show "dpkg-source: warning: failed to verify signature"</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=Template:Known_bugs&amp;action=edit&amp;section=T-2" title="Template:Known bugs">edit</a><span class="mw-editsection-bracket">]</span></span></h4>
+<p>This is not a security issue. It is only a warning. More info <a target="_blank" class="external text" href="http://lists.debian.org/debian-derivatives/2013/08/msg00000.html">here</a> (and in the following mails).
+</p><p>If you want, you can get rid of it with the following workaround.
+</p><p>1. Modify <code>/etc/dpkg/origins/default</code>.
+</p><p><style>
+  .codeBoxArea {
+    border: 1px rgb(140, 140, 140) solid;
+    background-color: rgb(180, 180, 180);
+    margin-bottom: 0px;
+    width: 99%;
+    height: auto;
+    overflow: auto;
+    resize: none;
+    cursor: text !important; 
+    position: relative;
+    z-index: 0;
+  }
+  .selectLink {
+    float: right;
+    height: 0px;
+    line-height: 16px;
+    position: relative;
+    z-index: 1;
+  }
+  .preDiv {
+    display: block;
+  }
+  .textareaDiv {
+    display: none;
+  }
+  .smallText {
+    font-size: 66%;
+  }
+</style>
+
+<div class="codeContainer">
+<div class="selectBtnDiv"></div>
+<div class="preDiv">
+<pre>sudo unlink /etc/dpkg/origins/default</pre>
+</div>
+<div class="textareaDiv">
+<textarea class="codeBoxArea" rows="1" readonly="readonly">sudo unlink /etc/dpkg/origins/default</textarea>
+</div>
+</div>
+
+<script>
+  function SelectText(element) {
+    element.focus();
+    element.setSelectionRange(0, element.value.length);
+  }
+
+  function adjustHeight(element) {
+    element.style.height = "auto";
+    if (element.scrollHeight <= 45)
+      element.style.height = "24px";
+    else
+      element.style.height = (element.scrollHeight-6) + "px";
+  }
+
+  var btnDivs = document.getElementsByClassName("selectBtnDiv");
+  for (var i=0; i<btnDivs.length; i++) {
+    btnDivs[i].parentNode.children[1].style.display = "none";
+    btnDivs[i].parentNode.children[2].style.display = "block";
+    btnDivs[i].innerHTML = "<div class='smallText'><a href='#' class='selectLink' onclick='SelectText(this.parentNode.parentNode.parentNode.children[2].children[0]); return false;'>[select code]</a></div>";
+    adjustHeight(btnDivs[i].parentNode.children[2].children[0]);
+}
+</script>
+<style>
+  .codeBoxArea {
+    border: 1px rgb(140, 140, 140) solid;
+    background-color: rgb(180, 180, 180);
+    margin-bottom: 0px;
+    width: 99%;
+    height: auto;
+    overflow: auto;
+    resize: none;
+    cursor: text !important; 
+    position: relative;
+    z-index: 0;
+  }
+  .selectLink {
+    float: right;
+    height: 0px;
+    line-height: 16px;
+    position: relative;
+    z-index: 1;
+  }
+  .preDiv {
+    display: block;
+  }
+  .textareaDiv {
+    display: none;
+  }
+  .smallText {
+    font-size: 66%;
+  }
+</style>
+
+<div class="codeContainer">
+<div class="selectBtnDiv"></div>
+<div class="preDiv">
+<pre>sudo ln -s /etc/dpkg/origins/debian /etc/dpkg/origins/default</pre>
+</div>
+<div class="textareaDiv">
+<textarea class="codeBoxArea" rows="1" readonly="readonly">sudo ln -s /etc/dpkg/origins/debian /etc/dpkg/origins/default</textarea>
+</div>
+</div>
+
+<script>
+  function SelectText(element) {
+    element.focus();
+    element.setSelectionRange(0, element.value.length);
+  }
+
+  function adjustHeight(element) {
+    element.style.height = "auto";
+    if (element.scrollHeight <= 45)
+      element.style.height = "24px";
+    else
+      element.style.height = (element.scrollHeight-6) + "px";
+  }
+
+  var btnDivs = document.getElementsByClassName("selectBtnDiv");
+  for (var i=0; i<btnDivs.length; i++) {
+    btnDivs[i].parentNode.children[1].style.display = "none";
+    btnDivs[i].parentNode.children[2].style.display = "block";
+    btnDivs[i].innerHTML = "<div class='smallText'><a href='#' class='selectLink' onclick='SelectText(this.parentNode.parentNode.parentNode.children[2].children[0]); return false;'>[select code]</a></div>";
+    adjustHeight(btnDivs[i].parentNode.children[2].children[0]);
+}
+</script>
+</p><p>2. Download the source package.
+</p><p><style>
+  .codeBoxArea {
+    border: 1px rgb(140, 140, 140) solid;
+    background-color: rgb(180, 180, 180);
+    margin-bottom: 0px;
+    width: 99%;
+    height: auto;
+    overflow: auto;
+    resize: none;
+    cursor: text !important; 
+    position: relative;
+    z-index: 0;
+  }
+  .selectLink {
+    float: right;
+    height: 0px;
+    line-height: 16px;
+    position: relative;
+    z-index: 1;
+  }
+  .preDiv {
+    display: block;
+  }
+  .textareaDiv {
+    display: none;
+  }
+  .smallText {
+    font-size: 66%;
+  }
+</style>
+
+<div class="codeContainer">
+<div class="selectBtnDiv"></div>
+<div class="preDiv">
+<pre>apt-get source package</pre>
+</div>
+<div class="textareaDiv">
+<textarea class="codeBoxArea" rows="1" readonly="readonly">apt-get source package</textarea>
+</div>
+</div>
+
+<script>
+  function SelectText(element) {
+    element.focus();
+    element.setSelectionRange(0, element.value.length);
+  }
+
+  function adjustHeight(element) {
+    element.style.height = "auto";
+    if (element.scrollHeight <= 45)
+      element.style.height = "24px";
+    else
+      element.style.height = (element.scrollHeight-6) + "px";
+  }
+
+  var btnDivs = document.getElementsByClassName("selectBtnDiv");
+  for (var i=0; i<btnDivs.length; i++) {
+    btnDivs[i].parentNode.children[1].style.display = "none";
+    btnDivs[i].parentNode.children[2].style.display = "block";
+    btnDivs[i].innerHTML = "<div class='smallText'><a href='#' class='selectLink' onclick='SelectText(this.parentNode.parentNode.parentNode.children[2].children[0]); return false;'>[select code]</a></div>";
+    adjustHeight(btnDivs[i].parentNode.children[2].children[0]);
+}
+</script>
+</p><p>3. Undo afterwards to prevent unexpected issues.
+</p><p><style>
+  .codeBoxArea {
+    border: 1px rgb(140, 140, 140) solid;
+    background-color: rgb(180, 180, 180);
+    margin-bottom: 0px;
+    width: 99%;
+    height: auto;
+    overflow: auto;
+    resize: none;
+    cursor: text !important; 
+    position: relative;
+    z-index: 0;
+  }
+  .selectLink {
+    float: right;
+    height: 0px;
+    line-height: 16px;
+    position: relative;
+    z-index: 1;
+  }
+  .preDiv {
+    display: block;
+  }
+  .textareaDiv {
+    display: none;
+  }
+  .smallText {
+    font-size: 66%;
+  }
+</style>
+
+<div class="codeContainer">
+<div class="selectBtnDiv"></div>
+<div class="preDiv">
+<pre>sudo unlink /etc/dpkg/origins/default</pre>
+</div>
+<div class="textareaDiv">
+<textarea class="codeBoxArea" rows="1" readonly="readonly">sudo unlink /etc/dpkg/origins/default</textarea>
+</div>
+</div>
+
+<script>
+  function SelectText(element) {
+    element.focus();
+    element.setSelectionRange(0, element.value.length);
+  }
+
+  function adjustHeight(element) {
+    element.style.height = "auto";
+    if (element.scrollHeight <= 45)
+      element.style.height = "24px";
+    else
+      element.style.height = (element.scrollHeight-6) + "px";
+  }
+
+  var btnDivs = document.getElementsByClassName("selectBtnDiv");
+  for (var i=0; i<btnDivs.length; i++) {
+    btnDivs[i].parentNode.children[1].style.display = "none";
+    btnDivs[i].parentNode.children[2].style.display = "block";
+    btnDivs[i].innerHTML = "<div class='smallText'><a href='#' class='selectLink' onclick='SelectText(this.parentNode.parentNode.parentNode.children[2].children[0]); return false;'>[select code]</a></div>";
+    adjustHeight(btnDivs[i].parentNode.children[2].children[0]);
+}
+</script>
+<style>
+  .codeBoxArea {
+    border: 1px rgb(140, 140, 140) solid;
+    background-color: rgb(180, 180, 180);
+    margin-bottom: 0px;
+    width: 99%;
+    height: auto;
+    overflow: auto;
+    resize: none;
+    cursor: text !important; 
+    position: relative;
+    z-index: 0;
+  }
+  .selectLink {
+    float: right;
+    height: 0px;
+    line-height: 16px;
+    position: relative;
+    z-index: 1;
+  }
+  .preDiv {
+    display: block;
+  }
+  .textareaDiv {
+    display: none;
+  }
+  .smallText {
+    font-size: 66%;
+  }
+</style>
+
+<div class="codeContainer">
+<div class="selectBtnDiv"></div>
+<div class="preDiv">
+<pre>sudo ln -s /etc/dpkg/origins/whonix /etc/dpkg/origins/default</pre>
+</div>
+<div class="textareaDiv">
+<textarea class="codeBoxArea" rows="1" readonly="readonly">sudo ln -s /etc/dpkg/origins/whonix /etc/dpkg/origins/default</textarea>
+</div>
+</div>
+
+<script>
+  function SelectText(element) {
+    element.focus();
+    element.setSelectionRange(0, element.value.length);
+  }
+
+  function adjustHeight(element) {
+    element.style.height = "auto";
+    if (element.scrollHeight <= 45)
+      element.style.height = "24px";
+    else
+      element.style.height = (element.scrollHeight-6) + "px";
+  }
+
+  var btnDivs = document.getElementsByClassName("selectBtnDiv");
+  for (var i=0; i<btnDivs.length; i++) {
+    btnDivs[i].parentNode.children[1].style.display = "none";
+    btnDivs[i].parentNode.children[2].style.display = "block";
+    btnDivs[i].innerHTML = "<div class='smallText'><a href='#' class='selectLink' onclick='SelectText(this.parentNode.parentNode.parentNode.children[2].children[0]); return false;'>[select code]</a></div>";
+    adjustHeight(btnDivs[i].parentNode.children[2].children[0]);
+}
+</script>
+</p>
+<h1><span class="mw-headline" id="VirtualBox_import_instructions">VirtualBox import instructions</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=VirtualBox&amp;action=edit&amp;section=17" title="Edit section: VirtualBox import instructions">edit</a><span class="mw-editsection-bracket">]</span></span></h1>
+<h2><span class="mw-headline" id="Install_and_start_VirtualBox._Click_on_File_-.3E_Import_Appliance...">Install and start VirtualBox. Click on <i>File</i> -&gt; <i>Import Appliance...</i></span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=VirtualBox&amp;action=edit&amp;section=18" title="Edit section: Install and start VirtualBox. Click on File -&gt; Import Appliance...">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<div class="thumb tnone"><div class="thumbinner" style="width:778px;"><a href="/w/index.php?title=File:1_start_virtualbox.png&amp;filetimestamp=20130628150240&amp;" class="image"><img alt="screenshot of VirtualBox after starting it" src="/w/images/8/8d/1_start_virtualbox.png" width="776" height="577" class="thumbimage" /></a>  <div class="thumbcaption"></div></div></div>
+<h2><span class="mw-headline" id="Click_on_Choose.">Click on <i>Choose</i>.</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=VirtualBox&amp;action=edit&amp;section=19" title="Edit section: Click on Choose.">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<div class="thumb tnone"><div class="thumbinner" style="width:761px;"><a href="/w/index.php?title=File:2_click_choose.png&amp;filetimestamp=20130628150241&amp;" class="image"><img alt="screenshot of VirtualBox Appliance Import Wizard Step 1 Begin" src="/w/images/5/59/2_click_choose.png" width="759" height="582" class="thumbimage" /></a>  <div class="thumbcaption"></div></div></div>
+<h2><span class="mw-headline" id="Select_the_Whonix-Gateway.ova_from_your_download_folder_and_press_open.">Select the Whonix-Gateway.ova from your download folder and press <i>open</i>.</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=VirtualBox&amp;action=edit&amp;section=20" title="Edit section: Select the Whonix-Gateway.ova from your download folder and press open.">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<div class="thumb tnone"><div class="thumbinner" style="width:680px;"><a href="/w/index.php?title=File:3_navigate_and_select.png&amp;filetimestamp=20130628150241&amp;" class="image"><img alt="screenshot of VirtualBox Appliance Import Wizard Step 2 Begin VM Choice" src="/w/images/5/51/3_navigate_and_select.png" width="678" height="447" class="thumbimage" /></a>  <div class="thumbcaption"></div></div></div>
+<h2><span class="mw-headline" id="Click_on_Next.">Click on <i>Next</i>.</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=VirtualBox&amp;action=edit&amp;section=21" title="Edit section: Click on Next.">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<div class="thumb tnone"><div class="thumbinner" style="width:761px;"><a href="/w/index.php?title=File:4_click_next.png&amp;filetimestamp=20130628150242&amp;" class="image"><img alt="screenshot of VirtualBox Appliance Import Wizard Step 3 After VM Choice" src="/w/images/7/76/4_click_next.png" width="759" height="582" class="thumbimage" /></a>  <div class="thumbcaption"></div></div></div>
+<h2><span class="mw-headline" id="Do_NOT_change_anything.21_Just_click_on_Import.">Do NOT change anything! Just click on <i>Import</i>.</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=VirtualBox&amp;action=edit&amp;section=22" title="Edit section: Do NOT change anything! Just click on Import.">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<div class="thumb tnone"><div class="thumbinner" style="width:761px;"><a href="/w/index.php?title=File:5_click_import.png&amp;filetimestamp=20130628150244&amp;" class="image"><img alt="screenshot of VirtualBox Appliance Import Wizard Step 4 Overview" src="/w/images/c/c3/5_click_import.png" width="759" height="582" class="thumbimage" /></a>  <div class="thumbcaption"></div></div></div>
+<h2><span class="mw-headline" id="Wait_until_Whonix-Gateway.ova_has_been_imported.">Wait until Whonix-Gateway.ova has been imported.</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=VirtualBox&amp;action=edit&amp;section=23" title="Edit section: Wait until Whonix-Gateway.ova has been imported.">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<div class="thumb tnone"><div class="thumbinner" style="width:530px;"><a href="/w/index.php?title=File:6_wait_until_imported.png&amp;filetimestamp=20130628150243&amp;" class="image"><img alt="screenshot of VirtualBox Appliance Import Wizard Step 5 progress bar" src="/w/images/7/78/6_wait_until_imported.png" width="528" height="139" class="thumbimage" /></a>  <div class="thumbcaption"></div></div></div>
+<h2><span class="mw-headline" id="Repeat_the_import_step_also_for_Whonix-Workstation.ova.">Repeat the import step also for Whonix-Workstation.ova.</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=VirtualBox&amp;action=edit&amp;section=24" title="Edit section: Repeat the import step also for Whonix-Workstation.ova.">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<div class="thumb tnone"><div class="thumbinner" style="width:761px;"><a href="/w/index.php?title=File:8_repeat_for_workstation.png&amp;filetimestamp=20130628150245&amp;" class="image"><img alt="screenshot of VirtualBox Appliance Import Wizard Step 1 Begin" src="/w/images/1/11/8_repeat_for_workstation.png" width="759" height="582" class="thumbimage" /></a>  <div class="thumbcaption"></div></div></div>
+<h2><span class="mw-headline" id="Do_NOT_change_anything.21_Just_click_on_Import._2">Do NOT change anything! Just click on <i>Import</i>.</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=VirtualBox&amp;action=edit&amp;section=25" title="Edit section: Do NOT change anything! Just click on Import.">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<div class="thumb tnone"><div class="thumbinner" style="width:761px;"><a href="/w/index.php?title=File:9_click_import.png&amp;filetimestamp=20130628150244&amp;" class="image"><img alt="screenshot of VirtualBox Appliance Import Wizard Step Whonix-Workstation 4 Overview" src="/w/images/8/8f/9_click_import.png" width="759" height="582" class="thumbimage" /></a>  <div class="thumbcaption"></div></div></div>
+<h2><span class="mw-headline" id="Wait_until_Whonix-Workstation.ova_has_been_imported.">Wait until Whonix-Workstation.ova has been imported.</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=VirtualBox&amp;action=edit&amp;section=26" title="Edit section: Wait until Whonix-Workstation.ova has been imported.">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<div class="thumb tnone"><div class="thumbinner" style="width:551px;"><a href="/w/index.php?title=File:10_wait_until_imported.png&amp;filetimestamp=20130628150238&amp;" class="image"><img alt="screenshot of VirtualBox after importing Whonix Virtual Machines" src="/w/images/0/06/10_wait_until_imported.png" width="549" height="139" class="thumbimage" /></a>  <div class="thumbcaption"></div></div></div>
+<h2><span class="mw-headline" id="Now_start_both_Whonix-Gateway_and_Whonix-Workstation">Now start both Whonix-Gateway and Whonix-Workstation</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=VirtualBox&amp;action=edit&amp;section=27" title="Edit section: Now start both Whonix-Gateway and Whonix-Workstation">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p><a href="/w/index.php?title=File:11_click_start.png&amp;filetimestamp=20130628150239&amp;" class="image"><img alt="11 click start.png" src="/w/images/8/8e/11_click_start.png" width="776" height="577" /></a>
+</p>
+<h1><span class="mw-headline" id="Troubleshooting">Troubleshooting</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=VirtualBox&amp;action=edit&amp;section=28" title="Edit section: Troubleshooting">edit</a><span class="mw-editsection-bracket">]</span></span></h1>
+<h2><span class="mw-headline" id="Whonix_does_not_start.3F">Whonix does not start?</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=VirtualBox&amp;action=edit&amp;section=29" title="Edit section: Whonix does not start?">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<h3><span class="mw-headline" id="PAE_crash">PAE crash</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=VirtualBox&amp;action=edit&amp;section=30" title="Edit section: PAE crash">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<p>Try this:<br />
+Virtual Box -&gt; Right Click on Whonix-Gateway -&gt; Settings -&gt; System -&gt; Processor -&gt; Uncheck the <i>Enable PAE/NX</i> Box -&gt; OK.
+</p><p>Repeat that for Whonix-Workstation as well.
+</p><p>Read the <a href="#Boot_Options"> Boot Options</a> chapter and use the 486 kernel.
+</p>
+<h3><span class="mw-headline" id="VERR_VMX_MSR_VMXON_DISABLED">VERR_VMX_MSR_VMXON_DISABLED</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=VirtualBox&amp;action=edit&amp;section=31" title="Edit section: VERR VMX MSR VMXON DISABLED">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<p>Try this:<br />
+Virtual Box -&gt; Right Click on Whonix-Gateway -&gt; Settings -&gt; System -&gt; Acceleration -&gt; Uncheck the "Enable VT-x/AMD-V" Box -&gt; OK.
+</p><p>Repeat that for Whonix-Workstation as well.
+</p><p>Read the <a href="#Boot_Options"> Boot Options</a> chapter and use the 486 kernel.
+</p><p>If it still doesn't work, also try:<br />
+Virtual Box -&gt; Right Click on Whonix-Gateway -&gt; Settings -&gt; System -&gt; Acceleration -&gt; Uncheck the "Enable Nested Paging" Box -&gt; OK.
+</p>
+<h3><span class="mw-headline" id="VERR_SSM_FIELD_NOT_CONSECUTIVE">VERR_SSM_FIELD_NOT_CONSECUTIVE</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=VirtualBox&amp;action=edit&amp;section=32" title="Edit section: VERR SSM FIELD NOT CONSECUTIVE">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<p>If you see "<i><span style="background-color:#FBFBFB">Failed to load unit 'PATM' (VERR_SSM_FIELD_NOT_CONSECUTIVE).</span></i>", please enable <i><span style="background-color:#FBFBFB">VT-x</span></i> in BIOS.
+</p>
+<h3><span class="mw-headline" id="Kernel_Panic">Kernel Panic</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=VirtualBox&amp;action=edit&amp;section=33" title="Edit section: Kernel Panic">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<p>This probably similar to <a href="#PAE_crash">PAE crash</a> and <i><span style="background-color:#FBFBFB">VERR_SSM_FIELD_NOT_CONSECUTIVE</span></i> issues above. If you can, enable <i><span style="background-color:#FBFBFB">VT-x</span></i> in BIOS. If you cannot, then disable PAE/NX in VirtualBox (see <a href="#PAE_crash">PAE crash</a> above for instructions on how to do so) and then read the <a href="#Boot_Options"> Boot Options</a> chapter and use the 486 kernel.
+</p>
+<h3><span class="mw-headline" id="VT-x_is_disabled_in_the_BIOS.">VT-x is disabled in the BIOS.</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=VirtualBox&amp;action=edit&amp;section=34" title="Edit section: VT-x is disabled in the BIOS.">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<p>If you see this error message.
+</p>
+<pre>
+Failed to open a session for the virtual machine Whonix-Gateway.
+
+VT-x is disabled in the BIOS.
+(VERR_VMX_MSR_VMXON_DISABLED).
+</pre>
+<p>Or.
+</p>
+<pre>
+AMD-V is disabled in the BIOS (or by the host OS).
+(VERR_SVM_DISABLED).
+</pre>
+<p>Then please enable <i><span style="background-color:#FBFBFB">VT-x</span></i> in BIOS.
+</p>
+<h3><span class="mw-headline" id="Error_In_supR3HardenedWinReSpawn">Error In supR3HardenedWinReSpawn</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=VirtualBox&amp;action=edit&amp;section=35" title="Edit section: Error In supR3HardenedWinReSpawn">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<p><a href="/w/index.php?title=File:VirtualBox_supR3HardenedWinReSpawn.png&amp;filetimestamp=20150113121852&amp;" class="image"><img alt="VirtualBox supR3HardenedWinReSpawn.png" src="/w/images/thumb/a/ae/VirtualBox_supR3HardenedWinReSpawn.png/400px-VirtualBox_supR3HardenedWinReSpawn.png" width="400" height="166" srcset="/w/images/a/ae/VirtualBox_supR3HardenedWinReSpawn.png 1.5x, /w/images/a/ae/VirtualBox_supR3HardenedWinReSpawn.png 2x" /></a><br />
+Don't update whilst the VMs are running and if you do, you need to reinstall <strong class="selflink">VirtualBox</strong>.
+</p>
+<h3><span class="mw-headline" id="Other_reasons">Other reasons</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=VirtualBox&amp;action=edit&amp;section=36" title="Edit section: Other reasons">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<p>Please have a look at the <strong class="selflink">VirtualBox</strong> page. It contains instructions on how to properly download and verify the Whonix virtual machine images. There is also help available in form of screenshot or video instructions.
+</p><p>If you still need help, please go to the <a target="_blank" class="external text" href="https://www.whonix.org/forum">Whonix User Help Forum</a>.
+</p>
+<h2><span class="mw-headline" id="Boot_Options">Boot Options</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=VirtualBox&amp;action=edit&amp;section=37" title="Edit section: Boot Options">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>In the grub boot menu you can choose for two seconds. Two kernels are installed by default.
+</p>
+<ul><li> The default 686-pae kernel.</li>
+<li> A 486 kernel for compatibility.</li></ul>
+<p><b>If Whonix works out of the box, you do not need to change anything</b> and you can stick to the default 686-pae kernel.
+</p><p>In case you need to <a href="#PAE_crash"> disable PAE</a>, use the 486 kernel.
+</p>
+<h2><span class="mw-headline" id="Virtual_Box_Disk_Images">Virtual Box Disk Images</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=VirtualBox&amp;action=edit&amp;section=38" title="Edit section: Virtual Box Disk Images">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<h3><span class="mw-headline" id="INCONSISTENCY_BETWEEN_GRAIN_TABLE_AND_BACKUP_GRAIN_TABLE">INCONSISTENCY BETWEEN GRAIN TABLE AND BACKUP GRAIN TABLE</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=VirtualBox&amp;action=edit&amp;section=39" title="Edit section: INCONSISTENCY BETWEEN GRAIN TABLE AND BACKUP GRAIN TABLE">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<p>Maybe this will help: Try convert the vmdk to vdi, remove the old vmdk from the VM and attach the new vdi.
+</p>
+<h1><span class="mw-headline" id="See_Also">See Also</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=VirtualBox&amp;action=edit&amp;section=40" title="Edit section: See Also">edit</a><span class="mw-editsection-bracket">]</span></span></h1>
+<ul><li> <a href="/wiki/VirtualBox_Guest_Additions" title="VirtualBox Guest Additions">VirtualBox Guest Additions</a></li>
+<li> <a href="/wiki/VirtualBox_Guest_Additions#Clipboard_Sharing" title="VirtualBox Guest Additions">Clipboard Sharing</a></li>
+<li> <a href="/wiki/VirtualBox_Guest_Additions#Shared_Folder" title="VirtualBox Guest Additions">Shared Folder</a></li>
+<li> <a href="/wiki/Security_Guide#VirtualBox_Hardening" title="Security Guide">Security Guide, VirtualBox_Hardening</a></li></ul>
+<h1><span class="mw-headline" id="Footnotes">Footnotes</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=VirtualBox&amp;action=edit&amp;section=41" title="Edit section: Footnotes">edit</a><span class="mw-editsection-bracket">]</span></span></h1>
+<ol class="references">
+<li id="cite_note-1"><span class="mw-cite-backlink"><a href="#cite_ref-1">↑</a></span> <span class="reference-text"><a target="_blank" class="external free" href="https://www.virtualbox.org">https://www.virtualbox.org</a></span>
+</li>
+<li id="cite_note-anonymousdownload-2"><span class="mw-cite-backlink">↑ <sup><a href="#cite_ref-anonymousdownload_2-0">2.0</a></sup> <sup><a href="#cite_ref-anonymousdownload_2-1">2.1</a></sup> <sup><a href="#cite_ref-anonymousdownload_2-2">2.2</a></sup> <sup><a href="#cite_ref-anonymousdownload_2-3">2.3</a></sup> <sup><a href="#cite_ref-anonymousdownload_2-4">2.4</a></sup></span> <span class="reference-text">By using the <a target="_blank" class="external text" href="https://www.torproject.org/download/download-easy.html.en">Tor Browser Bundle</a> (TBB). For an introduction, see <a href="/wiki/Tor_Browser" title="Tor Browser">Tor Browser</a>. See also <a href="/wiki/Hide_Tor_and_Whonix_from_your_ISP" title="Hide Tor and Whonix from your ISP">Hide Tor and Whonix from your ISP</a>.</span>
+</li>
+<li id="cite_note-3"><span class="mw-cite-backlink"><a href="#cite_ref-3">↑</a></span> <span class="reference-text">Unencrypted, unauthenticated http.</span>
+</li>
+<li id="cite_note-4"><span class="mw-cite-backlink"><a href="#cite_ref-4">↑</a></span> <span class="reference-text">Fallback mirror if the current one is unaccessible, try this one: <a target="_blank" class="external free" href="http://whonix.thecthulhu.com">http://whonix.thecthulhu.com</a></span>
+</li>
+<li id="cite_note-5"><span class="mw-cite-backlink"><a href="#cite_ref-5">↑</a></span> <span class="reference-text"><a href="/wiki/Warning#Man-in-the-middle_attacks" title="Warning">Man-in-the-middle attacks</a> could poison the download.</span>
+</li>
+<li id="cite_note-openpgpverification-6"><span class="mw-cite-backlink">↑ <sup><a href="#cite_ref-openpgpverification_6-0">6.0</a></sup> <sup><a href="#cite_ref-openpgpverification_6-1">6.1</a></sup> <sup><a href="#cite_ref-openpgpverification_6-2">6.2</a></sup></span> <span class="reference-text">It does not matter if you did the bulk download over an insecure channel, if you use OpenPGP verification at the end.</span>
+</li>
+<li id="cite_note-7"><span class="mw-cite-backlink"><a href="#cite_ref-7">↑</a></span> <span class="reference-text">Torrent clients known to work: transmission, Vuze, Deluge. Check this <a target="_blank" class="external text" href="https://en.wikipedia.org/wiki/Magnet_URI_scheme#Clients_table">clients table</a>. If nobody is <a target="_blank" class="external text" href="http://wiki.answers.com/Q/What_are_seeders_and_leechers">seeding</a> at the time, only clients with the <a target="_blank" class="external text" href="https://en.wikipedia.org/wiki/Magnet_URI_scheme#Normal_.28as.29">"as"</a> feature can be used, because we are providing a <a target="_blank" class="external text" href="https://en.wikipedia.org/wiki/BitTorrent#Web_seeding">webseed</a>.</span>
+</li>
+<li id="cite_note-atleastssl-8"><span class="mw-cite-backlink"><a href="#cite_ref-atleastssl_8-0">↑</a></span> <span class="reference-text">It's at least as secure as <a href="/wiki/SSL" title="SSL">SSL</a> and <a target="_blank" class="external text" href="https://en.wikipedia.org/wiki/SHA-1">SHA-1</a>, better than plain http. This is because you get the torrent file or magnet link over https and the torrent/magnet client checks the SHA-1 checksum at the end. Using OpenPGP verification would be safer.</span>
+</li>
+<li id="cite_note-9"><span class="mw-cite-backlink"><a href="#cite_ref-9">↑</a></span> <span class="reference-text">You need Tor to be able to download over <code>.onion</code> (Tor Browser, Whonix, Tails, etc.)</span>
+</li>
+<li id="cite_note-fromsourcecode-10"><span class="mw-cite-backlink">↑ <sup><a href="#cite_ref-fromsourcecode_10-0">10.0</a></sup> <sup><a href="#cite_ref-fromsourcecode_10-1">10.1</a></sup></span> <span class="reference-text">When you build from source code, audit the source code for being non-malicious and reasonably bug free, you do not have to <a href="/wiki/Trust" title="Trust">Trust</a> the developers, the website or the SSL certificate authorities.</span>
+</li>
+<li id="cite_note-11"><span class="mw-cite-backlink"><a href="#cite_ref-11">↑</a></span> <span class="reference-text">By additional verification that you got the source code from the original authors and by ensuring you're using the same source code as others you get better security.</span>
+</li>
+<li id="cite_note-12"><span class="mw-cite-backlink"><a href="#cite_ref-12">↑</a></span> <span class="reference-text">OpenPGP is a standard for data encryption that provides cryptographic privacy and authentication through the use of keys owned by its users.</span>
+</li>
+<li id="cite_note-13"><span class="mw-cite-backlink"><a href="#cite_ref-13">↑</a></span> <span class="reference-text">You could alternatively search for Portable VirtualBox.</span>
+</li>
+<li id="cite_note-14"><span class="mw-cite-backlink"><a href="#cite_ref-14">↑</a></span> <span class="reference-text">You need both Whonix-Gateway.ova and Whonix-Workstation.ova images. Whonix is a two machine setup.</span>
+</li>
+<li id="cite_note-15"><span class="mw-cite-backlink"><a href="#cite_ref-15">↑</a></span> <span class="reference-text">
+<span id="WhonixNewsBlogOtherChoices"></span>
+Other choices.
+<ul><li> <a target="_blank" class="external text" href="https://www.whonix.org/blog/category/important/feed/">Whonix Important Blog RSS</a> <a href="https://www.whonix.org/blog/category/important/feed/" target="_blank"><img alt="Whonix Important Blog Rss" src="/w/images/thumb/0/0c/Feed-icon.jpeg/12px-Feed-icon.jpeg" width="12" height="12" srcset="/w/images/thumb/0/0c/Feed-icon.jpeg/18px-Feed-icon.jpeg 1.5x, /w/images/thumb/0/0c/Feed-icon.jpeg/24px-Feed-icon.jpeg 2x" /></a></li>
+<li> <a target="_blank" class="external text" href="https://www.whonix.org/blog/feed/">Whonix Feature Blog RSS</a> <a href="https://www.whonix.org/blog/feed/" target="_blank"><img alt="Whonix Feature Blog rss" src="/w/images/thumb/0/0c/Feed-icon.jpeg/12px-Feed-icon.jpeg" width="12" height="12" srcset="/w/images/thumb/0/0c/Feed-icon.jpeg/18px-Feed-icon.jpeg 1.5x, /w/images/thumb/0/0c/Feed-icon.jpeg/24px-Feed-icon.jpeg 2x" /></a></li>
+<li> subscribe to <a target="_blank" class="external text" href="https://www.whonix.org/blog">Whonix Blog</a> by e-mail (when you are <a target="_blank" class="external text" href="https://www.whonix.org/blog/wp-login.php">registered</a> at Whonix Blog, you can choose to which categories you want to subscribe)</li>
+<li> Whonix Blog posts are mirrored to <a target="_blank" class="external text" href="https://www.whonix.org/forum/">Whonix User Forum</a> You could subscribe by <a target="_blank" class="external text" href="http://blog.onlineinstitute.com/forum-hosting/email-notifications-new-posts-ismf/">e-mail</a> or by rss (<a target="_blank" class="external text" href="https://www.whonix.org/forum/index.php?action=.xml;type=rss;sa=recent;limit=20">recent posts</a> <a href="https://www.whonix.org/forum/index.php?action=.xml;type=rss;sa=recent;limit=20" target="_blank"><img alt="Whonix forum recent posts rss" src="/w/images/thumb/0/0c/Feed-icon.jpeg/12px-Feed-icon.jpeg" width="12" height="12" srcset="/w/images/thumb/0/0c/Feed-icon.jpeg/18px-Feed-icon.jpeg 1.5x, /w/images/thumb/0/0c/Feed-icon.jpeg/24px-Feed-icon.jpeg 2x" /></a> or <a target="_blank" class="external text" href="https://www.whonix.org/forum/index.php?action=.xml;type=rss;sa=news;limit=20">recent topics</a> <a href="https://www.whonix.org/forum/index.php?action=.xml;type=rss;sa=news;limit=20" target="_blank"><img alt="Whonix forum recent topics rss" src="/w/images/thumb/0/0c/Feed-icon.jpeg/12px-Feed-icon.jpeg" width="12" height="12" srcset="/w/images/thumb/0/0c/Feed-icon.jpeg/18px-Feed-icon.jpeg 1.5x, /w/images/thumb/0/0c/Feed-icon.jpeg/24px-Feed-icon.jpeg 2x" /></a> [<a target="_blank" class="external text" href="http://www.simplemachines.org/community/index.php?topic=25009.0">more rss options</a>]).</li>
+<li> Whonix Blog posts are mirrored to <a href="/wiki/Mailing_Lists#whonix-devel" title="Mailing Lists">Whonix Development Mailing List</a></li>
+<li> <a href="/wiki/Download#Social_Media_Profiles" title="Download">Whonix Social Media Profiles</a></span></li></ul>
+</li>
+<li id="cite_note-16"><span class="mw-cite-backlink"><a href="#cite_ref-16">↑</a></span> <span class="reference-text">Such as when a version becomes unsupported, if manual action is required, if major features break, or if security vulnerabilities are found. The policy is to use Whonix News as rarely as possible.</span>
+</li>
+<li id="cite_note-17"><span class="mw-cite-backlink"><a href="#cite_ref-17">↑</a></span> <span class="reference-text">
+Whonix doesn't use network manager to either manage eth0 or eth1.
+
+<ul><li> In <a href="/wiki/Non-Qubes-Whonix" title="Non-Qubes-Whonix">Non-Qubes-Whonix</a> network is managed by ifupdown.</li>
+<li> <a href="/wiki/Qubes" title="Qubes">Qubes-Whonix</a> uses custom <a target="_blank" class="external text" href="https://github.com/Whonix/qubes-whonix/blob/master/lib/systemd/system/qubes-whonix-network.service">/lib/systemd/system/qubes-whonix-network.service</a> and is unaffected by this issue.</li></ul>
+
+We do not want to port to network manager at this point, because there is no reason besides this issue. For one reason, because ifupdown works well with Whonix for a long time and is well tested. It is unclear if network manager, specifically cli, is ready for prime time yet. What network manager reports is that it does not manage these devices. It's not an error. Just an information. What we would like to do would be hiding that systray item by default. Or suppress that information. Or not starting that systray by default. Because that would cause less confusion. Network manager is installed to make it easier for users setting up VPNs using its graphical user interface.<br />
+All attempts so far fixing it have failed. Help required for fixing it.<br />
+Long standing known issue.<br />
+<a target="_blank" class="external text" href="https://www.whonix.org/forum/index.php/topic,532.0.html">Fix Unmanaged Devices Network Manager</a><br /></span>
+</li>
+</ol>
+<br /><hr /><font size="-3"><a href="/wiki/Special:UserLogin" title="Special:UserLogin">Log in</a> | <a href="/wiki/Special:OpenIDLogin" title="Special:OpenIDLogin">OpenID</a> | <a href="/wiki/Contact" title="Contact">Contact</a> | <a href="/wiki/Impressum" title="Impressum">Impressum</a> | <a href="/wiki/Datenschutz" title="Datenschutz">Datenschutz</a> | <a href="/wiki/Disclaimer" title="Disclaimer">Haftungsausschluss</a> | <a href="/wiki/Investors" title="Investors">Investors</a> | <a href="/wiki/Donate" title="Donate">Donate</a>
+<p><a target="_blank" class="external text" href="https://www.whonix.org/wiki/VirtualBox">https</a> | <a href="http://whonix.org.nyud.net/wiki/VirtualBox"rel="nofollow">Mirror</a> | <a href="https://xxxxxxxxxxh5kyrx.tor2web.org/wiki/VirtualBox" rel="nofollow">Mirror</a> | Share: <a href="https://twitter.com/intent/tweet?url=https://www.whonix.org/wiki/VirtualBox&text=&via=Whonix">Twitter</a>
+&#x007C;
+<a href="https://facebook.com/sharer.php?u=https://www.whonix.org/wiki/VirtualBox">Facebook</a>
+&#x007C;
+<a href="https://plus.google.com/share?url=https://www.whonix.org/wiki/VirtualBox">Google+</a>
+</p><p>This is a wiki. Want to improve this page? Help welcome, volunteer contributions are happily considered! See <a target="_blank" class="external text" href="https://github.com/Whonix/Whonix/blob/master/CONTRIBUTING.md">Conditions for Contributions to Whonix</a>, then <a href="/w/index.php?title=VirtualBox&amp;action=edit">Edit</a>! IP addresses are scrubbed, but editing over Tor is recommended. Edits are held for moderation.
+</p><p>Whonix (<a href="https://plus.google.com/108150429836421683225" rel="publisher" />g+</a>) is a <a target="_blank" class="external text" href="http://www.openinventionnetwork.com/licensees.php">licensee</a> of the Open Invention Network. Unless otherwise noted above, content of this  page is <a href="/wiki/Whonix:Copyrights" title="Whonix:Copyrights">copyrighted</a> and licensed under the same Free (as in speech) <a target="_blank" class="external text" href="https://github.com/Whonix/Whonix/blob/master/debian/copyright">license</a> as Whonix itself.
+</font>
+</p>
+<!-- 
+NewPP limit report
+CPU time usage: 0.412 seconds
+Real time usage: 0.426 seconds
+Preprocessor visited node count: 1995/1000000
+Preprocessor generated node count: 6942/1000000
+Post‐expand include size: 29320/2097152 bytes
+Template argument size: 3755/2097152 bytes
+Highest expansion depth: 18/40
+Expensive parser function count: 0/100
+-->
+</div>          </div></div>
+                <!-- /innerbodycontent -->
+
+                <!-- printfooter -->
+        <div class="printfooter">
+        Retrieved from "<a dir="ltr" href="https://www.whonix.org/w/index.php?title=VirtualBox&amp;oldid=19108">https://www.whonix.org/w/index.php?title=VirtualBox&amp;oldid=19108</a>"        </div>
+        <!-- /printfooter -->
+                        <!-- catlinks -->
+        <div id='catlinks' class='catlinks'><div id="mw-normal-catlinks" class="mw-normal-catlinks"><a href="/wiki/Special:Categories" title="Special:Categories">Category</a>: <ul><li><a href="/wiki/Category:Documentation" title="Category:Documentation">Documentation</a></li></ul></div></div>        <!-- /catlinks -->
+                        <div class="visualClear"></div>
+        <!-- debughtml -->
+                <!-- /debughtml -->
+      </div>
+      <!-- /bodyContent -->
+    </section>
+    <!-- /content -->
+
+      <!-- footer -->
+
+      
+      <div id="footer" class="footer container">
+        <div class="row">
+    
+            <ul id="footer-places">
+                              <li id="footer-places-Impressum"><a href="/wiki/Impressum" title="Impressum">Impressum</a></li>
+                              <li id="footer-places-Datenschutz"><a href="/wiki/Datenschutz" title="Datenschutz">Datenschutz</a></li>
+                              <li id="footer-places-Haftungsausschluss"><a href="/wiki/Haftungsausschluss" title="Haftungsausschluss">Haftungsausschluss</a></li>
+                              <li id="footer-places-Donate"><a href="/wiki/Donate" title="Donate">Donate</a></li>
+                              <li id="footer-places-Investors"><a href="/wiki/Investors" title="Investors">Investors</a></li>
+                              <li id="footer-places-mobileview"><a href="https://www.whonix.org/w/index.php?title=VirtualBox&amp;mobileaction=toggle_view_mobile" class="noprint stopMobileRedirectToggle">Mobile view</a></li>
+                            <li id="pt-login"><a href="/w/index.php?title=Special:UserLogin&returnto=VirtualBox">Log in</a></li>            </ul>
+                            </div>
+      </div>
+      <!-- /footer -->
+
+
+    <script>/*<![CDATA[*/window.jQuery && jQuery.ready();/*]]>*/</script><script>if(window.mw){
+mw.loader.state({"skins.strapping":"loading","site":"loading","user":"ready","user.groups":"ready"});
+}</script>
+<script>if(window.mw){
+document.write("\u003Cscript src=\"https://www.whonix.org/w/load.php?debug=false\u0026amp;lang=en\u0026amp;modules=skins.strapping\u0026amp;only=scripts\u0026amp;skin=strapping\u0026amp;*\"\u003E\u003C/script\u003E");
+}</script>
+<script>if(window.mw){
+mw.loader.load(["ext.cite","mediawiki.toc","mediawiki.action.view.postEdit","mediawiki.user","mediawiki.hidpi","mediawiki.page.ready","mediawiki.searchSuggest","ext.uls.pt","ext.gadget.ReferenceTooltips","ext.flaggedRevs.advanced"],null,true);
+}</script>
+<script>if(window.mw){
+document.write("\u003Cscript src=\"https://www.whonix.org/w/load.php?debug=false\u0026amp;lang=en\u0026amp;modules=site\u0026amp;only=scripts\u0026amp;skin=strapping\u0026amp;*\"\u003E\u003C/script\u003E");
+}</script>
+<script>if(window.mw){
+mw.config.set({"wgBackendResponseTime":512});
+}</script>
+  </body>
+<!-- Cached 20151112193832 -->
+</html>
