@@ -35,6 +35,13 @@
 	border: 5px solid black;
       }
       
+      section {
+          padding-top               : 0px;
+          padding-bottom            : 0px;
+          margin-top                : 0px;
+          margin-bottom             : 0px;
+    }
+      
       header {
 	height: 275px;
 	color: white;
