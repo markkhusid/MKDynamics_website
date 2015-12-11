@@ -58,7 +58,7 @@
       background	: gray;
       position		: relative;
       width		: 1250px;
-      height		: 1000px;
+      height		: 2000px;
       top		: 000px;
       left		: 0px;
       float		: left;
@@ -134,7 +134,7 @@
 
 
 	<h2>
-	  Computer Security
+	  Commputer Security - Kali Linux 2.0
 	</h2>
       </hgroup>
     
@@ -175,55 +175,10 @@
 	<hgroup>
 
 	<div class="loose_text">
-            loose text	  
+            Kali Linux is a specially designed build of Debian that is tailor 
+            made for the computer security community.  It is preloaded with 
+            tools used by computer security researchers and penetration testers.
 	</div> <!-- .loose-text -->
-	
-	<hgroup>
-	  <h3>
-	    h3
-	  </h3>
-	</hgroup>
-	<ul>
-	  
-	  <li>list title</li>
-	  <ul>
-	    <li>1</li>
-	    <li>2</li>
-	    <li>3</li>
-	  </ul>
-	  
-	  <li>Current available</li>
-	  <ul>
-	    <li>10A maximum</li>
-	  </ul>
-	  
-	  <li>Voltage Output</li>
-	  <ul>
-	    <li>Nominal output voltage: 12V</li>
-	    <li>Allowable ripple voltage: 50mV peak to peak</li>
-	  </ul>
-	  
-	  <li>Current Output</li>
-	  <ul>
-	    <li>Minimum load: 0 Amps</li>
-	    <li>Maximum load: 20 mA</li>
-	  </ul>
-	  
-	  <li>Environment</li>
-	  <ul>
-	    <li>Interfaces to household wiring</li>
-	    <li>Will see outdoor use</li>
-	    <li>Exposed to lightning</li>
-	    <li>Must survive reversed input voltage</li>
-	    <li>Must survive overvoltage and undervoltage transients</li>
-	    <li>Must provide 20ms output holdup at maximum load</li>
-	  </ul>
-	  
-	  <li>Efficiency</li>
-	  <ul>
-	    <li>Must be greater than 90%</li>
-	  </ul>
-	</ul>
 
       </div> <!-- .current_project_1 -->
     </section> <!-- first_section -->
@@ -232,64 +187,53 @@
      
     <section class="second_section">
       
-      <hgroup>
-	<h2>
-	  Circuit Schematic
-	</h2>
-      </hgroup>
+        <hgroup>
+            <h2>
+                Kali Linux with terminal open
+            </h2>
+        </hgroup>
 	
-      <div class="current_project_2">
-	<div class="img">
-	  <img 
-	      src="images/LTC3639.jpeg"
-	      width="1200"
-	      height="800"
-	      title="120V to 12V 100mA Buck Converter"
-	    >
-	
-	  </embed>
-	</div> <!-- .img -->
-	
-	<hgroup>
-	  <h2>
-	    Discussion:
-	  </h2>
-	</hgroup>
-	
-	<div class="loose_text">
-	  The power supply control IC was chosen to be the Linear Technology LTC3639 High-Efficiency, 150V, 100mA, 
-	  Synchronous, Step-Down Regulator.  The IC has internal high-side and low-side MOSFETs and compensation.  
-	  The output voltage is programmed by selecting appropriate resistors for the feedback resistor divider string.
-	  Most importantly, during light load operation, the IC transitions into Burst Mode operation, which is a proprietart feature of Linear Technology.
-	  During Burst Mode Operation, the IC skips as many cycles as needed, while providing bursts in between, to maintain the set output voltage.
-	
-	</div> <!-- .loose_text -->
-	
-	<!--
-	<figure>
-	  <div class="img">
-	    <img 
-	      src="images/LTC3639_sim2.jpeg"
-	      width="360"
-	      height="300"
-	      title="120V to 12V 100mA Buck Converter"
-	    >
-	    <!--
-	    <img
-	      src="images/LTC3639_sim.jpeg"
-	      width="360"
-	      height="300"
-	      title="120V to 12V 100mA Buck Converter Simulation"
-	    >
-	    
-	  </div> <!-- .img 
-	  <div class="desc">
-	    <a href="">120V to 12V 100mA Buck Converter and Simulation</a>
-	  </div> <!-- .desc
-	</figure>
-	-->
-	</div> <!-- .current_project_2 -->
-      </section> <!-- second_section --> 
+        
+        <div class="current_project_2">
+            <!--<figure> fix the css for this-->
+                <div class="img">
+                    <img 
+                        src="images/kali_linux_w_term.jpeg"
+                        width="1200"
+                        height="800"
+                        title="Kali Linux 2.0 with Terminal open."
+                    >
+                </div> <!-- .img -->
+            <!--</figure>-->
+            
+            
+            <hgroup>
+                <h2>
+                    Discussion:
+                </h2>
+            </hgroup>
+            
+            <div class="loose_text">
+                The terminal window is where most tools are initiated from, 
+                although many tools can be accessed from the drop-down menu.
+            </div> <!-- .loose_text -->
+            
+            <!--<figure> fix the css for this-->
+                <div class="img">
+                    <img 
+                        src="images/kali_linux_w_menu.jpeg"
+                        width="1200"
+                        height="800"
+                        title="Kali Linux showing all of the tools in the menu."
+                    >
+                </div> <!-- .img -->
+                <div class="loose_text">
+                    loose text
+                </div> <!-- .loose_text -->
+            <!--</figure>-->
+            
+            </div> <!-- .current_project_2 -->
+        </section> <!-- second_section --> 
     
     <section class="third_section">
     
@@ -339,48 +283,4 @@
 <!--
   
 
-    <p> <b> Arduino Code </b> <br>
-      <a href="../code/AnalogInput_3_level_LED_blinker.ino" target="_top">Arduino Code that Reads ADC Input and Sends Data over Serial Bus</a><br>
-    </p>
-
-    <!--<p> <b> Click this link to run the script (not working yet): </b> <br>
-      <a href="../cgi-bin/pyscript.py">/cgi-bin/pyscript.py</a>
-    </p>
-    
-    <p> <b> Print Output File of Calcuation Program </b> <br>
-      <a href="../code/fortran_output.txt" target="_top">Report Energy Produced</a><br>
-    </p>
-    
-    <hr />
-    
-    <h3>
-    Links
-    </h3>
-    <p> <b> Links to Scientific/Mathematics Software </b> <br>
-      <a href="http://www.scilab.org" target="_top">Link to SciLAB</a><br>
-      <a href="http://www.gnuplot.info" target="_top">Link to GNUPlot</a><br>
-      <a href="http://www.fftw.org" target="_top">Link to FFTW's Main Website</a><br>
-      <a href="http://www.gnu.org/software/octave" target="_top">Link to GNU Octave</a><br>
-      <a href="http://www.scilab.org/scilab/features/xcos" target="_top">Link to Xcos (FOSS version of popular control systems modelling software)</a><br>
-      <a href="http://maxima.sourceforge.net/" target="_top">Link to Maxima (Computer Algebra System)</a><br>
-    </p>
-    
-    <p> <b> Links to CAD/CAM Software </b> <br>
-      <a href="http://librecad.org/cms/home.html" target="_top">Link to LibreCAD</a><br>
-    </P>
-    
-    <p> <b> Links to Text Editors Suitable for Programming </b> <br>
-      <a href="https://www.kde.org/applications/utilities/kate" target="_top">Link to KATE Advanced Text Editor</a><br>
-    </p>
-    
-    <p> <b> Links to Programming and Development Environments </b> <br>
-      <a href="http://netbeans.org" target="_top">Link to NetBeans IDE </a><br>
-      <a href="http://eclipse.org" target="_top">Link to Eclipse Luna IDE</a><br>
-      <a href="http://arduino.cc/en/main/software" target="_top">Link to Arduino IDE</a><br>
-    </p>
-    
-    <p> <b> Miscellaneous Links </b> <br>
-      <a href="http://arduino.cc/en/Main/ArduinoBoardTre" target="_top">One totally awesome Arduino board with built-in Linux Single Board Computer</a><br>
-    </p>
-  </div>
--->  
+ 
