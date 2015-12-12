@@ -71,7 +71,7 @@
       background	: gray;
       position		: relative;
       width		: 1250px;
-      height		: 2000px;
+      height		: 1000px;
       top		: 000px;
       left		: 0px;
       float		: left;
@@ -83,10 +83,36 @@
       border		: 5px solid black;
       background	: gray;
       position		: relative;
-      width		: 450px;
-      height		: 375px;
+      width		: 1250px;
+      height		: 1000px;
       top		: 10px;
-      left		: 20px;
+      left		: 0px;
+      float		: left;
+      margin		: 0px;
+      padding		: 10px;
+    }
+
+    .current_project_5 {
+      border		: 5px solid black;
+      background	: gray;
+      position		: relative;
+      width		: 1250px;
+      height		: 1050px;
+      top		: 10px;
+      left		: 0px;
+      float		: left;
+      margin		: 0px;
+      padding		: 10px;
+    }
+    
+    div[class^='current_project'], div[class*= 'current_project'] {
+      border		: 5px solid black;
+      background	: gray;
+      position		: relative;
+      width		: 1250px;
+      height		: 1050px;
+      top		: 10px;
+      left		: 0px;
       float		: left;
       margin		: 0px;
       padding		: 10px;
@@ -203,87 +229,111 @@
         <div class="current_project_3">
             <hgroup>
                 <h2>
-                    Kali Linux with terminal open
+                    Kali Linux 2.0 VirtualBox Setup
                 </h2>
             </hgroup>
         <!--<figure> fix the css for this-->
                 <div class="img">
                     <img 
-                        src="images/kali_linux_w_term.jpeg"
+                        src="images/Kali_VBox_setup.jpeg"
                         width="1200"
                         height="800"
-                        title="Kali Linux 2.0 with Terminal open."
+                        title="Kali Linux 2.0 VirtualBox Setup."
                     >
                 </div> <!-- .img -->
             <!--</figure>-->
-            
-            
-            <hgroup>
-                <h2>
-                    Discussion:
-                </h2>
-            </hgroup>
             
             <div class="loose_text">
-                The terminal window is where most tools are initiated from, 
-                although many tools can be accessed from the drop-down menu.
+                Kali Linux was given 2GB of memory, 2 processors and 20GB of hard drive space.  It runs snappy and responsive with this setup.  You may need more processors or memory if you will be using brute-force password cracker tools (legally of course).
             </div> <!-- .loose_text -->
-            
-            <!--<figure> fix the css for this-->
-                <div class="img">
-                    <img 
-                        src="images/kali_linux_w_menu.jpeg"
-                        width="1200"
-                        height="800"
-                        title="Kali Linux showing all of the tools in the menu."
-                    >
-                </div> <!-- .img -->
-                <div class="loose_text">
-                    
-                </div> <!-- .loose_text -->
-            <!--</figure>-->
-            
-            </div> <!-- .current_project_3 -->
-        </section> <!-- third_section --> 
+
+        </div> <!-- .current_project_3 -->
+    </section> <!-- third_section --> 
     
     <section class="fourth_section">
     
-       <!--
-      <hgroup>
-	<h2>
-	  Simulation Output
-	</h2>
-      </hgroup>
-
      
       <div class="current_project_4">
-	<figure>
-	  <div class="img">
+      
+        <hgroup>
+            <h2>
+                Kali Linux Running in Virtual Machine
+            </h2>
+        </hgroup>
+	
+	 <div class="img">
 	    <img
-	      src="images/LTC3639_sim2.jpeg"
-	      width="1150"
+	      src="images/kali_linux_w_term.jpeg"
+	      width="1200"
 	      height="800"
-	      title="50V to 12V 5A Buck Converter"
+	      title="Kali Linux 2.0 Running in Virtual Machine."
 	    >
-	    <!--  
-	    <img
-	      src="images/LTC3891_sim.jpeg"
-	      width="360"
-	      height="300"
-	      title="50V to 12V 5A Buck Converter Simulation"
-	    >
-        -->
-        
-	<!--  </div> <!-- .img -->
-	<!--
-            <div class="desc">
-	    120V to 12V 100mA Buck Simulation
-	  </div> <!-- .desc -->
-	<!--
-	</figure>
-    -->
+	</div> <!-- .img -->
+	
+	<div class="loose_text">
+                After successfully installing Kali Linux onto the virtual hard drive, it is basically ready to run; however, it is better to install the Virtual Box Guest Additions CD image.  This will allow you to, among other things, resize the window on the screen and still maintain high-resolution graphics.
+        </div> <!-- .loose_text -->
+	
       </div> <!-- .current_project_4 -->
     </section> <!-- .fourth_section -->
+    
+    <section class="fifth_section">
+    
+     
+      <div class="current_project_5">
+      
+        <hgroup>
+            <h2>
+                Installing VirtualBox Guest Additions for Kali Linux
+            </h2>
+        </hgroup>
+	
+	 <div class="img">
+	    <img
+	      src="images/Kali_VBox_guest_additions.jpeg"
+	      width="1200"
+	      height="800"
+	      title="Installing VirtualBox Guest Addtions for Kali Linux."
+	    >
+	</div> <!-- .img -->
+	
+	<div class="loose_text">
+                Navigate to /Devices/Insert Guest Additions CD Image.  The CD icon will pop up on the upper left hand corner of the Kali VM window.  For some reason, the script you need to run on this "CD" cannot be run directly.  It needs to be copied to the VM's harddive and permissions need to be set.  This is described very well in the following link: <br>
+                <a href="http://byteschef.com/kali-linux-install-on-virtualbox-with-guest-additions/">Kali Linux Install on VirtualBox with Guest Additions</a><br>
+                I found using the cp command to be troublesome, so I used the file manager to perform the copy, and the command line to change the permissions.  After the guest additions are installed, you need to reboot the virtual machine.  Once it boots back up, you will notice an immediate improvement in the graphics quality, and the resolution can now be adjusted.
+                
+        </div> <!-- .loose_text -->
+	
+      </div> <!-- .current_project_5 -->
+    </section> <!-- .fifth_section -->
+    
+    <section class="sixth_section">
+    
+     
+      <div class="current_project_6">
+      
+        <hgroup>
+            <h2>
+                Testing Internet Connectivity
+            </h2>
+        </hgroup>
+	
+	 <div class="img">
+	    <img
+	      src="images/test_inet_connection.jpeg"
+	      width="1200"
+	      height="800"
+	      title="Testing the internet test the internet connection."
+	    >
+	</div> <!-- .img -->
+	
+	<div class="loose_text">
+                Run a few simple commands to test the internet connection.  Notice that the Ethernet interface MAC address is spoofed, and the IP address is a non-routable NAT address used in LANs.  Pings to www.google.com go through the NAT, out of the host computer's physical interface and finally out of the gateway.
+                
+        </div> <!-- .loose_text -->
+	
+      </div> <!-- .current_project_6 -->
+    </section> <!-- .sixth_section -->
     
     
   </section>	<!-- .content -->
