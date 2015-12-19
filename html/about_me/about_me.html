@@ -15,88 +15,329 @@
 <html>
 
 <head>
-  <meta content="text/html; charset=ISO-8859-1" http-equiv="content-type">
+  <meta content="text/html; charset=utf-8" http-equiv="content-type">
+  <meta name="robots" content="follow" />
   
   <title>
     MK Dynamics - About Me
   </title>
   
   <link href="../css/styles.css" type = "text/css" rel = "stylesheet" />
-  
+
+  <style>
+    .content {
+	overflow: auto;
+	height: 80%; 
+	background: url("../images/galaxy1.jpg") no-repeat center center fixed;
+	background-size: cover;
+	background-position: center;
+	padding: 10px;
+	margin: 10px;
+	border: 5px solid black;
+      }
+      
+    h1, h2, h3, h4 {
+      color             : white;
+      display           : block;
+    }
+    
+    .current_project_1 {
+      border		: 5px solid black;
+      background	: gray;
+      position		: relative;
+      width		: 1250px;
+      height		: 70px;
+      top		: 10px;
+      left		: 0px;
+      float		: left;
+      margin		: 10px;
+      padding           : 10px;
+      padding-left	: 10px;
+    }
+    
+    .current_project_2 {
+      border		: 5px solid black;
+      background	: gray;
+      position		: relative;
+      width		: 1250px;
+      height		: 400px;
+      top		: 10px;
+      left		: 0px;
+      float		: left;
+      margin		: 10px;
+      padding-left	: 10px;
+    }
+    
+    .current_project_3 {
+      border		: 5px solid black;
+      background	: gray;
+      position		: relative;
+      width		: 1250px;
+      height		: 100px;
+      top		: 10px;
+      left		: 0px;
+      float		: left;
+      margin		: 10px;
+      padding-left	: 10px;
+    }
+    
+    .current_project_4 {
+      border		: 5px solid black;
+      background	: gray;
+      position		: relative;
+      width		: 1250px;
+      height		: 100px;
+      top		: 10px;
+      left		: 0px;
+      float		: left;
+      margin		: 10px;
+      padding		: 10px;
+    }
+
+    .current_project_5 {
+      border		: 5px solid black;
+      background	: gray;
+      position		: relative;
+      width		: 1250px;
+      height		: 100px;
+      top		: 10px;
+      left		: 0px;
+      float		: left;
+      margin		: 10px;
+      padding		: 10px;
+    }
+    
+    .current_project_6 {
+      border		: 5px solid black;
+      background	: gray;
+      position		: relative;
+      width		: 1250px;
+      height		: 150px;
+      top		: 10px;
+      left		: 0px;
+      float		: left;
+      margin		: 10px;
+      padding		: 10px;
+    }
+    
+    .current_project_7 {
+      border		: 5px solid black;
+      background	: gray;
+      position		: relative;
+      width		: 1250px;
+      height		: 100px;
+      top		: 10px;
+      left		: 0px;
+      float		: left;
+      margin		: 10px;
+      padding		: 10px;
+    }
+    
+     .current_project_8 {
+      border		: 5px solid black;
+      background	: gray;
+      position		: relative;
+      width		: 1250px;
+      height		: 1050px;
+      top		: 10px;
+      left		: 0px;
+      float		: left;
+      margin		: 10px;
+      padding		: 10px;
+    }
+    
+    .current_project_9 {
+      border		: 5px solid black;
+      background	: gray;
+      position		: relative;
+      width		: 1250px;
+      height		: 1050px;
+      top		: 10px;
+      left		: 0px;
+      float		: left;
+      margin		: 10px;
+      padding		: 10px;
+    }
+    
+    .current_project_10 {
+      border		: 5px solid black;
+      background	: gray;
+      position		: relative;
+      width		: 1250px;
+      height		: 1050px;
+      top		: 10px;
+      left		: 0px;
+      float		: left;
+      margin		: 10px;
+      padding		: 10px;
+    }
+
+        div .img {
+      margin		: 0px;
+      padding		: 10px;
+      height		: auto;
+      width		: auto;
+      float		: left;
+    }
+    
+    div .img img {
+      display		: inline;
+      margin		: 0px;
+      padding		: 0px;
+    }
+    
+    div .desc {
+      color		: white;
+      width		: 600px;
+      margin		: 5px;
+      padding		: 10px;
+    }
+    
+    ul {
+      color		: white;
+    }
+    
+    div .loose_text {
+      color		: white;
+    }
+  </style>
+
 </head>
 
 <body>
-
-  <h1> 
-    <big> <big> MK Dynamics </big> </big>    
-  </h1>
-
-  <h2>
-    About Me
-  </h2>
-  
-  <div id="nav">
-    <ul>
-      <li> <a href="../index.html">Home</a> </li>
-      <li> <a href="../HAM_radio/hamradio.html">HAM Radio</a> </li>
-      <li> <a href="../board_photos/board_photos.html">Board Photos</a> </li>
-      <li> <a href="../current_projects/current_projects.html">Current Projects</a></li>
-    </ul>
-  </div>
-  
-  <hr />
-  
-  <p>
-    <img src="../images/spacey.jpg" alt ="Space" class = "align-center medium" />
+    <div class="wrapper">
     
-    <div id="content">
-      <p> 
-	<b> Links to my social media sites </b> <br>
-	<p> 
-	  <b> Facebook </b> <br>
-	    <!-- Facebook Badge START --><a href="https://www.facebook.com/people/Mark-Khusid/100000462411441" title="Mark Khusid" style="font-family: &quot;lucida grande&quot;,tahoma,verdana,arial,sans-serif; font-size: 11px; font-variant: normal; font-style: normal; font-weight: normal; color: #3B5998; text-decoration: none;" target="_TOP">Mark Khusid</a><br /><a href="https://www.facebook.com/people/Mark-Khusid/100000462411441" title="Mark Khusid" target="_TOP"><img class="img" src="https://badge.facebook.com/badge/100000462411441.4019.220277045.png" style="border: 0px;" alt="" /></a><br /><a href="https://www.facebook.com/badges/" title="Make your own badge!" style="font-family: &quot;lucida grande&quot;,tahoma,verdana,arial,sans-serif; font-size: 11px; font-variant: normal; font-style: normal; font-weight: normal; color: #3B5998; text-decoration: none;" target="_TOP">Create Your Badge</a><!-- Facebook Badge END -->
-	  
-	  
-	  
-	  
+        <header>
+            <hgroup>
+                <h1> 
+                    <big> <big> MK Dynamics </big> </big>    
+                </h1>
+
+                <h2>
+                    About Me
+                </h2>
+  
+            <nav>
+                <ul>
+                    <li> <a href="../index.html">Home</a> </li>
+                    <li> <a href="../HAM_radio/hamradio.html">HAM Radio</a> </li>
+                    <li> <a href="../current_projects/current_projects.html">CurrentProjects</a> </li>
+                </ul>
+            </nav>
+  
+            <hr />
+        </header>
+  
+    <section class="content">
+        <section class="first_section">
+
+            <div class="current_project_1">
+                <hgroup> 
+                    <h2>
+                        Links to my social media sites
+                    </h2>
+                </hgroup>
+            </div>
+        </section>
+        
+        <section class="second_section">
+        
+        
+            <div class="current_project_2">
+        
+                <hgroup>
+                    <h2>
+                        Facebook
+                    </h2>
+                </hgroup>
+                    
+                <div class="loose_text">
+                            <!-- Facebook Badge START --><a href="https://www.facebook.com/people/Mark-Khusid/100000462411441" 
+	      title="Mark Khusid" style="font-family: &quot;lucida grande&quot;,tahoma,verdana,arial,sans-serif; 
+	      font-size: 11px; font-variant: normal; font-style: normal; font-weight: normal; color: #3B5998; 
+	      text-decoration: none;" target="_TOP">Mark Khusid</a><br /><a href="https://www.facebook.com/people/Mark-Khusid/100000462411441" 
+	      title="Mark Khusid" target="_TOP"><img class="img" src="https://badge.facebook.com/badge/100000462411441.4019.220277045.png" style="border: 
+	      0px;" alt="" /></a><br /><a href="https://www.facebook.com/badges/" title="Make your own badge!" 
+	      style="font-family: &quot;lucida grande&quot;,tahoma,verdana,arial,sans-serif; font-size: 11px; font-variant: normal; font-style: normal; 
+	      font-weight: normal; color: #3B5998; text-decoration: none;" target="_TOP">Create Your Badge</a><!-- Facebook Badge END -->
+                </div>
+                
+            </div>
+        </section>
+            
+        <section class="third_section">
+            <div class="current_project_3">
+                <hgroup>
+                    <h2>
+                        My Youtube Channel
+                    </h2>
+                    
+                <div class="loose_text">
+                    <a href="http://www.youtube.com/user/snarbywrx">Link to my Youtube channel</a>
+                </div>
+            </div>
+        </section>
       
-      <p>
-	<b> My Youtube Channel </b> <br>
-	<a href="http://www.youtube.com/user/snarbywrx">Link to my Youtube channel</a>
-      </p>
-
-      <p>
-	<b> My QRZ.com Page </b> <br>
-	<a href="http://www.qrz.com/db/AC2LH">Link to my page at QRZ.com</a>
-      </p>
+        <section class="fourth_section">
+            <div class="current_project_4">
+                <hgroup>
+                    <h2>
+                        My QRZ.com Page
+                    </h2>
+                </hgroup>
+            
+                <div class="loose_text">
+                    <a href="http://www.qrz.com/db/AC2LH">Link to my page at QRZ.com</a>
+                </div>
+            </div>
+        </section>
+        
+        <section class="fifth_section">
+            <div class="current_project_5">
+                <hgroup>
+                    <h2>
+                        My Wordpress Blog
+                    </h2>
+                </hgroup>
+                
+                <div class="loose_text">
+                    <a href="http://markkhusid.wordpress.com">Link to my Wordpress Blog</a>
+                </div>
+            </div>
+        </section>
+        
+        <section class="sixth_section">
+            <div class="current_project_6">
+                <hgroup>
+                    <h2>
+                        Scientific Papers
+                    </h2>
+                    <h3>
+                        SPIE
+                    </h3>
+                </hgroup>
+            
+                <div class="loose_text">
+                    <a href="http://proceedings.spiedigitallibrary.org/proceeding.aspx?articleid=869436">
+                    <b>Free-space optical communication systems (FOCUS): a U.S. Army overview</b> <br>
+                    Neil J. Vallestero ; <b>Mark Khusid</b> ; Narasimha S. Prasad ; John C. Carrano; George Duchak ; Jennifer C. Ricklin ; Mikhail A. Vorontsov
+                </div>
+            </div>  
+        </section>
+        
+        <section class="seventh_section">
+            <div class="current_project_7">
+                <div class="loose_text">
+                    My email address: markkhusid@gmail.com <br>
+                    <a href="mailto:markkhusid@gmail.com">Email Me</a> 
+                </div>
+            </div>
+        </section>
     
-      <p>
-	<b> My Wordpress Blog </b> <br>
-	<a href="http://markkhusid.wordpress.com">Link to my Wordpress Blog</a>
-      </p>    
-	
-      <hr />
-      <h3>
-	Scientific Papers
-	<hr />
-      </h3>
-      <p>
-	<b> SPIE </b> <br>
-	<a href="http://proceedings.spiedigitallibrary.org/proceeding.aspx?articleid=869436">
-	<b>Free-space optical communication systems (FOCUS): a U.S. Army overview</b> <br>
-	Neil J. Vallestero ; <b>Mark Khusid</b> ; Narasimha S. Prasad ; John C. Carrano; <br>
-	George Duchak ; Jennifer C. Ricklin ; Mikhail A. Vorontsov<br>
-      </p>
-      <hr />
-	
-      <p>
-	<b> My email address: markkhusid@gmail.com </b> <br>
-	<a href="mailto:markkhusid@gmail.com">Email Me</a> 
-      </p>
-    </div>
-
-  </p>
-
-</body>
+    </section>  <!-- .content -->
+    
+    </div>  <!-- .wrapper  -->
+    
+    </body>
 
 </html>
