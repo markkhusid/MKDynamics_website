@@ -85,10 +85,10 @@
       position		: relative;
       width		: 1250px;
       height		: 1000px;
-      top		: 10px;
-      left		: 20px;
+      top		: 0px;
+      left		: 0px;
       float		: left;
-      margin		: 0px;
+      margin		: 10px;
       padding		: 10px;
     }
     
@@ -98,10 +98,10 @@
       position		: relative;
       width		: 1250px;
       height		: 1000px;
-      top		: 10px;
-      left		: 20px;
+      top		: 0px;
+      left		: 0px;
       float		: left;
-      margin		: 0px;
+      margin		: 10px;
       padding		: 10px;
     }
     
@@ -242,129 +242,135 @@
     
     <section class="1_5_section">
 
-      <div class="current_project_2">
-	<hgroup>
-	  <h2>
-	    Design Analysis
-	  </h2>
-	</hgroup>
-	<figure>
-	  <div class="img">
-	    <img
-	      src="images/LTC3891 50V to 12V 5A Buck Converter Efficiency ver1.jpeg"
-	      width="1150"
-	      height="800"
-	      title="50V to 12V 5A Buck Converter Efficiency"
-	    >
-	    <div class="desc">
-	      Efficiency Simulation
-	    </div> <!-- .desc -->  
-	    
-	    <img
-	      src="images/LTC3891 50V to 12V 5A Buck Converter Loop Compensation ver2.jpeg"
-	      width="1150"
-	      height="800"
-	      title="50V to 12V 5A Buck Converter Loop Compensation"
-	    >
-	    
-	  </div> <!-- .img -->
-	  <div class="desc">
-	    Transient Response Simulation
-	  </div> <!-- .desc -->
-	  
-	  <div class="img">
-	    <img
-		src="images/LTC3891 50V to 12V 5A Buck Converter Power Stage Design ver1.jpeg"
-		width="1150"
-		height="800"
-		title="50V to 12V 5A Buck Converter Power Stage Design"
-	    >
-	  </div> <!-- .img -->
-	  <div class="desc">
-	    Power Stage Design
-	  </div> <!-- .desc -->
-	
-	</figure>
-    
-      </div> <!-- .current_project_2 -->
+        <div class="current_project_2">
+            <hgroup>
+            <h2>
+                Design Analysis
+            </h2>
+            </hgroup>
+            <figure>
+                <div class="img">
+                    <img
+                    src="images/LTC3891 50V to 12V 5A Buck Converter Efficiency ver1.jpeg"
+                    width="1150"
+                    height="800"
+                    title="50V to 12V 5A Buck Converter Efficiency"
+                    >
+                    <div class="desc">
+                    Efficiency Simulation
+                    </div> <!-- .desc -->  
+                    
+                    <img
+                    src="images/LTC3891 50V to 12V 5A Buck Converter Loop Compensation ver2.jpeg"
+                    width="1150"
+                    height="800"
+                    title="50V to 12V 5A Buck Converter Loop Compensation"
+                    >
+                </div> <!-- .img -->
+                    <div class="desc">
+                        Transient Response Simulation
+                    </div> <!-- .desc -->
+                
+                <div class="img">
+                    <img
+                        src="images/LTC3891 50V to 12V 5A Buck Converter Power Stage Design ver1.jpeg"
+                        width="1150"
+                        height="800"
+                        title="50V to 12V 5A Buck Converter Power Stage Design"
+                    >
+                </div> <!-- .img -->
+                    <div class="desc">
+                        Power Stage Design
+                    </div> <!-- .desc -->
+            
+            </figure>
+        
+        </div> <!-- .current_project_2 -->
 
     </section> <!-- .section 1_5_section -->
-     
-    <section class="second_section">
-      
-      
-	
-      <div class="current_project_3">
-      <hgroup>
-	<h2>
-	  Circuit Schematic
-	</h2>
-      </hgroup>
-	<div class="img">
-	  <img 
-	      src="images/LTC3891.jpeg"
-	      width="1200"
-	      height="800"
-	      title="50V to 12V 5A Buck Converter"
-	    >
-	
-	  </embed>
-	</div> <!-- .img -->
-	
-	<hgroup>
-	  <h2>
-	    Discussion:
-	  </h2>
-	</hgroup>
-	
-	<div class="loose_text">
-	  The power supply control IC was chosen to be the Linear Technology LTC3891.
-	  
-	  <!--High-Efficiency, 150V, 100mA, 
-	  Synchronous, Step-Down Regulator.  The IC has internal high-side and low-side MOSFETs and compensation.  
-	  The output voltage is programmed by selecting appropriate resistors for the feedback resistor divider string.
-	  Most importantly, during light load operation, the IC transitions into Burst Mode operation, which is a proprietart feature of Linear Technology.
-	  During Burst Mode Operation, the IC skips as many cycles as needed, while providing bursts in between, to maintain the set output voltage.
-	-->
-	</div> <!-- .loose_text -->
-	
 
-	</div> <!-- .current_project_2 -->
-      </section> <!-- second_section --> 
+<!-- ****************************************************************************** -->
+
+    <section class="second_section">
+	
+        <div class="current_project_3">
+            <hgroup>
+                <h2>
+                    Circuit Schematic
+                </h2>
+            </hgroup>
+            
+            <figure>
+                <div class="img">
+                    <img 
+                        src="images/LTC3891.jpeg"
+                        width="1150"
+                        height="800"
+                        title="50V to 12V 5A Buck Converter"
+                    >
+                
+                </div> <!-- .img -->
+                
+                <hgroup>
+                    <h2>
+                        Discussion:
+                    </h2>
+                </hgroup>
+                
+                <div class="desc">
+                    The power supply control IC was chosen to be the Linear Technology LTC3891.
+                    
+                    <!--High-Efficiency, 150V, 100mA, 
+                    Synchronous, Step-Down Regulator.  The IC has internal high-side and low-side MOSFETs and compensation.  
+                    The output voltage is programmed by selecting appropriate resistors for the feedback resistor divider string.
+                    Most importantly, during light load operation, the IC transitions into Burst Mode operation, which is a proprietart feature of Linear Technology.
+                    During Burst Mode Operation, the IC skips as many cycles as needed, while providing bursts in between, to maintain the set output voltage.
+                    -->
+                </div> <!-- .desc -->
+                
+            </figure>
+        </div> <!-- .current_project_3 -->
+    </section> <!-- second_section -->
+    
+<!-- ***************************************************************************************** -->
     
     <section class="third_section">
     
-      <div class="current_project_4">
-	<hgroup>
-	  <h2>
-	    Simulation Output
-	  </h2>
-	</hgroup>
-	<figure>
-	  <div class="img">
-	    <img
-	      src="images/LTC3891_sim.jpeg"
-	      width="1150"
-	      height="800"
-	      title="50V to 12V 5A Buck Converter"
-	    >
-	    <!--  
-	    <img
-	      src="images/LTC3891_sim.jpeg"
-	      width="360"
-	      height="300"
-	      title="50V to 12V 5A Buck Converter Simulation"
-	    >
-	    -->
-	  </div> <!-- .img -->
-	  <div class="desc">
-	    50V to 12V 5A Buck Simulation
-	  </div> <!-- .desc -->
-	</figure>
-      </div> <!-- .current_project_4 -->
+        <div class="current_project_4">
+            <hgroup>
+                <h2>
+                    Simulation Output
+                </h2>
+            </hgroup>
+            
+            <figure>
+                <div class="img">
+                    <img
+                    src="images/LTC3891_sim.jpeg"
+                    width="1150"
+                    height="800"
+                    title="50V to 12V 5A Buck Converter"
+                    >
+                    <!--  
+                    <img
+                    src="images/LTC3891_sim.jpeg"
+                    width="360"
+                    height="300"
+                    title="50V to 12V 5A Buck Converter Simulation"
+                    >
+                    -->
+                </div> <!-- .img -->
+                <div class="desc">
+                    50V to 12V 5A Buck Simulation
+                </div> <!-- .desc -->
+            </figure>
+        </div> <!-- .current_project_4 -->
     </section> <!-- .fourth_section -->
+
+<!-- **************************************************************************************** -->
     
     <section class="fifth_section">
+    
         <div class="current_project_5">
         
             <hgroup>
@@ -391,11 +397,11 @@
     </section>  <!-- fifth_section -->
     
     
-  </section>	<!-- .content -->
+</section>	<!-- .content -->
     
-  </div> <!-- .wrapper -->
+</div> <!-- .wrapper -->
 
-  </body>
+</body>
 
 </html>
   
