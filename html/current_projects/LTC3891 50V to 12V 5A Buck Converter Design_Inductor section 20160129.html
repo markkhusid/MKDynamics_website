@@ -1,0 +1,1918 @@
+<!DOCTYPE HTML">
+<HTML>
+ <HEAD>
+  <TITLE>LTC3891 50V to 12V 5A Buck Converter Design_Inductor section 20160129</TITLE>
+  <META NAME="generator" CONTENT="wxMaxima">
+  <META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=utf-8">
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    displayAlign: "left",
+    context: "MathJax"
+  })
+</script>
+<script type="text/javascript"
+  src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML">
+</script>
+  <link rel="stylesheet" type="text/css" href="LTC3891 50V to 12V 5A Buck Converter Design_Inductor section 20160129_htmlimg/LTC3891 50V to 12V 5A Buck Converter Design_Inductor section 20160129.css"/>
+ </HEAD>
+ <BODY>
+
+<!-- ***************************************************** -->
+<!--          Created with wxMaxima version 15.08.2         -->
+<!-- ***************************************************** -->
+<noscript><div class="error message">    Please enable JavaScript in order to get a 2d display of the equations embedded in this web page.</div></noscript>\(      \DeclareMathOperator{\abs}{abs}
+\)
+
+<!-- Code cell -->
+
+
+<TABLE><TR><TD>
+  <SPAN CLASS="prompt">
+(%i1) 
+  </SPAN></TD>
+  <TD><SPAN CLASS="input">
+<span class="code_function">reset</span>()<span class="code_endofline">;</span><span class="code_operator"></span>  </SPAN></TD>
+</TR></TABLE>
+\[\mathrm{\tt (\%o1) }\quad [\mathit{features},\mathit{\_\_},\mathit{labels},\mathit{tr-unique},\mathit{lispdisp}]\]
+
+
+<!-- Code cell -->
+
+
+<TABLE><TR><TD>
+  <SPAN CLASS="prompt">
+(%i2) 
+  </SPAN></TD>
+  <TD><SPAN CLASS="input">
+<span class="code_function">kill</span>(<span class="code_variable">all</span>)<span class="code_endofline">;</span><span class="code_operator"></span>  </SPAN></TD>
+</TR></TABLE>
+\[\mathrm{\tt (\%o0) }\quad \mathit{done}\]
+
+
+<!-- Code cell -->
+
+
+<TABLE><TR><TD>
+  <SPAN CLASS="prompt">
+(%i1) 
+  </SPAN></TD>
+  <TD><SPAN CLASS="input">
+<span class="code_variable">fpprec</span> <span class="code_operator">:</span> <span class="code_number">4</span><span class="code_endofline">;</span><span class="code_operator"></span>  </SPAN></TD>
+</TR></TABLE>
+\[\mathrm{\tt (\%o1) }\quad 4\]
+
+
+<!-- Code cell -->
+
+
+<TABLE><TR><TD>
+  <SPAN CLASS="prompt">
+(%i2) 
+  </SPAN></TD>
+  <TD><SPAN CLASS="input">
+<span class="code_function">load</span>(<span class="code_variable">unit</span>)<span class="code_endofline">;</span><span class="code_operator"></span>  </SPAN></TD>
+</TR></TABLE>
+\[\mbox{}\\*******************************************************************\mbox{}\\*\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,Units\,version\,0.50\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,*\mbox{}\\*\,\,\,\,\,\,\,\,\,\,Definitions\,based\,on\,the\,NIST\,Reference\,on\,\,\,\,\,\,\,\,\,\,\,\,\,*\mbox{}\\*\,\,\,\,\,\,\,\,\,\,\,\,\,\,Constants,\,Units,\,and\,Uncertainty\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,*\mbox{}\\*\,\,\,\,\,\,\,Conversion\,factors\,from\,various\,sources\,including\,\,\,\,\,\,\,\,\,*\mbox{}\\*\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,NIST\,and\,the\,GNU\,units\,package\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,*\mbox{}\\*******************************************************************\mbox{}\\Redefining\,necessary\,functions...\mbox{}\\Initializing\,unit\,arrays...\mbox{}\\Done.\]\[\mathrm{\tt (\%o2) }\quad /usr/share/maxima/5.37.2/share/contrib/unit/unit.mac\]
+
+
+<!-- Title cell -->
+
+
+<P CLASS="title">
+Inductor Core Requirements and Calculations
+</P>
+
+
+<!-- Section cell -->
+
+
+<P CLASS="section">
+ 1 Inductor Core Data and Requirements
+</P>
+
+
+<!-- Code cell -->
+
+
+<TABLE><TR><TD>
+  <SPAN CLASS="prompt">
+(%i3) 
+  </SPAN></TD>
+  <TD><SPAN CLASS="input">
+<span class="code_function">set_display</span>(<span class="code_operator">'</span><span class="code_variable">xml</span>)<span class="code_endofline">$</span><span class="code_operator"></span>  </SPAN></TD>
+</TR></TABLE>
+
+
+
+<!-- Code cell -->
+
+
+<TABLE><TR><TD>
+  <SPAN CLASS="prompt">
+(%i4) 
+  </SPAN></TD>
+  <TD><SPAN CLASS="input">
+<span class="code_variable">f_switching</span><span class="code_operator">:</span> <span class="code_number">250</span><span class="code_operator">*</span><span class="code_variable">kHz</span><span class="code_endofline">;</span><span class="code_operator"></span>  </SPAN></TD>
+</TR></TABLE>
+\[\mathrm{\tt (\%o4) }\quad 250000\cdot \frac{1}{s}\]
+
+
+<!-- Code cell -->
+
+
+<TABLE><TR><TD>
+  <SPAN CLASS="prompt">
+(%i5) 
+  </SPAN></TD>
+  <TD><SPAN CLASS="input">
+<span class="code_function">convert</span>(<span class="code_variable">%</span>, <span class="code_variable">kHz</span>)<span class="code_endofline">;</span><span class="code_operator"></span>  </SPAN></TD>
+</TR></TABLE>
+\[\mathrm{\tt (\%o5) }\quad 250\cdot \mathit{kHz}\]
+
+
+<!-- Code cell -->
+
+
+<TABLE><TR><TD>
+  <SPAN CLASS="prompt">
+(%i6) 
+  </SPAN></TD>
+  <TD><SPAN CLASS="input">
+<span class="code_variable">T_switching</span><span class="code_operator">:</span> <span class="code_number">1</span><span class="code_operator">/</span><span class="code_variable">f_switching</span><span class="code_endofline">;</span><span class="code_operator"></span>  </SPAN></TD>
+</TR></TABLE>
+\[\mathrm{\tt (\%o6) }\quad \frac{1}{250000}\cdot s\]
+
+
+<!-- Code cell -->
+
+
+<TABLE><TR><TD>
+  <SPAN CLASS="prompt">
+(%i7) 
+  </SPAN></TD>
+  <TD><SPAN CLASS="input">
+<span class="code_function">float</span>(<span class="code_function">convert</span>(<span class="code_variable">%</span>, <span class="code_variable">%mus</span>))<span class="code_endofline">;</span><span class="code_operator"></span>  </SPAN></TD>
+</TR></TABLE>
+\[\mathrm{\tt (\%o7) }\quad 4.0\cdot \mathit{\%mus}\]
+
+
+<!-- Subsection cell -->
+
+
+<P CLASS="subsect">
+ &nbsp;1.1 Output Voltage
+</P>
+
+
+<!-- Code cell -->
+
+
+<TABLE><TR><TD>
+  <SPAN CLASS="prompt">
+(%i8) 
+  </SPAN></TD>
+  <TD><SPAN CLASS="input">
+<span class="code_variable">V_o</span><span class="code_operator">:</span> <span class="code_number">12</span><span class="code_operator">*</span><span class="code_variable">V</span><span class="code_endofline">;</span><span class="code_operator"></span>  </SPAN></TD>
+</TR></TABLE>
+\[\mathrm{\tt (\%o8) }\quad 12\cdot \frac{\mathit{kg}\cdot {{m}^{2}}}{{{s}^{3}}\cdot A}\]
+
+
+<!-- Code cell -->
+
+
+<TABLE><TR><TD>
+  <SPAN CLASS="prompt">
+(%i9) 
+  </SPAN></TD>
+  <TD><SPAN CLASS="input">
+<span class="code_function">convert</span>(<span class="code_variable">%</span>, <span class="code_variable">V</span>)<span class="code_endofline">;</span><span class="code_operator"></span>  </SPAN></TD>
+</TR></TABLE>
+\[\mathrm{\tt (\%o9) }\quad 12\cdot V\]
+
+
+<!-- Subsection cell -->
+
+
+<P CLASS="subsect">
+ &nbsp;1.2 Output Current
+</P>
+
+
+<!-- Code cell -->
+
+
+<TABLE><TR><TD>
+  <SPAN CLASS="prompt">
+(%i10) 
+  </SPAN></TD>
+  <TD><SPAN CLASS="input">
+<span class="code_variable">I_o_max_nom</span><span class="code_operator">:</span> <span class="code_number">5</span><span class="code_operator">*</span><span class="code_variable">A</span><span class="code_endofline">;</span><span class="code_operator"></span>  </SPAN></TD>
+</TR></TABLE>
+\[\mathrm{\tt (\%o10) }\quad 5\cdot A\]
+
+
+<!-- Text cell -->
+
+
+<P CLASS="comment">
+Set nominal operating current to worst case load current, until better information is developed.
+
+</P>
+
+
+<!-- Code cell -->
+
+
+<TABLE><TR><TD>
+  <SPAN CLASS="prompt">
+(%i11) 
+  </SPAN></TD>
+  <TD><SPAN CLASS="input">
+<span class="code_variable">I_o_nom</span><span class="code_operator">:</span> <span class="code_variable">I_o_max_nom</span><span class="code_endofline">;</span><span class="code_operator"></span>  </SPAN></TD>
+</TR></TABLE>
+\[\mathrm{\tt (\%o11) }\quad 5\cdot A\]
+
+
+<!-- Code cell -->
+
+
+<TABLE><TR><TD>
+  <SPAN CLASS="prompt">
+(%i12) 
+  </SPAN></TD>
+  <TD><SPAN CLASS="input">
+<span class="code_variable">I_o_min_nom</span><span class="code_operator">:</span> <span class="code_number">0</span>.<span class="code_number">1</span><span class="code_operator">*</span><span class="code_variable">A</span><span class="code_endofline">;</span><span class="code_operator"></span>  </SPAN></TD>
+</TR></TABLE>
+\[\mathrm{\tt (\%o12) }\quad \frac{1}{10}\cdot A\]
+
+
+<!-- Subsection cell -->
+
+
+<P CLASS="subsect">
+ &nbsp;1.3 Short Circuit Output Current (Limited by control loop circuit, assume 50% over nominal load current)
+</P>
+
+
+<!-- Text cell -->
+
+
+<P CLASS="comment">
+50% accounts for both ripple and margin above ripple
+
+</P>
+
+
+<!-- Code cell -->
+
+
+<TABLE><TR><TD>
+  <SPAN CLASS="prompt">
+(%i13) 
+  </SPAN></TD>
+  <TD><SPAN CLASS="input">
+<span class="code_variable">I_sc_peak</span><span class="code_operator">:</span> <span class="code_variable">I_o_max_nom</span><span class="code_operator">*</span><span class="code_number">1</span>.<span class="code_number">50</span><span class="code_endofline">;</span><span class="code_operator"></span>  </SPAN></TD>
+</TR></TABLE>
+\[\mathrm{\tt (\%o13) }\quad \frac{15}{2}\cdot A\]
+
+
+<!-- Code cell -->
+
+
+<TABLE><TR><TD>
+  <SPAN CLASS="prompt">
+(%i14) 
+  </SPAN></TD>
+  <TD><SPAN CLASS="input">
+<span class="code_function">float</span>(<span class="code_function">convert</span>(<span class="code_variable">%</span>, <span class="code_variable">A</span>))<span class="code_endofline">;</span><span class="code_operator"></span>  </SPAN></TD>
+</TR></TABLE>
+\[\mathrm{\tt (\%o14) }\quad 7.5\cdot A\]
+
+
+<!-- Subsection cell -->
+
+
+<P CLASS="subsect">
+ &nbsp;1.4 Inductor Ripple Current Guesstimate (will be calculated exactly in subsequent section)
+</P>
+
+
+<!-- Code cell -->
+
+
+<TABLE><TR><TD>
+  <SPAN CLASS="prompt">
+(%i15) 
+  </SPAN></TD>
+  <TD><SPAN CLASS="input">
+<span class="code_variable">Percent_current_ripple_peak_to_peak_guess</span><span class="code_operator">:</span> <span class="code_number">0</span>.<span class="code_number">35</span><span class="code_endofline">;</span><span class="code_operator"></span>  </SPAN></TD>
+</TR></TABLE>
+\[\mathrm{\tt (\%o15) }\quad 0.35\]
+
+
+<!-- Code cell -->
+
+
+<TABLE><TR><TD>
+  <SPAN CLASS="prompt">
+(%i16) 
+  </SPAN></TD>
+  <TD><SPAN CLASS="input">
+<span class="code_variable">I_ripple_peak_to_peak_max_guess</span><span class="code_operator">:</span> <span class="code_variable">I_o_max_nom</span><span class="code_operator">*</span><span class="code_variable">Percent_current_ripple_peak_to_peak_guess</span><span class="code_endofline">;</span><span class="code_operator"></span>  </SPAN></TD>
+</TR></TABLE>
+\[\mathrm{\tt (\%o16) }\quad \frac{7}{4}\cdot A\]
+
+
+<!-- Code cell -->
+
+
+<TABLE><TR><TD>
+  <SPAN CLASS="prompt">
+(%i17) 
+  </SPAN></TD>
+  <TD><SPAN CLASS="input">
+<span class="code_function">float</span>(<span class="code_function">convert</span>(<span class="code_variable">%</span>,<span class="code_variable">A</span>))<span class="code_endofline">;</span><span class="code_operator"></span>  </SPAN></TD>
+</TR></TABLE>
+\[\mathrm{\tt (\%o17) }\quad 1.75\cdot A\]
+
+
+<!-- Code cell -->
+
+
+<TABLE><TR><TD>
+  <SPAN CLASS="prompt">
+(%i18) 
+  </SPAN></TD>
+  <TD><SPAN CLASS="input">
+<span class="code_variable">%delta_I_ripple_max_guess</span><span class="code_operator">:</span> <span class="code_number">0</span>.<span class="code_number">5</span><span class="code_operator">*</span><span class="code_variable">I_ripple_peak_to_peak_max_guess</span><span class="code_endofline">;</span><span class="code_operator"></span>  </SPAN></TD>
+</TR></TABLE>
+\[\mathrm{\tt (\%o18) }\quad \frac{7}{8}\cdot A\]
+
+
+<!-- Code cell -->
+
+
+<TABLE><TR><TD>
+  <SPAN CLASS="prompt">
+(%i19) 
+  </SPAN></TD>
+  <TD><SPAN CLASS="input">
+<span class="code_function">float</span>(<span class="code_function">convert</span>(<span class="code_variable">%</span>,<span class="code_variable">A</span>))<span class="code_endofline">;</span><span class="code_operator"></span>  </SPAN></TD>
+</TR></TABLE>
+\[\mathrm{\tt (\%o19) }\quad 0.875\cdot A\]
+
+
+<!-- Subsection cell -->
+
+
+<P CLASS="subsect">
+ &nbsp;1.5 Input Voltage
+</P>
+
+
+<!-- Code cell -->
+
+
+<TABLE><TR><TD>
+  <SPAN CLASS="prompt">
+(%i20) 
+  </SPAN></TD>
+  <TD><SPAN CLASS="input">
+<span class="code_variable">V_i_max</span><span class="code_operator">:</span> <span class="code_number">56</span><span class="code_operator">*</span><span class="code_variable">V</span><span class="code_endofline">;</span><span class="code_operator"></span>  </SPAN></TD>
+</TR></TABLE>
+\[\mathrm{\tt (\%o20) }\quad 56\cdot \frac{\mathit{kg}\cdot {{m}^{2}}}{{{s}^{3}}\cdot A}\]
+
+
+<!-- Code cell -->
+
+
+<TABLE><TR><TD>
+  <SPAN CLASS="prompt">
+(%i21) 
+  </SPAN></TD>
+  <TD><SPAN CLASS="input">
+<span class="code_function">convert</span>(<span class="code_variable">%</span>,<span class="code_variable">V</span>)<span class="code_endofline">;</span><span class="code_operator"></span>  </SPAN></TD>
+</TR></TABLE>
+\[\mathrm{\tt (\%o21) }\quad 56\cdot V\]
+
+
+<!-- Code cell -->
+
+
+<TABLE><TR><TD>
+  <SPAN CLASS="prompt">
+(%i22) 
+  </SPAN></TD>
+  <TD><SPAN CLASS="input">
+<span class="code_variable">V_i_nom</span><span class="code_operator">:</span> <span class="code_number">50</span><span class="code_operator">*</span><span class="code_variable">V</span><span class="code_endofline">;</span><span class="code_operator"></span>  </SPAN></TD>
+</TR></TABLE>
+\[\mathrm{\tt (\%o22) }\quad 50\cdot \frac{\mathit{kg}\cdot {{m}^{2}}}{{{s}^{3}}\cdot A}\]
+
+
+<!-- Code cell -->
+
+
+<TABLE><TR><TD>
+  <SPAN CLASS="prompt">
+(%i23) 
+  </SPAN></TD>
+  <TD><SPAN CLASS="input">
+<span class="code_function">convert</span>(<span class="code_variable">%</span>,<span class="code_variable">V</span>)<span class="code_endofline">;</span><span class="code_operator"></span>  </SPAN></TD>
+</TR></TABLE>
+\[\mathrm{\tt (\%o23) }\quad 50\cdot V\]
+
+
+<!-- Code cell -->
+
+
+<TABLE><TR><TD>
+  <SPAN CLASS="prompt">
+(%i24) 
+  </SPAN></TD>
+  <TD><SPAN CLASS="input">
+<span class="code_variable">V_i_min</span><span class="code_operator">:</span> <span class="code_number">46</span><span class="code_operator">*</span><span class="code_variable">V</span><span class="code_endofline">;</span><span class="code_operator"></span>  </SPAN></TD>
+</TR></TABLE>
+\[\mathrm{\tt (\%o24) }\quad 46\cdot \frac{\mathit{kg}\cdot {{m}^{2}}}{{{s}^{3}}\cdot A}\]
+
+
+<!-- Code cell -->
+
+
+<TABLE><TR><TD>
+  <SPAN CLASS="prompt">
+(%i25) 
+  </SPAN></TD>
+  <TD><SPAN CLASS="input">
+<span class="code_function">convert</span>(<span class="code_variable">%</span>,<span class="code_variable">V</span>)<span class="code_endofline">;</span><span class="code_operator"></span>  </SPAN></TD>
+</TR></TABLE>
+\[\mathrm{\tt (\%o25) }\quad 46\cdot V\]
+
+
+<!-- Subsection cell -->
+
+
+<P CLASS="subsect">
+ &nbsp;1.6 Max Duty Ratio (Limited by control loop. Continuous Conduction mode OK)
+</P>
+
+
+<!-- Code cell -->
+
+
+<TABLE><TR><TD>
+  <SPAN CLASS="prompt">
+(%i26) 
+  </SPAN></TD>
+  <TD><SPAN CLASS="input">
+<span class="code_variable">D_max</span><span class="code_operator">:</span> <span class="code_number">1</span><span class="code_endofline">;</span><span class="code_operator"></span>  </SPAN></TD>
+</TR></TABLE>
+\[\mathrm{\tt (\%o26) }\quad 1\]
+
+
+<!-- Subsection cell -->
+
+
+<P CLASS="subsect">
+ &nbsp;1.7 Output Power
+</P>
+
+
+<!-- Code cell -->
+
+
+<TABLE><TR><TD>
+  <SPAN CLASS="prompt">
+(%i27) 
+  </SPAN></TD>
+  <TD><SPAN CLASS="input">
+<span class="code_variable">I_load</span><span class="code_operator">:</span> <span class="code_variable">I_o_max_nom</span><span class="code_endofline">;</span><span class="code_operator"></span>  </SPAN></TD>
+</TR></TABLE>
+\[\mathrm{\tt (\%o27) }\quad 5\cdot A\]
+
+
+<!-- Code cell -->
+
+
+<TABLE><TR><TD>
+  <SPAN CLASS="prompt">
+(%i28) 
+  </SPAN></TD>
+  <TD><SPAN CLASS="input">
+<span class="code_variable">P_o_max</span><span class="code_operator">:</span> <span class="code_variable">V_o</span><span class="code_operator">*</span><span class="code_variable">I_o_max_nom</span><span class="code_endofline">;</span><span class="code_operator"></span>  </SPAN></TD>
+</TR></TABLE>
+\[\mathrm{\tt (\%o28) }\quad 60\cdot \frac{\mathit{kg}\cdot {{m}^{2}}}{{{s}^{3}}}\]
+
+
+<!-- Code cell -->
+
+
+<TABLE><TR><TD>
+  <SPAN CLASS="prompt">
+(%i29) 
+  </SPAN></TD>
+  <TD><SPAN CLASS="input">
+<span class="code_function">convert</span>(<span class="code_variable">%</span>,<span class="code_variable">W</span>)<span class="code_endofline">;</span><span class="code_operator"></span>  </SPAN></TD>
+</TR></TABLE>
+\[\mathrm{\tt (\%o29) }\quad 60\cdot W\]
+
+
+<!-- Subsection cell -->
+
+
+<P CLASS="subsect">
+ &nbsp;1.8 Regulation of Inductor (Ratio of Copper Loss to Output Power as Percent)
+</P>
+
+
+<!-- Code cell -->
+
+
+<TABLE><TR><TD>
+  <SPAN CLASS="prompt">
+(%i30) 
+  </SPAN></TD>
+  <TD><SPAN CLASS="input">
+<span class="code_operator">'</span><span class="code_variable">%alpha</span><span class="code_operator">=</span>(<span class="code_variable">P_Cu_loss</span><span class="code_operator">/</span><span class="code_variable">P_o_max</span>)<span class="code_operator">*</span><span class="code_number">100</span><span class="code_endofline">;</span><span class="code_operator"></span>  </SPAN></TD>
+</TR></TABLE>
+\[\mathrm{\tt (\%o30) }\quad %alpha=\frac{5\cdot \mathit{P\_Cu\_loss}}{3}\cdot \frac{1}{A\cdot V}\]
+
+
+<!-- Code cell -->
+
+
+<TABLE><TR><TD>
+  <SPAN CLASS="prompt">
+(%i31) 
+  </SPAN></TD>
+  <TD><SPAN CLASS="input">
+<span class="code_variable">%alpha</span><span class="code_operator">:</span> <span class="code_number">0</span>.<span class="code_number">01</span><span class="code_endofline">;</span><span class="code_operator"></span>  </SPAN></TD>
+</TR></TABLE>
+\[\mathrm{\tt (\%o31) }\quad 0.01\]
+
+
+<!-- Subsection cell -->
+
+
+<P CLASS="subsect">
+ &nbsp;1.9 Inductor Power Loss
+</P>
+
+
+<!-- Code cell -->
+
+
+<TABLE><TR><TD>
+  <SPAN CLASS="prompt">
+(%i32) 
+  </SPAN></TD>
+  <TD><SPAN CLASS="input">
+<span class="code_variable">P_ind_loss</span><span class="code_operator">:</span> <span class="code_variable">P_o_max</span><span class="code_operator">*</span><span class="code_variable">%alpha</span><span class="code_endofline">;</span><span class="code_operator"></span>  </SPAN></TD>
+</TR></TABLE>
+\[\mathrm{\tt (\%o32) }\quad \frac{3}{5}\cdot \frac{\mathit{kg}\cdot {{m}^{2}}}{{{s}^{3}}}\]
+
+
+<!-- Code cell -->
+
+
+<TABLE><TR><TD>
+  <SPAN CLASS="prompt">
+(%i33) 
+  </SPAN></TD>
+  <TD><SPAN CLASS="input">
+<span class="code_function">float</span>(<span class="code_function">convert</span>(<span class="code_variable">%</span>,<span class="code_variable">W</span>))<span class="code_endofline">;</span><span class="code_operator"></span>  </SPAN></TD>
+</TR></TABLE>
+\[\mathrm{\tt (\%o33) }\quad 0.6\cdot W\]
+
+
+<!-- Subsection cell -->
+
+
+<P CLASS="subsect">
+ &nbsp;1.10 Operating Flux Density
+</P>
+
+
+<!-- Code cell -->
+
+
+<TABLE><TR><TD>
+  <SPAN CLASS="prompt">
+(%i34) 
+  </SPAN></TD>
+  <TD><SPAN CLASS="input">
+<span class="code_variable">B_max_nom</span><span class="code_operator">:</span> <span class="code_number">0</span>.<span class="code_number">25</span><span class="code_operator">*</span><span class="code_variable">T</span><span class="code_endofline">;</span><span class="code_operator"></span>  </SPAN></TD>
+</TR></TABLE>
+\[\mathrm{\tt (\%o34) }\quad \frac{1}{4}\cdot \frac{\mathit{kg}}{{{s}^{2}}\cdot A}\]
+
+
+<!-- Code cell -->
+
+
+<TABLE><TR><TD>
+  <SPAN CLASS="prompt">
+(%i35) 
+  </SPAN></TD>
+  <TD><SPAN CLASS="input">
+<span class="code_function">float</span>(<span class="code_function">convert</span>(<span class="code_variable">%</span>,<span class="code_variable">T</span>))<span class="code_endofline">;</span><span class="code_operator"></span>  </SPAN></TD>
+</TR></TABLE>
+\[\mathrm{\tt (\%o35) }\quad 0.25\cdot T\]
+
+
+<!-- Subsection cell -->
+
+
+<P CLASS="subsect">
+ &nbsp;1.11 Define Maximum Flux Density During Short Circuit
+</P>
+
+
+<!-- Code cell -->
+
+
+<TABLE><TR><TD>
+  <SPAN CLASS="prompt">
+(%i36) 
+  </SPAN></TD>
+  <TD><SPAN CLASS="input">
+<span class="code_variable">I_ripple_peak_to_peak_max_guess</span><span class="code_endofline">;</span><span class="code_operator"></span>  </SPAN></TD>
+</TR></TABLE>
+\[\mathrm{\tt (\%o36) }\quad \frac{7}{4}\cdot A\]
+
+
+<!-- Code cell -->
+
+
+<TABLE><TR><TD>
+  <SPAN CLASS="prompt">
+(%i37) 
+  </SPAN></TD>
+  <TD><SPAN CLASS="input">
+<span class="code_function">float</span>(<span class="code_function">convert</span>(<span class="code_variable">%</span>,<span class="code_variable">A</span>))<span class="code_endofline">;</span><span class="code_operator"></span>  </SPAN></TD>
+</TR></TABLE>
+\[\mathrm{\tt (\%o37) }\quad 1.75\cdot A\]
+
+
+<!-- Code cell -->
+
+
+<TABLE><TR><TD>
+  <SPAN CLASS="prompt">
+(%i38) 
+  </SPAN></TD>
+  <TD><SPAN CLASS="input">
+<span class="code_variable">I_sc_peak</span><span class="code_endofline">;</span><span class="code_operator"></span>  </SPAN></TD>
+</TR></TABLE>
+\[\mathrm{\tt (\%o38) }\quad \frac{15}{2}\cdot A\]
+
+
+<!-- Code cell -->
+
+
+<TABLE><TR><TD>
+  <SPAN CLASS="prompt">
+(%i39) 
+  </SPAN></TD>
+  <TD><SPAN CLASS="input">
+<span class="code_function">float</span>(<span class="code_function">convert</span>(<span class="code_variable">%</span>,<span class="code_variable">A</span>))<span class="code_endofline">;</span><span class="code_operator"></span>  </SPAN></TD>
+</TR></TABLE>
+\[\mathrm{\tt (\%o39) }\quad 7.5\cdot A\]
+
+
+<!-- Code cell -->
+
+
+<TABLE><TR><TD>
+  <SPAN CLASS="prompt">
+(%i40) 
+  </SPAN></TD>
+  <TD><SPAN CLASS="input">
+<span class="code_variable">%delta_B_max_sc_pk_pk</span><span class="code_operator">:</span> <span class="code_variable">B_max_nom</span><span class="code_operator">*</span>(<span class="code_variable">I_ripple_peak_to_peak_max_guess</span><span class="code_operator">/</span><span class="code_variable">I_sc_peak</span>)<span class="code_endofline">;</span><span class="code_operator"></span>  </SPAN></TD>
+</TR></TABLE>
+\[\mathrm{\tt (\%o40) }\quad \frac{7}{120}\cdot \frac{\mathit{kg}}{{{s}^{2}}\cdot A}\]
+
+
+<!-- Code cell -->
+
+
+<TABLE><TR><TD>
+  <SPAN CLASS="prompt">
+(%i41) 
+  </SPAN></TD>
+  <TD><SPAN CLASS="input">
+<span class="code_function">float</span>(<span class="code_function">convert</span>(<span class="code_variable">%</span>,<span class="code_variable">T</span>))<span class="code_endofline">;</span><span class="code_operator"></span>  </SPAN></TD>
+</TR></TABLE>
+\[\mathrm{\tt (\%o41) }\quad 0.05833333333333333\cdot T\]
+
+
+<!-- Code cell -->
+
+
+<TABLE><TR><TD>
+  <SPAN CLASS="prompt">
+(%i42) 
+  </SPAN></TD>
+  <TD><SPAN CLASS="input">
+<span class="code_variable">%delta_B_max_sc_pk</span><span class="code_operator">:</span> <span class="code_variable">%delta_B_max_sc_pk_pk</span><span class="code_operator">*</span><span class="code_number">0</span>.<span class="code_number">5</span><span class="code_endofline">;</span><span class="code_operator"></span>  </SPAN></TD>
+</TR></TABLE>
+\[\mathrm{\tt (\%o42) }\quad \frac{7}{240}\cdot \frac{\mathit{kg}}{{{s}^{2}}\cdot A}\]
+
+
+<!-- Code cell -->
+
+
+<TABLE><TR><TD>
+  <SPAN CLASS="prompt">
+(%i43) 
+  </SPAN></TD>
+  <TD><SPAN CLASS="input">
+<span class="code_function">float</span>(<span class="code_function">convert</span>(<span class="code_variable">%</span>,<span class="code_variable">T</span>))<span class="code_endofline">;</span><span class="code_operator"></span>  </SPAN></TD>
+</TR></TABLE>
+\[\mathrm{\tt (\%o43) }\quad 0.02916666666666667\cdot T\]
+
+
+<!-- Code cell -->
+
+
+<TABLE><TR><TD>
+  <SPAN CLASS="prompt">
+(%i44) 
+  </SPAN></TD>
+  <TD><SPAN CLASS="input">
+<span class="code_variable">B_max_sc_pk</span><span class="code_operator">:</span> <span class="code_variable">B_max_nom</span><span class="code_operator">+</span><span class="code_variable">%delta_B_max_sc_pk</span><span class="code_endofline">;</span><span class="code_operator"></span>  </SPAN></TD>
+</TR></TABLE>
+\[\mathrm{\tt (\%o44) }\quad \frac{67}{240}\cdot \frac{\mathit{kg}}{{{s}^{2}}\cdot A}\]
+
+
+<!-- Code cell -->
+
+
+<TABLE><TR><TD>
+  <SPAN CLASS="prompt">
+(%i45) 
+  </SPAN></TD>
+  <TD><SPAN CLASS="input">
+<span class="code_function">float</span>(<span class="code_function">convert</span>(<span class="code_variable">%</span>,<span class="code_variable">T</span>))<span class="code_endofline">;</span><span class="code_operator"></span>  </SPAN></TD>
+</TR></TABLE>
+\[\mathrm{\tt (\%o45) }\quad 0.2791666666666667\cdot T\]
+
+
+<!-- Subsection cell -->
+
+
+<P CLASS="subsect">
+ &nbsp;1.12 Upper Switch Voltage Drop
+</P>
+
+
+<!-- Code cell -->
+
+
+<TABLE><TR><TD>
+  <SPAN CLASS="prompt">
+(%i46) 
+  </SPAN></TD>
+  <TD><SPAN CLASS="input">
+<span class="code_variable">R_ds_on</span><span class="code_operator">:</span> <span class="code_number">0</span>.<span class="code_number">03</span><span class="code_operator">*</span><span class="code_variable">ohm</span><span class="code_endofline">;</span><span class="code_operator"></span>  </SPAN></TD>
+</TR></TABLE>
+\[\mathrm{\tt (\%o46) }\quad \frac{3}{100}\cdot \frac{\mathit{kg}\cdot {{m}^{2}}}{{{s}^{3}}\cdot {{A}^{2}}}\]
+
+
+<!-- Code cell -->
+
+
+<TABLE><TR><TD>
+  <SPAN CLASS="prompt">
+(%i47) 
+  </SPAN></TD>
+  <TD><SPAN CLASS="input">
+<span class="code_function">float</span>(<span class="code_function">convert</span>(<span class="code_variable">%</span>, <span class="code_variable">ohm</span>))<span class="code_endofline">;</span><span class="code_operator"></span>  </SPAN></TD>
+</TR></TABLE>
+\[\mathrm{\tt (\%o47) }\quad 0.03\cdot \mathit{Ohm}\]
+
+
+<!-- Code cell -->
+
+
+<TABLE><TR><TD>
+  <SPAN CLASS="prompt">
+(%i48) 
+  </SPAN></TD>
+  <TD><SPAN CLASS="input">
+<span class="code_variable">V_upper_sw</span><span class="code_operator">:</span> <span class="code_variable">I_load</span><span class="code_operator">*</span><span class="code_variable">R_ds_on</span><span class="code_endofline">;</span><span class="code_operator"></span>  </SPAN></TD>
+</TR></TABLE>
+\[\mathrm{\tt (\%o48) }\quad \frac{3}{20}\cdot \frac{\mathit{kg}\cdot {{m}^{2}}}{{{s}^{3}}\cdot A}\]
+
+
+<!-- Code cell -->
+
+
+<TABLE><TR><TD>
+  <SPAN CLASS="prompt">
+(%i49) 
+  </SPAN></TD>
+  <TD><SPAN CLASS="input">
+<span class="code_function">float</span>(<span class="code_function">convert</span>(<span class="code_variable">%</span>, <span class="code_variable">V</span>))<span class="code_endofline">;</span><span class="code_operator"></span>  </SPAN></TD>
+</TR></TABLE>
+\[\mathrm{\tt (\%o49) }\quad 0.15\cdot V\]
+
+
+<!-- Subsection cell -->
+
+
+<P CLASS="subsect">
+ &nbsp;1.13 OVRV Protection Switches Voltage Drops
+</P>
+
+
+<!-- Code cell -->
+
+
+<TABLE><TR><TD>
+  <SPAN CLASS="prompt">
+(%i50) 
+  </SPAN></TD>
+  <TD><SPAN CLASS="input">
+<span class="code_variable">num_switches</span><span class="code_operator">:</span> <span class="code_number">2</span><span class="code_endofline">;</span><span class="code_operator"></span>  </SPAN></TD>
+</TR></TABLE>
+\[\mathrm{\tt (\%o50) }\quad 2\]
+
+
+<!-- Code cell -->
+
+
+<TABLE><TR><TD>
+  <SPAN CLASS="prompt">
+(%i51) 
+  </SPAN></TD>
+  <TD><SPAN CLASS="input">
+<span class="code_variable">I_load</span><span class="code_endofline">;</span><span class="code_operator"></span>  </SPAN></TD>
+</TR></TABLE>
+\[\mathrm{\tt (\%o51) }\quad 5\cdot A\]
+
+
+<!-- Code cell -->
+
+
+<TABLE><TR><TD>
+  <SPAN CLASS="prompt">
+(%i52) 
+  </SPAN></TD>
+  <TD><SPAN CLASS="input">
+<span class="code_variable">R_ds_on</span><span class="code_endofline">;</span><span class="code_operator"></span>  </SPAN></TD>
+</TR></TABLE>
+\[\mathrm{\tt (\%o52) }\quad \frac{3}{100}\cdot \frac{\mathit{kg}\cdot {{m}^{2}}}{{{s}^{3}}\cdot {{A}^{2}}}\]
+
+
+<!-- Code cell -->
+
+
+<TABLE><TR><TD>
+  <SPAN CLASS="prompt">
+(%i53) 
+  </SPAN></TD>
+  <TD><SPAN CLASS="input">
+<span class="code_function">float</span>(<span class="code_function">convert</span>(<span class="code_variable">%</span>,<span class="code_variable">ohm</span>))<span class="code_endofline">;</span><span class="code_operator"></span>  </SPAN></TD>
+</TR></TABLE>
+\[\mathrm{\tt (\%o53) }\quad 0.03\cdot \mathit{Ohm}\]
+
+
+<!-- Code cell -->
+
+
+<TABLE><TR><TD>
+  <SPAN CLASS="prompt">
+(%i54) 
+  </SPAN></TD>
+  <TD><SPAN CLASS="input">
+<span class="code_variable">V_first_OVRV_switch</span><span class="code_operator">:</span> <span class="code_variable">I_load</span><span class="code_operator">*</span><span class="code_variable">R_ds_on</span><span class="code_endofline">;</span><span class="code_operator"></span>  </SPAN></TD>
+</TR></TABLE>
+\[\mathrm{\tt (\%o54) }\quad \frac{3}{20}\cdot \frac{\mathit{kg}\cdot {{m}^{2}}}{{{s}^{3}}\cdot A}\]
+
+
+<!-- Code cell -->
+
+
+<TABLE><TR><TD>
+  <SPAN CLASS="prompt">
+(%i55) 
+  </SPAN></TD>
+  <TD><SPAN CLASS="input">
+<span class="code_function">float</span>(<span class="code_function">convert</span>(<span class="code_variable">%</span>,<span class="code_variable">V</span>))<span class="code_endofline">;</span><span class="code_operator"></span>  </SPAN></TD>
+</TR></TABLE>
+\[\mathrm{\tt (\%o55) }\quad 0.15\cdot V\]
+
+
+<!-- Code cell -->
+
+
+<TABLE><TR><TD>
+  <SPAN CLASS="prompt">
+(%i56) 
+  </SPAN></TD>
+  <TD><SPAN CLASS="input">
+<span class="code_variable">V_second_OVRV_switch</span><span class="code_operator">:</span> <span class="code_variable">I_load</span><span class="code_operator">*</span><span class="code_variable">R_ds_on</span><span class="code_endofline">;</span><span class="code_operator"></span>  </SPAN></TD>
+</TR></TABLE>
+\[\mathrm{\tt (\%o56) }\quad \frac{3}{20}\cdot \frac{\mathit{kg}\cdot {{m}^{2}}}{{{s}^{3}}\cdot A}\]
+
+
+<!-- Code cell -->
+
+
+<TABLE><TR><TD>
+  <SPAN CLASS="prompt">
+(%i57) 
+  </SPAN></TD>
+  <TD><SPAN CLASS="input">
+<span class="code_function">float</span>(<span class="code_function">convert</span>(<span class="code_variable">%</span>,<span class="code_variable">V</span>))<span class="code_endofline">;</span><span class="code_operator"></span>  </SPAN></TD>
+</TR></TABLE>
+\[\mathrm{\tt (\%o57) }\quad 0.15\cdot V\]
+
+
+<!-- Subsection cell -->
+
+
+<P CLASS="subsect">
+ &nbsp;1.14 Current Sense Resistor Voltage Drops
+</P>
+
+
+<!-- Code cell -->
+
+
+<TABLE><TR><TD>
+  <SPAN CLASS="prompt">
+(%i58) 
+  </SPAN></TD>
+  <TD><SPAN CLASS="input">
+<span class="code_variable">num_R_sense</span><span class="code_operator">:</span> <span class="code_number">2</span><span class="code_endofline">;</span><span class="code_operator"></span>  </SPAN></TD>
+</TR></TABLE>
+\[\mathrm{\tt (\%o58) }\quad 2\]
+
+
+<!-- Code cell -->
+
+
+<TABLE><TR><TD>
+  <SPAN CLASS="prompt">
+(%i59) 
+  </SPAN></TD>
+  <TD><SPAN CLASS="input">
+<span class="code_variable">R_sense</span><span class="code_operator">:</span> <span class="code_number">0</span>.<span class="code_number">01</span><span class="code_operator">*</span><span class="code_variable">ohm</span><span class="code_endofline">;</span><span class="code_operator"></span>  </SPAN></TD>
+</TR></TABLE>
+\[\mathrm{\tt (\%o59) }\quad \frac{1}{100}\cdot \frac{\mathit{kg}\cdot {{m}^{2}}}{{{s}^{3}}\cdot {{A}^{2}}}\]
+
+
+<!-- Code cell -->
+
+
+<TABLE><TR><TD>
+  <SPAN CLASS="prompt">
+(%i60) 
+  </SPAN></TD>
+  <TD><SPAN CLASS="input">
+<span class="code_function">float</span>(<span class="code_function">convert</span>(<span class="code_variable">%</span>,<span class="code_variable">ohm</span>))<span class="code_endofline">;</span><span class="code_operator"></span>  </SPAN></TD>
+</TR></TABLE>
+\[\mathrm{\tt (\%o60) }\quad 0.01\cdot \mathit{Ohm}\]
+
+
+<!-- Code cell -->
+
+
+<TABLE><TR><TD>
+  <SPAN CLASS="prompt">
+(%i61) 
+  </SPAN></TD>
+  <TD><SPAN CLASS="input">
+<span class="code_variable">V_R_sense</span><span class="code_operator">:</span> <span class="code_variable">I_load</span><span class="code_operator">*</span><span class="code_variable">R_sense</span><span class="code_endofline">;</span><span class="code_operator"></span>  </SPAN></TD>
+</TR></TABLE>
+\[\mathrm{\tt (\%o61) }\quad \frac{1}{20}\cdot \frac{\mathit{kg}\cdot {{m}^{2}}}{{{s}^{3}}\cdot A}\]
+
+
+<!-- Code cell -->
+
+
+<TABLE><TR><TD>
+  <SPAN CLASS="prompt">
+(%i62) 
+  </SPAN></TD>
+  <TD><SPAN CLASS="input">
+<span class="code_function">float</span>(<span class="code_function">convert</span>(<span class="code_variable">%</span>, <span class="code_variable">V</span>))<span class="code_endofline">;</span><span class="code_operator"></span>  </SPAN></TD>
+</TR></TABLE>
+\[\mathrm{\tt (\%o62) }\quad 0.05\cdot V\]
+
+
+<!-- Subsection cell -->
+
+
+<P CLASS="subsect">
+ &nbsp;1.15 Total In-Load-Current Path Voltage Drops
+</P>
+
+
+<!-- Code cell -->
+
+
+<TABLE><TR><TD>
+  <SPAN CLASS="prompt">
+(%i63) 
+  </SPAN></TD>
+  <TD><SPAN CLASS="input">
+<span class="code_variable">V_drop_total</span><span class="code_operator">:</span> <span class="code_variable">V_first_OVRV_switch</span> <span class="code_operator">+</span> <span class="code_variable">V_second_OVRV_switch</span> <span class="code_operator">+</span> (<span class="code_variable">num_R_sense</span><span class="code_operator">*</span><span class="code_variable">V_R_sense</span>)<span class="code_endofline">;</span><span class="code_operator"></span>  </SPAN></TD>
+</TR></TABLE>
+\[\mathrm{\tt (\%o63) }\quad \frac{2}{5}\cdot \frac{\mathit{kg}\cdot {{m}^{2}}}{{{s}^{3}}\cdot A}\]
+
+
+<!-- Code cell -->
+
+
+<TABLE><TR><TD>
+  <SPAN CLASS="prompt">
+(%i64) 
+  </SPAN></TD>
+  <TD><SPAN CLASS="input">
+<span class="code_function">float</span>(<span class="code_function">convert</span>(<span class="code_variable">%</span>,<span class="code_variable">V</span>))<span class="code_endofline">;</span><span class="code_operator"></span>  </SPAN></TD>
+</TR></TABLE>
+\[\mathrm{\tt (\%o64) }\quad 0.4\cdot V\]
+
+
+<!-- Section cell -->
+
+
+<P CLASS="section">
+ 2 General Operating Calculations
+</P>
+
+
+<!-- Subsection cell -->
+
+
+<P CLASS="subsect">
+ &nbsp;2.1 Calculate the load resistances
+</P>
+
+
+<!-- Code cell -->
+
+
+<TABLE><TR><TD>
+  <SPAN CLASS="prompt">
+(%i65) 
+  </SPAN></TD>
+  <TD><SPAN CLASS="input">
+<span class="code_variable">R_load_nom</span><span class="code_operator">:</span> <span class="code_variable">V_o</span><span class="code_operator">/</span><span class="code_variable">I_o_nom</span><span class="code_endofline">;</span><span class="code_operator"></span>  </SPAN></TD>
+</TR></TABLE>
+\[\mathrm{\tt (\%o65) }\quad \frac{12}{5}\cdot \frac{\mathit{kg}\cdot {{m}^{2}}}{{{s}^{3}}\cdot {{A}^{2}}}\]
+
+
+<!-- Code cell -->
+
+
+<TABLE><TR><TD>
+  <SPAN CLASS="prompt">
+(%i66) 
+  </SPAN></TD>
+  <TD><SPAN CLASS="input">
+<span class="code_function">float</span>(<span class="code_function">convert</span>(<span class="code_variable">%</span>,<span class="code_variable">ohm</span>))<span class="code_endofline">;</span><span class="code_operator"></span>  </SPAN></TD>
+</TR></TABLE>
+\[\mathrm{\tt (\%o66) }\quad 2.4\cdot \mathit{Ohm}\]
+
+
+<!-- Code cell -->
+
+
+<TABLE><TR><TD>
+  <SPAN CLASS="prompt">
+(%i67) 
+  </SPAN></TD>
+  <TD><SPAN CLASS="input">
+<span class="code_variable">R_load_min_nom</span><span class="code_operator">:</span> <span class="code_variable">V_o</span><span class="code_operator">/</span><span class="code_variable">I_o_min_nom</span><span class="code_endofline">;</span><span class="code_operator"></span>  </SPAN></TD>
+</TR></TABLE>
+\[\mathrm{\tt (\%o67) }\quad 120\cdot \frac{\mathit{kg}\cdot {{m}^{2}}}{{{s}^{3}}\cdot {{A}^{2}}}\]
+
+
+<!-- Code cell -->
+
+
+<TABLE><TR><TD>
+  <SPAN CLASS="prompt">
+(%i68) 
+  </SPAN></TD>
+  <TD><SPAN CLASS="input">
+<span class="code_function">float</span>(<span class="code_function">convert</span>(<span class="code_variable">%</span>,<span class="code_variable">ohm</span>))<span class="code_endofline">;</span><span class="code_operator"></span>  </SPAN></TD>
+</TR></TABLE>
+\[\mathrm{\tt (\%o68) }\quad 120.0\cdot \mathit{Ohm}\]
+
+
+<!-- Subsection cell -->
+
+
+<P CLASS="subsect">
+ &nbsp;2.2 Calculate the duty ratios
+</P>
+
+
+<!-- Code cell -->
+
+
+<TABLE><TR><TD>
+  <SPAN CLASS="prompt">
+(%i69) 
+  </SPAN></TD>
+  <TD><SPAN CLASS="input">
+<span class="code_variable">D_min</span><span class="code_operator">:</span> <span class="code_variable">V_o</span><span class="code_operator">/</span><span class="code_variable">V_i_max</span><span class="code_endofline">;</span><span class="code_operator"></span>  </SPAN></TD>
+</TR></TABLE>
+\[\mathrm{\tt (\%o69) }\quad \frac{3}{14}\]
+
+
+<!-- Code cell -->
+
+
+<TABLE><TR><TD>
+  <SPAN CLASS="prompt">
+(%i70) 
+  </SPAN></TD>
+  <TD><SPAN CLASS="input">
+<span class="code_function">float</span>(<span class="code_variable">%</span>)<span class="code_endofline">;</span><span class="code_operator"></span>  </SPAN></TD>
+</TR></TABLE>
+\[\mathrm{\tt (\%o70) }\quad 0.2142857142857143\]
+
+
+<!-- Code cell -->
+
+
+<TABLE><TR><TD>
+  <SPAN CLASS="prompt">
+(%i71) 
+  </SPAN></TD>
+  <TD><SPAN CLASS="input">
+<span class="code_variable">D_nom</span><span class="code_operator">:</span> <span class="code_variable">V_o</span><span class="code_operator">/</span><span class="code_variable">V_i_nom</span><span class="code_endofline">;</span><span class="code_operator"></span>  </SPAN></TD>
+</TR></TABLE>
+\[\mathrm{\tt (\%o71) }\quad \frac{6}{25}\]
+
+
+<!-- Code cell -->
+
+
+<TABLE><TR><TD>
+  <SPAN CLASS="prompt">
+(%i72) 
+  </SPAN></TD>
+  <TD><SPAN CLASS="input">
+<span class="code_function">float</span>(<span class="code_variable">%</span>)<span class="code_endofline">;</span><span class="code_operator"></span>  </SPAN></TD>
+</TR></TABLE>
+\[\mathrm{\tt (\%o72) }\quad 0.24\]
+
+
+<!-- Code cell -->
+
+
+<TABLE><TR><TD>
+  <SPAN CLASS="prompt">
+(%i73) 
+  </SPAN></TD>
+  <TD><SPAN CLASS="input">
+<span class="code_variable">D_max</span><span class="code_operator">:</span> <span class="code_variable">V_o</span><span class="code_operator">/</span><span class="code_variable">V_i_min</span><span class="code_endofline">;</span><span class="code_operator"></span>  </SPAN></TD>
+</TR></TABLE>
+\[\mathrm{\tt (\%o73) }\quad \frac{6}{23}\]
+
+
+<!-- Code cell -->
+
+
+<TABLE><TR><TD>
+  <SPAN CLASS="prompt">
+(%i74) 
+  </SPAN></TD>
+  <TD><SPAN CLASS="input">
+<span class="code_function">float</span>(<span class="code_variable">%</span>)<span class="code_endofline">;</span><span class="code_operator"></span>  </SPAN></TD>
+</TR></TABLE>
+\[\mathrm{\tt (\%o74) }\quad 0.2608695652173913\]
+
+
+<!-- Subsection cell -->
+
+
+<P CLASS="subsect">
+ &nbsp;2.3 Calculate the minimum required inductance to maintain continuous conduction under minimum load
+</P>
+
+
+<!-- Text cell -->
+
+
+<P CLASS="comment">
+By the App Notes
+
+</P>
+
+
+<!-- Code cell -->
+
+
+<TABLE><TR><TD>
+  <SPAN CLASS="prompt">
+(%i75) 
+  </SPAN></TD>
+  <TD><SPAN CLASS="input">
+<span class="code_variable">L_min</span><span class="code_operator">:</span> ((<span class="code_variable">V_o</span> <span class="code_operator">+</span> <span class="code_variable">V_drop_total</span>)<span class="code_operator">*</span>(<span class="code_number">1</span><span class="code_operator">-</span><span class="code_variable">D_min</span>)<span class="code_operator">*</span><span class="code_variable">T_switching</span>)<span class="code_operator">/</span>(<span class="code_number">2</span><span class="code_operator">*</span><span class="code_variable">I_o_min_nom</span>)<span class="code_endofline">;</span><span class="code_operator"></span>  </SPAN></TD>
+</TR></TABLE>
+\[\mathrm{\tt (\%o75) }\quad \frac{341}{1750000}\cdot \frac{\mathit{kg}\cdot {{m}^{2}}}{{{s}^{2}}\cdot {{A}^{2}}}\]
+
+
+<!-- Code cell -->
+
+
+<TABLE><TR><TD>
+  <SPAN CLASS="prompt">
+(%i76) 
+  </SPAN></TD>
+  <TD><SPAN CLASS="input">
+<span class="code_function">float</span>(<span class="code_function">convert</span>(<span class="code_variable">%</span>, <span class="code_variable">%muH</span>))<span class="code_endofline">;</span><span class="code_operator"></span>  </SPAN></TD>
+</TR></TABLE>
+\[\mathrm{\tt (\%o76) }\quad 194.8571428571429\cdot \mathit{\%muH}\]
+
+
+<!-- Text cell -->
+
+
+<P CLASS="comment">
+By the Textbook
+
+</P>
+
+
+<!-- Code cell -->
+
+
+<TABLE><TR><TD>
+  <SPAN CLASS="prompt">
+(%i77) 
+  </SPAN></TD>
+  <TD><SPAN CLASS="input">
+<span class="code_variable">R_load_min_nom</span><span class="code_endofline">;</span><span class="code_operator"></span>  </SPAN></TD>
+</TR></TABLE>
+\[\mathrm{\tt (\%o77) }\quad 120\cdot \frac{\mathit{kg}\cdot {{m}^{2}}}{{{s}^{3}}\cdot {{A}^{2}}}\]
+
+
+<!-- Code cell -->
+
+
+<TABLE><TR><TD>
+  <SPAN CLASS="prompt">
+(%i78) 
+  </SPAN></TD>
+  <TD><SPAN CLASS="input">
+<span class="code_function">float</span>(<span class="code_function">convert</span>(<span class="code_variable">%</span>,<span class="code_variable">ohm</span>))<span class="code_endofline">;</span><span class="code_operator"></span>  </SPAN></TD>
+</TR></TABLE>
+\[\mathrm{\tt (\%o78) }\quad 120.0\cdot \mathit{Ohm}\]
+
+
+<!-- Code cell -->
+
+
+<TABLE><TR><TD>
+  <SPAN CLASS="prompt">
+(%i79) 
+  </SPAN></TD>
+  <TD><SPAN CLASS="input">
+<span class="code_variable">L_min</span><span class="code_operator">:</span> ((<span class="code_number">1</span><span class="code_operator">-</span><span class="code_variable">D_min</span>)<span class="code_operator">*</span><span class="code_variable">R_load_min_nom</span>)<span class="code_operator">/</span>(<span class="code_number">2</span><span class="code_operator">*</span><span class="code_variable">f_switching</span>)<span class="code_endofline">;</span><span class="code_operator"></span>  </SPAN></TD>
+</TR></TABLE>
+\[\mathrm{\tt (\%o79) }\quad \frac{33}{175000}\cdot \frac{\mathit{kg}\cdot {{m}^{2}}}{{{s}^{2}}\cdot {{A}^{2}}}\]
+
+
+<!-- Code cell -->
+
+
+<TABLE><TR><TD>
+  <SPAN CLASS="prompt">
+(%i80) 
+  </SPAN></TD>
+  <TD><SPAN CLASS="input">
+<span class="code_function">float</span>(<span class="code_function">convert</span>(<span class="code_variable">%</span>, <span class="code_variable">%muH</span>))<span class="code_endofline">;</span><span class="code_operator"></span>  </SPAN></TD>
+</TR></TABLE>
+\[\mathrm{\tt (\%o80) }\quad 188.5714285714286\cdot \mathit{\%muH}\]
+
+
+<!-- Text cell -->
+
+
+<P CLASS="comment">
+Continuous conduction is not possible at the minimum load, since an inductor that can carry
+max load current and have this required inductance is not readily available. &nbsp;LTC3891 datasheet
+page 12 states that the controller will let the inductor current enter discontinuous operation,
+by enabling high-efficiency burst mode. &nbsp;Therefore, we can choose an inductor by targeting
+desired ripple current, i.e. maintaining peak magnetic flux density below the saturation with some
+margin.
+
+</P>
+
+
+<!-- Text cell -->
+
+
+<P CLASS="comment">
+By LTC3891 Datasheet page 16
+
+</P>
+
+
+<!-- Code cell -->
+
+
+<TABLE><TR><TD>
+  <SPAN CLASS="prompt">
+(%i81) 
+  </SPAN></TD>
+  <TD><SPAN CLASS="input">
+<span class="code_operator">'</span><span class="code_variable">%delta_I_nom</span><span class="code_operator">=</span>(<span class="code_number">1</span><span class="code_operator">/</span>(<span class="code_variable">f_switching</span><span class="code_operator">*</span><span class="code_variable">L_min</span>))<span class="code_operator">*</span><span class="code_variable">V_o</span><span class="code_operator">*</span>(<span class="code_number">1</span><span class="code_operator">-</span><span class="code_variable">V_o</span><span class="code_operator">/</span><span class="code_variable">V_i_nom</span>)<span class="code_endofline">;</span><span class="code_operator"></span>  </SPAN></TD>
+</TR></TABLE>
+\[\mathrm{\tt (\%o81) }\quad \mathit{\%delta\_I\_nom}=0.1934545454545454\cdot A\]
+
+
+<!-- Code cell -->
+
+
+<TABLE><TR><TD>
+  <SPAN CLASS="prompt">
+(%i82) 
+  </SPAN></TD>
+  <TD><SPAN CLASS="input">
+<span class="code_variable">I_sc_peak</span><span class="code_endofline">;</span><span class="code_operator"></span>  </SPAN></TD>
+</TR></TABLE>
+\[\mathrm{\tt (\%o82) }\quad \frac{15}{2}\cdot A\]
+
+
+<!-- Code cell -->
+
+
+<TABLE><TR><TD>
+  <SPAN CLASS="prompt">
+(%i83) 
+  </SPAN></TD>
+  <TD><SPAN CLASS="input">
+<span class="code_variable">L_min</span><span class="code_operator">:</span> (<span class="code_number">1</span><span class="code_operator">/</span>(<span class="code_variable">f_switching</span><span class="code_operator">*</span><span class="code_number">0</span>.<span class="code_number">3</span><span class="code_operator">*</span><span class="code_variable">I_sc_peak</span>))<span class="code_operator">*</span><span class="code_variable">V_o</span><span class="code_operator">*</span>(<span class="code_number">1</span><span class="code_operator">-</span>(<span class="code_variable">V_o</span><span class="code_operator">/</span><span class="code_variable">V_i_min</span>))<span class="code_endofline">;</span><span class="code_operator"></span>  </SPAN></TD>
+</TR></TABLE>
+\[\mathrm{\tt (\%o83) }\quad \frac{17}{1078125}\cdot \frac{\mathit{kg}\cdot {{m}^{2}}}{{{s}^{2}}\cdot {{A}^{2}}}\]
+
+
+<!-- Code cell -->
+
+
+<TABLE><TR><TD>
+  <SPAN CLASS="prompt">
+(%i84) 
+  </SPAN></TD>
+  <TD><SPAN CLASS="input">
+<span class="code_function">float</span>(<span class="code_function">convert</span>(<span class="code_variable">%</span>, <span class="code_variable">%muH</span>))<span class="code_endofline">;</span><span class="code_operator"></span>  </SPAN></TD>
+</TR></TABLE>
+\[\mathrm{\tt (\%o84) }\quad 15.76811594202899\cdot \mathit{\%muH}\]
+
+
+<!-- Text cell -->
+
+
+<P CLASS="comment">
+Add 20% engineering margin to ensure component tolerance does not cause saturation.
+
+</P>
+
+
+<!-- Code cell -->
+
+
+<TABLE><TR><TD>
+  <SPAN CLASS="prompt">
+(%i85) 
+  </SPAN></TD>
+  <TD><SPAN CLASS="input">
+<span class="code_variable">L_min</span><span class="code_operator">:</span> <span class="code_variable">L_min</span><span class="code_operator">*</span><span class="code_number">1</span>.<span class="code_number">2</span><span class="code_endofline">;</span><span class="code_operator"></span>  </SPAN></TD>
+</TR></TABLE>
+\[\mathrm{\tt (\%o85) }\quad \frac{34}{1796875}\cdot \frac{\mathit{kg}\cdot {{m}^{2}}}{{{s}^{2}}\cdot {{A}^{2}}}\]
+
+
+<!-- Code cell -->
+
+
+<TABLE><TR><TD>
+  <SPAN CLASS="prompt">
+(%i86) 
+  </SPAN></TD>
+  <TD><SPAN CLASS="input">
+<span class="code_function">float</span>(<span class="code_function">convert</span>(<span class="code_variable">%</span>, <span class="code_variable">%muH</span>))<span class="code_endofline">;</span><span class="code_operator"></span>  </SPAN></TD>
+</TR></TABLE>
+\[\mathrm{\tt (\%o86) }\quad 18.92173913043478\cdot \mathit{\%muH}\]
+
+
+<!-- Text cell -->
+
+
+<P CLASS="comment">
+Select the L_min here
+
+</P>
+
+
+<!-- Code cell -->
+
+
+<TABLE><TR><TD>
+  <SPAN CLASS="prompt">
+(%i87) 
+  </SPAN></TD>
+  <TD><SPAN CLASS="input">
+<span class="code_variable">L_min</span><span class="code_operator">:</span> <span class="code_number">22</span><span class="code_operator">*</span><span class="code_variable">%muH</span><span class="code_endofline">;</span><span class="code_operator"></span>  </SPAN></TD>
+</TR></TABLE>
+\[\mathrm{\tt (\%o87) }\quad \frac{11}{500000}\cdot \frac{\mathit{kg}\cdot {{m}^{2}}}{{{s}^{2}}\cdot {{A}^{2}}}\]
+
+
+<!-- Code cell -->
+
+
+<TABLE><TR><TD>
+  <SPAN CLASS="prompt">
+(%i88) 
+  </SPAN></TD>
+  <TD><SPAN CLASS="input">
+<span class="code_function">float</span>(<span class="code_function">convert</span>(<span class="code_variable">%</span>, <span class="code_variable">%muH</span>))<span class="code_endofline">;</span><span class="code_operator"></span>  </SPAN></TD>
+</TR></TABLE>
+\[\mathrm{\tt (\%o88) }\quad 22.0\cdot \mathit{\%muH}\]
+
+
+<!-- Section cell -->
+
+
+<P CLASS="section">
+ 3 Calculate Nominal Operating Conditions
+</P>
+
+
+<!-- Subsection cell -->
+
+
+<P CLASS="subsect">
+ &nbsp;3.1 Calculate the delta current (nominal conditions)
+</P>
+
+
+<!-- Text cell -->
+
+
+<P CLASS="comment">
+By the Textbook
+
+</P>
+
+
+<!-- Code cell -->
+
+
+<TABLE><TR><TD>
+  <SPAN CLASS="prompt">
+(%i89) 
+  </SPAN></TD>
+  <TD><SPAN CLASS="input">
+<span class="code_variable">%delta_I_nom_pk_pk</span><span class="code_operator">:</span> <span class="code_variable">V_o</span><span class="code_operator">*</span>(<span class="code_number">1</span><span class="code_operator">-</span><span class="code_variable">D_nom</span>)<span class="code_operator">/</span>(<span class="code_variable">L_min</span><span class="code_operator">*</span><span class="code_variable">f_switching</span>)<span class="code_endofline">;</span><span class="code_operator"></span>  </SPAN></TD>
+</TR></TABLE>
+\[\mathrm{\tt (\%o89) }\quad \frac{456}{275}\cdot A\]
+
+
+<!-- Code cell -->
+
+
+<TABLE><TR><TD>
+  <SPAN CLASS="prompt">
+(%i90) 
+  </SPAN></TD>
+  <TD><SPAN CLASS="input">
+<span class="code_function">float</span>(<span class="code_function">convert</span>(<span class="code_variable">%</span>,<span class="code_variable">A</span>))<span class="code_endofline">;</span><span class="code_operator"></span>  </SPAN></TD>
+</TR></TABLE>
+\[\mathrm{\tt (\%o90) }\quad 1.658181818181818\cdot A\]
+
+
+<!-- Code cell -->
+
+
+<TABLE><TR><TD>
+  <SPAN CLASS="prompt">
+(%i91) 
+  </SPAN></TD>
+  <TD><SPAN CLASS="input">
+<span class="code_variable">%delta_I_nom_pk</span><span class="code_operator">:</span> <span class="code_variable">%delta_I_nom_pk_pk</span><span class="code_operator">*</span><span class="code_number">0</span>.<span class="code_number">5</span><span class="code_endofline">;</span><span class="code_operator"></span>  </SPAN></TD>
+</TR></TABLE>
+\[\mathrm{\tt (\%o91) }\quad \frac{228}{275}\cdot A\]
+
+
+<!-- Code cell -->
+
+
+<TABLE><TR><TD>
+  <SPAN CLASS="prompt">
+(%i92) 
+  </SPAN></TD>
+  <TD><SPAN CLASS="input">
+<span class="code_function">float</span>(<span class="code_function">convert</span>(<span class="code_variable">%</span>,<span class="code_variable">A</span>))<span class="code_endofline">;</span><span class="code_operator"></span>  </SPAN></TD>
+</TR></TABLE>
+\[\mathrm{\tt (\%o92) }\quad 0.8290909090909091\cdot A\]
+
+
+<!-- Text cell -->
+
+
+<P CLASS="comment">
+By the App Notes
+
+</P>
+
+
+<!-- Code cell -->
+
+
+<TABLE><TR><TD>
+  <SPAN CLASS="prompt">
+(%i93) 
+  </SPAN></TD>
+  <TD><SPAN CLASS="input">
+<span class="code_variable">%delta_I_nom_pk_pk</span><span class="code_operator">:</span> (<span class="code_variable">T_switching</span><span class="code_operator">*</span><span class="code_variable">V_i_max</span><span class="code_operator">*</span><span class="code_variable">D_min</span><span class="code_operator">*</span>(<span class="code_number">1</span><span class="code_operator">-</span><span class="code_variable">D_min</span>))<span class="code_operator">/</span><span class="code_variable">L_min</span><span class="code_endofline">;</span><span class="code_operator"></span>  </SPAN></TD>
+</TR></TABLE>
+\[\mathrm{\tt (\%o93) }\quad \frac{12}{7}\cdot A\]
+
+
+<!-- Code cell -->
+
+
+<TABLE><TR><TD>
+  <SPAN CLASS="prompt">
+(%i94) 
+  </SPAN></TD>
+  <TD><SPAN CLASS="input">
+<span class="code_function">float</span>(<span class="code_function">convert</span>(<span class="code_variable">%</span>,<span class="code_variable">A</span>))<span class="code_endofline">;</span><span class="code_operator"></span>  </SPAN></TD>
+</TR></TABLE>
+\[\mathrm{\tt (\%o94) }\quad 1.714285714285714\cdot A\]
+
+
+<!-- Code cell -->
+
+
+<TABLE><TR><TD>
+  <SPAN CLASS="prompt">
+(%i95) 
+  </SPAN></TD>
+  <TD><SPAN CLASS="input">
+<span class="code_variable">%delta_I_nom_pk</span><span class="code_operator">:</span> <span class="code_variable">%delta_I_nom_pk_pk</span><span class="code_operator">*</span><span class="code_number">0</span>.<span class="code_number">5</span><span class="code_endofline">;</span><span class="code_operator"></span>  </SPAN></TD>
+</TR></TABLE>
+\[\mathrm{\tt (\%o95) }\quad \frac{6}{7}\cdot A\]
+
+
+<!-- Code cell -->
+
+
+<TABLE><TR><TD>
+  <SPAN CLASS="prompt">
+(%i96) 
+  </SPAN></TD>
+  <TD><SPAN CLASS="input">
+<span class="code_function">float</span>(<span class="code_function">convert</span>(<span class="code_variable">%</span>,<span class="code_variable">A</span>))<span class="code_endofline">;</span><span class="code_operator"></span>  </SPAN></TD>
+</TR></TABLE>
+\[\mathrm{\tt (\%o96) }\quad 0.8571428571428571\cdot A\]
+
+
+<!-- Subsection cell -->
+
+
+<P CLASS="subsect">
+ &nbsp;3.2 Calculate the peak current (nominal conditions)
+</P>
+
+
+<!-- Code cell -->
+
+
+<TABLE><TR><TD>
+  <SPAN CLASS="prompt">
+(%i97) 
+  </SPAN></TD>
+  <TD><SPAN CLASS="input">
+<span class="code_variable">I_peak_nom</span><span class="code_operator">:</span> <span class="code_variable">I_load</span><span class="code_operator">+</span><span class="code_variable">%delta_I_nom_pk_pk</span><span class="code_operator">/</span><span class="code_number">2</span><span class="code_endofline">;</span><span class="code_operator"></span>  </SPAN></TD>
+</TR></TABLE>
+\[\mathrm{\tt (\%o97) }\quad \frac{41}{7}\cdot A\]
+
+
+<!-- Code cell -->
+
+
+<TABLE><TR><TD>
+  <SPAN CLASS="prompt">
+(%i98) 
+  </SPAN></TD>
+  <TD><SPAN CLASS="input">
+<span class="code_function">float</span>(<span class="code_function">convert</span>(<span class="code_variable">%</span>,<span class="code_variable">A</span>))<span class="code_endofline">;</span><span class="code_operator"></span>  </SPAN></TD>
+</TR></TABLE>
+\[\mathrm{\tt (\%o98) }\quad 5.857142857142857\cdot A\]
+
+
+<!-- Section cell -->
+
+
+<P CLASS="section">
+ 4 Calculate Short-Circuit Operating Conditions
+</P>
+
+
+<!-- Subsection cell -->
+
+
+<P CLASS="subsect">
+ &nbsp;4.1 Calculate the delta current (short-circuit conditions)
+</P>
+
+
+<!-- Text cell -->
+
+
+<P CLASS="comment">
+LTC3891 Datasheet page 21 describes minimum on time as 95ns
+
+</P>
+
+
+<!-- Code cell -->
+
+
+<TABLE><TR><TD>
+  <SPAN CLASS="prompt">
+(%i99) 
+  </SPAN></TD>
+  <TD><SPAN CLASS="input">
+<span class="code_variable">t_on_min_LTC3891</span><span class="code_operator">:</span> <span class="code_number">95</span><span class="code_operator">*</span><span class="code_variable">ns</span><span class="code_endofline">;</span><span class="code_operator"></span>  </SPAN></TD>
+</TR></TABLE>
+\[\mathrm{\tt (\%o99) }\quad \frac{19}{200000000}\cdot s\]
+
+
+<!-- Code cell -->
+
+
+<TABLE><TR><TD>
+  <SPAN CLASS="prompt">
+(%i100) 
+  </SPAN></TD>
+  <TD><SPAN CLASS="input">
+<span class="code_function">float</span>(<span class="code_function">convert</span>(<span class="code_variable">%</span>,<span class="code_variable">ns</span>))<span class="code_endofline">;</span><span class="code_operator"></span>  </SPAN></TD>
+</TR></TABLE>
+\[\mathrm{\tt (\%o100) }\quad 95.0\cdot \mathit{ns}\]
+
+
+<!-- Code cell -->
+
+
+<TABLE><TR><TD>
+  <SPAN CLASS="prompt">
+(%i101) 
+  </SPAN></TD>
+  <TD><SPAN CLASS="input">
+<span class="code_variable">D_max_sc</span><span class="code_operator">:</span> <span class="code_variable">t_on_min_LTC3891</span><span class="code_operator">/</span><span class="code_variable">T_switching</span><span class="code_endofline">;</span><span class="code_operator"></span>  </SPAN></TD>
+</TR></TABLE>
+\[\mathrm{\tt (\%o101) }\quad \frac{19}{800}\]
+
+
+<!-- Code cell -->
+
+
+<TABLE><TR><TD>
+  <SPAN CLASS="prompt">
+(%i102) 
+  </SPAN></TD>
+  <TD><SPAN CLASS="input">
+<span class="code_function">float</span>(<span class="code_variable">%</span>)<span class="code_endofline">;</span><span class="code_operator"></span>  </SPAN></TD>
+</TR></TABLE>
+\[\mathrm{\tt (\%o102) }\quad 0.02375\]
+
+
+<!-- Text cell -->
+
+
+<P CLASS="comment">
+Use the minimum on time to calculate the ripple current during short-circuit
+
+</P>
+
+
+<!-- Code cell -->
+
+
+<TABLE><TR><TD>
+  <SPAN CLASS="prompt">
+(%i103) 
+  </SPAN></TD>
+  <TD><SPAN CLASS="input">
+<span class="code_variable">%delta_I_max</span><span class="code_operator">:</span> (<span class="code_variable">T_switching</span><span class="code_operator">*</span><span class="code_variable">V_i_max</span><span class="code_operator">*</span><span class="code_variable">D_max_sc</span><span class="code_operator">*</span>(<span class="code_number">1</span><span class="code_operator">-</span><span class="code_variable">D_max_sc</span>))<span class="code_operator">/</span><span class="code_variable">L_min</span><span class="code_endofline">;</span><span class="code_operator"></span>  </SPAN></TD>
+</TR></TABLE>
+\[\mathrm{\tt (\%o103) }\quad \frac{9443}{40000}\cdot A\]
+
+
+<!-- Code cell -->
+
+
+<TABLE><TR><TD>
+  <SPAN CLASS="prompt">
+(%i104) 
+  </SPAN></TD>
+  <TD><SPAN CLASS="input">
+<span class="code_function">float</span>(<span class="code_function">convert</span>(<span class="code_variable">%</span>,<span class="code_variable">A</span>))<span class="code_endofline">;</span><span class="code_operator"></span>  </SPAN></TD>
+</TR></TABLE>
+\[\mathrm{\tt (\%o104) }\quad 0.236075\cdot A\]
+
+
+<!-- Code cell -->
+
+
+<TABLE><TR><TD>
+  <SPAN CLASS="prompt">
+(%i105) 
+  </SPAN></TD>
+  <TD><SPAN CLASS="input">
+<span class="code_variable">I_ripple_peak_to_peak_max_guess</span><span class="code_endofline">;</span><span class="code_operator"></span>  </SPAN></TD>
+</TR></TABLE>
+\[\mathrm{\tt (\%o105) }\quad \frac{7}{4}\cdot A\]
+
+
+<!-- Code cell -->
+
+
+<TABLE><TR><TD>
+  <SPAN CLASS="prompt">
+(%i106) 
+  </SPAN></TD>
+  <TD><SPAN CLASS="input">
+<span class="code_function">float</span>(<span class="code_function">convert</span>(<span class="code_variable">%</span>,<span class="code_variable">A</span>))<span class="code_endofline">;</span><span class="code_operator"></span>  </SPAN></TD>
+</TR></TABLE>
+\[\mathrm{\tt (\%o106) }\quad 1.75\cdot A\]
+
+
+<!-- Text cell -->
+
+
+<P CLASS="comment">
+Since our guess is larger than than the calculated short-circuit ripple current,
+sufficient margin exist until saturation, and adjustment is not necessary.
+
+</P>
+
+
+<!-- Section cell -->
+
+
+<P CLASS="section">
+ 5 Calculate Inductor Core Required Physical Characteristics
+</P>
+
+
+<!-- Subsection cell -->
+
+
+<P CLASS="subsect">
+ &nbsp;5.1 Calculate the energy store within the inductor (nominal conditions)
+</P>
+
+
+<!-- Code cell -->
+
+
+<TABLE><TR><TD>
+  <SPAN CLASS="prompt">
+(%i107) 
+  </SPAN></TD>
+  <TD><SPAN CLASS="input">
+<span class="code_variable">E_inductor_nom</span><span class="code_operator">:</span> (<span class="code_number">1</span><span class="code_operator">/</span><span class="code_number">2</span>)<span class="code_operator">*</span><span class="code_variable">L_min</span><span class="code_operator">*</span><span class="code_variable">I_peak_nom</span><span class="code_operator">^</span><span class="code_number">2</span><span class="code_endofline">;</span><span class="code_operator"></span>  </SPAN></TD>
+</TR></TABLE>
+\[\mathrm{\tt (\%o107) }\quad \frac{18491}{49000000}\cdot \frac{\mathit{kg}\cdot {{m}^{2}}}{{{s}^{2}}}\]
+
+
+<!-- Code cell -->
+
+
+<TABLE><TR><TD>
+  <SPAN CLASS="prompt">
+(%i108) 
+  </SPAN></TD>
+  <TD><SPAN CLASS="input">
+<span class="code_function">float</span>(<span class="code_function">convert</span>(<span class="code_variable">%</span>,<span class="code_variable">%muJ</span>))<span class="code_endofline">;</span><span class="code_operator"></span>  </SPAN></TD>
+</TR></TABLE>
+\[\mathrm{\tt (\%o108) }\quad 377.3673469387755\cdot \mathit{\%muJ}\]
+
+
+<!-- Subsection cell -->
+
+
+<P CLASS="subsect">
+ &nbsp;5.2 Calculate the electrical conditions, Ke (for ferrite, nominal conditions)
+</P>
+
+
+<!-- Code cell -->
+
+
+<TABLE><TR><TD>
+  <SPAN CLASS="prompt">
+(%i109) 
+  </SPAN></TD>
+  <TD><SPAN CLASS="input">
+<span class="code_variable">K_e</span><span class="code_operator">:</span> <span class="code_number">0</span>.<span class="code_number">145</span><span class="code_operator">*</span>(<span class="code_variable">P_o_max</span>)<span class="code_operator">*</span>(<span class="code_variable">B_max_nom</span><span class="code_operator">^</span><span class="code_number">2</span>)<span class="code_operator">*</span><span class="code_number">10</span><span class="code_operator">^</span><span class="code_number">-</span><span class="code_number">4</span><span class="code_endofline">;</span><span class="code_operator"></span>  </SPAN></TD>
+</TR></TABLE>
+\[\mathrm{\tt (\%o109) }\quad \frac{87}{1600000}\cdot \frac{{{\mathit{kg}}^{3}}\cdot {{m}^{2}}}{{{s}^{7}}\cdot {{A}^{2}}}\]
+
+
+<!-- Code cell -->
+
+
+<TABLE><TR><TD>
+  <SPAN CLASS="prompt">
+(%i110) 
+  </SPAN></TD>
+  <TD><SPAN CLASS="input">
+<span class="code_function">float</span>(<span class="code_number">87</span><span class="code_operator">/</span><span class="code_number">1600000</span>)<span class="code_endofline">;</span><span class="code_operator"></span>  </SPAN></TD>
+</TR></TABLE>
+\[\mathrm{\tt (\%o110) }\quad 5.4375\cdot {{10}^{-5}}\]
+
+
+<!-- Subsection cell -->
+
+
+<P CLASS="subsect">
+ &nbsp;5.3 Calculate the core geometry, Kg [cm^5] (nominal conditions)
+</P>
+
+
+<!-- Code cell -->
+
+
+<TABLE><TR><TD>
+  <SPAN CLASS="prompt">
+(%i111) 
+  </SPAN></TD>
+  <TD><SPAN CLASS="input">
+<span class="code_variable">K_g</span><span class="code_operator">:</span> (<span class="code_variable">E_inductor_nom</span><span class="code_operator">^</span><span class="code_number">2</span>)<span class="code_operator">/</span>(<span class="code_variable">K_e</span><span class="code_operator">*</span><span class="code_variable">%alpha</span>)<span class="code_endofline">;</span><span class="code_operator"></span>  </SPAN></TD>
+</TR></TABLE>
+\[\mathrm{\tt (\%o111) }\quad \frac{341917081}{1305543750}\cdot \frac{{{m}^{2}}\cdot {{s}^{3}}\cdot {{A}^{2}}}{\mathit{kg}}\]
+
+
+<!-- Code cell -->
+
+
+<TABLE><TR><TD>
+  <SPAN CLASS="prompt">
+(%i112) 
+  </SPAN></TD>
+  <TD><SPAN CLASS="input">
+<span class="code_function">float</span>(<span class="code_number">341917081</span><span class="code_operator">/</span><span class="code_number">1305543750</span>)<span class="code_endofline">;</span><span class="code_operator"></span>  </SPAN></TD>
+</TR></TABLE>
+\[\mathrm{\tt (\%o112) }\quad 0.2618963025942256\]
+
+
+<!-- Section cell -->
+
+
+<P CLASS="section">
+ 6 Inductor Core &amp; Winding Loss Calculator
+</P>
+
+
+<!-- Text cell -->
+
+
+<P CLASS="comment">
+
+</P>
+
+
+<!-- Text cell -->
+
+
+<P CLASS="comment">
+
+</P>
+
+
+<!-- Code cell -->
+
+
+<TABLE><TR><TD>
+  <SPAN CLASS="prompt">
+(%i113) 
+  </SPAN></TD>
+  <TD><SPAN CLASS="input">
+<span class="code_variable">L_DCR</span><span class="code_operator">:</span> <span class="code_number">0</span>.<span class="code_number">026</span><span class="code_operator">*</span><span class="code_variable">ohm</span><span class="code_endofline">;</span><span class="code_operator"></span>  </SPAN></TD>
+</TR></TABLE>
+\[\mathrm{\tt (\%o113) }\quad \frac{13}{500}\cdot \frac{\mathit{kg}\cdot {{m}^{2}}}{{{s}^{3}}\cdot {{A}^{2}}}\]
+
+
+<!-- Text cell -->
+
+
+<P CLASS="comment">
+
+</P>
+
+ <HR>
+ <SMALL> Created with <A HREF="http://wxmaxima.sourceforge.net/">wxMaxima</A>.</SMALL>
+ </BODY>
+</HTML>
