@@ -35,7 +35,7 @@
 	border: 5px solid black;
       }
       
-    h1, h2, h3, h4 {
+    h1, h2, h3, h4, p {
       color: white;
       display: block;     
     }
@@ -45,7 +45,7 @@
       background	: gray;
       position		: relative;
       width		: 1250px;
-      height		: 1050px;
+      height		: 900px;
       top		: 0px;
       left		: 0px;
       float		: left;
@@ -58,7 +58,7 @@
       background	: gray;
       position		: relative;
       width		: 1250px;
-      height		: 200px;
+      height		: 600px;
       top		: 000px;
       left		: 0px;
       float		: left;
@@ -182,15 +182,16 @@
       <div class="current_project_1">
 	<div class="img">
 	    <img
-	      src="images/fortran_reunion.jpeg"
+	      src="images/rpi-beowulf-cluster.png"
 	      width="1200"
 	      height="800"
-	      title="fortran_reunion.jpeg"
+	      title="rpi-beowulf-cluster.png"
 	    >
 	</div> <!-- .img -->
 	  
         <div class="loose_text">
-            <a href="http://www-03.ibm.com/ibm/history/ibm100/us/en/icons/fortran/">History of FORTRAN</a>
+            http://hackaday.com/2013/05/21/33-node-beowulf-cluster-built-with-raspberry-pi/<br>
+            <a href="http://hackaday.com/2013/05/21/33-node-beowulf-cluster-built-with-raspberry-pi/">An example of a Raspberry Pi supercomputer cluster</a>
         </div> <!-- .loose_text -->
         
       </div> <!-- .current_project_1 -->
@@ -209,10 +210,33 @@
 	<hgroup>
 
 	<div class="loose_text">
-	  The purpose of this section is to contain usefull programs for calculating items of interest to me in various projects.  These may include linear algebra, differential equations or calculus.  The eventual goal is to have a FORTRAN program running a software control loop on a Raspberry Pi in parallel with a hardware control loop as part of an internet of things project for home/garden control.  The control loop in the Raspberry Pi act as a supervisor/monitor for the hardware control loop.
+            <p>
+                For this project, we will be building a multiprocessor supercomputer based on the Raspberry Pi 3.  We will use the Single Program Multiple Data architecture to perform multiphysics simulations of various problems of interest, such as colliding galaxies, continuous Fast Fourier Transforms of acquired radio spectrum, and image processing of astronomical photos.  During other times, the cluster will be running BOINC processes.  Specifically, it will be running SETI@Home and Einstein@Home.
+            </p>
+            
+            <p>
+                Supercomputing architecures come in multiple forms.  A good discussion of these can be found here.<br>
+                <a href="https://en.wikipedia.org/wiki/Parallel_computing">https://en.wikipedia.org/wiki/Parallel_computing</a>
+            </p>
+            
+            <p>
+                Our programming languages of choice are Fortran and Python.  Fortran has a number of mechanisms for facilitating parallel computing, namely Message Passing Interface (MPI) and Coarrays.  Information on MPI in Fortran can be found here:<br>
+                <a href="http://condor.cc.ku.edu/~grobe/docs/intro-MPI.shtml">http://condor.cc.ku.edu/~grobe/docs/intro-MPI.shtml</a>
+            </p>
+            
+            <p>
+                Information on Fortran Coarrays can be found here:<br>
+                <a href="https://en.wikipedia.org/wiki/Coarray_Fortran">https://en.wikipedia.org/wiki/Coarray_Fortran</a>
+            </p>
+            
+            <p>
+                While there are a number of parallel computing enabled Fortran compilers available, the author's preference is to use all open-source hardware and software.  A Fortran compiler that fits this criteria is the GNU Fortran compiler with the OpenCoarrays extensions and libraries, which can be found here:<br>
+                <a href="https://gcc.gnu.org/wiki/GFortran">https://gcc.gnu.org/wiki/GFortran</a><br>
+                <a href="http://www.opencoarrays.org/">http://www.opencoarrays.org/</a>
+            </p>
+            
 	</div> <!-- .loose-text -->
-	
-
+            
 	</div> <!-- .current_project_2 -->
       </section> <!-- second_section --> 
     
