@@ -101,7 +101,7 @@
       background	: gray;
       position		: relative;
       width		: 1250px;
-      height		: 1000px;
+      height		: 3600px;
       top		: 10px;
       left		: 0px;
       float		: left;
@@ -323,8 +323,40 @@
     </section> <!-- .fourth_section -->
 
     <section class="fifth_section">
+    
         <div class="current_project_5">
+        
+            <hgroup>
+                <h2>
+                    Calculation of the Design Requirements of the Liquid-Cooled Heatsink for the Raspberry Pi 3 Supercomputer
+                </h2>
+            </hgroup>
             
+            <div class="loose_text">
+                
+                <p>
+                    We make reference to the following article for our calculations:<br>
+                    <a href="http://www.electronics-cooling.com/2002/05/estimating-temperatures-in-a-water-to-air-hybrid-cooling-system/">http://www.electronics-cooling.com/2002/05/estimating-temperatures-in-a-water-to-air-hybrid-cooling-system/</a><br>
+                </p>
+                
+                <object
+                    name="heatsink_design.html" 
+                    type="text/html" 
+                    data="heatsink_design.html"
+                    width="1200px"
+                    height="3200px"
+                >
+                </object>
+            
+                <p>
+                    Based on these calculations, with a typical water cooling system we can expect an 11 deg C rise in the CPU temperature when all four cores are working at maximum.  This is for 1 Raspberry Pi 3.  We expect that as the number of Raspberry Pi 3's increases, the CPU's of all of the members of the cluster will rise linearly.  Our strategy is to thererfore estimate a maximum number of Raspberry Pi 3's we want in our cluster and adjust the water and air flow rates in our cooling system.  From thermodynamics, the greatest cooling effect occurs during a maximum temperature differetial, and this can be achieved by increasing the cooling fluid's flow rate.  
+                </p>
+                
+                <p>
+                    In the next section, we will run these calculations with a supercomputer cluster consisting of 10 Raspberry Pi 3's, and adjust the fluid flow rates until each CPU's temperature stays below our target.
+                </p>
+                
+            </div> <!-- .loose_text -->
 
         </div> <!-- .current_project_5 -->
       
