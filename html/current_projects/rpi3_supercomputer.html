@@ -62,7 +62,7 @@
       background	: gray;
       position		: relative;
       width		: 1250px;
-      height		: 1000px;
+      height		: 900px;
       top		: 000px;
       left		: 0px;
       float		: left;
@@ -75,7 +75,7 @@
       background	: gray;
       position		: relative;
       width		: 1250px;
-      height		: 4400px;
+      height		: 700px;
       top		: 000px;
       left		: 0px;
       float		: left;
@@ -88,7 +88,7 @@
       background	: gray;
       position		: relative;
       width		: 1250px;
-      height		: 1900px;
+      height		: 700px;
       top		: 10px;
       left		: 0px;
       float		: left;
@@ -164,7 +164,7 @@
 
 
 	<h2>
-	  Raspberry Pi 3 Supercomputer
+	  Raspberry Pi 3 Supercomputer - Main Page
 	</h2>
       </hgroup>
     
@@ -203,58 +203,56 @@
     
      
     <section class="second_section">
-      <div class="current_project_2">
-	<hgroup>
-	  <h2>
-	    Description
-	  </h2>
-	  <h3>
-	    Introduction
-	  </h3>
-	<hgroup>
+        <div class="current_project_2">
+            <hgroup>
+                <h1>
+                    <big> <big> Description </big> </big>
+                </h1>
+                <h2>
+                    Introduction
+                </h2>
+            <hgroup>
 
-	<div class="loose_text">
-            <p>
-                For this project, we will be building a multiprocessor supercomputer based on the Raspberry Pi 3.  We will use the Single Program Multiple Data architecture to perform multiphysics simulations of various problems of interest, such as colliding galaxies, continuous Fast Fourier Transforms of acquired radio spectrum, and image processing of astronomical photos.  During other times, the cluster will be running BOINC processes.  Specifically, it will be running SETI@Home and Einstein@Home.
-            </p>
+            <div class="loose_text">
+                <p>
+                    For this project, we will be building a multiprocessor supercomputer based on the Raspberry Pi 3.  We will use the Single Program Multiple Data architecture to perform multiphysics simulations of various problems of interest, such as colliding galaxies, continuous Fast Fourier Transforms of acquired radio spectrum, and image processing of astronomical photos.  During other times, the cluster will be running BOINC processes.  Specifically, it will be running SETI@Home and Einstein@Home.
+                </p>
             
-            <p>
-                Supercomputing architecures come in multiple forms.  A good discussion of these can be found here.<br>
-                <a href="https://en.wikipedia.org/wiki/Parallel_computing">https://en.wikipedia.org/wiki/Parallel_computing</a>
-            </p>
+                <p>
+                    Supercomputing architecures come in multiple forms.  A good discussion of these can be found here.<br>
+                    <a href="https://en.wikipedia.org/wiki/Parallel_computing">https://en.wikipedia.org/wiki/Parallel_computing</a>
+                </p>
             
-            <p>
-                Our programming languages of choice are Fortran and Python.  Fortran has a number of mechanisms for facilitating parallel computing, namely Message Passing Interface (MPI) and Coarrays.  Information on MPI in Fortran can be found here:<br>
-                <a href="http://condor.cc.ku.edu/~grobe/docs/intro-MPI.shtml">http://condor.cc.ku.edu/~grobe/docs/intro-MPI.shtml</a>
-            </p>
+                <p>
+                    Our programming languages of choice are Fortran and Python.  Fortran has a number of mechanisms for facilitating parallel computing, namely Message Passing Interface (MPI) and Coarrays.  Information on MPI in Fortran can be found here:<br>
+                    <a href="http://condor.cc.ku.edu/~grobe/docs/intro-MPI.shtml">http://condor.cc.ku.edu/~grobe/docs/intro-MPI.shtml</a>
+                </p>
             
-            <p>
-                Information on Fortran Coarrays can be found here:<br>
-                <a href="https://en.wikipedia.org/wiki/Coarray_Fortran">https://en.wikipedia.org/wiki/Coarray_Fortran</a><br>
-                <a href="http://www.eneagrid.enea.it/tutorial/fanfarillo2014/AFanfarillo_20141219_CoarrayENEA.pdf">http://www.eneagrid.enea.it/tutorial/fanfarillo2014/AFanfarillo_20141219_CoarrayENEA.pdf</a>
-            </p>
+                <p>
+                    Information on Fortran Coarrays can be found here:<br>
+                    <a href="https://en.wikipedia.org/wiki/Coarray_Fortran">https://en.wikipedia.org/wiki/Coarray_Fortran</a><br>
+                    <a href="http://www.eneagrid.enea.it/tutorial/fanfarillo2014/AFanfarillo_20141219_CoarrayENEA.pdf">http://www.eneagrid.enea.it/tutorial/fanfarillo2014/AFanfarillo_20141219_CoarrayENEA.pdf</a>
+                </p>
             
-            <p>
-                While there are a number of parallel computing enabled Fortran compilers available, the author's preference is to use all open-source hardware and software.  A Fortran compiler that fits this criteria is the GNU Fortran compiler with the OpenCoarrays extensions and libraries, which can be found here:<br>
-                <a href="https://gcc.gnu.org/wiki/GFortran">https://gcc.gnu.org/wiki/GFortran</a><br>
-                <a href="http://www.opencoarrays.org/">http://www.opencoarrays.org/</a>
-            </p>
+                <p>
+                    While there are a number of parallel computing enabled Fortran compilers available, the author's preference is to use all open-source hardware and software.  A Fortran compiler that fits this criteria is the GNU Fortran compiler with the OpenCoarrays extensions and libraries, which can be found here:<br>
+                    <a href="https://gcc.gnu.org/wiki/GFortran">https://gcc.gnu.org/wiki/GFortran</a><br>
+                    <a href="http://www.opencoarrays.org/">http://www.opencoarrays.org/</a>
+                </p>
             
-            <p>
-                Supercomputer clusters of Raspberry Pi's have been built by many people as can be seen from a Google search.  Many have built these from the Versions Zero, 1, and 2 of the Raspberry Pi.  With the advent of the Raspberry Pi 3, it has been noted by many that it's CPU can reach much higher temperatures than it's predecessors.  It has also been noted that the CPU contains a speed governor that reduces the clock rate once the core temperature reaches 85 Celcius.
-            </p>
+                <p>
+                    Supercomputer clusters of Raspberry Pi's have been built by many people as can be seen from a Google search.  Many have built these from the Versions Zero, 1, and 2 of the Raspberry Pi.  With the advent of the Raspberry Pi 3, it has been noted by many that it's CPU can reach much higher temperatures than it's predecessors.  It has also been noted that the CPU contains a speed governor that reduces the clock rate once the core temperature reaches 85 Celcius.
+                </p>
             
-            <p>
-                We obviously wish to avoid temperature induced throttling of the CPU in order to maximize supercomputing performance.  Additionally, we wish to avoid large quantities of small fans on each of the individual Raspberry Pi's.  Several have suggested a water cooled system.  In our estimation, this will contain a cold fluid supply rail, a hot fluid return rail, radiator, reservoir / pump combination, and all of the associated plumbing.  A fan would most likely be required to supply cooling air to the radiator.
-            </p>
+                <p>
+                    We obviously wish to avoid temperature induced throttling of the CPU in order to maximize supercomputing performance.  Additionally, we wish to avoid large quantities of small fans on each of the individual Raspberry Pi's.  Several have suggested a water cooled system.  In our estimation, this will contain a cold fluid supply rail, a hot fluid return rail, radiator, reservoir / pump combination, and all of the associated plumbing.  A fan would most likely be required to supply cooling air to the radiator.
+                </p>
+                
+            </div> <!-- .loose-tect -->
             
-            <p>
-                In what follows, we try to calculated the thermal impedance of the Raspberry Pi 3's CPU chip, since vendor supplied datasheets are not available.  We use data gathered from various sources on the Internet.
-            </p>
-	</div> <!-- .loose-text -->
-            
-	</div> <!-- .current_project_2 -->
-      </section> <!-- second_section --> 
+        </div> <!-- .current_project_2 -->
+        
+    </section> <!-- second_section --> 
     
 
     <section class="third_section">
@@ -262,38 +260,31 @@
         <div class="current_project_3">
             <hgroup>
                 <h2>
-                    Calculation of the Raspberry Pi 3's CPU Thermal Impedance
+                    Watercooled Heatsink Analysis and Design
                 </h2>
             </hgroup>
             
             <div class="loose_text">
-                In what follows we attempt to calculate the thermal impedance of the Raspberry Pi 3's CPU chip.  The calculations are based on thermal and power usage data available from the Internet.
-            </div> <!-- .loose_text -->
             
-            
-            <object
-                name="RPi3_Thermal_Calcs.html" 
-                type="text/html" 
-                data="RPi3_Thermal_Calcs.html"
-                width="1200px"
-                height="3900px"
-            >
-            </object>
-            
-	  
-            <div class="loose_text">
                 <p>
-                    From these calculations, it appears that the Junction to Ambient Thermal Impedance of the CPU chip is about 32 C/W.  This means that for every watt of power consumption by the CPU, it's temperature will rise by 32 degrees C.  This gives us an idea of how much heatsinking is required to maintain the temperature below the throttling temperature of 85C.  
+                    In what follows, we will analyze the thermal characteristics of the Raspberry Pi 3 and design an appropriate water cooling system for the supercomputer cluster.  We will try to calculate the thermal impedance of the Raspberry Pi 3's CPU chip, since vendor supplied datasheets are not available.  We use data gathered from various sources on the Internet.  We will then use these calculations to estimate the required parameters of our water cooling system.
                 </p>
+            
+            </div> <!-- .loose-text -->
+        
+            <figure>
+                <img
+                    src="images/RPi3 Thermal Calcs_12.png"
+                    width="600px"
+                    height="400px"
+                    title="RPi3 Thermal Calcs_12.png"
+                >
+	    
+                <figcaption>
+                    <a href="watercooled_heatsink_calcs.html">Watercooled Heatsink Analysis and Design</a><br>
+                </figcaption>
                 
-                <p>
-                    Under heavy load, the Raspberry Pi 3 is consumping 3.9W. We shall assume all of this is consumed by the CPU, although some it is actually consumed in the RAM, communications controller chip and other components.  According to our thermal impedance calculation, this power consumption will result in a temperature rise of 3.9W x 32 C/W = 124.8C.  Of this, the portion of the temperature rise attributable from Junction to Case is 3.9W x 17.01 C/W = 66.3C.  If we wish to stay under 75C, then we are allowing only a 75C - 66.3C = 8.7C temperature rise.
-                </p>
-                
-                <p>
-                    Therefore, our heatsink must have sufficient cooling capacity to have a temperature rise of only 8.7C while dissipating 3.9W, or a thermal impedance of 2.2C/W.  All of these calculations are accurate to the nearest tenth of a degree Celcius.  These calculations are formalized in the next section.
-                </p>
-            </div> <!-- .loose_text -->
+            </figure>
 
         </div> <!-- .current_project_3 -->
         
@@ -303,19 +294,34 @@
     
         <div class="current_project_4">
         
-            <object
-                name="heatsink_req.html" 
-                type="text/html" 
-                data="heatsink_req.html"
-                width="1200px"
-                height="1700px"
-            >
-            </object>
+            <hgroup>
+                <h2>
+                    Parallel Computing with Fortran
+                </h2>
+            </hgroup>
+        
+        <div class="loose_text">
             
-
-            <div class="loose_text">
-                From the above calculations, we can observe that the required heatsink thermal impedance is about 2.2C/W.  This can be accomplished with a forced-air + finned heatsink.  Water-cooling can achieve much lower thermal impedances, in the range of 0.1C/W to 0.01C/W and lower.  We can apply a generous amount of engineering margin of a factor of 10, to account for build variances and other factors affecting cooling performance, and require that the heatsink has a thermal impedance of 0.2C/W.  This falls perfectly into the realm of water-cooling.
-            </div> <!-- .loose_text -->
+            <p>
+                We will write some Fortran code to make use of the Raspberry Pi 3 Supercomputer.
+            </p>
+            
+        </div> <!-- .loose-text -->
+        
+        <figure>
+        
+            <img
+                src="images/parallel_Fortran_code.jpeg"
+                width="600px"
+                height="400px"
+                title="parallel_Fortran_code.jpeg"
+            >
+            
+            <figcaption>
+                <a href="parallel_Fortran_code.html">Parallel Fortran Code</a><br>
+            </figcaption>
+            
+        </figure>
             
         </div> <!-- .current_project_4 -->
         
@@ -327,32 +333,24 @@
         
             <hgroup>
                 <h2>
-                    Calculation of the Design Requirements of the Liquid-Cooled Heatsink for the Raspberry Pi 3 Supercomputer
+                    test
                 </h2>
             </hgroup>
             
             <div class="loose_text">
                 
                 <p>
-                    We make reference to the following article for our calculations:<br>
-                    <a href="http://www.electronics-cooling.com/2002/05/estimating-temperatures-in-a-water-to-air-hybrid-cooling-system/">http://www.electronics-cooling.com/2002/05/estimating-temperatures-in-a-water-to-air-hybrid-cooling-system/</a><br>
+                    test
                 </p>
                 
-                <object
-                    name="heatsink_design.html" 
-                    type="text/html" 
-                    data="heatsink_design.html"
-                    width="1200px"
-                    height="3600px"
-                >
-                </object>
+                
             
                 <p>
-                    Based on these calculations, with a typical water cooling system we can expect an 11 deg C rise in the CPU temperature when all four cores are working at maximum.  This is for 1 Raspberry Pi 3.  We expect that as the number of Raspberry Pi 3's increases, the CPU's of all of the members of the cluster will rise linearly.  Our strategy is to thererfore estimate a maximum number of Raspberry Pi 3's we want in our cluster and adjust the water and air flow rates in our cooling system.  From thermodynamics, the greatest cooling effect occurs during a maximum temperature differetial, and this can be achieved by increasing the cooling fluid's flow rate.  
+                    test 
                 </p>
                 
                 <p>
-                    In the next section, we will run these calculations with a supercomputer cluster consisting of 10 Raspberry Pi 3's, and adjust the fluid flow rates until each CPU's temperature stays below our target.
+                    test
                 </p>
                 
             </div> <!-- .loose_text -->
@@ -363,18 +361,11 @@
     
     <section class="sixth_section">
         <div class="current_project_6">
-            <object
-                    name="heatsink_performance_10Pi_cluster.html" 
-                    type="text/html" 
-                    data="heatsink_performance_10Pi_cluster.html"
-                    width="1200px"
-                    height="3500px"
-                >
-            </object>
-
+            
+            
         </div> <!-- .current_project_6 -->
       
-    </section> <!-- .fifth_section -->
+    </section> <!-- .sixth_section -->
     
     
         

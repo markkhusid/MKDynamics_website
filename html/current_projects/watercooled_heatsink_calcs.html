@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+
+<script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-58919029-1', 'auto');
+    ga('send', 'pageview');
+</script>
+
+<html>
+
+<head>
+    <meta content="text/html; charset=utf-8" http-equiv="content-type">
+    <meta name="robots" content="follow" />
+  
+    <title>
+        MK Dynamics - Raspberry Pi 3 Supercomputer
+    </title>
+  
+    <link href="../css/styles.css" type = "text/css" rel = "stylesheet" />
+  
+    <style>
+    .content {
+	overflow: auto;
+	height: 80%; 
+	background: url("../images/galaxy1.jpg") no-repeat center center fixed;
+	background-size: cover;
+	background-position: center;
+	padding: 10px;
+	margin: 10px;
+	border: 5px solid black;
+      }
+      
+    h1, h2, h3, h4, p {
+      color: white;
+      display: block;     
+    }
+    
+    object {
+        margin          : 10px;
+        padding-left    : 10px;
+    }
+    
+    .current_project_1 {
+      border		: 5px solid black;
+      background	: gray;
+      position		: relative;
+      width		: 1250px;
+      height		: 200px;
+      top		: 0px;
+      left		: 0px;
+      float		: left;
+      margin		: 10px;
+      padding-left	: 10px;
+    }
+    
+    .current_project_2 {
+      border		: 5px solid black;
+      background	: gray;
+      position		: relative;
+      width		: 1250px;
+      height		: 1800px;
+      top		: 000px;
+      left		: 0px;
+      float		: left;
+      margin		: 10px;
+      padding-left	: 10px;
+    }
+    
+    .current_project_3 {
+      border		: 5px solid black;
+      background	: gray;
+      position		: relative;
+      width		: 1250px;
+      height		: 4400px;
+      top		: 000px;
+      left		: 0px;
+      float		: left;
+      margin		: 10px;
+      padding-left	: 10px;
+    }
+    
+    .current_project_4 {
+      border		: 5px solid black;
+      background	: gray;
+      position		: relative;
+      width		: 1250px;
+      height		: 1900px;
+      top		: 10px;
+      left		: 0px;
+      float		: left;
+      margin		: 10px;
+      padding		: 10px;
+    }
+    
+    .current_project_5 {
+      border		: 5px solid black;
+      background	: gray;
+      position		: relative;
+      width		: 1250px;
+      height		: 4000px;
+      top		: 10px;
+      left		: 0px;
+      float		: left;
+      margin		: 10px;
+      padding		: 10px;
+    }
+    
+    .current_project_6 {
+      border		: 5px solid black;
+      background	: gray;
+      position		: relative;
+      width		: 1250px;
+      height		: 3800px;
+      top		: 10px;
+      left		: 0px;
+      float		: left;
+      margin		: 10px;
+      padding		: 10px;
+    }
+    
+    div .img {
+      margin		: 0px;
+      padding		: 10px;
+      height		: auto;
+      width		: auto;
+      float		: left;
+    }
+    
+    div .img img {
+      display		: inline;
+      margin		: 0px;
+      padding		: 0px;
+    }
+    
+    div .desc {
+      color		: white;
+      width		: 600px;
+      margin		: 5px;
+      padding		: 10px;
+    }
+    
+    ul {
+      color		: white;
+    }
+    
+    div .loose_text {
+      color		: white;
+    }
+  </style>
+</head>
+
+<body>
+    <div class="wrapper">
+    
+        <header>
+    
+            <hgroup>
+                <h1> 
+                    <big> <big> MK Dynamics </big> </big>
+                </h1>
+
+
+                <h2>
+                    Raspberry Pi 3 Supercomputer - Watercooled Heatsink Analysis and Design
+                </h2>
+            </hgroup>
+    
+            <nav>
+                <ul>
+                    <li> <a href="../index.html">Home</a> </li>
+                    <li> <a href="rpi3_supercomputer.html">Back</a></li>
+                </ul>
+            </nav>
+  
+        </header>
+
+<!-- ****************************************************** -->
+        <section class="content">
+         
+            <section class="first_section">
+        
+                <div class="current_project_1">
+      
+                    <hgroup>
+                        <h2>
+                            Watercooled Heatsink Analysis and Design
+                        </h2>
+                    </hgroup>
+            
+                <div class="loose_text">
+            
+                    <p>
+                        In what follows, we will analyze the thermal characteristics of the Raspberry Pi 3 and design an appropriate water cooling system for the supercomputer cluster.  We will try to calculate the thermal impedance of the Raspberry Pi 3's CPU chip, since vendor supplied datasheets are not available.  We use data gathered from various sources on the Internet.  We will then use these calculations to estimate the required parameters of our water cooling system.
+                    </p>
+            
+                </div> <!-- .loose-text -->
+        
+            </div> <!-- .current_project_1 -->
+            
+        </section> <!-- first_section --> 
+<!-- ********************************************************** -->
+
+<!-- ********************************************************** -->
+        <section class="third_section">
+    
+            <div class="current_project_3">
+                <hgroup>
+                    <h2>
+                        Calculation of the Raspberry Pi 3's CPU Thermal Impedance
+                    </h2>
+                </hgroup>
+            
+                <p>            
+                    <div class="loose_text">
+                        We attempt to calculate the thermal impedance of the Raspberry Pi 3's CPU chip.  The calculations are based on thermal and power usage data available from the Internet.
+                    </div> <!-- .loose_text -->
+                </p>
+
+            <object
+                name="RPi3_Thermal_Calcs.html" 
+                type="text/html" 
+                data="RPi3_Thermal_Calcs.html"
+                width="1200px"
+                height="3900px"
+            >
+            </object>
+            
+	  
+            <div class="loose_text">
+                <p>
+                    From these calculations, it appears that the Junction to Ambient Thermal Impedance of the CPU chip is about 32 C/W.  This means that for every watt of power consumption by the CPU, it's temperature will rise by 32 degrees C.  This gives us an idea of how much heatsinking is required to maintain the temperature below the throttling temperature of 85C.  
+                </p>
+                
+                <p>
+                    Under heavy load, the Raspberry Pi 3 is consumping 3.9W. We shall assume all of this is consumed by the CPU, although some it is actually consumed in the RAM, communications controller chip and other components.  According to our thermal impedance calculation, this power consumption will result in a temperature rise of 3.9W x 32 C/W = 124.8C.  Of this, the portion of the temperature rise attributable from Junction to Case is 3.9W x 17.01 C/W = 66.3C.  If we wish to stay under 75C, then we are allowing only a 75C - 66.3C = 8.7C temperature rise.
+                </p>
+                
+                <p>
+                    Therefore, our heatsink must have sufficient cooling capacity to have a temperature rise of only 8.7C while dissipating 3.9W, or a thermal impedance of 2.2C/W.  All of these calculations are accurate to the nearest tenth of a degree Celcius.  These calculations are formalized in the next section.
+                </p>
+            </div> <!-- .loose_text -->
+
+        </div> <!-- .current_project_3 -->
+        
+    </section> <!-- .third_section -->
+<!-- ******************************************************* -->
+
+    <section class="fourth_section">
+    
+        <div class="current_project_4">
+        
+            <object
+                name="heatsink_req.html" 
+                type="text/html" 
+                data="heatsink_req.html"
+                width="1200px"
+                height="1700px"
+            >
+            </object>
+            
+
+            <div class="loose_text">
+                From the above calculations, we can observe that the required heatsink thermal impedance is about 2.2C/W.  This can be accomplished with a forced-air + finned heatsink.  Water-cooling can achieve much lower thermal impedances, in the range of 0.1C/W to 0.01C/W and lower.  We can apply a generous amount of engineering margin of a factor of 10, to account for build variances and other factors affecting cooling performance, and require that the heatsink has a thermal impedance of 0.2C/W.  This falls perfectly into the realm of water-cooling.
+            </div> <!-- .loose_text -->
+            
+        </div> <!-- .current_project_4 -->
+        
+    </section> <!-- .fourth_section -->
+
+    <section class="fifth_section">
+    
+        <div class="current_project_5">
+        
+            <hgroup>
+                <h2>
+                    Calculation of the Design Requirements of the Liquid-Cooled Heatsink for the Raspberry Pi 3 Supercomputer
+                </h2>
+            </hgroup>
+            
+            <div class="loose_text">
+                
+                <p>
+                    We make reference to the following article for our calculations:<br>
+                    <a href="http://www.electronics-cooling.com/2002/05/estimating-temperatures-in-a-water-to-air-hybrid-cooling-system/">http://www.electronics-cooling.com/2002/05/estimating-temperatures-in-a-water-to-air-hybrid-cooling-system/</a><br>
+                </p>
+                
+                <object
+                    name="heatsink_design.html" 
+                    type="text/html" 
+                    data="heatsink_design.html"
+                    width="1200px"
+                    height="3600px"
+                >
+                </object>
+            
+                <p>
+                    Based on these calculations, with a typical water cooling system we can expect an 11 deg C rise in the CPU temperature when all four cores are working at maximum.  This is for 1 Raspberry Pi 3.  We expect that as the number of Raspberry Pi 3's increases, the CPU's of all of the members of the cluster will rise linearly.  Our strategy is to thererfore estimate a maximum number of Raspberry Pi 3's we want in our cluster and adjust the water and air flow rates in our cooling system.  From thermodynamics, the greatest cooling effect occurs during a maximum temperature differetial, and this can be achieved by increasing the cooling fluid's flow rate.  
+                </p>
+                
+                <p>
+                    In the next section, we will run these calculations with a supercomputer cluster consisting of 10 Raspberry Pi 3's, and adjust the fluid flow rates until each CPU's temperature stays below our target.
+                </p>
+                
+            </div> <!-- .loose_text -->
+
+        </div> <!-- .current_project_5 -->
+      
+    </section> <!-- .fifth_section -->
+    
+    <section class="sixth_section">
+        <div class="current_project_6">
+            <object
+                    name="heatsink_performance_10Pi_cluster.html" 
+                    type="text/html" 
+                    data="heatsink_performance_10Pi_cluster.html"
+                    width="1200px"
+                    height="3500px"
+                >
+            </object>
+
+        </div> <!-- .current_project_6 -->
+      
+    </section> <!-- .fifth_section -->
+    
+    
+        
+  </section>	<!-- .content -->
+    
+  </div> <!-- .wrapper -->
+
+  </body>
+
+</html>
+  
+
