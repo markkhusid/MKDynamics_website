@@ -1,0 +1,260 @@
+<!DOCTYPE HTML">
+<HTML>
+ <HEAD>
+  <TITLE>heatsink_req</TITLE>
+  <META NAME="generator" CONTENT="wxMaxima">
+  <META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=utf-8">
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    displayAlign: "left",
+    context: "MathJax"
+  })
+</script>
+<script type="text/javascript"
+  src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML">
+</script>
+  <link rel="stylesheet" type="text/css" href="heatsink_req_htmlimg/heatsink_req.css"/>
+ </HEAD>
+ <BODY>
+
+<!-- ***************************************************** -->
+<!--          Created with wxMaxima version 15.08.2         -->
+<!-- ***************************************************** -->
+<noscript><div class="error message">    Please enable JavaScript in order to get a 2d display of the equations embedded in this web page.</div></noscript>\(      \DeclareMathOperator{\abs}{abs}
+\)
+
+<!-- Title cell -->
+
+
+<P CLASS="title">
+Raspberry Pi 3 Supercomputer Heatsink Requirements
+</P>
+
+
+<!-- Text cell -->
+
+
+<P CLASS="comment">
+In what follows we will calculate the required thermal impedance of the heatsinking mechanism for the Raspberry Pi 3 Supercomputer.
+From previous calculations, it was observed that the Junction to Ambient Thermal Impedance of the CPU was about 32 C/W.
+Our goal is maintain the CPU temperature below 80C in order to prevent throttling of the CPU's clock rate by the built-in thermal governor.
+
+</P>
+
+
+<!-- Section cell -->
+
+
+<P CLASS="section">
+ 1 Power Supply
+</P>
+
+
+<!-- Section cell -->
+
+
+<P CLASS="section">
+ 2 Current Draws
+</P>
+
+
+<!-- Section cell -->
+
+
+<P CLASS="section">
+ 3 Temperatures
+</P>
+
+
+<!-- Section cell -->
+
+
+<P CLASS="section">
+ 4 Power Consumptions
+</P>
+
+
+<!-- Section cell -->
+
+
+<P CLASS="section">
+ 5 Thermal Impedance Estimate of CPU (case to ambient) [deg C/W]
+</P>
+
+
+<!-- Section cell -->
+
+
+<P CLASS="section">
+ 6 Thermal Impedance Estimate of CPU (junction to case)
+</P>
+
+
+<!-- Section cell -->
+
+
+<P CLASS="section">
+ 7 Thermal Impedance Estimate of CPU (junction to ambient) [deg C/W]
+</P>
+
+
+<!-- Section cell -->
+
+
+<P CLASS="section">
+ 8 Calculation of Heatsink Thermal Impdedance Requirements
+</P>
+
+
+<!-- Text cell -->
+
+
+<P CLASS="comment">
+In what follows, we will calculate the required thermal impedance of the heatsink.
+Under heavy load, the Raspberry Pi 3 is consuming 3.9W. &nbsp;We will assume that all of this is consumed by the CPU.
+Under these conditions, the temperature rise of the junction is:
+
+</P>
+
+
+<!-- Text cell -->
+
+
+<P CLASS="comment">
+Temperature rise of junction due to power dissipation across Junction to Ambient Thermal Impedance [deg C]
+
+</P>
+
+
+<!-- Code cell -->
+
+
+<TABLE><TR><TD>
+  <SPAN CLASS="prompt">
+(%i35) 
+  </SPAN></TD>
+  <TD><SPAN CLASS="input">
+<span class="code_variable">T_rise_heavy_load_RthJA</span><span class="code_operator">:</span> <span class="code_variable">P_RPi3_4_core_heavy_load</span> <span class="code_operator">*</span> <span class="code_variable">Theta_JA_RPI3_CPU</span><span class="code_endofline">;</span><span class="code_operator"></span>  </SPAN></TD>
+</TR></TABLE>
+\[\mathrm{\tt (\%o35) }\quad 125.2415094339623\]
+
+
+<!-- Text cell -->
+
+
+<P CLASS="comment">
+The portion of junction temperature rise due to the junction to case thermal impedance is:
+
+</P>
+
+
+<!-- Text cell -->
+
+
+<P CLASS="comment">
+Temperature rise of junction due to power dissipation across the Junction to Case Thermal Impedance [deg C]
+
+</P>
+
+
+<!-- Code cell -->
+
+
+<TABLE><TR><TD>
+  <SPAN CLASS="prompt">
+(%i36) 
+  </SPAN></TD>
+  <TD><SPAN CLASS="input">
+<span class="code_variable">T_rise_heavy_load_RthJC</span><span class="code_operator">:</span> <span class="code_variable">P_RPi3_4_core_heavy_load</span> <span class="code_operator">*</span> <span class="code_variable">Theta_JC_RPi3_CPU</span><span class="code_endofline">;</span><span class="code_operator"></span>  </SPAN></TD>
+</TR></TABLE>
+\[\mathrm{\tt (\%o36) }\quad 66.37358490566038\]
+
+
+<!-- Text cell -->
+
+
+<P CLASS="comment">
+Define the maximum junction temperature that we will allow to prevent thermal throttling of CPU clock rate.
+We will arbitrarily set the maximum temperature to 75C, to allow a 10C margin under 85C for manufacturing tolerances.
+
+</P>
+
+
+<!-- Text cell -->
+
+
+<P CLASS="comment">
+Maximum allowed junction temperature [deg C]
+
+</P>
+
+
+<!-- Code cell -->
+
+
+<TABLE><TR><TD>
+  <SPAN CLASS="prompt">
+(%i37) 
+  </SPAN></TD>
+  <TD><SPAN CLASS="input">
+<span class="code_variable">T_junction_allowed_max</span><span class="code_operator">:</span> <span class="code_number">75</span><span class="code_endofline">;</span><span class="code_operator"></span>  </SPAN></TD>
+</TR></TABLE>
+\[\mathrm{\tt (\%o37) }\quad 75\]
+
+
+<!-- Text cell -->
+
+
+<P CLASS="comment">
+The maximum allowed temperature rise is: [deg C]
+
+</P>
+
+
+<!-- Code cell -->
+
+
+<TABLE><TR><TD>
+  <SPAN CLASS="prompt">
+(%i38) 
+  </SPAN></TD>
+  <TD><SPAN CLASS="input">
+<span class="code_variable">T_rise_allowed_max</span><span class="code_operator">:</span> <span class="code_variable">T_junction_allowed_max</span> <span class="code_operator">-</span> <span class="code_variable">T_rise_heavy_load_RthJC</span><span class="code_endofline">;</span><span class="code_operator"></span>  </SPAN></TD>
+</TR></TABLE>
+\[\mathrm{\tt (\%o38) }\quad 8.62641509433962\]
+
+
+<!-- Text cell -->
+
+
+<P CLASS="comment">
+This temperature rise has to occur while dissipating 3.9W, which implies that the thermal impedance of the heatsink must be:
+
+</P>
+
+
+<!-- Text cell -->
+
+
+<P CLASS="comment">
+Thermal Impedance of Heatsink (Case to Ambient) [C/W]
+
+</P>
+
+
+<!-- Code cell -->
+
+
+<TABLE><TR><TD>
+  <SPAN CLASS="prompt">
+(%i39) 
+  </SPAN></TD>
+  <TD><SPAN CLASS="input">
+<span class="code_variable">R_theta_heatsink_ambient</span><span class="code_operator">:</span> <span class="code_variable">T_rise_allowed_max</span> <span class="code_operator">/</span> <span class="code_variable">P_RPi3_4_core_heavy_load</span><span class="code_endofline">;</span><span class="code_operator"></span>  </SPAN></TD>
+</TR></TABLE>
+\[\mathrm{\tt (\%o39) }\quad 2.211901306240928\]
+
+ <HR>
+ <SMALL> Created with <A HREF="http://wxmaxima.sourceforge.net/">wxMaxima</A>.</SMALL>
+ </BODY>
+</HTML>

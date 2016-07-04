@@ -1,0 +1,480 @@
+<!DOCTYPE HTML">
+<HTML>
+ <HEAD>
+  <TITLE>RPi3 Thermal Calcs</TITLE>
+  <META NAME="generator" CONTENT="wxMaxima">
+  <META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=utf-8">
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    displayAlign: "left",
+    context: "MathJax"
+  })
+</script>
+<script type="text/javascript"
+  src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML">
+</script>
+  <link rel="stylesheet" type="text/css" href="RPi3 Thermal Calcs_htmlimg/RPi3 Thermal Calcs.css"/>
+ </HEAD>
+ <BODY>
+
+<!-- ***************************************************** -->
+<!--          Created with wxMaxima version 15.08.2         -->
+<!-- ***************************************************** -->
+<noscript><div class="error message">    Please enable JavaScript in order to get a 2d display of the equations embedded in this web page.</div></noscript>\(      \DeclareMathOperator{\abs}{abs}
+\)
+
+<!-- Title cell -->
+
+
+<P CLASS="title">
+Raspberry Pi CPU Temp and Power Consumption
+</P>
+
+
+<!-- Text cell -->
+
+
+<P CLASS="comment">
+From http://blog.pimoroni.com/raspberry-pi-3/
+
+</P>
+
+
+<!-- Image cell -->
+
+
+<P CLASS="image">
+Figure 1: /home/mark/Engineering/Supercomputer/Raspberry pi cpu_current.png
+<BR>
+  <IMG src="RPi3 Thermal Calcs_htmlimg/RPi3 Thermal Calcs_0.png" alt="Diagram" style="max-width:90%;" >
+
+<!-- Image cell -->
+
+
+<P CLASS="image">
+Figure 2: /home/mark/Engineering/Supercomputer/Raspberry pi cpu_temp.png
+<BR>
+  <IMG src="RPi3 Thermal Calcs_htmlimg/RPi3 Thermal Calcs_1.png" alt="Diagram" style="max-width:90%;" >
+
+<!-- Section cell -->
+
+
+<P CLASS="section">
+ 1 Power Supply
+</P>
+
+
+<!-- Text cell -->
+
+
+<P CLASS="comment">
+USB Power Supply Voltage [volts]
+
+</P>
+
+
+<!-- Code cell -->
+
+
+<TABLE><TR><TD>
+  <SPAN CLASS="prompt">
+(%i1) 
+  </SPAN></TD>
+  <TD><SPAN CLASS="input">
+<span class="code_variable">V_power_supply</span><span class="code_operator">:</span> <span class="code_number">5</span><span class="code_endofline">;</span><span class="code_operator"></span>  </SPAN></TD>
+</TR></TABLE>
+\[\mathrm{\tt (\%o1) }\quad 5\]
+
+
+<!-- Section cell -->
+
+
+<P CLASS="section">
+ 2 Current Draws
+</P>
+
+
+<!-- Text cell -->
+
+
+<P CLASS="comment">
+Raspberry Pi 3 idle current draw [amps] (estimate from graph)
+
+</P>
+
+
+<!-- Code cell -->
+
+
+<TABLE><TR><TD>
+  <SPAN CLASS="prompt">
+(%i2) 
+  </SPAN></TD>
+  <TD><SPAN CLASS="input">
+<span class="code_variable">I_RPi3_idle</span><span class="code_operator">:</span> <span class="code_number">0</span>.<span class="code_number">250</span><span class="code_endofline">;</span><span class="code_operator"></span>  </SPAN></TD>
+</TR></TABLE>
+\[\mathrm{\tt (\%o2) }\quad 0.25\]
+
+
+<!-- Text cell -->
+
+
+<P CLASS="comment">
+Raspberry Pi 3 heavily loaded CPU current draw [amps] (4 cores, estimate from graph)
+
+</P>
+
+
+<!-- Code cell -->
+
+
+<TABLE><TR><TD>
+  <SPAN CLASS="prompt">
+(%i3) 
+  </SPAN></TD>
+  <TD><SPAN CLASS="input">
+<span class="code_variable">I_RPi3_4_core_heavy_load</span><span class="code_operator">:</span> <span class="code_number">0</span>.<span class="code_number">780</span><span class="code_endofline">;</span><span class="code_operator"></span>  </SPAN></TD>
+</TR></TABLE>
+\[\mathrm{\tt (\%o3) }\quad 0.78\]
+
+
+<!-- Section cell -->
+
+
+<P CLASS="section">
+ 3 Temperatures
+</P>
+
+
+<!-- Text cell -->
+
+
+<P CLASS="comment">
+Raspberry Pi 3 idle CPU temperature [deg C] (estimate from graph)
+
+</P>
+
+
+<!-- Code cell -->
+
+
+<TABLE><TR><TD>
+  <SPAN CLASS="prompt">
+(%i4) 
+  </SPAN></TD>
+  <TD><SPAN CLASS="input">
+<span class="code_variable">T_RPi3_idle</span><span class="code_operator">:</span> <span class="code_number">38</span><span class="code_endofline">;</span><span class="code_operator"></span>  </SPAN></TD>
+</TR></TABLE>
+\[\mathrm{\tt (\%o4) }\quad 38\]
+
+
+<!-- Text cell -->
+
+
+<P CLASS="comment">
+Raspberry Pi 3 heavily loaded CPU temperature [deg c] (4 cores, estimate from graph)
+Note: internal CPU governor limits temperature to 82C before throttling CPU down. &nbsp;Characteristics of governor not known.
+
+</P>
+
+
+<!-- Code cell -->
+
+
+<TABLE><TR><TD>
+  <SPAN CLASS="prompt">
+(%i5) 
+  </SPAN></TD>
+  <TD><SPAN CLASS="input">
+<span class="code_variable">T_RPi3_4_core_heavy_load</span><span class="code_operator">:</span> <span class="code_number">78</span><span class="code_endofline">;</span><span class="code_operator"></span>  </SPAN></TD>
+</TR></TABLE>
+\[\mathrm{\tt (\%o5) }\quad 78\]
+
+
+<!-- Text cell -->
+
+
+<P CLASS="comment">
+Temperature rise from idle to heavy load (4 cores) [deg C]
+
+</P>
+
+
+<!-- Code cell -->
+
+
+<TABLE><TR><TD>
+  <SPAN CLASS="prompt">
+(%i6) 
+  </SPAN></TD>
+  <TD><SPAN CLASS="input">
+<span class="code_variable">delta_T_4_core_heavy_load_to_idle</span><span class="code_operator">:</span> <span class="code_variable">T_RPi3_4_core_heavy_load</span> <span class="code_operator">-</span> <span class="code_variable">T_RPi3_idle</span><span class="code_endofline">;</span><span class="code_operator"></span>  </SPAN></TD>
+</TR></TABLE>
+\[\mathrm{\tt (\%o6) }\quad 40\]
+
+
+<!-- Section cell -->
+
+
+<P CLASS="section">
+ 4 Power Consumptions
+</P>
+
+
+<!-- Text cell -->
+
+
+<P CLASS="comment">
+Raspberry Pi 3 idle power consumption [W]
+
+</P>
+
+
+<!-- Code cell -->
+
+
+<TABLE><TR><TD>
+  <SPAN CLASS="prompt">
+(%i7) 
+  </SPAN></TD>
+  <TD><SPAN CLASS="input">
+<span class="code_variable">P_RPi3_idle</span><span class="code_operator">:</span> <span class="code_variable">V_power_supply</span> <span class="code_operator">*</span> <span class="code_variable">I_RPi3_idle</span><span class="code_endofline">;</span><span class="code_operator"></span>  </SPAN></TD>
+</TR></TABLE>
+\[\mathrm{\tt (\%o7) }\quad 1.25\]
+
+
+<!-- Text cell -->
+
+
+<P CLASS="comment">
+Raspberry Pi 3 heavily loaded power consumption [W] (4 cores)
+
+</P>
+
+
+<!-- Code cell -->
+
+
+<TABLE><TR><TD>
+  <SPAN CLASS="prompt">
+(%i8) 
+  </SPAN></TD>
+  <TD><SPAN CLASS="input">
+<span class="code_variable">P_RPi3_4_core_heavy_load</span><span class="code_operator">:</span> <span class="code_variable">V_power_supply</span> <span class="code_operator">*</span> <span class="code_variable">I_RPi3_4_core_heavy_load</span><span class="code_endofline">;</span><span class="code_operator"></span>  </SPAN></TD>
+</TR></TABLE>
+\[\mathrm{\tt (\%o8) }\quad 3.9\]
+
+
+<!-- Text cell -->
+
+
+<P CLASS="comment">
+Change in power consumption from heavily loaded (4 cores) to idle
+
+</P>
+
+
+<!-- Code cell -->
+
+
+<TABLE><TR><TD>
+  <SPAN CLASS="prompt">
+(%i9) 
+  </SPAN></TD>
+  <TD><SPAN CLASS="input">
+<span class="code_variable">delta_P_4_core_heavy_load_to_idle</span><span class="code_operator">:</span> <span class="code_variable">P_RPi3_4_core_heavy_load</span> <span class="code_operator">-</span> <span class="code_variable">P_RPi3_idle</span><span class="code_endofline">;</span><span class="code_operator"></span>  </SPAN></TD>
+</TR></TABLE>
+\[\mathrm{\tt (\%o9) }\quad 2.65\]
+
+
+<!-- Section cell -->
+
+
+<P CLASS="section">
+ 5 Thermal Impedance Estimate of CPU (case to ambient) [deg C/W]
+</P>
+
+
+<!-- Code cell -->
+
+
+<TABLE><TR><TD>
+  <SPAN CLASS="prompt">
+(%i10) 
+  </SPAN></TD>
+  <TD><SPAN CLASS="input">
+<span class="code_variable">Theta_CA_RPi3_CPU</span><span class="code_operator">:</span> <span class="code_variable">delta_T_4_core_heavy_load_to_idle</span> <span class="code_operator">/</span> <span class="code_variable">delta_P_4_core_heavy_load_to_idle</span><span class="code_endofline">;</span><span class="code_operator"></span>  </SPAN></TD>
+</TR></TABLE>
+\[\mathrm{\tt (\%o10) }\quad 15.09433962264151\]
+
+
+<!-- Section cell -->
+
+
+<P CLASS="section">
+ 6 Thermal Impedance Estimate of CPU (junction to case)
+</P>
+
+
+<!-- Text cell -->
+
+
+<P CLASS="comment">
+From https://www.element14.com/community/community/raspberry-pi/blog/2016/03/02/raspberry-pi-operating-temperature-comparison-a-b-zero-pi-2-pi-3
+
+</P>
+
+
+<!-- Text cell -->
+
+
+<P CLASS="comment">
+https://www.element14.com/community/servlet/JiveServlet/showImage/38-22598-253018/6+-+Close-up+of+Raspberry+Pi+3+BCM2837+SoC.jpg
+
+</P>
+
+
+<!-- Image cell -->
+
+
+<P CLASS="image">
+Figure 3: /home/mark/Engineering/Supercomputer/6+-+Close-up+of+Raspberry+Pi+3+BCM2837+SoC.jpg
+<BR>
+  <IMG src="RPi3 Thermal Calcs_htmlimg/RPi3 Thermal Calcs_12.png" alt="Diagram" style="max-width:90%;" >
+
+<!-- Text cell -->
+
+
+<P CLASS="comment">
+CPU hot spot temperature (heavily loaded CPU) [deg C]
+note: CPU loads not the same as for Thermal Impedance of CPU (case to ambient)
+
+</P>
+
+
+<!-- Code cell -->
+
+
+<TABLE><TR><TD>
+  <SPAN CLASS="prompt">
+(%i11) 
+  </SPAN></TD>
+  <TD><SPAN CLASS="input">
+<span class="code_variable">T_hot_spot_heavy_load</span><span class="code_operator">:</span> <span class="code_number">101</span>.<span class="code_number">3</span><span class="code_endofline">;</span><span class="code_operator"></span>  </SPAN></TD>
+</TR></TABLE>
+\[\mathrm{\tt (\%o11) }\quad 101.3\]
+
+
+<!-- Text cell -->
+
+
+<P CLASS="comment">
+Low scale temperature (heavily loaded CPU) [deg C]
+note: CPU loads not the same as for Thermal Impedance of CPU (case to ambient)
+
+</P>
+
+
+<!-- Code cell -->
+
+
+<TABLE><TR><TD>
+  <SPAN CLASS="prompt">
+(%i12) 
+  </SPAN></TD>
+  <TD><SPAN CLASS="input">
+<span class="code_variable">T_low_scale_heavy_load</span><span class="code_operator">:</span> <span class="code_number">45</span>.<span class="code_number">1</span><span class="code_endofline">;</span><span class="code_operator"></span>  </SPAN></TD>
+</TR></TABLE>
+\[\mathrm{\tt (\%o12) }\quad 45.1\]
+
+
+<!-- Text cell -->
+
+
+<P CLASS="comment">
+Mid scale temperature [deg C] (corresponds to light orange in image above)
+
+</P>
+
+
+<!-- Code cell -->
+
+
+<TABLE><TR><TD>
+  <SPAN CLASS="prompt">
+(%i13) 
+  </SPAN></TD>
+  <TD><SPAN CLASS="input">
+<span class="code_variable">T_mid_scale</span><span class="code_operator">:</span> <span class="code_variable">T_hot_spot_heavy_load</span> <span class="code_operator">-</span> <span class="code_variable">T_low_scale_heavy_load</span><span class="code_endofline">;</span><span class="code_operator"></span>  </SPAN></TD>
+</TR></TABLE>
+\[\mathrm{\tt (\%o13) }\quad 56.2\]
+
+
+<!-- Text cell -->
+
+
+<P CLASS="comment">
+Temperature rise from case to junction [deg C] (assuming that hot spot is approximately the junction temperature)
+
+</P>
+
+
+<!-- Code cell -->
+
+
+<TABLE><TR><TD>
+  <SPAN CLASS="prompt">
+(%i14) 
+  </SPAN></TD>
+  <TD><SPAN CLASS="input">
+<span class="code_variable">T_rise_case_to_junction</span><span class="code_operator">:</span> <span class="code_variable">T_hot_spot_heavy_load</span> <span class="code_operator">-</span> <span class="code_variable">T_mid_scale</span><span class="code_endofline">;</span><span class="code_operator"></span>  </SPAN></TD>
+</TR></TABLE>
+\[\mathrm{\tt (\%o14) }\quad 45.1\]
+
+
+<!-- Text cell -->
+
+
+<P CLASS="comment">
+Thermal impedance estimate (junction to case) [deg C]
+
+</P>
+
+
+<!-- Code cell -->
+
+
+<TABLE><TR><TD>
+  <SPAN CLASS="prompt">
+(%i15) 
+  </SPAN></TD>
+  <TD><SPAN CLASS="input">
+<span class="code_variable">Theta_JC_RPi3_CPU</span><span class="code_operator">:</span> <span class="code_variable">T_rise_case_to_junction</span> <span class="code_operator">/</span> <span class="code_variable">delta_P_4_core_heavy_load_to_idle</span><span class="code_endofline">;</span><span class="code_operator"></span>  </SPAN></TD>
+</TR></TABLE>
+\[\mathrm{\tt (\%o15) }\quad 17.0188679245283\]
+
+
+<!-- Section cell -->
+
+
+<P CLASS="section">
+ 7 Thermal Impedance Estimate of CPU (junction to ambient) [deg C/W]
+</P>
+
+
+<!-- Code cell -->
+
+
+<TABLE><TR><TD>
+  <SPAN CLASS="prompt">
+(%i16) 
+  </SPAN></TD>
+  <TD><SPAN CLASS="input">
+<span class="code_variable">Theta_JA_RPI3_CPU</span><span class="code_operator">:</span> <span class="code_variable">Theta_JC_RPi3_CPU</span> <span class="code_operator">+</span> <span class="code_variable">Theta_CA_RPi3_CPU</span><span class="code_endofline">;</span><span class="code_operator"></span>  </SPAN></TD>
+</TR></TABLE>
+\[\mathrm{\tt (\%o16) }\quad 32.11320754716981\]
+
+ <HR>
+ <SMALL> Created with <A HREF="http://wxmaxima.sourceforge.net/">wxMaxima</A>.</SMALL>
+ </BODY>
+</HTML>

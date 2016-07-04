@@ -1,0 +1,532 @@
+<!DOCTYPE HTML">
+<HTML>
+ <HEAD>
+  <TITLE>heatsink_performance_10Pi_cluster</TITLE>
+  <META NAME="generator" CONTENT="wxMaxima">
+  <META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=utf-8">
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    displayAlign: "left",
+    context: "MathJax"
+  })
+</script>
+<script type="text/javascript"
+  src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML">
+</script>
+  <link rel="stylesheet" type="text/css" href="heatsink_performance_10Pi_cluster_htmlimg/heatsink_performance_10Pi_cluster.css"/>
+ </HEAD>
+ <BODY>
+
+<!-- ***************************************************** -->
+<!--          Created with wxMaxima version 15.08.2         -->
+<!-- ***************************************************** -->
+<noscript><div class="error message">    Please enable JavaScript in order to get a 2d display of the equations embedded in this web page.</div></noscript>\(      \DeclareMathOperator{\abs}{abs}
+\)
+
+<!-- Title cell -->
+
+
+<P CLASS="title">
+10x Raspberry Pi 3 Supercomputer Heatsink Design Calculations
+</P>
+
+
+<!-- Text cell -->
+
+
+<P CLASS="comment">
+In what follows we will perform calculations that will dial in the fluid flow rates required to properly cool a supercomputer cluster composed of 10 Raspberry Pi 3's.
+We will make heavy use of the article at http://www.electronics-cooling.com/2002/05/estimating-temperatures-in-a-water-to-air-hybrid-cooling-system/
+to perform these calculations
+
+</P>
+
+
+<!-- Section cell -->
+
+
+<P CLASS="section">
+ 1 Power Supply
+</P>
+
+
+<!-- Section cell -->
+
+
+<P CLASS="section">
+ 2 Current Draws
+</P>
+
+
+<!-- Section cell -->
+
+
+<P CLASS="section">
+ 3 Temperatures
+</P>
+
+
+<!-- Section cell -->
+
+
+<P CLASS="section">
+ 4 Power Consumptions
+</P>
+
+
+<!-- Section cell -->
+
+
+<P CLASS="section">
+ 5 Thermal Impedance Estimate of CPU (case to ambient) [deg C/W]
+</P>
+
+
+<!-- Section cell -->
+
+
+<P CLASS="section">
+ 6 Thermal Impedance Estimate of CPU (junction to case)
+</P>
+
+
+<!-- Section cell -->
+
+
+<P CLASS="section">
+ 7 Thermal Impedance Estimate of CPU (junction to ambient) [deg C/W]
+</P>
+
+
+<!-- Section cell -->
+
+
+<P CLASS="section">
+ 8 Calculation of Heatsink Thermal Impdedance Requirements
+</P>
+
+
+<!-- Section cell -->
+
+
+<P CLASS="section">
+ 9 Water-cooled Heatsink Design Calculations
+</P>
+
+
+<!-- Section cell -->
+
+
+<P CLASS="section">
+ 10 Water-cooled 10x Supercomputer Cluster Heatsink Design Calculations
+</P>
+
+
+<!-- Text cell -->
+
+
+<P CLASS="comment">
+From http://www.electronics-cooling.com/2002/05/estimating-temperatures-in-a-water-to-air-hybrid-cooling-system/
+
+</P>
+
+
+<!-- Text cell -->
+
+
+<P CLASS="comment">
+We will assume that the initial water temperature is 25C [deg C]
+
+</P>
+
+
+<!-- Code cell -->
+
+
+<TABLE><TR><TD>
+  <SPAN CLASS="prompt">
+(%i161) 
+  </SPAN></TD>
+  <TD><SPAN CLASS="input">
+<span class="code_variable">T_water_initial</span><span class="code_operator">:</span> <span class="code_number">25</span><span class="code_endofline">;</span><span class="code_operator"></span>  </SPAN></TD>
+</TR></TABLE>
+\[\mathrm{\tt (\%o161) }\quad 25\]
+
+
+<!-- Text cell -->
+
+
+<P CLASS="comment">
+We will assume a water cooled heatsink thermal impedance of 0.2C/W [C/W]
+
+</P>
+
+
+<!-- Code cell -->
+
+
+<TABLE><TR><TD>
+  <SPAN CLASS="prompt">
+(%i162) 
+  </SPAN></TD>
+  <TD><SPAN CLASS="input">
+<span class="code_variable">R_theta_heatsink_cp</span><span class="code_operator">:</span> <span class="code_number">0</span>.<span class="code_number">2</span><span class="code_endofline">;</span><span class="code_operator"></span>  </SPAN></TD>
+</TR></TABLE>
+\[\mathrm{\tt (\%o162) }\quad 0.2\]
+
+
+<!-- Text cell -->
+
+
+<P CLASS="comment">
+The temperature of the CPU according to Equation 1 in the article is: [deg C]
+
+</P>
+
+
+<!-- Code cell -->
+
+
+<TABLE><TR><TD>
+  <SPAN CLASS="prompt">
+(%i163) 
+  </SPAN></TD>
+  <TD><SPAN CLASS="input">
+<span class="code_variable">T_CPU_initial</span><span class="code_operator">:</span> (<span class="code_variable">P_RPi3_4_core_heavy_load</span> <span class="code_operator">*</span> <span class="code_variable">R_theta_heatsink_cp</span>) <span class="code_operator">+</span> <span class="code_variable">T_water_initial</span><span class="code_endofline">;</span><span class="code_operator"></span>  </SPAN></TD>
+</TR></TABLE>
+\[\mathrm{\tt (\%o163) }\quad 25.78\]
+
+
+<!-- Text cell -->
+
+
+<P CLASS="comment">
+Typical Water Flow Rate [Liters per Hour]
+
+</P>
+
+
+<!-- Code cell -->
+
+
+<TABLE><TR><TD>
+  <SPAN CLASS="prompt">
+(%i164) 
+  </SPAN></TD>
+  <TD><SPAN CLASS="input">
+<span class="code_variable">Flow_rate_typ</span><span class="code_operator">:</span> <span class="code_number">50</span><span class="code_endofline">;</span><span class="code_operator"></span>  </SPAN></TD>
+</TR></TABLE>
+\[\mathrm{\tt (\%o164) }\quad 50\]
+
+
+<!-- Text cell -->
+
+
+<P CLASS="comment">
+Conversion factor between liter of water to kg of water (at 4C) [L/kg]
+
+</P>
+
+
+<!-- Code cell -->
+
+
+<TABLE><TR><TD>
+  <SPAN CLASS="prompt">
+(%i165) 
+  </SPAN></TD>
+  <TD><SPAN CLASS="input">
+<span class="code_variable">Liters_to_kg_water</span><span class="code_operator">:</span> <span class="code_number">1</span><span class="code_endofline">;</span><span class="code_operator"></span>  </SPAN></TD>
+</TR></TABLE>
+\[\mathrm{\tt (\%o165) }\quad 1\]
+
+
+<!-- Text cell -->
+
+
+<P CLASS="comment">
+Mass of water flowing past water cooled cold-plate: [kg/s]
+
+</P>
+
+
+<!-- Code cell -->
+
+
+<TABLE><TR><TD>
+  <SPAN CLASS="prompt">
+(%i166) 
+  </SPAN></TD>
+  <TD><SPAN CLASS="input">
+<span class="code_variable">M_dot</span><span class="code_operator">:</span> (<span class="code_variable">Flow_rate_typ</span> <span class="code_operator">/</span> <span class="code_variable">Liters_to_kg_water</span>) <span class="code_operator">*</span> (<span class="code_number">1</span><span class="code_operator">/</span><span class="code_number">3600</span>)<span class="code_endofline">;</span><span class="code_operator"></span>  </SPAN></TD>
+</TR></TABLE>
+\[\mathrm{\tt (\%o166) }\quad \frac{1}{72}\]
+
+
+<!-- Text cell -->
+
+
+<P CLASS="comment">
+Specific heat of water [J / (kg x deg C)]
+
+</P>
+
+
+<!-- Code cell -->
+
+
+<TABLE><TR><TD>
+  <SPAN CLASS="prompt">
+(%i167) 
+  </SPAN></TD>
+  <TD><SPAN CLASS="input">
+<span class="code_variable">C_pw</span><span class="code_operator">:</span> <span class="code_number">4186</span><span class="code_endofline">;</span><span class="code_operator"></span>  </SPAN></TD>
+</TR></TABLE>
+\[\mathrm{\tt (\%o167) }\quad 4186\]
+
+
+<!-- Text cell -->
+
+
+<P CLASS="comment">
+Specific Heat Rate of water flowed to cold-plate [J/(sec x deg C)]
+
+</P>
+
+
+<!-- Code cell -->
+
+
+<TABLE><TR><TD>
+  <SPAN CLASS="prompt">
+(%i168) 
+  </SPAN></TD>
+  <TD><SPAN CLASS="input">
+<span class="code_variable">C_w</span><span class="code_operator">:</span> <span class="code_variable">M_dot</span> <span class="code_operator">*</span> <span class="code_variable">C_pw</span><span class="code_endofline">;</span><span class="code_operator"></span>  </SPAN></TD>
+</TR></TABLE>
+\[\mathrm{\tt (\%o168) }\quad \frac{2093}{36}\]
+
+
+<!-- Code cell -->
+
+
+<TABLE><TR><TD>
+  <SPAN CLASS="prompt">
+(%i169) 
+  </SPAN></TD>
+  <TD><SPAN CLASS="input">
+<span class="code_function">float</span>(<span class="code_variable">C_w</span>)<span class="code_endofline">;</span><span class="code_operator"></span>  </SPAN></TD>
+</TR></TABLE>
+\[\mathrm{\tt (\%o169) }\quad 58.13888888888889\]
+
+
+<!-- Text cell -->
+
+
+<P CLASS="comment">
+Estimate effectiveness of the heat exchanger: [arb units]
+
+</P>
+
+
+<!-- Code cell -->
+
+
+<TABLE><TR><TD>
+  <SPAN CLASS="prompt">
+(%i170) 
+  </SPAN></TD>
+  <TD><SPAN CLASS="input">
+<span class="code_variable">epsilon</span><span class="code_operator">:</span> <span class="code_number">0</span>.<span class="code_number">15</span><span class="code_endofline">;</span><span class="code_operator"></span>  </SPAN></TD>
+</TR></TABLE>
+\[\mathrm{\tt (\%o170) }\quad 0.15\]
+
+
+<!-- Text cell -->
+
+
+<P CLASS="comment">
+Calculate Specific Heat Rate of air flowing through heat exchanger:
+
+</P>
+
+
+<!-- Text cell -->
+
+
+<P CLASS="comment">
+Specific heat of air (at 300K) [J / (kg x deg C)]
+
+</P>
+
+
+<!-- Code cell -->
+
+
+<TABLE><TR><TD>
+  <SPAN CLASS="prompt">
+(%i171) 
+  </SPAN></TD>
+  <TD><SPAN CLASS="input">
+<span class="code_variable">C_pa</span><span class="code_operator">:</span> <span class="code_number">1005</span><span class="code_endofline">;</span><span class="code_operator"></span>  </SPAN></TD>
+</TR></TABLE>
+\[\mathrm{\tt (\%o171) }\quad 1005\]
+
+
+<!-- Text cell -->
+
+
+<P CLASS="comment">
+Mass flow rate of air past heat exchanger: [cubic feet per minute]
+
+</P>
+
+
+<!-- Code cell -->
+
+
+<TABLE><TR><TD>
+  <SPAN CLASS="prompt">
+(%i172) 
+  </SPAN></TD>
+  <TD><SPAN CLASS="input">
+<span class="code_variable">M_dot_air_CFM</span><span class="code_operator">:</span> <span class="code_number">25</span><span class="code_endofline">;</span><span class="code_operator"></span>  </SPAN></TD>
+</TR></TABLE>
+\[\mathrm{\tt (\%o172) }\quad 25\]
+
+
+<!-- Text cell -->
+
+
+<P CLASS="comment">
+Mass flow rate of air past heat exchanger: [kg / s]
+
+</P>
+
+
+<!-- Code cell -->
+
+
+<TABLE><TR><TD>
+  <SPAN CLASS="prompt">
+(%i173) 
+  </SPAN></TD>
+  <TD><SPAN CLASS="input">
+<span class="code_variable">M_dot_air</span><span class="code_operator">:</span> <span class="code_variable">M_dot_air_CFM</span> <span class="code_operator">*</span> (<span class="code_number">1</span><span class="code_operator">/</span><span class="code_number">60</span>) <span class="code_operator">*</span> (<span class="code_number">1</span>.<span class="code_number">2754</span>) <span class="code_operator">*</span> ((<span class="code_number">0</span>.<span class="code_number">3048</span>)<span class="code_operator">^</span><span class="code_number">3</span>)<span class="code_endofline">;</span><span class="code_operator"></span>  </SPAN></TD>
+</TR></TABLE>
+\[\mathrm{\tt (\%o173) }\quad 0.01504804422643201\]
+
+
+<!-- Text cell -->
+
+
+<P CLASS="comment">
+Specific Heat Rate of air flowing through heat exchanger [J / (s x deg C)]:
+
+</P>
+
+
+<!-- Code cell -->
+
+
+<TABLE><TR><TD>
+  <SPAN CLASS="prompt">
+(%i174) 
+  </SPAN></TD>
+  <TD><SPAN CLASS="input">
+<span class="code_variable">C_a</span><span class="code_operator">:</span> <span class="code_variable">M_dot_air</span> <span class="code_operator">*</span> <span class="code_variable">C_pa</span><span class="code_endofline">;</span><span class="code_operator"></span>  </SPAN></TD>
+</TR></TABLE>
+\[\mathrm{\tt (\%o174) }\quad 15.12328444756417\]
+
+
+<!-- Text cell -->
+
+
+<P CLASS="comment">
+Initial temperature of the air [deg C]
+
+</P>
+
+
+<!-- Code cell -->
+
+
+<TABLE><TR><TD>
+  <SPAN CLASS="prompt">
+(%i175) 
+  </SPAN></TD>
+  <TD><SPAN CLASS="input">
+<span class="code_variable">T_air_initial</span><span class="code_operator">:</span> <span class="code_number">25</span><span class="code_endofline">;</span><span class="code_operator"></span>  </SPAN></TD>
+</TR></TABLE>
+\[\mathrm{\tt (\%o175) }\quad 25\]
+
+
+<!-- Text cell -->
+
+
+<P CLASS="comment">
+Number of units in supercomputer cluster [units]
+
+</P>
+
+
+<!-- Code cell -->
+
+
+<TABLE><TR><TD>
+  <SPAN CLASS="prompt">
+(%i176) 
+  </SPAN></TD>
+  <TD><SPAN CLASS="input">
+<span class="code_variable">N_units</span><span class="code_operator">:</span> <span class="code_number">10</span><span class="code_endofline">;</span><span class="code_operator"></span>  </SPAN></TD>
+</TR></TABLE>
+\[\mathrm{\tt (\%o176) }\quad 10\]
+
+
+<!-- Text cell -->
+
+
+<P CLASS="comment">
+Final temperature of the CPU [deg C]
+
+</P>
+
+
+<!-- Code cell -->
+
+
+<TABLE><TR><TD>
+  <SPAN CLASS="prompt">
+(%i177) 
+  </SPAN></TD>
+  <TD><SPAN CLASS="input">
+<span class="code_variable">T_CPU_final</span><span class="code_operator">:</span> <span class="code_variable">N_units</span> <span class="code_operator">*</span> <span class="code_variable">P_RPi3_4_core_heavy_load</span> <span class="code_operator">*</span> (<span class="code_variable">R_theta_heatsink_cp</span> <span class="code_operator">+</span> ((<span class="code_number">1</span><span class="code_operator">/</span>(<span class="code_variable">epsilon</span><span class="code_operator">*</span><span class="code_variable">C_a</span>)) <span class="code_operator">-</span> (<span class="code_number">1</span><span class="code_operator">/</span><span class="code_variable">C_w</span>))) <span class="code_operator">+</span> <span class="code_variable">T_air_initial</span><span class="code_endofline">;</span><span class="code_operator"></span>  </SPAN></TD>
+</TR></TABLE>
+\[\mathrm{\tt (\%o177) }\quad 49.32122519673194\]
+
+
+<!-- Text cell -->
+
+
+<P CLASS="comment">
+Temperature rise of the CPU [deg C]
+
+</P>
+
+
+<!-- Code cell -->
+
+
+<TABLE><TR><TD>
+  <SPAN CLASS="prompt">
+(%i178) 
+  </SPAN></TD>
+  <TD><SPAN CLASS="input">
+<span class="code_variable">delta_T_CPU_heavy_load_WC</span><span class="code_operator">:</span> <span class="code_variable">T_CPU_final</span> <span class="code_operator">-</span> <span class="code_variable">T_water_initial</span><span class="code_endofline">;</span><span class="code_operator"></span>  </SPAN></TD>
+</TR></TABLE>
+\[\mathrm{\tt (\%o178) }\quad 24.32122519673194\]
+
+ <HR>
+ <SMALL> Created with <A HREF="http://wxmaxima.sourceforge.net/">wxMaxima</A>.</SMALL>
+ </BODY>
+</HTML>
