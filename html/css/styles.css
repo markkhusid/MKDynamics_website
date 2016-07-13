@@ -99,8 +99,9 @@
       }
       
       figcaption {
-	font-family: Arial, Veranda, sans-serif;
-	color: #ffffff;
+	font-family:           Arial, Veranda, sans-serif;
+        font-size:             1.5em;
+        color: #ffffff;
       }
       
       p {
