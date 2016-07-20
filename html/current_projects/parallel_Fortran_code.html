@@ -84,7 +84,7 @@
       background	: gray;
       position		: relative;
       width		: 1250px;
-      height		: 1000px;
+      height		: 1100px;
       top		: 10px;
       left		: 0px;
       float		: left;
@@ -254,7 +254,7 @@
                 </div> <!-- .img -->
             
                 <div class="loose_text">
-                    
+                    As can be seen from the program compilation and exectution above, there are a number of differences in the process when compared to standard compilation and execution.  The program is compiled with a coarray aware compiler "caf".  It is run with a coarray aware loader named "cafrun."  One of the options to cafrun is the number of "images" to be created when running the program.  This program was executed on a quad-core processor, but the number of images is 8.  Each image is provided with the integer the user entered, which in this case is 10.  The program then executes each image with the user entered integer and provides an output.  It is interesting that the number of images does not have to equal the number of cores or processors.
                 </div> <!-- .loose_text -->
 
             </div> <!-- .current_project_4 -->
@@ -273,6 +273,7 @@
                     </h2>
                 </hgroup>
                 
+                <a href="http://www.g95.org/coarray.shtml">www.g95.org</a>
                 <div class="img">
                     <img 
                     src="images/fortran_code_integrate.jpeg"
