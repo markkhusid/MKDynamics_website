@@ -246,11 +246,17 @@
                 </p>
             
                 <p>
-                    While there are a number of parallel computing enabled Fortran compilers available, the author's preference is to use all open-source hardware and software.  A Fortran compiler that fits this criteria is the GNU Fortran compiler with the OpenCoarrays extensions and libraries, which can be found here:<br>
+                    While there are a number of parallel computing enabled Fortran compilers available, the author's preference is to use all open-source hardware and software.  A Fortran compiler that fits this criteria is the GNU Fortran compiler with either the OpenCoarrays or OpenMPI extensions and libraries, which can be found here:<br>
                     <a href="https://gcc.gnu.org/wiki/GFortran">https://gcc.gnu.org/wiki/GFortran</a><br>
-                    <a href="http://www.opencoarrays.org/">http://www.opencoarrays.org/</a>
+                    <a href="http://www.opencoarrays.org/">http://www.opencoarrays.org/</a><br>
+                    <a href="https://www.open-mpi.org/">https://www.open-mpi.org/</a><br>
                 </p>
-            
+                
+                <p>
+                    Our development environment of choice is Eclipse IDE, with the Parallel Tools Platform.  The current version of the Eclipse IDE is called NEON, and can be downloaded from here: <br>
+                    <a href="https://eclipse.org/home/index.php">https://eclipse.org/home/index.php</a><br>
+                </p>
+                
                 <p>
                     Supercomputer clusters of Raspberry Pi's have been built by many people as can be seen from a Google search.  Many have built these from the Versions Zero, 1, and 2 of the Raspberry Pi.  With the advent of the Raspberry Pi 3, it has been noted by many that it's CPU can reach much higher temperatures than it's predecessors.  It has also been noted that the CPU contains a speed governor that reduces the clock rate once the core temperature reaches 85 Celcius.
                 </p>
@@ -351,6 +357,29 @@
             
             <hgroup>
                 <h3>
+                    Fortran Programming with OpenMPI
+                </h3>
+            </hgroup>
+            
+            <div class="loose_text">
+                <p>
+                    In this section, we will write mulitprocessor execution Fortran code using the OpenMPI library.
+                </p>
+            </div> <!-- .loose_text -->
+            
+            <figure>
+                <img
+                    src="images/multicore_processor.jpeg"
+                    width="600px"
+                    height="400px"
+                    title="multicore_processor.jpeg"
+                >
+            </figure>
+            
+            <br><br><br>
+            
+            <hgroup>
+                <h3>
                     Fortran Programming with Coarrays
                 </h3>
             </hgroup>
@@ -358,7 +387,7 @@
             <div class="loose_text">
                 
                 <p>
-                    In this section, we will write Fortran code for our supercomputer.  The code will make use of Fortran's coarray features for multiprocessor execution.
+                    In this section, we will write multiprocessor Fortran code using Fortran's coarray features for multiprocessor execution.
                 </p>
             
             </div> <!-- .loose_text -->
