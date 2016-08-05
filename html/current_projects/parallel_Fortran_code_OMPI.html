@@ -71,7 +71,7 @@
       background	: gray;
       position		: relative;
       width		: 1250px;
-      height		: 3500px;
+      height		: 4300px;
       top		: 000px;
       left		: 0px;
       float		: left;
@@ -281,7 +281,40 @@
                         Once the installation has completed, it's status can be viewed by typing ompi_info at the command prompt.<br>
                     </p>
                 </div> <!-- .loose_text -->
-
+                
+                <div class="img">
+                    <img
+                        src="images/ompi_info.jpeg"
+                        width="1200px"
+                        height="600px"
+                        title="ompi_info.jpeg"
+                    >
+                </div> <!-- .img -->
+                
+                <div class="loose_text">
+                    <p>
+                        A full listing of the output of ompi_info is shown below:
+                    </p>
+                </div> <!-- .loose_text -->
+                
+                <iframe
+                        src = "Fortran_OMPI/ompi_info.txt"
+                        width = "1200"
+                        height = "800"
+                        frameborder = "1"
+                        scrolling = "yes">
+                </iframe>
+                
+                <div class="loose_text">
+                    <p>
+                        Notice that the version of Open MPI is 1.8.8.  At the time of this writing, this version is known to work with the Eclipse IDE + Photran + Parallel Tools Platform.  In the author's understanding, version 2.0.0 is known to NOT work.
+                    </p>
+                    
+                    <p>
+                        It was found that if, after compilation and exectution of source code, that error messages are displayed pertaining to MPI or MCA, a working remedy is to ensure that the LD_LIBRARY_PATH environment variable is properly set, and then to reconfigure and rebuild the OpenMPI installation files as described above.  If problems persist, another thing to try is to rename the folder /usr/local/lib/openmpi to /usr/local/lib/openmpi_backup, and then perform a ./configure --with-devel-headers and then a sudo make -j 4 install all.  This will ensure that fresh files are installed into /usr/local/lib/openmpi.
+                    </p>
+                </div> <!-- .loose_text -->
+                
             </div> <!-- .current_project_3 -->
         
         </section> <!-- .third_section -->
