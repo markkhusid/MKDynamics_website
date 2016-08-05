@@ -62,7 +62,7 @@
       background	: gray;
       position		: relative;
       width		: 1250px;
-      height		: 900px;
+      height		: 1100px;
       top		: 000px;
       left		: 0px;
       float		: left;
@@ -222,7 +222,7 @@
                         Introduction
                     </h2>
                     
-                <hgroup>
+                </hgroup>
 
             <div class="loose_text">
                 <p>
@@ -246,17 +246,37 @@
                 </p>
             
                 <p>
-                    While there are a number of parallel computing enabled Fortran compilers available, the author's preference is to use all open-source hardware and software.  A Fortran compiler that fits this criteria is the GNU Fortran compiler with the OpenCoarrays extensions and libraries, which can be found here:<br>
+                    While there are a number of parallel computing enabled Fortran compilers available, the author's preference is to use all open-source hardware and software.  A Fortran compiler that fits this criteria is the GNU Fortran compiler with either the OpenCoarrays or OpenMPI extensions and libraries, which can be found here:<br>
                     <a href="https://gcc.gnu.org/wiki/GFortran">https://gcc.gnu.org/wiki/GFortran</a><br>
-                    <a href="http://www.opencoarrays.org/">http://www.opencoarrays.org/</a>
+                    <a href="http://www.opencoarrays.org/">http://www.opencoarrays.org/</a><br>
+                    <a href="https://www.open-mpi.org/">https://www.open-mpi.org/</a><br>
                 </p>
+                
+                <p>
+                    Our development environment of choice is Eclipse IDE, with the Parallel Tools Platform.  The current version of the Eclipse IDE is called NEON, and can be downloaded from here: <br>
+                    <a href="https://eclipse.org/home/index.php">https://eclipse.org/home/index.php</a><br>
+                </p>
+                
+            </div> <!-- .loose_text -->
             
+
+            <hgroup>
+                <h2>
+                    Discussion
+                </h2>
+            </hgroup>
+                
+            <div class="loose_text">    
                 <p>
                     Supercomputer clusters of Raspberry Pi's have been built by many people as can be seen from a Google search.  Many have built these from the Versions Zero, 1, and 2 of the Raspberry Pi.  With the advent of the Raspberry Pi 3, it has been noted by many that it's CPU can reach much higher temperatures than it's predecessors.  It has also been noted that the CPU contains a speed governor that reduces the clock rate once the core temperature reaches 85 Celcius.
                 </p>
             
                 <p>
                     We obviously wish to avoid temperature induced throttling of the CPU in order to maximize supercomputing performance.  Additionally, we wish to avoid large quantities of small fans on each of the individual Raspberry Pi's.  Several have suggested a water cooled system.  In our estimation, this will contain a cold fluid supply rail, a hot fluid return rail, radiator, reservoir / pump combination, and all of the associated plumbing.  A fan of appropriate air flow rate will supply cooling air to the radiator.
+                </p>
+                
+                <p>
+                    In addition to designing and building an appropriate water-cooled heatsink for the supercomputer cluster, we will write software that takes advantage of the supercomputer cluster's parallel execution capabilities.  Our programming language of choice for this application is Fortran, with the OpenMPI and OpenCoarrays extensions.  We will start with simple programs within the Eclipse IDE + Photran + Parallel Tools Platform to visualize and understand the exact sequence of events that take place during parallel execution.  We will then move on to more complex programs, and eventually write Python code that makes use of parallel execution libraries.                
                 </p>
                 
             </div> <!-- .loose-tect -->
@@ -343,9 +363,39 @@
         
             <hgroup>
                 <h2>
-                    Fortran Programing for Multprocessor Supercomputer
+                    Fortran Programming for Multiprocessor Supercomputers
                 </h2>
             </hgroup>
+            
+            <br><br><br>
+            
+            <hgroup>
+                <h3>
+                    Fortran Programming with OpenMPI
+                </h3>
+            </hgroup>
+            
+            <div class="loose_text">
+                <p>
+                    In this section, we will write multiprocessor execution Fortran code using the OpenMPI library.
+                </p>
+            </div> <!-- .loose_text -->
+            
+            <figure>
+                <img
+                    src="images/multicore_processor.jpeg"
+                    width="600px"
+                    height="400px"
+                    title="multicore_processor.jpeg"
+                >
+                
+                <figcaption>
+                    <a href="parallel_Fortran_code_OMPI.html">Fortran Programming with MPI</a><br>
+                </figcaption>
+            
+            </figure>
+            
+            
             
             <br><br><br>
             
@@ -358,7 +408,7 @@
             <div class="loose_text">
                 
                 <p>
-                    In this section, we will write Fortran code for our supercomputer.  The code will make use of Fortran's coarray features for multiprocessor execution.
+                    In this section, we will write multiprocessor execution Fortran code using Fortran's coarray features.
                 </p>
             
             </div> <!-- .loose_text -->
@@ -372,7 +422,7 @@
                 >
                 
                 <figcaption>
-                    <a href="parallel_Fortran_code.html">Fortran Programming with Coarrays</a><br>
+                    <a href="parallel_Fortran_code_OCA.html">Fortran Programming with Coarrays</a><br>
                 </figcaption>
                 
             </figure>
