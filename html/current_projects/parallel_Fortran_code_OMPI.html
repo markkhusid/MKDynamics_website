@@ -84,7 +84,7 @@
       background	: gray;
       position		: relative;
       width		: 1250px;
-      height		: 1100px;
+      height		: 3000px;
       top		: 10px;
       left		: 0px;
       float		: left;
@@ -215,7 +215,7 @@
             <div class="current_project_3">
                 <hgroup>
                     <h2>
-                        Simple Program to Demonstrate Parallel Programming using OpenMPI
+                        Installing OpenMPI as a plugin to the Eclips IDE + Photran + Parallel Tools Platform Framework
                     </h2>
                 </hgroup>
                 
@@ -313,6 +313,12 @@
                     <p>
                         It was found that if, after compilation and exectution of source code, that error messages are displayed pertaining to MPI or MCA, a working remedy is to ensure that the LD_LIBRARY_PATH environment variable is properly set, and then to reconfigure and rebuild the OpenMPI installation files as described above.  If problems persist, another thing to try is to rename the folder /usr/local/lib/openmpi to /usr/local/lib/openmpi_backup, and then perform a ./configure --with-devel-headers and then a sudo make -j 4 install all.  This will ensure that fresh files are installed into /usr/local/lib/openmpi.
                     </p>
+                    
+                    <p>
+                        More information on installation issues can be found here:<br>
+                        <a href="https://eclipse.org/ptp/docs/releases/release-1.1.php">https://eclipse.org/ptp/docs/releases/release-1.1.php</a><br>
+                        <a href="https://www.open-mpi.org/faq/?category=building#easy-build">https://www.open-mpi.org/faq/?category=building#easy-build</a><br>
+                    </p>
                 </div> <!-- .loose_text -->
                 
             </div> <!-- .current_project_3 -->
@@ -327,23 +333,70 @@
                 <hgroup>
                 
                     <h2>
-                        Program Run - Simple Program to Compute Positive and Negative Averages
+                        Installing the Eclipse IDE + Photran + Parallel Tools Platform
                     </h2>
                     
                 </hgroup>
                 
+                <div class="loose_text">
+                    <p>
+                        At the time of this writing, the latest version of the Eclipse Integrated Development Environment (IDE) is NEON.<br>
+                        It can be downloaded here:<br>
+                        <a href="https://www.eclipse.org/downloads/download.php?file=/technology/epp/downloads/release/neon/R/eclipse-parallel-neon-R-linux-gtk-x86_64.tar.gz">https://www.eclipse.org/downloads/download.php?file=/technology/epp/downloads/release/neon/R/eclipse-parallel-neon-R-linux-gtk-x86_64.tar.gz</a><br>
+                        Other tools are also available for the Eclipse Platform and may be ontained by following the links on their homepage.
+                    </p>
+                    
+                    <p>
+                        I recommend decomressing the downloaded Eclipse installation files into a temporary directory, such as /home/Installs/eclipse-installer
+                    </p>
+                </div> <!-- .loose_text -->
+                
                 <div class="img">
                     <img 
-                        src="images/parallel_fortran_code_run1.jpeg"
+                        src="images/eclipse_installer1.jpeg"
                         width="1200"
                         height="800"
-                        title="parallel_fortran_code_run1.jpeg"
+                        title="eclipse_installer1.jpeg"
                     >
                 </div> <!-- .img -->
             
                 <div class="loose_text">
-
+                    <p>
+                    
+                    </p>
                 </div> <!-- .loose_text -->
+                
+                <div class="loose_text">
+                    <p>
+                        To install, simply run the file eclipe_inst by entering ./eclipse_inst at the command prompt.  Eclipse requires Java to run; therefore, if there are any installation issues, it is recommended that you ensure that the latest version of Java is installed on your machine.
+                    </p>
+                    
+                    <p>
+                        After Eclipse is installed, click "Launch" to start it up.  It "may" be necessary to install some additional add-on tools to access the parallel development tools.  I can't be certain since I have tried installation a number of times before I was able to get the system to operate properly.  This is more a reflection of my learning curve and my particular system setup, and not a criticism per se of the Eclipse developers.
+                    </p>
+                    
+                    <p>
+                        Once the Eclipse IDE is up and running, go to >help>Install New Software, which will bring up the following screen:
+                    </p>
+                </div> <!-- .loose_text -->
+                
+                <div class="img">
+                    <img 
+                        src="images/eclipse_updates.jpeg"
+                        width="1200"
+                        height="800"
+                        title="eclipse_updates.jpeg"
+                    >
+                </div> <!-- .img -->
+                
+                <div class="loose_text">
+                    <p>
+                        Ensure that all "Linux Tools", "Parallel Tools Platform", and "Performance, Profiling and Tracing Tools" are selected, and click "Next" to update the Eclipse IDE.
+                    </p>
+                </div> <!-- .loose_text -->
+                
+                
+                
 
             </div> <!-- .current_project_4 -->
             
