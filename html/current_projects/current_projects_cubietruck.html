@@ -1,152 +1,161 @@
 <!DOCTYPE html>
 
-<script>
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
-  ga('create', 'UA-58919029-1', 'auto');
-  ga('send', 'pageview');
+        ga('create', 'UA-58919029-1', 'auto');
+        ga('send', 'pageview');
 
-</script>
+    </script>
 
 <html>
 
-<head>
-  <meta content="text/html; charset=utf-8" http-equiv="content-type">
-  <meta name="robots" content="follow" />
+    <head>
+        <meta content="text/html; charset=utf-8" http-equiv="content-type">
+        <meta name="robots" content="follow" />
 
-  <title>
-    MK Dynamics - Current Projects - Cubie Truck
-  </title>
+        <title>
+            MK Dynamics - Current Projects - Cubie Truck
+        </title>
   
-  <link href="../css/styles.css" type = "text/css" rel = "stylesheet" />
+        <link href="../css/styles.css" type = "text/css" rel = "stylesheet" />
   
-</head>
+        <style>
+            p {
+                font-family: Arial;
+                color: black;
+            }  
+        </style>
+  
+    </head>
 
-<body>
+    <body>
 
-  <h1> 
-    <big> <big> MK Dynamics </big> </big>
-  </h1>
+        <h1> 
+            <big> <big> MK Dynamics </big> </big>
+        </h1>
 
-  <h2>
-    Current Projects - Cubie Truck
-  </h2>
+        <h2>
+            Current Projects - Cubie Truck
+        </h2>
   
-  <nav>
-    <ul>
-      <li> <a href="../index.html">Home</a> </li>
-      <!--
-      <li> <a href="../HAM_radio/hamradio.html">HAM Radio</a> </li>
-      <li> <a href="../board_photos/board_photos.html">Board Photos</a> </li>
-      <li> <a href="../current_projects/current_projects.html">Current Projects</a></li>
-      <li> <a href="../about_me/about_me.html">About me</a></li>
-      -->
-    </ul>
-  </nav>
+        <nav>
+            <ul>
+            <li> <a href="../index.html">Home</a> </li>
+            <!--
+            <li> <a href="../HAM_radio/hamradio.html">HAM Radio</a> </li>
+            <li> <a href="../board_photos/board_photos.html">Board Photos</a> </li>
+            <li> <a href="../current_projects/current_projects.html">Current Projects</a></li>
+            <li> <a href="../about_me/about_me.html">About me</a></li>
+            -->
+            </ul>
+        </nav>
   
-  <hr />
+        <hr />
   
-  <p>
-    <img src="../images/spacey.jpg" alt ="Space" class = "align-center medium" />
+        <p>
+            <img src="../images/spacey.jpg" alt ="Space" class = "align-center medium" />
   
-  <div id="content">
-    <h3> 
-      Cubie Truck
-    </h3>  
-    
-    <h4>
-      3/2015
-    </h4>
-    <p> <b> Downloaded *Working* Debian Linux for the CubieTruck </b> <br>
-      After many, many, many, many, repeated attempts, and literally days of going through the same process over and over, I have finally found a way to <br>
-      to get the CubieTruck up and running on a solid and USEFUL Linux Distribution.  In my travels through the interwebs, I came across this fellow's website:<br>
-      <a href="http://www.igorpecovnik.com/2013/12/24/cubietruck-debian-wheezy-sd-card-image" target="_top">Igor Pecovnik - Cubieboard / Cubietruck Debian SD image</a><br>
-      I downloaded and used dd to copy the image to a micro-SD card.  This I know how to do very well, since I have done it literally hundreds of times to get this 
-      little computer working.  Popped in the SD card into the CubieTruck, and viola!  It booted right up, as easy as a Raspberry Pi!!!<br>
-      One thing I could say, is that the CubieTruck is fast, really fast.  The image makes life really easy too.  There is a simple script to move the root <br>
-      file system to the NAND chip, making the computer even faster.  The image is very lightweight, and it was a simple matter to install LXDE, my favorite <br>
-      lightweight window manager.<br>
-    </p>
-    <p>
-      I have installed wireshark onto the CubieTruck, to use it as my network monitor.  This small computer runs it very fast, with minimal memory usage.  Very impressive. <br>
-      My next project will be install a https webserver on the CubieTruck and use it as the webserver for this website.
-    </p>
-    
-    <h4>
-        12/9/2015
-    </h4>
-    
-    <p> <b> Installed Apache 2 web server onto Cubietruck </b> <br>
-        The Cubietruck features a SATA interface for connecting hard drives.  
-        This lends it well to a small webserver, since hard drives can go 
-        through many read/write cycles, as opposed to SD flash cards.  Also, as 
-        an additional security measure, it makes sense to isolate the webserver 
-        from other computing assets.
+        <div id="content">
+            <h3> 
+                Cubie Truck
+            </h3>  
+            
+            <h4>
+                3/2015
+            </h4>
+            
+            <p> <b> Downloaded *Working* Debian Linux for the CubieTruck </b> <br>
+                After many, many, many, many, repeated attempts, and literally days of going through the same process over and over, I have finally found a way to <br>
+                to get the CubieTruck up and running on a solid and USEFUL Linux Distribution.  In my travels through the interwebs, I came across this fellow's website:<br>
+                <a href="http://www.igorpecovnik.com/2013/12/24/cubietruck-debian-wheezy-sd-card-image" target="_top">Igor Pecovnik - Cubieboard / Cubietruck Debian SD image</a><br>
+                I downloaded and used dd to copy the image to a micro-SD card.  This I know how to do very well, since I have done it literally hundreds of times to get this 
+                little computer working.  Popped in the SD card into the CubieTruck, and viola!  It booted right up, as easy as a Raspberry Pi!!!<br>
+                One thing I could say, is that the CubieTruck is fast, really fast.  The image makes life really easy too.  There is a simple script to move the root <br>
+                file system to the NAND chip, making the computer even faster.  The image is very lightweight, and it was a simple matter to install LXDE, my favorite <br>
+                lightweight window manager.<br>
+            </p>
+            
+            <p>
+                I have installed wireshark onto the CubieTruck, to use it as my network monitor.  This small computer runs it very fast, with minimal memory usage.  Very impressive. <br>
+                My next project will be install a https webserver on the CubieTruck and use it as the webserver for this website.
+            </p>
+            
+            <h4>
+                12/9/2015
+            </h4>
+            
+            <p> <b> Installed Apache 2 web server onto Cubietruck </b> <br>
+                The Cubietruck features a SATA interface for connecting hard drives.  
+                This lends it well to a small webserver, since hard drives can go 
+                through many read/write cycles, as opposed to SD flash cards.  Also, as 
+                an additional security measure, it makes sense to isolate the webserver 
+                from other computing assets.
+                
+                The Cubietruck is currently the webserver for this website.  A typical 
+                installation of Apache 2 on Debian Linux was used.
+            </p>
+            
+            
+            <h4>
+                Archival
+            </h4>
+            
+            <p> <b> Loading Fedora Core 21 Linux on Serial Interface </b> <br>
+                Using Cutecom and the serial interface cable, I was able to boot Fedora Core 21 Linux. <br>
+                However, it would not start up in VGA mode, and I didn't have an HDMI monitor available. <br>
+                Attempts to start Fedora 21 when the CubieTruck was connected to my TV in HDMI mode also proved <br>
+                unsuccessful.  After a week of trying different things, I decided to wait for a VGA build of Fedora 21 <br>
+                to come out, as I wanted to work on other current projects.
+            </p>
+            
+            <p>
+                Many attempts at reflashing the NAND and MMC memory cards, and editing configuration files did not prove successful. <br>  
+                Also, I have wiped away Android from the NAND flash memory in my attemp to get Fedora 21 to boot up in VGA mode. <br>  
+                It is not a big deal       since I never wanted the CubieTruck to be an Android box in the first place.  
+                Since it is too underpowered to act as a server for this webiste, I decided to make it my dedicated HAM radio computer. <br>  
+                I have also installed an 80GB SATA 2.5" harddrive into the case and am currently running Cubian X as the OS.<br>
+                Cubian X comes preset for VGA mode, and was no problem getting up and running.
+            </p>
+            
+            <p>
+                Overall, it was an excellent learning experience trying to get Fedora 21 up and running. <br>
+                I had to consult many books and websites to get things done, and the amount of things I learned about <br>
+                my prefered Linux of choice (Red Hat Fedora Core) is invaluable.  I hope to one day earn a <br>
+                Red Hat Ceritified Engineer (RHCE) certification: <br>
+                <a href="http://www.redhat.com/en/services/certification/rhce" target="_top">Red Hat Ceritified Engineer (RHCE) certification details</a><br>
+            </p>
+            
+            <p>
+                This is the course that I want to take.  It is available as online training: <br>
+                <a href="http://www.redhat.com/en/services/training/rh254-red-hat-system-administration-iii" target="_top">Red Hat Ceritified Engineer (RHCE) certification course details</a><br>
+            </p>
+            
+            <p>
+                I will now post details of my attempts at starting Fedora Core 21 on the CubieTruck in VGA mode.
+            </p>
+            
+            <p> <b> Serial Output Showing Fedora Core 21 Booted on CubieTruck  </b> <br>
+                <img src="images/cubietruck_Fedora_boot_serial_1.png" width="600" height="450" title="Serial Output"/><br>
+                <a href="images/cubietruck_Fedora_boot_serial_1.png" target="_top">Image of Serial Output</a><br>
+            </p>
+            
+            <p> <b> Cutecom log file of Fedora Core 21 booting up.  Data captured on host computer over USB to serial interface cable </b> <br>
+            <iframe
+                src = "code_cubietruck/cutecom1.log"
+                width = "900"
+                height = "700"
+                frameborder = "1"
+                scrolling = "yes">
+            </iframe> <br>
+            <a href="code_cubietruck/cutecom1.log" target="_top">Cutecom log file of Fedora Core 21 booting up.</a><br><br>
         
-        The Cubietruck is currently the webserver for this website.  A typical 
-        installation of Apache 2 on Debian Linux was used.
-    </p>
-    
-    
-    <h4>
-      Archival
-    </h4>
-    
-    <p> <b> Loading Fedora Core 21 Linux on Serial Interface </b> <br>
-      Using Cutecom and the serial interface cable, I was able to boot Fedora Core 21 Linux. <br>
-      However, it would not start up in VGA mode, and I didn't have an HDMI monitor available. <br>
-      Attempts to start Fedora 21 when the CubieTruck was connected to my TV in HDMI mode also proved <br>
-      unsuccessful.  After a week of trying different things, I decided to wait for a VGA build of Fedora 21 <br>
-      to come out, as I wanted to work on other current projects.
-    </p>
-      
-    <p>
-      Many attempts at reflashing the NAND and MMC memory cards, and editing configuration files did not prove successful. <br>  
-      Also, I have wiped away Android from the NAND flash memory in my attemp to get Fedora 21 to boot up in VGA mode. <br>  
-      It is not a big deal       since I never wanted the CubieTruck to be an Android box in the first place.  
-      Since it is too underpowered to act as a server for this webiste, I decided to make it my dedicated HAM radio computer. <br>  
-      I have also installed an 80GB SATA 2.5" harddrive into the case and am currently running Cubian X as the OS.<br>
-      Cubian X comes preset for VGA mode, and was no problem getting up and running.
-    </p>
-    
-    <p>
-      Overall, it was an excellent learning experience trying to get Fedora 21 up and running. <br>
-      I had to consult many books and websites to get things done, and the amount of things I learned about <br>
-      my prefered Linux of choice (Red Hat Fedora Core) is invaluable.  I hope to one day earn a <br>
-      Red Hat Ceritified Engineer (RHCE) certification: <br>
-      <a href="http://www.redhat.com/en/services/certification/rhce" target="_top">Red Hat Ceritified Engineer (RHCE) certification details</a><br>
-    </p>
-    
-    <p>
-      This is the course that I want to take.  It is available as online training: <br>
-      <a href="http://www.redhat.com/en/services/training/rh254-red-hat-system-administration-iii" target="_top">Red Hat Ceritified Engineer (RHCE) certification course details</a><br>
-    </p>
-    
-    <p>
-      I will now post details of my attempts at starting Fedora Core 21 on the CubieTruck in VGA mode.
-    </p>
-      
-    <p> <b> Serial Output Showing Fedora Core 21 Booted on CubieTruck  </b> <br>
-      <img src="images/cubietruck_Fedora_boot_serial_1.png" width="600" height="450" title="Serial Output"/><br>
-      <a href="images/cubietruck_Fedora_boot_serial_1.png" target="_top">Image of Serial Output</a><br>
-    </p>
-    
-    <p> <b> Cutecom log file of Fedora Core 21 booting up.  Data captured on host computer over USB to serial interface cable </b> <br>
-      <iframe
-	src = "code_cubietruck/cutecom1.log"
-	width = "900"
-	height = "700"
-	frameborder = "1"
-	scrolling = "yes">
-      </iframe> <br>
-      <a href="code_cubietruck/cutecom1.log" target="_top">Cutecom log file of Fedora Core 21 booting up.</a><br><br>
-  
-   
-  </div>
+        
+        </div>
 
-</body>
+    </body>
 
 </html>

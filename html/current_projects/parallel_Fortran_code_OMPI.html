@@ -97,7 +97,7 @@
       background	: gray;
       position		: relative;
       width		: 1250px;
-      height		: 1000px;
+      height		: 8000px;
       top		: 10px;
       left		: 0px;
       float		: left;
@@ -395,8 +395,6 @@
                     </p>
                 </div> <!-- .loose_text -->
                 
-                
-                
 
             </div> <!-- .current_project_4 -->
             
@@ -407,9 +405,101 @@
         <section class="fifth_section">
         
             <div class="current_project_5">
-            
                 
+                <hgroup>
+                
+                    <h2>
+                        Setting Up The Eclipse IDE For Compiling A Simple Hello World Type Program With Parallel Execution
+                    </h2>
+                    
+                </hgroup>
+                
+                <div class="loose_text">
+                    <p>
+                        Now that the OpenMPI binaries are installed, a new project can be started within the Eclipse IDE.  Since I am using GNU+Linux, and wish to use GNU as much as possible, I will use the GNU Fortran compiler, versus the Intel Fortran Compiler.  This is a personal preference.  The discussions that follow will assume use of the GNU Fortran compiler.
+                    </p>
+                    
+                    <p>
+                        To start a new project, go to >File>New Project> and drill down to "Others" in "Project type:".  Select Executable (Gnu Fortran on Linux/*nix).  The "Toolchains:" should have GCC Fortran highlighted.
+                    </p>
+                    
+                </div> <!-- .loose_text -->
+                    
+                <div class="img">
+                    <img 
+                        src="images/new_fortran_project.jpeg"
+                        width="1200"
+                        height="800"
+                        title="new_fortran_project.jpeg"
+                    >
+                </div> <!-- .img -->
+                
+                
+                <div class="loose_text">
+                    <p>
+                        It is a good idea to have "use default location" and "show project types and toolchains only if they are supported on the platform" checkmarked, to minimize having to go in to the configurations and be forced to mess around with paths and directory settings.  Give the project a meaningful name and click "Next".
+                    </p>
+                    
+                    <p>
+                        Under "Configurations:", ensure that Debug and Release are checked.  This is more a check to verify that the toolchain is working properly.  It is also useful to have two versions of a project once it becomes sufficiently complex.  If all is well click "Advanced Settings".
+                    </p>
+                </div> <!-- .loose_text -->
+                
+                <div class="img">
+                    <img 
+                        src="images/select_configurations.jpeg"
+                        width="1200"
+                        height="800"
+                        title="select_configurations.jpeg"
+                    >
+                </div> <!-- .img -->
+                
+                <div class="loose_text">
+                    <p>
+                        The next step gave me allot of grief until I figured it out, and I am happy to be able to save you some trouble...  Since we are going to be using OpenMPI, it states on the OpenMPI website that it is HIGHLY recommended to use their specialized compiler and execution binaries.  We must tell the Eclipse IDE to use "mpifort" rather than "gfortran" to compile and link.  "mpifort" has special wrappers embedded that handle accessing all of the required includes and libraries.  Without this, setting up all of paths and environment variables can be a daunting task.  "mpifort" makes it a snap to compile OpenMPI based programs.
+                    </p>
+                    
+                    <p>
+                        To set this up, under "Advanced Settings", go to "Fortran Build" and select the drop-down arrow.  Select "Settings" and then GNU Fortran Compiler.  In the box that says "gfortran", replace it with "mpifort".
+                    </p>
+                </div> <!-- .loose_text -->
 
+                <div class="img">
+                    <img 
+                        src="images/setup_mpifort_as_compiler.jpeg"
+                        width="1200"
+                        height="800"
+                        title="setup_mpifort_as_compiler.jpeg"
+                    >
+                </div> <!-- .img -->
+                
+                <div class="loose_text">
+                    <p>
+                        Once "mpifort" is used as the compiler, you don't have to worry about setting up the includes or libraries.  The next step is not critically necessary but I like to have verbose messages when compiling, so I went ahead and set the "Debug Level" to "Maximum" and checked "Generate gprof information (-pg)" and "Generate prof information (-p)" under "Debugging".  Under "Miscellaneous" I checkmarked "Verbose (-v)".
+                    </p>
+                    
+                    <p>
+                       Once the compiler is setup, the linker is next.  Basically, the exact same things are done for the linker.  Click "GNU Fortran Linker" and change the "command" from gfortran to "mpifort".
+                    </p>
+                    
+                </div> <!-- .loose_text -->
+
+                <div class="img">
+                    <img 
+                        src="images/setup_mpifort_as_linker.jpeg"
+                        width="1200"
+                        height="800"
+                        title="setup_mpifort_as_linker.jpeg"
+                    >
+                </div> <!-- .img -->
+                
+                <div class="loose_text">
+                    <p>
+                        As before, it is not critically necessary but you can go to the "Debugging" item and checkmark the production of additional debugging information.
+                    </p>
+                    
+                </div> <!-- .loose_text -->
+                
             </div> <!-- .current_project_5 -->
       
         </section> <!-- .fifth_section -->
