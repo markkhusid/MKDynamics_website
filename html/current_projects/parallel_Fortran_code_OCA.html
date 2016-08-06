@@ -239,7 +239,7 @@
                 <hgroup>
                 
                     <h2>
-                        Program Run - Simple Program to Compute Positive and Negative Averages
+                        Program Run - Simple "Hello World" Type Fortran Program using Coarrays
                     </h2>
                     
                 </hgroup>
@@ -254,11 +254,7 @@
                 </div> <!-- .img -->
             
                 <div class="loose_text">
-<<<<<<< HEAD
-                    From the above screenshot, we can see that the program is compiled with a coarray aware compiler script known as "caf".  The resulting executable is then run with "cafrun".  cafrun has an option that lets the user choose the number of images to run the executable with.  In this case, we chose 8 images.  The physical CPU contains 4 cores.  It is an interesting question about how the images are actually distributed among the cores.  Do they each get two images?  Or does one core get 5 images and the other cores get the remaining 3, etc.?
-=======
                     As can be seen from the program compilation and exectution above, there are a number of differences in the process when compared to standard compilation and execution.  The program is compiled with a coarray aware compiler "caf".  It is run with a coarray aware loader named "cafrun."  One of the options to cafrun is the number of "images" to be created when running the program.  This program was executed on a quad-core processor, but the number of images is 8.  Each image is provided with the integer the user entered, which in this case is 10.  The program then executes each image with the user entered integer and provides an output.  It is interesting that the number of images does not have to equal the number of cores or processors.
->>>>>>> 451c91688c6817988dcb5725a66ad5b3db4a17ee
                 </div> <!-- .loose_text -->
 
             </div> <!-- .current_project_4 -->
@@ -271,57 +267,25 @@
         
             <div class="current_project_5">
             
-                <hgroup>
-                    <h2>
-                        Program - Simple Program to Calculate Integrals via Trapezoidal Sums
-                    </h2>
-                </hgroup>
                 
-                <a href="http://www.g95.org/coarray.shtml">www.g95.org</a>
-                <div class="img">
-                    <img 
-                    src="images/fortran_code_integrate.jpeg"
-                    width="1200"
-                    height="800"
-                    title="fortran_code_integrate.jpeg"
-                    >
-                </div> <!-- .img -->
-                
-                <div class="loose_text">
-                    The function that is integrated is x^2, and it is hardcoded in.  The limits of integration are 0 to 1.  The program makes use of a module to define the function to integrate, and then this function acts a parameter for the integrate function.  The function interface is defined in the integrate_module. <br>
-                    <a href="code_fortran/integrate.f95">Download integrate.f95 code</a>
-                </div> <!-- .loose_text -->
 
             </div> <!-- .current_project_5 -->
       
         </section> <!-- .fifth_section -->
+
+<!-- ********************************************************************************************************* -->        
     
         <section class="sixth_section">
         
             <div class="current_project_6">
             
-                <hgroup>
-                    <h2>
-                        Program Run - Simple Program to Calculate Integrals via Trapezoidal Sums
-                    </h2>
-                </hgroup>
                 
-                <div class="img">
-                    <img 
-                    src="images/fortran_code_integrate_output.jpeg"
-                    width="1200"
-                    height="300"
-                    title="fortran_code_integrate_output.jpeg"
-                    >
-                </div> <!-- .img -->
-                
-                <div class="loose_text">
-                    The integral of y=x^2 from x=0 to x=1 is 1/3.   
-                </div> <!-- .loose_text -->
 
             </div> <!-- .current_project_6 -->
       
         </section> <!-- .sixth_section -->
+        
+<!-- ********************************************************************************************************* -->        
     
      </section>	<!-- .content -->
     
