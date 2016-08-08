@@ -110,7 +110,33 @@
       background	: gray;
       position		: relative;
       width		: 1250px;
-      height		: 8000px;
+      height		: 3100px;
+      top		: 10px;
+      left		: 0px;
+      float		: left;
+      margin		: 10px;
+      padding		: 10px;
+    }
+    
+    .current_project_7 {
+      border		: 5px solid black;
+      background	: gray;
+      position		: relative;
+      width		: 1250px;
+      height		: 3100px;
+      top		: 10px;
+      left		: 0px;
+      float		: left;
+      margin		: 10px;
+      padding		: 10px;
+    }
+    
+    .current_project_8 {
+      border		: 5px solid black;
+      background	: gray;
+      position		: relative;
+      width		: 1250px;
+      height		: 3100px;
       top		: 10px;
       left		: 0px;
       float		: left;
@@ -596,7 +622,7 @@
                         height="800"
                         title="hello_world_compile_in_photran.jpeg"
                     >
-                </div> <!-- .img -->
+                
                 
                 <div class="loose_text">
                     <p>
@@ -606,17 +632,104 @@
                     <p>
                         As can be seen at the bottom of the console output, the program compiled and linked properly, with no error messages.  We are now ready to run the program.  First we will run the program using a single core and single thread to make sure everything works so far.  Then we will step up to multiple cores/threads.  To run a program, a "Run Configuration" needs to be created first.
                     </p>
+                    
+                    <p>
+                        To create a run configuration, go to >Run>Run Configurations.  Select C/C++ Application (even though we are writing in Fortran).  Click the "New Launch Configuration" button and give the run configuration an appropriate name.  The rest of the fields should have been already filled in by Eclipse.  The window is shown below:
+                    </p>
                 </div> <!-- .loose_text -->
                 
+                </div> <!-- .img -->
                 
+                <div class="img">
+                    <img 
+                        src="images/setup_run_configuration_hello_world.jpeg"
+                        width="1200"
+                        height="800"
+                        title="setup_run_configuration_hello_world.jpeg"
+                    >
+                </div> <!-- .img -->
                 
-
+                <div class="loose_text">
+                    <p>
+                        Once everything is set, click "Run", and you should see the following output:
+                    </p>
+                </div> <!-- .loose_text -->
+                
+                <div class="img">
+                    <img 
+                        src="images/hello_world_run_in_photran.jpeg"
+                        width="1200"
+                        height="800"
+                        title="hello_world_run_in_photran.jpeg"
+                    >
+                </div> <!-- .img -->
+                
+                <div class="loose_text">
+                    <p>
+                        The status message from in the console states that the program terminated with exit value 0, which means no errors.  The output of the program is shown directly below the status line.  Next, we will setup a debug configuration where we can disassemble the executable and step through the assembly instructions.  Doing this will give us valuable insight into how MPI programs actually work.  This will become particularly important for multithreaded/multi-core execution programs.
+                    </p>
+                </div> <!-- .loose_text -->
+                
             </div> <!-- .current_project_6 -->
       
         </section> <!-- .sixth_section -->
         
 <!-- ********************************************************************************************************* -->
-    
+
+<!-- ********************************************************************************************************* -->
+
+        <section class="seventh_section">
+        
+            <div class="current_project_7">
+            
+                <hgroup>
+                
+                    <h2>
+                        
+                    </h2>
+                    
+                </hgroup>
+                
+                <div class="loose_text">
+                    <p>
+                        
+                    </p>
+                </div> <!-- .loose_text -->
+
+                
+            </div> <!-- .current_project_7 -->
+      
+        </section> <!-- .seventh_section -->
+        
+<!-- ********************************************************************************************************* -->
+
+<!-- ********************************************************************************************************* -->
+
+        <section class="eigth_section">
+        
+            <div class="current_project_8">
+            
+                <hgroup>
+                
+                    <h2>
+                        
+                    </h2>
+                    
+                </hgroup>
+                
+                <div class="loose_text">
+                    <p>
+                        
+                    </p>
+                </div> <!-- .loose_text -->
+
+                
+            </div> <!-- .current_project_8 -->
+      
+        </section> <!-- .eigth_section -->
+        
+<!-- ********************************************************************************************************* -->
+
      </section>	<!-- .content -->
     
   </div> <!-- .wrapper -->
