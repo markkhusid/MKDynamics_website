@@ -173,6 +173,7 @@
       color		: white;
       text-align        : justify;
       display           : block;
+      margin            : 20px;
     }
     
   </style>
@@ -372,7 +373,7 @@
                         At the time of this writing, the latest version of the Eclipse Integrated Development Environment (IDE) is NEON.<br>
                         It can be downloaded here:<br>
                         <a href="https://www.eclipse.org/downloads/download.php?file=/technology/epp/downloads/release/neon/R/eclipse-parallel-neon-R-linux-gtk-x86_64.tar.gz">https://www.eclipse.org/downloads/download.php?file=/technology/epp/downloads/release/neon/R/eclipse-parallel-neon-R-linux-gtk-x86_64.tar.gz</a><br>
-                        Other tools are also available for the Eclipse Platform and may be ontained by following the links on their homepage.
+                        Other tools are also available for the Eclipse Platform and may be obtained by following the links on their homepage.
                     </p>
                     
                     <p>
@@ -397,7 +398,7 @@
                 
                 <div class="loose_text">
                     <p>
-                        To install, simply run the file eclipe_inst by entering ./eclipse_inst at the command prompt.  Eclipse requires Java to run; therefore, if there are any installation issues, it is recommended that you ensure that the latest version of Java is installed on your machine.
+                        To install, simply run the file eclipse_inst by entering ./eclipse_inst at the command prompt.  Eclipse requires Java to run; therefore, if there are any installation issues, it is recommended that you ensure that the latest version of Java is installed on your machine.
                     </p>
                     
                     <p>
@@ -457,12 +458,11 @@
                 <div class="img">
                     <img 
                         src="images/new_fortran_project.jpeg"
-                        width="1200"
-                        height="800"
+                        width="1200px"
+                        height="800px"
                         title="new_fortran_project.jpeg"
                     >
                 </div> <!-- .img -->
-                
                 
                 <div class="loose_text">
                     <p>
@@ -666,7 +666,7 @@
                 
                 <div class="loose_text">
                     <p>
-                        The status message from in the console states that the program terminated with exit value 0, which means no errors.  The output of the program is shown directly below the status line.  Next, we will setup a debug configuration where we can disassemble the executable and step through the assembly instructions.  Doing this will give us valuable insight into how MPI programs actually work.  This will become particularly important for multithreaded/multi-core execution programs.
+                        The status message in the console states that the program terminated with exit value 0, which means no errors.  The output of the program is shown directly below the status line.  Next, we will setup a debug configuration where we can disassemble the executable and step through the assembly instructions.  Doing this will give us valuable insight into how MPI programs actually work.  This will become particularly important for multithreaded/multi-core execution programs.
                     </p>
                 </div> <!-- .loose_text -->
                 
@@ -685,18 +685,47 @@
                 <hgroup>
                 
                     <h2>
-                        
+                        Setting Up A Debug Configuration in the Eclipse IDE + Photran + Parallel Tools Platform
                     </h2>
                     
                 </hgroup>
                 
                 <div class="loose_text">
                     <p>
-                        
+                        To set up a debug configuration, click on >Run>Debug Configurations.  Since a run configuration was already created, the debug configuration should be all set up and ready to go.  Click "Debug" to get started.
+                    </p>
+                </div> <!-- .loose_text -->
+                
+                <div class="img">
+                    <img 
+                        src="images/hello_world_debug_configuration.jpeg"
+                        width="1200"
+                        height="800"
+                        title="hello_world_debug_configuration.jpeg"
+                    >
+                </div> <!-- .img -->
+                
+                <div class="loose_text">
+                    <p>
+                        Once "Debug" is clicked, the Eclipse IDE will start the debug/disassembly process and the following perspective screen will appear:
+                    </p>
+                </div> <!-- .loose_text -->
+                
+                <div class="img">
+                    <img 
+                        src="images/hello_world_debug_perspective.jpeg"
+                        width="1200"
+                        height="800"
+                        title="hello_world_debug_perspective.jpeg"
+                    >
+                </div> <!-- .img -->
+                
+                <div class="loose_text">
+                    <p>
+                        Debugging can now commence.  It is very instructive to activate instruction stepping mode and step through each assembly language instruction because you can see the function calls being made to set up the Message Passing Interface.  In the next section, we will show a video of stepping through the assembly language instructions and talk about what is happening at each step.
                     </p>
                 </div> <!-- .loose_text -->
 
-                
             </div> <!-- .current_project_7 -->
       
         </section> <!-- .seventh_section -->
