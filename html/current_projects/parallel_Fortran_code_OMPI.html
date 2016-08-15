@@ -71,7 +71,7 @@
       background	: gray;
       position		: relative;
       width		: 1250px;
-      height		: 3500px;
+      height		: 4300px;
       top		: 000px;
       left		: 0px;
       float		: left;
@@ -84,7 +84,7 @@
       background	: gray;
       position		: relative;
       width		: 1250px;
-      height		: 1100px;
+      height		: 2200px;
       top		: 10px;
       left		: 0px;
       float		: left;
@@ -97,7 +97,7 @@
       background	: gray;
       position		: relative;
       width		: 1250px;
-      height		: 1000px;
+      height		: 7400px;
       top		: 10px;
       left		: 0px;
       float		: left;
@@ -110,7 +110,46 @@
       background	: gray;
       position		: relative;
       width		: 1250px;
-      height		: 500px;
+      height		: 3100px;
+      top		: 10px;
+      left		: 0px;
+      float		: left;
+      margin		: 10px;
+      padding		: 10px;
+    }
+    
+    .current_project_7 {
+      border		: 5px solid black;
+      background	: gray;
+      position		: relative;
+      width		: 1250px;
+      height		: 2000px;
+      top		: 10px;
+      left		: 0px;
+      float		: left;
+      margin		: 10px;
+      padding		: 10px;
+    }
+    
+    .current_project_8 {
+      border		: 5px solid black;
+      background	: gray;
+      position		: relative;
+      width		: 1250px;
+      height		: 2000px;
+      top		: 10px;
+      left		: 0px;
+      float		: left;
+      margin		: 10px;
+      padding		: 10px;
+    }
+    
+    .current_project_9 {
+      border		: 5px solid black;
+      background	: gray;
+      position		: relative;
+      width		: 1250px;
+      height		: 3100px;
       top		: 10px;
       left		: 0px;
       float		: left;
@@ -127,7 +166,7 @@
     }
     
     div .img img {
-      display		: inline;
+      display		: block;
       margin		: 0px;
       padding		: 0px;
     }
@@ -145,7 +184,11 @@
     
     div .loose_text {
       color		: white;
+      text-align        : justify;
+      display           : block;
+      margin            : 20px;
     }
+    
   </style>
 </head>
 
@@ -215,7 +258,7 @@
             <div class="current_project_3">
                 <hgroup>
                     <h2>
-                        Simple Program to Demonstrate Parallel Programming using OpenMPI
+                        Installing OpenMPI as a plugin to the Eclips IDE + Photran + Parallel Tools Platform Framework
                     </h2>
                 </hgroup>
                 
@@ -281,7 +324,46 @@
                         Once the installation has completed, it's status can be viewed by typing ompi_info at the command prompt.<br>
                     </p>
                 </div> <!-- .loose_text -->
-
+                
+                <div class="img">
+                    <img
+                        src="images/ompi_info.jpeg"
+                        width="1200px"
+                        height="600px"
+                        title="ompi_info.jpeg"
+                    >
+                </div> <!-- .img -->
+                
+                <div class="loose_text">
+                    <p>
+                        A full listing of the output of ompi_info is shown below:
+                    </p>
+                </div> <!-- .loose_text -->
+                
+                <iframe
+                        src = "Fortran_OMPI/ompi_info.txt"
+                        width = "1200"
+                        height = "800"
+                        frameborder = "1"
+                        scrolling = "yes">
+                </iframe>
+                
+                <div class="loose_text">
+                    <p>
+                        Notice that the version of Open MPI is 1.8.8.  At the time of this writing, this version is known to work with the Eclipse IDE + Photran + Parallel Tools Platform.  In the author's understanding, version 2.0.0 is known to NOT work.
+                    </p>
+                    
+                    <p>
+                        It was found that if, after compilation and exectution of source code, that error messages are displayed pertaining to MPI or MCA, a working remedy is to ensure that the LD_LIBRARY_PATH environment variable is properly set, and then to reconfigure and rebuild the OpenMPI installation files as described above.  If problems persist, another thing to try is to rename the folder /usr/local/lib/openmpi to /usr/local/lib/openmpi_backup, and then perform a ./configure --with-devel-headers and then a sudo make -j 4 install all.  This will ensure that fresh files are installed into /usr/local/lib/openmpi.
+                    </p>
+                    
+                    <p>
+                        More information on installation issues can be found here:<br>
+                        <a href="https://eclipse.org/ptp/docs/releases/release-1.1.php">https://eclipse.org/ptp/docs/releases/release-1.1.php</a><br>
+                        <a href="https://www.open-mpi.org/faq/?category=building#easy-build">https://www.open-mpi.org/faq/?category=building#easy-build</a><br>
+                    </p>
+                </div> <!-- .loose_text -->
+                
             </div> <!-- .current_project_3 -->
         
         </section> <!-- .third_section -->
@@ -294,27 +376,68 @@
                 <hgroup>
                 
                     <h2>
-                        Program Run - Simple Program to Compute Positive and Negative Averages
+                        Installing the Eclipse IDE + Photran + Parallel Tools Platform
                     </h2>
                     
                 </hgroup>
                 
+                <div class="loose_text">
+                    <p>
+                        At the time of this writing, the latest version of the Eclipse Integrated Development Environment (IDE) is NEON.<br>
+                        It can be downloaded here:<br>
+                        <a href="https://www.eclipse.org/downloads/download.php?file=/technology/epp/downloads/release/neon/R/eclipse-parallel-neon-R-linux-gtk-x86_64.tar.gz">https://www.eclipse.org/downloads/download.php?file=/technology/epp/downloads/release/neon/R/eclipse-parallel-neon-R-linux-gtk-x86_64.tar.gz</a><br>
+                        Other tools are also available for the Eclipse Platform and may be obtained by following the links on their homepage.
+                    </p>
+                    
+                    <p>
+                        I recommend decomressing the downloaded Eclipse installation files into a temporary directory, such as /home/Installs/eclipse-installer
+                    </p>
+                </div> <!-- .loose_text -->
+                
                 <div class="img">
                     <img 
-                        src="images/parallel_fortran_code_run1.jpeg"
+                        src="images/eclipse_installer1.jpeg"
                         width="1200"
                         height="800"
-                        title="parallel_fortran_code_run1.jpeg"
+                        title="eclipse_installer1.jpeg"
                     >
                 </div> <!-- .img -->
             
                 <div class="loose_text">
-<<<<<<< HEAD
-                    From the above screenshot, we can see that the program is compiled with a coarray aware compiler script known as "caf".  The resulting executable is then run with "cafrun".  cafrun has an option that lets the user choose the number of images to run the executable with.  In this case, we chose 8 images.  The physical CPU contains 4 cores.  It is an interesting question about how the images are actually distributed among the cores.  Do they each get two images?  Or does one core get 5 images and the other cores get the remaining 3, etc.?
-=======
-                    As can be seen from the program compilation and exectution above, there are a number of differences in the process when compared to standard compilation and execution.  The program is compiled with a coarray aware compiler "caf".  It is run with a coarray aware loader named "cafrun."  One of the options to cafrun is the number of "images" to be created when running the program.  This program was executed on a quad-core processor, but the number of images is 8.  Each image is provided with the integer the user entered, which in this case is 10.  The program then executes each image with the user entered integer and provides an output.  It is interesting that the number of images does not have to equal the number of cores or processors.
->>>>>>> 451c91688c6817988dcb5725a66ad5b3db4a17ee
+                    <p>
+                    
+                    </p>
                 </div> <!-- .loose_text -->
+                
+                <div class="loose_text">
+                    <p>
+                        To install, simply run the file eclipse_inst by entering ./eclipse_inst at the command prompt.  Eclipse requires Java to run; therefore, if there are any installation issues, it is recommended that you ensure that the latest version of Java is installed on your machine.
+                    </p>
+                    
+                    <p>
+                        After Eclipse is installed, click "Launch" to start it up.  It "may" be necessary to install some additional add-on tools to access the parallel development tools.  I can't be certain since I have tried installation a number of times before I was able to get the system to operate properly.  This is more a reflection of my learning curve and my particular system setup, and not a criticism per se of the Eclipse developers.
+                    </p>
+                    
+                    <p>
+                        Once the Eclipse IDE is up and running, go to >help>Install New Software, which will bring up the following screen:
+                    </p>
+                </div> <!-- .loose_text -->
+                
+                <div class="img">
+                    <img 
+                        src="images/eclipse_updates.jpeg"
+                        width="1200"
+                        height="800"
+                        title="eclipse_updates.jpeg"
+                    >
+                </div> <!-- .img -->
+                
+                <div class="loose_text">
+                    <p>
+                        Ensure that all "Linux Tools", "Parallel Tools Platform", and "Performance, Profiling and Tracing Tools" are selected, and click "Next" to update the Eclipse IDE.
+                    </p>
+                </div> <!-- .loose_text -->
+                
 
             </div> <!-- .current_project_4 -->
             
@@ -325,59 +448,416 @@
         <section class="fifth_section">
         
             <div class="current_project_5">
-            
+                
                 <hgroup>
+                
                     <h2>
-                        Program - Simple Program to Calculate Integrals via Trapezoidal Sums
+                        Setting Up The Eclipse IDE For Compiling A Simple Hello World Type Program With Parallel Execution
                     </h2>
+                    
                 </hgroup>
                 
-                <a href="http://www.g95.org/coarray.shtml">www.g95.org</a>
+                <div class="loose_text">
+                    <p>
+                        Now that the OpenMPI binaries are installed, a new project can be started within the Eclipse IDE.  Since I am using GNU+Linux, and wish to use GNU as much as possible, I will use the GNU Fortran compiler, versus the Intel Fortran Compiler.  This is a personal preference.  The discussions that follow will assume use of the GNU Fortran compiler.
+                    </p>
+                    
+                    <p>
+                        To start a new project, go to >File>New Project> and drill down to "Others" in "Project type:".  Select Executable (Gnu Fortran on Linux/*nix).  The "Toolchains:" should have GCC Fortran highlighted.
+                    </p>
+                    
+                </div> <!-- .loose_text -->
+                    
                 <div class="img">
                     <img 
-                    src="images/fortran_code_integrate.jpeg"
-                    width="1200"
-                    height="800"
-                    title="fortran_code_integrate.jpeg"
+                        src="images/new_fortran_project.jpeg"
+                        width="1200px"
+                        height="800px"
+                        title="new_fortran_project.jpeg"
                     >
                 </div> <!-- .img -->
                 
                 <div class="loose_text">
-                    The function that is integrated is x^2, and it is hardcoded in.  The limits of integration are 0 to 1.  The program makes use of a module to define the function to integrate, and then this function acts a parameter for the integrate function.  The function interface is defined in the integrate_module. <br>
-                    <a href="code_fortran/integrate.f95">Download integrate.f95 code</a>
+                    <p>
+                        It is a good idea to have "use default location" and "show project types and toolchains only if they are supported on the platform" checkmarked, to minimize having to go in to the configurations and be forced to mess around with paths and directory settings.  Give the project a meaningful name and click "Next".
+                    </p>
+                    
+                    <p>
+                        Under "Configurations:", ensure that Debug and Release are checked.  This is more a check to verify that the toolchain is working properly.  It is also useful to have two versions of a project once it becomes sufficiently complex.  If all is well click "Advanced Settings".
+                    </p>
+                </div> <!-- .loose_text -->
+                
+                <div class="img">
+                    <img 
+                        src="images/select_configurations.jpeg"
+                        width="1200"
+                        height="800"
+                        title="select_configurations.jpeg"
+                    >
+                </div> <!-- .img -->
+                
+                <div class="loose_text">
+                    <p>
+                        The next step gave me allot of grief until I figured it out, and I am happy to be able to save you some trouble...  Since we are going to be using OpenMPI, it states on the OpenMPI website that it is HIGHLY recommended to use their specialized compiler and execution binaries.  We must tell the Eclipse IDE to use "mpifort" rather than "gfortran" to compile and link.  "mpifort" has special wrappers embedded that handle accessing all of the required includes and libraries.  Without this, setting up all of paths and environment variables can be a daunting task.  "mpifort" makes it a snap to compile OpenMPI based programs.
+                    </p>
+                    
+                    <p>
+                        To set this up, under "Advanced Settings", go to "Fortran Build" and select the drop-down arrow.  Select "Settings" and then GNU Fortran Compiler.  In the box that says "gfortran", replace it with "mpifort".
+                    </p>
                 </div> <!-- .loose_text -->
 
+                <div class="img">
+                    <img 
+                        src="images/setup_mpifort_as_compiler.jpeg"
+                        width="1200"
+                        height="800"
+                        title="setup_mpifort_as_compiler.jpeg"
+                    >
+                </div> <!-- .img -->
+                
+                <div class="loose_text">
+                    <p>
+                        Once "mpifort" is used as the compiler, you don't have to worry about setting up the includes or libraries.  The next step is not critically necessary but I like to have verbose messages when compiling, so I went ahead and set the "Debug Level" to "Maximum" and checked "Generate gprof information (-pg)" and "Generate prof information (-p)" under "Debugging".  Under "Miscellaneous" I checkmarked "Verbose (-v)".
+                    </p>
+                    
+                    <p>
+                       Once the compiler is setup, the linker is next.  Basically, the exact same things are done for the linker.  Click "GNU Fortran Linker" and change the "command" from gfortran to "mpifort".
+                    </p>
+                    
+                </div> <!-- .loose_text -->
+
+                <div class="img">
+                    <img 
+                        src="images/setup_mpifort_as_linker.jpeg"
+                        width="1200"
+                        height="800"
+                        title="setup_mpifort_as_linker.jpeg"
+                    >
+                </div> <!-- .img -->
+                
+                <div class="loose_text">
+                    <p>
+                        As before, it is not critically necessary but you can go to the "Debugging" item and checkmark the production of additional debugging information.  Once the command is changed to "mpifort", click "OK" and then "Finish".  You should now be in the Eclipse IDE Photran screen.  This is perspective that allows for actually entering, building and running the code.  I have been messing around with Photran for a while, so details on your screen will be slightly different.
+                    </p>
+                </div> <!-- .loose_text -->
+                
+                <div class="img">
+                    <img 
+                        src="images/photran_start_screen.jpeg"
+                        width="1200"
+                        height="800"
+                        title="photran_start_screen.jpeg"
+                    >
+                </div> <!-- .img -->
+                
+                <div class="loose_text">
+                    <p>
+                        Right click on the name of your newly created project in the "Project Explorer" and select "New" and then "Fortran Source Code".
+                    </p>
+                </div> <!-- .loose_text -->
+                
+                <div class="img">
+                    <img 
+                        src="images/photran_new_fortran_source_file.jpeg"
+                        width="1200"
+                        height="800"
+                        title="photran_new_fortran_source_file.jpeg"
+                    >
+                </div> <!-- .img -->
+                
+                <div class="loose_text">
+                    <p>
+                        Give the new source file a meaningful name, MAKING SURE TO GIVE THE FILENAME A .f08 EXTENSION. The extension must be a .f08, with a non-capital "f".  Keep "Template" set to "Default free-form Fortran source file template".  Verify and click "Finish".
+                    </p>
+                </div> <!-- .loose_text -->
+                
+                <div class="img">
+                    <img 
+                        src="images/photran_new_fortran_source_file_name.jpeg"
+                        width="600px"
+                        height="400px"
+                        title="photran_new_fortran_source_file_name.jpeg"
+                    >
+                    
+                    <div class="loose_text">
+                        <p>
+                            I don't recommend changing the source folder because it may become difficult to build the project due to PATH issues.  Click "Finish" when done.  A new file will appear in the "Project Explorer" with the name given.  Double click this file and the editing screen will appear.  A default tempplate program will appear, but we will not be using it.  Go ahead and delete all of the lines in the editor.  As a first program, I found the one named "Hello World" at:<br>
+                            <a href="http://condor.cc.ku.edu/~grobe/docs/intro-MPI.shtml">http://condor.cc.ku.edu/~grobe/docs/intro-MPI.shtml</a><br>
+                            to be useful.  Copy and paste it into the editor.
+                        </p>
+                    </div> <!-- .loose_text -->
+                    
+                </div> <!-- .img -->
+                    
+                <div class="img">
+                    <img 
+                        src="images/hello_world_in_photran.jpeg"
+                        width="1200"
+                        height="800"
+                        title="hello_world_in_photran.jpeg"
+                    >
+                </div> <!-- .img -->
+                
+                <div class="loose_text">
+                    <p>
+                        We are now ready to compile, link and execute the "Hello World" type program to verify that all is setup correctly.  In a subsequent section, we will using the debug functions of the Eclipse IDE to step through the disassembly of the executable to gain valuable insights into the physical implementation of parallel exectution code.
+                    </p>
+                </div> <!-- .loose_text -->
+                    
             </div> <!-- .current_project_5 -->
       
         </section> <!-- .fifth_section -->
-    
+        
+<!-- ********************************************************************************************************* -->
+
         <section class="sixth_section">
         
             <div class="current_project_6">
             
                 <hgroup>
+                
                     <h2>
-                        Program Run - Simple Program to Calculate Integrals via Trapezoidal Sums
+                        Compiling, Linking and Executing A Simple Hello World Type Program With Parallel Execution
                     </h2>
+                    
                 </hgroup>
+                
+                <div class="loose_text">
+                    <p>
+                        Assuming everything was setup as described in the previous sections, to compile the program should be as simple as clicking on >Project>Build Project.  There will be some activity with a progress bar, and allot of verbose debugging information will appear in the console as shown below:
+                    </p>
+                </div> <!-- .loose_text -->
                 
                 <div class="img">
                     <img 
-                    src="images/fortran_code_integrate_output.jpeg"
-                    width="1200"
-                    height="300"
-                    title="fortran_code_integrate_output.jpeg"
+                        src="images/hello_world_compile_in_photran.jpeg"
+                        width="1200"
+                        height="800"
+                        title="hello_world_compile_in_photran.jpeg"
+                    >
+                
+                
+                <div class="loose_text">
+                    <p>
+                        I am an information junkie, and looking at the verbose debugging output on the console is very pleasing.  Of important note is that underneath the line which says "Invoking: GNU Fortran Compiler", there is a command line that starts with "mpifort", and under "Invoking: GNU Fortran Linker", there is another line which starts with "mpifort".  As explained in the previous sections, "mpifort" is a special wrapper executable which enabled greatly facilitated compilation and linking of Fortran programs using MPI, without having to worry about PATHs or setting up libraries.
+                    </p>
+                    
+                    <p>
+                        As can be seen at the bottom of the console output, the program compiled and linked properly, with no error messages.  We are now ready to run the program.  First we will run the program using a single core and single thread to make sure everything works so far.  Then we will step up to multiple cores/threads.  To run a program, a "Run Configuration" needs to be created first.
+                    </p>
+                    
+                    <p>
+                        To create a run configuration, go to >Run>Run Configurations.  Select C/C++ Application (even though we are writing in Fortran).  Click the "New Launch Configuration" button and give the run configuration an appropriate name.  The rest of the fields should have been already filled in by Eclipse.  The window is shown below:
+                    </p>
+                </div> <!-- .loose_text -->
+                
+                </div> <!-- .img -->
+                
+                <div class="img">
+                    <img 
+                        src="images/setup_run_configuration_hello_world.jpeg"
+                        width="1200"
+                        height="800"
+                        title="setup_run_configuration_hello_world.jpeg"
                     >
                 </div> <!-- .img -->
                 
                 <div class="loose_text">
-                    The integral of y=x^2 from x=0 to x=1 is 1/3.   
+                    <p>
+                        Once everything is set, click "Run", and you should see the following output:
+                    </p>
                 </div> <!-- .loose_text -->
-
+                
+                <div class="img">
+                    <img 
+                        src="images/hello_world_run_in_photran.jpeg"
+                        width="1200"
+                        height="800"
+                        title="hello_world_run_in_photran.jpeg"
+                    >
+                </div> <!-- .img -->
+                
+                <div class="loose_text">
+                    <p>
+                        The status message in the console states that the program terminated with exit value 0, which means no errors.  The output of the program is shown directly below the status line.  Next, we will setup a debug configuration where we can disassemble the executable and step through the assembly instructions.  Doing this will give us valuable insight into how MPI programs actually work.  This will become particularly important for multithreaded/multi-core execution programs.
+                    </p>
+                </div> <!-- .loose_text -->
+                
             </div> <!-- .current_project_6 -->
       
         </section> <!-- .sixth_section -->
-    
+        
+<!-- ********************************************************************************************************* -->
+
+<!-- ********************************************************************************************************* -->
+
+        <section class="seventh_section">
+        
+            <div class="current_project_7">
+            
+                <hgroup>
+                
+                    <h2>
+                        Setting Up A Debug Configuration in the Eclipse IDE + Photran + Parallel Tools Platform
+                    </h2>
+                    
+                </hgroup>
+                
+                <div class="loose_text">
+                    <p>
+                        To set up a debug configuration, click on >Run>Debug Configurations.  Since a run configuration was already created, the debug configuration should be all set up and ready to go.  Click "Debug" to get started.
+                    </p>
+                </div> <!-- .loose_text -->
+                
+                <div class="img">
+                    <img 
+                        src="images/hello_world_debug_configuration.jpeg"
+                        width="1200"
+                        height="800"
+                        title="hello_world_debug_configuration.jpeg"
+                    >
+                </div> <!-- .img -->
+                
+                <div class="loose_text">
+                    <p>
+                        Once "Debug" is clicked, the Eclipse IDE will start the debug/disassembly process and the following perspective screen will appear:
+                    </p>
+                </div> <!-- .loose_text -->
+                
+                <div class="img">
+                    <img 
+                        src="images/hello_world_debug_perspective.jpeg"
+                        width="1200"
+                        height="800"
+                        title="hello_world_debug_perspective.jpeg"
+                    >
+                </div> <!-- .img -->
+                
+                <div class="loose_text">
+                    <p>
+                        Debugging can now commence.  It is very instructive to activate instruction stepping mode and step through each assembly language instruction because you can see the function calls being made to set up the Message Passing Interface.  In the next section, we will show a video of stepping through the assembly language instructions and talk about what is happening at each step.
+                    </p>
+                </div> <!-- .loose_text -->
+
+            </div> <!-- .current_project_7 -->
+      
+        </section> <!-- .seventh_section -->
+        
+<!-- ********************************************************************************************************* -->
+
+<!-- ********************************************************************************************************* -->
+
+        <section class="eigth_section">
+        
+            <div class="current_project_8">
+            
+                <hgroup>
+                
+                    <h2>
+                        Debugging an OpenMPI Fortran Executable in Eclipse IDE + Photran + Parallel Tools Platform
+                    </h2>
+                    
+                </hgroup>
+                
+                <div class="loose_text">
+                    <p>
+                        The following video shows the process of debugging a simple "Hello World" type Open MPI Fortran program.
+                    </p>
+                </div> <!-- .loose_text -->
+                
+                <iframe
+                    class="youtube-player"
+                    type="text/html"
+                    width="1250"
+                    height="800"
+                    frameborder="1"
+                    allowfullscreen
+                    src="https://www.youtube.com/embed/Wyvhu_O2OLw">
+                </iframe>
+                
+                <div class="loose_text">
+                    <p>
+                        In the video, a number of observations can be made.  At 0:55, we can see that many modules are loaded upon executing the assembly instruction that directs the instruction pointer to the location of the main function.  Many of these modules are related to setting up the MPI.  It can also be observed that at one point, exectution is actually taking place over two cores in two separate threads, even though this was not explicitly stated in the run/debug command.  This gives an insight into the inner workings of how OpenMPI actually works.
+                    </p>
+                    
+                    <p>
+                        In the next sections, we will setup and perform a debug/run of this program using parallel exectution.
+                    </p>
+                </div> <!-- .loose_text -->
+                
+                <div class="img">
+                    <img 
+                        src="images/hello_world_during_debug.jpeg"
+                        width="1200"
+                        height="800"
+                        title="hello_world_during_debug.jpeg"
+                    >
+                </div> <!-- .img -->
+
+                
+            </div> <!-- .current_project_8 -->
+      
+        </section> <!-- .eigth_section -->
+        
+<!-- ********************************************************************************************************* -->
+
+<!-- ********************************************************************************************************* -->
+
+        <section class="ninth_section">
+        
+            <div class="current_project_9">
+            
+                <hgroup>
+                
+                    <h2>
+                        
+                    </h2>
+                    
+                </hgroup>
+                
+                <div class="loose_text">
+                    <p>
+                        
+                    </p>
+                </div> <!-- .loose_text -->
+                
+                <iframe
+                    class="youtube-player"
+                    type="text/html"
+                    width="1250"
+                    height="800"
+                    frameborder="1"
+                    allowfullscreen
+                    src="">
+                </iframe>
+                
+                <div class="loose_text">
+                    <p>
+                        
+                    </p>
+                    
+                    <p>
+                        
+                    </p>
+                </div> <!-- .loose_text -->
+                
+                <div class="img">
+                    <img 
+                        src="images/.jpeg"
+                        width="1200"
+                        height="800"
+                        title=".jpeg"
+                    >
+                </div> <!-- .img -->
+
+                
+            </div> <!-- .current_project_9 -->
+      
+        </section> <!-- .ninth_section -->
+        
+<!-- ********************************************************************************************************* -->
+
+
      </section>	<!-- .content -->
     
   </div> <!-- .wrapper -->
