@@ -354,7 +354,7 @@
                     </p>
                     
                     <p>
-                        It was found that if, after compilation and exectution of source code, that error messages are displayed pertaining to MPI or MCA, a working remedy is to ensure that the LD_LIBRARY_PATH environment variable is properly set, and then to reconfigure and rebuild the OpenMPI installation files as described above.  If problems persist, another thing to try is to rename the folder /usr/local/lib/openmpi to /usr/local/lib/openmpi_backup, and then perform a ./configure --with-devel-headers and then a sudo make -j 4 install all.  This will ensure that fresh files are installed into /usr/local/lib/openmpi.
+                        It was found that if, after compilation and execution of the source code, that error messages are displayed pertaining to MPI or MCA, a working remedy is to ensure that the LD_LIBRARY_PATH environment variable is properly set, and then to reconfigure and rebuild the OpenMPI installation files as described above.  If problems persist, another thing to try is to rename the folder /usr/local/lib/openmpi to /usr/local/lib/openmpi_backup, and then perform a ./configure --with-devel-headers and then a sudo make -j 4 install all.  This will ensure that fresh files are installed into /usr/local/lib/openmpi.
                     </p>
                     
                     <p>
@@ -390,7 +390,7 @@
                     </p>
                     
                     <p>
-                        I recommend decomressing the downloaded Eclipse installation files into a temporary directory, such as /home/Installs/eclipse-installer
+                        I recommend decompressing the downloaded Eclipse installation files into a temporary directory, such as /home/Installs/eclipse-installer
                     </p>
                 </div> <!-- .loose_text -->
                 
@@ -415,7 +415,7 @@
                     </p>
                     
                     <p>
-                        After Eclipse is installed, click "Launch" to start it up.  It "may" be necessary to install some additional add-on tools to access the parallel development tools.  I can't be certain since I have tried installation a number of times before I was able to get the system to operate properly.  This is more a reflection of my learning curve and my particular system setup, and not a criticism per se of the Eclipse developers.
+                        After Eclipse is installed, click "Launch" to start it up.  It "may" be necessary to install some additional add-on tools to access the parallel development tools.  I can't be certain since I have tried the installation a number of times before I was able to get the system to operate properly.  This is more a reflection of my learning curve and my particular system setup, and not a criticism, per se, of the Eclipse developers.
                     </p>
                     
                     <p>
@@ -483,7 +483,7 @@
                     </p>
                     
                     <p>
-                        Under "Configurations:", ensure that Debug and Release are checked.  This is more a check to verify that the toolchain is working properly.  It is also useful to have two versions of a project once it becomes sufficiently complex.  If all is well click "Advanced Settings".
+                        Under "Configurations:", ensure that Debug and Release are checked.  This is more of a check to verify that the toolchain is working properly.  It is also useful to have two versions of a project once it becomes sufficiently complex.  If all is well click "Advanced Settings".
                     </p>
                 </div> <!-- .loose_text -->
                 
@@ -567,7 +567,7 @@
                 
                 <div class="loose_text">
                     <p>
-                        Give the new source file a meaningful name, MAKING SURE TO GIVE THE FILENAME A .f08 EXTENSION. The extension must be a .f08, with a non-capital "f".  Keep "Template" set to "Default free-form Fortran source file template".  Verify and click "Finish".
+                        Give the new source file a meaningful name, MAKING SURE TO GIVE THE FILENAME A .f08 EXTENSION. The extension must be a .f08, with a non-capital "f".  Keep "Template" set to "Default free-form Fortran source file template".  Verify and click "Finish".  The Eclipse IDE differentiates between filenames that end in .F08 and .f08.  A filename ending in .F08 will not build properly.
                     </p>
                 </div> <!-- .loose_text -->
                 
@@ -639,7 +639,7 @@
                 
                 <div class="loose_text">
                     <p>
-                        I am an information junkie, and looking at the verbose debugging output on the console is very pleasing.  Of important note is that underneath the line which says "Invoking: GNU Fortran Compiler", there is a command line that starts with "mpifort", and under "Invoking: GNU Fortran Linker", there is another line which starts with "mpifort".  As explained in the previous sections, "mpifort" is a special wrapper executable which enabled greatly facilitated compilation and linking of Fortran programs using MPI, without having to worry about PATHs or setting up libraries.
+                        I am an information junkie, and looking at the verbose debugging output on the console is very pleasing.  Of important note is that underneath the line which says "Invoking: GNU Fortran Compiler", there is a command line that starts with "mpifort", and under "Invoking: GNU Fortran Linker", there is another line which starts with "mpifort".  As explained in the previous sections, "mpifort" is a special wrapper executable which enables greatly facilitated compilation and linking of Fortran programs using MPI, without having to worry about PATHs or setting up libraries.
                     </p>
                     
                     <p>
@@ -781,6 +781,10 @@
                     </p>
                     
                     <p>
+                        It appears that the additional thread on the second core is running housekeeping routines pertaining to the Message Passing Interface.  The thread starts and stops at the same time that the MPI initialization instructions are being executed.  A number of MPI routines are also executed upon finalization of the program.
+                    </p>
+                    
+                    <p>
                         In the next sections, we will setup and perform a debug/run of this program using parallel exectution.
                     </p>
                 </div> <!-- .loose_text -->
@@ -810,26 +814,25 @@
                 <hgroup>
                 
                     <h2>
-                        
+                            Running an OpenMPI Fortran Executable in Eclipse IDE + Photran + Parallel Tools Platform
                     </h2>
                     
                 </hgroup>
                 
                 <div class="loose_text">
                     <p>
-                        
+                            In this section, we will run the simple "Hello World" type program using multiple cores/threads.  In this case, the program will simply output Hello World for each running instance.
                     </p>
                 </div> <!-- .loose_text -->
                 
-                <iframe
-                    class="youtube-player"
-                    type="text/html"
-                    width="1250"
-                    height="800"
-                    frameborder="1"
-                    allowfullscreen
-                    src="">
-                </iframe>
+                <div class="img">
+                    <img 
+                        src="images/.jpeg"
+                        width="1200"
+                        height="800"
+                        title=".jpeg"
+                    >
+                </div> <!-- .img -->
                 
                 <div class="loose_text">
                     <p>
