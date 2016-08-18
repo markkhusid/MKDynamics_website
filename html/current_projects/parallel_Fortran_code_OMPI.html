@@ -149,7 +149,20 @@
       background	: gray;
       position		: relative;
       width		: 1250px;
-      height		: 3100px;
+      height		: 2000px;
+      top		: 10px;
+      left		: 0px;
+      float		: left;
+      margin		: 10px;
+      padding		: 10px;
+    }
+    
+    .current_project_10 {
+      border		: 5px solid black;
+      background	: gray;
+      position		: relative;
+      width		: 1250px;
+      height		: 2000px;
       top		: 10px;
       left		: 0px;
       float		: left;
@@ -814,42 +827,44 @@
                 <hgroup>
                 
                     <h2>
-                            Running an OpenMPI Fortran Executable in Eclipse IDE + Photran + Parallel Tools Platform
+                        Setting and Running an OpenMPI Fortran Executable on Multiple Cores/Threads in Eclipse IDE + Photran + Parallel Tools Platform
                     </h2>
                     
                 </hgroup>
                 
                 <div class="loose_text">
                     <p>
-                            In this section, we will run the simple "Hello World" type program using multiple cores/threads.  In this case, the program will simply output Hello World for each running instance.
-                    </p>
-                </div> <!-- .loose_text -->
-                
-                <div class="img">
-                    <img 
-                        src="images/.jpeg"
-                        width="1200"
-                        height="800"
-                        title=".jpeg"
-                    >
-                </div> <!-- .img -->
-                
-                <div class="loose_text">
-                    <p>
-                        
+                        In this section, we will setup the simple "Hello World" type program for running using multiple cores/threads.
                     </p>
                     
                     <p>
-                        
+                        Go to >Run>Run Configurations, and create a new run configuration under "Parallel Application".  Just to make it interesting, increase the number of processes to 4. Click "Apply" and then "Run".
+                    </p>
+                    
+                    
+                </div> <!-- .loose_text -->
+                
+                <div class="img">
+                    <img 
+                        src="images/setup_parallel_run_ompi.jpeg"
+                        width="1200"
+                        height="800"
+                        title="setup_parallel_run_ompi.jpeg"
+                    >
+                </div> <!-- .img -->
+
+                <div class="loose_text">
+                    <p>
+                        The program should execute with no issues and "Hello World" should appear in the console 4 times.
                     </p>
                 </div> <!-- .loose_text -->
                 
                 <div class="img">
                     <img 
-                        src="images/.jpeg"
+                        src="images/parallel_run_4_images_ompi.jpeg"
                         width="1200"
                         height="800"
-                        title=".jpeg"
+                        title="parallel_run_4_images_ompi.jpeg"
                     >
                 </div> <!-- .img -->
 
@@ -860,6 +875,62 @@
         
 <!-- ********************************************************************************************************* -->
 
+<!-- ********************************************************************************************************* -->
+
+        <section class="tenth_section">
+        
+            <div class="current_project_10">
+            
+                <hgroup>
+                
+                    <h2>
+                        Setting a Parallel Debug of an OpenMPI Fortran Executable on Multiple Cores/Threads in Eclipse IDE + Photran + Parallel Tools Platform
+                    </h2>
+                    
+                </hgroup>
+                
+                <div class="loose_text">
+                    <p>
+                        In this section, we will setup the simple "Hello World" type program for debugging using multiple cores/threads.
+                    </p>
+                    
+                    <p>
+                        Go to >Run>Debug Configurations, and create a new run configuration under "Parallel Application".  Just to make it interesting, increase the number of processes to 4. Click "Apply" and then "Debug".
+                    </p>
+                    
+                    
+                </div> <!-- .loose_text -->
+                
+                <div class="img">
+                    <img 
+                        src="images/setup_parallel_run_ompi.jpeg"
+                        width="1200"
+                        height="800"
+                        title="setup_parallel_run_ompi.jpeg"
+                    >
+                </div> <!-- .img -->
+
+                <div class="loose_text">
+                    <p>
+                        The program should execute with no issues and "Hello World" should appear in the console 4 times.
+                    </p>
+                </div> <!-- .loose_text -->
+                
+                <div class="img">
+                    <img 
+                        src="images/parallel_run_4_images_ompi.jpeg"
+                        width="1200"
+                        height="800"
+                        title="parallel_run_4_images_ompi.jpeg"
+                    >
+                </div> <!-- .img -->
+
+                
+            </div> <!-- .current_project_10 -->
+      
+        </section> <!-- .tenth_section -->
+        
+<!-- ********************************************************************************************************* -->
 
      </section>	<!-- .content -->
     
