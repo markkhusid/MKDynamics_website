@@ -162,7 +162,7 @@
       background	: gray;
       position		: relative;
       width		: 1250px;
-      height		: 2000px;
+      height		: 3000px;
       top		: 10px;
       left		: 0px;
       float		: left;
@@ -827,7 +827,7 @@
                 <hgroup>
                 
                     <h2>
-                        Setting and Running an OpenMPI Fortran Executable on Multiple Cores/Threads in Eclipse IDE + Photran + Parallel Tools Platform
+                        Setting Up and Running an OpenMPI Fortran Executable on Multiple Cores/Threads in Eclipse IDE + Photran + Parallel Tools Platform
                     </h2>
                     
                 </hgroup>
@@ -884,7 +884,7 @@
                 <hgroup>
                 
                     <h2>
-                        Setting a Parallel Debug of an OpenMPI Fortran Executable on Multiple Cores/Threads in Eclipse IDE + Photran + Parallel Tools Platform
+                        Setting Up a Parallel Debug of an OpenMPI Fortran Executable on Multiple Cores/Threads in Eclipse IDE + Photran + Parallel Tools Platform
                     </h2>
                     
                 </hgroup>
@@ -895,7 +895,7 @@
                     </p>
                     
                     <p>
-                        Go to >Run>Debug Configurations, and create a new run configuration under "Parallel Application".  Just to make it interesting, increase the number of processes to 4. Click "Apply" and then "Debug".
+                        Go to >Run>Debug Configurations, and create a new debug configuration under "Parallel Application".  Just to make it interesting, increase the number of processes to 4. Click "Apply" and then "Debug".
                     </p>
                     
                     
@@ -903,29 +903,48 @@
                 
                 <div class="img">
                     <img 
-                        src="images/setup_parallel_run_ompi.jpeg"
+                        src="images/setup_parallel_debug_ompi.jpeg"
                         width="1200"
                         height="800"
-                        title="setup_parallel_run_ompi.jpeg"
+                        title="setup_parallel_debug_ompi.jpeg"
                     >
                 </div> <!-- .img -->
 
                 <div class="loose_text">
                     <p>
-                        The program should execute with no issues and "Hello World" should appear in the console 4 times.
+                        After the progress bar finishes indicating that debugging is being set up, the following screen should come up:
                     </p>
                 </div> <!-- .loose_text -->
                 
                 <div class="img">
                     <img 
-                        src="images/parallel_run_4_images_ompi.jpeg"
+                        src="images/parallel_debug_4_images_ompi.jpeg"
                         width="1200"
                         height="800"
-                        title="parallel_run_4_images_ompi.jpeg"
+                        title="parallel_debug_4_images_ompi.jpeg"
+                    >
+                </div> <!-- .img -->
+                
+                <div class="loose_text">
+                    <p>
+                        There can be a number of step-through scenarios at this point.  My personal favorite is to activate all images and step into the main() code.  This will call the OpenMPI functions and display the details of how OpenMPI actually works to setup and shutdown itself.
+                    </p>
+                    
+                    <p>
+                        A quick look at the process list by typing "ps -FH --User mark" reveals the process structure of what actually happens when debugging of four images commences.  It appears that 4 instances of gdb are started, under the auspices of the sdm debugger.
+                    </p>
+                </div> <!-- .loose_text -->
+                
+                <div class="img">
+                    <img 
+                        src="images/ps_of_4 images_ompi.jpeg"
+                        width="1200"
+                        height="800"
+                        title="ps_of_4 images_ompi.jpeg"
                     >
                 </div> <!-- .img -->
 
-                
+            
             </div> <!-- .current_project_10 -->
       
         </section> <!-- .tenth_section -->
