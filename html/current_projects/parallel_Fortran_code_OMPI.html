@@ -170,6 +170,19 @@
       padding		: 10px;
     }
     
+    .current_project_11 {
+      border		: 5px solid black;
+      background	: gray;
+      position		: relative;
+      width		: 1250px;
+      height		: 3000px;
+      top		: 10px;
+      left		: 0px;
+      float		: left;
+      margin		: 10px;
+      padding		: 10px;
+    }
+    
     div .img {
       margin		: 0px;
       padding		: 10px;
@@ -931,7 +944,11 @@
                     </p>
                     
                     <p>
-                        A quick look at the process list by typing "ps -FH --User mark" reveals the process structure of what actually happens when debugging of four images commences.  It appears that 4 instances of gdb are started, under the auspices of the sdm debugger.
+                        A quick look at the process list by typing "ps -FH --User mark" reveals the process structure of what actually happens during debugging.  It appears that four instances of gdb are started, under the auspices of the sdm debugger.
+                    </p>
+                    
+                    <p>
+                        Interestingly enough, disassembly during a parallel debug does not occur.
                     </p>
                 </div> <!-- .loose_text -->
                 
@@ -950,6 +967,84 @@
         </section> <!-- .tenth_section -->
         
 <!-- ********************************************************************************************************* -->
+
+<!-- ********************************************************************************************************* -->
+
+        <section class="eleventh_section">
+        
+            <div class="current_project_11">
+            
+                <hgroup>
+                
+                    <h2>
+                        Running a Parallel Debug of an OpenMPI Fortran Executable on Multiple Cores/Threads in Eclipse IDE + Photran + Parallel Tools Platform
+                    </h2>
+                    
+                </hgroup>
+                
+                <div class="loose_text">
+                
+                    <p>
+                        In this section, we will perform a parallel debug of the simple "Hello World" type program using multiple cores/threads.
+                    </p>
+                    
+                    <p>
+                        The most informative source of in this mode of the Parallel Debugger is the console.  It displays all of the steps necessary to setup the program for debugging, as well as the inter-image messaged that are passed during setup.  The console output for this program is shown below:
+                    </p>
+                    
+                </div> <!-- .loose_text -->
+                    
+                <iframe
+                    src = "Fortran_OMPI/sdm_console_4_images_hello_world.txt"
+                    width = "1200"
+                    height = "800"
+                    frameborder = "1"
+                    scrolling = "yes">
+                </iframe>
+                
+                <div class="loose_text">
+                
+                    <p>
+                        In the debugging view, there will be a set of diamond symbols, signifying an individual image of the running program.  These can be activated by double-clicking on the diamond. A single click designates that particular image as the lead process.  After activating an image, corresponding message information will appear in the console view.
+                    </p>
+                    
+                    <p>
+                        For this program, to get an informative step-through, click step into the main process and then step over the OMPI particular processes.  On occasion, it may be necessary to click group suspend since one image may be waiting for another, and the interprocess message may never be sent due to being held back by the debugger.  The end result is that the debugging may appear to hang, but actually it is waiting for an interprocess message.  Clicking on group suspend fixes this issue.
+                    </p>
+                    
+                    <p>
+                        Also, it can become very complicated to debug a single image out of the group, because this will result in that image becoming unsynchronized with the group.  Usually, this will require a terminate and restart of the debugging process.  The goal is to step into the main process, step over the OMPI related processes, and step over the function call to writing "Hello World".  If done correctly, this will produce an output of "Hello World" repeated four times.
+                    </p>
+                    
+                    <p>
+                        The structure of the images and loaded libraries can be seen in this snapshot of the debug view shown below.
+                    </p>
+                    
+                </div> <!-- .loose_text -->
+                
+                <iframe
+                    src = "Fortran_OMPI/sdm_debug_window_4_images_start.txt"
+                    width = "1200"
+                    height = "500"
+                    frameborder = "1"
+                    scrolling = "yes">
+                </iframe>
+                
+                <div class="loose_text">
+                
+                    <p>
+                        A video of performing a step-through of a parallel execution program is shown below:
+                    </p>
+                    
+                </div> <!-- .loose_text -->
+
+            
+            </div> <!-- .current_project_11 -->
+      
+        </section> <!-- .eleventh_section -->
+        
+<!-- ********************************************************************************************************* -->
+
 
      </section>	<!-- .content -->
     
