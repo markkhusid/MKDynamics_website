@@ -1,0 +1,1447 @@
+<!DOCTYPE HTML">
+<HTML>
+ <HEAD>
+  <TITLE>LTC7860 for 100V to 12V 5A Forward Conv</TITLE>
+  <META NAME="generator" CONTENT="wxMaxima">
+  <META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=utf-8">
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    displayAlign: "left",
+    context: "MathJax"
+  })
+</script>
+<script type="text/javascript"
+  src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML">
+</script>
+  <link rel="stylesheet" type="text/css" href="LTC7860 for 100V to 12V 5A Forward Conv_htmlimg/LTC7860 for 100V to 12V 5A Forward Conv.css"/>
+ </HEAD>
+ <BODY>
+
+<!-- ***************************************************** -->
+<!--          Created with wxMaxima version 15.08.2         -->
+<!-- ***************************************************** -->
+<noscript><div class="error message">    Please enable JavaScript in order to get a 2d display of the equations embedded in this web page.</div></noscript>\(      \DeclareMathOperator{\abs}{abs}
+\)
+
+<!-- Code cell -->
+
+
+<TABLE><TR><TD>
+  <SPAN CLASS="prompt">
+(%i1) 
+  </SPAN></TD>
+  <TD><SPAN CLASS="input">
+<span class="code_function">reset</span>(<span class="code_variable">all</span>)<span class="code_endofline">;</span><span class="code_operator"></span>  </SPAN></TD>
+</TR></TABLE>
+\[\mathrm{\tt (\%o1) }\quad []\]
+
+
+<!-- Code cell -->
+
+
+<TABLE><TR><TD>
+  <SPAN CLASS="prompt">
+(%i2) 
+  </SPAN></TD>
+  <TD><SPAN CLASS="input">
+<span class="code_function">kill</span>(<span class="code_variable">all</span>)<span class="code_endofline">;</span><span class="code_operator"></span>  </SPAN></TD>
+</TR></TABLE>
+\[\mathrm{\tt (\%o0) }\quad \mathit{done}\]
+
+
+<!-- Code cell -->
+
+
+<TABLE><TR><TD>
+  <SPAN CLASS="prompt">
+(%i1) 
+  </SPAN></TD>
+  <TD><SPAN CLASS="input">
+<span class="code_variable">fpprec</span> <span class="code_operator">:</span> <span class="code_number">16</span><span class="code_endofline">;</span><span class="code_operator"></span>  </SPAN></TD>
+</TR></TABLE>
+\[\mathrm{\tt (\%o1) }\quad 16\]
+
+
+<!-- Code cell -->
+
+
+<TABLE><TR><TD>
+  <SPAN CLASS="prompt">
+(%i2) 
+  </SPAN></TD>
+  <TD><SPAN CLASS="input">
+<span class="code_function">set_display</span>(<span class="code_operator">'</span><span class="code_variable">xml</span>)<span class="code_endofline">$</span><span class="code_operator"></span>  </SPAN></TD>
+</TR></TABLE>
+
+
+
+<!-- Code cell -->
+
+
+<TABLE><TR><TD>
+  <SPAN CLASS="prompt">
+(%i3) 
+  </SPAN></TD>
+  <TD><SPAN CLASS="input">
+<span class="code_function">load</span>(<span class="code_variable">unit</span>)<span class="code_endofline">;</span><span class="code_operator"></span>  </SPAN></TD>
+</TR></TABLE>
+\[\mbox{}\\*******************************************************************\mbox{}\\*\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,Units\,version\,0.50\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,*\mbox{}\\*\,\,\,\,\,\,\,\,\,\,Definitions\,based\,on\,the\,NIST\,Reference\,on\,\,\,\,\,\,\,\,\,\,\,\,\,*\mbox{}\\*\,\,\,\,\,\,\,\,\,\,\,\,\,\,Constants,\,Units,\,and\,Uncertainty\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,*\mbox{}\\*\,\,\,\,\,\,\,Conversion\,factors\,from\,various\,sources\,including\,\,\,\,\,\,\,\,\,*\mbox{}\\*\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,NIST\,and\,the\,GNU\,units\,package\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,*\mbox{}\\*******************************************************************\mbox{}\\Redefining\,necessary\,functions...\mbox{}\\Initializing\,unit\,arrays...\mbox{}\\Done.\]\[\mathrm{\tt (\%o3) }\quad /usr/share/maxima/5.37.2/share/contrib/unit/unit.mac\]
+
+
+<!-- Code cell -->
+
+
+<TABLE><TR><TD>
+  <SPAN CLASS="prompt">
+(%i4) 
+  </SPAN></TD>
+  <TD><SPAN CLASS="input">
+<span class="code_function">metricexpandall</span>(<span class="code_variable">%unitexpand</span>)<span class="code_endofline">;</span><span class="code_operator"></span>  </SPAN></TD>
+</TR></TABLE>
+\[\mathrm{\tt (\%o4) }\quad \mathit{done}\]
+
+
+<!-- Title cell -->
+
+
+<P CLASS="title">
+OUTPUT VOLTAGE PROGRAMMING
+</P>
+
+
+<!-- Section cell -->
+
+
+<P CLASS="section">
+ 1 General Equation
+</P>
+
+
+<!-- Code cell -->
+
+
+<TABLE><TR><TD>
+  <SPAN CLASS="prompt">
+(%i5) 
+  </SPAN></TD>
+  <TD><SPAN CLASS="input">
+<span class="code_variable">V_out</span><span class="code_operator">=</span>(<span class="code_number">0</span>.<span class="code_number">8</span><span class="code_operator">*</span>(<span class="code_variable">R_FB3</span><span class="code_operator">/</span><span class="code_variable">R_FB4</span>)<span class="code_operator">+</span><span class="code_variable">V_BE_QFB_nom</span>)<span class="code_operator">*</span>(<span class="code_number">1</span><span class="code_operator">+</span>(<span class="code_variable">R_FB2</span>)<span class="code_operator">/</span>(<span class="code_variable">R_FB1</span>))<span class="code_endofline">;</span><span class="code_operator"></span>  </SPAN></TD>
+</TR></TABLE>
+\[\mathrm{\tt (\%o5) }\quad \mathit{V\_out}=\left( \frac{\mathit{R\_FB2}}{\mathit{R\_FB1}}+1\right) \cdot \left( \frac{0.8\cdot \mathit{R\_FB3}}{\mathit{R\_FB4}}+\mathit{V\_BE\_QFB\_nom}\right) \]
+
+
+<!-- Section cell -->
+
+
+<P CLASS="section">
+ 2 Assign Ratio of R_FB3 to R_FB4
+</P>
+
+
+<!-- Code cell -->
+
+
+<TABLE><TR><TD>
+  <SPAN CLASS="prompt">
+(%i6) 
+  </SPAN></TD>
+  <TD><SPAN CLASS="input">
+<span class="code_number">1</span><span class="code_operator">/</span><span class="code_number">0</span>.<span class="code_number">8</span><span class="code_endofline">;</span><span class="code_operator"></span>  </SPAN></TD>
+</TR></TABLE>
+\[\mathrm{\tt (\%o6) }\quad 1.25\]
+
+
+<!-- Code cell -->
+
+
+<TABLE><TR><TD>
+  <SPAN CLASS="prompt">
+(%i7) 
+  </SPAN></TD>
+  <TD><SPAN CLASS="input">
+<span class="code_variable">R_FB3</span><span class="code_operator">:</span> <span class="code_number">1</span>.<span class="code_number">24</span><span class="code_operator">*</span><span class="code_variable">kOhm</span><span class="code_endofline">;</span><span class="code_operator"></span>  </SPAN></TD>
+</TR></TABLE>
+\[\mathrm{\tt (\%o7) }\quad 1240\cdot \frac{\mathit{kg}\cdot {{m}^{2}}}{{{s}^{3}}\cdot {{A}^{2}}}\]
+
+
+<!-- Code cell -->
+
+
+<TABLE><TR><TD>
+  <SPAN CLASS="prompt">
+(%i8) 
+  </SPAN></TD>
+  <TD><SPAN CLASS="input">
+<span class="code_function">float</span>(<span class="code_function">convert</span>(<span class="code_variable">%</span>, <span class="code_variable">kOhm</span>))<span class="code_endofline">;</span><span class="code_operator"></span>  </SPAN></TD>
+</TR></TABLE>
+\[\mathrm{\tt (\%o8) }\quad 1.24\cdot \mathit{kOhm}\]
+
+
+<!-- Code cell -->
+
+
+<TABLE><TR><TD>
+  <SPAN CLASS="prompt">
+(%i9) 
+  </SPAN></TD>
+  <TD><SPAN CLASS="input">
+<span class="code_variable">R_FB4</span><span class="code_operator">:</span> <span class="code_number">1</span><span class="code_operator">*</span><span class="code_variable">kOhm</span><span class="code_endofline">;</span><span class="code_operator"></span>  </SPAN></TD>
+</TR></TABLE>
+\[\mathrm{\tt (\%o9) }\quad 1000\cdot \frac{\mathit{kg}\cdot {{m}^{2}}}{{{s}^{3}}\cdot {{A}^{2}}}\]
+
+
+<!-- Code cell -->
+
+
+<TABLE><TR><TD>
+  <SPAN CLASS="prompt">
+(%i10) 
+  </SPAN></TD>
+  <TD><SPAN CLASS="input">
+<span class="code_variable">R_FB3</span><span class="code_operator">/</span><span class="code_variable">R_FB4</span><span class="code_endofline">;</span><span class="code_operator"></span>  </SPAN></TD>
+</TR></TABLE>
+\[\mathrm{\tt (\%o10) }\quad 1.24\]
+
+
+<!-- Code cell -->
+
+
+<TABLE><TR><TD>
+  <SPAN CLASS="prompt">
+(%i11) 
+  </SPAN></TD>
+  <TD><SPAN CLASS="input">
+((<span class="code_variable">R_FB3</span><span class="code_operator">/</span><span class="code_variable">R_FB4</span>)<span class="code_operator">/</span>(<span class="code_number">1</span><span class="code_operator">/</span><span class="code_number">0</span>.<span class="code_number">8</span>))<span class="code_operator">*</span><span class="code_number">100</span><span class="code_endofline">;</span><span class="code_operator"></span>  </SPAN></TD>
+</TR></TABLE>
+\[\mathrm{\tt (\%o11) }\quad 99.2\]
+
+
+<!-- Section cell -->
+
+
+<P CLASS="section">
+ 3 Assign Value to V_BE_QFB
+</P>
+
+
+<!-- Code cell -->
+
+
+<TABLE><TR><TD>
+  <SPAN CLASS="prompt">
+(%i12) 
+  </SPAN></TD>
+  <TD><SPAN CLASS="input">
+<span class="code_variable">V_BE_QFB_hot</span><span class="code_operator">:</span> <span class="code_number">0</span>.<span class="code_number">5</span><span class="code_operator">*</span><span class="code_variable">volts</span><span class="code_endofline">;</span><span class="code_operator"></span>  </SPAN></TD>
+</TR></TABLE>
+\[\mathrm{\tt (\%o12) }\quad \frac{1}{2}\cdot \frac{\mathit{kg}\cdot {{m}^{2}}}{{{s}^{3}}\cdot A}\]
+
+
+<!-- Code cell -->
+
+
+<TABLE><TR><TD>
+  <SPAN CLASS="prompt">
+(%i13) 
+  </SPAN></TD>
+  <TD><SPAN CLASS="input">
+<span class="code_variable">V_BE_QFB_nom</span><span class="code_operator">:</span> <span class="code_number">0</span>.<span class="code_number">65</span><span class="code_operator">*</span><span class="code_variable">volts</span><span class="code_endofline">;</span><span class="code_operator"></span>  </SPAN></TD>
+</TR></TABLE>
+\[\mathrm{\tt (\%o13) }\quad \frac{13}{20}\cdot \frac{\mathit{kg}\cdot {{m}^{2}}}{{{s}^{3}}\cdot A}\]
+
+
+<!-- Code cell -->
+
+
+<TABLE><TR><TD>
+  <SPAN CLASS="prompt">
+(%i14) 
+  </SPAN></TD>
+  <TD><SPAN CLASS="input">
+<span class="code_variable">V_BE_QFB_cold</span><span class="code_operator">:</span> <span class="code_number">0</span>.<span class="code_number">8</span><span class="code_operator">*</span><span class="code_variable">volts</span><span class="code_endofline">;</span><span class="code_operator"></span>  </SPAN></TD>
+</TR></TABLE>
+\[\mathrm{\tt (\%o14) }\quad \frac{4}{5}\cdot \frac{\mathit{kg}\cdot {{m}^{2}}}{{{s}^{3}}\cdot A}\]
+
+
+<!-- Section cell -->
+
+
+<P CLASS="section">
+ 4 Solve V_out for R_FB2
+</P>
+
+
+<!-- Code cell -->
+
+
+<TABLE><TR><TD>
+  <SPAN CLASS="prompt">
+(%i20) 
+  </SPAN></TD>
+  <TD><SPAN CLASS="input">
+<span class="code_function">kill</span>(<span class="code_variable">R_FB3</span>)<span class="code_endofline">;</span> <span class="code_function">kill</span>(<span class="code_variable">R_FB4</span>)<span class="code_endofline">;</span> <span class="code_function">kill</span>(<span class="code_variable">V_BE_QFB_nom</span>)<span class="code_endofline">;</span> <span class="code_function">kill</span>(<span class="code_variable">V_out</span>)<span class="code_endofline">;</span> <span class="code_function">kill</span>(<span class="code_variable">R_FB2</span>)<span class="code_endofline">;</span> <span class="code_function">kill</span>(<span class="code_variable">V_out</span>)<span class="code_endofline">;</span><span class="code_operator"></span>  </SPAN></TD>
+</TR></TABLE>
+\[\mathrm{\tt (\%o15) }\quad \mathit{done}\]\[\mathrm{\tt (\%o16) }\quad \mathit{done}\]\[\mathrm{\tt (\%o17) }\quad \mathit{done}\]\[\mathrm{\tt (\%o18) }\quad \mathit{done}\]\[\mathrm{\tt (\%o19) }\quad \mathit{done}\]\[\mathrm{\tt (\%o20) }\quad \mathit{done}\]
+
+
+<!-- Code cell -->
+
+
+<TABLE><TR><TD>
+  <SPAN CLASS="prompt">
+(%i21) 
+  </SPAN></TD>
+  <TD><SPAN CLASS="input">
+<span class="code_function">solve</span>(<span class="code_variable">V_out</span><span class="code_operator">=</span>(<span class="code_variable">R_FB2</span><span class="code_operator">/</span><span class="code_variable">R_FB1</span><span class="code_operator">+</span><span class="code_number">1</span>)<span class="code_operator">*</span>(<span class="code_variable">V_BE_QFB_nom</span><span class="code_operator">+</span>(<span class="code_number">0</span>.<span class="code_number">8</span><span class="code_operator">*</span><span class="code_variable">R_FB3</span>)<span class="code_operator">/</span><span class="code_variable">R_FB4</span>), <span class="code_variable">R_FB2</span>)<span class="code_endofline">;</span><span class="code_operator"></span>  </SPAN></TD>
+</TR></TABLE>
+\[\mbox{}\\\mbox{rat: replaced 0.8 by 4/5 = 0.8}\]\[\mathrm{\tt (\%o21) }\quad [\mathit{R\_FB2}=\frac{\left( 5\cdot \mathit{V\_out}-5\cdot \mathit{V\_BE\_QFB\_nom}\right) \cdot \mathit{R\_FB1}\cdot \mathit{R\_FB4}-4\cdot \mathit{R\_FB1}\cdot \mathit{R\_FB3}}{5\cdot \mathit{V\_BE\_QFB\_nom}\cdot \mathit{R\_FB4}+4\cdot \mathit{R\_FB3}}]\]
+
+
+<!-- Code cell -->
+
+
+<TABLE><TR><TD>
+  <SPAN CLASS="prompt">
+(%i22) 
+  </SPAN></TD>
+  <TD><SPAN CLASS="input">
+<span class="code_variable">R_FB2</span><span class="code_operator">:</span> ((<span class="code_number">5</span><span class="code_operator">*</span><span class="code_variable">V_out</span><span class="code_operator">-</span><span class="code_number">5</span><span class="code_operator">*</span><span class="code_variable">V_BE_QFB_nom</span>)<span class="code_operator">*</span><span class="code_variable">R_FB1</span><span class="code_operator">*</span><span class="code_variable">R_FB4</span><span class="code_operator">-</span><span class="code_number">4</span><span class="code_operator">*</span><span class="code_variable">R_FB1</span><span class="code_operator">*</span><span class="code_variable">R_FB3</span>)<span class="code_operator">/</span>(<span class="code_number">5</span><span class="code_operator">*</span><span class="code_variable">V_BE_QFB_nom</span><span class="code_operator">*</span><span class="code_variable">R_FB4</span><span class="code_operator">+</span><span class="code_number">4</span><span class="code_operator">*</span><span class="code_variable">R_FB3</span>)<span class="code_endofline">;</span><span class="code_operator"></span>  </SPAN></TD>
+</TR></TABLE>
+\[\mathrm{\tt (\%o22) }\quad \frac{5\cdot \mathit{V\_out}\cdot \mathit{R\_FB1}\cdot \mathit{R\_FB4}}{5\cdot \mathit{V\_BE\_QFB\_nom}\cdot \mathit{R\_FB4}+4\cdot \mathit{R\_FB3}}-\frac{5\cdot \mathit{V\_BE\_QFB\_nom}\cdot \mathit{R\_FB1}\cdot \mathit{R\_FB4}}{5\cdot \mathit{V\_BE\_QFB\_nom}\cdot \mathit{R\_FB4}+4\cdot \mathit{R\_FB3}}-\frac{4\cdot \mathit{R\_FB1}\cdot \mathit{R\_FB3}}{5\cdot \mathit{V\_BE\_QFB\_nom}\cdot \mathit{R\_FB4}+4\cdot \mathit{R\_FB3}}\]
+
+
+<!-- Section cell -->
+
+
+<P CLASS="section">
+ 5 Assign Values To Known Chosen Variables to Solve for R_FB2 (Resistors in Ohms, Voltages in Volts)
+</P>
+
+
+<!-- Subsection cell -->
+
+
+<P CLASS="subsect">
+ &nbsp;5.1 Calculations with BJT V_BE at room temp (0.65V)
+</P>
+
+
+<!-- Code cell -->
+
+
+<TABLE><TR><TD>
+  <SPAN CLASS="prompt">
+(%i23) 
+  </SPAN></TD>
+  <TD><SPAN CLASS="input">
+<span class="code_variable">R_FB1</span><span class="code_operator">:</span> <span class="code_number">1000</span><span class="code_endofline">;</span><span class="code_operator"></span>  </SPAN></TD>
+</TR></TABLE>
+\[\mathrm{\tt (\%o23) }\quad 1000\]
+
+
+<!-- Code cell -->
+
+
+<TABLE><TR><TD>
+  <SPAN CLASS="prompt">
+(%i24) 
+  </SPAN></TD>
+  <TD><SPAN CLASS="input">
+<span class="code_variable">R_FB2</span><span class="code_endofline">;</span><span class="code_operator"></span>  </SPAN></TD>
+</TR></TABLE>
+\[\mathrm{\tt (\%o24) }\quad \frac{5000\cdot \mathit{V\_out}\cdot \mathit{R\_FB4}}{5\cdot \mathit{V\_BE\_QFB\_nom}\cdot \mathit{R\_FB4}+4\cdot \mathit{R\_FB3}}-\frac{5000\cdot \mathit{V\_BE\_QFB\_nom}\cdot \mathit{R\_FB4}}{5\cdot \mathit{V\_BE\_QFB\_nom}\cdot \mathit{R\_FB4}+4\cdot \mathit{R\_FB3}}-\frac{4000\cdot \mathit{R\_FB3}}{5\cdot \mathit{V\_BE\_QFB\_nom}\cdot \mathit{R\_FB4}+4\cdot \mathit{R\_FB3}}\]
+
+
+<!-- Code cell -->
+
+
+<TABLE><TR><TD>
+  <SPAN CLASS="prompt">
+(%i25) 
+  </SPAN></TD>
+  <TD><SPAN CLASS="input">
+<span class="code_variable">V_out</span><span class="code_operator">:</span> <span class="code_number">105</span><span class="code_endofline">;</span><span class="code_operator"></span>  </SPAN></TD>
+</TR></TABLE>
+\[\mathrm{\tt (\%o25) }\quad 105\]
+
+
+<!-- Code cell -->
+
+
+<TABLE><TR><TD>
+  <SPAN CLASS="prompt">
+(%i26) 
+  </SPAN></TD>
+  <TD><SPAN CLASS="input">
+<span class="code_variable">R_FB2</span><span class="code_endofline">;</span><span class="code_operator"></span>  </SPAN></TD>
+</TR></TABLE>
+\[\mathrm{\tt (\%o26) }\quad -\frac{5000\cdot \mathit{V\_BE\_QFB\_nom}\cdot \mathit{R\_FB4}}{5\cdot \mathit{V\_BE\_QFB\_nom}\cdot \mathit{R\_FB4}+4\cdot \mathit{R\_FB3}}+\frac{525000\cdot \mathit{R\_FB4}}{5\cdot \mathit{V\_BE\_QFB\_nom}\cdot \mathit{R\_FB4}+4\cdot \mathit{R\_FB3}}-\frac{4000\cdot \mathit{R\_FB3}}{5\cdot \mathit{V\_BE\_QFB\_nom}\cdot \mathit{R\_FB4}+4\cdot \mathit{R\_FB3}}\]
+
+
+<!-- Code cell -->
+
+
+<TABLE><TR><TD>
+  <SPAN CLASS="prompt">
+(%i27) 
+  </SPAN></TD>
+  <TD><SPAN CLASS="input">
+<span class="code_variable">V_BE_QFB_nom</span><span class="code_operator">:</span> <span class="code_number">0</span>.<span class="code_number">65</span><span class="code_endofline">;</span><span class="code_operator"></span>  </SPAN></TD>
+</TR></TABLE>
+\[\mathrm{\tt (\%o27) }\quad 0.65\]
+
+
+<!-- Code cell -->
+
+
+<TABLE><TR><TD>
+  <SPAN CLASS="prompt">
+(%i28) 
+  </SPAN></TD>
+  <TD><SPAN CLASS="input">
+<span class="code_variable">R_FB2</span><span class="code_endofline">;</span><span class="code_operator"></span>  </SPAN></TD>
+</TR></TABLE>
+\[\mathrm{\tt (\%o28) }\quad \frac{521750.0\cdot \mathit{R\_FB4}}{3.25\cdot \mathit{R\_FB4}+4\cdot \mathit{R\_FB3}}-\frac{4000\cdot \mathit{R\_FB3}}{3.25\cdot \mathit{R\_FB4}+4\cdot \mathit{R\_FB3}}\]
+
+
+<!-- Code cell -->
+
+
+<TABLE><TR><TD>
+  <SPAN CLASS="prompt">
+(%i29) 
+  </SPAN></TD>
+  <TD><SPAN CLASS="input">
+<span class="code_variable">R_FB4</span><span class="code_operator">:</span> <span class="code_number">10000</span><span class="code_endofline">;</span><span class="code_operator"></span>  </SPAN></TD>
+</TR></TABLE>
+\[\mathrm{\tt (\%o29) }\quad 10000\]
+
+
+<!-- Code cell -->
+
+
+<TABLE><TR><TD>
+  <SPAN CLASS="prompt">
+(%i30) 
+  </SPAN></TD>
+  <TD><SPAN CLASS="input">
+<span class="code_variable">R_FB2</span><span class="code_endofline">;</span><span class="code_operator"></span>  </SPAN></TD>
+</TR></TABLE>
+\[\mathrm{\tt (\%o30) }\quad \frac{5.2175\cdot {{10}^{9}}}{4\cdot \mathit{R\_FB3}+32500.0}-\frac{4000\cdot \mathit{R\_FB3}}{4\cdot \mathit{R\_FB3}+32500.0}\]
+
+
+<!-- Code cell -->
+
+
+<TABLE><TR><TD>
+  <SPAN CLASS="prompt">
+(%i31) 
+  </SPAN></TD>
+  <TD><SPAN CLASS="input">
+<span class="code_variable">R_FB3</span><span class="code_operator">:</span> <span class="code_number">10000</span><span class="code_endofline">;</span><span class="code_operator"></span>  </SPAN></TD>
+</TR></TABLE>
+\[\mathrm{\tt (\%o31) }\quad 10000\]
+
+
+<!-- Code cell -->
+
+
+<TABLE><TR><TD>
+  <SPAN CLASS="prompt">
+(%i32) 
+  </SPAN></TD>
+  <TD><SPAN CLASS="input">
+<span class="code_variable">R_FB2</span><span class="code_endofline">;</span><span class="code_operator"></span>  </SPAN></TD>
+</TR></TABLE>
+\[\mathrm{\tt (\%o32) }\quad 71413.79310344828\]
+
+
+<!-- Text cell -->
+
+
+<P CLASS="comment">
+Choose standard resistor value
+
+</P>
+
+
+<!-- Code cell -->
+
+
+<TABLE><TR><TD>
+  <SPAN CLASS="prompt">
+(%i33) 
+  </SPAN></TD>
+  <TD><SPAN CLASS="input">
+<span class="code_variable">R_FB2</span><span class="code_operator">:</span> <span class="code_number">71</span>.<span class="code_number">5</span><span class="code_operator">*</span><span class="code_variable">kOhm</span><span class="code_endofline">;</span><span class="code_operator"></span>  </SPAN></TD>
+</TR></TABLE>
+\[\mathrm{\tt (\%o33) }\quad 71500\cdot \frac{\mathit{kg}\cdot {{m}^{2}}}{{{s}^{3}}\cdot {{A}^{2}}}\]
+
+
+<!-- Code cell -->
+
+
+<TABLE><TR><TD>
+  <SPAN CLASS="prompt">
+(%i34) 
+  </SPAN></TD>
+  <TD><SPAN CLASS="input">
+<span class="code_function">float</span>(<span class="code_function">convert</span>(<span class="code_variable">%</span>, <span class="code_variable">kOhm</span>))<span class="code_endofline">;</span><span class="code_operator"></span>  </SPAN></TD>
+</TR></TABLE>
+\[\mathrm{\tt (\%o34) }\quad 71.5\cdot \mathit{kOhm}\]
+
+
+<!-- Subsection cell -->
+
+
+<P CLASS="subsect">
+ &nbsp;5.2 Solve for V_out using the above R_FB2 but with BJT V_BE at hot (0.5V)
+</P>
+
+
+<!-- Code cell -->
+
+
+<TABLE><TR><TD>
+  <SPAN CLASS="prompt">
+(%i40) 
+  </SPAN></TD>
+  <TD><SPAN CLASS="input">
+<span class="code_function">kill</span>(<span class="code_variable">R_FB3</span>)<span class="code_endofline">;</span> <span class="code_function">kill</span>(<span class="code_variable">R_FB4</span>)<span class="code_endofline">;</span> <span class="code_function">kill</span>(<span class="code_variable">V_BE_QFB_hot</span>)<span class="code_endofline">;</span> <span class="code_function">kill</span>(<span class="code_variable">V_out_hot</span>)<span class="code_endofline">;</span> <span class="code_function">kill</span>(<span class="code_variable">R_FB2</span>)<span class="code_endofline">;</span> <span class="code_function">kill</span>(<span class="code_variable">R_FB1</span>)<span class="code_endofline">;</span><span class="code_operator"></span>  </SPAN></TD>
+</TR></TABLE>
+\[\mathrm{\tt (\%o35) }\quad \mathit{done}\]\[\mathrm{\tt (\%o36) }\quad \mathit{done}\]\[\mathrm{\tt (\%o37) }\quad \mathit{done}\]\[\mathrm{\tt (\%o38) }\quad \mathit{done}\]\[\mathrm{\tt (\%o39) }\quad \mathit{done}\]\[\mathrm{\tt (\%o40) }\quad \mathit{done}\]
+
+
+<!-- Code cell -->
+
+
+<TABLE><TR><TD>
+  <SPAN CLASS="prompt">
+(%i41) 
+  </SPAN></TD>
+  <TD><SPAN CLASS="input">
+<span class="code_variable">V_out_hot</span><span class="code_operator">:</span> (<span class="code_variable">R_FB2</span><span class="code_operator">/</span><span class="code_variable">R_FB1</span><span class="code_operator">+</span><span class="code_number">1</span>)<span class="code_operator">*</span>((<span class="code_number">0</span>.<span class="code_number">8</span><span class="code_operator">*</span><span class="code_variable">R_FB3</span>)<span class="code_operator">/</span><span class="code_variable">R_FB4</span><span class="code_operator">+</span><span class="code_variable">V_BE_QFB_hot</span>)<span class="code_endofline">;</span><span class="code_operator"></span>  </SPAN></TD>
+</TR></TABLE>
+\[\mathrm{\tt (\%o41) }\quad \frac{4\cdot \mathit{R\_FB2}\cdot \mathit{R\_FB3}}{5\cdot \mathit{R\_FB1}\cdot \mathit{R\_FB4}}+\frac{4\cdot \mathit{R\_FB3}}{5\cdot \mathit{R\_FB4}}+\frac{\mathit{V\_BE\_QFB\_hot}\cdot \mathit{R\_FB2}}{\mathit{R\_FB1}}+\mathit{V\_BE\_QFB\_hot}\]
+
+
+<!-- Code cell -->
+
+
+<TABLE><TR><TD>
+  <SPAN CLASS="prompt">
+(%i42) 
+  </SPAN></TD>
+  <TD><SPAN CLASS="input">
+<span class="code_variable">R_FB2</span><span class="code_operator">:</span> <span class="code_number">71</span>.<span class="code_number">5</span><span class="code_operator">*</span><span class="code_number">10</span><span class="code_operator">^</span><span class="code_number">3</span><span class="code_endofline">;</span><span class="code_operator"></span>  </SPAN></TD>
+</TR></TABLE>
+\[\mathrm{\tt (\%o42) }\quad 71500.0\]
+
+
+<!-- Code cell -->
+
+
+<TABLE><TR><TD>
+  <SPAN CLASS="prompt">
+(%i43) 
+  </SPAN></TD>
+  <TD><SPAN CLASS="input">
+<span class="code_variable">V_out_hot</span><span class="code_endofline">;</span><span class="code_operator"></span>  </SPAN></TD>
+</TR></TABLE>
+\[\mathrm{\tt (\%o43) }\quad \frac{57200.0\cdot \mathit{R\_FB3}}{\mathit{R\_FB1}\cdot \mathit{R\_FB4}}+\frac{4\cdot \mathit{R\_FB3}}{5\cdot \mathit{R\_FB4}}+\frac{71500.0\cdot \mathit{V\_BE\_QFB\_hot}}{\mathit{R\_FB1}}+\mathit{V\_BE\_QFB\_hot}\]
+
+
+<!-- Code cell -->
+
+
+<TABLE><TR><TD>
+  <SPAN CLASS="prompt">
+(%i44) 
+  </SPAN></TD>
+  <TD><SPAN CLASS="input">
+<span class="code_variable">R_FB1</span><span class="code_operator">:</span> <span class="code_number">1000</span><span class="code_endofline">;</span><span class="code_operator"></span>  </SPAN></TD>
+</TR></TABLE>
+\[\mathrm{\tt (\%o44) }\quad 1000\]
+
+
+<!-- Code cell -->
+
+
+<TABLE><TR><TD>
+  <SPAN CLASS="prompt">
+(%i45) 
+  </SPAN></TD>
+  <TD><SPAN CLASS="input">
+<span class="code_variable">V_out_hot</span><span class="code_endofline">;</span><span class="code_operator"></span>  </SPAN></TD>
+</TR></TABLE>
+\[\mathrm{\tt (\%o45) }\quad \frac{58.0\cdot \mathit{R\_FB3}}{\mathit{R\_FB4}}+72.5\cdot \mathit{V\_BE\_QFB\_hot}\]
+
+
+<!-- Code cell -->
+
+
+<TABLE><TR><TD>
+  <SPAN CLASS="prompt">
+(%i46) 
+  </SPAN></TD>
+  <TD><SPAN CLASS="input">
+<span class="code_variable">V_BE_QFB_hot</span><span class="code_operator">:</span> <span class="code_number">0</span>.<span class="code_number">5</span><span class="code_endofline">;</span><span class="code_operator"></span>  </SPAN></TD>
+</TR></TABLE>
+\[\mathrm{\tt (\%o46) }\quad 0.5\]
+
+
+<!-- Code cell -->
+
+
+<TABLE><TR><TD>
+  <SPAN CLASS="prompt">
+(%i47) 
+  </SPAN></TD>
+  <TD><SPAN CLASS="input">
+<span class="code_variable">V_out_hot</span><span class="code_endofline">;</span><span class="code_operator"></span>  </SPAN></TD>
+</TR></TABLE>
+\[\mathrm{\tt (\%o47) }\quad \frac{58.0\cdot \mathit{R\_FB3}}{\mathit{R\_FB4}}+36.25\]
+
+
+<!-- Code cell -->
+
+
+<TABLE><TR><TD>
+  <SPAN CLASS="prompt">
+(%i48) 
+  </SPAN></TD>
+  <TD><SPAN CLASS="input">
+<span class="code_variable">R_FB3</span><span class="code_operator">:</span> <span class="code_number">10</span><span class="code_operator">*</span><span class="code_number">10</span><span class="code_operator">^</span><span class="code_number">3</span><span class="code_endofline">;</span><span class="code_operator"></span>  </SPAN></TD>
+</TR></TABLE>
+\[\mathrm{\tt (\%o48) }\quad 10000\]
+
+
+<!-- Code cell -->
+
+
+<TABLE><TR><TD>
+  <SPAN CLASS="prompt">
+(%i49) 
+  </SPAN></TD>
+  <TD><SPAN CLASS="input">
+<span class="code_variable">V_out_hot</span><span class="code_endofline">;</span><span class="code_operator"></span>  </SPAN></TD>
+</TR></TABLE>
+\[\mathrm{\tt (\%o49) }\quad \frac{580000.0}{\mathit{R\_FB4}}+36.25\]
+
+
+<!-- Code cell -->
+
+
+<TABLE><TR><TD>
+  <SPAN CLASS="prompt">
+(%i50) 
+  </SPAN></TD>
+  <TD><SPAN CLASS="input">
+<span class="code_variable">R_FB4</span><span class="code_operator">:</span> <span class="code_number">10</span><span class="code_operator">*</span><span class="code_number">10</span><span class="code_operator">^</span><span class="code_number">3</span><span class="code_endofline">;</span><span class="code_operator"></span>  </SPAN></TD>
+</TR></TABLE>
+\[\mathrm{\tt (\%o50) }\quad 10000\]
+
+
+<!-- Code cell -->
+
+
+<TABLE><TR><TD>
+  <SPAN CLASS="prompt">
+(%i51) 
+  </SPAN></TD>
+  <TD><SPAN CLASS="input">
+<span class="code_variable">V_out_hot</span><span class="code_endofline">;</span><span class="code_operator"></span>  </SPAN></TD>
+</TR></TABLE>
+\[\mathrm{\tt (\%o51) }\quad 94.25\]
+
+
+<!-- Subsection cell -->
+
+
+<P CLASS="subsect">
+ &nbsp;5.3 Solve for V_out using R_FB2 but with BJT VBE at cold (0.8V)
+</P>
+
+
+<!-- Code cell -->
+
+
+<TABLE><TR><TD>
+  <SPAN CLASS="prompt">
+(%i57) 
+  </SPAN></TD>
+  <TD><SPAN CLASS="input">
+<span class="code_function">kill</span>(<span class="code_variable">R_FB3</span>)<span class="code_endofline">;</span> <span class="code_function">kill</span>(<span class="code_variable">R_FB4</span>)<span class="code_endofline">;</span> <span class="code_function">kill</span>(<span class="code_variable">V_BE_QFB_cold</span>)<span class="code_endofline">;</span> <span class="code_function">kill</span>(<span class="code_variable">V_out_cold</span>)<span class="code_endofline">;</span> <span class="code_function">kill</span>(<span class="code_variable">R_FB2</span>)<span class="code_endofline">;</span> <span class="code_function">kill</span>(<span class="code_variable">R_FB1</span>)<span class="code_endofline">;</span><span class="code_operator"></span>  </SPAN></TD>
+</TR></TABLE>
+\[\mathrm{\tt (\%o52) }\quad \mathit{done}\]\[\mathrm{\tt (\%o53) }\quad \mathit{done}\]\[\mathrm{\tt (\%o54) }\quad \mathit{done}\]\[\mathrm{\tt (\%o55) }\quad \mathit{done}\]\[\mathrm{\tt (\%o56) }\quad \mathit{done}\]\[\mathrm{\tt (\%o57) }\quad \mathit{done}\]
+
+
+<!-- Code cell -->
+
+
+<TABLE><TR><TD>
+  <SPAN CLASS="prompt">
+(%i58) 
+  </SPAN></TD>
+  <TD><SPAN CLASS="input">
+<span class="code_variable">V_out_cold</span><span class="code_operator">:</span> (<span class="code_variable">R_FB2</span><span class="code_operator">/</span><span class="code_variable">R_FB1</span><span class="code_operator">+</span><span class="code_number">1</span>)<span class="code_operator">*</span>((<span class="code_number">0</span>.<span class="code_number">8</span><span class="code_operator">*</span><span class="code_variable">R_FB3</span>)<span class="code_operator">/</span><span class="code_variable">R_FB4</span><span class="code_operator">+</span><span class="code_variable">V_BE_QFB_cold</span>)<span class="code_endofline">;</span><span class="code_operator"></span>  </SPAN></TD>
+</TR></TABLE>
+\[\mathrm{\tt (\%o58) }\quad \frac{4\cdot \mathit{R\_FB2}\cdot \mathit{R\_FB3}}{5\cdot \mathit{R\_FB1}\cdot \mathit{R\_FB4}}+\frac{4\cdot \mathit{R\_FB3}}{5\cdot \mathit{R\_FB4}}+\frac{\mathit{V\_BE\_QFB\_cold}\cdot \mathit{R\_FB2}}{\mathit{R\_FB1}}+\mathit{V\_BE\_QFB\_cold}\]
+
+
+<!-- Code cell -->
+
+
+<TABLE><TR><TD>
+  <SPAN CLASS="prompt">
+(%i59) 
+  </SPAN></TD>
+  <TD><SPAN CLASS="input">
+<span class="code_variable">R_FB2</span><span class="code_operator">:</span> <span class="code_number">71</span>.<span class="code_number">5</span><span class="code_operator">*</span><span class="code_number">10</span><span class="code_operator">^</span><span class="code_number">3</span><span class="code_endofline">;</span><span class="code_operator"></span>  </SPAN></TD>
+</TR></TABLE>
+\[\mathrm{\tt (\%o59) }\quad 71500.0\]
+
+
+<!-- Code cell -->
+
+
+<TABLE><TR><TD>
+  <SPAN CLASS="prompt">
+(%i60) 
+  </SPAN></TD>
+  <TD><SPAN CLASS="input">
+<span class="code_variable">V_out_cold</span><span class="code_endofline">;</span><span class="code_operator"></span>  </SPAN></TD>
+</TR></TABLE>
+\[\mathrm{\tt (\%o60) }\quad \frac{57200.0\cdot \mathit{R\_FB3}}{\mathit{R\_FB1}\cdot \mathit{R\_FB4}}+\frac{4\cdot \mathit{R\_FB3}}{5\cdot \mathit{R\_FB4}}+\frac{71500.0\cdot \mathit{V\_BE\_QFB\_cold}}{\mathit{R\_FB1}}+\mathit{V\_BE\_QFB\_cold}\]
+
+
+<!-- Code cell -->
+
+
+<TABLE><TR><TD>
+  <SPAN CLASS="prompt">
+(%i61) 
+  </SPAN></TD>
+  <TD><SPAN CLASS="input">
+<span class="code_variable">R_FB1</span><span class="code_operator">:</span> <span class="code_number">1000</span><span class="code_endofline">;</span><span class="code_operator"></span>  </SPAN></TD>
+</TR></TABLE>
+\[\mathrm{\tt (\%o61) }\quad 1000\]
+
+
+<!-- Code cell -->
+
+
+<TABLE><TR><TD>
+  <SPAN CLASS="prompt">
+(%i62) 
+  </SPAN></TD>
+  <TD><SPAN CLASS="input">
+<span class="code_variable">V_out_cold</span><span class="code_endofline">;</span><span class="code_operator"></span>  </SPAN></TD>
+</TR></TABLE>
+\[\mathrm{\tt (\%o62) }\quad \frac{58.0\cdot \mathit{R\_FB3}}{\mathit{R\_FB4}}+72.5\cdot \mathit{V\_BE\_QFB\_cold}\]
+
+
+<!-- Code cell -->
+
+
+<TABLE><TR><TD>
+  <SPAN CLASS="prompt">
+(%i63) 
+  </SPAN></TD>
+  <TD><SPAN CLASS="input">
+<span class="code_variable">V_BE_QFB_cold</span><span class="code_operator">:</span> <span class="code_number">0</span>.<span class="code_number">8</span><span class="code_endofline">;</span><span class="code_operator"></span>  </SPAN></TD>
+</TR></TABLE>
+\[\mathrm{\tt (\%o63) }\quad 0.8\]
+
+
+<!-- Code cell -->
+
+
+<TABLE><TR><TD>
+  <SPAN CLASS="prompt">
+(%i64) 
+  </SPAN></TD>
+  <TD><SPAN CLASS="input">
+<span class="code_variable">V_out_cold</span><span class="code_endofline">;</span><span class="code_operator"></span>  </SPAN></TD>
+</TR></TABLE>
+\[\mathrm{\tt (\%o64) }\quad \frac{58.0\cdot \mathit{R\_FB3}}{\mathit{R\_FB4}}+58.0\]
+
+
+<!-- Code cell -->
+
+
+<TABLE><TR><TD>
+  <SPAN CLASS="prompt">
+(%i65) 
+  </SPAN></TD>
+  <TD><SPAN CLASS="input">
+<span class="code_variable">R_FB3</span><span class="code_operator">:</span> <span class="code_number">10</span><span class="code_operator">*</span><span class="code_number">10</span><span class="code_operator">^</span><span class="code_number">3</span><span class="code_endofline">;</span><span class="code_operator"></span>  </SPAN></TD>
+</TR></TABLE>
+\[\mathrm{\tt (\%o65) }\quad 10000\]
+
+
+<!-- Code cell -->
+
+
+<TABLE><TR><TD>
+  <SPAN CLASS="prompt">
+(%i66) 
+  </SPAN></TD>
+  <TD><SPAN CLASS="input">
+<span class="code_variable">V_out_cold</span><span class="code_endofline">;</span><span class="code_operator"></span>  </SPAN></TD>
+</TR></TABLE>
+\[\mathrm{\tt (\%o66) }\quad \frac{580000.0}{\mathit{R\_FB4}}+58.0\]
+
+
+<!-- Code cell -->
+
+
+<TABLE><TR><TD>
+  <SPAN CLASS="prompt">
+(%i67) 
+  </SPAN></TD>
+  <TD><SPAN CLASS="input">
+<span class="code_variable">R_FB4</span><span class="code_operator">:</span> <span class="code_number">10</span><span class="code_operator">*</span><span class="code_number">10</span><span class="code_operator">^</span><span class="code_number">3</span><span class="code_endofline">;</span><span class="code_operator"></span>  </SPAN></TD>
+</TR></TABLE>
+\[\mathrm{\tt (\%o67) }\quad 10000\]
+
+
+<!-- Code cell -->
+
+
+<TABLE><TR><TD>
+  <SPAN CLASS="prompt">
+(%i68) 
+  </SPAN></TD>
+  <TD><SPAN CLASS="input">
+<span class="code_variable">V_out_cold</span><span class="code_endofline">;</span><span class="code_operator"></span>  </SPAN></TD>
+</TR></TABLE>
+\[\mathrm{\tt (\%o68) }\quad 116.0\]
+
+
+<!-- Section cell -->
+
+
+<P CLASS="section">
+ 6 Summarize V_out findings
+</P>
+
+
+<!-- Code cell -->
+
+
+<TABLE><TR><TD>
+  <SPAN CLASS="prompt">
+(%i70) 
+  </SPAN></TD>
+  <TD><SPAN CLASS="input">
+<span class="code_variable">V_out</span><span class="code_operator">*</span><span class="code_variable">V</span><span class="code_endofline">;</span> <span class="code_function">convert</span>(<span class="code_variable">%</span>, <span class="code_variable">V</span>)<span class="code_endofline">;</span><span class="code_operator"></span>  </SPAN></TD>
+</TR></TABLE>
+\[\mathrm{\tt (\%o69) }\quad 105\cdot \frac{\mathit{kg}\cdot {{m}^{2}}}{{{s}^{3}}\cdot A}\]\[\mathrm{\tt (\%o70) }\quad 105\cdot V\]
+
+
+<!-- Code cell -->
+
+
+<TABLE><TR><TD>
+  <SPAN CLASS="prompt">
+(%i72) 
+  </SPAN></TD>
+  <TD><SPAN CLASS="input">
+<span class="code_variable">V_out_hot</span><span class="code_operator">*</span><span class="code_variable">V</span><span class="code_endofline">;</span> <span class="code_function">float</span>(<span class="code_function">convert</span>(<span class="code_variable">%</span>,<span class="code_variable">V</span>))<span class="code_endofline">;</span><span class="code_operator"></span>  </SPAN></TD>
+</TR></TABLE>
+\[\mathrm{\tt (\%o71) }\quad 94.25\cdot \frac{\mathit{kg}\cdot {{m}^{2}}}{{{s}^{3}}\cdot A}\mbox{}\\\mbox{rat: replaced 94.25 by 377/4 = 94.25}\mbox{}\\\mbox{rat: replaced 94.25 by 377/4 = 94.25}\]\[\mathrm{\tt (\%o72) }\quad 94.25\cdot V\]
+
+
+<!-- Code cell -->
+
+
+<TABLE><TR><TD>
+  <SPAN CLASS="prompt">
+(%i74) 
+  </SPAN></TD>
+  <TD><SPAN CLASS="input">
+<span class="code_variable">V_out_cold</span><span class="code_operator">*</span><span class="code_variable">V</span><span class="code_endofline">;</span> <span class="code_function">convert</span>(<span class="code_variable">%</span>,<span class="code_variable">V</span>)<span class="code_endofline">;</span><span class="code_operator"></span>  </SPAN></TD>
+</TR></TABLE>
+\[\mathrm{\tt (\%o73) }\quad 116.0\cdot \frac{\mathit{kg}\cdot {{m}^{2}}}{{{s}^{3}}\cdot A}\mbox{}\\\mbox{rat: replaced 116.0 by 116/1 = 116.0}\mbox{}\\\mbox{rat: replaced 116.0 by 116/1 = 116.0}\]\[\mathrm{\tt (\%o74) }\quad 116\cdot V\]
+
+
+<!-- Code cell -->
+
+
+<TABLE><TR><TD>
+  <SPAN CLASS="prompt">
+(%i75) 
+  </SPAN></TD>
+  <TD><SPAN CLASS="input">
+<span class="code_variable">fpprec</span> <span class="code_operator">:</span> <span class="code_number">4</span><span class="code_endofline">;</span><span class="code_operator"></span>  </SPAN></TD>
+</TR></TABLE>
+\[\mathrm{\tt (\%o75) }\quad 4\]
+
+
+<!-- Subsection cell -->
+
+
+<P CLASS="subsect">
+ &nbsp;6.1 Percent error at hot (VBE = 0.5V)
+</P>
+
+
+<!-- Code cell -->
+
+
+<TABLE><TR><TD>
+  <SPAN CLASS="prompt">
+(%i76) 
+  </SPAN></TD>
+  <TD><SPAN CLASS="input">
+<span class="code_variable">V_out_error_hot</span><span class="code_operator">:</span> ((<span class="code_variable">V_out</span><span class="code_operator">-</span><span class="code_variable">V_out_hot</span>)<span class="code_operator">/</span><span class="code_variable">V_out</span>)<span class="code_operator">*</span><span class="code_number">100</span><span class="code_endofline">;</span><span class="code_operator"></span>  </SPAN></TD>
+</TR></TABLE>
+\[\mathrm{\tt (\%o76) }\quad 10.23809523809523\]
+
+
+<!-- Subsection cell -->
+
+
+<P CLASS="subsect">
+ &nbsp;6.2 Percent error at cold (VBE = 0.8V)
+</P>
+
+
+<!-- Code cell -->
+
+
+<TABLE><TR><TD>
+  <SPAN CLASS="prompt">
+(%i77) 
+  </SPAN></TD>
+  <TD><SPAN CLASS="input">
+<span class="code_variable">V_out_error_cold</span><span class="code_operator">:</span> (<span class="code_operator">-</span>(<span class="code_variable">V_out</span><span class="code_operator">-</span><span class="code_variable">V_out_cold</span>)<span class="code_operator">/</span><span class="code_variable">V_out</span>)<span class="code_operator">*</span><span class="code_number">100</span><span class="code_endofline">;</span><span class="code_operator"></span>  </SPAN></TD>
+</TR></TABLE>
+\[\mathrm{\tt (\%o77) }\quad 10.47619047619047\]
+
+
+<!-- Text cell -->
+
+
+<P CLASS="comment">
+It was found through simulation that the arrangement shown on page 24 of the LTC7860 datasheet provides for a temperature stable implementation.
+The fear was that as the temperature varied, the LTC7860 would enter switching mode prematurely, but this fear was shown to be low-risk by simulation.
+
+</P>
+
+
+<!-- Title cell -->
+
+
+<P CLASS="title">
+Switching Frequency Selection
+</P>
+
+
+<!-- Text cell -->
+
+
+<P CLASS="comment">
+To minimize component count and because of its compatibility with the main switcher, we will select grounding the FREQ pin to obtain a pre-programmed switching
+frequency of 350kHz. &nbsp;This will minimize switching losses at the expense of slightly larger components.
+
+</P>
+
+
+<!-- Code cell -->
+
+
+<TABLE><TR><TD>
+  <SPAN CLASS="prompt">
+(%i78) 
+  </SPAN></TD>
+  <TD><SPAN CLASS="input">
+<span class="code_variable">f_switching</span><span class="code_operator">:</span> <span class="code_number">350000</span><span class="code_endofline">;</span><span class="code_operator"></span>  </SPAN></TD>
+</TR></TABLE>
+\[\mathrm{\tt (\%o78) }\quad 350000\]
+
+
+<!-- Title cell -->
+
+
+<P CLASS="title">
+Inductor Selection
+</P>
+
+
+<!-- Text cell -->
+
+
+<P CLASS="comment">
+V_out is in Volts
+
+</P>
+
+
+<!-- Code cell -->
+
+
+<TABLE><TR><TD>
+  <SPAN CLASS="prompt">
+(%i79) 
+  </SPAN></TD>
+  <TD><SPAN CLASS="input">
+<span class="code_variable">V_out</span><span class="code_endofline">;</span><span class="code_operator"></span>  </SPAN></TD>
+</TR></TABLE>
+\[\mathrm{\tt (\%o79) }\quad 105\]
+
+
+<!-- Text cell -->
+
+
+<P CLASS="comment">
+f_switching is in Hz
+
+</P>
+
+
+<!-- Code cell -->
+
+
+<TABLE><TR><TD>
+  <SPAN CLASS="prompt">
+(%i80) 
+  </SPAN></TD>
+  <TD><SPAN CLASS="input">
+<span class="code_variable">f_switching</span><span class="code_endofline">;</span><span class="code_operator"></span>  </SPAN></TD>
+</TR></TABLE>
+\[\mathrm{\tt (\%o80) }\quad 350000\]
+
+
+<!-- Text cell -->
+
+
+<P CLASS="comment">
+V_out_LT8311 is the final output of the converter and is in Volts
+
+</P>
+
+
+<!-- Code cell -->
+
+
+<TABLE><TR><TD>
+  <SPAN CLASS="prompt">
+(%i81) 
+  </SPAN></TD>
+  <TD><SPAN CLASS="input">
+<span class="code_variable">V_out_LT8311</span><span class="code_operator">:</span> <span class="code_number">12</span><span class="code_endofline">;</span><span class="code_operator"></span>  </SPAN></TD>
+</TR></TABLE>
+\[\mathrm{\tt (\%o81) }\quad 12\]
+
+
+<!-- Text cell -->
+
+
+<P CLASS="comment">
+I_load_max is the output of the entire converter and is in Amps
+
+</P>
+
+
+<!-- Code cell -->
+
+
+<TABLE><TR><TD>
+  <SPAN CLASS="prompt">
+(%i82) 
+  </SPAN></TD>
+  <TD><SPAN CLASS="input">
+<span class="code_variable">I_load_max</span><span class="code_operator">:</span> <span class="code_number">5</span><span class="code_endofline">;</span><span class="code_operator"></span>  </SPAN></TD>
+</TR></TABLE>
+\[\mathrm{\tt (\%o82) }\quad 5\]
+
+
+<!-- Text cell -->
+
+
+<P CLASS="comment">
+Output Power
+
+</P>
+
+
+<!-- Code cell -->
+
+
+<TABLE><TR><TD>
+  <SPAN CLASS="prompt">
+(%i83) 
+  </SPAN></TD>
+  <TD><SPAN CLASS="input">
+<span class="code_variable">P_out</span><span class="code_operator">:</span> <span class="code_variable">V_out_LT8311</span><span class="code_operator">*</span><span class="code_variable">I_load_max</span><span class="code_endofline">;</span><span class="code_operator"></span>  </SPAN></TD>
+</TR></TABLE>
+\[\mathrm{\tt (\%o83) }\quad 60\]
+
+
+<!-- Text cell -->
+
+
+<P CLASS="comment">
+The conservative estimate of the efficiency is
+
+</P>
+
+
+<!-- Code cell -->
+
+
+<TABLE><TR><TD>
+  <SPAN CLASS="prompt">
+(%i84) 
+  </SPAN></TD>
+  <TD><SPAN CLASS="input">
+<span class="code_variable">efficiency</span><span class="code_operator">:</span> <span class="code_number">0</span>.<span class="code_number">9</span><span class="code_endofline">;</span><span class="code_operator"></span>  </SPAN></TD>
+</TR></TABLE>
+\[\mathrm{\tt (\%o84) }\quad 0.9\]
+
+
+<!-- Text cell -->
+
+
+<P CLASS="comment">
+Input power with taking efficiency into account [percent]
+
+</P>
+
+
+<!-- Code cell -->
+
+
+<TABLE><TR><TD>
+  <SPAN CLASS="prompt">
+(%i85) 
+  </SPAN></TD>
+  <TD><SPAN CLASS="input">
+<span class="code_variable">P_actual</span><span class="code_operator">:</span> <span class="code_variable">P_out</span><span class="code_operator">/</span><span class="code_variable">efficiency</span><span class="code_endofline">;</span><span class="code_operator"></span>  </SPAN></TD>
+</TR></TABLE>
+\[\mathrm{\tt (\%o85) }\quad 66.66666666666667\]
+
+
+<!-- Text cell -->
+
+
+<P CLASS="comment">
+Therefore the max current taken from the input supply is [Amps]: (V_out is the output of the LTC7860 stage)
+
+</P>
+
+
+<!-- Code cell -->
+
+
+<TABLE><TR><TD>
+  <SPAN CLASS="prompt">
+(%i86) 
+  </SPAN></TD>
+  <TD><SPAN CLASS="input">
+<span class="code_variable">I_input_supply_max</span><span class="code_operator">:</span> <span class="code_variable">P_actual</span><span class="code_operator">/</span><span class="code_variable">V_out</span><span class="code_endofline">;</span><span class="code_operator"></span>  </SPAN></TD>
+</TR></TABLE>
+\[\mathrm{\tt (\%o86) }\quad 0.634920634920635\]
+
+
+<!-- Text cell -->
+
+
+<P CLASS="comment">
+delta_I_L_max is in Amps
+
+</P>
+
+
+<!-- Code cell -->
+
+
+<TABLE><TR><TD>
+  <SPAN CLASS="prompt">
+(%i87) 
+  </SPAN></TD>
+  <TD><SPAN CLASS="input">
+<span class="code_variable">delta_I_L_max</span><span class="code_operator">:</span> <span class="code_number">0</span>.<span class="code_number">7</span><span class="code_operator">*</span><span class="code_variable">I_input_supply_max</span><span class="code_endofline">;</span><span class="code_operator"></span>  </SPAN></TD>
+</TR></TABLE>
+\[\mathrm{\tt (\%o87) }\quad 0.4444444444444445\]
+
+
+<!-- Text cell -->
+
+
+<P CLASS="comment">
+V_out_max is in Volts (V_out_max is the output of the TLC7860 stage)
+
+</P>
+
+
+<!-- Code cell -->
+
+
+<TABLE><TR><TD>
+  <SPAN CLASS="prompt">
+(%i88) 
+  </SPAN></TD>
+  <TD><SPAN CLASS="input">
+<span class="code_variable">V_out_max</span><span class="code_operator">:</span> <span class="code_number">115</span><span class="code_endofline">;</span><span class="code_operator"></span>  </SPAN></TD>
+</TR></TABLE>
+\[\mathrm{\tt (\%o88) }\quad 115\]
+
+
+<!-- Text cell -->
+
+
+<P CLASS="comment">
+Calculate Inductace in Henrys
+
+</P>
+
+
+<!-- Code cell -->
+
+
+<TABLE><TR><TD>
+  <SPAN CLASS="prompt">
+(%i89) 
+  </SPAN></TD>
+  <TD><SPAN CLASS="input">
+<span class="code_variable">L</span><span class="code_operator">:</span> (<span class="code_variable">V_out</span><span class="code_operator">/</span>(<span class="code_variable">f_switching</span><span class="code_operator">*</span><span class="code_variable">delta_I_L_max</span>))<span class="code_operator">*</span>(<span class="code_number">1</span><span class="code_operator">-</span>(<span class="code_variable">V_out</span><span class="code_operator">/</span><span class="code_variable">V_out_max</span>))<span class="code_endofline">;</span><span class="code_operator"></span>  </SPAN></TD>
+</TR></TABLE>
+\[\mathrm{\tt (\%o89) }\quad 5.869565217391305\cdot {{10}^{-5}}\]
+
+
+<!-- Text cell -->
+
+
+<P CLASS="comment">
+Select a standard size and apply engineering margin. &nbsp;In Henries.
+
+</P>
+
+
+<!-- Code cell -->
+
+
+<TABLE><TR><TD>
+  <SPAN CLASS="prompt">
+(%i90) 
+  </SPAN></TD>
+  <TD><SPAN CLASS="input">
+<span class="code_variable">L_selected</span><span class="code_operator">:</span> <span class="code_number">100</span><span class="code_operator">*</span><span class="code_number">10</span><span class="code_operator">^</span><span class="code_number">-</span><span class="code_number">6</span><span class="code_operator">*</span><span class="code_variable">H</span><span class="code_endofline">;</span><span class="code_operator"></span>  </SPAN></TD>
+</TR></TABLE>
+\[\mathrm{\tt (\%o90) }\quad \frac{1}{10000}\cdot \frac{\mathit{kg}\cdot {{m}^{2}}}{{{s}^{2}}\cdot {{A}^{2}}}\]
+
+
+<!-- Code cell -->
+
+
+<TABLE><TR><TD>
+  <SPAN CLASS="prompt">
+(%i91) 
+  </SPAN></TD>
+  <TD><SPAN CLASS="input">
+<span class="code_function">float</span>(<span class="code_function">convert</span>(<span class="code_variable">%</span>, <span class="code_variable">%muH</span>))<span class="code_endofline">;</span><span class="code_operator"></span>  </SPAN></TD>
+</TR></TABLE>
+\[\mathrm{\tt (\%o91) }\quad 100.0\cdot \mathit{\%muH}\]
+
+
+<!-- Title cell -->
+
+
+<P CLASS="title">
+Current Limit Programming
+</P>
+
+
+<!-- Text cell -->
+
+
+<P CLASS="comment">
+We want a current limit that will prevent damage during a short circuit event. &nbsp;Since the subsequent stages are soft started, large slugs of current
+are not required, and we may set the current limit to be close to the maximum load current. &nbsp;We estimate that the peak ripple current is 70% of the current
+taken from the input supply.
+
+</P>
+
+
+<!-- Text cell -->
+
+
+<P CLASS="comment">
+delta_I_L_max is in Amps
+
+</P>
+
+
+<!-- Code cell -->
+
+
+<TABLE><TR><TD>
+  <SPAN CLASS="prompt">
+(%i92) 
+  </SPAN></TD>
+  <TD><SPAN CLASS="input">
+<span class="code_variable">delta_I_L_max</span><span class="code_endofline">;</span><span class="code_operator"></span>  </SPAN></TD>
+</TR></TABLE>
+\[\mathrm{\tt (\%o92) }\quad 0.4444444444444445\]
+
+
+<!-- Text cell -->
+
+
+<P CLASS="comment">
+Therefore, the peak current is: [Amps]
+
+</P>
+
+
+<!-- Code cell -->
+
+
+<TABLE><TR><TD>
+  <SPAN CLASS="prompt">
+(%i93) 
+  </SPAN></TD>
+  <TD><SPAN CLASS="input">
+<span class="code_variable">I_L_peak</span><span class="code_operator">:</span> <span class="code_variable">I_input_supply_max</span> <span class="code_operator">+</span> <span class="code_variable">delta_I_L_max</span><span class="code_endofline">;</span><span class="code_operator"></span>  </SPAN></TD>
+</TR></TABLE>
+\[\mathrm{\tt (\%o93) }\quad 1.07936507936508\]
+
+
+<!-- Text cell -->
+
+
+<P CLASS="comment">
+Select a 25% margin
+
+</P>
+
+
+<!-- Code cell -->
+
+
+<TABLE><TR><TD>
+  <SPAN CLASS="prompt">
+(%i94) 
+  </SPAN></TD>
+  <TD><SPAN CLASS="input">
+<span class="code_variable">I_L_peak_selected</span><span class="code_operator">:</span> <span class="code_variable">I_L_peak</span><span class="code_operator">*</span><span class="code_number">1</span>.<span class="code_number">1</span><span class="code_endofline">;</span><span class="code_operator"></span>  </SPAN></TD>
+</TR></TABLE>
+\[\mathrm{\tt (\%o94) }\quad 1.187301587301588\]
+
+
+<!-- Text cell -->
+
+
+<P CLASS="comment">
+The required sense resistor is, for a internal 95mV threshold: [Ohms]
+
+</P>
+
+
+<!-- Code cell -->
+
+
+<TABLE><TR><TD>
+  <SPAN CLASS="prompt">
+(%i95) 
+  </SPAN></TD>
+  <TD><SPAN CLASS="input">
+<span class="code_variable">R_sense</span><span class="code_operator">:</span> (<span class="code_number">0</span>.<span class="code_number">095</span><span class="code_operator">*</span><span class="code_variable">V</span>)<span class="code_operator">/</span>(<span class="code_variable">I_L_peak_selected</span><span class="code_operator">*</span><span class="code_variable">A</span>)<span class="code_endofline">;</span><span class="code_operator"></span>  </SPAN></TD>
+</TR></TABLE>
+\[\mathrm{\tt (\%o95) }\quad \frac{1197}{14960}\cdot \frac{\mathit{kg}\cdot {{m}^{2}}}{{{s}^{3}}\cdot {{A}^{2}}}\]
+
+
+<!-- Code cell -->
+
+
+<TABLE><TR><TD>
+  <SPAN CLASS="prompt">
+(%i96) 
+  </SPAN></TD>
+  <TD><SPAN CLASS="input">
+<span class="code_function">float</span>(<span class="code_function">convert</span>(<span class="code_variable">%</span>, <span class="code_variable">Ohm</span>))<span class="code_endofline">;</span><span class="code_operator"></span>  </SPAN></TD>
+</TR></TABLE>
+\[\mathrm{\tt (\%o96) }\quad 0.08001336898395722\cdot \mathit{Ohm}\]
+
+
+<!-- Text cell -->
+
+
+<P CLASS="comment">
+Use a standard current sense resistor size [Ohm]:
+
+</P>
+
+
+<!-- Code cell -->
+
+
+<TABLE><TR><TD>
+  <SPAN CLASS="prompt">
+(%i98) 
+  </SPAN></TD>
+  <TD><SPAN CLASS="input">
+<span class="code_variable">R_sense_selected</span><span class="code_operator">:</span> <span class="code_number">80</span><span class="code_operator">*</span><span class="code_number">10</span><span class="code_operator">^</span><span class="code_number">-</span><span class="code_number">3</span><span class="code_endofline">;</span> <span class="code_function">float</span>(<span class="code_variable">%</span>)<span class="code_endofline">;</span><span class="code_operator"></span>  </SPAN></TD>
+</TR></TABLE>
+\[\mathrm{\tt (\%o97) }\quad \frac{2}{25}\]\[\mathrm{\tt (\%o98) }\quad 0.08\]
+
+
+<!-- Text cell -->
+
+
+<P CLASS="comment">
+This means that the output current limit is: [Amps]
+
+</P>
+
+
+<!-- Code cell -->
+
+
+<TABLE><TR><TD>
+  <SPAN CLASS="prompt">
+(%i100) 
+  </SPAN></TD>
+  <TD><SPAN CLASS="input">
+<span class="code_variable">I_out_limit</span><span class="code_operator">:</span> (((<span class="code_number">0</span>.<span class="code_number">095</span><span class="code_operator">*</span><span class="code_variable">V</span>)<span class="code_operator">/</span>(<span class="code_variable">R_sense_selected</span><span class="code_operator">*</span><span class="code_variable">Ohm</span>))<span class="code_operator">-</span>((<span class="code_variable">delta_I_L_max</span><span class="code_operator">*</span><span class="code_variable">A</span>)<span class="code_operator">/</span><span class="code_number">2</span>))<span class="code_endofline">;</span> <span class="code_function">float</span>(<span class="code_function">convert</span>(<span class="code_variable">%</span>,<span class="code_variable">A</span>))<span class="code_endofline">;</span><span class="code_operator"></span>  </SPAN></TD>
+</TR></TABLE>
+\[\mathrm{\tt (\%o99) }\quad \frac{139}{144}\cdot A\]\[\mathrm{\tt (\%o100) }\quad 0.9652777777777778\cdot A\]
+
+
+<!-- Text cell -->
+
+
+<P CLASS="comment">
+The percent margin is: [%]
+
+</P>
+
+
+<!-- Code cell -->
+
+
+<TABLE><TR><TD>
+  <SPAN CLASS="prompt">
+(%i102) 
+  </SPAN></TD>
+  <TD><SPAN CLASS="input">
+(<span class="code_variable">I_out_limit</span><span class="code_operator">-</span>(<span class="code_variable">I_input_supply_max</span><span class="code_operator">*</span><span class="code_variable">A</span>))<span class="code_operator">/</span>(<span class="code_variable">I_input_supply_max</span><span class="code_operator">*</span><span class="code_variable">A</span>)<span class="code_endofline">;</span> <span class="code_function">float</span>(<span class="code_variable">%</span>)<span class="code_operator">*</span><span class="code_number">100</span><span class="code_endofline">;</span><span class="code_operator"></span>  </SPAN></TD>
+</TR></TABLE>
+\[\mathrm{\tt (\%o101) }\quad \frac{333}{640}\]\[\mathrm{\tt (\%o102) }\quad 52.03124999999999\]
+
+
+<!-- Text cell -->
+
+
+<P CLASS="comment">
+This is a conservative estimate, since we chose a 40% larger inductance, so the ripple current will be correspondingly lower.
+
+</P>
+
+ <HR>
+ <SMALL> Created with <A HREF="http://wxmaxima.sourceforge.net/">wxMaxima</A>.</SMALL>
+ </BODY>
+</HTML>
