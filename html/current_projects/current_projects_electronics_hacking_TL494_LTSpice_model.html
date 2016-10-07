@@ -58,7 +58,7 @@
       background	: gray;
       position		: relative;
       width		: 1250px;
-      height		: 1000px;
+      height		: 1100px;
       top		: 000px;
       left		: 0px;
       float		: left;
@@ -84,7 +84,7 @@
       background	: gray;
       position		: relative;
       width		: 1250px;
-      height		: 1000px;
+      height		: 2100px;
       top		: 10px;
       left		: 20px;
       float		: left;
@@ -208,13 +208,13 @@
                 
                     <hgroup>
                         <h3>
-                            Test Jig
+                            Test Jig Simulation Circuit
                         </h3>
                     <hgroup>
 	
                     <div class="loose_text">
                         <p>
-                            There is a test jig available from where I found the unoffical LTSpice model, but I found it didn't simulate properly "out of the box".  The following test jig that I made should simulate with no issues.
+                            There is a test jig available from where I found the unoffical LTSpice model, but I found it didn't simulate properly "out of the box".  The following test jig that I made should simulate with no issues.  Notice that the voltage source supplying Vcc is ramped up, rather than being a DC source.  This allows the simulation engine to simulate the circuit with no errors.  The error amplifiers (EA's) are wired into max PWM configurations at the inputs, with a SIN wave source manipulating the feedback (FB) pin.  The sine wave swings from a 2V offset between 3.5V and 0.5V, providing a minimum to maximum excursion of PWM duty cycle.
                         </p>  
                     </div> <!-- .loose_text -->
                     
@@ -241,15 +241,92 @@
             <section class="third_section">
     
                 <div class="current_project_3">
+                    <hgroup>
+                        <h3>
+                            Test Jig Simulation Run
+                        </h3>
+                    <hgroup>
+                    
+                    <div class="loose_text">
+                        <p>
+                            After running the simulation of the test jig circuit, you get the following output.  I placed voltage and current markers at nodes of significance, such as the PWM output and sense resistor current, etc.
+                        </p>  
+                    </div> <!-- .loose_text -->
+                    
+                    <figure>
+                        <div class="img">
+                            <img
+                                src="images/TL495_test_jig_sim_run.jpeg"
+                                width="1150"
+                                height="800"
+                                title="TL494_test_jig.jpeg"
+                            >
+                            <div class="desc">
+                                TL494 Test Jig Simulation Run
+                            </div> <!-- .desc -->  
+                        </div> <!-- .img -->
+                    </figure>
                 </div> <!-- .current_project_3 -->
                 
-            </section> <!-- .current_project_3 -->
+            </section> <!-- .third_section -->
 
 <!-- ************************************************************************************************************* -->            
             
-    <div class="current_project_4">
+            <section class="fourth_section">
+                
+                <div class="current_project_4">
+                
+                    <hgroup>
+                        <h3>
+                            TL494 LTSpice Model Text and Issues Discussion
+                        </h3>
+                    <hgroup>
+                    
+                    <div class="loose_text">
+                        <p>
+                            When I first used the TL494 LTSpice model, I noticed that the voltage at the PWM outputs went only up to 4.8V, despite having 13V at the VCC pin.  This did not make sense, since the saturation voltage of the internal transistors was only 2.5V maximum according to the datasheet.  So I would expect a 10.5V minimum PWM output voltage.  4.8V at the PWM pins is ok to drive logic level MOSFETs, but standard MOSFETs will NOT fully enhance at such a low gate voltage.  The model therefore had to be tweaked.  I list the original model text below:
+                        </p>  
+                    </div> <!-- .loose_text -->
+                    
+                    <iframe
+                        src = "TL494_LTSpice_files/TL494.sub"
+                        width = "900"
+                        height = "750"
+                        frameborder = "1"
+                        scrolling = "yes">
+                    </iframe><br>
+                    
+                    <div class="loose_text">
+                        <p>
+                            Notice that the bases of the BJT output transistors, Q1 and Q2, connect to nodes N003 and N013, respectively.  These nodes in turn connect to nodes N002 and N012 through 470 ohm resistors R1 and R2.  R1 and R2, in turn, are connected to logic functions A2 and A3, whose high output voltage is 4.8V (the vhigh parameter setting).  That was the reason for the 4.8V voltage at the PWM output pin.  Note, that this is the case for a voltage follower configuration of the PWM output pins connection.  My solution for this was the following:
+                        </p>  
+                    </div> <!-- .loose_text -->
+                
+                    <iframe
+                        src = "TL494_LTSpice_files/TL494_repaired.sub"
+                        width = "900"
+                        height = "800"
+                        frameborder = "1"
+                        scrolling = "yes">
+                    </iframe><br>
+                    
+                    <div class="loose_text">
+                        <p>
+                            At first I tried to simply increase the vhigh parameters of A2 and A3 from 4.8V to 13V, but this did NOT work.  It is not clear why.  I then opted for inserting 100 ohm resistors, and E elements between the bases of the output transistors Q1 and Q2.  The E elements have a gain of 2.1875V/V.  This will provide 4.8V X 2.1875V/V = 10.5V at the output of the PWM pin.  The 100 ohm resistors were required by the simulation engine to isolate the logic elements A2 and A3 from the E elements E1000 and E1001.  This gain can be manually adjusted to the needs of the user.  Note that this voltage is fixed, and will not simulate the current dependent satuarion voltage of the output transistors detracting from the supply voltage.  This is a limitation of this model.
+                        </p>
+                        
+                        <p>
+                            The fixed LTSpice model is provided below:<br>
+                            <a href="TL494_LTSpice_files/TL494.sub">TL494_repaired.sub</a><br>
+                        </p>
+                    </div> <!-- .loose_text -->
         
-    </div> <!-- .current_project_4 -->
+                </div> <!-- .current_project_4 -->
+            
+            </section> <!-- .fourth_section -->
+
+<!-- ************************************************************************************************************** -->            
+    
     
   </section>	<!-- .content -->
     
