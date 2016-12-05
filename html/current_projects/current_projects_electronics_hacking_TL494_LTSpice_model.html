@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-58919029-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+<html>
+
+<head>
+  <meta content="text/html; charset=utf-8" http-equiv="content-type">
+  <meta name="robots" content="follow" />
+  
+  <title>
+    MK Dynamics - Electronics - Power Electronics
+  </title>
+  
+  <link href="../css/styles.css" type = "text/css" rel = "stylesheet" />
+  
+  <style>
+    .content {
+	overflow: auto;
+	height: 80%; 
+	background: url("../images/galaxy1.jpg") no-repeat center center fixed;
+	background-size: cover;
+	background-position: center;
+	padding: 10px;
+	margin: 10px;
+	border: 5px solid black;
+      }
+      
+    h1, h2, h3, h4 {
+      color: white;
+      display: block;     
+    }
+    
+    .current_project_1 {
+      border		: 5px solid black;
+      background	: gray;
+      position		: relative;
+      width		: 1250px;
+      height		: 600px;
+      top		: 0px;
+      left		: 0px;
+      float		: left;
+      margin		: 10px;
+      padding-left	: 10px;
+    }
+    
+    .current_project_2 {
+      border		: 5px solid black;
+      background	: gray;
+      position		: relative;
+      width		: 1250px;
+      height		: 1100px;
+      top		: 000px;
+      left		: 0px;
+      float		: left;
+      margin		: 10px;
+      padding-left	: 10px;
+    }
+    
+    .current_project_3 {
+      border		: 5px solid black;
+      background	: gray;
+      position		: relative;
+      width		: 1250px;
+      height		: 1000px;
+      top		: 000px;
+      left		: 0px;
+      float		: left;
+      margin		: 10px;
+      padding-left	: 10px;
+    }
+    
+    .current_project_4 {
+      border		: 5px solid black;
+      background	: gray;
+      position		: relative;
+      width		: 1250px;
+      height		: 2100px;
+      top		: 10px;
+      left		: 20px;
+      float		: left;
+      margin		: 0px;
+      padding		: 10px;
+    }
+    
+    div .img {
+      margin		: 0px;
+      padding		: 10px;
+      height		: auto;
+      width		: auto;
+      float		: left;
+    }
+    
+    div .img img {
+      display		: inline;
+      margin		: 0px;
+      padding		: 0px;
+    }
+    
+    div .desc {
+      color		: white;
+      width		: 600px;
+      margin		: 5px;
+      padding		: 10px;
+    }
+    
+    ul {
+      color		: white;
+    }
+    
+    div .loose_text {
+      color		: white;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="wrapper">
+    <header>
+    
+      <hgroup>
+	<h1> 
+	    <big> <big> MK Dynamics </big> </big>
+	</h1>
+
+
+	<h2>
+	  Electronics - Hacking the TL494 LTSpice Model
+	</h2>
+      </hgroup>
+    
+
+      <nav>
+	<ul>
+	  <li> <a href="../index.html">Home</a> </li>
+	</ul>
+      </nav>
+  
+      <hr />
+    
+    </header>
+    
+  
+        <section class="content">
+            <section class="first_section">
+                <hgroup>
+                    <h2>
+                        Description
+                    </h2>
+                </hgroup>
+   
+                <div class="current_project_1">
+                    <hgroup>
+                        <h3>
+                            Introduction
+                        </h3>
+                    <hgroup>
+
+                <div class="loose_text">
+                    <p>
+                        The TL494 is a PWM chip made by Texas Instruments.  It's datasheets can be found here:<br>
+                        <a href="http://www.ti.com/product/TL494">http://www.ti.com/product/TL494</a><br>
+                    </p>
+                    
+                    <p>
+                        An important part of the design process is the ability to simulate circuits.  LTSpice is an excellent SPICE simulator program provided by Linear Technology Corporation.
+                        It can be downloaded here:<br>
+                        <a href="http://www.linear.com/designtools/software/">http://www.linear.com/designtools/software/</a><br>
+                    </p>
+                    
+                    <p>
+                        Unfortunately, an offical LTSpice model for the TL494 chip does NOT exist, to my knowledge.  I was able to find an unofficial LTSpice model that works fairly well here:<br>
+                        <a href="http://www.mikrocontroller.net/topic/206248">http://www.mikrocontroller.net/topic/206248</a><br>
+                    </p>
+                    
+                    <p>
+                        The LTSpice files for the TL494 files can be downloaded from my server here:<br>
+                        <a href="TL494_LTSpice_files/TL494.asy">TL494.asy</a><br>
+                        <a href="TL494_LTSpice_files/TL494.sub">TL494.sub</a><br>
+                    </p>
+                    
+                    <p>
+                        Place the TL494.asy file into /LTSpiceIV/lib/sym/Misc and the TL494.sub file into /LTSpiceIV/lib/sub/eigene<br>
+                        The second directory needs to be this way or it will not work.<br>
+                        In the next section we will simulate with this model, discover its limitations, as well as techniques for overcoming these limitations.
+                    </p>
+                    
+                    
+                </div> <!-- .loose-text -->
+	
+                </div> <!-- .current_project_1 -->
+            </section> <!-- first_section -->
+    
+    
+     
+            <section class="second_section">
+
+                <div class="current_project_2">
+                
+                    <hgroup>
+                        <h3>
+                            Test Jig Simulation Circuit
+                        </h3>
+                    <hgroup>
+	
+                    <div class="loose_text">
+                        <p>
+                            There is a test jig available from where I found the unoffical LTSpice model, but I found it didn't simulate properly "out of the box".  The following test jig that I made should simulate with no issues.  Notice that the voltage source supplying Vcc is ramped up, rather than being a DC source.  This allows the simulation engine to simulate the circuit with no errors.  The error amplifiers (EA's) are wired into max PWM configurations at the inputs, with a SIN wave source manipulating the feedback (FB) pin.  The sine wave swings from a 2V offset between 3.5V and 0.5V, providing a minimum to maximum excursion of PWM duty cycle.
+                        </p>  
+                    </div> <!-- .loose_text -->
+                    
+                    <figure>
+                        <div class="img">
+                            <img
+                                src="images/TL494_test_jig.jpeg"
+                                width="1150"
+                                height="800"
+                                title="TL494_test_jig.jpeg"
+                            >
+                            <div class="desc">
+                                TL494 Test Jig
+                            </div> <!-- .desc -->  
+                        </div> <!-- .img -->
+                    </figure>
+	
+                </div> <!-- .current_project_2 -->
+                
+            </section> <!-- second_section --> 
+    
+<!--************************************************************************************************************* -->
+
+            <section class="third_section">
+    
+                <div class="current_project_3">
+                    <hgroup>
+                        <h3>
+                            Test Jig Simulation Run
+                        </h3>
+                    <hgroup>
+                    
+                    <div class="loose_text">
+                        <p>
+                            After running the simulation of the test jig circuit, you get the following output.  I placed voltage and current markers at nodes of significance, such as the PWM output and sense resistor current, etc.
+                        </p>  
+                    </div> <!-- .loose_text -->
+                    
+                    <figure>
+                        <div class="img">
+                            <img
+                                src="images/TL495_test_jig_sim_run.jpeg"
+                                width="1150"
+                                height="800"
+                                title="TL494_test_jig.jpeg"
+                            >
+                            <div class="desc">
+                                TL494 Test Jig Simulation Run
+                            </div> <!-- .desc -->  
+                        </div> <!-- .img -->
+                    </figure>
+                </div> <!-- .current_project_3 -->
+                
+            </section> <!-- .third_section -->
+
+<!-- ************************************************************************************************************* -->            
+            
+            <section class="fourth_section">
+                
+                <div class="current_project_4">
+                
+                    <hgroup>
+                        <h3>
+                            TL494 LTSpice Model Text and Issues Discussion
+                        </h3>
+                    <hgroup>
+                    
+                    <div class="loose_text">
+                        <p>
+                            When I first used the TL494 LTSpice model, I noticed that the voltage at the PWM outputs went only up to 4.8V, despite having 13V at the VCC pin.  This did not make sense, since the saturation voltage of the internal transistors was only 2.5V maximum according to the datasheet.  So I would expect a 10.5V minimum PWM output voltage.  4.8V at the PWM pins is ok to drive logic level MOSFETs, but standard MOSFETs will NOT fully enhance at such a low gate voltage.  The model therefore had to be tweaked.  I list the original model text below:
+                        </p>  
+                    </div> <!-- .loose_text -->
+                    
+                    <iframe
+                        src = "TL494_LTSpice_files/TL494.sub"
+                        width = "900"
+                        height = "750"
+                        frameborder = "1"
+                        scrolling = "yes">
+                    </iframe><br>
+                    
+                    <div class="loose_text">
+                        <p>
+                            Notice that the bases of the BJT output transistors, Q1 and Q2, connect to nodes N003 and N013, respectively.  These nodes in turn connect to nodes N002 and N012 through 470 ohm resistors R1 and R2.  R1 and R2, in turn, are connected to logic functions A2 and A3, whose high output voltage is 4.8V (the vhigh parameter setting).  That was the reason for the 4.8V voltage at the PWM output pin.  Note, that this is the case for a voltage follower configuration of the PWM output pins connection.  My solution for this was the following:
+                        </p>  
+                    </div> <!-- .loose_text -->
+                
+                    <iframe
+                        src = "TL494_LTSpice_files/TL494_repaired.sub"
+                        width = "900"
+                        height = "800"
+                        frameborder = "1"
+                        scrolling = "yes">
+                    </iframe><br>
+                    
+                    <div class="loose_text">
+                        <p>
+                            At first I tried to simply increase the vhigh parameters of A2 and A3 from 4.8V to 13V, but this did NOT work.  It is not clear why.  I then opted for inserting 100 ohm resistors, and E elements between the bases of the output transistors Q1 and Q2.  The E elements have a gain of 2.1875V/V.  This will provide 4.8V X 2.1875V/V = 10.5V at the output of the PWM pin.  The 100 ohm resistors were required by the simulation engine to isolate the logic elements A2 and A3 from the E elements E1000 and E1001.  This gain can be manually adjusted to the needs of the user.  Note that this voltage is fixed, and will not simulate the current dependent satuarion voltage of the output transistors detracting from the supply voltage.  This is a limitation of this model.
+                        </p>
+                        
+                        <p>
+                            The fixed LTSpice model is provided below:<br>
+                            <a href="TL494_LTSpice_files/TL494_repaired.sub">TL494_repaired.sub</a><br>
+                        </p>
+                    </div> <!-- .loose_text -->
+        
+                </div> <!-- .current_project_4 -->
+            
+            </section> <!-- .fourth_section -->
+
+<!-- ************************************************************************************************************** -->            
+    
+    
+  </section>	<!-- .content -->
+    
+  </div> <!-- .wrapper -->
+
+  </body>
+
+</html>
+  
