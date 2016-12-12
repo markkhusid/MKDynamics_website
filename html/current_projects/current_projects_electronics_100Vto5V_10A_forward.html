@@ -45,7 +45,7 @@
       background	: gray;
       position		: relative;
       width		: 1250px;
-      height		: 600px;
+      height		: 500px;
       top		: 0px;
       left		: 0px;
       float		: left;
@@ -58,7 +58,7 @@
       background	: gray;
       position		: relative;
       width		: 1250px;
-      height		: 1000px;
+      height		: 1400px;
       top		: 000px;
       left		: 0px;
       float		: left;
@@ -167,7 +167,7 @@
 	  <h3>
 	    Introduction
 	  </h3>
-	<hgroup>
+	</hgroup>
 
 	<div class="loose_text">
 	  The item is a forward converter power supply that is fed with 100VDC and converts this input into 5VDC.
@@ -207,14 +207,16 @@
 	  </ul>
 	  
 	  <li>Environment</li>
-	  <ul>
-	    <li>Interfaces to household wiring</li>
-	    <li>Will see outdoor use</li>
-	    <li>Exposed to lightning</li>
-	    <li>Must survive reversed input voltage</li>
-	    <li>Must survive overvoltage and undervoltage transients</li>
-	    <li>Must provide 20ms output holdup at maximum load</li>
-	  </ul>
+            <ul>
+                <li>Interfaces to household wiring</li>
+                <li>Will see outdoor use in protected environment</li>
+                <li>Exposed to lightning</li>
+            </ul>
+            
+          <li>Components</li>
+            <ul>
+                <li>Must use the TL494 PWM IC for parts commonality</li>
+            </ul>
 	  
 	  <li>Efficiency</li>
 	  <ul>
@@ -229,62 +231,57 @@
      
     <section class="second_section">
       
-      <hgroup>
-	<h2>
-	  Circuit Schematic
-	</h2>
-      </hgroup>
+      
 	
       <div class="current_project_2">
+      
+        <hgroup>
+            <h2>
+                Circuit Design Discussion
+            </h2>
+        </hgroup>
+      
+        <div class="loose_text">
+            <p>
+                The item is an isolated power supply circuit that accepts a nominal solar panel voltage of 100V and outputs a regulated 5V at 10A.  Additionally, the item counters the effects of a varying input voltage, by varying its output voltage accordingly.  So for example, if the input voltage varies from 100V to 101V, the output varies from 5V to 4V, and vice versa.  If the input voltage varies from 100V to 99V, then the output voltage varies from 5V to 6V.
+            </p>
+            
+            <p>
+                This relationship is implemented as a means of stabilizing the Local Grid voltage in a microgrid community power situation.  The item is to be placed between far flung loads, to compensate for voltage drops due to long transmission distances between solar panel source and load in a microgrid commnity power sitauation.
+            </p>
+	  
+            <p>
+                Since the amount of output current is 10A, we wanted to avoid high peak rectifier currents associated with a flyback converter.  Therefore, a forward converter topology was chosen.  The magnetics were chosen to be custom wound toroids.
+            </p>
+            
+            <p>
+                The circuit was designed using a pick and simulate approach to save time intensive analysis time.  Best / educated guesses were made for proper inductor values, a simulation was run, and the circuit performance was evaluated.  This was also done for the frequency compensation.
+            </p>
+            
+            <p>
+                The main PWM IC was required to be the TL494.  This chip does not implement pulse-by-pulse current limiting control.  This function was impleneted with additional circuitry to reduce the required loop compensation from a Type 3 amplifier to a Type 2 amplifier.  This greatly improves transient response and simplifies the compenation circuit from three poles to two poles.
+            </p>
+            
+            <p>
+                Another issue with the TL494 IC is that there is no official LTSpice 4 model available for it, although I was able to find a usable unofficial model.  It required some modifications, which are described here:<br>
+                <a href="current_projects_electronics_hacking_TL494_LTSpice_model.html">Hacking the TL494 LTSpice Model</a>
+            </p>
+            
+            <p> 
+                The entire simulation schematic is shown in the image below.  Further dicussion on each of its parts will be made in subsequent sections.
+            </p>
+
+        </div> <!-- .loose_text -->
+      
 	<div class="img">
 	  <img 
-	      src="images/LTC3639.jpeg"
+	      src="images/100Vto5V_10A_forward_converter_simsch.jpeg"
 	      width="1200"
 	      height="800"
-	      title="120V to 12V 100mA Buck Converter"
+	      title="100Vto5V_10A_forward_converter_simsch.jpeg"
 	    >
+  	</div> <!-- .img -->
 	
-	  </embed>
-	</div> <!-- .img -->
-	
-	<hgroup>
-	  <h2>
-	    Discussion:
-	  </h2>
-	</hgroup>
-	
-	<div class="loose_text">
-	  The power supply control IC was chosen to be the Linear Technology LTC3639 High-Efficiency, 150V, 100mA, 
-	  Synchronous, Step-Down Regulator.  The IC has internal high-side and low-side MOSFETs and compensation.  
-	  The output voltage is programmed by selecting appropriate resistors for the feedback resistor divider string.
-	  Most importantly, during light load operation, the IC transitions into Burst Mode operation, which is a proprietart feature of Linear Technology.
-	  During Burst Mode Operation, the IC skips as many cycles as needed, while providing bursts in between, to maintain the set output voltage.
-	
-	</div> <!-- .loose_text -->
-	
-	<!--
-	<figure>
-	  <div class="img">
-	    <img 
-	      src="images/LTC3639_sim2.jpeg"
-	      width="360"
-	      height="300"
-	      title="120V to 12V 100mA Buck Converter"
-	    >
-	    <!--
-	    <img
-	      src="images/LTC3639_sim.jpeg"
-	      width="360"
-	      height="300"
-	      title="120V to 12V 100mA Buck Converter Simulation"
-	    >
-	    
-	  </div> <!-- .img 
-	  <div class="desc">
-	    <a href="">120V to 12V 100mA Buck Converter and Simulation</a>
-	  </div> <!-- .desc
-	</figure>
-	-->
 	</div> <!-- .current_project_2 -->
       </section> <!-- second_section --> 
     
@@ -297,27 +294,10 @@
       </hgroup>
       
       <div class="current_project_3">
-	<figure>
-	  <div class="img">
-	    <img
-	      src="images/LTC3639_sim2.jpeg"
-	      width="1150"
-	      height="800"
-	      title="50V to 12V 5A Buck Converter"
-	    >
-	    <!--  
-	    <img
-	      src="images/LTC3891_sim.jpeg"
-	      width="360"
-	      height="300"
-	      title="50V to 12V 5A Buck Converter Simulation"
-	    >
-	    -->
-	  </div> <!-- .img -->
-	  <div class="desc">
-	    120V to 12V 100mA Buck Simulation
-	  </div> <!-- .desc -->
-	</figure>
+            <embed 
+                src="pdf\100V to 5V 20A forward converter simulation presentation.pdf" width="1200px" 
+                height="1000px" 
+            />
       </div> <!-- .current_project_3 -->
     </section> <!-- .current_project_3 -->
     
