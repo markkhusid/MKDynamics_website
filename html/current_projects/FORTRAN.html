@@ -123,7 +123,20 @@
       background	: gray;
       position		: relative;
       width		: 1250px;
-      height		: 500px;
+      height		: 100px;
+      top		: 10px;
+      left		: 0px;
+      float		: left;
+      margin		: 10px;
+      padding		: 10px;
+    }
+    
+    .current_project_8 {
+      border		: 5px solid black;
+      background	: gray;
+      position		: relative;
+      width		: 1250px;
+      height		: 1000px;
       top		: 10px;
       left		: 0px;
       float		: left;
@@ -339,6 +352,122 @@
         
     </section> <!-- .seventh_section -->
         
+<!-- *************************************************************************************************** -->
+
+    <section class="eigth_section">
+        
+        <div class="current_project_8">
+        
+            <hgroup>
+                <h2>
+                    Program Simple Program to Calculate Area of Circle Using Module Files
+                </h2>
+            </hgroup>
+            
+            <hgroup>
+                <h3>
+                    Main File
+                </h3>
+            </hgroup>
+        
+            <div class="loose_text">
+        
+            <!-- HTML generated using hilite.me --><div style="background: #000000; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><table><tr><td><pre style="margin: 0; line-height: 125%"> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14</pre></td><td><pre style="margin: 0; line-height: 125%"><span style="color: #cdcd00">program </span><span style="color: #00cdcd">circle</span>
+
+    <span style="color: #cdcd00">use </span><span style="color: #00cdcd">math_module</span>
+
+    <span style="color: #cdcd00">implicit none</span>
+
+<span style="color: #cdcd00">    </span><span style="color: #00cd00">real</span><span style="color: #cccccc">,</span> <span style="color: #cdcd00">parameter</span> <span style="color: #00cd00">::</span> <span style="color: #00cdcd">radius</span> <span style="color: #3399cc">=</span> <span style="color: #cd00cd">2.2</span>
+    <span style="color: #00cd00">real</span>            <span style="color: #00cd00">::</span> <span style="color: #00cdcd">area</span>
+
+    <span style="color: #00cdcd">area</span> <span style="color: #3399cc">=</span> <span style="color: #00cdcd">pi</span> <span style="color: #3399cc">*</span> <span style="color: #00cdcd">radius</span> <span style="color: #3399cc">**</span> <span style="color: #cd00cd">2</span>
+
+    <span style="color: #cdcd00">print</span> <span style="color: #3399cc">*</span><span style="color: #cccccc">,</span> <span style="color: #cd0000">&quot;The area is: &quot;</span><span style="color: #cccccc">,</span> <span style="color: #00cdcd">area</span>
+
+<span style="color: #cdcd00">end program </span><span style="color: #00cdcd">circle</span>
+</pre></td></tr></table></div>
+
+
+            </div> <!-- .loose_text -->
+            
+            <hgroup>
+                <h3>
+                    Module File
+                </h3>
+            </hgroup>            
+            
+            <div class="loose_text">
+ <!-- HTML generated using hilite.me --><div style="background: #000000; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><table><tr><td><pre style="margin: 0; line-height: 125%"> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11</pre></td><td><pre style="margin: 0; line-height: 125%"><span style="color: #cdcd00">module </span><span style="color: #00cdcd">math_module</span>
+
+    <span style="color: #cdcd00">implicit none</span>
+
+<span style="color: #cdcd00">    private</span>
+
+<span style="color: #cdcd00">    </span><span style="color: #00cd00">real</span><span style="color: #cccccc">,</span> <span style="color: #cdcd00">public</span><span style="color: #cccccc">,</span> <span style="color: #cdcd00">parameter</span> <span style="color: #00cd00">::</span> <span style="color: #00cdcd">pi</span> <span style="color: #3399cc">=</span> <span style="color: #cd00cd">3.141592653</span>
+    <span style="color: #00cd00">real</span><span style="color: #cccccc">,</span> <span style="color: #cdcd00">public</span><span style="color: #cccccc">,</span> <span style="color: #cdcd00">parameter</span> <span style="color: #00cd00">::</span> <span style="color: #00cdcd">e</span> <span style="color: #3399cc">=</span> <span style="color: #cd00cd">2.7182818284</span>
+    <span style="color: #00cd00">real</span><span style="color: #cccccc">,</span> <span style="color: #cdcd00">public</span><span style="color: #cccccc">,</span> <span style="color: #cdcd00">parameter</span> <span style="color: #00cd00">::</span> <span style="color: #00cdcd">gamma</span> <span style="color: #3399cc">=</span> <span style="color: #cd00cd">0.577215664</span>
+
+<span style="color: #cdcd00">end module </span><span style="color: #00cdcd">math_module</span>
+</pre></td></tr></table></div>
+
+          
+            </div> <!-- .loose_text -->
+            
+            <div class="loose_text">
+            The program compiled by specifying the module files before the main file in the gfortran command line.
+            
+            <p>
+                [mark@ubermentch Fortran Programs]$ gfortran math_module.f08 circle.f08 
+            </p>
+            
+            <p>
+                The program is run by entering <b>./a.out</b> into the command prompt.
+            </p>
+            
+            <p>
+                [mark@ubermentch Fortran Programs]$ ./a.out <br>
+                The area is:    15.2053089 <br>
+                [mark@ubermentch Fortran Programs]$ <br> 
+            </p>
+           
+        
+           
+           </div> <!-- .loose_text -->
+            
+            
+
+        
+        </div> <!-- .current_project_7 -->
+        
+    </section> <!-- .seventh_section -->
+
+
+<!-- *************************************************************************************************** -->
+
 <!-- *************************************************************************************************** -->
         
   </section>	<!-- .content -->
