@@ -97,7 +97,7 @@
       background	: gray;
       position		: relative;
       width		: 1250px;
-      height		: 1000px;
+      height		: 2000px;
       top		: 10px;
       left		: 0px;
       float		: left;
@@ -310,7 +310,7 @@
 	</hgroup>
 	
 	<div class="loose_text">
-                The following script makes use of the  modules available in Python to draw a circle on the screen.
+                The following script makes use of the modules available in Python to draw a circle on the screen.
         </div> <!-- .loose_text -->
         
         <iframe
@@ -350,20 +350,41 @@
     <section class="fifth_section">
         <div class="current_project_5">
             <hgroup>
-            <h2>
-                Program - 
-            </h2>
+                <h2>
+                    Program to simulate Conway's Game of Life
+                </h2>
             </hgroup>
-            <div class="img">
-                <img 
-                src="images/"
-                width="1200"
-                height="800"
-                title=""
-                >
-            </div> <!-- .img -->
+            
             <div class="loose_text">
-                
+                The following script makes use of the matplotlib module available in Python to animate a function and save the animation to an MP4 movie file.
+            </div> <!-- .loose_text -->
+            
+            <iframe
+                src="code_python/conway.py.html" 
+                height="800" 
+                width="1000">
+            </iframe>
+            
+            <div class="loose_text">
+                <p>
+                    <a href="code_python/conway.py.html">conway.py</a><br>
+                    Run the code by typing:<br><br>
+                    $ python conway.py --mov-file filename.mp4<br><br>
+                    at the command prompt, where filename is the name of the movie file.
+            </p>
+            
+            <p>
+                After typing that command, a window opens up and an animated Conway's Game of Life displays.
+            </p>
+            
+            <video 
+                width="800" 
+                height="600" 
+                controls>
+                <source 
+                    src="images_python/conway.mp4" 
+                    type="video/mp4">
+            </video>
                 
             </div> <!-- .loose_text -->
 
