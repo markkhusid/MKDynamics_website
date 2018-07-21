@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta name="Generator" content="Kate, the KDE Advanced Text Editor" />
+<title>sine50Hz_text.py</title>
+</head>
+<!-- Highlighting: "Python" -->
+<body>
+<pre style='color:#1f1c1b;background-color:#ffffff;'>
+<span style='color:#898887;'># This script creates a sine wave.  It then saves the sine wave</span>
+<span style='color:#898887;'># as a wav file, and as a raw data file.</span>
+<span style='color:#898887;'># Finally, it plots the raw data.</span>
+
+<span style='color:#ff5500;'>import</span> numpy <span style='color:#ff5500;'>as</span> np                          <span style='color:#898887;'># Used to create arrays</span>
+<span style='color:#ff5500;'>import</span> wave, math                           <span style='color:#898887;'># Used to create wav files and to get the constant pi</span>
+<span style='color:#ff5500;'>import</span> matplotlib                           <span style='color:#898887;'># Used for plotting</span>
+matplotlib.use(<span style='color:#bf0303;'>'TkAgg'</span>)
+<span style='color:#898887;'># TkAgg is a tKinter renderer to make the graphics for the plots</span>
+
+<span style='color:#ff5500;'>from</span> matplotlib <span style='color:#ff5500;'>import</span> pyplot <span style='color:#ff5500;'>as</span> plt        <span style='color:#898887;'># Used for plotting</span>
+
+sRate = <span style='color:#b08000;'>44100</span>                               <span style='color:#898887;'># sample rate in Hz</span>
+freq = <span style='color:#b08000;'>50.0</span>                                 <span style='color:#898887;'># Sine wave frequency in Hz</span>
+num_periods = <span style='color:#b08000;'>10</span>                            <span style='color:#898887;'># number of periods of the sine wave</span>
+nSamples = sRate * num_periods              <span style='color:#898887;'># Total number of samples</span>
+nChannels = <span style='color:#b08000;'>1</span>                               <span style='color:#898887;'># For mono mode</span>
+sampleWidth = <span style='color:#b08000;'>2</span>                             <span style='color:#898887;'># Number of bytes per sample</span>
+
+<span style='color:#898887;'># Create the x-axis.  The goal is to create nSamples number of values from 0 to 1 as floats</span>
+x = np.arange(nSamples)/<b><span style='color:#644a9b;'>float</span></b>(sRate*num_periods)
+
+<span style='color:#898887;'># Convert frequency to radians and apply to x-axis, and then take the sine</span>
+vals = np.sin(<span style='color:#b08000;'>2.0</span>*math.pi*freq*x)
+
+<span style='color:#898887;'># Since the amplitude swings from -1 to 1, we multiply by (2**16)-1, and convert to 16 bit integer</span>
+rawData = np.array(vals*<span style='color:#b08000;'>32767</span>, <span style='color:#bf0303;'>'int16'</span>)
+
+<span style='color:#898887;'># Wave files need the numbers to be represented as strings, which are then stored as binary numbers</span>
+data = np.array(vals*<span style='color:#b08000;'>32767</span>, <span style='color:#bf0303;'>'int16'</span>).tostring()
+
+<span style='color:#898887;'># Open wave file with listed filename in write mode as binary file</span>
+<b><span style='color:#644a9b;'>print</span></b> <span style='color:#bf0303;'>'Opening wave file...'</span>
+<b><span style='color:#644a9b;'>file</span></b> = wave.<b><span style='color:#644a9b;'>open</span></b>(<span style='color:#bf0303;'>'sine50Hz.wav'</span>, <span style='color:#bf0303;'>'wb'</span>)
+<span style='color:#898887;'># Set file parameters</span>
+<b><span style='color:#644a9b;'>file</span></b>.setparams((nChannels, sampleWidth, sRate, nSamples, <span style='color:#bf0303;'>'NONE'</span>, <span style='color:#bf0303;'>'uncompressed'</span>))
+
+<span style='color:#898887;'># Open a text file in write mode.  This is for simple observation of the generated results</span>
+<b><span style='color:#644a9b;'>print</span></b> <span style='color:#bf0303;'>'Opening data file...'</span>
+datFile = <b><span style='color:#644a9b;'>open</span></b>(<span style='color:#bf0303;'>'sine50Hz.dat'</span>, <span style='color:#bf0303;'>'wt'</span>)
+
+<span style='color:#898887;'># Write array into wave file</span>
+<b><span style='color:#644a9b;'>print</span></b> <span style='color:#bf0303;'>'Writing wave file...'</span>
+<b><span style='color:#644a9b;'>file</span></b>.writeframes(rawData)
+
+<span style='color:#898887;'># Traverese array of sine values, write out data element with added new line.</span>
+<b><span style='color:#644a9b;'>print</span></b> <span style='color:#bf0303;'>'Writing data file...'</span>
+<b>for</b> i <b>in</b> <b><span style='color:#644a9b;'>range</span></b>(nSamples):
+    dataElement = <b><span style='color:#644a9b;'>str</span></b>(vals[i]) + <span style='color:#bf0303;'>'</span><span style='color:#924c9d;'>\n</span><span style='color:#bf0303;'>'</span>
+    datFile.write(dataElement)
+
+<span style='color:#898887;'># Close wave file</span>
+<b><span style='color:#644a9b;'>print</span></b> <span style='color:#bf0303;'>'Closing wave file...'</span>
+<b><span style='color:#644a9b;'>file</span></b>.close()
+
+<span style='color:#898887;'># Close text data file</span>
+<b><span style='color:#644a9b;'>print</span></b> <span style='color:#bf0303;'>'Closing data file...'</span>
+datFile.close()
+
+<span style='color:#898887;'># Plot sine values to observe operation</span>
+<b><span style='color:#644a9b;'>print</span></b> <span style='color:#bf0303;'>'Plotting data...'</span>
+plt.plot(vals)
+plt.title(<span style='color:#bf0303;'>'Sine Wave 50Hz Sampled at 44100Hz for 10 Periods'</span>)
+plt.ylabel(<span style='color:#bf0303;'>'Amplitude [Arbitrary Units]'</span>)
+plt.xlabel(<span style='color:#bf0303;'>'Samples [Arbitrary Units]'</span>)
+plt.show()
+</pre>
+</body>
+</html>
