@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta name="Generator" content="Kate, the KDE Advanced Text Editor" />
+<title>conway.py</title>
+</head>
+<!-- Highlighting: "Python" -->
+<body>
+<pre style='font-weight:bold;color:#b2b2b2;background-color:#000000;'>
+<b><span style='color:#ff54ff;'>import</span></b> sys, argparse
+<b><span style='color:#ff54ff;'>import</span></b> numpy <b><span style='color:#ff54ff;'>as</span></b> np
+<b><span style='color:#ff54ff;'>import</span></b> matplotlib.pyplot <b><span style='color:#ff54ff;'>as</span></b> plt
+<b><span style='color:#ff54ff;'>import</span></b> matplotlib.animation <b><span style='color:#ff54ff;'>as</span></b> animation
+
+ON <b>=</b> <b><span style='color:#ff54ff;'>255</span></b>
+OFF <b>=</b> <b><span style='color:#ff54ff;'>0</span></b>
+
+vals <b>=</b> [ON, OFF]
+
+<b><span style='color:#dede49;'>def</span></b> randomGrid(N):
+    <b><span style='color:#54ffff;'>&quot;&quot;&quot;</span></b><b><span style='color:#54ffff;'> returns a grid of N x N values </span></b><b><span style='color:#54ffff;'>&quot;&quot;&quot;</span></b>
+    <b><span style='color:#ffff54;'>return</span></b> np.random.choice(vals, N<b>*</b>N, p<b>=</b>[<b><span style='color:#ff54ff;'>0.2</span></b>, <b><span style='color:#ff54ff;'>0.8</span></b>]).reshape(N, N)
+                            
+<b><span style='color:#dede49;'>def</span></b> addGlider(i, j, grid):
+    <b><span style='color:#54ffff;'>&quot;&quot;&quot;</span></b><b><span style='color:#54ffff;'> adds a glider with top-left cell at (i, j)</span></b><b><span style='color:#54ffff;'>&quot;&quot;&quot;</span></b>
+    glider <b>=</b> np.array([[<b><span style='color:#ff54ff;'>0</span></b>, <b><span style='color:#ff54ff;'>0</span></b>, <b><span style='color:#ff54ff;'>255</span></b>],
+                       [<b><span style='color:#ff54ff;'>255</span></b>, <b><span style='color:#ff54ff;'>0</span></b>, <b><span style='color:#ff54ff;'>255</span></b>],
+                       [<b><span style='color:#ff54ff;'>0</span></b>, <b><span style='color:#ff54ff;'>255</span></b>, <b><span style='color:#ff54ff;'>255</span></b>]])
+    grid[i:i<b>+</b><b><span style='color:#ff54ff;'>3</span></b>, j:j<b>+</b><b><span style='color:#ff54ff;'>3</span></b>] <b>=</b> glider
+    
+<b><span style='color:#dede49;'>def</span></b> update(framenum, img, grid, N):
+    <b><span style='color:#54ffff;'># copy grid since we require 8 neighbors for calculation</span></b>
+    <b><span style='color:#54ffff;'># and we go line by line</span></b>
+    newGrid <b>=</b> grid.copy()
+    <b><span style='color:#ffff54;'>for</span></b> i <b><span style='color:#dede49;'>in</span></b> <b><span style='color:#644a9b;'>range</span></b>(N):
+        <b><span style='color:#ffff54;'>for</span></b> j <b><span style='color:#dede49;'>in</span></b> <b><span style='color:#644a9b;'>range</span></b>(N):
+            <b><span style='color:#54ffff;'># compute 8-neighbor sum using toroidal boundary conditions</span></b>
+            <b><span style='color:#54ffff;'># x and y wrap around so that the simulation</span></b>
+            <b><span style='color:#54ffff;'># takes place on a toroidal surface</span></b>
+            total <b>=</b> <b><span style='color:#644a9b;'>int</span></b>((grid[i, (j<b>-</b><b><span style='color:#ff54ff;'>1</span></b>)<b>%</b>N] <b>+</b> grid[i, (j<b>+</b><b><span style='color:#ff54ff;'>1</span></b>)<b>%</b>N] <b>+</b>
+                         grid[(i<b>-</b><b><span style='color:#ff54ff;'>1</span></b>)<b>%</b>N, j] <b>+</b> grid[(i<b>+</b><b><span style='color:#ff54ff;'>1</span></b>)<b>%</b>N, j] <b>+</b>
+                         grid[(i<b>-</b><b><span style='color:#ff54ff;'>1</span></b>)<b>%</b>N, (j<b>-</b><b><span style='color:#ff54ff;'>1</span></b>)<b>%</b>N] <b>+</b> grid[(i<b>-</b><b><span style='color:#ff54ff;'>1</span></b>)<b>%</b>N, (j<b>+</b><b><span style='color:#ff54ff;'>1</span></b>)<b>%</b>N] <b>+</b>
+                         grid[(i<b>+</b><b><span style='color:#ff54ff;'>1</span></b>)<b>%</b>N, (j<b>-</b><b><span style='color:#ff54ff;'>1</span></b>)<b>%</b>N] <b>+</b> grid[(i<b>+</b><b><span style='color:#ff54ff;'>1</span></b>)<b>%</b>N, (j<b>+</b><b><span style='color:#ff54ff;'>1</span></b>)<b>%</b>N])<b>/</b><b><span style='color:#ff54ff;'>255</span></b>)
+            <b><span style='color:#54ffff;'># apply Conway's rules</span></b>
+            <b><span style='color:#ffff54;'>if</span></b> grid[i, j] <b>==</b> ON:
+                <b><span style='color:#ffff54;'>if</span></b> (total <b>&lt;</b> <b><span style='color:#ff54ff;'>2</span></b>) <b><span style='color:#dede49;'>or</span></b> (total <b>&gt;</b> <b><span style='color:#ff54ff;'>3</span></b>):
+                    newGrid[i, j] <b>=</b> OFF
+            <b><span style='color:#ffff54;'>else</span></b>:
+                <b><span style='color:#ffff54;'>if</span></b> total <b>==</b> <b><span style='color:#ff54ff;'>3</span></b>:
+                    newGrid[i, j] <b>=</b> ON
+    <b><span style='color:#54ffff;'># update data</span></b>
+    img.set_data(newGrid)
+    grid[:] <b>=</b> newGrid[:]
+    <b><span style='color:#ffff54;'>return</span></b> img,
+        
+<b><span style='color:#54ffff;'># main function</span></b>
+<b><span style='color:#dede49;'>def</span></b> main():
+    <b><span style='color:#54ffff;'># command line arguments are in sys.argv[1], sys.argv[2], ...</span></b>
+    <b><span style='color:#54ffff;'># sys.argv[0] is the script name and can be ignored</span></b>
+    <b><span style='color:#54ffff;'># parse arguments</span></b>
+    parser <b>=</b> argparse.ArgumentParser(description<b>=</b><b><span style='color:#ff54ff;'>&quot;Runs Conway's Game of Life simulation.&quot;</span></b>)
+    <b><span style='color:#54ffff;'># add arguments</span></b>
+    parser.add_argument(<b><span style='color:#ff54ff;'>'--grid-size'</span></b>, dest<b>=</b><b><span style='color:#ff54ff;'>'N'</span></b>, required<b>=</b><b><span style='color:#aaaaff;'>False</span></b>)
+    parser.add_argument(<b><span style='color:#ff54ff;'>'--mov-file'</span></b>, dest<b>=</b><b><span style='color:#ff54ff;'>'movfile'</span></b>, required<b>=</b><b><span style='color:#aaaaff;'>False</span></b>)
+    parser.add_argument(<b><span style='color:#ff54ff;'>'--interval'</span></b>, dest<b>=</b><b><span style='color:#ff54ff;'>'interval'</span></b>, required<b>=</b><b><span style='color:#aaaaff;'>False</span></b>)
+    parser.add_argument(<b><span style='color:#ff54ff;'>'--glider'</span></b>, action<b>=</b><b><span style='color:#ff54ff;'>'store_true'</span></b>, required<b>=</b><b><span style='color:#aaaaff;'>False</span></b>)
+    parser.add_argument(<b><span style='color:#ff54ff;'>'--gosper'</span></b>, action<b>=</b><b><span style='color:#ff54ff;'>'store_true'</span></b>, required<b>=</b><b><span style='color:#aaaaff;'>False</span></b>)
+    args <b>=</b> parser.parse_args()
+    
+    <b><span style='color:#54ffff;'># set grid size</span></b>
+    N <b>=</b> <b><span style='color:#ff54ff;'>100</span></b>
+    <b><span style='color:#ffff54;'>if</span></b> args.N <b><span style='color:#dede49;'>and</span></b> <b><span style='color:#644a9b;'>int</span></b>(args.N) <b>&gt;</b> <b><span style='color:#ff54ff;'>8</span></b>:
+        N <b>=</b> <b><span style='color:#644a9b;'>int</span></b>(args.N)
+        
+    <b><span style='color:#54ffff;'># set the animation update interval</span></b>
+    updateInterval <b>=</b> <b><span style='color:#ff54ff;'>50</span></b>
+    <b><span style='color:#ffff54;'>if</span></b> args.interval:
+        updateInterval <b>=</b> <b><span style='color:#644a9b;'>int</span></b>(args.interval)
+        
+    <b><span style='color:#54ffff;'># declare grid</span></b>
+    grid <b>=</b> np.array([])
+    <b><span style='color:#54ffff;'># check if &quot;glider&quot; demo flag is specified</span></b>
+    <b><span style='color:#ffff54;'>if</span></b> args.glider:
+        grid <b>=</b> np.zeros(N<b>*</b>N).reshape(N, N)
+        addGlider(<b><span style='color:#ff54ff;'>1</span></b>, <b><span style='color:#ff54ff;'>1</span></b>, grid)
+    <b><span style='color:#ffff54;'>else</span></b>:
+        <b><span style='color:#54ffff;'># populate grid with random on/off - more off than on</span></b>
+        grid <b>=</b> randomGrid(N)
+        
+    <b><span style='color:#54ffff;'># set up the animation</span></b>
+    fig, ax <b>=</b> plt.subplots()
+    img <b>=</b> ax.imshow(grid, interpolation<b>=</b><b><span style='color:#ff54ff;'>'nearest'</span></b>)
+    <b><span style='color:#54ffff;'># I changed the number of frames from 10 to 100 in the next line.</span></b>
+    ani <b>=</b> animation.FuncAnimation(fig, update, fargs<b>=</b>(img, grid, N, ),
+                                  frames <b>=</b> <b><span style='color:#ff54ff;'>100</span></b>,
+                                  interval <b>=</b> updateInterval,
+                                  save_count <b>=</b> <b><span style='color:#ff54ff;'>50</span></b>)
+    
+    <b><span style='color:#54ffff;'># number of frames?</span></b>
+    <b><span style='color:#54ffff;'># set the output file</span></b>
+    <b><span style='color:#54ffff;'># I added the next two lines to get script to work.</span></b>
+    Writer <b>=</b> animation.writers[<b><span style='color:#ff54ff;'>'ffmpeg'</span></b>]
+    writer <b>=</b> Writer(fps<b>=</b><b><span style='color:#ff54ff;'>15</span></b>, metadata<b>=</b><b><span style='color:#644a9b;'>dict</span></b>(artist<b>=</b><b><span style='color:#ff54ff;'>'Me'</span></b>), bitrate<b>=</b><b><span style='color:#ff54ff;'>1800</span></b>)
+
+    <b><span style='color:#ffff54;'>if</span></b> args.movfile:
+        <b><span style='color:#54ffff;'># The line below is from the book, and seems to be causing file I/O errors</span></b>
+        <b><span style='color:#54ffff;'>#ani.save(args.movfile, fps=30, extra_args=['-vcoded', 'libx264'])</span></b>
+	<b><span style='color:#54ffff;'># I replaced the line above with the one below to get the script to work.</span></b>
+        ani.save(args.movfile, writer<b>=</b>writer)
+    plt.show()
+    
+<b><span style='color:#54ffff;'># call main</span></b>
+<b><span style='color:#ffff54;'>if</span></b> <b><span style='color:#aaaaff;'>__name__</span></b> <b>==</b> <b><span style='color:#ff54ff;'>'__main__'</span></b>:
+    main()
+    
+                        
+</pre>
+</body>
+</html>

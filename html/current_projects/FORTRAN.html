@@ -157,6 +157,19 @@
       padding		: 10px;
     }
     
+    .current_project_10 {
+      border		: 5px solid black;
+      background	: gray;
+      position		: relative;
+      width		: 1250px;
+      height		: 1400px;
+      top		: 10px;
+      left		: 0px;
+      float		: left;
+      margin		: 10px;
+      padding		: 10px;
+    }
+    
     div .img {
       margin		: 0px;
       padding		: 10px;
@@ -481,43 +494,73 @@
         
             <hgroup>
                 <h2>
-                    H2
+                    Program to calculate the value of the natural logarithm base, also known as e
                 </h2>
             </hgroup>
             
             <hgroup>
                 <h3>
-                    H3
+                    Exercise 2.6.8
                 </h3>
             </hgroup>
         
             <div class="loose_text">
-        
-            Loose text
-
-
+                This program calculates the value of e, using the expression (1+1/x)^(x) using successive powers of 2 and 3 with varying precision as well as S(n=0, inf)[1/x!] using successive additional terms with varying precision, where S is the capital Greek sigma, meaning summation, and x! is x factorial.
             </div> <!-- .loose_text -->
+            
+            <iframe
+                src="code_fortran/exercise_2_6_8.f08.html" 
+                height="800" 
+                width="1000">
+            </iframe>
+
+        </div> <!-- .current_project_9 -->
+        
+    </section> <!-- .ninth_section -->
+<!-- *************************************************************************************************** -->
+
+
+<!-- *************************************************************************************************** -->
+    <section class="tenth_section">
+        
+        <div class="current_project_10">
+        
+            <hgroup>
+                <h2>
+                    Program to calculate the median of three entered numbers.
+                </h2>
+            </hgroup>
             
             <hgroup>
                 <h3>
-                    H3
+                    Exercise 3.6.1
                 </h3>
-            </hgroup>            
-            
+            </hgroup>
+        
             <div class="loose_text">
- 
-                Loose text
-          
+                <p>
+                    This program ask the user to enter three numbers and finds the median.  It uses a contains block, rather than putting the functions and procedures in a module.  This is done to be proficient in both methods of function incorporation into programs.
+                </p>
+                <p>
+                    First, in order to facilitate sorting, a subrouting "swap" is written.  Its arguments have the attributes "in out", so they are passed by reference, so they are directly modified within the subroutine.  Basically the subroutine swaps the arguments a with b.
+                </p>
+                <p>
+                    The subroutine "sort" essentially uses the swap subroutine to perform a selection sort, by swapping the minimum value to the front of the list.
+                </p>
+                <p>
+                    Finally, the function medianOf3 makes use of the sort subroutine to find the middle value and return it.  The arguments to sort are passed by reference, and the names or the arguments with respect to the sort subroutine are named explicitly in the subroutine call.
+                </p>
             </div> <!-- .loose_text -->
             
-            <div class="loose_text">
-                Loose text
-          
-           </div> <!-- .loose_text -->
+            <iframe
+                src="code_fortran/Exercise 3_6_1.f08.html" 
+                height="1000" 
+                width="1000">
+            </iframe>
+
+        </div> <!-- .current_project_10 -->
         
-        </div> <!-- .current_project_9 -->
-        
-    </section> <!-- .eigth_section -->
+    </section> <!-- .tenth_section -->
 <!-- *************************************************************************************************** -->
         
   </section>	<!-- .content -->
