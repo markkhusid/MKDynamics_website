@@ -110,40 +110,41 @@
     <p> <b> Fortran 2003 Code to Perform Discretized Fast Fourier Transform on Processed File </b><br>
       <b> Version 5 </b><br>
       <iframe
-	src = "code_FFTW3/data_file_FFTW_ver5.F03.html"
+	src = "code_FFTW3/data_file_FFTW_ver6.F03.html"
 	width = "900"
 	height = "800"
 	frameborder = "1"
 	scrolling = "yes">
       </iframe><br>
-      <a href="code_FFTW3/data_file_FFTW_ver5.F03" target="_top">Fortran 2003 code that takes in parameters and performs DFFT to generate output file</a><br> 
-      Compile by typing: <b>gfortran -o a.out data_file_FFTW.F03 -lfftw3</b> <br>
-      Run by typing: <b>./a.out outfile.dat DFFT_mag_file.dat DFFT_phase_file.dat</b> <br>
-      where outfile.dat is the output of the Python script, DFFT_mag_file.dat is the DFFT magnitude <br>
-      DFFT_phase_file.dat is the DFFT phase (if applicable)<br>
+      <a href="code_FFTW3/data_file_FFTW_ver6.F03" target="_top">Fortran 2003 code that takes in parameters and performs DFFT to generate output file</a><br> 
+      Compile by typing: <b>gfortran -o a.out data_file_FFTW_ver6.F03 -lfftw3</b> <br>
+      Run by typing: <b>./a.out outfile.dat DFFT_mag_file.dat DFFT_phase_file.dat sample_rate num_periods</b> <br>
+      where outfile.dat is the output of the Python script, DFFT_mag_file.dat is the DFFT magnitude file,<br>
+      DFFT_phase_file.dat is the DFFT phase file,sample_rate is the rate of sampling of the input data file, and num_periods<br>
+      is the number of periods of data in the input data file.<br>
       The line count can be obtained by typing: <b>wc -l outfile.dat</b> 
     </p>
     
     <h3 id="DFFT Program Performance">
       Perfmance of Fortran 2003 DFFT Program for: <br>
       <a href="sine_wv_10Hz.html" target="_top">Sine Wave at 10Hz</a><br>
-      <img src="images/sine_wave2_10Hz.jpg" width="300" height="225" title="Magnitude plot of DFFT of 10Hz sine wave"/>
-      <img src="images/DFFT_mag_sine_wave2_10Hz.jpeg" width="300" height="225" title="Magnitude plot of DFFT of 10Hz sine wave"/><br>
+      <img src="images/sine_wave2_10Hz.jpg" width="600" height="450" title="Magnitude plot of DFFT of 10Hz sine wave"/>
+      <img src="images/DFFT_mag_sine_wave2_10Hz.jpeg" width="600" height="450" title="Magnitude plot of DFFT of 10Hz sine wave"/><br>
       
       <br>
       <a href="sq_wv_1Hz.html" target="_top">Square Wave at 1Hz</a><br>
-      <img src="images/sq_wave_1Hz_50pct.jpeg" width="300" height="225" title="Magnitude plot of DFFT of 10Hz sine wave"/>
-      <img src="images/DFFT_mag_sq_wv2_1Hz_50pct.jpeg" width="300" height="225" title="Magnitude plot of DFFT of 10Hz sine wave"/><br>
+      <img src="images/sq_wave_1Hz_50pct.jpeg" width="600" height="450" title="Magnitude plot of DFFT of 10Hz sine wave"/>
+      <img src="images/DFFT_mag_sq_wv2_1Hz_50pct.jpeg" width="600" height="450" title="Magnitude plot of DFFT of 10Hz sine wave"/><br>
       
       <br>
       <a href="exp_pulse_10tc.html" target="_top">Exponential Pulse of Time Constant 10 seconds</a><br>
-      <img src="images/exp_pulse_tc10.jpeg" width="300" height="225" title="Magnitude plot of DFFT of 10Hz sine wave"/>
-      <img src="images/DFFT_mag_exp_pulse_10tc.jpeg" width="300" height="225" title="Magnitude plot of DFFT of 10Hz sine wave"/><br>
+      <img src="images/exp_pulse_tc10.jpeg" width="600" height="450" title="Magnitude plot of DFFT of 10Hz sine wave"/>
+      <img src="images/DFFT_mag_exp_pulse_10tc.jpeg" width="600" height="450" title="Magnitude plot of DFFT of 10Hz sine wave"/><br>
       
       <br>
       <a href="sine_wv_50Hz.html" target="_top">Sine Wave at 50Hz</a><br>
-      <img src="images/FFTW3/sine_wv_50Hz.jpg" width="300" height="225" title="sine_wv_50Hz.jpg"/>
-      <img src="images/FFTW3/DFFT_sine_wv_50Hz.png" width="300" height="225" title="DFFT_sine_wv_50Hz.png"/>
+      <img src="images/FFTW3/sine_wv_50Hz.png" width="600" height="450" title="sine_wv_50Hz.jpg"/>
+      <img src="images/FFTW3/DFFT_sine_wv_50Hz.png" width="600" height="450" title="DFFT_sine_wv_50Hz.png"/>
     </h3>
     
     <hr />

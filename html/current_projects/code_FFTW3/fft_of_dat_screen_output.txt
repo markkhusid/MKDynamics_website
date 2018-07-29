@@ -1,10 +1,18 @@
- MKDyanmics_FFT Program Version 5.
- The first argument is ->
+ MKDyanmics_FFT Program Version 6.
+ The first argument is (input file name) ->
  sine50Hz.dat                                                                    
- The second argument is ->
+ The second argument is (output magnitude file name) ->
  DFFT_mag_50Hz.dat                                                               
- The third argument is ->
+ The third argument is (output phase file name) ->
  DFFT_phase_50Hz.dat                                                             
+ The fourth argument is (sample rate) as string ->
+ 44100                                                                           
+ The fourth argument is (sample rate) as integer ->
+       44100
+ The fifth argument is (number of periods) as string ->
+ 10                                                                              
+ The fifth argument is (number of periods) as integer ->
+          10
  Input file opened successfully...
  Output magnitude file created successfully...
  Output phase file created successfully...
@@ -18,12 +26,12 @@ The counter is ->   1
 The first data element was ->        0.00000000000000000000
 The EOF marker is ->   0
  EOF reached
-The number of lines in the input file is ->    441000
+The number of lines in the input file is ->    440857
  Exiting get_num_data_elements procedure
 
  Entering allocate_memory procedure
 
-The closest log base 2 bins is (as real)->             18.7504
+The closest log base 2 bins is (as real)->             18.7500
 The closest number of power of 2 bins is (as integer)->  524288
 
 Was memory allocated successfully for input array? ->T
@@ -47,10 +55,12 @@ Scratchpad Array allocated with size ->    524288
 
  Executing DFFT on input array...
  DFFT execution successfull
+ The contents of the output array is ->
  Exiting compute_DFFT procedure
 
  Entering write_DFFT_to_file procedure
 
+The number of total number of samples is ->   441000
  Output magnitude file written successfully....
  Output phase file written successfully....
  Plan destroyed successfully....

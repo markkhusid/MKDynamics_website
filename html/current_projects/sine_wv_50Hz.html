@@ -64,19 +64,17 @@
       <hr />
     </h4>
     <p>
-        We use Python together Numpy arrays to create a sine wave at 50Hz for 10 periods.  We then use the DFFT Fortran program to computer the DFFT and plot its output with GNUPlot.
+        We use Python together Numpy arrays and Matplotlib within a Jupyter Notebook to create a sine wave at 50Hz for 10 periods.  We then plot the time domain graph of the sine wave, and then compute the Discretized Fast Fourier Transform using the Python libraries.  The time domain data is then outputted to a file and used as an input for the DFFT Fortran program to computed the DFFT and plot its output with GNUPlot.
       <hr /><br>
     </p>
     
     <p> <b> Introduction: </b><br>
-      First, we start with a Python script to generate a 50Hz sine wave, sampled at 44100Hz, and save these raw data points to a file.  We also use Python's Wave package to produce a .wav file that can be actually played using wave file player software.<br>
-      into a CSV file.  We also perform a DFFT in SciLAB so that we may compare the results to the output<br>
-      of our Fortran 2003 code that uses the FFTW3 algorithm.  The SciLAB code is shown below:<br>
+      First, we start with a Python script written in Jupyter Notebook to generate a 50Hz sine wave, sampled at 44100Hz, for 10 periods, and save these raw data points to a file.  The Jupyter Notebook is shown below.  
     </p>
     
     <p> <b> Python code to generate a 50Hz sine wave sampled at 44100Hz.</b> <br>
       <iframe
-	src = "code_FFTW3/sine50Hz_text.py.html"
+	src = "code_FFTW3/sine50Hz_jupyter_python.html"
 	width = "850"
 	height = "600"
 	frameborder = "1"
@@ -87,16 +85,35 @@
     </p>
     
     <p>
-      We then run the code and obtain a time domain plot.  The result is shown below:<br>
+      We then run the code and obtain a time domain plot and a frequency domain plot.  The results are plotted with GNUPlot:<br>
     </p>
     
-    <p><b> Image of 50Hz Sine Wave using Python</b><br>
-      <img src="images/FFTW3/sine_wv_50Hz.jpg" width="600" height="450" title="50Hz Sine Wave"/><br>
-      Download the image by clicking the link below:<br>
-      <a href="images/FFTW3/sine_wv_50Hz.jpg" target="_top">Image of 50Hz sine wave</a><br>
+    <p><b> Image of 50Hz Sine Wave Generated Using Python+Numpy on Jupyter Notebook and Plotted with GNUPlot</b><br>
+        <img 
+            src="images/FFTW3/sine_wv_50Hz.png" 
+            width="600" 
+            height="450" 
+            title="50Hz Sine Wave"
+        />
+        <br>
+        Download the image by clicking the link below:<br>
+        <a href="images/FFTW3/sine_wv_50Hz.png" target="_top">Image of 50Hz sine wave</a><br><br><br>
+    
+        <img 
+            src="images/FFTW3/sine_wv_50Hz_freq_domain.png" 
+            width="600" 
+            height="450" 
+            title="50Hz Sine Wave"
+        />
+        <br>
+        Download the image by clicking the link below:<br>
+        <a href="images/FFTW3/sine_wv_50Hz_freq_domain.png" target="_top">Image of FFT of 50Hz sine wave</a><br>
+    
     </p>
 
-<!--
+
+    
+    <!--
     <p><b> Image of the DFFT of a 50Hz Sine Wave, sampled at 1000Hz, using SciLAB</b><br>
       <img src="images/sine_wave2_10Hz_FFT.jpg" width="600" height="450" title="SciLAB FFT of 10Hz Sine Wave"/><br>
       Download the image by clicking the link below:<br>
@@ -152,10 +169,9 @@
       <a href="code_FFTW3/processed_sn_wv3_10Hz.dat" target="_top">Output of Python script</a><br>
     </p>
 -->
-    
     <p> <b> Obtaining Discretized Fast Fourier Transform of Raw Data File </b> <br>
-      Now that the CSV file has been processed into a usable form, the data elements can now be fed <br>
-      into the FFTW3 DFFT algorithm.  The algorithm is used within a Fortran 2003 program.<br>
+      Now that the Python+Numpy on Jupyter Notebook script has output time domain data elements into a file, these<br>
+      data elements can now be fed into the FFTW3 DFFT algorithm.  The algorithm is used within a Fortran 2003 program.<br>
       <a href="current_projects_FFTW3.html#Fortran 2003 Code">Click this link to see the Fortran 2003 DFFT code.</a><br>
     </p>
     
@@ -165,14 +181,11 @@
     </p>
     
     <p>
-      Compile by typing: <b>gfortran -o a.out data_file_FFTW.F03 -lfftw3</b> <br>
-      where a.out is the name of the executable, data_file_FFTW.F03 is the file name of the source code.<br>
-    </p>
-    
-    <p>
-      Run by typing: <b>./a.out outfile.dat DFFT_mag_file.dat DFFT_phase_file.dat</b> <br>
-      where outfile.dat is the output of the Python script, DFFT_mag_file.dat is the DFFT magnitude <br>
-      DFFT_phase_file.dat is the DFFT phase (if applicable)<br>
+      Compile by typing: <b>gfortran -o a.out data_file_FFTW_ver6.F03 -lfftw3</b> <br>
+      Run by typing: <b>./a.out outfile.dat DFFT_mag_file.dat DFFT_phase_file.dat sample_rate num_periods</b> <br>
+      where outfile.dat is the output of the Python script, DFFT_mag_file.dat is the DFFT magnitude file,<br>
+      DFFT_phase_file.dat is the DFFT phase file,sample_rate is the rate of sampling of the input data file, and num_periods<br>
+      is the number of periods of data in the input data file.<br>
       The line count can be obtained by typing: <b>wc -l outfile.dat</b> 
     </p>
     
@@ -191,8 +204,8 @@
     </p>
     
     <p>
-      A section of the magnitude output file is shown below: <br>
-      <!--<iframe
+      <!--A section of the magnitude output file is shown below: <br>
+      --<iframe
 	src = "code_FFTW3/DFFT_mag_sn_wv_10Hz.dat"
 	width = "550"
 	height = "200"
@@ -223,15 +236,15 @@
       to facilitate quality plotting. <br>
       <b>GNUPlot script file</b><br>
       <iframe
-	src = "code_FFTW3/sine_wv_50Hz_gnuplot_macro.txt"
+	src = "code_FFTW3/sine_wv_50Hz_DFFT_gnuplot_macro.txt"
 	width = "550"
 	height = "120"
 	frameborder = "1"
 	scrolling = "no">
       </iframe><br>
       The GNUPlot script file may be downloaded by clicking <a href="code_FFTW3/sine_wv_50Hz_gnuplot_macro.txt">here.</a><br>
-      Run by typing <b>gnuplot sine_wv_50Hz_gnuplot_macro.txt</b> or start GNUPlot and enter<br>
-      <b>load "sine_wv_50Hz_gnuplot_macro.txt"</b> at the gnuplot command prompt <br>
+      Run by typing <b>gnuplot sine_wv_50Hz_DFFT_gnuplot_macro.txt</b> or start GNUPlot and enter<br>
+      <b>load "sine_wv_50Hz_DFFT_gnuplot_macro.txt"</b> at the gnuplot command prompt <br>
       
       <br><b> Magnitude Plot </b><br>
       <img src="images/FFTW3/DFFT_sine_wv_50Hz.png" width="600" height="450" title="Magnitude plot of DFFT of 50Hz sine wave"/><br>
@@ -248,7 +261,7 @@
       <hr />
     </h4>
     <p>
-      There appears to be a slight skew in frequency in the peak of the DFFT plot.  It appears to show a peak of around 59Hz, rather than purely 50Hz.  Since other raw data inputs into the Fortran program produced results as expected, the skew may be related to the way the data were generated in Python+Numpy or the way it was saved into a text file.  More research is needed to find the cause.
+      There appears to be a slight decrease in the peak of the magnitude of the DFFT plot.  It appears to show a peak of around 8 units, rather than purely 10 units.  Since other raw data inputs into the Fortran program produced results as expected, the skew may be related to the way the data were generated in Python+Numpy or the way it was saved into a text file.  More research is needed to find the cause.
       <hr />      
     </p>
    

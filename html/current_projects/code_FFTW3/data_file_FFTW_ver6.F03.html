@@ -1,0 +1,512 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta name="Generator" content="Kate, the KDE Advanced Text Editor" />
+<title>data_file_FFTW_ver6.F03</title>
+</head>
+<!-- Highlighting: "Fortran" -->
+<body>
+<pre style='color:#1f1c1b;background-color:#ffffff;'>
+<span style='color:#898887;'>! DFFT from Processed Data File</span>
+<span style='color:#898887;'>! Written by Mark Khusid 2015</span>
+<span style='color:#898887;'>!</span>
+<span style='color:#898887;'>! 2018</span>
+<span style='color:#898887;'>! Version 6</span>
+<span style='color:#898887;'>! Increased amount of command line arguments to 5 from 3.  The added two were sample rate and number of periods.</span>
+<span style='color:#898887;'>! Cleaned up indentation and formatting.</span>
+<span style='color:#898887;'>! Modified the write_DFFT_to_file subroutine to output not only the DFFT data element but also the corrected frequency</span>
+<span style='color:#898887;'>! on each line of the data file.  The DFFT data element and corrected frequency are separated by a space</span>
+<span style='color:#898887;'>! Obtained the corrected frequency based on the sampe rate and the next power of two of the total number of samples (i.e. 100 samples -&gt; next power of 2 = 128.)</span>
+<span style='color:#898887;'>! Since there are num_bins_int number of data elements in FFT array, and the FFT array is symmetric, we divide the magnitude by half the num_bins_int to get the normalized magnitude.</span>
+<span style='color:#898887;'>!</span>
+<span style='color:#898887;'>! Version 5</span>
+<span style='color:#898887;'>! Commented out debug code and rearranged some inconsequential lines.</span>
+<span style='color:#898887;'>!</span>
+<span style='color:#898887;'>! 2015</span>
+<span style='color:#898887;'>! Version 4</span>
+<span style='color:#898887;'>! Numerous fixes.  Changed code to allocate memory based on the next power of 2 relative</span>
+<span style='color:#898887;'>! to the number of element in the input file.  For example, a data file with 1000 data elements</span>
+<span style='color:#898887;'>! will cause arrays to be allocated with 1024 elements.  This is done to prevent errors in the FFT.</span>
+<span style='color:#898887;'>! Extra array space above and beyond what is in data file is padded with zeros.</span>
+<span style='color:#898887;'>! Reformatted most of the debug output.</span>
+<span style='color:#898887;'>! Used ATAN2, separate variables and formatting to ensure that small values of the real part will not </span>
+<span style='color:#898887;'>! cause phase errors.</span>
+<span style='color:#898887;'>!</span>
+<span style='color:#898887;'>! Version 3</span>
+<span style='color:#898887;'>! This version counts the number of data elements in the file automatically.</span>
+<span style='color:#898887;'>! This version is rewritten to make use of subroutines.</span>
+
+<b>module</b> MKDynamics_FFT
+
+  <b>use</b>, <b>intrinsic</b>      <span style='color:#0057ae;'>::</span> iso_c_binding
+    <b>include</b> <span style='color:#bf0303;'>'fftw3.f03'</span>
+    
+    <span style='color:#0057ae;'>type(C_PTR)</span>         			<span style='color:#0057ae;'>::</span> plan
+    
+    <span style='color:#898887;'>! Input file name, output file name and number of bins, sample rate, number of periods</span>
+    <span style='color:#0057ae;'>integer</span>, <span style='color:#0057ae;'>parameter</span>                                      <span style='color:#0057ae;'>::</span> num_expected_args <b>=</b> <span style='color:#b08000;'>5</span>
+    
+    <span style='color:#898887;'>! FFTW input array</span>
+<span style='color:#0057ae;'>    real(C_DOUBLE)</span>, <span style='color:#0057ae;'>dimension(:)</span>, <span style='color:#0057ae;'>allocatable</span>			    <span style='color:#0057ae;'>::</span> in
+    
+    <span style='color:#898887;'>! FFTW output array</span>
+    <span style='color:#0057ae;'>complex(C_DOUBLE_COMPLEX)</span>, <span style='color:#0057ae;'>dimension(:)</span>, <span style='color:#0057ae;'>allocatable</span>	<span style='color:#0057ae;'>::</span> out
+    
+    <span style='color:#898887;'>! Holds the data read from the input file</span>
+<span style='color:#0057ae;'>    real(C_DOUBLE)</span>, <span style='color:#0057ae;'>dimension(:)</span>, <span style='color:#0057ae;'>allocatable</span>   			                <span style='color:#0057ae;'>::</span> temp_real_array
+    
+    <span style='color:#898887;'>! Used to perform complex math</span>
+<span style='color:#0057ae;'>    real(C_DOUBLE)</span>                                                                      <span style='color:#0057ae;'>::</span> magnitude, phase, temp_real
+    
+    <span style='color:#898887;'>! For checking if EOF reached</span>
+    <span style='color:#0057ae;'>integer</span>                                                                             <span style='color:#0057ae;'>::</span> EOF_marker
+    
+    <span style='color:#898887;'>! For checking if files opened successfully</span>
+    <span style='color:#0057ae;'>integer</span>                                     			                <span style='color:#0057ae;'>::</span> file_good1, file_good2, file_good3
+    
+    <span style='color:#898887;'>! For checking if files written successfully</span>
+    <span style='color:#0057ae;'>integer</span>                                                                             <span style='color:#0057ae;'>::</span> good_write1, good_write2			
+    
+    <span style='color:#898887;'>! Counter used to traverse arrays</span>
+    <span style='color:#0057ae;'>integer</span>                     							<span style='color:#0057ae;'>::</span> i
+    
+    <span style='color:#898887;'>! Contains number of arguments for verification of proper command line call</span>
+    <span style='color:#0057ae;'>integer</span>                     							<span style='color:#0057ae;'>::</span> num_args
+    
+    <span style='color:#898887;'>! Holds obtained number of bins</span>
+    <span style='color:#0057ae;'>integer</span>                     							<span style='color:#0057ae;'>::</span> num_bins_int
+    
+    <span style='color:#898887;'>! Holds memory allocation status of arrays</span>
+    <span style='color:#0057ae;'>integer</span>						                           	<span style='color:#0057ae;'>::</span> status1, status2, status3
+    
+    <span style='color:#898887;'>! Holds file names</span>
+    <span style='color:#0057ae;'>character(len=80)</span>               						<span style='color:#0057ae;'>::</span> input_file, output_mag_file
+    <span style='color:#0057ae;'>character(len=80)</span>				                   		<span style='color:#0057ae;'>::</span> output_phase_file
+    
+    <span style='color:#898887;'>! Holds sample rate argument string that will be converted to an integer</span>
+    <span style='color:#0057ae;'>character(len=80)</span>                                       <span style='color:#0057ae;'>::</span> sample_rate_string
+    
+    <span style='color:#898887;'>! Holds number of periods argument string that will be converted to an integer</span>
+    <span style='color:#0057ae;'>character(len=80)</span>                                       <span style='color:#0057ae;'>::</span> num_periods_string
+    
+    <span style='color:#898887;'>! Used to calculate the next power of 2 above input file size.  i.e. 1000 element array is increased to 1024 elements</span>
+<span style='color:#0057ae;'>    real</span>			                         				<span style='color:#0057ae;'>::</span> num_log2_bins_real
+    <span style='color:#0057ae;'>integer</span>							                        <span style='color:#0057ae;'>::</span> num_bins_int_pow2
+    
+    <span style='color:#898887;'>! Used to hold the sample rate of the input data file</span>
+    <span style='color:#0057ae;'>integer</span>                                                 <span style='color:#0057ae;'>::</span> sample_rate
+    
+    <span style='color:#898887;'>! Used to hold the number of periods of the input data file</span>
+    <span style='color:#0057ae;'>integer</span>                                                 <span style='color:#0057ae;'>::</span> num_periods
+    
+    <span style='color:#898887;'>! Used to hold the total number of samples within the input data file</span>
+    <span style='color:#0057ae;'>integer</span>                                                 <span style='color:#0057ae;'>::</span> num_samples
+       
+  <b>contains</b>
+    <b>subroutine</b> close_files_and_exit
+      <span style='color:#644a9b;'>close(</span><span style='color:#b08000;'>1</span><span style='color:#644a9b;'>)</span>
+      <span style='color:#644a9b;'>close(</span><span style='color:#b08000;'>10</span><span style='color:#644a9b;'>)</span>
+      <span style='color:#644a9b;'>close(</span><span style='color:#b08000;'>20</span><span style='color:#644a9b;'>)</span>
+      <span style='color:#644a9b;'>print</span> <b>*</b>, <span style='color:#bf0303;'>'Files closed.....'</span>
+      <span style='color:#644a9b;'>print</span> <b>*</b>, <span style='color:#bf0303;'>'Exiting.....'</span>
+      <b>stop</b>
+    <b>end subroutine</b> close_files_and_exit
+    
+    <b>subroutine</b> close_files_deallocate_and_exit(state)
+      <span style='color:#0057ae;'>integer</span> <span style='color:#0057ae;'>::</span> state
+      <span style='color:#644a9b;'>close (</span><span style='color:#b08000;'>1</span><span style='color:#644a9b;'>)</span>
+      <span style='color:#644a9b;'>close (</span><span style='color:#b08000;'>10</span><span style='color:#644a9b;'>)</span>
+      <span style='color:#644a9b;'>close (</span><span style='color:#b08000;'>20</span><span style='color:#644a9b;'>)</span>
+      <b>deallocate</b> (in)
+      <b>deallocate</b> (out)
+      <b>deallocate</b> (temp_real_array)
+        <b>if</b> (state <b>.eq.</b> <b>-</b><span style='color:#b08000;'>1</span>) <b>then</b>
+            <span style='color:#644a9b;'>print</span> <b>*</b>, <span style='color:#bf0303;'>'Files closed and memory deallocated'</span>
+            <span style='color:#644a9b;'>print</span> <b>*</b>, <span style='color:#bf0303;'>'Exiting.....'</span>
+        <b>stop</b>
+        <b>else</b>
+            <span style='color:#644a9b;'>print</span> <b>*</b>, <span style='color:#bf0303;'>'Files closed and memory deallocated'</span>
+        <b>end if</b>
+    <b>end subroutine</b> close_files_deallocate_and_exit
+    
+    <span style='color:#898887;'>! From stack overflow</span>
+    <b>elemental</b> <b>subroutine</b> str2int(str,<b><span style='color:#644a9b;'>int</span></b>)
+        <b>implicit</b> <b>none</b>
+        <span style='color:#898887;'>! Arguments</span>
+        <span style='color:#0057ae;'>character(len=*)</span>,<span style='color:#0057ae;'>intent(in)</span> <span style='color:#0057ae;'>::</span> str
+        <span style='color:#0057ae;'>integer</span>,<span style='color:#0057ae;'>intent(out)</span>         <span style='color:#0057ae;'>::</span> <b><span style='color:#644a9b;'>int</span></b>
+
+        <span style='color:#644a9b;'>read(</span>str,<span style='color:#644a9b;'>*)</span>  <b><span style='color:#644a9b;'>int</span></b>
+    <b>end subroutine</b> str2int
+    
+    <b>subroutine</b> get_args
+    <span style='color:#898887;'>! Verify that the number of arguments is correct.  Should be 5, otherwise display</span>
+      <span style='color:#898887;'>! error and terminate program</span>
+      num_args <b>=</b> command_argument_count()
+        <b>if</b> (num_args <b>.ne.</b> num_expected_args) <b>then</b>
+            <span style='color:#644a9b;'>print</span> <b>*</b>, <span style='color:#bf0303;'>'Improper number of arguments'</span>
+            <span style='color:#644a9b;'>print</span> <b>*</b>, <span style='color:#bf0303;'>'Argument list:'</span>
+            <span style='color:#644a9b;'>print</span> <b>*</b>, <span style='color:#bf0303;'>'&lt;input file name&gt; &lt;output magnitude file name&gt; &lt;output phase file name&gt; &lt;sample rate&gt; &lt;number of periods&gt;'</span> 
+            <b>call</b> close_files_and_exit	<span style='color:#898887;'>! Graceful exit, no cleanup  </span>
+        <b>end if</b>
+      
+      <span style='color:#898887;'>! Call subroutines that obtain the command line arguments and load the appropriate variables</span>
+      <b>call</b> get_command_argument (<span style='color:#b08000;'>1</span>, input_file)
+      <b>call</b> get_command_argument (<span style='color:#b08000;'>2</span>, output_mag_file)
+      <b>call</b> get_command_argument (<span style='color:#b08000;'>3</span>, output_phase_file)
+      <b>call</b> get_command_argument (<span style='color:#b08000;'>4</span>, sample_rate_string)
+      <b>call</b> get_command_argument (<span style='color:#b08000;'>5</span>, num_periods_string)
+      
+      <span style='color:#898887;'>! Debug code that ensures command line arguments were passed in properly</span>
+      <span style='color:#644a9b;'>print</span> <b>*</b>, <span style='color:#bf0303;'>'The first argument is (input file name) -&gt;'</span>
+      <span style='color:#644a9b;'>print</span> <b>*</b>, input_file
+      
+      <span style='color:#644a9b;'>print</span> <b>*</b>, <span style='color:#bf0303;'>'The second argument is (output magnitude file name) -&gt;'</span>
+      <span style='color:#644a9b;'>print</span> <b>*</b>, output_mag_file
+      
+      <span style='color:#644a9b;'>print</span> <b>*</b>, <span style='color:#bf0303;'>'The third argument is (output phase file name) -&gt;'</span>
+      <span style='color:#644a9b;'>print</span> <b>*</b>, output_phase_file
+      
+      <span style='color:#644a9b;'>print</span> <b>*</b>, <span style='color:#bf0303;'>'The fourth argument is (sample rate) as string -&gt;'</span>
+      <span style='color:#644a9b;'>print</span> <b>*</b>, sample_rate_string
+      <b>call</b> str2int(sample_rate_string, sample_rate)
+      <span style='color:#644a9b;'>print</span> <b>*</b>, <span style='color:#bf0303;'>'The fourth argument is (sample rate) as integer -&gt;'</span>
+      <span style='color:#644a9b;'>print</span> <b>*</b>, sample_rate
+      
+      <span style='color:#644a9b;'>print</span> <b>*</b>, <span style='color:#bf0303;'>'The fifth argument is (number of periods) as string -&gt;'</span>
+      <span style='color:#644a9b;'>print</span> <b>*</b>, num_periods_string
+      <b>call</b> str2int(num_periods_string, num_periods)
+      <span style='color:#644a9b;'>print</span> <b>*</b>, <span style='color:#bf0303;'>'The fifth argument is (number of periods) as integer -&gt;'</span>
+      <span style='color:#644a9b;'>print</span> <b>*</b>, num_periods
+      
+    <b>end subroutine</b> get_args
+  
+    <b>subroutine</b> open_files
+    <span style='color:#898887;'>! Begin to open files</span>
+      <span style='color:#644a9b;'>open (unit</span><b>=</b><span style='color:#b08000;'>1</span>, <span style='color:#644a9b;'>file</span><b>=</b><b><span style='color:#644a9b;'>TRIM</span></b>(input_file), <span style='color:#644a9b;'>status</span><b>=</b><span style='color:#bf0303;'>&quot;old&quot;</span>, <span style='color:#644a9b;'>IOSTAT</span><b>=</b>file_good1, <span style='color:#644a9b;'>form</span><b>=</b><span style='color:#bf0303;'>&quot;formatted&quot;</span>, <span style='color:#644a9b;'>access</span><b>=</b><span style='color:#bf0303;'>&quot;sequential&quot;</span>, <span style='color:#644a9b;'>action</span><b>=</b><span style='color:#bf0303;'>&quot;read&quot;</span><span style='color:#644a9b;'>)</span>
+      <span style='color:#898887;'>!open (unit=1, file=TRIM(input_file), IOSTAT=file_good1)</span>
+      <b>if</b> (file_good1 <b>.ne.</b> <span style='color:#b08000;'>0</span>) <b>then</b>
+        <span style='color:#644a9b;'>print</span> <b>*</b>, <span style='color:#bf0303;'>'Error opening input file!'</span>
+        <b>call</b> close_files_and_exit	<span style='color:#898887;'>! Graceful exit, no cleanup  </span>
+      <b>else if</b> (file_good1 <b>.eq.</b> <span style='color:#b08000;'>0</span>) <b>then</b>
+        <span style='color:#644a9b;'>print</span> <b>*</b>, <span style='color:#bf0303;'>'Input file opened successfully...'</span>
+      <b>end if</b>
+      
+      <span style='color:#644a9b;'>open (unit</span><b>=</b><span style='color:#b08000;'>10</span>, <span style='color:#644a9b;'>file</span><b>=</b><b><span style='color:#644a9b;'>TRIM</span></b>(output_mag_file), <span style='color:#644a9b;'>status</span><b>=</b><span style='color:#bf0303;'>&quot;replace&quot;</span>, <span style='color:#644a9b;'>IOSTAT</span><b>=</b>file_good2, <span style='color:#644a9b;'>form</span><b>=</b><span style='color:#bf0303;'>&quot;formatted&quot;</span>, <span style='color:#644a9b;'>access</span><b>=</b><span style='color:#bf0303;'>&quot;sequential&quot;</span><span style='color:#644a9b;'>)</span>
+      <b>if</b> (file_good2 <b>.ne.</b> <span style='color:#b08000;'>0</span>) <b>then</b>
+        <span style='color:#644a9b;'>print</span> <b>*</b>, <span style='color:#bf0303;'>'Error creating output magnitude file!'</span>
+        <b>call</b> close_files_and_exit	<span style='color:#898887;'>! Graceful exit, no cleanup  </span>
+      <b>else if</b> (file_good2 <b>.eq.</b> <span style='color:#b08000;'>0</span>) <b>then</b>
+        <span style='color:#644a9b;'>print</span> <b>*</b>, <span style='color:#bf0303;'>'Output magnitude file created successfully...'</span>
+      <b>end if</b>
+
+      <span style='color:#644a9b;'>open (unit</span><b>=</b><span style='color:#b08000;'>20</span>, <span style='color:#644a9b;'>file</span><b>=</b><b><span style='color:#644a9b;'>TRIM</span></b>(output_phase_file), <span style='color:#644a9b;'>status</span><b>=</b><span style='color:#bf0303;'>&quot;replace&quot;</span>, <span style='color:#644a9b;'>IOSTAT</span><b>=</b>file_good3, <span style='color:#644a9b;'>form</span><b>=</b><span style='color:#bf0303;'>&quot;formatted&quot;</span>, <span style='color:#644a9b;'>access</span><b>=</b><span style='color:#bf0303;'>&quot;sequential&quot;</span><span style='color:#644a9b;'>)</span>
+      <b>if</b> (file_good3 <b>.ne.</b> <span style='color:#b08000;'>0</span>) <b>then</b>
+        <span style='color:#644a9b;'>print</span> <b>*</b>, <span style='color:#bf0303;'>'Error creating output phase file!'</span>
+        <b>call</b> close_files_and_exit	<span style='color:#898887;'>! Graceful exit, no cleanup  </span>
+      <b>else if</b> (file_good3 <b>.eq.</b> <span style='color:#b08000;'>0</span>) <b>then</b>
+        <span style='color:#644a9b;'>print</span> <b>*</b>, <span style='color:#bf0303;'>'Output phase file created successfully...'</span>
+      <b>end if</b>
+
+    <span style='color:#898887;'>!   Debug code follows.  Tests to see if file opened properly.</span>
+      <span style='color:#644a9b;'>read (unit</span><b>=</b><span style='color:#b08000;'>1</span>, <span style='color:#644a9b;'>fmt</span><b>=</b><span style='color:#bf0303;'>'(f20.10)'</span>, <span style='color:#644a9b;'>IOSTAT</span> <b>=</b> EOF_marker<span style='color:#644a9b;'>)</span> temp_real
+      <span style='color:#644a9b;'>print</span> <b>*</b>, <span style='color:#bf0303;'>'The status of EOF_marker is'</span>
+      <span style='color:#644a9b;'>print</span> <b>*</b>, EOF_marker
+      <span style='color:#644a9b;'>print</span> <b>*</b>, <span style='color:#bf0303;'>'The first element read was'</span>
+      <span style='color:#644a9b;'>print</span> <b>*</b>, temp_real
+    <span style='color:#898887;'>!   Debug code ends</span>
+      <b>end subroutine</b> open_files
+    
+    <b>subroutine</b> get_num_data_elements
+      <span style='color:#898887;'>! Traverse through data file and count number of data elements in file</span>
+      <span style='color:#898887;'>! Get first data element from file to see whether it is the EOF character</span>
+        <span style='color:#644a9b;'>print</span> <b>*</b>, <span style='color:#bf0303;'>'Entering get_num_data_elements procedure'</span>
+        <span style='color:#644a9b;'>print</span> <b>*</b>
+        i <b>=</b> <span style='color:#b08000;'>1</span>
+        <span style='color:#644a9b;'>rewind(</span><span style='color:#b08000;'>1</span><span style='color:#644a9b;'>)</span>
+        <span style='color:#644a9b;'>read (</span><span style='color:#b08000;'>1</span>, <span style='color:#bf0303;'>'(f30.20)'</span>, <span style='color:#644a9b;'>IOSTAT</span> <b>=</b> EOF_marker<span style='color:#644a9b;'>)</span> temp_real
+    <span style='color:#898887;'>!	Debug code starts here</span>
+        <span style='color:#644a9b;'>write (*</span>, <span style='color:#bf0303;'>'(a, i4)'</span><span style='color:#644a9b;'>)</span> <span style='color:#bf0303;'>'The counter is -&gt;'</span>, i
+        <span style='color:#644a9b;'>write (*</span>, <span style='color:#bf0303;'>'(a, f30.20)'</span><span style='color:#644a9b;'>)</span> <span style='color:#bf0303;'>'The first data element was -&gt;'</span>, temp_real
+        <span style='color:#644a9b;'>write (*</span>, <span style='color:#bf0303;'>'(a, i4)'</span><span style='color:#644a9b;'>)</span> <span style='color:#bf0303;'>'The EOF marker is -&gt;'</span>, EOF_marker
+    <span style='color:#898887;'>!	print *</span>
+    <span style='color:#898887;'>! 	print *</span>
+    <span style='color:#898887;'>!	Debug code ends here</span>
+
+        <b>if</b> (EOF_marker <b>&lt;</b> <span style='color:#b08000;'>0</span>) <b>then</b>
+            <span style='color:#644a9b;'>print</span> <b>*</b>, <span style='color:#bf0303;'>'ERROR: Input file is empty'</span>
+            <b>call</b> close_files_and_exit	<span style='color:#898887;'>! Graceful exit, no cleanup  </span>
+        <b>end if</b>
+
+      <span style='color:#898887;'>! Establish loop that will count number of elements in file</span>
+        count_loop: <b>do</b>
+            <b>if</b> (EOF_marker <b>&lt;</b> <span style='color:#b08000;'>0</span>) <b>then</b>
+                <span style='color:#644a9b;'>print</span> <b>*</b>, <span style='color:#bf0303;'>'EOF reached'</span>
+                <b>exit</b> count_loop
+            <b>else</b>
+                i <b>=</b> i <b>+</b> <span style='color:#b08000;'>1</span>
+                <span style='color:#644a9b;'>read (</span><span style='color:#b08000;'>1</span>, <span style='color:#bf0303;'>'(f30.20)'</span>, <span style='color:#644a9b;'>IOSTAT</span> <b>=</b> EOF_marker<span style='color:#644a9b;'>)</span> temp_real
+                <span style='color:#898887;'>!write (*, '(a, i4, a, f30.20)'), 'The data element at', i, ' was -&gt;', temp_real</span>
+                <span style='color:#898887;'>!write (*, '(a, i4)'), 'The EOF_marker is -&gt;', EOF_marker</span>
+            <b>end if</b>
+        <b>end do</b> count_loop
+
+        <span style='color:#898887;'>! Copy over the number of counted elements into the num_bins_int variable less one for the EOF character</span>
+        num_bins_int <b>=</b> i <b>-</b> <span style='color:#b08000;'>1</span>
+        <span style='color:#644a9b;'>write (*</span>, <span style='color:#bf0303;'>'(a, i10)'</span><span style='color:#644a9b;'>)</span> <span style='color:#bf0303;'>'The number of lines in the input file is -&gt;'</span>, num_bins_int
+        <span style='color:#644a9b;'>print</span> <b>*</b>, <span style='color:#bf0303;'>'Exiting get_num_data_elements procedure'</span>
+        <span style='color:#644a9b;'>print</span> <b>*</b>
+    <b>end subroutine</b> get_num_data_elements
+  
+    <b>subroutine</b> allocate_memory
+	
+	<span style='color:#898887;'>! Allocate memory based on the number of bins</span>
+	<span style='color:#898887;'>! The number of bins will be used to find the next power of 2.</span>
+	<span style='color:#898887;'>! Display success status of memory allocation</span>
+	<span style='color:#898887;'>! If there is a problem with memory allocation, display error and terminate</span>
+	
+        <span style='color:#644a9b;'>print</span> <b>*</b>, <span style='color:#bf0303;'>'Entering allocate_memory procedure'</span>
+        <span style='color:#644a9b;'>print</span> <b>*</b>
+        num_log2_bins_real <b>=</b> <b><span style='color:#644a9b;'>log</span></b>(<b><span style='color:#644a9b;'>real</span></b>(num_bins_int))<b>/</b><b><span style='color:#644a9b;'>log</span></b>(<b><span style='color:#644a9b;'>real</span></b>(<span style='color:#b08000;'>2</span>))
+        <span style='color:#644a9b;'>write (*</span>, <span style='color:#bf0303;'>'(a, f20.4)'</span><span style='color:#644a9b;'>)</span> <span style='color:#bf0303;'>'The closest log base 2 bins is (as real)-&gt;'</span>, num_log2_bins_real
+        num_bins_int_pow2 <b>=</b> <span style='color:#b08000;'>2</span><b>**</b>(<b><span style='color:#644a9b;'>ceiling</span></b>(num_log2_bins_real))
+        <span style='color:#644a9b;'>write (*</span>, <span style='color:#bf0303;'>'(a, i8)'</span><span style='color:#644a9b;'>)</span> <span style='color:#bf0303;'>'The closest number of power of 2 bins is (as integer)-&gt;'</span>, num_bins_int_pow2
+	
+        <b>allocate</b> (in(num_bins_int_pow2), stat<b>=</b>status1)
+        <span style='color:#644a9b;'>print</span> <b>*</b>
+        <span style='color:#644a9b;'>write (*</span>, <span style='color:#bf0303;'>'(a, l)'</span><span style='color:#644a9b;'>)</span> <span style='color:#bf0303;'>'Was memory allocated successfully for input array? -&gt;'</span>, <b><i><span style='color:#644a9b;'>allocated</span></i></b>(in)  
+        <b>if</b> (status1 <b>.ne.</b> <span style='color:#b08000;'>0</span>) <b>then</b>
+            <span style='color:#644a9b;'>print</span> <b>*</b>, <span style='color:#bf0303;'>'Memory allocation error on input array'</span>
+            <b>call</b> close_files_and_exit	<span style='color:#898887;'>! Graceful exit, no cleanup  </span>
+        <b>end if</b>
+        <span style='color:#644a9b;'>write (*</span>, <span style='color:#bf0303;'>'(a, i10)'</span><span style='color:#644a9b;'>)</span> <span style='color:#bf0303;'>'Input Array allocated with size -&gt;'</span>, <b><i><span style='color:#644a9b;'>size</span></i></b>(in)
+	
+        <b>allocate</b> (out(num_bins_int_pow2), stat<b>=</b>status2)
+        <span style='color:#644a9b;'>print</span> <b>*</b>
+        <span style='color:#644a9b;'>write (*</span>, <span style='color:#bf0303;'>'(a, l)'</span><span style='color:#644a9b;'>)</span> <span style='color:#bf0303;'>'Was memory allocated successfully for output array? -&gt;'</span>, <b><i><span style='color:#644a9b;'>allocated</span></i></b>(out)  
+        <b>if</b> (status2 <b>.ne.</b> <span style='color:#b08000;'>0</span>) <b>then</b>
+            <span style='color:#644a9b;'>print</span> <b>*</b>, <span style='color:#bf0303;'>'Memory allocation error on output array'</span>
+            <b>deallocate</b> (in)
+            <b>call</b> close_files_and_exit	<span style='color:#898887;'>! Graceful exit, no cleanup  </span>
+        <b>end if</b>
+        <span style='color:#644a9b;'>write (*</span>, <span style='color:#bf0303;'>'(a, i10)'</span><span style='color:#644a9b;'>)</span> <span style='color:#bf0303;'>'Output Array allocated with size -&gt;'</span>, <b><i><span style='color:#644a9b;'>size</span></i></b>(out)
+	
+        <b>allocate</b> (temp_real_array(num_bins_int_pow2), stat<b>=</b>status3)
+        <span style='color:#644a9b;'>print</span> <b>*</b>
+        <span style='color:#644a9b;'>write (*</span>, <span style='color:#bf0303;'>'(a, l)'</span><span style='color:#644a9b;'>)</span> <span style='color:#bf0303;'>'Was memory allocated successfully for scratchpad array? -&gt;'</span>, <b><i><span style='color:#644a9b;'>allocated</span></i></b>(temp_real_array)  
+        <b>if</b> (status3 <b>.ne.</b> <span style='color:#b08000;'>0</span>) <b>then</b>
+            <span style='color:#644a9b;'>print</span> <b>*</b>, <span style='color:#bf0303;'>'Memory allocation error on scratchpad array'</span>
+            <b>deallocate</b> (in)
+            <b>deallocate</b> (out)
+            <b>call</b> close_files_and_exit	<span style='color:#898887;'>! Graceful exit, no cleanup  </span>
+        <b>end if</b>
+        <span style='color:#644a9b;'>write (*</span>, <span style='color:#bf0303;'>'(a, i10)'</span><span style='color:#644a9b;'>)</span> <span style='color:#bf0303;'>'Scratchpad Array allocated with size -&gt;'</span>, <b><i><span style='color:#644a9b;'>size</span></i></b>(temp_real_array)
+        <span style='color:#644a9b;'>print</span> <b>*</b>, <span style='color:#bf0303;'>'Exiting allocate_memory procedure'</span>
+        <span style='color:#644a9b;'>print</span> <b>*</b>
+    <b>end subroutine</b> allocate_memory
+      
+    <b>subroutine</b> read_from_file_into_array
+	<span style='color:#898887;'>! Establish a loop that reads the file from 1 to num_bins_int</span>
+	<span style='color:#898887;'>! Bring file pointer for input file back to first element </span>
+        <span style='color:#644a9b;'>print</span> <b>*</b>, <span style='color:#bf0303;'>'***** Subroutine read_from_file_into_array ******'</span>
+        <span style='color:#644a9b;'>rewind(</span><span style='color:#b08000;'>1</span><span style='color:#644a9b;'>)</span>
+        <b>do</b> i<b>=</b><span style='color:#b08000;'>1</span>, num_bins_int
+            <span style='color:#644a9b;'>read (</span><span style='color:#b08000;'>1</span>, <span style='color:#bf0303;'>'(f30.20)'</span>, <span style='color:#644a9b;'>IOSTAT</span> <b>=</b> EOF_marker<span style='color:#644a9b;'>)</span> temp_real_array(i)		<span style='color:#898887;'>! read data element from file</span>
+            <span style='color:#898887;'>! Debug code starts here</span>
+            <span style='color:#898887;'>!write (*, '(a, i4)'), 'The EOF marker is -&gt;', EOF_marker</span>
+            <span style='color:#898887;'>!write (*, '(a, i4)') 'The counter is -&gt;', i</span>
+            <span style='color:#898887;'>!write (*, '(a, 30f30.20)') 'The data element was -&gt; ', temp_real_array(i)</span>
+            <span style='color:#898887;'>!print *</span>
+            <span style='color:#898887;'>!print *</span>
+            <span style='color:#898887;'>! Debug code ends here</span>
+        <b>end do</b>
+	
+        <span style='color:#644a9b;'>print</span> <b>*</b>, <span style='color:#bf0303;'>'Padding remainder of array with zeros to fill up to size of next power of 2....'</span>
+        <b>do</b> i<b>=</b>num_bins_int<b>+</b><span style='color:#b08000;'>1</span>, num_bins_int_pow2
+            temp_real_array(i) <b>=</b> <span style='color:#b08000;'>0.0</span>
+            <span style='color:#898887;'>!write (*, '(a, i4)') 'The counter is -&gt;', i</span>
+            <span style='color:#898887;'>!write (*, '(a, 30f30.20)') 'The data element was -&gt; ', temp_real_array(i)</span>
+        <b>end do</b>
+	
+        <span style='color:#644a9b;'>print</span> <b>*</b>, <span style='color:#bf0303;'>'Exiting read_from_file_into_array procedure'</span>
+        <span style='color:#644a9b;'>print</span> <b>*</b>
+    <b>end subroutine</b> read_from_file_into_array
+      
+    <b>subroutine</b> compute_DFFT
+        <span style='color:#898887;'>! *************** FFT COMPUTATION SECTION **********************</span>
+        
+        <span style='color:#898887;'>! Establish array of reals that is the input the FFTW3 function</span>
+        <span style='color:#644a9b;'>print</span> <b>*</b>, <span style='color:#bf0303;'>'Entering compute_DFFT procedure'</span>
+        <span style='color:#644a9b;'>print</span> <b>*</b>
+        
+        in <b>=</b> temp_real_array
+        <span style='color:#644a9b;'>print</span> <b>*</b>, <span style='color:#bf0303;'>'num_bins_int_pow2 -&gt;'</span>, num_bins_int_pow2
+        <span style='color:#898887;'>! Use built in fucntion to create FFTW3 plan.  Tells FFTW3 what to do.</span>
+        plan <b>=</b> fftw_plan_dft_r2c_1d((num_bins_int_pow2), in, out, FFTW_ESTIMATE)
+        <span style='color:#898887;'>!print *, 'The FFTW3 plan is -&gt;'</span>
+        <span style='color:#898887;'>!call fftw_print_plan(plan)</span>
+        
+        <span style='color:#644a9b;'>print</span> <b>*</b>
+        <span style='color:#644a9b;'>print</span> <b>*</b>
+            
+        <span style='color:#898887;'>! Debug code starts here</span>
+        <span style='color:#898887;'>!print *, &quot;The contents of the input array is -&gt;&quot;</span>
+    <span style='color:#898887;'>! 	do i = 1,num_bins_int_pow2			 </span>
+    <span style='color:#898887;'>! 	  write (*, '(f30.20)'), in(i)</span>
+    <span style='color:#898887;'>! 	end do</span>
+        <span style='color:#898887;'>! Debug code ends here</span>
+        
+        <span style='color:#898887;'>! Execute FFTW3 to produce DFFT on data from file stored in array</span>
+        <span style='color:#644a9b;'>print</span> <b>*</b>, <span style='color:#bf0303;'>&quot;Executing DFFT on input array...&quot;</span>
+        <b>call</b> fftw_execute_dft_r2c(plan, in, out)
+        <span style='color:#644a9b;'>print</span> <b>*</b>, <span style='color:#bf0303;'>&quot;DFFT execution successfull&quot;</span>
+        
+
+        <span style='color:#898887;'>! Debug code starts here</span>
+    	<span style='color:#644a9b;'>print</span> <b>*</b>, <span style='color:#bf0303;'>&quot;The contents of the output array is -&gt;&quot;</span>
+<span style='color:#898887;'>!     	do i = 1,num_bins_int_pow2			 </span>
+<span style='color:#898887;'>!     	  write (*, '(f30.20, f30.20)') out(i)</span>
+<span style='color:#898887;'>!     	end do</span>
+        <span style='color:#898887;'>! Debug code ends here</span>
+        <span style='color:#644a9b;'>print</span> <b>*</b>, <span style='color:#bf0303;'>'Exiting compute_DFFT procedure'</span>
+        <span style='color:#644a9b;'>print</span> <b>*</b>
+    <b>end subroutine</b> compute_DFFT
+      
+    <b>subroutine</b> write_DFFT_to_file
+<span style='color:#0057ae;'>        real</span>                    <span style='color:#0057ae;'>::</span> real_float, imag_float, corrected_frequency
+<span style='color:#0057ae;'>        real</span>                    <span style='color:#0057ae;'>::</span> pi
+        <span style='color:#898887;'>!integer(kind=8)         :: real_int, imag_int</span>
+
+        <span style='color:#644a9b;'>print</span> <b>*</b>, <span style='color:#bf0303;'>'Entering write_DFFT_to_file procedure'</span>
+        <span style='color:#644a9b;'>print</span> <b>*</b>
+	
+        pi <b>=</b> <span style='color:#b08000;'>4</span><b>*</b><b><span style='color:#644a9b;'>atan</span></b>(<span style='color:#b08000;'>1.0</span>)
+
+        num_samples <b>=</b> sample_rate <b>*</b> num_periods
+        <span style='color:#644a9b;'>write (*</span>, <span style='color:#bf0303;'>'(a, i8)'</span><span style='color:#644a9b;'>)</span> <span style='color:#bf0303;'>'The number of total number of samples is -&gt; '</span>, num_samples
+	
+        <span style='color:#898887;'>! Traverse through output array that contains the complex DFFT, calculate magnitude and</span>
+        <span style='color:#898887;'>! write results to output file.  Since output is symmetric, we only want half of the output array.</span>
+        <span style='color:#898887;'>! The magnitude and phase will have each data element along side its corresponding corrected frequency</span>
+        <span style='color:#898887;'>! in two columns, separated by a space, i.e. DFFT_magnitude corrected_frequency, on each line in the output file.</span>
+        <span style='color:#898887;'>!do i = 1, 100</span>
+        <b>do</b> i <b>=</b> <span style='color:#b08000;'>1</span>,(num_bins_int_pow2<b>/</b><span style='color:#b08000;'>2</span>)
+        <span style='color:#898887;'>!do i = 1, (num_bins_int/2)</span>
+
+            <span style='color:#898887;'>! Lines below for debug</span>
+            <span style='color:#898887;'>!write (*, '(a, i4)'), 'The counter i is -&gt;', i</span>
+            <span style='color:#898887;'>!write (*, '(a, f30.20, f30.20)'), 'The DFFT data element is -&gt; ', out(i)</span>
+            
+            <span style='color:#898887;'>! Obtain the real part of the complex data stored in output array as float</span>
+            real_float <b>=</b> <b><span style='color:#644a9b;'>real</span></b>(out(i))
+            <span style='color:#898887;'>!write (*, '(a, f30.20)'), 'The value of real_float is -&gt;', real_float</span>
+                
+            <span style='color:#898887;'>! Obtain the imaginary part of the complex data stored in output array as float</span>
+            imag_float <b>=</b> <b><span style='color:#644a9b;'>aimag</span></b>(out(i))
+            <span style='color:#898887;'>!write (*, '(a, f30.20)'), 'The value of imag_float is -&gt;', imag_float</span>
+            
+            <span style='color:#898887;'>! Obtain the corrected frequency based on the sampe rate and the next power of two of the total number of samples (i.e. 100 samples -&gt; next power of 2 = 128.)</span>
+            <span style='color:#898887;'>!corrected_frequency = floor(float(i) * (float(sample_rate)/float(num_bins_int_pow2)))</span>
+            corrected_frequency <b>=</b> (<b><span style='color:#644a9b;'>float</span></b>(i) <b>*</b> (<b><span style='color:#644a9b;'>float</span></b>(sample_rate)<b>/</b><b><span style='color:#644a9b;'>float</span></b>(num_bins_int_pow2)))
+            
+            <span style='color:#898887;'>! Since there are num_bins_int number of data elements in FFT array, and the FFT array is symmetric, we divide the magnitude by half the num_bins_int to get the normalized magnitude.</span>
+            magnitude <b>=</b> (<b><span style='color:#644a9b;'>sqrt</span></b>((real_float<b>**</b><span style='color:#b08000;'>2</span>) <b>+</b> (imag_float<b>**</b><span style='color:#b08000;'>2</span>)))<b>/</b><b><span style='color:#644a9b;'>float</span></b>(num_bins_int<b>/</b><span style='color:#b08000;'>2</span>)
+            
+            phase <b>=</b> (<b><span style='color:#644a9b;'>atan2</span></b>(imag_float,real_float))<b>*</b>(<span style='color:#b08000;'>180</span><b>/</b>pi)
+            <span style='color:#898887;'>!write (*, '(a, i8, a, f30.20, a, f30.5)') 'Counter -&gt; ', i, &amp;</span>
+            <span style='color:#898887;'>!' Magnitude -&gt; ', magnitude, ' Frequency -&gt; ', corrected_frequency</span>
+            <span style='color:#898887;'>!write (*, '(a, f30.20)'), 'The phase is -&gt; ', phase</span>
+            
+            <span style='color:#898887;'>!print *</span>
+            
+            <span style='color:#898887;'>! Write out the DFFT magnitude, a space character and the corrected frequency</span>
+            <span style='color:#644a9b;'>write (</span><span style='color:#b08000;'>10</span>, <span style='color:#bf0303;'>'(f30.20, a, f30.20)'</span>, <span style='color:#644a9b;'>IOSTAT</span> <b>=</b> good_write1<span style='color:#644a9b;'>)</span> magnitude, <span style='color:#bf0303;'>' '</span>, corrected_frequency
+            
+            <span style='color:#898887;'>! Write out the DFFT phase, a space character and the corrected frequency</span>
+            <span style='color:#644a9b;'>write (</span><span style='color:#b08000;'>20</span>, <span style='color:#bf0303;'>'(f30.20, a, f30.20)'</span>, <span style='color:#644a9b;'>IOSTAT</span> <b>=</b> good_write2<span style='color:#644a9b;'>)</span> phase, <span style='color:#bf0303;'>' '</span>, corrected_frequency
+            
+            <b>if</b> (good_write1 <b>.ne.</b> <span style='color:#b08000;'>0</span>) <b>then</b>
+                <span style='color:#898887;'>!print *, 'The state of good_write1 is:'</span>
+                <span style='color:#898887;'>!print *, good_write1</span>
+                <span style='color:#644a9b;'>print</span> <b>*</b>, <span style='color:#bf0303;'>'Error writing to magnitude file!'</span>
+                <b>call</b> close_files_deallocate_and_exit(<b>-</b><span style='color:#b08000;'>1</span>)
+            <b>else if</b> (good_write2 <b>.ne.</b> <span style='color:#b08000;'>0</span>) <b>then</b>
+                <span style='color:#898887;'>!print *, 'The state of good_write2 is:'</span>
+                <span style='color:#898887;'>!print *, good_write2</span>
+                <span style='color:#644a9b;'>print</span> <b>*</b>, <span style='color:#bf0303;'>'Error writing to phase file!'</span>
+                <b>call</b> close_files_deallocate_and_exit(<b>-</b><span style='color:#b08000;'>1</span>)
+            <b>end if</b>
+
+	<b>end do</b>
+
+	<span style='color:#898887;'>! Tell user that output file was written successfully</span>
+	<b>if</b> (good_write1 <b>.eq.</b> <span style='color:#b08000;'>0</span>) <b>then</b>
+	  <span style='color:#644a9b;'>print</span> <b>*</b>, <span style='color:#bf0303;'>'Output magnitude file written successfully....'</span>
+	<b>endif</b>
+	
+	<b>if</b> (good_write2 <b>.eq.</b> <span style='color:#b08000;'>0</span>) <b>then</b>
+	  <span style='color:#644a9b;'>print</span> <b>*</b>, <span style='color:#bf0303;'>'Output phase file written successfully....'</span>
+	<b>endif</b>
+	
+	<span style='color:#898887;'>! Deallocate memory held by plan</span>
+	<b>call</b> fftw_destroy_plan(plan)
+	<span style='color:#644a9b;'>print</span> <b>*</b>, <span style='color:#bf0303;'>'Plan destroyed successfully....'</span>
+    <span style='color:#898887;'>! </span>
+    <span style='color:#898887;'>! !   The following debug code checks to see if the Inverse DFFT will produce the original input data  </span>
+    <span style='color:#898887;'>! !   print *, &quot;Output file written successfully!&quot;</span>
+    <span style='color:#898887;'>! !     </span>
+    <span style='color:#898887;'>! !   Swapping arrays to see if I can retrieve signal in time domain from signal in frequency domain</span>
+    <span style='color:#898887;'>! !   in = out</span>
+    <span style='color:#898887;'>! !     </span>
+    <span style='color:#898887;'>! !   plan = fftw_plan_dft_1d(n, in, out, FFTW_BACKWARD, FFTW_ESTIMATE)</span>
+    <span style='color:#898887;'>! !     </span>
+    <span style='color:#898887;'>! !   print *, &quot;The contents of the input array is -&gt;&quot;</span>
+    <span style='color:#898887;'>! !   do i = 1,num_bins_int</span>
+    <span style='color:#898887;'>! !     print *, in(i)</span>
+    <span style='color:#898887;'>! !   end do</span>
+    <span style='color:#898887;'>! !     </span>
+    <span style='color:#898887;'>! !   print *</span>
+    <span style='color:#898887;'>! !     </span>
+    <span style='color:#898887;'>! !   print *, &quot;Executing DFT on input array...&quot;</span>
+    <span style='color:#898887;'>! !   call fftw_execute_dft(plan, in, out)</span>
+    <span style='color:#898887;'>! !     </span>
+    <span style='color:#898887;'>! !   print *, &quot;The contents of the output array is -&gt;&quot;</span>
+    <span style='color:#898887;'>! !   do i = 1,num_bins_int</span>
+    <span style='color:#898887;'>! !     print *, out(i)</span>
+    <span style='color:#898887;'>! !   end do</span>
+    <span style='color:#898887;'>! !     </span>
+    <span style='color:#898887;'>! !   print *</span>
+    <span style='color:#898887;'>! !     </span>
+    <span style='color:#898887;'>! !   call fftw_destroy_plan(plan)</span>
+        <span style='color:#644a9b;'>print</span> <b>*</b>, <span style='color:#bf0303;'>'Exiting write_DFFT_to_file procedure'</span>
+        <span style='color:#644a9b;'>print</span> <b>*</b>
+
+  <b>end subroutine</b> write_DFFT_to_file
+
+<b>end module</b> MKDynamics_FFT
+
+<b>program</b> module_test
+  
+  <b>use</b> MKDynamics_FFT
+  <b>implicit</b> <b>none</b>
+  
+  <span style='color:#644a9b;'>print</span> <b>*</b>, <span style='color:#bf0303;'>'MKDyanmics_FFT Program Version 5.'</span>
+
+  <b>call</b> get_args
+  <b>call</b> open_files
+  <b>call</b> get_num_data_elements
+  <b>call</b> allocate_memory
+  <b>call</b> read_from_file_into_array
+  <b>call</b> compute_DFFT
+  <b>call</b> write_DFFT_to_file
+  <b>call</b> close_files_deallocate_and_exit(<span style='color:#b08000;'>0</span>)
+  
+  <span style='color:#644a9b;'>print</span> <b>*</b>, <span style='color:#bf0303;'>'Program completed successfully'</span>
+  <span style='color:#644a9b;'>print</span> <b>*</b>, <span style='color:#bf0303;'>'Exiting.....'</span>  
+
+<b>end program</b> module_test
+</pre>
+</body>
+</html>
