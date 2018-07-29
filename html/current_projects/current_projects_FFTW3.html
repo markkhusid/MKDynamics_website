@@ -52,8 +52,56 @@
   <p>
     <img src="../images/spacey.jpg" alt ="Space" class = "align-center medium" />
   
-  <div id="content">
-    <img 
+    <div id="content">
+        <h2>
+            Discussion:
+            <hr />
+        </h2>
+        <p>
+            The plan here is to write a Fortran 2003 program that utilizes the FFTW3 library to generate a
+            Discretized Fast Fourier Transforms of arbitrary waveforms.  To test the code we start with a
+            function whose DFFT is easily identifiable by inspection, and then increase in complexity.  
+            SciLAB and Python+Numpy on Jupyter Notebook are used to generate the
+            the time domain functions, time domain and frequency domain plots and discretized time domain data.
+            The Fortran 2003 code is then run on the discretized time domain data and the results plotted
+            with GNUPlot.  A comparison is made to check the veracity of the Fortran 2003 code output.
+            <hr /><br>
+        </p>
+    
+        <h3 id="DFFT Program Performance">
+            Performance of Fortran 2003 DFFT Program for: <br>
+            <a href="sine_wv_10Hz.html" target="_top">Sine Wave at 10Hz</a><br>
+            <img src="images/sine_wave2_10Hz.jpg" width="450" height="335" title="Magnitude plot of DFFT of 10Hz sine wave"/>
+            <img src="images/DFFT_mag_sine_wave2_10Hz.jpeg" width="450" height="335" title="Magnitude plot of DFFT of 10Hz sine wave"/><br>
+            
+            <br>
+            <a href="sq_wv_1Hz.html" target="_top">Square Wave at 1Hz</a><br>
+            <img src="images/sq_wave_1Hz_50pct.jpeg" width="450" height="335" title="Magnitude plot of DFFT of 10Hz sine wave"/>
+            <img src="images/DFFT_mag_sq_wv2_1Hz_50pct.jpeg" width="450" height="335" title="Magnitude plot of DFFT of 10Hz sine wave"/><br>
+            
+            <br>
+            <a href="exp_pulse_10tc.html" target="_top">Exponential Pulse of Time Constant 10 seconds</a><br>
+            <img src="images/exp_pulse_tc10.jpeg" width="450" height="335" title="Magnitude plot of DFFT of 10Hz sine wave"/>
+            <img src="images/DFFT_mag_exp_pulse_10tc.jpeg" width="450" height="335" title="Magnitude plot of DFFT of 10Hz sine wave"/><br>
+            
+            <br>
+            <a href="sine_wv_50Hz.html" target="_top">Sine Wave at 50Hz Generated with Python+Numpy on Jupyter Notebook</a><br>
+            <img src="images/FFTW3/sine_wv_50Hz.png" width="450" height="335" title="sine_wv_50Hz.png"/>
+            <img src="images/FFTW3/DFFT_sine_wv_50Hz.png" width="450" height="335" title="DFFT_sine_wv_50Hz.png"/><br>
+        
+            <br>
+            <a href="2sine_wv_XHz.html" target="_top">Two Sine Waves at 50Hz and 100Hz Generated with Python+Numpy on Jupyter Notebook</a><br>
+            <img src="images/FFTW3/2sine_wv_XHz.png" width="450" height="335" title="2sine_wv_XHz.png"/>
+            <img src="images/FFTW3/DFFT_2sine_wv_XHz.png" width="450" height="335" title="DFFT_2sine_wv_XHz.png"/><br>
+        </h3>
+  
+        <p>
+            For the time domain data that is generated with SciLAB, the following datapath is utilized:<br>
+        </p>
+  
+  
+  
+  <img 
       src="images/FFTW3_project_datapath2.jpg" 
       width="750" 
       height="563" 
@@ -61,20 +109,9 @@
     /> <br>
     Discretized Fourier Transform of Arbitrary Signal Using FFTW3 Datapath <br>
     
+
     
-    <h2>
-      Discussion:
-      <hr />
-    </h2>
-    <p>
-      The plan here is to write a Fortran 2003 program that utilizes the FFTW3 library to generate a<br>
-      Discretized Fast Fourier Transforms of arbitrary waveforms.  To test the code we start with a<br>
-      function whose DFFT is easily identifiable by inspection.  SciLAB is used to generate the<br>
-      the time domain function, time domain and frequency domain plots and discretized time domain data.<br>
-      The Fortran 2003 code is then run on the discretized time domain data and the results plotted <br>
-      with GNUPlot.  A comparison is made to check the veracity of the Fortran 2003 code output.<br>
-      <hr /><br>
-    </p>
+    
     
     <h2 id="Python Script">Python Script</h2>
     <p>
@@ -125,27 +162,6 @@
       The line count can be obtained by typing: <b>wc -l outfile.dat</b> 
     </p>
     
-    <h3 id="DFFT Program Performance">
-      Perfmance of Fortran 2003 DFFT Program for: <br>
-      <a href="sine_wv_10Hz.html" target="_top">Sine Wave at 10Hz</a><br>
-      <img src="images/sine_wave2_10Hz.jpg" width="600" height="450" title="Magnitude plot of DFFT of 10Hz sine wave"/>
-      <img src="images/DFFT_mag_sine_wave2_10Hz.jpeg" width="600" height="450" title="Magnitude plot of DFFT of 10Hz sine wave"/><br>
-      
-      <br>
-      <a href="sq_wv_1Hz.html" target="_top">Square Wave at 1Hz</a><br>
-      <img src="images/sq_wave_1Hz_50pct.jpeg" width="600" height="450" title="Magnitude plot of DFFT of 10Hz sine wave"/>
-      <img src="images/DFFT_mag_sq_wv2_1Hz_50pct.jpeg" width="600" height="450" title="Magnitude plot of DFFT of 10Hz sine wave"/><br>
-      
-      <br>
-      <a href="exp_pulse_10tc.html" target="_top">Exponential Pulse of Time Constant 10 seconds</a><br>
-      <img src="images/exp_pulse_tc10.jpeg" width="600" height="450" title="Magnitude plot of DFFT of 10Hz sine wave"/>
-      <img src="images/DFFT_mag_exp_pulse_10tc.jpeg" width="600" height="450" title="Magnitude plot of DFFT of 10Hz sine wave"/><br>
-      
-      <br>
-      <a href="sine_wv_50Hz.html" target="_top">Sine Wave at 50Hz</a><br>
-      <img src="images/FFTW3/sine_wv_50Hz.png" width="600" height="450" title="sine_wv_50Hz.jpg"/>
-      <img src="images/FFTW3/DFFT_sine_wv_50Hz.png" width="600" height="450" title="DFFT_sine_wv_50Hz.png"/>
-    </h3>
     
     <hr />
     

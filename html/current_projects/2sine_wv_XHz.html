@@ -40,7 +40,7 @@
   </h1>
 
   <h2>
-    Current Projects - Discretized Fourier Transform of Sine Wave at 50Hz using FFTW3
+    Current Projects - Discretized Fourier Transform of Sine Waves at 50Hz and 100Hz using FFTW3
   </h2>
   
   <div id="nav">
@@ -57,7 +57,7 @@
   
   <div id="content">
     <h3>
-      Formation of a 50Hz Sine Wave using Python+Numpy on Jupyter Notebook
+      Formation of a 50Hz + 100Hz Sine Waves using Python+Numpy on Jupyter Notebook
     </h3>
     
     <h4>
@@ -65,24 +65,24 @@
       <hr />
     </h4>
     <p>
-        We use Python together Numpy arrays and Matplotlib within a Jupyter Notebook to create a sine wave at 50Hz for 10 periods.  We then plot the time domain graph of the sine wave, and then compute the Discretized Fast Fourier Transform using the Python libraries.  The time domain data is then outputted to a file and used as an input for the DFFT Fortran program to computed the DFFT and plot its output with GNUPlot.
+        We use Python together Numpy arrays and Matplotlib within a Jupyter Notebook to create a combined wave composed of two sine waves at 50Hz and 100Hz for 2 periods.  We then plot the time domain graph of the combined wave, and then compute the Discretized Fast Fourier Transform using the Python libraries.  The time domain data is then outputted to a file and used as an input for the DFFT Fortran program to computed the DFFT and plot its output with GNUPlot.
       <hr /><br>
     </p>
     
     <p> <b> Introduction: </b><br>
-      First, we start with a Python script written in Jupyter Notebook to generate a 50Hz sine wave, sampled at 44100Hz, for 10 periods, and save these raw data points to a file.  The Jupyter Notebook is shown below.  
+      First, we start with a Python script written in Jupyter Notebook to generate a wave composed of the combination of a 50Hz and a 100Hz sine wave, sampled at 10000Hz, for 2 periods, and save these raw data points to a file.  The Jupyter Notebook is shown below.  
     </p>
     
-    <p> <b> Python code to generate a 50Hz sine wave sampled at 44100Hz.</b> <br>
+    <p> <b> Python+Numpy+Matplotlib on Jupyter Notebook code to generate a combined wave of two sine waves at<br> 50Hz and 100Hz sampled at 10kHz.</b> <br>
       <iframe
-	src = "code_FFTW3/sine50Hz_jupyter_python.html"
+	src = "code_FFTW3/2sineXHz_jupyter_python.html"
 	width = "850"
-	height = "600"
+	height = "3200"
 	frameborder = "1"
 	scrolling = "yes">
       </iframe> <br>
       Download the code by clicking the link below:<br>
-      <a href="code_FFTW3/sine50Hz_text.py" target="_top">Python script file to generate 50Hz sine wave</a><br><br>
+      <a href="code_FFTW3/2sineXHz.ipynb" target="_top">Python Script in Jupyter Notebook</a><br><br>
     </p>
     
     <p>
@@ -91,24 +91,24 @@
     
     <p><b> Image of 50Hz Sine Wave Generated Using Python+Numpy on Jupyter Notebook and Plotted with GNUPlot</b><br>
         <img 
-            src="images/FFTW3/sine_wv_50Hz.png" 
+            src="images/FFTW3/2sine_wv_XHz.png" 
             width="600" 
             height="450" 
             title="50Hz Sine Wave"
         />
         <br>
         Download the image by clicking the link below:<br>
-        <a href="images/FFTW3/sine_wv_50Hz.png" target="_top">Image of 50Hz sine wave</a><br><br><br>
+        <a href="images/FFTW3/2sine_wv_XHz.png" target="_top">Image of combination wave</a><br><br><br>
     
         <img 
-            src="images/FFTW3/sine_wv_50Hz_freq_domain.png" 
+            src="images/FFTW3/2sine_wv_XHz_freq_domain.png" 
             width="600" 
             height="450" 
             title="50Hz Sine Wave"
         />
         <br>
         Download the image by clicking the link below:<br>
-        <a href="images/FFTW3/sine_wv_50Hz_freq_domain.png" target="_top">Image of FFT of 50Hz sine wave</a><br>
+        <a href="images/FFTW3/2sine_wv_XHz_freq_domain.png" target="_top">Image of FFT of combination wave</a><br>
     
     </p>
 
@@ -195,13 +195,13 @@
       appear.  
       The program output is verbose (for debug) purposes and the screen output is shown below: <br>
       <iframe
-	src = "code_FFTW3/fft_of_dat_screen_output.txt"
+	src = "code_FFTW3/fft_of_dat_output_2sine_wv.txt"
 	width = "550"
 	height = "200"
 	frameborder = "1"
 	scrolling = "yes">
       </iframe><br>
-      The full text may be downloaded <a href="code_FFTW3/fft_of_dat_screen_output.txt">here.</a><br>
+      The full text may be downloaded <a href="code_FFTW3/fft_of_dat_output_2sine_wv.txt">here.</a><br>
     </p>
     
     <p>
@@ -237,18 +237,18 @@
       to facilitate quality plotting. <br>
       <b>GNUPlot script file</b><br>
       <iframe
-	src = "code_FFTW3/sine_wv_50Hz_DFFT_gnuplot_macro.txt"
+	src = "code_FFTW3/2sine_wv_gnuplot_macro.txt"
 	width = "550"
 	height = "120"
 	frameborder = "1"
 	scrolling = "no">
       </iframe><br>
       The GNUPlot script file may be downloaded by clicking <a href="code_FFTW3/sine_wv_50Hz_gnuplot_macro.txt">here.</a><br>
-      Run by typing <b>gnuplot sine_wv_50Hz_DFFT_gnuplot_macro.txt</b> or start GNUPlot and enter<br>
-      <b>load "sine_wv_50Hz_DFFT_gnuplot_macro.txt"</b> at the gnuplot command prompt <br>
+      Run by typing <b>gnuplot 2sine_wv_gnuplot_macro.txt</b> or start GNUPlot and enter<br>
+      <b>load "2sine_wv_gnuplot_macro.txt"</b> at the gnuplot command prompt <br>
       
       <br><b> Magnitude Plot </b><br>
-      <img src="images/FFTW3/DFFT_sine_wv_50Hz.png" width="600" height="450" title="Magnitude plot of DFFT of 50Hz sine wave"/><br>
+      <img src="images/FFTW3/DFFT_2sine_wv_XHz.png" width="600" height="450" title="Magnitude plot of DFFT of combination wave"/><br>
       
       <!--<br><b> Phase Plot </b><br>
       <img src="images/DFFT_phase_sine_wave2_10Hz.jpeg" width="600" height="450" title="Phase plot of DFFT of 10Hz sine wave"/><br>
@@ -262,7 +262,7 @@
       <hr />
     </h4>
     <p>
-      There appears to be a slight decrease in the peak of the magnitude of the DFFT plot.  It appears to show a peak of around 8 units, rather than purely 10 units.  Since other raw data inputs into the Fortran program produced results as expected, the skew may be related to the way the data were generated in Python+Numpy or the way it was saved into a text file.  There also appears to be some secondary peaks that rapidly roll off on both sides of the main peak.  This is most likely due to the FFTW3 algorithm responding to the discontinuities of the input data. More research is needed to find the causes.
+      There appears to be a slight decrease in the peak of the magnitude of the DFFT plot.  Since other raw data inputs into the Fortran program produced results as expected, the skew may be related to the way the data were generated in Python+Numpy or the way it was saved into a text file.  There also appears to be some secondary peaks that rapidly roll off on both sides of the main peak.  This is most likely due to the FFTW3 algorithm responding to the discontinuities of the input data. More research is needed to find the causes.
       <hr />      
     </p>
    
