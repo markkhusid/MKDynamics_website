@@ -1,0 +1,276 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta name="Generator" content="Kate, the KDE Advanced Text Editor" />
+<title>spiro.py</title>
+</head>
+<!-- Highlighting: "Python" -->
+<body>
+<pre style='color:#1f1c1b;background-color:#ffffff;'>
+<span style='color:#ff5500;'>import</span> sys, random, argparse
+<span style='color:#ff5500;'>import</span> numpy <span style='color:#ff5500;'>as</span> np
+<span style='color:#ff5500;'>import</span> math
+<span style='color:#ff5500;'>import</span> turtle
+<span style='color:#ff5500;'>import</span> random
+<span style='color:#ff5500;'>from</span> PIL <span style='color:#ff5500;'>import</span> Image
+<span style='color:#ff5500;'>from</span> datetime <span style='color:#ff5500;'>import</span> datetime
+<span style='color:#ff5500;'>from</span> fractions <span style='color:#ff5500;'>import</span> gcd
+
+<span style='color:#898887;'># a class that draws a Spirograph</span>
+<b>class</b> Spiro:
+	<span style='color:#898887;'># constructor</span>
+	<b>def</b> <span style='color:#644a9b;'>__init__</span>(<span style='color:#0057ae;'>self</span>, xc, yc, col, R, r, l):
+
+		<span style='color:#898887;'># create the turtle object</span>
+		<span style='color:#0057ae;'>self</span>.t = turtle.Turtle()
+		<span style='color:#898887;'># set the cursor shape</span>
+		<span style='color:#0057ae;'>self</span>.t.shape(<span style='color:#bf0303;'>'turtle'</span>)
+		<span style='color:#898887;'># set the step in degrees</span>
+		<span style='color:#0057ae;'>self</span>.step = <span style='color:#b08000;'>5</span>
+		<span style='color:#898887;'># set the drawing complete flag</span>
+		<span style='color:#0057ae;'>self</span>.drawingComplete = <span style='color:#0057ae;'>False</span>
+
+		<span style='color:#898887;'># set the parameters</span>
+		<span style='color:#0057ae;'>self</span>.setparams(xc, yc, col, R, r, l)
+
+		<span style='color:#898887;'># initialize the drawing</span>
+		<span style='color:#0057ae;'>self</span>.restart()
+
+	<span style='color:#898887;'># set the parameters	</span>
+	<b>def</b> setparams(<span style='color:#0057ae;'>self</span>, xc, yc, col, R, r, l):
+	
+		<span style='color:#898887;'># The spirograph parameters</span>
+		<span style='color:#0057ae;'>self</span>.xc = xc
+		<span style='color:#0057ae;'>self</span>.yc = yc
+		<span style='color:#0057ae;'>self</span>.R = <b><span style='color:#644a9b;'>int</span></b>(R)
+		<span style='color:#0057ae;'>self</span>.r = <b><span style='color:#644a9b;'>int</span></b>(r)
+		<span style='color:#0057ae;'>self</span>.l = l
+		<span style='color:#0057ae;'>self</span>.col = col
+		<span style='color:#898887;'># Reduce r/R to its smallest form by dividing with the GCD</span>
+		gcdVal = gcd(<span style='color:#0057ae;'>self</span>.r, <span style='color:#0057ae;'>self</span>.R)
+		<span style='color:#0057ae;'>self</span>.nRot = <span style='color:#0057ae;'>self</span>.r // gcdVal
+		<span style='color:#898887;'># get ratio of radii</span>
+		<span style='color:#0057ae;'>self</span>.k = r / <b><span style='color:#644a9b;'>float</span></b>(R)
+		<span style='color:#898887;'># set the color</span>
+		<span style='color:#0057ae;'>self</span>.t.color(*col)
+		<span style='color:#898887;'># store the current angle</span>
+		<span style='color:#0057ae;'>self</span>.a = <span style='color:#b08000;'>0</span>
+
+	<span style='color:#898887;'># restart the drawing</span>
+	<b>def</b> restart(<span style='color:#0057ae;'>self</span>):
+		<span style='color:#898887;'># set the flag</span>
+		<span style='color:#0057ae;'>self</span>.drawingComplete = <span style='color:#0057ae;'>False</span>
+		<span style='color:#898887;'># show the turtle</span>
+		<span style='color:#0057ae;'>self</span>.t.showturtle()
+		<span style='color:#898887;'># go to the first point</span>
+		<span style='color:#0057ae;'>self</span>.t.up()
+		R, k, l = <span style='color:#0057ae;'>self</span>.R, <span style='color:#0057ae;'>self</span>.k, <span style='color:#0057ae;'>self</span>.l
+		a = <span style='color:#b08000;'>0.0</span>
+		x = R*((<span style='color:#b08000;'>1</span>-k)*math.cos(a) + l*k*math.cos((<span style='color:#b08000;'>1</span>-k)*a/k))
+		y = R*((<span style='color:#b08000;'>1</span>-k)*math.sin(a) + l*k*math.sin((<span style='color:#b08000;'>1</span>-k)*a/k))
+		<span style='color:#0057ae;'>self</span>.t.setpos(<span style='color:#0057ae;'>self</span>.xc + x, <span style='color:#0057ae;'>self</span>.yc + y)
+		<span style='color:#0057ae;'>self</span>.t.down()
+
+
+	<span style='color:#898887;'># draw the whole thing</span>
+	<b>def</b> draw(<span style='color:#0057ae;'>self</span>):
+		<span style='color:#898887;'># draw the rest of the points</span>
+		R, k, l = <span style='color:#0057ae;'>self</span>.R, <span style='color:#0057ae;'>self</span>.k, <span style='color:#0057ae;'>self</span>.l
+		<b>for</b> i <b>in</b> <b><span style='color:#644a9b;'>range</span></b>(<span style='color:#b08000;'>0</span>, <span style='color:#b08000;'>360</span>*<span style='color:#0057ae;'>self</span>.nRot + <span style='color:#b08000;'>1</span>, <span style='color:#0057ae;'>self</span>.step):
+			a = math.radians(i)
+			x = R*((<span style='color:#b08000;'>1</span>-k)*math.cos(a) + <span style='color:#b08000;'>1</span>*k*math.cos((<span style='color:#b08000;'>1</span>-k)*a/k))
+			y = R*((<span style='color:#b08000;'>1</span>-k)*math.sin(a) - <span style='color:#b08000;'>1</span>*k*math.sin((<span style='color:#b08000;'>1</span>-k)*a/k))
+			<span style='color:#0057ae;'>self</span>.t.setpos(<span style='color:#0057ae;'>self</span>.xc + x, <span style='color:#0057ae;'>self</span>.yc + y)
+		<span style='color:#898887;'># drawing is now done so hide the turtle cursor</span>
+		<span style='color:#0057ae;'>self</span>.t.hideturtle()
+
+	<span style='color:#898887;'># update by one step</span>
+	<b>def</b> update(<span style='color:#0057ae;'>self</span>):
+		<span style='color:#898887;'># skip the rest of the steps if done</span>
+		<b>if</b> <span style='color:#0057ae;'>self</span>.drawingComplete:
+			<b>return</b>
+		<span style='color:#898887;'># increment the angle</span>
+		<span style='color:#0057ae;'>self</span>.a += <span style='color:#0057ae;'>self</span>.step
+		<span style='color:#898887;'># draw a step</span>
+		R, k, l = <span style='color:#0057ae;'>self</span>.R, <span style='color:#0057ae;'>self</span>.k, <span style='color:#0057ae;'>self</span>.l
+		a = math.radians(<span style='color:#0057ae;'>self</span>.a)
+		x = <span style='color:#0057ae;'>self</span>.R*((<span style='color:#b08000;'>1</span>-k)*math.cos(a) + <span style='color:#b08000;'>1</span>*k*math.cos((<span style='color:#b08000;'>1</span>-k)*a/k))
+		y = <span style='color:#0057ae;'>self</span>.R*((<span style='color:#b08000;'>1</span>-k)*math.sin(a) - <span style='color:#b08000;'>1</span>*k*math.sin((<span style='color:#b08000;'>1</span>-k)*a/k))
+		<span style='color:#0057ae;'>self</span>.t.setpos(<span style='color:#0057ae;'>self</span>.xc + x, <span style='color:#0057ae;'>self</span>.yc + y)
+		<span style='color:#898887;'># if drawing is complete, set the flag</span>
+		<b>if</b> <span style='color:#0057ae;'>self</span>.a &gt;= <span style='color:#b08000;'>360</span>*<span style='color:#0057ae;'>self</span>.nRot:
+			<span style='color:#0057ae;'>self</span>.drawingComplete = <span style='color:#0057ae;'>True</span>
+			<span style='color:#898887;'># drawing is now done so hide the turtle cursor</span>
+			<span style='color:#0057ae;'>self</span>.t.hideturtle()
+
+
+<span style='color:#898887;'># a class for animating Spirographs</span>
+<b>class</b> SpiroAnimator:
+	<span style='color:#898887;'># constructor</span>
+	<b>def</b> <span style='color:#644a9b;'>__init__</span>(<span style='color:#0057ae;'>self</span>, N):
+		<span style='color:#898887;'># set the timer value in milliseconds</span>
+		<span style='color:#0057ae;'>self</span>.deltaT = <span style='color:#b08000;'>10</span>
+		<span style='color:#898887;'># get the window dimensions</span>
+		<span style='color:#0057ae;'>self</span>.width = turtle.window_width()
+		<span style='color:#0057ae;'>self</span>.height = turtle.window_height()
+		<span style='color:#898887;'># create the Spiro objects</span>
+		<span style='color:#0057ae;'>self</span>.spiros = []
+		<b>for</b> i <b>in</b> <b><span style='color:#644a9b;'>range</span></b>(N):
+			<span style='color:#898887;'># generate random parameters</span>
+			rparams = <span style='color:#0057ae;'>self</span>.genRandomParams()
+			<span style='color:#898887;'>#  set the spiro parameters</span>
+			spiro = Spiro(*rparams)
+			<span style='color:#0057ae;'>self</span>.spiros.append(spiro)
+		<span style='color:#898887;'># call timer</span>
+		turtle.ontimer(<span style='color:#0057ae;'>self</span>.update, <span style='color:#0057ae;'>self</span>.deltaT)
+
+	<span style='color:#898887;'># generate random parameters</span>
+	<b>def</b> genRandomParams(<span style='color:#0057ae;'>self</span>):
+		width, height = <span style='color:#0057ae;'>self</span>.width, <span style='color:#0057ae;'>self</span>.height
+		R = random.randint(<span style='color:#b08000;'>50</span>, <b><span style='color:#644a9b;'>min</span></b>(width, height)//<span style='color:#b08000;'>2</span>)
+		r = random.randint(<span style='color:#b08000;'>10</span>, <span style='color:#b08000;'>9</span>*R//<span style='color:#b08000;'>10</span>)
+		l = random.uniform(<span style='color:#b08000;'>0.1</span>, <span style='color:#b08000;'>0.9</span>)
+		xc = random.randint(-width//<span style='color:#b08000;'>2</span>, width//<span style='color:#b08000;'>2</span>)
+		yc = random.randint(-height//<span style='color:#b08000;'>2</span>, height//<span style='color:#b08000;'>2</span>)
+		col = (random.random(), random.random(), random.random())
+		<b>return</b> (xc, yc, col, R, r, l)
+
+	<span style='color:#898887;'># restart spiro drawing</span>
+	<b>def</b> restart(<span style='color:#0057ae;'>self</span>):
+		<b>for</b> spiro <b>in</b> <span style='color:#0057ae;'>self</span>.spiros:
+			<span style='color:#898887;'># clear</span>
+			spiro.clear()
+			<span style='color:#898887;'># generate random parameters</span>
+			rparams = <span style='color:#0057ae;'>self</span>.genRandomParams()
+			<span style='color:#898887;'># set the spiro parameters</span>
+			spiro.setparams(*rparams)
+			<span style='color:#898887;'># restart the drawing</span>
+			spiro.restart()
+
+	<b>def</b> update(<span style='color:#0057ae;'>self</span>):
+		<span style='color:#898887;'># update all spiros</span>
+		nComplete = <span style='color:#b08000;'>0</span>
+		<b>for</b> spiro <b>in</b> <span style='color:#0057ae;'>self</span>.spiros:
+			<span style='color:#898887;'># update</span>
+			spiro.update()
+			<span style='color:#898887;'># count completed spiros</span>
+			<b>if</b> spiro.drawingComplete:
+				nComplete += <span style='color:#b08000;'>1</span>
+		<span style='color:#898887;'># restart if all spiros are complete</span>
+		<b>if</b> nComplete == <b><span style='color:#644a9b;'>len</span></b>(<span style='color:#0057ae;'>self</span>.spiros):
+			<span style='color:#0057ae;'>self</span>.restart()
+		<span style='color:#898887;'># call the timer</span>
+		turtle.ontimer(<span style='color:#0057ae;'>self</span>.update, <span style='color:#0057ae;'>self</span>.deltaT)
+
+	<span style='color:#898887;'># toggle turtle cursor on and off</span>
+	<b>def</b> toggleTurtles(<span style='color:#0057ae;'>self</span>):
+		<b>for</b> spiro <b>in</b> <span style='color:#0057ae;'>self</span>.spiros:
+			<b>if</b> spiro.t.invisible():
+				spiro.t.hideturtle()
+			<b>else</b>:
+				spiro.t.showturtle()
+
+<span style='color:#898887;'># save drawings as PNG files</span>
+<b>def</b> saveDrawing():
+	<span style='color:#898887;'># hide turtle cursor</span>
+	turtle.hideturtle()
+	<span style='color:#898887;'># generate unique filenames</span>
+	dateStr = (datetime.now()).strftime(<span style='color:#bf0303;'>&quot;</span><span style='color:#3daee9;'>%d</span><span style='color:#bf0303;'>%b%Y-%H%M%S&quot;</span>)
+	fileName = <span style='color:#bf0303;'>'spiro-'</span> + dateStr
+	<b><span style='color:#644a9b;'>print</span></b>(<span style='color:#bf0303;'>'saving drawing to </span><span style='color:#3daee9;'>%s</span><span style='color:#bf0303;'>.eps/png'</span> % fileName)
+	<span style='color:#898887;'># get the tkinter canvas</span>
+	canvas = turtle.getcanvas()
+	<span style='color:#898887;'># save the drawing as a postscript image</span>
+	canvas.postscript(<b><span style='color:#644a9b;'>file</span></b> = fileName + <span style='color:#bf0303;'>'.eps'</span>)
+	<span style='color:#898887;'># use the Pillow module to convert the postscript image file to PNG</span>
+	img = Image.<b><span style='color:#644a9b;'>open</span></b>(fileName + <span style='color:#bf0303;'>'.eps'</span>)
+	img.save(fileName + <span style='color:#bf0303;'>'.png'</span>, <span style='color:#bf0303;'>'png'</span>)
+	<span style='color:#898887;'># show the turtle cursor</span>
+	turtle.showturtle()
+
+<span style='color:#898887;'># main() function</span>
+<b>def</b> main():
+	<span style='color:#898887;'># use sys.argv if needed</span>
+	<b><span style='color:#644a9b;'>print</span></b>(<span style='color:#bf0303;'>'generating spirograph...'</span>)
+	<span style='color:#898887;'># create parser</span>
+	descStr = <span style='color:#bf0303;'>&quot;&quot;&quot;</span><span style='color:#bf0303;'>This program draws Spirographs using the Turtle module.</span>
+<span style='color:#bf0303;'>	When run with no arguments, this program draws random Spirographs.</span>
+
+<span style='color:#bf0303;'>	Terminology:</span>
+
+<span style='color:#bf0303;'>	R: radius of outer circle</span>
+<span style='color:#bf0303;'>	r: radius of inner circle</span>
+<span style='color:#bf0303;'>	l: ratio of hole distance to r</span>
+
+<span style='color:#bf0303;'>	</span><span style='color:#bf0303;'>&quot;&quot;&quot;</span>
+
+	parser = argparse.ArgumentParser(description = descStr)
+
+	<span style='color:#898887;'># add expected arguments</span>
+	parser.add_argument(<span style='color:#bf0303;'>'--sparams'</span>, nargs = <span style='color:#b08000;'>3</span>, dest=<span style='color:#bf0303;'>'sparams'</span>, required = <span style='color:#0057ae;'>False</span>, <b><span style='color:#644a9b;'>help</span></b> = <span style='color:#bf0303;'>&quot;The three arguments in sparams: R, r, l.&quot;</span>)
+
+	<span style='color:#898887;'># parse args</span>
+	args = parser.parse_args()
+
+	<span style='color:#898887;'># set the width of the drawing window to 80 percent of the screen </span>
+	turtle.setup(width = <span style='color:#b08000;'>0.8</span>)
+
+	<span style='color:#898887;'># set the cursor shape to turtle</span>
+	turtle.shape(<span style='color:#bf0303;'>'turtle'</span>)
+
+	<span style='color:#898887;'># set the title to Spirographs!</span>
+	turtle.title(<span style='color:#bf0303;'>&quot;Spirographs!&quot;</span>)
+	<span style='color:#898887;'># add the key handler to save our drawings</span>
+	turtle.onkey(saveDrawing, <span style='color:#bf0303;'>&quot;s&quot;</span>)
+	<span style='color:#898887;'># start listening</span>
+	turtle.listen()
+
+	<span style='color:#898887;'># hide the main turtle cursor</span>
+	turtle.hideturtle()
+
+	<span style='color:#898887;'># check for any arguments sent to --sparams and draw the Spirograph</span>
+	<b>if</b> args.sparams:
+		params = [<b><span style='color:#644a9b;'>float</span></b>(x) <b>for</b> x <b>in</b> args.params]
+		<span style='color:#898887;'># draw the Spirograph with the given parameters</span>
+		col = (<span style='color:#b08000;'>0.0</span>, <span style='color:#b08000;'>0.0</span>, <span style='color:#b08000;'>0.0</span>)
+		spiro = Spiro(<span style='color:#b08000;'>0</span>, <span style='color:#b08000;'>0</span>, col, *params)
+		spiro.draw()
+	<b>else</b>:
+		<span style='color:#898887;'># create the animator object</span>
+		spiroAnim = SpiroAnimator(<span style='color:#b08000;'>4</span>)
+		<span style='color:#898887;'># add a key handler to toggle the turtle cursor</span>
+		turtle.onkey(spiroAnim.toggleTurtles, <span style='color:#bf0303;'>&quot;t&quot;</span>)
+		<span style='color:#898887;'># add a key handler to restart the animation</span>
+		turtle.onkey(spiroAnim.restart, <span style='color:#bf0303;'>&quot;space&quot;</span>)
+		
+	<span style='color:#898887;'># start the turtle main loop</span>
+	turtle.mainloop()
+
+<span style='color:#898887;'># call main</span>
+<b>if</b> <span style='color:#0057ae;'>__name__</span> == <span style='color:#bf0303;'>'__main__'</span>:
+	main()	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</pre>
+</body>
+</html>

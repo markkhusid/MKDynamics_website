@@ -37,19 +37,6 @@
       padding		: 10px;
     }
     
-    .current_project_110 {
-      border		: 5px solid black;
-      background	: gray;
-      position		: relative;
-      width		: 450px;
-      height		: 400px;
-      top		: 0px;
-      left		: 10px;
-      float		: left;
-      margin		: 0px;
-      padding		: 10px;
-    }
-    
     .current_project_2 {
       border		: 5px solid black;
       background	: gray;
@@ -219,13 +206,26 @@
       padding		: 10px;
     }
     
+    .current_project_900 {
+      border		: 5px solid black;
+      background	: gray;
+      position		: relative;
+      width		: 450px;
+      height		: 400px;
+      top		: 0px;
+      left		: 10px;
+      float		: left;
+      margin		: 0px;
+      padding		: 10px;
+    }
+    
     .title {
       border		: 5px solid black;
       font-size		: 200%;
       color		: white;
       position		: relative;
       height		: 125px;
-      width		: 960px;
+      width		: 1000px;
       left		: 0px;
       background	: gray;
       margin		: 10px;
@@ -252,68 +252,43 @@
   <div class="wrapper">
     <header>
     
-      <hgroup>
-	<h1> 
-	  <big> <big> MK Dynamics </big> </big>
-	</h1>
+        <hgroup>
+            <h1> 
+                <big> <big> MK Dynamics </big> </big>
+            </h1>
       
-	<h2>
-	  Main Page
-	</h2>
-      </hgroup>
+            <h2>
+                Main Page
+            </h2>
+        </hgroup>
 
 	<nav>
-	  <ul>
-	    <li> <a href="index.html">Home</a> </li>
-	    <li> <a href="about_me/about_me.html">About me</a></li>
-	    <li> <a href="misc/misc.html">Miscellaneous</a></li>
-	    <li> <a href="yugeshima/yugeshima.html">Yugeshima Trip</a></li>
-	  </ul>
+            <ul>
+                <li> <a href="index.html">Home</a> </li>
+                <li> <a href="about_me/about_me.html">About me</a></li>
+                <li> <a href="misc/misc.html">Miscellaneous</a></li>
+                <li> <a href="yugeshima/yugeshima.html">Yugeshima Trip</a></li>
+            </ul>
 	</nav>
   
-	<hr />
       
-      </header>
+    </header>
       
-        <section class="content">
-        
-            <hgroup class="title">
-                <h2>
-                    <center>Do It Yourself Solar</center>
-                </h2>
-            </hgroup>
-      
-        <div class="current_project_110">
-            <figure>
-                <img
-                    src="current_projects/images/croppedbasicnode.jpg" 
-                    height="300px"
-                    width="375px"
-                    alt="DIY Grid"
-                    title="DIY Grid"
-	    
-                />
-	  
-                <figcaption>
-                    <a href="http://yugeshima.com/diygrid/">DIY Grid</a><br>
-                </figcaption>
-            </figure>
-      </div> <!-- .current_project_110 -->
-        
-        </section> <!-- .content -->
-      
-    <section class="content">
-    
 
-      <hgroup class="title">
-	<h2>
-	  <center>Current Projects</center>
-	</h2>
-      </hgroup>
+        <hgroup class="title">
+            <h2>
+                <center>Current Projects</center>
+            </h2>
+        </hgroup>
       
       <aside>
 	<br>
 	Status Updates<br><br>
+	8/6/2018
+        <ul>
+            <li>Rearragened Projects on Home Page by order of increased activity.</li>
+            <li>Started to use Jupyter Notebook for applicable Python scripts.</li>
+	</ul>
 	7/14/2018
 	<ul>
             <li>Added Conway's Game of Life to Python section.  Fixed the script to correct file I/O error.</li>
@@ -410,151 +385,149 @@
 	
 	
 	<a href="aside_archives.html">Archives</a><br>
-      </aside>
+    </aside>
       
-      
-        
-      
-      
-      <div class="current_project_1">
+    <section class="content">
+    
+        <div class="current_project_1">
             <figure>
                 <img
-                    src="images/LTC3891.jpeg" 
+                    src="current_projects/images/hacker.jpg"
                     height="300px"
                     width="375px"
-                    alt="Electronic Circuits"
-                    title="Electronic Circuits"
-                    
+                    alt="hacker.jpg"
+                    title="hacker.jpg"
+                    class="align-center"
                 />
 	  
                 <figcaption>
-                    <a href="current_projects/current_projects_electronics.html">Electronic Circuits</a><br>
+                    <a href="current_projects/computer_security/computer_security.html">Computer Security</a><br>
                 </figcaption>
             </figure>
-      </div> <!-- .current_project_1 -->
-      
-      <div class="current_project_2">
-	<figure>
-	  <img
-	    src="current_projects/SBC_Linux/images/cubietruck1.jpg" 
-	    height="300px"
-	    width="375px"
-	    alt="CubieTruck"
-	    title="CubieTruck Single Board Linux Computer"
-	    class="align-center"
-	  />
-	  
-	  <figcaption>
-	    <a href="current_projects/current_projects_SBC_Linux.html">Single Board Computers Running Linux</a><br>
-	  </figcaption>
-	</figure>
-      </div> <!-- .current_project_2 -->
-      
-      <div class="current_project_3">
-	<figure>
-	  <img
-	    src="current_projects/images/DFFT_mag_sq_wv2_1Hz_50pct.jpeg" 
-	    height="300px"
-	    width="375px"
-	    alt="DFFT of Square Wave"
-	    title="DFFT of various Signals Implemented in Fortran Using FFTW3 Algorithm"
-	    class="align-center"
-	  />
-	  
-	  <figcaption>
-	    <a href="current_projects/current_projects_FFTW3.html">Discretized Fourier Transform of Arbitrary Signal Using FFTW3 Algorithm</a>
-	  </figcaption>
-	</figure>
-      </div> <!-- .current_project_3 -->
+        </div> <!-- .current_project_1 -->
     
-      <div class="current_project_4">
-	<figure>
-	  <img
-	    src="current_projects/images/cray.jpg" 
-	    height="300px"
-	    width="375px"
-	    alt="Raspberry Pi 3 Supercomputer"
-	    title="Raspberry Pi 3 Supercomputer"
-	    class="align-center"
-	  />
+        <div class="current_project_2">
+            <figure>
+                <img
+                    src="current_projects/images/DFFT_mag_sq_wv2_1Hz_50pct.jpeg" 
+                    height="300px"
+                    width="375px"
+                    alt="DFFT of Square Wave"
+                    title="DFFT of various Signals Implemented in Fortran Using FFTW3 Algorithm"
+                    class="align-center"
+                />
 	  
-	  <figcaption>
-	    <a href="current_projects/rpi3_supercomputer.html">Raspberry Pi 3 Supercomputer</a>
-	  </figcaption>
-	</figure>
-      </div> <!-- .current_project_4 -->
-      
-       <div class="current_project_5">
-	<figure>
-	  <img
-	    src="current_projects/images/php-development.jpg" 
-	    height="300px"
-	    width="375px"
-	    alt="PHP Control of Arduino"
-	    title="PHP Control of Arduino"
-	    class="align-center"
-	  />
+                <figcaption>
+                    <a href="current_projects/current_projects_FFTW3.html">Discretized Fourier Transform of Arbitrary Signal Using FFTW3 Algorithm</a>
+                </figcaption>
+            </figure>
+        </div> <!-- .current_project_2 -->
+        
+        <div class="current_project_3">
+            <figure>
+                <img
+                    src="current_projects/images/current_projects_fortran.jpeg" 
+                    height="300px"
+                    width="375px"
+                    alt="current_projects_fortran.jpeg"
+                    title="current_projects_fortran.jpeg"
+                    class="align-center"
+                />
 	  
-	  <figcaption>
-	    <a href="current_projects/Exploring_PHP.html">Controlling Arduino over USB Serial Link Using PHP</a>
-	  </figcaption>
-	</figure>
-      </div> <!-- .current_project_5 -->
-      
-      <div class="current_project_6">
-	<figure>
-	  <img
-	    src="current_projects/images/Javascript.png" 
-	    height="300px"
-	    width="375px"
-	    alt="Exploring Javascript + HTML5"
-	    title="Exploring Javascript + HTML5"
-	    class="align-center"
-	  />
+                <figcaption>
+                    <a href="current_projects/FORTRAN.html">FORTRAN Programming</a><br>
+                </figcaption>
+            </figure>
+        </div> <!-- .current_project_3 -->
+        
+        <div class="current_project_4">
+            <figure>
+                <img
+                    src="current_projects/images/python.png"
+                    height="300px"
+                    width="375px"
+                    alt="python.png"
+                    title="python.png"
+                    class="align-center"
+                />
 	  
-	  <figcaption>
-	    <a href="current_projects/Exploring_JavaScript.html">Exploring JavaScript + HTML5</a><br>
-	    
-	  </figcaption>
-	</figure>
-      </div> <!-- .current_project_6 -->
+                <figcaption>
+                    <a href="current_projects/Python/python.html">Python Programming</a><br>
+                </figcaption>
+            </figure>
+        </div> <!-- .current_project_4 -->
+        
+        <div class="current_project_5">
+            <figure>
+                <img
+                    src="current_projects/images/dual_diode_box.jpg" 
+                    height="300px"
+                    width="375px"
+                    alt="Dual Diode Box"
+                    title="Dual Diode Box"
+                    class="align-center"
+                />
+                
+                <figcaption>
+                    <a href="current_projects/dual_diode_box.html">Dual Diode Box</a><br>
+                    
+                </figcaption>
+            </figure>
+        </div> <!-- .current_project_5 -->
+        
+        <div class="current_project_6">
+            <figure>
+                <img
+                    src="current_projects/images/c64_assembly.jpg" 
+                    height="300px"
+                    width="375px"
+                    alt="Assembly Language Programming"
+                    title="Assembly Language Programming"
+                    class="align-center"
+                />
+                
+                <figcaption>
+                    <a href="current_projects/assembly.html">Assembly Language Programming</a><br>
+                    
+                </figcaption>
+            </figure>
+        </div> <!-- .current_project_6 -->
       
-      <div class="current_project_7">
-	<figure>
-	  <img
-	    src="current_projects/images/dual_diode_box.jpg" 
-	    height="300px"
-	    width="375px"
-	    alt="Dual Diode Box"
-	    title="Dual Diode Box"
-	    class="align-center"
-	  />
+        <div class="current_project_7">
+            <figure>
+                <img
+                    src="current_projects/images/php-development.jpg" 
+                    height="300px"
+                    width="375px"
+                    alt="PHP Control of Arduino"
+                    title="PHP Control of Arduino"
+                    class="align-center"
+                />
 	  
-	  <figcaption>
-	    <a href="current_projects/dual_diode_box.html">Dual Diode Box</a><br>
-	    
-	  </figcaption>
-	</figure>
-      </div> <!-- .current_project_7 -->
+                <figcaption>
+                    <a href="current_projects/Exploring_PHP.html">Controlling Arduino over USB Serial Link Using PHP</a>
+                </figcaption>
+            </figure>
+        </div> <!-- .current_project_7 -->
+        
+        <div class="current_project_8">
+            <figure>
+                <img
+                    src="current_projects/images/Javascript.png" 
+                    height="300px"
+                    width="375px"
+                    alt="Exploring Javascript + HTML5"
+                    title="Exploring Javascript + HTML5"
+                    class="align-center"
+                />
+                
+                <figcaption>
+                    <a href="current_projects/Exploring_JavaScript.html">Exploring JavaScript + HTML5</a><br>
+                    
+                </figcaption>
+            </figure>
+        </div> <!-- .current_project_8 -->
       
-      
-      <div class="current_project_8">
-	<figure>
-	  <img
-	    src="current_projects/images/c64_assembly.jpg" 
-	    height="300px"
-	    width="375px"
-	    alt="Assembly Language Programming"
-	    title="Assembly Language Programming"
-	    class="align-center"
-	  />
-	  
-	  <figcaption>
-	    <a href="current_projects/assembly.html">Assembly Language Programming</a><br>
-	    
-	  </figcaption>
-	</figure>
-      </div> <!-- .current_project_8 -->
       
       <div class="current_project_9">
 	<figure>
@@ -590,22 +563,24 @@
 	</figure>
       </div> <!-- .current_project_10 -->
       
-      <div class="current_project_11">
-	<figure>
-	  <img
-	    src="current_projects/images/current_projects_fortran.jpeg" 
-	    height="300px"
-	    width="375px"
-	    alt="current_projects_fortran.jpeg"
-	    title="current_projects_fortran.jpeg"
-	    class="align-center"
-	  />
+        <div class="current_project_11">
+            <figure>
+                <img
+                    src="current_projects/SBC_Linux/images/cubietruck1.jpg" 
+                    height="300px"
+                    width="375px"
+                    alt="CubieTruck"
+                    title="CubieTruck Single Board Linux Computer"
+                    class="align-center"
+                />
 	  
-	  <figcaption>
-	    <a href="current_projects/FORTRAN.html">FORTRAN Programming</a><br>
-	  </figcaption>
-	</figure>
-      </div> <!-- .current_project_11 -->
+                <figcaption>
+                    <a href="current_projects/current_projects_SBC_Linux.html">Single Board Computers Running Linux</a><br>
+                </figcaption>
+            </figure>
+        </div> <!-- .current_project_11 -->
+      
+      
       
       <div class="current_project_12">
         <figure>
@@ -625,42 +600,72 @@
       </div> <!-- .current_project_12 -->
       
     <div class="current_project_13">
-        <figure>
-            <img
-                src="current_projects/images/hacker.jpg"
-                height="300px"
-                width="375px"
-                alt="hacker.jpg"
-                title="hacker.jpg"
-                class="align-center"
-            />
+            <figure>
+                <img
+                    src="images/LTC3891.jpeg" 
+                    height="300px"
+                    width="375px"
+                    alt="Electronic Circuits"
+                    title="Electronic Circuits"
+                    
+                />
+	  
+                <figcaption>
+                    <a href="current_projects/current_projects_electronics.html">Electronic Circuits</a><br>
+                </figcaption>
+            </figure>
+        </div> <!-- .current_project_13 -->
+        
+        <div class="current_project_14">
+	<figure>
+	  <img
+	    src="current_projects/images/cray.jpg" 
+	    height="300px"
+	    width="375px"
+	    alt="Raspberry Pi 3 Supercomputer"
+	    title="Raspberry Pi 3 Supercomputer"
+	    class="align-center"
+	  />
 	  
 	  <figcaption>
-	    <a href="current_projects/computer_security/computer_security.html">Computer Security</a><br>
+	    <a href="current_projects/rpi3_supercomputer.html">Raspberry Pi 3 Supercomputer</a>
 	  </figcaption>
 	</figure>
-    </div> <!-- .current_project_13 -->
-    
-    <div class="current_project_14">
-        <figure>
-            <img
-                src="current_projects/images/python.png"
-                height="300px"
-                width="375px"
-                alt="python.png"
-                title="python.png"
-                class="align-center"
-            />
-	  
-	  <figcaption>
-	    <a href="current_projects/python.html">Python Programming</a><br>
-	  </figcaption>
-	</figure>
-    </div> <!-- .current_project_13 -->
+      </div> <!-- .current_project_14 -->
     
     
-      
+    
+    
     </section> <!-- .content -->
+    
+    <section class="content">
+        
+            <hgroup class="title">
+                <h2>
+                    <center>Do It Yourself Solar</center>
+                </h2>
+            </hgroup>
+      
+        <div class="current_project_900">
+            <figure>
+                <img
+                    src="current_projects/images/croppedbasicnode.jpg" 
+                    height="300px"
+                    width="375px"
+                    alt="DIY Grid"
+                    title="DIY Grid"
+	    
+                />
+	  
+                <figcaption>
+                    <a href="http://yugeshima.com/diygrid/">DIY Grid</a><br>
+                </figcaption>
+            </figure>
+      </div> <!-- .current_project_110 -->
+        
+        </section> <!-- .content -->
+      
+    
     
     
     
