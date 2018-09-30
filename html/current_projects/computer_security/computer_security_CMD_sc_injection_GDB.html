@@ -18,7 +18,7 @@
   <meta name="robots" content="follow" />
   
   <title>
-    MK Dynamics - Computer Security
+    MK Dynamics - Computer Security - Shellcode Generation and Test
   </title>
   
   <link href="../../css/styles.css" type = "text/css" rel = "stylesheet" />
@@ -97,7 +97,7 @@
       background	: gray;
       position		: relative;
       width		: 900px;
-      height		: 500px;
+      height		: 3000px;
       top		: 000px;
       left		: 0px;
       float		: left;
@@ -140,7 +140,7 @@
 
 
                 <h2>
-                    Computer Security - Shellcode Injection via Command Line Debug with GDB
+                    Computer Security - Shellcode Generation and Testing
                 </h2>
             </hgroup>
     
@@ -160,11 +160,6 @@
             
             <!-- ************************************************************************************** First Section Start ************ -->
             <section class="first_section">
-                <hgroup>
-                    <h2>
-                        Description
-                    </h2>
-                </hgroup>
         
                 <div class="current_project_1">
                     
@@ -491,18 +486,17 @@
             
              <!-- ************************************************************************************ Fifth Section Start ******* -->
             <section class="fifth_section">
-                <hgroup>
-                    <h2>
-                        Lorem
-                    </h2>
-                </hgroup>
         
                 <div class="current_project_5">
                     
                     <hgroup>
                         <h3>
-                            Lorem
+                            Inserting Extracted Hex Opcodes into C Test Program and Running C Test Program
                         </h3>
+                        
+                        <h4>
+                            C Test Program for Shellcode
+                        </h4>
                     </hgroup>
                     
 
@@ -510,13 +504,81 @@
                     <div class="loose_text">
                         
                         <p>
-                            
+                            Now that we have the extracted hex opcodes with proper formatting that includes quotation marks and 10 opcodes per line, we can insert these opcodes into a C test program.  It is important to not forget the trailing semicolon to terminate the string that is composed of the hex opcodes.  The C test program is shown below:
                         </p>
+                    </div> <!-- .loose_text -->
+                    <!-- ********************************************************************* Loose Text -->
+                        
+                        <iframe
+                            src="code/shellcode2.c.html" 
+                            height="275" 
+                            width="800">
+                        </iframe>
+                    
+                    <!-- ********************************************************************* Loose Text -->                
+                    <div class="loose_text">
                         
                         <p>
-                            
+                            To complile the C test program, I like to go through the extra steps of producing allot of debugging information, the preprocessed file, static compilation, generating the generic assembly code, compiling the generic assembly code into an object file, and finally linking the object file with gcc to produce an executable.  All compilation will be done in 32 bit mode, and objdumps of both the object file and executable files will be produced and saved.
                         </p>
+                    </div> <!-- .loose_text -->
+                    <!-- ********************************************************************* Loose Text -->
                     
+                    <hgroup>
+                        <h4>
+                            Compiling shellcode.c Into 32 Bit Mode, Statically, with Debugging Information, and Preprocessor Additions
+                        </h4>
+                    </hgroup>
+                    
+                    <figure>
+                        <div class="img">
+                            <img 
+                                src="images/shellcode_processed_dot_c.jpg"
+                                width="800"
+                                height="350"
+                                title=""
+                            >
+                        </div> <!-- .img -->
+                        
+                        <div class="desc">
+                            shellcode.c is compiled with preprocessor additions.  Only the last 15 lines are shown for brevity.
+                        </div> <!-- .desc -->
+                    </figure>
+                    
+                    <!-- ********************************************************************* Loose Text -->                
+                    <div class="loose_text">
+                        <p>
+                            I then generate a generic assembly code file of shellcode.c, mainly out of curiosity.  In order to make a readable file for this example, I use shellcode.c as input, and do not include debugging information.  I will then redo this step, but use processed.c as input and include the debug information.  I will not show the results of the second step, as it is very verbose and little can be gleaned from it.
+                        </p>
+                    </div> <!-- .loose_text -->
+                    <!-- ********************************************************************* Loose Text -->
+                    
+                    <hgroup>
+                        <h4>
+                            Compiling shellcode.c Into 32 Bit Mode Generic Assembly Instructions, with No Debugging Information for Clarity
+                        </h4>
+                    </hgroup>
+                    
+                    <figure>
+                        <div class="img">
+                            <img 
+                                src="images/generic_assembly_of_shellcode_c.jpg"
+                                width="800"
+                                height="700"
+                                title=""
+                            >
+                        </div> <!-- .img -->
+                        
+                        <div class="desc">
+                            shellcode.c is compiled into generic assembly instructions
+                        </div> <!-- .desc -->
+                    </figure>
+                    
+                    <!-- ********************************************************************* Loose Text -->                
+                    <div class="loose_text">
+                        <p>
+                            Lorem
+                        </p>
                     </div> <!-- .loose_text -->
                     <!-- ********************************************************************* Loose Text -->
 
