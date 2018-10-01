@@ -71,7 +71,7 @@
       background	: gray;
       position		: relative;
       width		: 900px;
-      height		: 3000px;
+      height		: 3100px;
       top		: 000px;
       left		: 0px;
       float		: left;
@@ -84,7 +84,7 @@
       background	: gray;
       position		: relative;
       width		: 900px;
-      height		: 2600px;
+      height		: 2700px;
       top		: 000px;
       left		: 0px;
       float		: left;
@@ -110,7 +110,7 @@
       background	: gray;
       position		: relative;
       width		: 900px;
-      height		: 3600px;
+      height		: 3100px;
       top		: 000px;
       left		: 0px;
       float		: left;
@@ -302,7 +302,7 @@
                     <figure>
                         <div class="img">
                             <img 
-                            src="images/assembling_of_sc2.jpg"
+                            src="images/Shellcode_generation/assembling_of_sc2.jpg"
                             width="800"
                             height="650"
                             title=""
@@ -350,9 +350,9 @@
                     <figure>
                         <div class="img">
                             <img 
-                            src="images/running_sc2_to_get_root_shell.jpg"
+                            src="images/Shellcode_generation/running_sc2_to_get_root_shell.jpg"
                             width="800"
-                            height="700"
+                            height="600"
                             title=""
                             >
                         </div> <!-- .img -->
@@ -364,7 +364,10 @@
                     <!-- ********************************************************************* Loose Text -->                
                     <div class="loose_text">
                         <p>
-                            Lorem
+                           We can see that upon execution, we obtain a root shell.  Executing the command whoami returns the result root.  What is important to note is that a regular user was able to execute a program that gave the user a root shell.  This is because the shellcode changes the users real and effective UIDs to that of root, and then spawns a shell.
+                        </p>
+                        <p>
+                            What we will do with this shellcode is to eventually inject it into a vulerable program to obtain a root shell.  Vulnerable programs can be affected by an exploit, which we will develop in further sections.
                         </p>
                     </div> <!-- .loose_text -->
                     <!-- ********************************************************************* Loose Text -->
@@ -386,7 +389,7 @@
                     <figure>
                         <div class="img">
                             <img 
-                            src="images/assembling_of_sc2_2.jpg"
+                            src="images/Shellcode_generation/assembling_of_sc2_2.jpg"
                             width="800"
                             height="700"
                             title=""
@@ -447,7 +450,7 @@
                     <figure>
                         <div class="img">
                             <img 
-                                src="images/objcopy_of_sc2.jpg"
+                                src="images/Shellcode_generation/objcopy_of_sc2.jpg"
                                 width="800"
                                 height="700"
                                 title=""
@@ -502,7 +505,7 @@
                     <figure>
                         <div class="img">
                             <img 
-                                src="images/hex_extract_python_script.jpg"
+                                src="images/Shellcode_generation/hex_extract_python_script.jpg"
                                 width="800"
                                 height="350"
                                 title=""
@@ -587,7 +590,7 @@
                     <figure>
                         <div class="img">
                             <img 
-                                src="images/shellcode_processed_dot_c.jpg"
+                                src="images/Shellcode_generation/shellcode_processed_dot_c.jpg"
                                 width="800"
                                 height="350"
                                 title=""
@@ -616,7 +619,7 @@
                     <figure>
                         <div class="img">
                             <img 
-                                src="images/generic_assembly_of_shellcode_c.jpg"
+                                src="images/Shellcode_generation/generic_assembly_of_shellcode_c.jpg"
                                 width="800"
                                 height="700"
                                 title=""
@@ -642,7 +645,7 @@
                     <figure>
                         <div class="img">
                             <img 
-                                src="images/objdump_of_shellcode2_dot_o.jpg"
+                                src="images/Shellcode_generation/objdump_of_shellcode2_dot_o.jpg"
                                 width="800"
                                 height="500"
                                 title=""
@@ -665,7 +668,7 @@
                     <figure>
                         <div class="img">
                             <img 
-                                src="images/compiling_shellcode2_dot_o_into_executable.jpg"
+                                src="images/Shellcode_generation/compiling_shellcode2_dot_o_into_executable.jpg"
                                 width="800"
                                 height="500"
                                 title=""
@@ -718,7 +721,7 @@
                     <figure>
                         <div class="img">
                             <img 
-                                src="images/running_shellcode2_getting_seg_fault.jpg"
+                                src="images/Shellcode_generation/running_shellcode2_getting_seg_fault.jpg"
                                 width="800"
                                 height="350"
                                 title=""
@@ -747,7 +750,7 @@
                     <figure>
                         <div class="img">
                             <img 
-                                src="images/gdb_peda_shellcode2.jpg"
+                                src="images/Shellcode_generation/gdb_peda_shellcode2.jpg"
                                 width="800"
                                 height="600"
                                 title=""
@@ -774,14 +777,14 @@
                     
                     <hgroup>
                         <h4>
-                            Compiling shellcode.c Into 32 Bit Mode Generic Assembly Instructions, with No Debugging Information for Clarity
+                            Recompiling shellcode.c as before but with executable stack and no stack protections
                         </h4>
                     </hgroup>
                     
                     <figure>
                         <div class="img">
                             <img 
-                                src="images/generic_assembly_of_shellcode_c.jpg"
+                                src="images/Shellcode_generation/recompiling_shellcode2_with_nx_disabled.jpg"
                                 width="800"
                                 height="700"
                                 title=""
@@ -789,17 +792,14 @@
                         </div> <!-- .img -->
                         
                         <div class="desc">
-                            shellcode.c is compiled into generic assembly instructions
+                            shellcode.c is recompiled with executable stack and no stack protections
                         </div> <!-- .desc -->
                     </figure>
                     
                     <!-- ********************************************************************* Loose Text -->                
                     <div class="loose_text">
                         <p>
-                            We can see from the generic assemply above that there is a function prefix to set up the variables on the stack, and to load the address of the shellcode into EAX.  The shellcode is then called by the instruction:<br><br>
-                            call  *%eax<br><br>
-                            Finally, there is the function suffix to which ends in the ret instruction to return control back to the shell.<br>
-                            It is now time to generate the object file.
+                            We recompiled shellcode2.c so that the stack is executable, and there are no protections on the stack.  Recall that the shellcode, which is data, is placed onto the stack when the function fp() is called in shellcode2.c.  By enabling execution of data on the stack, we prevent a segmentation fault, as can be seen in the next section.
                         </p>
                     </div> <!-- .loose_text -->
                     <!-- ********************************************************************* Loose Text -->
@@ -807,46 +807,30 @@
                     <figure>
                         <div class="img">
                             <img 
-                                src="images/objdump_of_shellcode2_dot_o.jpg"
+                                src="images/Shellcode_generation/running_shellcode2_getting_root_shell.jpg"
                                 width="800"
-                                height="500"
+                                height="300"
                                 title=""
                             >
                         </div> <!-- .img -->
                         
                         <div class="desc">
-                            Objdump of shellcode2.o
+                            Rerunning shellcode2 and getting a root shell
                         </div> <!-- .desc -->
                     </figure>
                     
                     <!-- ********************************************************************* Loose Text -->                
                     <div class="loose_text">
                         <p>
-                            As before, we see the function prefix and suffix, as well as the call to *EAX, which is the address of our shellcode.  It is now time to produce an executable, and move on to using the Gnu Debugger (GDB) to step through the assembly instructions, as well as the shellcode.
+                            We can see that once we run the shellcode, we get a root shell.  Success!  We can now use this shellcode to exploit vulnerabilities in vulnerable programs.
                         </p>
                     </div> <!-- .loose_text -->
                     <!-- ********************************************************************* Loose Text -->
                     
-                    <figure>
-                        <div class="img">
-                            <img 
-                                src="images/compiling_shellcode2_dot_o_into_executable.jpg"
-                                width="800"
-                                height="500"
-                                title=""
-                            >
-                        </div> <!-- .img -->
-                        
-                        <div class="desc">
-                            Compiling shellcode2.o into and executable and saving objdump into a text file
-                        </div> <!-- .desc -->
-                    </figure>
-                    
-                    
-                </div> <!-- .current_project_5 -->
+                </div> <!-- .current_project_6 -->
         
             </section> <!-- fifth_section -->
-            <!-- ************************************************************************************** Fifth Section End ************ -->
+            <!-- ************************************************************************************** Sixth Section End ************ -->
             
         </section>	<!-- .content -->
     
