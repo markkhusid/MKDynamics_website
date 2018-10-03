@@ -84,6 +84,9 @@
             
       img {
 	border: 5px solid blue;
+        display: block;
+	margin: auto;
+	padding: auto;
       }
       
       img.align-center {
