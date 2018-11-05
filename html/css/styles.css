@@ -1,4 +1,4 @@
-/* Mark Khusid 2014-2015 */
+/* Mark Khusid 2014-2018 */
 /* Free and open source */
 /* Main CSS style for entire website */
 /* CSS code styles that pertain to individual sheets located in those sheets */
@@ -14,7 +14,7 @@
 	-o-background-size: cover;
 	background-size: cover;
 	background-position: center;
-	width: 1024px;
+	width: 1400px;
 	margin: 10px, auto;
 	
 	font-family: Arial, Veranda, sans-serif;
@@ -25,8 +25,11 @@
       }
       
       .content {
-	overflow: auto;
-	height: 80%; 
+	/*overflow: auto;*/
+        overflow                    : none;
+	/*height: 80%;*/
+        height                      : 3100px;
+        width                       : 1400px;
 	background: url("../images/hubble.jpg") no-repeat center center fixed;
 	background-size: cover;
 	background-position: center;
@@ -51,19 +54,19 @@
 	-o-background-size: cover;
 	background-size: cover;
 	background-position: center;
-	width: 1300px;
-	margin: 20px, auto;
-	padding: 20px;
+	width: 1400px;
+	margin: 10px;
+	padding: 10px;
 	border: 5px solid black;
       }
       
       nav {
 	color: black;
 	background-color: #aeaca8;
-	padding: 30px;
+	padding: 50px;
 	margin: 5px, 5px;
 	height: 30px;
-	border: 5px solid white;
+	border: 5px solid black;
       }
       
       nav ul {
@@ -84,6 +87,9 @@
             
       img {
 	border: 5px solid blue;
+        display: block;
+	margin: auto;
+	padding: auto;
       }
       
       img.align-center {
