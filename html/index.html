@@ -24,6 +24,26 @@
   <link href="css/styles.css" type = "text/css" rel = "stylesheet" />
   
   <style>
+    /*html {
+        background                  : black;
+        background-size             : cover;
+        overflow                    : auto;
+    }*/
+  
+    .content_2 {
+	/*overflow: auto;*/
+        overflow                    : none;
+	/*height: 80%;*/
+        height                      : 600px;
+        width                       : 1400px;
+	background: url("images/hubble.jpg") no-repeat center center fixed;
+	background-size: cover;
+	background-position: center;
+	padding: 10px;
+	margin: 10px;
+	border: 5px solid black;
+      }
+  
     .current_project_1 {
       border		: 5px solid black;
       background	: gray;
@@ -225,21 +245,35 @@
       color		: white;
       position		: relative;
       height		: 125px;
-      width		: 1000px;
+      width		: 1420px;
       left		: 0px;
       background	: gray;
       margin		: 10px;
     }
     
+    .title_2 {
+      border		: 5px solid black;
+      font-size		: 200%;
+      color		: white;
+      position		: relative;
+      height		: 125px;
+      width		: 1380px;
+      left		: 0px;
+      background	: gray;
+      margin		: 10px;
+    }
+    
+    
     aside {
       border		: 5px solid black;
       background	: gray;
       width		: 280px;
-      height		: 2800px;
+      height		: 3020px;
       float		: right;
-      left		: 20px;
+      left		: 25px;
       top		: 25px;
-      padding		: 0px 0px 0px 10px;
+      padding		: 20px 15px 20px 10px;
+      margin            : 15px;
       color		: white;
     }
     
@@ -284,15 +318,49 @@
       <aside>
 	<br>
 	Status Updates<br><br>
+	10/30/2108
+	<ul>
+            <li>Attended presentation by Jayson Street at my Alma Mater.  Added my notes under Computer Security.</li>
+	</ul>
+	
+	10/27/2018
+	<ul>
+            <li>Updates to Basic Linux Exploits in Computer Security Section.</li>
+	</ul>
+	
+	10/24/2018
+	<ul>
+            <li>Updated list of Useful Links in HAM Radio section.</li>
+	</ul>
+	
+	10/14/2018
+	<ul>
+            <li>Updates to Basic Linux Exploits in Computer Security Section.</li>
+	</ul>
+	
+	10/5/2018
+	<ul>
+            <li>Updated resume in About Me section.</li>
+            <li>Corrected formatting.</li>
+	</ul>
+	
+	10/2/2018
+	<ul>
+            <li>Added subsection on shellcode development to Computer Security.</li>
+            <li>Duplicated entire website onto AWS cloud at www.mkdynamics.net.</li>
+	</ul>
+	
 	8/6/2018
         <ul>
             <li>Rearragened Projects on Home Page by order of increased activity.</li>
             <li>Started to use Jupyter Notebook for applicable Python scripts.</li>
 	</ul>
+	
 	7/14/2018
 	<ul>
             <li>Added Conway's Game of Life to Python section.  Fixed the script to correct file I/O error.</li>
 	</ul>
+	
 	7/8/2018
 	<ul>
             <li>Added Python section. Updated SBC and Fortran sections.</li>
@@ -580,8 +648,6 @@
             </figure>
         </div> <!-- .current_project_11 -->
       
-      
-      
       <div class="current_project_12">
         <figure>
             <img
@@ -634,18 +700,18 @@
       </div> <!-- .current_project_14 -->
     
     
-    
-    
     </section> <!-- .content -->
     
-    <section class="content">
+   
         
-            <hgroup class="title">
-                <h2>
-                    <center>Do It Yourself Solar</center>
-                </h2>
-            </hgroup>
-      
+    <section class="content_2">
+        
+        <hgroup class="title_2">
+            <h2>
+                <center>Do It Yourself Solar</center>
+            </h2>
+        </hgroup>
+    
         <div class="current_project_900">
             <figure>
                 <img
@@ -654,9 +720,8 @@
                     width="375px"
                     alt="DIY Grid"
                     title="DIY Grid"
-	    
                 />
-	  
+        
                 <figcaption>
                     <a href="http://yugeshima.com/diygrid/">DIY Grid</a><br>
                 </figcaption>
@@ -665,6 +730,10 @@
 
         </section> <!-- .content -->
       
+        </div> <!-- .current_project_900 -->
+    </section> <!-- .content_2 -->
+    
+
     <footer>
       <hr />
       <hgroup>
