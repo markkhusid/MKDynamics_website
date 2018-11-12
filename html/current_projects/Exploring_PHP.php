@@ -39,13 +39,7 @@
 
   <div id="nav">
     <ul>
-      <li> <a href="../index.html">Home</a> </li>
-      <!--
-      <li> <a href="../HAM_radio/hamradio.html">HAM Radio</a></li>
-      <li> <a href="../board_photos/board_photos.html">Board Photos</a></li>
-      <li> <a href="../current_projects/current_projects.html">Current Projects</a></li>
-      <li> <a href="../about_me/about_me.html">About me</a></li>
-      -->
+      <li> <a href="../index.php">Home</a> </li>
     </ul>
   </div>
   
@@ -62,8 +56,9 @@
       The following code is uploaded to an Arduino UNO R3.  It listens to the serial port and <br>
       activates a digital I/O pin based on the number it received from the serial port.  If it received <br>
       a "1", then it illuminates the first LED, if it receives a "2", then it illuminated the second LED, <br>
-      if it receives a "3", it illuminates the third LED.
-      The code is shown below:
+      if it receives a "3", it illuminates the third LED.<br>
+      The code is shown below:<br><br><br>
+      
       <iframe
 	  src = "code_arduino/PHP_Control_of_Arduino.ino.txt"
 	  width = "550"
