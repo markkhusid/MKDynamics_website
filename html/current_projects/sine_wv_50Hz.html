@@ -45,7 +45,7 @@
   
   <div id="nav">
     <ul>
-      <li> <a href="../index.html">Home</a> </li>
+      <li> <a href="../index.php">Home</a> </li>
       <li> <a href="../current_projects/current_projects_FFTW3.html">Back</a></li>
     </ul>
   </div>
@@ -112,64 +112,6 @@
     
     </p>
 
-
-    
-    <!--
-    <p><b> Image of the DFFT of a 50Hz Sine Wave, sampled at 1000Hz, using SciLAB</b><br>
-      <img src="images/sine_wave2_10Hz_FFT.jpg" width="600" height="450" title="SciLAB FFT of 10Hz Sine Wave"/><br>
-      Download the image by clicking the link below:<br>
-      <a href="images/sine_wave2_10Hz_FFT.jpg" target="_top">Image of FFT of 10Hz sine wave generated in SciLAB</a>
-    </p>
-    
-    <p> <b> Saving of time-domain data into a file </b> <br>
-      The raw time-domain data is saved into a text file. <br>
-      A portion of the data is shown below: <br>
-      <iframe
-	src = "code_FFTW3/sine_wave2_10Hz.csv.txt"
-	width = "550"
-	height = "100"
-	frameborder = "1"
-	scrolling = "no">
-      </iframe><br>
-      The data may be downloaded by clicking the link below: <br>
-      <a href="code_FFTW3/sine_wave3_10Hz.csv" target="_top">CSV file containing discretized sine wave data</a><br><br>
-    </p>
-    
-    <p> <b> Processing of CSV file into format suitable for input into Fortran 2003 DFFT code. </b> <br>
-      Since the output of SciLAB is a comma separated value (CSV) file, a method is needed that will process<br>
-      that file into another file, where the commas are removed and each data element is on a separate line.<br>
-      Additionally, a the data elements need to be reformatted into fixed floating point, since the "e" <br>
-      floating point format was noticed to possibly cause errors when input into the FFTW3 algorithm. <br>
-      These operations were done using a Python script, with its powerful object-oriented file techniques and<br>
-      its included CSV library.  The Python script is shown below: <br>
-    </p>
-    
-    <p> <b> Python script to process CSV file by stripping commas and producing one data element per line </b><br>
-      <iframe
-	src = "code_FFTW3/convert_csv.txt"
-	width = "550"
-	height = "300"
-	frameborder = "1"
-	scrolling = "yes">
-      </iframe><br>
-      <a href="code_FFTW3/convert_csv.txt" target="_top">Python script that removes commas and produced one data element per line</a><br>
-      Run by typing: <b>./convert_csv.py infile.csv outfile.dat</b> <br>
-      where infile.csv is the data file in CSV format, and outfile.dat is the processed file <br>
-      Obtain the line count of the processed file by typing: <b>wc -l outfile.dat</b><br>
-      
-      A portion of the processed CSV file is shown below: <br>
-      <iframe
-	src = "code_FFTW3/processed_sn_wv3_10Hz.dat"
-	width = "550"
-	height = "200"
-	frameborder = "1"
-	scrolling = "no">
-      </iframe><br>
-    
-      The processed data may be downloaded by clicking the link below: <br>
-      <a href="code_FFTW3/processed_sn_wv3_10Hz.dat" target="_top">Output of Python script</a><br>
-    </p>
--->
     <p> <b> Obtaining Discretized Fast Fourier Transform of Raw Data File </b> <br>
       Now that the Python+Numpy on Jupyter Notebook script has output time domain data elements into a file, these<br>
       data elements can now be fed into the FFTW3 DFFT algorithm.  The algorithm is used within a Fortran 2003 program.<br>
@@ -205,32 +147,6 @@
     </p>
     
     <p>
-      <!--A section of the magnitude output file is shown below: <br>
-      --<iframe
-	src = "code_FFTW3/DFFT_mag_sn_wv_10Hz.dat"
-	width = "550"
-	height = "200"
-	frameborder = "1"
-	scrolling = "yes">
-      </iframe><br>
-    </p>
-    
-    <p>
-      The phase file is shown below for completeness: <br>
-      <iframe
-	src = "code_FFTW3/DFFT_phase_sn_wv_10Hz.dat"
-	width = "550"
-	height = "200"
-	frameborder = "1"
-	scrolling = "yes">
-      </iframe><br>
-    </p>-->
-    
-    <!--<p> <b>Output files from running Fortran 2003 code</b><br>
-      The data files may be downloaded by clicking the links below: <br>
-      <a href="code_FFTW3/DFFT_mag_sn_wv_10Hz.dat" target="_top">Output of DFFT Fortran program as magnitude</a><br>
-      <a href="code_FFTW3/DFFT_phase_sn_wv_10Hz.dat" target="_top">Output of DFFT Fortran progream as phase</a><br>
-    </p>-->
     
     <p> <b>Plots of the magnitude output file using GNUPlot</b><br>
       The magnitude output file is plotted with GNUPlot.  A GNUPlot script file was created <br>
@@ -250,12 +166,6 @@
       <br><b> Magnitude Plot </b><br>
       <img src="images/FFTW3/DFFT_sine_wv_50Hz.png" width="600" height="450" title="Magnitude plot of DFFT of 50Hz sine wave"/><br>
       
-      <!--<br><b> Phase Plot </b><br>
-      <img src="images/DFFT_phase_sine_wave2_10Hz.jpeg" width="600" height="450" title="Phase plot of DFFT of 10Hz sine wave"/><br>
-      The phase plot above displays overall quantization noise and computation noise of FFTW3, since <br>
-      pure frequency sine wave with zero phase should have been a straight line at 0 degrees. <br>  
-      This plot gives a feel for the accuracy of the computational engine. <br>
-    </p>-->
     
     <h4>
       Discussion:

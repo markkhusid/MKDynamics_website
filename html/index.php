@@ -349,6 +349,11 @@
       <aside>
 	<br>
 	Status Updates<br><br>
+	11/11/2018
+	<ul>
+            <li>Added PHP web hit counter. </li>
+            <li>Added PHP to site that included numberous backend updates</li>
+	</ul>
 	10/30/2108
 	<ul>
             <li>Attended presentation by Jayson Street at my Alma Mater.  Added my notes under Computer Security.</li>
@@ -467,21 +472,7 @@
             <li> Added Raspberry Pi 3 Supercomputer section.</li>
             <li> Added thermal impedance calculations for Raspberry Pi 3.</li>
         </ul>
-	2/1/2016
-	<ul>
-            <li> Updated Fortran section with additional code.</li>
-        </ul>
-	1/29/2016
-	<ul>
-            <li> Added design calculations for DCDC converters to website.</li>
-        </ul>
-	12/9/2015
-	<ul>
-            <li> Installed Apache webserver onto CubieTruck single board computer.</li>
-            <li> Moved website onto CubieTruck.</li>
-            <li> Updated CubieTruck section of website.</li>
-	</ul>
-
+	
 	<a href="aside_archives.html">Archives</a><br>
     </aside>
       
