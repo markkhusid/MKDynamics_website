@@ -329,7 +329,7 @@
 
 	<nav>
             <ul>
-                <li> <a href="index.html">Home</a> </li>
+                <li> <a href="index.php">Home</a> </li>
                 <li> <a href="about_me/about_me.html">About me</a></li>
                 <li> <a href="misc/misc.html">Miscellaneous</a></li>
                 <li> <a href="yugeshima/yugeshima.html">Yugeshima Trip</a></li>
