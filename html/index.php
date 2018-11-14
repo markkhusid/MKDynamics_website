@@ -352,7 +352,7 @@
 	11/11/2018
 	<ul>
             <li>Added PHP web hit counter. </li>
-            <li>Added PHP to site that included numberous backend updates</li>
+            <li>Added PHP to site that included numerous backend updates</li>
 	</ul>
 	10/30/2108
 	<ul>
