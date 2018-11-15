@@ -461,21 +461,6 @@
 	<ul>
             <li> Added information on lessons learned for making OpenMPI work with the Eclipse IDE + Photran + Parallel Tools Platform.</li>
 	</ul>
-	7/25/2016
-	<ul>
-            <li> Updated Raspberry Pi Supercomputer section to include Parallel Fortran code.</li>
-	</ul>
-	7/4/2016
-	<ul>
-            <li> Added content for the CAELinux link.</li>
-            <li> Added Salome-Meca + Code Aster modeling section for RPi3 Supercomputer section.</li>
-	</ul>
-	6/8/2016
-	<ul>
-            <li> Added Raspberry Pi 3 Supercomputer section.</li>
-            <li> Added thermal impedance calculations for Raspberry Pi 3.</li>
-        </ul>
-	
 	<a href="aside_archives.html">Archives</a><br>
     </aside>
       
