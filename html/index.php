@@ -347,12 +347,15 @@
         </hgroup>
       
       <aside>
-	<br>
 	Status Updates<br><br>
+	11/14/2018
+	<ul>
+            <li>Added new section under Computer Security titled LiveOverflow.  This section follows the videos from the Youtuber by that name.</li>
+	</ul>
 	11/11/2018
 	<ul>
             <li>Added PHP web hit counter. </li>
-            <li>Added PHP to site that included numerous backend updates</li>
+            <li>Added PHP to site that included numerous backend updates.</li>
 	</ul>
 	10/30/2108
 	<ul>
