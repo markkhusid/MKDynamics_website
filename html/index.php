@@ -348,6 +348,10 @@
       
       <aside>
 	Status Updates<br><br>
+	11/15/2018
+	<ul>
+            <li>Added new section under Computer Security titled SLAE64.  This section follows the Pentester Academy SLAE64 Assembly Language and shellcoding on Linux course.</li>
+	</ul>
 	11/14/2018
 	<ul>
             <li>Added new section under Computer Security titled LiveOverflow.  This section follows the videos from the Youtuber by that name.</li>
