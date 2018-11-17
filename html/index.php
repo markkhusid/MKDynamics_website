@@ -348,6 +348,10 @@
       
       <aside>
 	Status Updates<br><br>
+	11/17/2018
+	<ul>
+            <li>Added new section under Ham Radio titled Broadband Hamnet.  In this section I demonstrate a two-node Broadband Hamnet.</li>
+	</ul>
 	11/15/2018
 	<ul>
             <li>Added new section under Computer Security titled SLAE64.  This section follows the Pentester Academy SLAE64 Assembly Language and shellcoding on Linux course.</li>
@@ -453,18 +457,7 @@
 	<ul>
             <li> Added section on hacking the TL494 LTSpice model.</li>
 	</ul>
-	8/21/2016
-	<ul>
-            <li> Started a multithread debug stepthrough of OpenMPI Fortran program.</li>
-	</ul>
-	8/7/2016
-	<ul>
-            <li> Added a "Howto" on compiling, linking and running an OpenMPI Fortran program.</li>
-	</ul>
-	8/4/2016
-	<ul>
-            <li> Added information on lessons learned for making OpenMPI work with the Eclipse IDE + Photran + Parallel Tools Platform.</li>
-	</ul>
+	
 	<a href="aside_archives.html">Archives</a><br>
     </aside>
       
