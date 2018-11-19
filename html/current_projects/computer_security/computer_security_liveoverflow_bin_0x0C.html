@@ -71,7 +71,7 @@
       background	: gray;
       position		: relative;
       width		: 900px;
-      height		: 800px;
+      height		: 350px;
       top		: 000px;
       left		: 0px;
       float		: left;
@@ -138,6 +138,17 @@
       margin		: 5px;
       padding		: 10px;
     }
+    
+    table, th, td {
+        padding         : 5px;
+        color           : white;
+    }
+
+    table {
+        border-spacing  : 5px;
+        border-collapse :collapse;
+        border          : 5px solid black;
+    }
   </style>
 </head>
 
@@ -169,8 +180,8 @@
     
         <section class="content">
             
-            <!-- ************************************************************************************** First Section Start ************ -->
-            <section class="first_section">
+            <!-- ************************************************************************************** Section Start ************ -->
+            <section class="section">
         
                 <div class="current_project_1">
                     
@@ -204,56 +215,13 @@
                 </div> <!-- .current_project_1 -->
         
             </section> <!-- first_section -->
-            <!-- ************************************************************************************** First Section End ************ -->
+            <!-- ************************************************************************************** Section End ************ -->
             
-            <!-- *********************************************************************************** Second Section Start ************ -->
-            <section class="second_section">
+            <!-- *********************************************************************************** Section Start ************ -->
+            <section class="section">
                 
                 <div class="current_project_2">
                 
-                    <hgroup>
-                        <h3>
-                            Smashing the Stack of a Vulnerable Program and Causing a Variable Modification
-                        </h3>
-                    </hgroup>
-                    
-                    <hgroup>
-                        <h4>
-                            Modifying the Contents of a Variable From the Command Line
-                        </h4>
-                    </hgroup>
-                    
-                    <!-- ********************************************************************* Loose Text -->                
-                    <div class="loose_text">
-                    
-                        <p>
-                            
-                        </p>
-                        
-                    </div> <!-- .loose_text -->
-                    <!-- ********************************************************************* Loose Text -->
-                    
-                    <figure>
-                        <div class="img">
-                            <img 
-                            src="images/LiveOverflow/bin_0x0C/parrot_gef1.jpg"
-                            width="800"
-                            height="600"
-                            title=""
-                            >
-                        </div> <!-- .img -->
-                    </figure>
-                    
-                </div> <!-- .current_project_2 -->
-            
-            </section> <!-- second_section -->
-            <!-- ************************************************************************************* Second Section End ************ -->
-        
-            <!-- ************************************************************************************* Third Section Start *********** -->
-            <section class="third_section">
-        
-                <div class="current_project_3">
-            
                     <hgroup>
                         <h3>
                             The Vulnerable C Program <i>stack0.c</i>
@@ -263,11 +231,15 @@
                     <!-- ********************************************************************* Loose Text -->                
                     <div class="loose_text">
                         <p>
-                            We start with the vulnerable C program <i>stack0.c</i>
+                            We start with the vulnerable C Program <i>stack0.c</i>.  The reason this program is vulnerable is because the <i>gets</i> function does not have any bounds checking.  In other words, it will take whatever amount of data is given to it and put this data into the <i>buffer</i> argument.  It will do so even if the amount of data exceeds the storage space allocated for <i>buffer</i>.  In this case <i>buffer</i> is allocated 64 bytes.
+                        </p>
+                        
+                        <p>
+                            If one were to input a properly coded payload into the <i>gets</i> function, one could overwrite the <i>buffer</i> variable and even overwrite other variables.  In this case, the variable we wish to overwrite is called <i>modified</i>.
                         </p>
                     </div> <!-- .loose_text -->
                     <!-- ********************************************************************* Loose Text -->
-
+                    
                     <figure>
                         <div class="img">
                             <img 
@@ -290,10 +262,98 @@
                     </div> <!-- .loose_text -->
                     <!-- ********************************************************************* Loose Text -->
                     
+                    
+                    
+                </div> <!-- .current_project_2 -->
+            
+            </section> <!-- second_section -->
+            <!-- ************************************************************************************* Section End ************ -->
+        
+            <!-- *********************************************************************************** Section Start ************ -->
+            <section class="section">
+                
+                <div class="current_project_3">
+                
+                    <hgroup>
+                        <h3>
+                            Layout of the stack in program <i>stack0.c</i>
+                        </h3>
+                    </hgroup>
+                    
+                    <!-- ********************************************************************* Loose Text -->                
+                    <div class="loose_text">
+                        <p>
+                            The table below illustrates the layout of the stack once <i>stack.c</i> is executed.
+                        </p>
+                    </div> <!-- .loose_text -->
+                    <!-- ********************************************************************* Loose Text -->
+                    
+                    <table align="center" border="1" style="width:75%">
+                        <tr>
+                            <th width="20%">Stack entry name</th>
+                            <th width="20%">Size [bytes]</th>
+                        </tr>
+                        
+                        <tr>
+                            <td align="center">RET (return address)</td>
+                            <td align="center">4</td>
+                        </tr>
+                        
+                        <tr>
+                            <td align="center">Saved EBP</td>
+                            <td align="center">4</td>
+                        </tr>
+                        
+                        <tr>
+                            <td align="center">modified</td>
+                            <td align="center">4</td>
+                        </tr>
+                        
+                        <tr>
+                            <td align="center">buffer[64]</td>
+                            <td align="center">64</td>
+                        </tr>
+                    </table>
+                    
+                    <!-- ********************************************************************* Loose Text -->                
+                    <div class="loose_text">
+                        <p>
+                            If one were to input more than 64 bytes of data into <i>buffer</i>, then the remainder will spill over into the variable <i>modified</i>.
+                        </p>
+                    </div> <!-- .loose_text -->
+                    <!-- ********************************************************************* Loose Text -->
+                    
+                </div> <!-- .current_project_2 -->
+            
+            </section> <!-- second_section -->
+            <!-- ************************************************************************************* Section End ************ -->
+        
+            <!-- ************************************************************************************* Section Start *********** -->
+            <section class="section">
+        
+                <div class="current_project_3">
+            
+                    <hgroup>
+                        <h3>
+                            Creating the payload to overwrite the variable <i>modified</i>
+                        </h3>
+                    </hgroup>
+                    
+                    <!-- ********************************************************************* Loose Text -->                
+                    <div class="loose_text">
+                        <p>
+                            We will create a python script to build a payload.  This payload will contain 64+4 characters, which is the 68 bytes necessary to completely overwrite the variable <i>modified</i>.  
+                        </p>
+                    </div> <!-- .loose_text -->
+                    <!-- ********************************************************************* Loose Text -->
+
+                    
+                    
+                    
                 </div> <!-- .current_project_3 -->
 
             </section> <!-- third_section -->
-            <!-- ************************************************************************************* Third Section End *********** -->
+            <!-- ************************************************************************************* Section End *********** -->
             
         </section>	<!-- .content -->
     
@@ -302,3 +362,17 @@
   </body>
 
 </html>
+
+
+<!--<figure>
+                        <div class="img">
+                            <img 
+                            src="images/LiveOverflow/bin_0x0C/parrot_gef1.jpg"
+                            width="800"
+                            height="600"
+                            title=""
+                            >
+                        </div> <!-- .img
+                    </figure> -->
+
+
