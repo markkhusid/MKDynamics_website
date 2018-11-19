@@ -84,7 +84,7 @@
       background	: gray;
       position		: relative;
       width		: 900px;
-      height		: 2700px;
+      height		: 1800px;
       top		: 000px;
       left		: 0px;
       float		: left;
@@ -331,7 +331,7 @@
             <!-- ************************************************************************************* Section Start *********** -->
             <section class="section">
         
-                <div class="current_project_3">
+                <div class="current_project_4">
             
                     <hgroup>
                         <h3>
@@ -349,8 +349,59 @@
 
                     
                     
+                    <figure>
+                        <div class="img">
+                            <img 
+                            src="images/LiveOverflow/bin_0x0C/exploit_py.jpg"
+                            width="800"
+                            height="600"
+                            title=""
+                            >
+                        </div> <!-- .img -->
+                        <div class="desc">
+                            Python program to generate payload to input into <i>stack0.c</i>
+                        </div> <!-- .desc -->
+                    </figure>
                     
-                </div> <!-- .current_project_3 -->
+                    
+                    <!-- ********************************************************************* Loose Text -->                
+                    <div class="loose_text">
+                        <p>
+                            The goal of this program is to generate 66 bytes.  The reason it is not 68 bytes is because we need to account for the carriage return (CR) character that Python's print statement appends to the end.  Below we show the output of <i>exploit.py</i> and a view of the xxd's output of the payload file.
+                        </p>
+                    </div> <!-- .loose_text -->
+                    <!-- ********************************************************************* Loose Text -->
+                    
+                    <figure>
+                        <div class="img">
+                            <img 
+                            src="images/LiveOverflow/bin_0x0C/exploit_py_output_and_xxd.jpg"
+                            width="800"
+                            height="600"
+                            title=""
+                            >
+                        </div> <!-- .img -->
+                        <div class="desc">
+                            Python program to generate payload to input into <i>stack0.c</i>
+                        </div> <!-- .desc -->
+                    </figure>
+                    
+                    <!-- ********************************************************************* Loose Text -->                
+                    <div class="loose_text">
+                        <p>
+                            As can be seen from the above output, the <i>exploit.py</i> Python script produced 66 A's.  These are saved into a file called <i>payload</i>.  We then pass <i>payload</i> into the hex viewer xxd.  We can see the 66 A's as hex 41, and the final byte is 0a.  0a is the hex ASCII code for a carriage return (CR).
+                        </p>
+                        
+                        <p>
+                            The file <i>payload</i> can now be input into the vulnerable program <i>stack0.c</i>.
+                        </p>
+                        
+                    </div> <!-- .loose_text -->
+                    <!-- ********************************************************************* Loose Text -->
+                    
+                    
+                    
+                </div> <!-- .current_project_4 -->
 
             </section> <!-- third_section -->
             <!-- ************************************************************************************* Section End *********** -->
