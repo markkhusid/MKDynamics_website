@@ -58,7 +58,7 @@
       background	: gray;
       position		: relative;
       width		: 1370px;
-      height		: 1500px;
+      height		: 1200px;
       top		: 000px;
       left		: 0px;
       float		: left;
@@ -170,6 +170,19 @@
       padding		: 10px;
     }
     
+    .current_project_11 {
+      border		: 5px solid black;
+      background	: gray;
+      position		: relative;
+      width		: 1370px;
+      height		: 1500px;
+      top		: 000px;
+      left		: 0px;
+      float		: left;
+      margin		: 10px;
+      padding		: 10px;
+    }
+    
     div .img {
       margin		: 0px;
       padding		: 10px;
@@ -227,16 +240,19 @@
                 <div class="current_project_1">
                     
                     <hgroup>
-                        <h3>
+                        <h2>
                             Introduction
-                        </h3>
+                        </h2>
                     </hgroup>
                     
                     <!-- ********************************************************************* Loose Text -->                
                     <div class="loose_text">
                         
                         <p>
-                            Lorem
+                            In this section we will be following along with and completing course material from the Pentester Academy's SecurityTube Linux Assembly language Expert 64 Bit course.  The first assignment is called gdbtest.  The goal is to use GDB to modify the contents of the CPU registers so that the password checking program will allow the student to view the message: Welcome to the SLAE 64-bit course! Please proceed to the next video!  Otherwise, the program will display: It's time to review those GDB videos again!
+                        </p>
+                        <p>
+                            Project code is contained in my <a href="https://github.com/markkhusid/SLAE64">github</a>.
                         </p>
                         
                     </div> <!-- .loose_text -->
@@ -253,16 +269,66 @@
                 <div class="current_project_2">
                 
                     <hgroup>
-                        <h3>
-                            Running <i>gdbtest</i> in GDB + GEF
-                        </h3>
+                        <h2>
+                            The program <i>gdb_test.c</i>
+                        </h2>
                     </hgroup>
                     
                     <!-- ********************************************************************* Loose Text -->                
                     <div class="loose_text">
                         
                         <p>
-                            Lorem
+                            The screenshot below displays the contents of the program <i>gdb_test.c</i>.  The program contains a string variable called <i>p</i> that hold the password "PentesterAcademyPass".  We need to run this program in GDB and trick the program into thinking that a randomly entered command line argument is the password.
+                        </p>
+                        
+                        <p>
+                            The program is compiled with:
+                            <blockquote>
+                                $ gcc -m32 -ggdb3 -zexecstack -mpreferred-stack-boundary=2 gdb_test.c -o gdb_test
+                            </blockquote>
+                        </p>
+                        
+                    </div> <!-- .loose_text -->
+                    <!-- ********************************************************************* Loose Text -->
+                    
+                    <figure>
+                        <div class="img">
+                            <img 
+                            src="images/SLAE64/gdb_test_c.jpg"
+                            width="1250"
+                            height="900"
+                            title=""
+                            >
+                        </div> <!-- .img -->
+                        <div class="desc">
+                            <p>
+                                The test program <i>gdb_test.c</i>
+                            <p>
+                        </div> <!-- .desc -->
+                    </figure>
+                
+                </div> <!-- .current_project_2 -->
+            
+            </section> <!-- section -->
+            <!-- ************************************************************************************* Section End ************* -->
+            
+            
+            <!-- *********************************************************************************** Section Start ************ -->
+            <section class="section">
+                
+                <div class="current_project_3">
+                
+                    <hgroup>
+                        <h2>
+                            Running <i>gdbtest</i> in GDB + GEF
+                        </h2>
+                    </hgroup>
+                    
+                    <!-- ********************************************************************* Loose Text -->                
+                    <div class="loose_text">
+                        
+                        <p>
+                            
                         </p>
                         
                     </div> <!-- .loose_text -->
@@ -292,12 +358,12 @@
             <!-- ************************************************************************************* Section Start *********** -->
             <section class="section">
                 
-                <div class="current_project_3">
+                <div class="current_project_4">
                 
                     <hgroup>
-                        <h3>
+                        <h2>
                             Lorem
-                        </h3>
+                        </h2>
                     </hgroup>
                     
                     <!-- ********************************************************************* Loose Text -->                
@@ -334,12 +400,12 @@
             <!-- ************************************************************************************* Section Start *********** -->
             <section class="section">
                 
-                <div class="current_project_4">
+                <div class="current_project_5">
                 
                     <hgroup>
-                        <h3>
+                        <h2>
                             Lorem
-                        </h3>
+                        </h2>
                     </hgroup>
                     
                     <!-- ********************************************************************* Loose Text -->                
@@ -376,12 +442,12 @@
             <!-- ************************************************************************************* Section Start *********** -->
             <section class="section">
                 
-                <div class="current_project_5">
+                <div class="current_project_6">
                 
                     <hgroup>
-                        <h3>
+                        <h2>
                             Lorem
-                        </h3>
+                        </h2>
                     </hgroup>
                     
                     <!-- ********************************************************************* Loose Text -->                
@@ -418,12 +484,12 @@
             <!-- ************************************************************************************* Section Start *********** -->
             <section class="section">
                 
-                <div class="current_project_6">
+                <div class="current_project_7">
                 
                     <hgroup>
-                        <h3>
+                        <h2>
                             Lorem
-                        </h3>
+                        </h2>
                     </hgroup>
                     
                     <!-- ********************************************************************* Loose Text -->                
@@ -460,12 +526,12 @@
             <!-- ************************************************************************************* Section Start *********** -->
             <section class="section">
                 
-                <div class="current_project_7">
+                <div class="current_project_8">
                 
                     <hgroup>
-                        <h3>
+                        <h2>
                             Lorem
-                        </h3>
+                        </h2>
                     </hgroup>
                     
                     <!-- ********************************************************************* Loose Text -->                
@@ -502,12 +568,12 @@
             <!-- ************************************************************************************* Section Start *********** -->
             <section class="section">
                 
-                <div class="current_project_8">
+                <div class="current_project_9">
                 
                     <hgroup>
-                        <h3>
+                        <h2>
                             Lorem
-                        </h3>
+                        </h2>
                     </hgroup>
                     
                     <!-- ********************************************************************* Loose Text -->                
@@ -544,12 +610,12 @@
             <!-- ************************************************************************************* Section Start *********** -->
             <section class="section">
                 
-                <div class="current_project_9">
+                <div class="current_project_10">
                 
                     <hgroup>
-                        <h3>
+                        <h2>
                             Lorem
-                        </h3>
+                        </h2>
                     </hgroup>
                     
                     <!-- ********************************************************************* Loose Text -->                
@@ -586,12 +652,12 @@
             <!-- ************************************************************************************* Section Start *********** -->
             <section class="section">
                 
-                <div class="current_project_10">
+                <div class="current_project_11">
                 
                     <hgroup>
-                        <h3>
+                        <h2>
                             Lorem
-                        </h3>
+                        </h2>
                     </hgroup>
                     
                     <!-- ********************************************************************* Loose Text -->                
