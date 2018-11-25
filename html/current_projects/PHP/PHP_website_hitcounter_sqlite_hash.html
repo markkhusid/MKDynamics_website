@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-58919029-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+<html>
+
+<head>
+  <meta content="text/html; charset=utf-8" http-equiv="content-type">
+  <meta name="robots" content="follow" />
+  
+  <title>
+    MK Dynamics - PHP Programming - SQLite Based Unique Website Hitcounter with SHA256 Hashed Client IP Addresses
+  </title>
+  
+  <link href="../../css/styles.css" type = "text/css" rel = "stylesheet" />
+  
+  <style>
+    .content {
+	overflow: auto;
+	height: 80%; 
+	background: url("../../images/saturn.jpg") no-repeat center center fixed;
+	background-size: cover;
+	background-position: center;
+	padding: 10px;
+	margin: 10px;
+	border: 5px solid black;
+      }
+      
+    h1, h2, h3, h4 {
+      color: white;
+      display: block;     
+    }
+    
+    .current_project_1 {
+      border		: 5px solid black;
+      background	: gray;
+      position		: relative;
+      width		: 900px;
+      height		: 200px;
+      top		: 0px;
+      left		: 0px;
+      float		: left;
+      margin		: 10px;
+      padding-left	: 10px;
+    }
+    
+    .current_project_110 {
+      border		: 5px solid black;
+      background	: gray;
+      position		: relative;
+      width		: 900px;
+      height		: 700px;
+      top		: 0px;
+      left		: 0px;
+      float		: left;
+      margin		: 10px;
+      padding-left	: 10px;
+    }
+    
+    .current_project_120 {
+      border		: 5px solid black;
+      background	: gray;
+      position		: relative;
+      width		: 900px;
+      height		: 700px;
+      top		: 0px;
+      left		: 0px;
+      float		: left;
+      margin		: 10px;
+      padding-left	: 10px;
+    }
+    
+    .current_project_190 {
+      border		: 5px solid black;
+      background	: gray;
+      position		: relative;
+      width		: 900px;
+      height		: 700px;
+      top		: 0px;
+      left		: 0px;
+      float		: left;
+      margin		: 10px;
+      padding-left	: 10px;
+    }
+    
+    .current_project_2 {
+      border		: 5px solid black;
+      background	: gray;
+      position		: relative;
+      width		: 900px;
+      height		: 700px;
+      top		: 000px;
+      left		: 0px;
+      float		: left;
+      margin		: 10px;
+      padding-left	: 10px;
+    }
+    
+    .current_project_3 {
+      border		: 5px solid black;
+      background	: gray;
+      position		: relative;
+      width		: 900px;
+      height		: 700px;
+      top		: 000px;
+      left		: 0px;
+      float		: left;
+      margin		: 10px;
+      padding-left	: 10px;
+    }
+    
+    .current_project_4 {
+      border		: 5px solid black;
+      background	: gray;
+      position		: relative;
+      width		: 900px;
+      height		: 700px;
+      top		: 000px;
+      left		: 0px;
+      float		: left;
+      margin		: 10px;
+      padding		: 10px;
+    }
+    
+    .current_project_5 {
+      border		: 5px solid black;
+      background	: gray;
+      position		: relative;
+      width		: 900px;
+      height		: 700px;
+      top		: 000px;
+      left		: 0px;
+      float		: left;
+      margin		: 10px;
+      padding		: 10px;
+    }
+    
+    .current_project_6 {
+      border		: 5px solid black;
+      background	: gray;
+      position		: relative;
+      width		: 900px;
+      height		: 700px;
+      top		: 000px;
+      left		: 0px;
+      float		: left;
+      margin		: 10px;
+      padding		: 10px;
+    }
+    
+    .current_project_7 {
+      border		: 5px solid black;
+      background	: gray;
+      position		: relative;
+      width		: 900px;
+      height		: 700px;
+      top		: 000px;
+      left		: 0px;
+      float		: left;
+      margin		: 10px;
+      padding		: 10px;
+    }
+    
+    .current_project_8 {
+      border		: 5px solid black;
+      background	: gray;
+      position		: relative;
+      width		: 900px;
+      height		: 700px;
+      top		: 000px;
+      left		: 0px;
+      float		: left;
+      margin		: 10px;
+      padding		: 10px;
+    }
+    
+    .current_project_9 {
+      border		: 5px solid black;
+      background	: gray;
+      position		: relative;
+      width		: 900px;
+      height		: 700px;
+      top		: 000px;
+      left		: 0px;
+      float		: left;
+      margin		: 10px;
+      padding		: 10px;
+    }
+    
+    .current_project_10 {
+      border		: 5px solid black;
+      background	: gray;
+      position		: relative;
+      width		: 900px;
+      height		: 700px;
+      top		: 000px;
+      left		: 0px;
+      float		: left;
+      margin		: 10px;
+      padding		: 10px;
+    }
+    
+    .current_project_11 {
+      border		: 5px solid black;
+      background	: gray;
+      position		: relative;
+      width		: 900px;
+      height		: 700px;
+      top		: 000px;
+      left		: 0px;
+      float		: left;
+      margin		: 10px;
+      padding		: 10px;
+    }
+    
+    div .img {
+      margin		: 0px;
+      padding		: 10px;
+      height		: auto;
+      width		: auto;
+      float		: left;
+    }
+    
+    div .img img {
+      display		: inline;
+      margin		: 0px;
+      padding		: 0px;
+    }
+    
+    div .desc {
+      color		: white;
+      width		: 600px;
+      margin		: 5px;
+      padding		: 10px;
+    }
+  </style>
+</head>
+
+<body>
+    <div class="wrapper">
+    
+        <header>
+    
+            <hgroup>
+                <h1> 
+                    <big> <big> MK Dynamics </big> </big>
+                </h1>
+
+
+                <h2>
+                    PHP Programming - SQLite Based Unique Website Hitcounter with SHA256 Hashed Client IP Addresses
+                </h2>
+            </hgroup>
+    
+
+            <nav>
+                <ul>
+                    <li> <a href="../../index.php">Home</a> </li>
+                    <li> <a href=".html">Online Resources</a> </li>
+                    <li> <a href="PHP_Programming.html">Back</a> </li>
+                </ul>
+            </nav>
+      
+        </header>
+    
+        <section class="content">
+            
+            <!-- ************************************************************************************** First Section Start ************ -->
+            <section class="section">
+
+                <div class="current_project_1">
+                    
+                    <hgroup>
+                        <h3>
+                            Introduction
+                        </h3>
+                    </hgroup>
+                    
+
+                    <!-- ********************************************************************* Loose Text -->                
+                    <div class="loose_text">
+                        
+                        <p>
+                            In this section we will write PHP programs for webserver-side scripting.  An item that was frequently found on websites in the early days of the internet was a website hit counter.  We will write such a website hit counter in PHP.
+                        </p>
+                        
+                        <p>
+                            Additionally, we will show how to control an Arduino from a webpage using PHP.
+                        </p>
+                        
+                    </div> <!-- .loose_text -->
+                    <!-- ********************************************************************* Loose Text -->
+
+                </div> <!-- .current_project_1 -->
+        
+            </section> <!-- first_section -->
+            <!-- ************************************************************************************** First Section End ************ -->
+            
+            <!-- ************************************************************************************** Second Section Start ********* -->
+            <section class="section">
+                
+                <div class="current_project_110">
+                
+                    <hgroup>
+                        <h3>
+                            Website Hit Counter
+                        </h3>
+                        <h4>
+                            PHP Based Unique Website Hit Counter Using SQLite Database and SHA256 Hash of Client IP Address to Prevent Tracking
+                        </h4>
+                    </hgroup>
+                    
+                    <!-- ********************************************************************* Loose Text -->                
+                    <div class="loose_text">
+                        <p>
+                            As stated in the Introduction, an item that was frequently found on websites in the early days of the internet was a website hit counter.  We will write such a website hit counter in PHP.  To figure out that the visiting client is unique, we will setup and query an SQLite database to look for the client's IP address.  Since we are against direct tracking of client IP addresses in general, we will take a SHA256 hash of the client's IP and web browser configuration (both items of information that are freely available to any webserver that receives in incoming requests), and store that hash into the database.  This hash is a unique identifier of the visiting client.  A view of the entries of the database will data as demonstrated below:
+                            <blockquote>
+                                sqlite> select * from hits;
+                                48cb7c8c802db95c4036e812bfd07bb8********************************
+                                a600d9c8589ccf8112b4e4bf0391a48b********************************
+                                c536c6ccd52a72994d618094a7e158fb********************************
+                                e434ec645fe01ffe73d1fbedcec940f8********************************
+                                e68816f6864e1c387de52ce932181c9b********************************
+                                db2612ea330d6e50dbc4e93dc3b584e0********************************<br>
+                                sqlite> 
+                            </blockquote>
+                        </p>
+                        
+                        <p>
+                            As can be seen from the SQLite database query above, each row represents a SHA265 hash string.  The string is 64 characters long, and I have replaced the final 32 characters with asterisks '*' for privacy reason.  The real entries in the database will contain 64 characters whose final 32 characters look similar to the initial 32 characters.  Each hash string has encoded into it the client's IP address.  It is very difficult, but not impossible, to recover the client's actual IP address.  This would require knowing the exact configuration of the client's web browser and computer, and brute forcing it together with the guessed IP address to receive the same hash string.  Needless to say, this is an endeavor that is of no interest to the website owner, and therefore, the objective of not recording the client's IP address is acieved.
+                        </p>
+                    </div> <!-- .loose_text -->
+                    <!-- ********************************************************************* Loose Text -->
+                
+                </div> <!-- .current_project_190 -->
+            
+            </section> <!-- second_section -->
+            <!-- **************************************************************************************** Second Section End ************ -->
+            
+            <!-- **************************************************************************************** Third Section Start ********* -->
+            <section class="section">
+                
+                <div class="current_project_120">
+                
+                    <hgroup>
+                        <h3>
+                            Lorem
+                        </h3>
+                        <h4>
+                            Lorem
+                        </h4>
+                    </hgroup>
+                    
+                    <figure>
+                        <div class="img">
+                            <img 
+                            src="images/.png"
+                            width="720"
+                            height="500"
+                            title=""
+                            >
+                        </div> <!-- .img -->
+                        <div class="desc">
+                            <a href=".html">Lorem</a>
+                        </div> <!-- .desc -->
+                    </figure>
+                
+                </div> <!-- .current_project_120 -->
+            
+            </section> <!-- third_section -->
+            <!-- ****************************************************************************************** Third Section End ************ -->
+            
+        
+        </section>	<!-- .content -->
+    
+    <div> <!-- .wrapper -->
+
+  </body>
+
+</html>

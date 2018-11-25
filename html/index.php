@@ -348,6 +348,10 @@
       
       <aside>
 	Status Updates<br><br>
+	11/24/2018
+	<ul>
+            <li>Added unique website hit counter with hashed client IP in SQLite database to prevent client tracking by server.</li>
+	</ul>
 	11/17/2018
 	<ul>
             <li>Added new section under Ham Radio titled Broadband Hamnet.  In this section I demonstrate a two-node Broadband Hamnet.</li>
@@ -573,13 +577,13 @@
                     src="current_projects/images/php-development.jpg" 
                     height="300px"
                     width="375px"
-                    alt="PHP Control of Arduino"
-                    title="PHP Control of Arduino"
+                    alt="PHP Programming"
+                    title="PHP Programming"
                     class="align-center"
                 />
 	  
                 <figcaption>
-                    <a href="current_projects/Exploring_PHP.php">Controlling Arduino over USB Serial Link Using PHP</a>
+                    <a href="current_projects/PHP/PHP_Programming.html">PHP Programming</a>
                 </figcaption>
             </figure>
         </div> <!-- .current_project_7 -->

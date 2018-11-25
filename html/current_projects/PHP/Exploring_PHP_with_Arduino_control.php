@@ -21,7 +21,18 @@
     MK Dynamics - Exploring PHP
   </title>
   
-  <link href="../css/styles.css" type = "text/css" rel = "stylesheet" />
+  <link href="../../css/styles.css" type = "text/css" rel = "stylesheet" />
+  
+    <style>
+        .loose_text {
+            color               : black;
+        }
+        
+        p {
+	font-family: Arial;
+	color: black;
+      }
+    </style>
   
 </head>
 
@@ -39,25 +50,28 @@
 
   <div id="nav">
     <ul>
-      <li> <a href="../index.php">Home</a> </li>
+      <li> <a href="../../index.php">Home</a> </li>
     </ul>
   </div>
   
   <hr />
   
-  <img src="../images/spacey.jpg" alt ="Space" class = "align-center medium" />
+  <img src="../../images/spacey.jpg" alt ="Space" class = "align-center medium" />
 
   <div id="content">
     <h3>
     	Using PHP to control the Arduino
     </h3>
     
+    <div class="loose_text">
     <p> <b> Arduino Code </b> <br>  
       The following code is uploaded to an Arduino UNO R3.  It listens to the serial port and <br>
       activates a digital I/O pin based on the number it received from the serial port.  If it received <br>
       a "1", then it illuminates the first LED, if it receives a "2", then it illuminated the second LED, <br>
       if it receives a "3", it illuminates the third LED.<br>
       The code is shown below:<br><br><br>
+    </p>
+    </div>
       
       <iframe
 	  src = "code_arduino/PHP_Control_of_Arduino.ino.txt"
