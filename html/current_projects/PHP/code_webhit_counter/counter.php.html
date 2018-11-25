@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta name="Generator" content="Kate, the KDE Advanced Text Editor" />
+<title>counter.php</title>
+</head>
+<!-- Highlighting: "PHP (HTML)" -->
+<body>
+<pre style='color:#cfcfc2;background-color:#232629;'>
+<b>&lt;?php</b>
+
+	<span style='color:#7a7c7d;'>// logging page hits</span>
+	<span style='color:#5555ff;'>$dbfolder</span> = <b><span style='color:#5555ff;'>$_SERVER</span></b><span style='color:#27ae60;'>[</span><span style='color:#f44f4f;'>&quot;DOCUMENT_ROOT&quot;</span><span style='color:#27ae60;'>]</span>.<span style='color:#f44f4f;'>&quot;/hitcounter_db/&quot;</span><span style='color:#27ae60;'>;</span>
+	<span style='color:#5555ff;'>$dbname</span> = <b><span style='color:#5555ff;'>$_SERVER</span></b><span style='color:#27ae60;'>[</span><span style='color:#f44f4f;'>&quot;HTTP_HOST&quot;</span><span style='color:#27ae60;'>]</span>.<span style='color:#f44f4f;'>&quot;_log.sq3&quot;</span><span style='color:#27ae60;'>;</span>
+
+	<span style='color:#5555ff;'>$client_ip</span> = <b><span style='color:#5555ff;'>$_SERVER</span></b><span style='color:#27ae60;'>[</span><span style='color:#f44f4f;'>&quot;REMOTE_ADDR&quot;</span><span style='color:#27ae60;'>];</span>
+	<span style='color:#5555ff;'>$http_user_agent</span> = <b><span style='color:#5555ff;'>$_SERVER</span></b><span style='color:#27ae60;'>[</span><span style='color:#f44f4f;'>&quot;HTTP_USER_AGENT&quot;</span><span style='color:#27ae60;'>];</span>
+	<b>echo</b> <span style='color:#f44f4f;'>&quot;Client IP: </span><span style='color:#5555ff;'>$client_ip</span><span style='color:#f44f4f;'> &lt;br&gt;&quot;</span><span style='color:#27ae60;'>;</span>
+	<b>echo</b> <span style='color:#f44f4f;'>&quot;Client HTTP User Configuration: </span><span style='color:#5555ff;'>$http_user_agent</span><span style='color:#f44f4f;'> &lt;br&gt;&lt;br&gt;&quot;</span><span style='color:#27ae60;'>;</span>
+
+	<span style='color:#5555ff;'>$user_hash</span> = <span style='color:#8e44ad;'>hash_hmac</span><span style='color:#27ae60;'>(</span><span style='color:#f44f4f;'>'sha256'</span><span style='color:#27ae60;'>,</span> <span style='color:#f44f4f;'>&quot;</span><span style='color:#5555ff;'>$client_ip</span><span style='color:#f44f4f;'>&quot;</span><span style='color:#27ae60;'>,</span> <span style='color:#f44f4f;'>&quot;</span><span style='color:#5555ff;'>$http_user_agent</span><span style='color:#f44f4f;'>&quot;</span><span style='color:#27ae60;'>);</span>
+	<b>echo</b> <span style='color:#f44f4f;'>&quot;The sha256 hash of client_ip with http_user_agent is : </span><span style='color:#5555ff;'>$user_hash</span><span style='color:#f44f4f;'> &lt;br&gt;&quot;</span><span style='color:#27ae60;'>;</span>
+
+	<span style='color:#7a7c7d;'>// check if database file exists first</span>
+	<span style='color:#a1a100;'>if</span><span style='color:#27ae60;'>(</span>!<span style='color:#8e44ad;'>file_exists</span><span style='color:#27ae60;'>(</span><span style='color:#5555ff;'>$dbfolder</span>.<span style='color:#5555ff;'>$dbname</span><span style='color:#27ae60;'>))</span>
+	{
+ 		<b>echo</b> <span style='color:#27ae60;'>(</span><span style='color:#f44f4f;'>&quot;DB file does not exist, creating new table... &lt;br&quot;</span><span style='color:#27ae60;'>);</span>
+ 		<span style='color:#5555ff;'>$logdb</span> = <b>new</b> <b>PDO</b><span style='color:#27ae60;'>(</span><span style='color:#f44f4f;'>&quot;sqlite:&quot;</span>.<span style='color:#5555ff;'>$dbfolder</span>.<span style='color:#5555ff;'>$dbname</span><span style='color:#27ae60;'>);</span>
+ 		<span style='color:#5555ff;'>$logdb</span>-&gt;<span style='color:#8e44ad;'>exec</span><span style='color:#27ae60;'>(</span><span style='color:#f44f4f;'>&quot;CREATE TABLE hits (hash_client_ip VARCHAR(255))&quot;</span><span style='color:#27ae60;'>);</span>
+	}
+	<span style='color:#a1a100;'>else</span> {
+ 		<b>echo</b> <span style='color:#27ae60;'>(</span><span style='color:#f44f4f;'>&quot;DB file exists, using &quot;</span>.<span style='color:#5555ff;'>$dbfolder</span>.<span style='color:#5555ff;'>$dbname</span>.<span style='color:#f44f4f;'>&quot;&lt;br&gt;&quot;</span><span style='color:#27ae60;'>);</span>
+ 		<span style='color:#5555ff;'>$logdb</span> = <b>new</b> <b>PDO</b><span style='color:#27ae60;'>(</span><span style='color:#f44f4f;'>&quot;sqlite:&quot;</span>.<span style='color:#5555ff;'>$dbfolder</span>.<span style='color:#5555ff;'>$dbname</span><span style='color:#27ae60;'>);</span>
+	}
+
+	<b>echo</b> <span style='color:#f44f4f;'>&quot;Database name: </span><span style='color:#5555ff;'>$dbname</span><span style='color:#f44f4f;'> &lt;br&gt;&lt;br&gt;&quot;</span><span style='color:#27ae60;'>;</span>
+
+	<span style='color:#7a7c7d;'>// check if client_ip is already in the hits table</span>
+	<span style='color:#5555ff;'>$query_statement</span> = <span style='color:#5555ff;'>$logdb</span>-&gt;query<span style='color:#27ae60;'>(</span><span style='color:#f44f4f;'>&quot;SELECT * FROM hits WHERE hash_client_ip='</span><span style='color:#5555ff;'>$user_hash</span><span style='color:#f44f4f;'>'&quot;</span><span style='color:#27ae60;'>);</span>
+	<span style='color:#5555ff;'>$returned_record</span> = <span style='color:#5555ff;'>$query_statement</span>-&gt;fetchAll<span style='color:#27ae60;'>();</span>
+
+	<b>echo</b> <span style='color:#f44f4f;'>&quot;The size of returned_record is &quot;</span>.<span style='color:#8e44ad;'>sizeof</span><span style='color:#27ae60;'>(</span><span style='color:#5555ff;'>$returned_record</span><span style='color:#27ae60;'>)</span>.<span style='color:#f44f4f;'>&quot;&lt;br&gt;&quot;</span><span style='color:#27ae60;'>;</span>
+	<b>echo</b> <span style='color:#f44f4f;'>&quot;The contents of returned_record is: &lt;br&gt;&quot;</span><span style='color:#27ae60;'>;</span>
+	<span style='color:#8e44ad;'>var_dump</span><span style='color:#27ae60;'>(</span><span style='color:#5555ff;'>$returned_record</span><span style='color:#27ae60;'>);</span>
+	<b>echo</b> <span style='color:#f44f4f;'>&quot;&lt;br&gt;&lt;br&gt;&lt;br&gt;&quot;</span><span style='color:#27ae60;'>;</span>
+
+	<span style='color:#7a7c7d;'>// Open files for reading and writing</span>
+	<span style='color:#5555ff;'>$total_count_my_page</span> = <span style='color:#27ae60;'>(</span><span style='color:#f44f4f;'>&quot;total_hit_counter.txt&quot;</span><span style='color:#27ae60;'>);</span>
+        <span style='color:#5555ff;'>$total_hits</span> = <span style='color:#8e44ad;'>file</span><span style='color:#27ae60;'>(</span><span style='color:#5555ff;'>$total_count_my_page</span><span style='color:#27ae60;'>);</span>
+	<span style='color:#5555ff;'>$total_fp</span> = <span style='color:#8e44ad;'>fopen</span><span style='color:#27ae60;'>(</span><span style='color:#5555ff;'>$total_count_my_page</span><span style='color:#27ae60;'>,</span> <span style='color:#f44f4f;'>&quot;w&quot;</span><span style='color:#27ae60;'>);</span>
+
+	<span style='color:#5555ff;'>$unique_count_my_page</span> = <span style='color:#27ae60;'>(</span><span style='color:#f44f4f;'>&quot;unique_hit_counter.txt&quot;</span><span style='color:#27ae60;'>);</span>
+	<span style='color:#5555ff;'>$unique_hits</span> = <span style='color:#8e44ad;'>file</span><span style='color:#27ae60;'>(</span><span style='color:#5555ff;'>$unique_count_my_page</span><span style='color:#27ae60;'>);</span>
+	<span style='color:#5555ff;'>$unique_fp</span> = <span style='color:#8e44ad;'>fopen</span><span style='color:#27ae60;'>(</span><span style='color:#5555ff;'>$unique_count_my_page</span><span style='color:#27ae60;'>,</span> <span style='color:#f44f4f;'>&quot;w&quot;</span><span style='color:#27ae60;'>);</span>
+
+	<span style='color:#7a7c7d;'>// if a client_ip record is found</span>
+	<span style='color:#a1a100;'>if</span><span style='color:#27ae60;'>(</span><span style='color:#8e44ad;'>sizeof</span><span style='color:#27ae60;'>(</span><span style='color:#5555ff;'>$returned_record</span><span style='color:#27ae60;'>)</span> != <span style='color:#f67400;'>0</span><span style='color:#27ae60;'>)</span>
+	{
+		<b>echo</b> <span style='color:#f44f4f;'>&quot;</span><span style='color:#5555ff;'>$user_hash</span><span style='color:#f44f4f;'> is already in database... &lt;br&gt;&quot;</span><span style='color:#27ae60;'>;</span>
+		<b>echo</b> <span style='color:#f44f4f;'>&quot;Updating total hit counts only... &quot;</span><span style='color:#27ae60;'>;</span>
+
+		<span style='color:#7a7c7d;'>// Increment total hit counter</span>
+        	<span style='color:#5555ff;'>$total_hits</span><span style='color:#27ae60;'>[</span><span style='color:#f67400;'>0</span><span style='color:#27ae60;'>]</span> = <span style='color:#5555ff;'>$total_hits</span><span style='color:#27ae60;'>[</span><span style='color:#f67400;'>0</span><span style='color:#27ae60;'>]</span> + <span style='color:#f67400;'>1</span><span style='color:#27ae60;'>;</span>
+
+		<span style='color:#7a7c7d;'>// Write data to files</span>
+		<span style='color:#7a7c7d;'>// Need to also write to unique_fp since it was also opened as write</span>
+		<span style='color:#8e44ad;'>fputs</span><span style='color:#27ae60;'>(</span><span style='color:#5555ff;'>$total_fp</span><span style='color:#27ae60;'>,</span> <span style='color:#f44f4f;'>&quot;</span><span style='color:#5555ff;'>$total_hits[0]</span><span style='color:#f44f4f;'>&quot;</span><span style='color:#27ae60;'>);</span>
+		<span style='color:#8e44ad;'>fputs</span><span style='color:#27ae60;'>(</span><span style='color:#5555ff;'>$unique_fp</span><span style='color:#27ae60;'>,</span> <span style='color:#f44f4f;'>&quot;</span><span style='color:#5555ff;'>$unique_hits[0]</span><span style='color:#f44f4f;'>&quot;</span><span style='color:#27ae60;'>);</span>
+	}
+
+	<span style='color:#7a7c7d;'>// Else client_ip is not in database</span>
+	<span style='color:#a1a100;'>else</span> {
+		<b>echo</b>  <span style='color:#27ae60;'>(</span><span style='color:#f44f4f;'>&quot;</span><span style='color:#5555ff;'>$user_hash</span><span style='color:#f44f4f;'> is a new client... &lt;br&gt;&quot;</span><span style='color:#27ae60;'>);</span>
+ 		<span style='color:#5555ff;'>$logdb</span>-&gt;<span style='color:#8e44ad;'>exec</span><span style='color:#27ae60;'>(</span><span style='color:#f44f4f;'>&quot;INSERT INTO hits (hash_client_ip) VALUES ('</span><span style='color:#5555ff;'>$user_hash</span><span style='color:#f44f4f;'>')&quot;</span><span style='color:#27ae60;'>);</span>
+
+		<span style='color:#7a7c7d;'>// Increment both total and unique hit counters</span>
+		<b>echo</b> <span style='color:#f44f4f;'>&quot;Before increment... &lt;br&gt;&quot;</span><span style='color:#27ae60;'>;</span>
+		<b>echo</b> <span style='color:#5555ff;'>$total_hits</span><span style='color:#27ae60;'>[</span><span style='color:#f67400;'>0</span><span style='color:#27ae60;'>]</span>.<span style='color:#f44f4f;'>&quot;&lt;br&gt;&quot;</span><span style='color:#27ae60;'>;</span>
+		<b>echo</b> <span style='color:#5555ff;'>$unique_hits</span><span style='color:#27ae60;'>[</span><span style='color:#f67400;'>0</span><span style='color:#27ae60;'>]</span>.<span style='color:#f44f4f;'>&quot;&lt;br&gt;&quot;</span><span style='color:#27ae60;'>;</span>
+		<span style='color:#5555ff;'>$total_hits</span><span style='color:#27ae60;'>[</span><span style='color:#f67400;'>0</span><span style='color:#27ae60;'>]</span> = <span style='color:#5555ff;'>$total_hits</span><span style='color:#27ae60;'>[</span><span style='color:#f67400;'>0</span><span style='color:#27ae60;'>]</span> + <span style='color:#f67400;'>1</span><span style='color:#27ae60;'>;</span>
+		<span style='color:#5555ff;'>$unique_hits</span><span style='color:#27ae60;'>[</span><span style='color:#f67400;'>0</span><span style='color:#27ae60;'>]</span> = <span style='color:#5555ff;'>$unique_hits</span><span style='color:#27ae60;'>[</span><span style='color:#f67400;'>0</span><span style='color:#27ae60;'>]</span> + <span style='color:#f67400;'>1</span><span style='color:#27ae60;'>;</span>
+		<b>echo</b> <span style='color:#f44f4f;'>&quot;After increment... &lt;br&gt;&quot;</span><span style='color:#27ae60;'>;</span>
+		<b>echo</b> <span style='color:#5555ff;'>$total_hits</span><span style='color:#27ae60;'>[</span><span style='color:#f67400;'>0</span><span style='color:#27ae60;'>]</span>.<span style='color:#f44f4f;'>&quot;&lt;br&gt;&quot;</span><span style='color:#27ae60;'>;</span>
+                <b>echo</b> <span style='color:#5555ff;'>$unique_hits</span><span style='color:#27ae60;'>[</span><span style='color:#f67400;'>0</span><span style='color:#27ae60;'>]</span>.<span style='color:#f44f4f;'>&quot;&lt;br&gt;&quot;</span><span style='color:#27ae60;'>;</span>
+
+		<span style='color:#7a7c7d;'>// Write data to files</span>
+		<span style='color:#8e44ad;'>fputs</span><span style='color:#27ae60;'>(</span><span style='color:#5555ff;'>$total_fp</span><span style='color:#27ae60;'>,</span> <span style='color:#f44f4f;'>&quot;</span><span style='color:#5555ff;'>$total_hits[0]</span><span style='color:#f44f4f;'>&quot;</span><span style='color:#27ae60;'>);</span>
+		<span style='color:#8e44ad;'>fputs</span><span style='color:#27ae60;'>(</span><span style='color:#5555ff;'>$unique_fp</span><span style='color:#27ae60;'>,</span> <span style='color:#f44f4f;'>&quot;</span><span style='color:#5555ff;'>$unique_hits[0]</span><span style='color:#f44f4f;'>&quot;</span><span style='color:#27ae60;'>);</span>
+	}
+
+	<span style='color:#7a7c7d;'>// Display results on website</span>
+	<b>echo</b> <span style='color:#f44f4f;'>&quot;&lt;h2&gt; Total page hits: </span><span style='color:#5555ff;'>$total_hits[0]</span><span style='color:#f44f4f;'> &lt;/h2&gt;&quot;</span><span style='color:#27ae60;'>;</span>
+	<b>echo</b> <span style='color:#f44f4f;'>&quot;&lt;h2&gt; Unique page hits: </span><span style='color:#5555ff;'>$unique_hits[0]</span><span style='color:#f44f4f;'> &lt;/h2&gt;&quot;</span><span style='color:#27ae60;'>;</span>
+
+	<span style='color:#7a7c7d;'>// Close files</span>
+      	<span style='color:#8e44ad;'>fclose</span><span style='color:#27ae60;'>(</span><span style='color:#5555ff;'>$total_fp</span><span style='color:#27ae60;'>);</span>
+	<span style='color:#8e44ad;'>fclose</span><span style='color:#27ae60;'>(</span><span style='color:#5555ff;'>$unique_fp</span><span style='color:#27ae60;'>);</span>
+
+	<span style='color:#7a7c7d;'>// Close databse connection</span>
+	<span style='color:#5555ff;'>$logdb</span> = <b>null</b><span style='color:#27ae60;'>;</span>
+<b>?&gt;</b>
+</pre>
+</body>
+</html>

@@ -44,7 +44,7 @@
       border		: 5px solid black;
       background	: gray;
       position		: relative;
-      width		: 900px;
+      width		: 1200px;
       height		: 200px;
       top		: 0px;
       left		: 0px;
@@ -57,8 +57,8 @@
       border		: 5px solid black;
       background	: gray;
       position		: relative;
-      width		: 900px;
-      height		: 700px;
+      width		: 1200px;
+      height		: 600px;
       top		: 0px;
       left		: 0px;
       float		: left;
@@ -70,8 +70,8 @@
       border		: 5px solid black;
       background	: gray;
       position		: relative;
-      width		: 900px;
-      height		: 700px;
+      width		: 1200px;
+      height		: 1500px;
       top		: 0px;
       left		: 0px;
       float		: left;
@@ -336,7 +336,7 @@
                         </p>
                         
                         <p>
-                            As can be seen from the SQLite database query above, each row represents a SHA265 hash string.  The string is 64 characters long, and I have replaced the final 32 characters with asterisks '*' for privacy reason.  The real entries in the database will contain 64 characters whose final 32 characters look similar to the initial 32 characters.  Each hash string has encoded into it the client's IP address.  It is very difficult, but not impossible, to recover the client's actual IP address.  This would require knowing the exact configuration of the client's web browser and computer, and brute forcing it together with the guessed IP address to receive the same hash string.  Needless to say, this is an endeavor that is of no interest to the website owner, and therefore, the objective of not recording the client's IP address is acieved.
+                            As can be seen from the SQLite database query above, each row represents a SHA265 hash string.  The string is 64 characters long, and I have replaced the final 32 characters with asterisks '*' for privacy reason.  The real entries in the database will contain 64 characters whose final 32 characters look similar to the initial 32 characters.  Each hash string has encoded into it the client's IP address.  It is very difficult, but not impossible, to recover the client's actual IP address.  This would require knowing the exact configuration of the client's web browser and computer, and brute forcing it together with the guessed IP address to receive the same hash string.  Needless to say, this is an endeavor that is of no interest to the website owner, and therefore, the objective of not recording the client's IP address is achieved.
                         </p>
                     </div> <!-- .loose_text -->
                     <!-- ********************************************************************* Loose Text -->
@@ -353,33 +353,65 @@
                 
                     <hgroup>
                         <h3>
-                            Lorem
+                            PHP Code for Website Hitcounter That Stores SHA256 Hash of Client IP in SQLite Database
                         </h3>
-                        <h4>
-                            Lorem
-                        </h4>
                     </hgroup>
                     
-                    <figure>
-                        <div class="img">
-                            <img 
-                            src="images/.png"
-                            width="720"
-                            height="500"
-                            title=""
-                            >
-                        </div> <!-- .img -->
-                        <div class="desc">
-                            <a href=".html">Lorem</a>
-                        </div> <!-- .desc -->
-                    </figure>
-                
-                </div> <!-- .current_project_120 -->
+                    <!-- ********************************************************************* Loose Text -->                
+                    <div class="loose_text">
+                        
+                        <p>
+                            In this section we present the PHP code for the unique website hitcounter.  The code makes use of an SQLite database to store hashed client IP's to figure out if the client is unique or not.  It was important to store a SHA256 hash of the client IP in order to make tracking of the raw client IP address extremely difficult.  This is done for the privacy of the client, which this website author respects.  Note that like all webservers with standard configurations, client IP addresses are stored in the webserver logs.  Use TOR or a VPN to hide your real IP address.
+                        </p>
+                        
+                        <p>
+                            We present the code and describe it below.
+                        </p>
+                        
+                    </div> <!-- .loose_text -->
+                    <!-- ********************************************************************* Loose Text -->
+                    
+                    <iframe
+                        src="code_webhit_counter/counter.php.html" 
+                        height="600" 
+                        width="1100">
+                    </iframe>
+                    
+                    <!-- ********************************************************************* Loose Text -->                
+                    <div class="loose_text">
+                        
+                        <p>
+                            We first define the directory to store the SQLite database.  The database name is the hostname of the webserver + _log.sq3.  We obtain the client's IP address and store it into a variable $client_ip.  We also obtain the client's user agent configuration.  An example would be something like this: Mozilla/5.0 (X11; U; Linux; i686; en-US; rv:1.6) Gecko Debian/1.6-7.  These two items of user data are then hashed together using SHA256 to produce a unique 64 character user identifier.  An example would be: 48cb7c8c802db95c4036e812bfd07bb8********************************.  Note that I have replaced the last 32 characters with asterisks.  This hashed unique user identifier is stored into the SQLite database.  Note that we do NOT store the raw client IP.
+                        </p>
+                        
+                        <p>
+                            We then check if the database exists.  If it does not, we create the database and a table within it called "hits".  Hits has one column called hash_client_ip of type VARCHAR(255).  If the database already exists then just create and assign a PHP Data Object (PDO) to the variable $logdb.  Note that I have plenty of diagnostic echo statements throughout the code.  Feel free to comment them out in your application.
+                        </p>
+                        
+                        <p>
+                            We then query the database for the hashed client's IP.  This is a two step process, since the query returns an array.  We are interested in the first element of the array, which contains data if the hashed client IP is found.  We then open two text files that exist on the server.  These two files are total_hit_counter.txt and unique_hit_counter.txt.  They store the number of times the website was hit in plain text format.  I decided to keep the two files separate for simplicity.  The files are assigned to file pointers, $total_fp and $unique_fp.
+                        </p>
+                        
+                        <p>
+                            We then check if the query resulted in a non-zero result.  If it has, then the hashed client IP is already in the database.  We increment the first element of $total_hits array, but not the $unique_hits array.  We then perform a write to the $total_fp file pointer as well as the $unique_fp file pointer.  We need to write to both of them since both were opened for writing.  If we did not write to the $unique_fp file pointer, the contents of the file would be lost.
+                        </p>
+                        
+                        <p>
+                            We then handle the case of the hashed client IP not being in the database.  In this case we increment both counters and write out the incremented counters to both files.  The values of the counters are then displayed via HTML heading size 2 tags.  Finally, the files are closed and connection to the database is released.
+                        </p>
+                        
+                        <p>
+                            Prerequisites for using this PHP code.<br>
+                            1) You must have the files total_hit_counter.txt and unique_hit_counter.txt in the same directory where counter.php is stored.<br>
+                            2) You must have a directory called hitcounter_db underneath the directory where counter.php is stored.  No need to create the SQLite database, as the PHP code creates it for you if the database is missing.
+                        </p>
+                        
+                    </div> <!-- .loose_text -->
+                    <!-- ********************************************************************* Loose Text -->
             
             </section> <!-- third_section -->
             <!-- ****************************************************************************************** Third Section End ************ -->
-            
-        
+
         </section>	<!-- .content -->
     
     <div> <!-- .wrapper -->
