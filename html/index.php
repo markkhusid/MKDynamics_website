@@ -49,7 +49,7 @@
         /*overflow: auto;*/
         overflow                    : none;
         /*height: 80%;*/
-        height                      : 100px;
+        height                      : 200px;
         width                       : 1400px;
         background: url("images/hubble.jpg") no-repeat center center fixed;
         background-size: cover;
@@ -260,7 +260,7 @@
 		color		: blue;
       		position        : relative;
       		width           : 1350px;
-      		height          : 50px;
+      		height          : 150px;
       		top             : 10px;
       		left            : 10px;
       		float           : left;
@@ -740,24 +740,26 @@
 
     </section> <!-- .content_2 -->
 
-	<section class="hitcounter_section">
+    <section class="hitcounter_section">
 
-                <div class="hitcounter">
-                        <?php
-                                include ("counter.php");
-                        ?>
+            <div class="hitcounter">
+                    <?php
+                            include ("counter.php");
+                    ?>
 
-			<footer>
-      				<hgroup>
-        				<h3> 
-          					<br><br>All material free and open source.
-        				</h3>
-      				</hgroup>
-    			</footer>
+                    <footer>
+                            <hgroup>
+                                    <h3>
+                                        We do <b>NOT</b> store your IP address.  Click <a href=
+                                        "current_projects/PHP/PHP_website_hitcounter_sqlite_hash.html"><b>here</b></a> for more information.</br>
+                                        All material free and open source.
+                                    </h3>
+                            </hgroup>
+                    </footer>
 
-		</div> <!-- .hitcounter -->
+            </div> <!-- .hitcounter -->
 
-        </section> <!-- .hitcounter_section>
+    </section> <!-- .hitcounter_section -->
 
   </div> <!-- .wrapper -->
 
