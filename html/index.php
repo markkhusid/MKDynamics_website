@@ -253,6 +253,19 @@
       margin		: 0px;
       padding		: 10px;
     }
+    
+    .current_project_910 {
+      border		: 5px solid black;
+      background	: gray;
+      position		: relative;
+      width		: 450px;
+      height		: 400px;
+      top		: 0px;
+      left		: 20px;
+      float		: left;
+      margin		: 0px;
+      padding		: 10px;
+    }
 
     	.hitcounter {
       		border		: 5px solid black;
@@ -734,6 +747,22 @@
         
                 <figcaption>
                     <a href="http://yugeshima.com/diygrid/">DIY Grid</a><br>
+                </figcaption>
+            </figure>
+      </div> <!-- .current_project_900 -->
+      
+      <div class="current_project_910">
+            <figure>
+                <img
+                    src="current_projects/images/Mission-02_DC_grid.jpg" 
+                    height="300px"
+                    width="375px"
+                    alt="DC Grid"
+                    title="DC Grid"
+                />
+        
+                <figcaption>
+                    <a href="https://www.youtube.com/watch?v=3vy1DrCNJ3I">Node Based Grids</a><br>
                 </figcaption>
             </figure>
       </div> <!-- .current_project_900 -->
