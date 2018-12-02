@@ -361,6 +361,11 @@
       
       <aside>
 	Status Updates<br><br>
+	12/2/2018
+	<ul>
+            <li>Added assembly program hello world for 64 Bit x86_64 platform under SLAE64 section.</li>
+            <li>Added simple shellcode for ARM platform a Raspberry Pi 2.</li>
+	</ul>
 	11/24/2018
 	<ul>
             <li>Added unique website hit counter with hashed client IP in SQLite database to prevent client tracking by server.</li>
