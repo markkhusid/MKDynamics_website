@@ -365,6 +365,7 @@
 	<ul>
             <li>Added assembly program hello world for 64 Bit x86_64 platform under SLAE64 section.</li>
             <li>Added simple shellcode for ARM platform a Raspberry Pi 2.</li>
+            <li>Added section on Simulating ARM platform in QEMU under Single Board Computers Running Linux.</li>
 	</ul>
 	11/24/2018
 	<ul>
