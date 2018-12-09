@@ -361,6 +361,10 @@
       
       <aside>
 	Status Updates<br><br>
+	12/8/2018
+	<ul>
+            <li>Updates to LiveOverflow bin0x0C section.  This section goes into great detail on Protostar's stack0 exercise.</li>
+	</ul>
 	12/2/2018
 	<ul>
             <li>Added assembly program hello world for 64 Bit x86_64 platform under SLAE64 section.</li>

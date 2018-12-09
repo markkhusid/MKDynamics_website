@@ -44,7 +44,7 @@
       border		: 5px solid black;
       background	: gray;
       position		: relative;
-      width		: 900px;
+      width		: 1350px;
       height		: 800px;
       top		: 0px;
       left		: 0px;
@@ -57,8 +57,21 @@
       border		: 5px solid black;
       background	: gray;
       position		: relative;
-      width		: 900px;
-      height		: 800px;
+      width		: 1350px;
+      height		: 1600px;
+      top		: 000px;
+      left		: 0px;
+      float		: left;
+      margin		: 10px;
+      padding-left	: 10px;
+    }
+    
+    .current_project_200 {
+      border		: 5px solid black;
+      background	: gray;
+      position		: relative;
+      width		: 1350px;
+      height		: 1600px;
       top		: 000px;
       left		: 0px;
       float		: left;
@@ -70,8 +83,60 @@
       border		: 5px solid black;
       background	: gray;
       position		: relative;
-      width		: 900px;
-      height		: 350px;
+      width		: 1350px;
+      height		: 650px;
+      top		: 000px;
+      left		: 0px;
+      float		: left;
+      margin		: 10px;
+      padding-left	: 10px;
+    }
+    
+    .current_project_300 {
+      border		: 5px solid black;
+      background	: gray;
+      position		: relative;
+      width		: 1350px;
+      height		: 1600px;
+      top		: 000px;
+      left		: 0px;
+      float		: left;
+      margin		: 10px;
+      padding-left	: 10px;
+    }
+    
+    .current_project_305 {
+      border		: 5px solid black;
+      background	: gray;
+      position		: relative;
+      width		: 1350px;
+      height		: 600px;
+      top		: 000px;
+      left		: 0px;
+      float		: left;
+      margin		: 10px;
+      padding-left	: 10px;
+    }
+    
+    .current_project_310 {
+      border		: 5px solid black;
+      background	: gray;
+      position		: relative;
+      width		: 1350px;
+      height		: 1600px;
+      top		: 000px;
+      left		: 0px;
+      float		: left;
+      margin		: 10px;
+      padding-left	: 10px;
+    }
+    
+    .current_project_315 {
+      border		: 5px solid black;
+      background	: gray;
+      position		: relative;
+      width		: 1350px;
+      height		: 600px;
       top		: 000px;
       left		: 0px;
       float		: left;
@@ -83,7 +148,7 @@
       border		: 5px solid black;
       background	: gray;
       position		: relative;
-      width		: 900px;
+      width		: 1350px;
       height		: 1800px;
       top		: 000px;
       left		: 0px;
@@ -243,9 +308,9 @@
                     <figure>
                         <div class="img">
                             <img 
-                            src="images/LiveOverflow/bin_0x0C/stack0_c.jpg"
-                            width="800"
-                            height="450"
+                            src="images/LiveOverflow/bin_0x0C/stack0_c_3.jpg"
+                            width="1200"
+                            height="1000"
                             title=""
                             >
                         </div> <!-- .img -->
@@ -262,17 +327,120 @@
                     </div> <!-- .loose_text -->
                     <!-- ********************************************************************* Loose Text -->
                     
-                    
-                    
                 </div> <!-- .current_project_2 -->
             
             </section> <!-- second_section -->
             <!-- ************************************************************************************* Section End ************ -->
+
+            <!-- *********************************************************************************** Section Start ************ -->
+            <section class="section">
+                
+                <div class="current_project_200">
+                
+                    <hgroup>
+                        <h3>
+                            Running the Vulnerable C Program <i>stack0.c</i> Through GDB+GEF
+                        </h3>
+                    </hgroup>
+                    
+                    <!-- ********************************************************************* Loose Text -->                
+                    <div class="loose_text">
+                        <p>
+                            In this section we start the program in GDB+GEF and see what it does.  As can be seen from the image below, the program waits for input on stdin.  After inputing four A's, it replies with "Try again?".
+                        </p>
+                        
+                        <p>
+                            Clearly we need to disassemble the program to figure out what it does, and how we can change the <i>modified</i> variable.  We enter a breakpoint at *main (Note: not main).  We use *main so that we can get to the beginning of the main function with respect to the assembly code.  Otherwise, break main will bring us to the beginning of the variable assignments.  In this case we would have missed the very import function prefix, which sets up the stack.  It is through the stack that we are able to complete the challege.
+                        </p>
+                    </div> <!-- .loose_text -->
+                    <!-- ********************************************************************* Loose Text -->
+                    
+                    <figure>
+                        <div class="img">
+                            <img 
+                            src="images/LiveOverflow/bin_0x0C/parrot_gef3_redirect_payload_4_A_into_exe.jpg"
+                            width="1200"
+                            height="1000"
+                            title=""
+                            >
+                        </div> <!-- .img -->
+                        <div class="desc">
+                            The vulnerable program <i>stack0.c</i>
+                        </div> <!-- .desc -->
+                    </figure>
+                    
+                    <!-- ********************************************************************* Loose Text -->                
+                    <div class="loose_text">
+                        <p>
+                            In the next section, we show the output of the run command in GDB+GEF.
+                        </p>
+                    </div> <!-- .loose_text -->
+                    <!-- ********************************************************************* Loose Text -->
+                    
+                </div> <!-- .current_project_200 -->
+            
+            </section> <!-- second_section -->
+            <!-- ************************************************************************************* Section End ************ -->
+            
+            
         
             <!-- *********************************************************************************** Section Start ************ -->
             <section class="section">
                 
-                <div class="current_project_3">
+                <div class="current_project_300">
+                
+                    <hgroup>
+                        <h3>
+                            Disassembling The Vulnerable C Program <i>stack0.c</i> with GDB+GEF
+                        </h3>
+                        <h4>
+                            Visualizing Main's Stack Frame
+                        </h4>
+                    </hgroup>
+                    
+                    <!-- ********************************************************************* Loose Text -->                
+                    <div class="loose_text">
+                        <p>
+                            In this section we will visualize main's stack frame.  As seen in the previous section, the command line arguments to main are pushed onto the stack in reverse order.  Then main's return address to libc is pushed onto the stack.  Once the executable is ready to run, the stack pointer <i>ESP</i> points to main's return address.  This is the top of the stack.  Everything else that will be pushed onto the stack will enter into lower addresses, since the stack grows down in memory.
+                        </p>
+                        
+                        <p>
+                            The image below shows main's stack frame.  It was highlighted in the image for clarity.
+                        </p>
+                    </div> <!-- .loose_text -->
+                    <!-- ********************************************************************* Loose Text -->
+                    
+                    <figure>
+                        <div class="img">
+                            <img 
+                            src="images/LiveOverflow/bin_0x0C/gef_start_run_with_4_A_highlight_main_ret_argc_argv.jpg"
+                            width="1200"
+                            height="1000"
+                            title=""
+                            >
+                        </div> <!-- .img -->
+                        <div class="desc">
+                            Main's stack frame highlighted.
+                        </div> <!-- .desc -->
+                    </figure>
+                    
+                    <!-- ********************************************************************* Loose Text -->                
+                    <div class="loose_text">
+                        <p>
+                            We will now begin show a table that summarizes the state of the stack at this point.
+                        </p>
+                    </div> <!-- .loose_text -->
+                    <!-- ********************************************************************* Loose Text -->
+                    
+                </div> <!-- .current_project_300 -->
+            
+            </section> <!-- section -->
+            <!-- ************************************************************************************* Section End ************ -->
+            
+            <!-- *********************************************************************************** Section Start ************ -->
+            <section class="section">
+                
+                <div class="current_project_305">
                 
                     <hgroup>
                         <h3>
@@ -290,44 +458,191 @@
                     
                     <table align="center" border="1" style="width:75%">
                         <tr>
+                            <th width="20%">High Memory</th>
                             <th width="20%">Stack entry name</th>
                             <th width="20%">Size [bytes]</th>
                         </tr>
                         
                         <tr>
-                            <td align="center">RET (return address)</td>
+                            <td align="center"></td>
+                            <td align="center">ARGV (Address of array of strings.  The first string is the executable fullpath, the second, third, etc. are the arguments)</td>
                             <td align="center">4</td>
                         </tr>
                         
                         <tr>
-                            <td align="center">Saved EBP</td>
+                            <td align="center"></td>
+                            <td align="center">ARGC (number of command line arguments including executable name)</td>
                             <td align="center">4</td>
                         </tr>
                         
                         <tr>
-                            <td align="center">modified</td>
+                            <td align="center">STACK POINTER ESP -></td>
+                            <td align="center">RET (MAIN's return address back to libc)</td>
                             <td align="center">4</td>
                         </tr>
                         
                         <tr>
-                            <td align="center">buffer[64]</td>
-                            <td align="center">64</td>
+                            <td align="center"></td>
+                            <td align="center">garbage</td>
+                            <td align="center">4</td>
+                        </tr>
+                        
+                        <tr>
+                            <td align="center"></td>
+                            <td align="center">garbage</td>
+                            <td align="center">4</td>
+                        </tr>
+                        
+                        <tr>
+                            <td align="center"><b>Low Memory</b></td>
+                            <td align="center">garbage</td>
+                            <td align="center">4</td>
                         </tr>
                     </table>
                     
                     <!-- ********************************************************************* Loose Text -->                
                     <div class="loose_text">
                         <p>
-                            If one were to input more than 64 bytes of data into <i>buffer</i>, then the remainder will spill over into the variable <i>modified</i>.
+                            The arguments of main are pushed onto the stack in reverse order.  First is ARGV, the ARGC, then finally Main's return address is pushed onto the stack.
                         </p>
                     </div> <!-- .loose_text -->
                     <!-- ********************************************************************* Loose Text -->
                     
-                </div> <!-- .current_project_2 -->
+                </div> <!-- .current_project_305 -->
             
-            </section> <!-- second_section -->
+            </section> <!-- section -->
             <!-- ************************************************************************************* Section End ************ -->
-        
+            
+            <!-- *********************************************************************************** Section Start ************ -->
+            <section class="section">
+                
+                <div class="current_project_310">
+                
+                    <hgroup>
+                        <h3>
+                            Disassembling The Vulnerable C Program <i>stack0.c</i> with GDB+GEF
+                        </h3>
+                        <h4>
+                            Stepping From (main+0) to (main+1)
+                        </h4>
+                    </hgroup>
+                    
+                    <!-- ********************************************************************* Loose Text -->                
+                    <div class="loose_text">
+                        <p>
+                            In this section, we advance a single assembly instruction, describe what happened, and show the state of the stack.
+                        </p>
+                        
+                        <p>
+                            lorem
+                        </p>
+                    </div> <!-- .loose_text -->
+                    <!-- ********************************************************************* Loose Text -->
+                    
+                    <figure>
+                        <div class="img">
+                            <img 
+                            src="images/LiveOverflow/bin_0x0C/gef_step_1_push_ebp.jpg"
+                            width="1200"
+                            height="1000"
+                            title=""
+                            >
+                        </div> <!-- .img -->
+                        <div class="desc">
+                            State of execution after <i>push ebp</i>
+                        </div> <!-- .desc -->
+                    </figure>
+                    
+                    <!-- ********************************************************************* Loose Text -->                
+                    <div class="loose_text">
+                        <p>
+                            As can be seen from the disassembly above, the instruction <i>push ebp</i> was executed.  This saves main's ebp so that it can be restored when main is finished executing.  We will now show the state of the stack below.
+                        </p>
+                    </div> <!-- .loose_text -->
+                    <!-- ********************************************************************* Loose Text -->
+                    
+                </div> <!-- .current_project_310 -->
+            
+            </section> <!-- section -->
+            <!-- ************************************************************************************* Section End ************ -->
+            
+            
+            <!-- *********************************************************************************** Section Start ************ -->
+            <section class="section">
+                
+                <div class="current_project_315">
+                
+                    <hgroup>
+                        <h3>
+                            Layout of the stack in program <i>stack0.c</i> after <i>push ebp</i> instruction.
+                        </h3>
+                    </hgroup>
+                    
+                    <!-- ********************************************************************* Loose Text -->                
+                    <div class="loose_text">
+                        <p>
+                            The table below illustrates the layout of the stack once <i>push ebp</i> is executed.
+                        </p>
+                    </div> <!-- .loose_text -->
+                    <!-- ********************************************************************* Loose Text -->
+                    
+                    <table align="center" border="1" style="width:75%">
+                        <tr>
+                            <th width="20%">High Memory</th>
+                            <th width="20%">Stack entry name</th>
+                            <th width="20%">Size [bytes]</th>
+                        </tr>
+                        
+                        <tr>
+                            <td align="center"></td>
+                            <td align="center">ARGV (Address of array of strings.  The first string is the executable fullpath, the second, third, etc. are the arguments)</td>
+                            <td align="center">4</td>
+                        </tr>
+                        
+                        <tr>
+                            <td align="center"></td>
+                            <td align="center">ARGC (number of command line arguments including executable name)</td>
+                            <td align="center">4</td>
+                        </tr>
+                        
+                        <tr>
+                            <td align="center"></td>
+                            <td align="center">RET (MAIN's return address back to libc)</td>
+                            <td align="center">4</td>
+                        </tr>
+                        
+                        <tr>
+                            <td align="center">STACK POINTER ESP -></td>
+                            <td align="center">Mains's saved EBP</td>
+                            <td align="center">4</td>
+                        </tr>
+                        
+                        <tr>
+                            <td align="center"></td>
+                            <td align="center">garbage</td>
+                            <td align="center">4</td>
+                        </tr>
+                        
+                        <tr>
+                            <td align="center"><b>Low Memory</b></td>
+                            <td align="center">garbage</td>
+                            <td align="center">4</td>
+                        </tr>
+                    </table>
+            
+                    <!-- ********************************************************************* Loose Text -->                
+                    <div class="loose_text">
+                        <p>
+                            We can see that the stack pointer ESP was advanced four bytes down into lower memory, and Main's saved ebp is now on the stack.
+                        </p>
+                    </div> <!-- .loose_text -->
+                    <!-- ********************************************************************* Loose Text -->
+                    
+                </div> <!-- .current_project_315 -->
+            
+            </section> <!-- section -->
+            <!-- ************************************************************************************* Section End ************ -->
+            
             <!-- ************************************************************************************* Section Start *********** -->
             <section class="section">
         
@@ -424,6 +739,28 @@
                             title=""
                             >
                         </div> <!-- .img
-                    </figure> -->
+                    </figure> 
+                    
+                    <tr>
+                            <td align="center"></td>
+                            <td align="center">MAIN's saved EBP</td>
+                            <td align="center">4</td>
+                        </tr>
+                        
+                        <tr>
+                            <td align="center"></td>
+                            <td align="center">modified</td>
+                            <td align="center">4</td>
+                        </tr>
+                        
+                        <tr>
+                            <td align="center">Low Memory</td>
+                            <td align="center">buffer[64]</td>
+                            <td align="center">64</td>
+                        </tr>
+                    
+                    
+                    If one were to input more than 64 bytes of data into <i>buffer</i>, then the remainder will spill over into the variable <i>modified</i>.
+                    -->
 
 
