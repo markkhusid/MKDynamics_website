@@ -361,7 +361,7 @@
       
       <aside>
 	Status Updates<br><br>
-	12/8/2018
+	12/9/2018
 	<ul>
             <li>Updates to LiveOverflow bin0x0C section.  This section goes into great detail on Protostar's stack0 exercise.</li>
 	</ul>

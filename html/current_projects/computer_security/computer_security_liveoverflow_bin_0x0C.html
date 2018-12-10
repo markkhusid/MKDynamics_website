@@ -144,6 +144,110 @@
       padding-left	: 10px;
     }
     
+    .current_project_320 {
+      border		: 5px solid black;
+      background	: gray;
+      position		: relative;
+      width		: 1350px;
+      height		: 1600px;
+      top		: 000px;
+      left		: 0px;
+      float		: left;
+      margin		: 10px;
+      padding-left	: 10px;
+    }
+    
+    .current_project_325 {
+      border		: 5px solid black;
+      background	: gray;
+      position		: relative;
+      width		: 1350px;
+      height		: 1600px;
+      top		: 000px;
+      left		: 0px;
+      float		: left;
+      margin		: 10px;
+      padding-left	: 10px;
+    }
+    
+    .current_project_330 {
+      border		: 5px solid black;
+      background	: gray;
+      position		: relative;
+      width		: 1350px;
+      height		: 600px;
+      top		: 000px;
+      left		: 0px;
+      float		: left;
+      margin		: 10px;
+      padding-left	: 10px;
+    }
+    
+    .current_project_335 {
+      border		: 5px solid black;
+      background	: gray;
+      position		: relative;
+      width		: 1350px;
+      height		: 1600px;
+      top		: 000px;
+      left		: 0px;
+      float		: left;
+      margin		: 10px;
+      padding-left	: 10px;
+    }
+    
+    .current_project_340 {
+      border		: 5px solid black;
+      background	: gray;
+      position		: relative;
+      width		: 1350px;
+      height		: 600px;
+      top		: 000px;
+      left		: 0px;
+      float		: left;
+      margin		: 10px;
+      padding-left	: 10px;
+    }
+    
+    .current_project_345 {
+      border		: 5px solid black;
+      background	: gray;
+      position		: relative;
+      width		: 1350px;
+      height		: 1600px;
+      top		: 000px;
+      left		: 0px;
+      float		: left;
+      margin		: 10px;
+      padding-left	: 10px;
+    }
+    
+    .current_project_350 {
+      border		: 5px solid black;
+      background	: gray;
+      position		: relative;
+      width		: 1350px;
+      height		: 800px;
+      top		: 000px;
+      left		: 0px;
+      float		: left;
+      margin		: 10px;
+      padding-left	: 10px;
+    }
+    
+    .current_project_355 {
+      border		: 5px solid black;
+      background	: gray;
+      position		: relative;
+      width		: 1350px;
+      height		: 2000px;
+      top		: 000px;
+      left		: 0px;
+      float		: left;
+      margin		: 10px;
+      padding-left	: 10px;
+    }
+    
     .current_project_4 {
       border		: 5px solid black;
       background	: gray;
@@ -520,7 +624,7 @@
                 
                     <hgroup>
                         <h3>
-                            Disassembling The Vulnerable C Program <i>stack0.c</i> with GDB+GEF
+                            Disassembling and Executing the Vulnerable C Program <i>stack0.c</i> with GDB+GEF
                         </h3>
                         <h4>
                             Stepping From (main+0) to (main+1)
@@ -534,7 +638,7 @@
                         </p>
                         
                         <p>
-                            lorem
+                            Execution was advanced a single step in GDB+GEF by using the si instruction.  EIP now points to (main+1).
                         </p>
                     </div> <!-- .loose_text -->
                     <!-- ********************************************************************* Loose Text -->
@@ -565,7 +669,6 @@
             
             </section> <!-- section -->
             <!-- ************************************************************************************* Section End ************ -->
-            
             
             <!-- *********************************************************************************** Section Start ************ -->
             <section class="section">
@@ -639,6 +742,552 @@
                     <!-- ********************************************************************* Loose Text -->
                     
                 </div> <!-- .current_project_315 -->
+            
+            </section> <!-- section -->
+            <!-- ************************************************************************************* Section End ************ -->
+            
+            <!-- *********************************************************************************** Section Start ************ -->
+            <section class="section">
+                
+                <div class="current_project_320">
+                
+                    <hgroup>
+                        <h3>
+                            Disassembling and Executing The Vulnerable C Program <i>stack0.c</i> with GDB+GEF
+                        </h3>
+                        <h4>
+                            Stepping From (main+1) to (main+3)
+                        </h4>
+                    </hgroup>
+                    
+                    <!-- ********************************************************************* Loose Text -->                
+                    <div class="loose_text">
+                        <p>
+                            In this section, we advance a single assembly instruction, describe what happened, and show the state of the stack.
+                        </p>
+                        
+                        <p>
+                            Execution was advanced a single step in GDB+GEF by using the si instruction.  EIP now points to (main+3).
+                        </p>
+                    </div> <!-- .loose_text -->
+                    <!-- ********************************************************************* Loose Text -->
+                    
+                    <figure>
+                        <div class="img">
+                            <img 
+                            src="images/LiveOverflow/bin_0x0C/gef_step_2_mov_ebp_esp.jpg"
+                            width="1200"
+                            height="1000"
+                            title=""
+                            >
+                        </div> <!-- .img -->
+                        <div class="desc">
+                            State of execution after <i>push ebp</i>
+                        </div> <!-- .desc -->
+                    </figure>
+                    
+                    <!-- ********************************************************************* Loose Text -->                
+                    <div class="loose_text">
+                        <p>
+                            As can be seen from the disassembly above, the instruction <i>mov ebp, esp</i> was executed.  This moves the current stack pointer <i>esp</i> into <i>ebp</i> so that data on the stack can be referenced with respect to the base pointer <i>ebp</i>.  The state of the stack has not changed since the last instruction.  We will now advance one more instruction and describe the result.
+                        </p>
+                    </div> <!-- .loose_text -->
+                    <!-- ********************************************************************* Loose Text -->
+                    
+                </div> <!-- .current_project_320 -->
+            
+            </section> <!-- section -->
+            <!-- ************************************************************************************* Section End ************ -->
+            
+            <!-- *********************************************************************************** Section Start ************ -->
+            <section class="section">
+                
+                <div class="current_project_325">
+                
+                    <hgroup>
+                        <h3>
+                            Disassembling and Executing The Vulnerable C Program <i>stack0.c</i> with GDB+GEF
+                        </h3>
+                        <h4>
+                            Stepping From (main+3) to (main+6)
+                        </h4>
+                    </hgroup>
+                    
+                    <!-- ********************************************************************* Loose Text -->                
+                    <div class="loose_text">
+                        <p>
+                            In this section, we advance a single assembly instruction, describe what happened, and show the state of the stack.
+                        </p>
+                        
+                        <p>
+                            Execution was advanced a single step in GDB+GEF by using the si instruction.  EIP now points to (main+6).
+                        </p>
+                    </div> <!-- .loose_text -->
+                    <!-- ********************************************************************* Loose Text -->
+                    
+                    <figure>
+                        <div class="img">
+                            <img 
+                            src="images/LiveOverflow/bin_0x0C/gef_step_3_and_esp_0xfffffff0.jpg"
+                            width="1200"
+                            height="1000"
+                            title=""
+                            >
+                        </div> <!-- .img -->
+                        <div class="desc">
+                            State of execution after <i>and esp, 0xfffffff0</i>
+                        </div> <!-- .desc -->
+                    </figure>
+                    
+                    <!-- ********************************************************************* Loose Text -->                
+                    <div class="loose_text">
+                        <p>
+                            As can be seen from the disassembly above, the instruction <i>and esp, 0xfffffff0</i> was executed.  This clears out the last 4 bits of the <i>esp</i> register.  The reason is that this action effectively subtracts 8 bytes from the current stack address.  We will now show the current state of the stack in the table below.
+                        </p>
+                    </div> <!-- .loose_text -->
+                    <!-- ********************************************************************* Loose Text -->
+                    
+                </div> <!-- .current_project_325 -->
+            
+            </section> <!-- section -->
+            <!-- ************************************************************************************* Section End ************ -->
+            
+            <!-- *********************************************************************************** Section Start ************ -->
+            <section class="section">
+                
+                <div class="current_project_330">
+                
+                    <hgroup>
+                        <h3>
+                            Layout of the stack in program <i>stack0.c</i> after <i>and esp, 0xfffffff0</i> instruction.
+                        </h3>
+                    </hgroup>
+                    
+                    <!-- ********************************************************************* Loose Text -->                
+                    <div class="loose_text">
+                        <p>
+                            The table below illustrates the layout of the stack once <i>and esp, 0xfffffff0</i> is executed.
+                        </p>
+                    </div> <!-- .loose_text -->
+                    <!-- ********************************************************************* Loose Text -->
+                    
+                    <table align="center" border="1" style="width:75%">
+                        <tr>
+                            <th width="20%">High Memory</th>
+                            <th width="20%">Stack entry name</th>
+                            <th width="20%">Size [bytes]</th>
+                        </tr>
+                        
+                        <tr>
+                            <td align="center"></td>
+                            <td align="center">ARGV (Address of array of strings.  The first string is the executable fullpath, the second, third, etc. are the arguments)</td>
+                            <td align="center">4</td>
+                        </tr>
+                        
+                        <tr>
+                            <td align="center"></td>
+                            <td align="center">ARGC (number of command line arguments including executable name)</td>
+                            <td align="center">4</td>
+                        </tr>
+                        
+                        <tr>
+                            <td align="center"></td>
+                            <td align="center">RET (MAIN's return address back to libc)</td>
+                            <td align="center">4</td>
+                        </tr>
+                        
+                        <tr>
+                            <td align="center"></td>
+                            <td align="center">Mains's saved EBP</td>
+                            <td align="center">4</td>
+                        </tr>
+                        
+                        <tr>
+                            <td align="center"></td>
+                            <td align="center">0xf7f99000</td>
+                            <td align="center">4</td>
+                        </tr>
+                        
+                        <tr>
+                            <td align="center"><b>Low Memory...STACK POINTER ESP -></b></td>
+                            <td align="center">0xf7f99000</td>
+                            <td align="center">4</td>
+                        </tr>
+                    </table>
+            
+                    <!-- ********************************************************************* Loose Text -->                
+                    <div class="loose_text">
+                        <p>
+                            We can see that the stack pointer ESP was advanced four bytes down into lower memory, and <i>esp</i> now points 8 bytes lower than previously.  The data on the stack, namely 0xf7f99000 repeated twice is probably from functions that ran prior to main's invocation.  We now advance another step and examine the effect on the stack.
+                        </p>
+                    </div> <!-- .loose_text -->
+                    <!-- ********************************************************************* Loose Text -->
+                    
+                </div> <!-- .current_project_330 -->
+            
+            </section> <!-- section -->
+            <!-- ************************************************************************************* Section End ************ -->
+            
+            <!-- *********************************************************************************** Section Start ************ -->
+            <section class="section">
+                
+                <div class="current_project_335">
+                
+                    <hgroup>
+                        <h3>
+                            Disassembling and Executing The Vulnerable C Program <i>stack0.c</i> with GDB+GEF
+                        </h3>
+                        <h4>
+                            Stepping From (main+6) to (main+9)
+                        </h4>
+                    </hgroup>
+                    
+                    <!-- ********************************************************************* Loose Text -->                
+                    <div class="loose_text">
+                        <p>
+                            In this section, we advance a single assembly instruction, describe what happened, and show the state of the stack.
+                        </p>
+                        
+                        <p>
+                            Execution was advanced a single step in GDB+GEF by using the si instruction.  EIP now points to (main+9).
+                        </p>
+                    </div> <!-- .loose_text -->
+                    <!-- ********************************************************************* Loose Text -->
+                    
+                    <figure>
+                        <div class="img">
+                            <img 
+                            src="images/LiveOverflow/bin_0x0C/gef_step_4_sub_esp_0x60.jpg"
+                            width="1200"
+                            height="1000"
+                            title=""
+                            >
+                        </div> <!-- .img -->
+                        <div class="desc">
+                            State of execution after <i>sub esp, 0x60</i>
+                        </div> <!-- .desc -->
+                    </figure>
+                    
+                    <!-- ********************************************************************* Loose Text -->                
+                    <div class="loose_text">
+                        <p>
+                            As can be seen from the disassembly above, the instruction <i>sub esp, 0x60</i> was executed.  This moves the stack pointer <i>esp</i> further down in memory by 96 bytes.  The reason this is being done is to make room for the local variables <i>modified</i> and <i>buffer</i>.  Recall that <i>modified</i> requires 4 bytes and <i>buffer</i> requires 64 bytes.  The total amount of stack memory required for these two local variables is 64+4 = 68 bytes.  Why has the compiler decided to provide an additional 96-68=28 bytes?  28 bytes correspons to 7 groups of 4 bytes.  Let's step through the program so that we can figure out the compiler's intentions.  We will now show the current state of the stack in the table below.
+                        </p>
+                    </div> <!-- .loose_text -->
+                    <!-- ********************************************************************* Loose Text -->
+                    
+                </div> <!-- .current_project_325 -->
+            
+            </section> <!-- section -->
+            <!-- ************************************************************************************* Section End ************ -->
+            
+            <!-- *********************************************************************************** Section Start ************ -->
+            <section class="section">
+                
+                <div class="current_project_340">
+                
+                    <hgroup>
+                        <h3>
+                            Layout of the stack in program <i>stack0.c</i> after <i>sub esp, 0x60</i> instruction.
+                        </h3>
+                    </hgroup>
+                    
+                    <!-- ********************************************************************* Loose Text -->                
+                    <div class="loose_text">
+                        <p>
+                            The table below illustrates the layout of the stack once <i>sub esp, 0x60</i> is executed.
+                        </p>
+                    </div> <!-- .loose_text -->
+                    <!-- ********************************************************************* Loose Text -->
+                    
+                    <table align="center" border="1" style="width:75%">
+                        <tr>
+                            <th width="20%">High Memory</th>
+                            <th width="20%">Stack entry name</th>
+                            <th width="20%">Size [bytes]</th>
+                        </tr>
+                        
+                        <tr>
+                            <td align="center"></td>
+                            <td align="center">ARGV (Address of array of strings.  The first string is the executable fullpath, the second, third, etc. are the arguments)</td>
+                            <td align="center">4</td>
+                        </tr>
+                        
+                        <tr>
+                            <td align="center"></td>
+                            <td align="center">ARGC (number of command line arguments including executable name)</td>
+                            <td align="center">4</td>
+                        </tr>
+                        
+                        <tr>
+                            <td align="center"></td>
+                            <td align="center">RET (MAIN's return address back to libc)</td>
+                            <td align="center">4</td>
+                        </tr>
+                        
+                        <tr>
+                            <td align="center"></td>
+                            <td align="center">Mains's saved EBP</td>
+                            <td align="center">4</td>
+                        </tr>
+                        
+                        <tr>
+                            <td align="center"></td>
+                            <td align="center">0xf7f99000</td>
+                            <td align="center">4</td>
+                        </tr>
+                        
+                        <tr>
+                            <td align="center"><b></b></td>
+                            <td align="center">0xf7f99000</td>
+                            <td align="center">4</td>
+                        </tr>
+                        
+                        <tr>
+                            <td align="center"><b>Low Memory...STACK POINTER ESP -></b></td>
+                            <td align="center">Local Variables</td>
+                            <td align="center">96</td>
+                        </tr>
+                    </table>
+            
+                    <!-- ********************************************************************* Loose Text -->                
+                    <div class="loose_text">
+                        <p>
+                            We can see that the stack pointer ESP was advanced 96 bytes down into lower memory, and <i>esp</i> now points 96 bytes lower than previously.  Why has the compiler decided to allocate 96 bytes when only 68 were needed to accomodate main's local variables?  To find out, we now advance another step and examine the effect on the stack.
+                        </p>
+                    </div> <!-- .loose_text -->
+                    <!-- ********************************************************************* Loose Text -->
+                    
+                </div> <!-- .current_project_340 -->
+            
+            </section> <!-- section -->
+            <!-- ************************************************************************************* Section End ************ -->
+            
+            <!-- *********************************************************************************** Section Start ************ -->
+            <section class="section">
+                
+                <div class="current_project_345">
+                
+                    <hgroup>
+                        <h3>
+                            Disassembling and Executing The Vulnerable C Program <i>stack0.c</i> with GDB+GEF
+                        </h3>
+                        <h4>
+                            Stepping From (main+9) to (main+17)
+                        </h4>
+                    </hgroup>
+                    
+                    <!-- ********************************************************************* Loose Text -->                
+                    <div class="loose_text">
+                        <p>
+                            In this section, we advance a single assembly instruction, describe what happened, and show the state of the stack.
+                        </p>
+                        
+                        <p>
+                            Execution was advanced a single step in GDB+GEF by using the si instruction.  EIP now points to (main+17).
+                        </p>
+                    </div> <!-- .loose_text -->
+                    <!-- ********************************************************************* Loose Text -->
+                    
+                    <figure>
+                        <div class="img">
+                            <img 
+                            src="images/LiveOverflow/bin_0x0C/gef_step_5_mov_DWORD_PTR_esp+0x5c_0x0.jpg"
+                            width="1200"
+                            height="1000"
+                            title=""
+                            >
+                        </div> <!-- .img -->
+                        <div class="desc">
+                            State of execution after <i>sub esp, 0x60</i>
+                        </div> <!-- .desc -->
+                    </figure>
+                    
+                    <!-- ********************************************************************* Loose Text -->                
+                    <div class="loose_text">
+                        <p>
+                            As can be seen from the disassembly above, the instruction <i>mov DWORD PTR [esp+0x5c], 0x0</i> was executed.  This moves a 0 into the stack location esp+0x5c, or esp+92.  Recall that the compiler previously allocated 96 bytes for local variable storage on the stack, and now has moved a 0 into the location 92 bytes above from where it is currently pointing.  This is nothing but setting the local variable <i>modified</i> to zero.  So the local variable <i>modified</i> resides at esp+0x5c or esp+92 on the stack.  We will now show the current state of the stack in the table below.
+                        </p>
+                    </div> <!-- .loose_text -->
+                    <!-- ********************************************************************* Loose Text -->
+                    
+                </div> <!-- .current_project_345 -->
+            
+            </section> <!-- section -->
+            <!-- ************************************************************************************* Section End ************ -->
+            
+            
+            <!-- *********************************************************************************** Section Start ************ -->
+            <section class="section">
+                
+                <div class="current_project_350">
+                
+                    <hgroup>
+                        <h3>
+                            Layout of the stack in program <i>stack0.c</i> after <i>mov DWORD PTR [esp+0x5c], 0x0</i> instruction.
+                        </h3>
+                    </hgroup>
+                    
+                    <!-- ********************************************************************* Loose Text -->                
+                    <div class="loose_text">
+                        <p>
+                            The table below illustrates the layout of the stack once <i>mov DWORD PTR [esp+0x5c], 0x0</i> is executed.
+                        </p>
+                    </div> <!-- .loose_text -->
+                    <!-- ********************************************************************* Loose Text -->
+                    
+                    <table align="center" border="1" style="width:75%">
+                        <tr>
+                            <th width="20%">Stack Address - High Memory</th>
+                            <th width="20%">Stack entry name</th>
+                            <th width="20%">Value</th>
+                            <th width="20%">Size [bytes]</th>
+                        </tr>
+                        
+                        <tr>
+                            <td align="center">0xffffd174</td>
+                            <td align="center">ARGV (Address of array of strings.  The first string is the executable's full path, the second, third, etc. are the arguments)</td>
+                            <td align="center">0xffffd204</td>
+                            <td align="center">4</td>
+                        </tr>
+                        
+                        <tr>
+                            <td align="center">0xffffd170</td>
+                            <td align="center">ARGC (number of command line arguments including executable name)</td>
+                            <td align="center">0x00000001</td>
+                            <td align="center">4</td>
+                        </tr>
+                        
+                        <tr>
+                            <td align="center">0xffffd16c</td>
+                            <td align="center">RET (MAIN's return address back to libc)</td>
+                            <td align="center">0xf7ddc9a1</td>
+                            <td align="center">4</td>
+                        </tr>
+                        
+                        <tr>
+                            <td align="center">0xffffd168</td>
+                            <td align="center">Mains's saved EBP</td>
+                            <td align="center">0x00000000</td>
+                            <td align="center">4</td>
+                        </tr>
+                        
+                        <tr>
+                            <td align="center">0xffffd164</td>
+                            <td align="center">unknown</td>
+                            <td align="center">0xf7f99000</td>
+                            <td align="center">4</td>
+                        </tr>
+                        
+                        <tr>
+                            <td align="center">0xffffd160</td>
+                            <td align="center">unknown</td>
+                            <td align="center">0xf7f99000</td>
+                            <td align="center">4</td>
+                        </tr>
+                        
+                        <tr>
+                            <td align="center">0xffffd15c</td>
+                            <td align="center">Local variable <i>modified</i> = 0</td>
+                            <td align="center">0x00000000</td>
+                            <td align="center">4</td>
+                        </tr>
+                        
+                        <tr>
+                            <td align="center">0xffffd100 ... <b>STACK POINTER ESP -></b></td>
+                            <td align="center">Local Variable Data</td>
+                            <td align="center">unknown</td>
+                            <td align="center">92</td>
+                        </tr>
+                    </table>
+
+                    <!-- ********************************************************************* Loose Text -->                
+                    <div class="loose_text">
+                        <p>
+                            We can see that the location on the stack at stack pointer ESP+92 (ESP+0x5C) was set to 0.  This is the <i>modified</i> local variable.  This is the variable that we need to change to complete the challenge.  The next few assembly instructions will allocate stack memory of the 64 byte buffer.  We now advance another step and examine the effect on the stack.
+                        </p>
+                    </div> <!-- .loose_text -->
+                    <!-- ********************************************************************* Loose Text -->
+                    
+                </div> <!-- .current_project_350 -->
+            
+            </section> <!-- section -->
+            <!-- ************************************************************************************* Section End ************ -->
+            
+             <!-- *********************************************************************************** Section Start ************ -->
+            <section class="section">
+                
+                <div class="current_project_355">
+                
+                    <hgroup>
+                        <h3>
+                            Disassembling and Executing The Vulnerable C Program <i>stack0.c</i> with GDB+GEF
+                        </h3>
+                        <h4>
+                            Stepping From (main+17) to (main+21)
+                        </h4>
+                    </hgroup>
+                    
+                    <!-- ********************************************************************* Loose Text -->                
+                    <div class="loose_text">
+                        <p>
+                            In this section, we advance a single assembly instruction, describe what happened, and show the state of the stack.
+                        </p>
+                        
+                        <p>
+                            Execution was advanced a single step in GDB+GEF by using the si instruction.  EIP now points to (main+21).
+                        </p>
+                    </div> <!-- .loose_text -->
+                    <!-- ********************************************************************* Loose Text -->
+                    
+                    <figure>
+                        <div class="img">
+                            <img 
+                            src="images/LiveOverflow/bin_0x0C/gef_step_6_lea_eax_[esp+0x1c].jpg"
+                            width="1200"
+                            height="1000"
+                            title=""
+                            >
+                        </div> <!-- .img -->
+                        <div class="desc">
+                            State of execution after <i>lea eax, [esp+0x1c]</i>
+                        </div> <!-- .desc -->
+                    </figure>
+                    
+                    <!-- ********************************************************************* Loose Text -->                
+                    <div class="loose_text">
+                        <p>
+                            As can be seen from the disassembly above, the instruction <i>lea eax, [esp+0x1c]</i> was executed.  This instruction loads the effective address of what the location at ESP+0x1C (ESP+28) contains.  All this does is result in EAX containing the stack address ESP+0x1C (ESP+28).  This can be verified by issueing the following command:
+                            <blockquote>
+                                gef➤    x/x $esp+0x1c <br>
+                                        0xffffd11c:	0xf7f9c808<br>
+                                gef➤
+                            </blockquote>
+                        </p>
+                        
+                        <p>
+                            We can see that the address 0xffffd11c was loaded into eax from the operation lea eax, [esp+0x1c].  What is so special about the address ESP+0x1C (ESP+28)?  Our stack pointer is at 0xffffd100.  Adding 0x1C to this address results in 0xffffd11c.  The difference is 28 bytes.  If you recall, the previously the stack pointer was moved down by 96 bytes.  Then at ESP+92 bytes, the local variable <i>modified</i> was stored on the stack.  This leaves 92 bytes left for the local buffer <i>buffer[64]</i>.  
+                        </p>
+                        
+                        <p>
+                            The compiler decided to place <i>buffer[64]</i> at ESP+28 bytes.  The difference is:
+                            <blockquote>
+                                92-28 = 64 bytes exactly.  
+                            </blockquote>
+                            
+                            The question then becomes, why did the compiler allocate the extra:
+                            
+                            <blockquote>
+                                96 - (64 + 4) = 28 bytes?
+                            </blockquote>
+                            
+                            To find out, we now advance another step and examine the effect on the stack.
+                        </p>
+                        
+                    </div> <!-- .loose_text -->
+                    <!-- ********************************************************************* Loose Text -->
+                    
+                </div> <!-- .current_project_355 -->
             
             </section> <!-- section -->
             <!-- ************************************************************************************* Section End ************ -->
