@@ -248,6 +248,32 @@
       padding-left	: 10px;
     }
     
+    .current_project_360 {
+      border		: 5px solid black;
+      background	: gray;
+      position		: relative;
+      width		: 1350px;
+      height		: 2600px;
+      top		: 000px;
+      left		: 0px;
+      float		: left;
+      margin		: 10px;
+      padding-left	: 10px;
+    }
+    
+    .current_project_365 {
+      border		: 5px solid black;
+      background	: gray;
+      position		: relative;
+      width		: 1350px;
+      height		: 800px;
+      top		: 000px;
+      left		: 0px;
+      float		: left;
+      margin		: 10px;
+      padding-left	: 10px;
+    }
+    
     .current_project_4 {
       border		: 5px solid black;
       background	: gray;
@@ -1116,7 +1142,6 @@
             </section> <!-- section -->
             <!-- ************************************************************************************* Section End ************ -->
             
-            
             <!-- *********************************************************************************** Section Start ************ -->
             <section class="section">
                 
@@ -1214,7 +1239,7 @@
             </section> <!-- section -->
             <!-- ************************************************************************************* Section End ************ -->
             
-             <!-- *********************************************************************************** Section Start ************ -->
+            <!-- *********************************************************************************** Section Start ************ -->
             <section class="section">
                 
                 <div class="current_project_355">
@@ -1266,7 +1291,7 @@
                         </p>
                         
                         <p>
-                            We can see that the address 0xffffd11c was loaded into eax from the operation lea eax, [esp+0x1c].  What is so special about the address ESP+0x1C (ESP+28)?  Our stack pointer is at 0xffffd100.  Adding 0x1C to this address results in 0xffffd11c.  The difference is 28 bytes.  If you recall, the previously the stack pointer was moved down by 96 bytes.  Then at ESP+92 bytes, the local variable <i>modified</i> was stored on the stack.  This leaves 92 bytes left for the local buffer <i>buffer[64]</i>.  
+                            We can see that the address 0xffffd11c was loaded into eax from the operation lea eax, [esp+0x1c].  What is so special about the address ESP+0x1C (ESP+28)?  Our stack pointer is at 0xffffd100.  Adding 0x1C to this address results in 0xffffd11c.  The difference is 28 bytes.  If you recall, previously the stack pointer was moved down by 96 bytes.  Then at ESP+92 bytes, the local variable <i>modified</i> was stored on the stack.  This leaves 92 bytes left for the local buffer <i>buffer[64]</i>.  What this means is that <i>buffer[64]</i> is at ESP+0x1C, or at stack address 0xffffd11c.
                         </p>
                         
                         <p>
@@ -1291,6 +1316,240 @@
             
             </section> <!-- section -->
             <!-- ************************************************************************************* Section End ************ -->
+            
+            <!-- *********************************************************************************** Section Start ************ -->
+            <section class="section">
+                
+                <div class="current_project_360">
+                
+                    <hgroup>
+                        <h3>
+                            Disassembling and Executing The Vulnerable C Program <i>stack0.c</i> with GDB+GEF
+                        </h3>
+                        <h4>
+                            Stepping From (main+21) to (main+24)
+                        </h4>
+                    </hgroup>
+                    
+                    <!-- ********************************************************************* Loose Text -->                
+                    <div class="loose_text">
+                        <p>
+                            In this section, we advance a single assembly instruction, describe what happened, and show the state of the stack.
+                        </p>
+                        
+                        <p>
+                            Execution was advanced a single step in GDB+GEF by using the si instruction.  EIP now points to (main+24).
+                        </p>
+                    </div> <!-- .loose_text -->
+                    <!-- ********************************************************************* Loose Text -->
+                    
+                    <figure>
+                        <div class="img">
+                            <img 
+                            src="images/LiveOverflow/bin_0x0C/gef_step_7_mov_DWORD_PTR_[esp]_eax.jpg"
+                            width="1200"
+                            height="1000"
+                            title=""
+                            >
+                        </div> <!-- .img -->
+                        <div class="desc">
+                            State of execution after <i>mov DWORD PTR [esp], eax</i>
+                        </div> <!-- .desc -->
+                    </figure>
+                    
+                    <!-- ********************************************************************* Loose Text -->                
+                    <div class="loose_text">
+                        <p>
+                            Why has the compiler decided to use this instruction rather than a push EAX?  This is a good question, and may be a function of optimization or byte alignment.
+                        </p>
+                        
+                        <p>
+                            As can be seen from the disassembly above, the instruction <i>mov DWORD PTR [esp], eax</i> was executed.  This instruction loads what is stored in EAX into the the address at the location that ESP points to.  In other words, the top of the stack.  Effectively, the contents of EAX, or the address 0xffffd11c, was pushed onto the stack.  The memory address 0xffffd11c contains the value 0xf7f9c808, which by itself is also a memory address.  So what is stored at ESP is basically a pointer to a memory address, or equivalently a pointer to a string.
+                        </p>
+                        
+                        <p>
+                            What was the purpose of all of this setup?  It might have something to do with the next assembly instruction, which is a call to the gets function.  Let's look at the man page for the gets function for some answers...
+                        </p>
+                        
+                        <p>
+                        
+                            <blockquote>
+                        
+                            <pre>
+<span class="headline">GETS(3)                   Linux Programmer's Manual                  GETS(3)</span>
+                            </pre>
+                            
+                            NAME  &nbsp; &nbsp; &nbsp; &nbsp; 
+                            <pre>
+    gets - get a string from standard input (DEPRECATED)
+                            </pre>
+                            
+                            SYNOPSIS  &nbsp; &nbsp; &nbsp; &nbsp; 
+                            
+                            <pre>
+    <b>#include &lt;stdio.h&gt;</b>
+    <b>char *gets(char *</b><i>s</i><b>);</b>
+                            </pre>
+                            
+                            DESCRIPTION  &nbsp; &nbsp; &nbsp; &nbsp; 
+                            
+                            <pre>
+    <i>Never use this function</i>.
+
+    <b>gets</b>() reads a line from <i>stdin</i> into the buffer pointed to by <i>s</i> until
+    either a terminating newline or <b>EOF</b>, which it replaces with a null
+    byte ('\0').  No check for buffer overrun is performed (see BUGS
+    below).
+                            </pre>
+
+                            RETURN VALUE  &nbsp; &nbsp; &nbsp; &nbsp;
+                            
+                            <pre>
+    <b>gets</b>() returns <i>s</i> on success, and NULL on error or when end of file
+    occurs while no characters have been read.  However, given the lack
+    of buffer overrun checking, there can be no guarantees that the
+    function will even return.
+                            </pre>
+                            
+                            </blockquote>
+
+                        </p>
+                        
+                        <p>
+                            So we can see from the man page for gets that it takes in a string (i.e. an address), and on success returns a string (i.e. an address) into EAX.  We know that in x86-32Bit Linux, the arguments to a function are pushed in reverse order onto the stack.  Since there is only one argument, this argument was loaded onto the top of the stack.  That was the reason why we had the instruction <i>mov DWORD PTR [esp], eax</i>.  The contents of what is stored at the address ESP is the argument to the gets function.
+                        </p>
+                        
+                        <p>
+                            What is the significance of the address 0xffffd11c?  Well, this is actually a stack address!  If this address sounds familiar it is.  0xffffd11c, as we have found earlier, is the address of the local variable <i>buffer[64]</i>.  So basically, the gets function was given the address of the local variable <i>buffer[64]</i>, and any data entered into stdin will be stored on the stack, starting at address 0xffffd11c.
+                        </p>
+                        
+                        <p>
+                            This is a tremendous clue as to how to complete this challenge.  If the number of entered bytes into stdin is less than the size of the buffer, then everything is fine from according to the local variable <i>modified</i>.  It was set to zero and will remain zero.  The program will continue and exit as usual.  Although the program is fine, the challenge was not accomplished.
+                        </p>
+                        
+                        <p>
+                            If one were to enter more than 64 bytes into stdin, then since the gets function has no bounds checking, it will overflow <i>buffer[64]</i> and overwrite the local variable <i>modified</i>.  Let's draw the current state of the stack to provide a visual explanation.
+                        </p>
+                        
+                        
+                    </div> <!-- .loose_text -->
+                    <!-- ********************************************************************* Loose Text -->
+                    
+                </div> <!-- .current_project_360 -->
+            
+            </section> <!-- section -->
+            <!-- ************************************************************************************* Section End ************ -->
+            
+            <!-- *********************************************************************************** Section Start ************ -->
+            <section class="section">
+                
+                <div class="current_project_365">
+                
+                    <hgroup>
+                        <h3>
+                            Layout of the stack in program <i>stack0.c</i> after <i>mov DWORD PTR [esp], eax</i> instruction.
+                        </h3>
+                    </hgroup>
+                    
+                    <!-- ********************************************************************* Loose Text -->                
+                    <div class="loose_text">
+                        <p>
+                            The table below illustrates the layout of the stack once <i>mov DWORD PTR [esp], eax</i> is executed.
+                        </p>
+                    </div> <!-- .loose_text -->
+                    <!-- ********************************************************************* Loose Text -->
+                    
+                    <table align="center" border="1" style="width:75%">
+                        <tr>
+                            <th width="20%">Stack Address - High Memory</th>
+                            <th width="20%">Stack entry name</th>
+                            <th width="20%">Value</th>
+                            <th width="20%">Size [bytes]</th>
+                        </tr>
+                        
+                        <tr>
+                            <td align="center">0xffffd174</td>
+                            <td align="center">ARGV (Address of array of strings.  The first string is the executable's full path, the second, third, etc. are the arguments)</td>
+                            <td align="center">0xffffd204</td>
+                            <td align="center">4</td>
+                        </tr>
+                        
+                        <tr>
+                            <td align="center">0xffffd170</td>
+                            <td align="center">ARGC (number of command line arguments including executable name)</td>
+                            <td align="center">0x00000001</td>
+                            <td align="center">4</td>
+                        </tr>
+                        
+                        <tr>
+                            <td align="center">0xffffd16c</td>
+                            <td align="center">RET (MAIN's return address back to libc)</td>
+                            <td align="center">0xf7ddc9a1</td>
+                            <td align="center">4</td>
+                        </tr>
+                        
+                        <tr>
+                            <td align="center">0xffffd168</td>
+                            <td align="center">Main's saved EBP</td>
+                            <td align="center">0x00000000</td>
+                            <td align="center">4</td>
+                        </tr>
+                        
+                        <tr>
+                            <td align="center">0xffffd164</td>
+                            <td align="center">unknown</td>
+                            <td align="center">0xf7f99000</td>
+                            <td align="center">4</td>
+                        </tr>
+                        
+                        <tr>
+                            <td align="center">0xffffd160</td>
+                            <td align="center">unknown</td>
+                            <td align="center">0xf7f99000</td>
+                            <td align="center">4</td>
+                        </tr>
+                        
+                        <tr>
+                            <td align="center">0xffffd15c</td>
+                            <td align="center">Local variable <i>modified</i> = 0</td>
+                            <td align="center">0x00000000</td>
+                            <td align="center">4</td>
+                        </tr>
+                        
+                        <tr>
+                            <td align="center">0xffffd11c</td>
+                            <td align="center">Local Variable <i>buffer[64]</i></td>
+                            <td align="center">0x00000000</td>
+                            <td align="center">64</td>
+                        </tr>
+                        <tr>
+                            <td align="center">0xffffd104 ---- 0xfffd118</td>
+                            <td align="center">Stack Data</td>
+                            <td align="center">unknown</td>
+                            <td align="center">20</td>
+                        </tr>
+                        
+                        <tr>
+                            <td align="center">0xffffd100 ... <b>STACK POINTER ESP -></b></td>
+                            <td align="center">Address of <i>buffer[64]</i></td>
+                            <td align="center">0xffffd11c</td>
+                            <td align="center">4</td>
+                        </tr>
+                    </table>
+
+                    <!-- ********************************************************************* Loose Text -->                
+                    <div class="loose_text">
+                        <p>
+                            We can see that the location on the stack at stack pointer ESP+92 (ESP+0x5C) was set to 0.  This is the <i>modified</i> local variable.  This is the variable that we need to change to complete the challenge.  The next few assembly instructions will allocate stack memory of the 64 byte buffer.  We now advance another step and examine the effect on the stack.
+                        </p>
+                    </div> <!-- .loose_text -->
+                    <!-- ********************************************************************* Loose Text -->
+                    
+                </div> <!-- .current_project_365 -->
+            
+            </section> <!-- section -->
+            <!-- ************************************************************************************* Section End ************ -->
+            
             
             <!-- ************************************************************************************* Section Start *********** -->
             <section class="section">
