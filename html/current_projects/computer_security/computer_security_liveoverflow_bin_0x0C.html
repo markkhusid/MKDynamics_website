@@ -274,6 +274,19 @@
       padding-left	: 10px;
     }
     
+    .current_project_370 {
+      border		: 5px solid black;
+      background	: gray;
+      position		: relative;
+      width		: 1350px;
+      height		: 3200px;
+      top		: 000px;
+      left		: 0px;
+      float		: left;
+      margin		: 10px;
+      padding-left	: 10px;
+    }
+    
     .current_project_4 {
       border		: 5px solid black;
       background	: gray;
@@ -1416,15 +1429,15 @@
                         </p>
                         
                         <p>
-                            So we can see from the man page for gets that it takes in a string (i.e. an address), and on success returns a string (i.e. an address) into EAX.  We know that in x86-32Bit Linux, the arguments to a function are pushed in reverse order onto the stack.  Since there is only one argument, this argument was loaded onto the top of the stack.  That was the reason why we had the instruction <i>mov DWORD PTR [esp], eax</i>.  The contents of what is stored at the address ESP is the argument to the gets function.
+                            So we can see from the man page for the function <i>gets</i> that it takes in a string (i.e. an address), and on success returns a string (i.e. an address) into EAX.  We know that in x86-32Bit Linux, the arguments to a function are pushed in reverse order onto the stack.  Since there is only one argument, this argument was loaded onto the top of the stack.  That was the reason why we had the instruction <i>mov DWORD PTR [esp], eax</i>.  The contents of what is stored at the address ESP is the argument to the <i>gets</i> function.
                         </p>
                         
                         <p>
-                            What is the significance of the address 0xffffd11c?  Well, this is actually a stack address!  If this address sounds familiar it is.  0xffffd11c, as we have found earlier, is the address of the local variable <i>buffer[64]</i>.  So basically, the gets function was given the address of the local variable <i>buffer[64]</i>, and any data entered into stdin will be stored on the stack, starting at address 0xffffd11c.
+                            What is the significance of the address 0xffffd11c?  Well, this is actually a stack address!  If this address sounds familiar it is.  0xffffd11c, as we have found out earlier, is the address of the local variable <i>buffer[64]</i>.  So basically, the gets function was given the address of the local variable <i>buffer[64]</i>, and any data entered into stdin will be stored on the stack, starting at address 0xffffd11c.
                         </p>
                         
                         <p>
-                            This is a tremendous clue as to how to complete this challenge.  If the number of entered bytes into stdin is less than the size of the buffer, then everything is fine from according to the local variable <i>modified</i>.  It was set to zero and will remain zero.  The program will continue and exit as usual.  Although the program is fine, the challenge was not accomplished.
+                            This is a tremendous clue as to how to complete this challenge.  If the number of entered bytes into stdin is less than the size of the buffer, then everything is fine according to the local variable <i>modified</i>.  It was set to zero and will remain zero.  The program will continue and exit as usual.  Although the program is fine, the challenge was not accomplished.
                         </p>
                         
                         <p>
@@ -1540,7 +1553,7 @@
                     <!-- ********************************************************************* Loose Text -->                
                     <div class="loose_text">
                         <p>
-                            lorem
+                            We can see from the table above which depicts the state of the stack, that if we enter an amount of bytes into <i>buffer[64]</i> that exceeds its size, i.e. greater than 64 bytes, then we can overflow the <i>buffer[64]</i> and overwrite <i>modified</i>.
                         </p>
                     </div> <!-- .loose_text -->
                     <!-- ********************************************************************* Loose Text -->
@@ -1549,6 +1562,119 @@
             
             </section> <!-- section -->
             <!-- ************************************************************************************* Section End ************ -->
+            
+            <!-- *********************************************************************************** Section Start ************ -->
+            <section class="section">
+                
+                <div class="current_project_370">
+                
+                    <hgroup>
+                        <h3>
+                            Disassembling and Executing The Vulnerable C Program <i>stack0.c</i> with GDB+GEF
+                        </h3>
+                        <h4>
+                            Stepping From (main+24) to (main+29)
+                        </h4>
+                    </hgroup>
+                    
+                    <!-- ********************************************************************* Loose Text -->                
+                    <div class="loose_text">
+                        <p>
+                            In this section, we advance a single assembly instruction, describe what happened, and show the state of the stack.
+                        </p>
+                        
+                        <p>
+                            Execution was advanced a single step in GDB+GEF by using the si instruction.  EIP now points to (main+29).
+                        </p>
+                    </div> <!-- .loose_text -->
+                    <!-- ********************************************************************* Loose Text -->
+                    
+                    <figure>
+                        <div class="img">
+                            <img 
+                            src="images/LiveOverflow/bin_0x0C/gef_step_8_call_0x804830c_gets@plt.jpg"
+                            width="1200"
+                            height="1000"
+                            title=""
+                            >
+                        </div> <!-- .img -->
+                        <div class="desc">
+                            State of execution after <i>call 0x804830c (gets@plt)</i>
+                        </div> <!-- .desc -->
+                    </figure>
+                    
+                    <!-- ********************************************************************* Loose Text -->                
+                    <div class="loose_text">
+                        <p>
+                            We can see from the image above that since we started the debugging session with the command:<br>
+                            
+                            <blockquote>
+                                <gef> run AAAA
+                            </blockquote>
+                            <br>
+                            
+                            the <i>gets</i> function was given the string "AAAA".  As expected, this string was put into the local variable <i>buffer[64]</i>, and the address of this string was also returned into EAX.
+                        </p>
+                        
+                        <p>
+                            We can confirm that the string "AAAA" was entered onto the stack by looking at the stack memory address 0xffffd11c in the image above.  It contains four "A"'s directly.  This same stack address was also entered into EAX.
+                        </p>
+                        
+                        <p>
+                            Obviously, four "A"'s is less than 64 bytes, where each "A" uses up one byte.  Therefore, we can conclude that the local variable <i>modified</i> has not been altered.  We can confirm this with the examine memory command in GDB as shown below:
+                            <blockquote>
+                                <pre>
+    gef➤  x/17x $esp+0x1c
+    0xffffd11c:	<b>0x41414141</b>	0xf7f99000	0x08049620	0xffffd138
+    0xffffd12c:	0x080482e8	0xf7f993fc	0x08049620	0xffffd168
+    0xffffd13c:	0x08048469	0x00000000	0xf7df3e3b	0xf7ffd000
+    0xffffd14c:	0xf7df3f05	0xf7fe4f60	0x00000000	0x0804845b
+    0xffffd15c:	<b>0x00000000</b>
+    gef➤
+                                </pre>
+                            </blockquote>
+                        </p>
+                        
+                        <p>
+                            From the output of the x/17x $esp+0x1c command shown above, we can see the four "A"'s at stack memory location 0xffffd11c.  Then, if we count 64 bytes over, i.e. each hex number is 4 bytes, and each row 16 bytes, therefore, 4 rows is 64 bytes.  At the first position in the 5th row, i.e. stack address 0xffffd15c, we can see the value 0x00000000.  This is the local variable <i>modified</i>.  Our goal in the challenge is to input sufficient data into the buffer to overwrite the stack memory at location 0xffffd15c.
+                        </p>
+                        
+                        <p>
+                            Below, we show an image of the result when executing the command x/17x $esp+0x1c.
+                        </p>
+                        
+                    </div> <!-- .loose_text -->
+                    <!-- ********************************************************************* Loose Text -->
+                        
+                    <figure>
+                        <div class="img">
+                            <img 
+                            src="images/LiveOverflow/bin_0x0C/gef_step_8_5_x_17_x_esp+0x1c.jpg"
+                            width="1200"
+                            height="1000"
+                            title=""
+                            >
+                        </div> <!-- .img -->
+                        <div class="desc">
+                            State of stack when viewed by the command x/17x $esp+0x1c </i>
+                        </div> <!-- .desc -->
+                    </figure>
+                        
+                    <!-- ********************************************************************* Loose Text -->                
+                    <div class="loose_text">
+                        
+                        <p>
+                            In the image above, we have highlighted the contents of stack memory location 0xffffd15c.  This is the local variable <i>modified</i>, and its contents is 0x00000000.
+                        </p>
+                        
+                    </div> <!-- .loose_text -->
+                    <!-- ********************************************************************* Loose Text -->
+                    
+                </div> <!-- .current_project_370 -->
+            
+            </section> <!-- section -->
+            <!-- ************************************************************************************* Section End ************ -->
+            
             
             
             <!-- ************************************************************************************* Section Start *********** -->
