@@ -361,6 +361,10 @@
       
       <aside>
 	Status Updates<br><br>
+	12/16/2018
+	<ul>
+            <li>Updates to SLAE64 section.  Added GDB+GEF and Radare2 Disassembly.</li>
+	</ul>
 	12/9/2018
 	<ul>
             <li>Updates to LiveOverflow bin0x0C section.  This section goes into great detail on Protostar's stack0 exercise.</li>
