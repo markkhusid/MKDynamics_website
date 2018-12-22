@@ -363,6 +363,9 @@
 	Status Updates<br><br>
 	12/16/2018
 	<ul>
+            <li>Updates to SLAE64 section.  Added Moving Data in 64 bit environment section.</li>
+	</ul>
+	<ul>
             <li>Updates to SLAE64 section.  Added GDB+GEF and Radare2 Disassembly.</li>
 	</ul>
 	12/9/2018
