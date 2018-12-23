@@ -361,7 +361,7 @@
                     <div class="loose_text">
                         
                         <p>
-                            The screenshot below displays the contents of the program <i>MovingData-64.nasm</i>.  The program contains a series of varios types of moves.  We will assemble, link, run and instruction step this program in GDB+GEF.  At each step, we will provide a brief description.
+                            The screenshot below displays the contents of the program <i>MovingData-64.nasm</i>.  The program contains a series of various types of data movements.  We will assemble, link, run and instruction step this program in GDB+GEF.  At each step, we will provide a brief description.
                         </p>
                         
                     </div> <!-- .loose_text -->
@@ -417,7 +417,7 @@
                         </div> <!-- .img -->
                         <div class="desc">
                             <p>
-                                Assembling, Linking and Executing the Program <i>MovingData-64.nasm</i>
+                                Viewing the opcodes and disassebly of <i>MovingData-64.nasm</i> in radare2
                             <p>
                         </div> <!-- .desc -->
                     </figure>
@@ -464,6 +464,16 @@
                             <p>
                         </div> <!-- .desc -->
                     </figure>
+                    
+                    <!-- ********************************************************************* Loose Text -->                
+                    <div class="loose_text">
+                        
+                        <p>
+                            Casual observation of the contents of the program <i>MovingData-64.nasm</i> versus its disassebly in GDB+GEF shows a few minor differences.  For example, mov opcodes in the assembly code are changed to movabs in the disassembly.  Obviously, variable names are replaced with their appropriate memory addresses in the data segment.
+                        </p>
+                        
+                    </div> <!-- .loose_text -->
+                    <!-- ********************************************************************* Loose Text -->
                 
                 </div> <!-- .current_project_3 -->
             
@@ -488,6 +498,13 @@
                             Running step 1
                         </p>
                         
+                        <p>
+                            We begin by running the first instruction <i>movabs rax, 0xaaaaaaaabbbbbbbb</i>.
+                        </p>
+                        
+                        <p>
+                            This instruction moves <i>0xaaaaaaaabbbbbbbb</i> into RAX.
+                        
                     </div> <!-- .loose_text -->
                     <!-- ********************************************************************* Loose Text -->
                     
@@ -506,6 +523,16 @@
                             <p>
                         </div> <!-- .desc -->
                     </figure>
+                    
+                    <!-- ********************************************************************* Loose Text -->                
+                    <div class="loose_text">
+                        
+                        <p>
+                            This instruction moves <i>0xaaaaaaaabbbbbbbb</i> into RAX.  We see the effects of this instruction in the next step.
+                        </p>
+                        
+                    </div> <!-- .loose_text -->
+                    <!-- ********************************************************************* Loose Text -->
                 
                 </div> <!-- .current_project_4 -->
             
@@ -530,6 +557,10 @@
                             Running step 2
                         </p>
                         
+                        <p>
+                            The effect of executing <i>movabs rax, 0xaaaaaaaabbbbbbbb</i>.
+                        </p>
+                        
                     </div> <!-- .loose_text -->
                     <!-- ********************************************************************* Loose Text -->
                     
@@ -548,6 +579,25 @@
                             <p>
                         </div> <!-- .desc -->
                     </figure>
+                    
+                    <!-- ********************************************************************* Loose Text -->                
+                    <div class="loose_text">
+                        <p>
+                            We can see that after executing the instruction <i>movabs rax, 0xaaaaaaaabbbbbbbb</i>, we have the following effect on RAX:
+                            <blockquote>
+                                $rax   : 0xaaaaaaaabbbbbbbb
+                            </blockquote>
+                        </p>
+                        
+                        <p>
+                            The next instruction to be executed is: <i>mov    eax, 0xaaaaaaaa</i>.
+                        </p>
+                        
+                        <p>
+                            This instruction moves the word <i>0xaaaaaaaa</i> in EAX.  EAX is the 32 bit portion of the 64 bit RAX; therefore, all of RAX will be wiped out and replaced with the 32 bit word <i>0xaaaaaaaa</i>.
+                        </p>
+                    </div> <!-- .loose_text -->
+                    <!-- ********************************************************************* Loose Text -->
                 
                 </div> <!-- .current_project_5 -->
             
@@ -572,6 +622,10 @@
                             Running step 3
                         </p>
                         
+                        <p>
+                            Effect of executing <i>mov    eax, 0xaaaaaaaa</i>
+                        </p>
+                        
                     </div> <!-- .loose_text -->
                     <!-- ********************************************************************* Loose Text -->
                     
@@ -590,6 +644,25 @@
                             <p>
                         </div> <!-- .desc -->
                     </figure>
+                    
+                    <!-- ********************************************************************* Loose Text -->                
+                    <div class="loose_text">
+                        <p>
+                            We can see that after executing the instruction: <i>mov    eax, 0xaaaaaaaa</i>, RAX was affected as shown below:
+                            <blockquote>
+                                $rax   : 0xaaaaaaaa
+                            </blockquote>
+                        </p>
+                        
+                        <p>
+                            The next instruction to be executed is: <i>movabs rax, 0xaaaaaaaabbbbbbbb</i>
+                        </p>
+                        
+                        <p>
+                            This instruction will have the same effect on RAX as described previously.
+                        </p>
+                    </div> <!-- .loose_text -->
+                    <!-- ********************************************************************* Loose Text -->
                 
                 </div> <!-- .current_project_6 -->
             
@@ -614,6 +687,10 @@
                             Running step 4
                         </p>
                         
+                        <p>
+                            Effect of executing <i>movabs rax, 0xaaaaaaaabbbbbbbb</i>
+                        </p>
+                        
                     </div> <!-- .loose_text -->
                     <!-- ********************************************************************* Loose Text -->
                     
@@ -632,6 +709,30 @@
                             <p>
                         </div> <!-- .desc -->
                     </figure>
+                    
+                    <!-- ********************************************************************* Loose Text -->                
+                    <div class="loose_text">
+                        
+                        <p>
+                            After executing <i>movabs rax, 0xaaaaaaaabbbbbbbb</i>, RAX will be affected as follows:
+                            <blockquote>
+                                $rax   : 0xaaaaaaaabbbbbbbb
+                            </blockquote>
+                        </p>
+                        
+                        <p>
+                            The next instruction to be executed is: <i>mov    al, 0x11</i>.  This instruction loads <i>0x11</i> into the lowest byte of RAX, known as AL.  After this instruction executes, we can expect RAX to contain:
+                            <blockquote>
+                                $rax   : 0xaaaaaaaabbbbbb11
+                            </blockquote>
+                        </p>
+                        
+                        <p>
+                            Notice that unlike when moving an immediate in to EAX, which wiped out the entire RAX with the immediate, moving into AL affects only the lowest byte of RAX.
+                        </p>
+                        
+                    </div> <!-- .loose_text -->
+                    <!-- ********************************************************************* Loose Text -->
                 
                 </div> <!-- .current_project_7 -->
             
@@ -656,6 +757,10 @@
                             Running step 5
                         </p>
                         
+                        <p>
+                            Effect of executing <i>0x401019 <_start+25>      mov    al, 0x11</i>
+                        </p>
+                        
                     </div> <!-- .loose_text -->
                     <!-- ********************************************************************* Loose Text -->
                     
@@ -674,6 +779,31 @@
                             <p>
                         </div> <!-- .desc -->
                     </figure>
+                    
+                    <!-- ********************************************************************* Loose Text -->                
+                    <div class="loose_text">
+                        
+                        <p>
+                            After executing <i>0x401019 <_start+25>      mov    al, 0x11</i>, RAX will be affected as follows:
+                            <blockquote>
+                                $rax   : 0xaaaaaaaabbbbbb11
+                            </blockquote>
+                        </p>
+                        
+                        <p>
+                            Notice that unlike when moving an immediate in to EAX, which wiped out the entire RAX with the immediate, moving into AL affects only the lowest byte of RAX.
+                        </p>
+                        
+                        <p>
+                            The next instruction to be executed is: <i>0x40101b <_start+27>      movabs rax, 0xaaaaaaaabbbbbbbb</i>.  This instruction loads <i>0xaaaaaaaabbbbbbbb</i> into RAX.  After this instruction executes, we can expect RAX to contain:
+                            <blockquote>
+                                $rax   : 0xaaaaaaaabbbbbbbb
+                            </blockquote>
+                        </p>
+                        
+                    </div> <!-- .loose_text -->
+                    <!-- ********************************************************************* Loose Text -->
+                
                 
                 </div> <!-- .current_project_8 -->
             
@@ -698,6 +828,10 @@
                             Running step 6
                         </p>
                         
+                        <p>
+                            Effect of executing <i>0x40101b <_start+27>      movabs rax, 0xaaaaaaaabbbbbbbb</i>
+                        </p>
+                        
                     </div> <!-- .loose_text -->
                     <!-- ********************************************************************* Loose Text -->
                     
@@ -716,6 +850,30 @@
                             <p>
                         </div> <!-- .desc -->
                     </figure>
+                    
+                    <!-- ********************************************************************* Loose Text -->                
+                    <div class="loose_text">
+                        
+                        <p>
+                            After executing <i>0x40101b <_start+27>      movabs rax, 0xaaaaaaaabbbbbbbb</i>, RAX will be affected as follows:
+                            <blockquote>
+                                $rax   : 0xaaaaaaaabbbbbbbb
+                            </blockquote>
+                        </p>
+                        
+                        <p>
+                            As stated before, this instruction simply moves the immediate <i>0xaaaaaaaabbbbbbbb</i> into RAX.
+                        </p>
+                        
+                        <p>
+                            The next instruction to be executed is: <i>0x401025 <_start+37>      mov    ah, 0xcc</i>.  This instruction loads <i>0xcc</i> into bits 8-15 of RAX.  After this instruction executes, we can expect RAX to contain:
+                            <blockquote>
+                                $rax   : 0xaaaaaaaabbbbccbb
+                            </blockquote>
+                        </p>
+                        
+                    </div> <!-- .loose_text -->
+                    <!-- ********************************************************************* Loose Text -->
                 
                 </div> <!-- .current_project_9 -->
             
@@ -740,6 +898,10 @@
                             Running step 7
                         </p>
                         
+                        <p>
+                            Effect of executing <i>0x401025 <_start+37>      mov    ah, 0xcc</i>
+                        </p>
+                        
                     </div> <!-- .loose_text -->
                     <!-- ********************************************************************* Loose Text -->
                     
@@ -758,6 +920,30 @@
                             <p>
                         </div> <!-- .desc -->
                     </figure>
+                    
+                    <!-- ********************************************************************* Loose Text -->                
+                    <div class="loose_text">
+                        
+                        <p>
+                            After executing <i>0x401025 <_start+37>      mov    ah, 0xcc</i>, RAX will be affected as follows:
+                            <blockquote>
+                                $rax   : 0xaaaaaaaabbbbccbb
+                            </blockquote>
+                        </p>
+                        
+                        <p>
+                            This instruction loads <i>0xcc</i> into bits 8 through 15 of AX.  Notice that unlike moving into EAX, the rest of RAX was not modified.
+                        </p>
+                        
+                        <p>
+                            The next instruction to be executed is: <i>0x401027 <_start+39>      movabs rax, 0xaaaaaaaabbbbbbbb</i>.  This instruction loads <i>0xaaaaaaaabbbbbbbb</i> into RAX.  After this instruction executes, we can expect RAX to contain:
+                            <blockquote>
+                                $rax   : 0xaaaaaaaabbbbbbbb
+                            </blockquote>
+                        </p>
+                        
+                    </div> <!-- .loose_text -->
+                    <!-- ********************************************************************* Loose Text -->
                 
                 </div> <!-- .current_project_10 -->
             
@@ -782,6 +968,10 @@
                             Running step 8
                         </p>
                         
+                        <p>
+                            Effect of executing <i>0x401027 <_start+39>      movabs rax, 0xaaaaaaaabbbbbbbb</i>
+                        </p>
+                        
                     </div> <!-- .loose_text -->
                     <!-- ********************************************************************* Loose Text -->
                     
@@ -800,9 +990,33 @@
                             <p>
                         </div> <!-- .desc -->
                     </figure>
+                    
+                    <!-- ********************************************************************* Loose Text -->                
+                    <div class="loose_text">
+                        
+                        <p>
+                            After executing <i>0x401027 <_start+39>      movabs rax, 0xaaaaaaaabbbbbbbb</i>, RAX will be affected as follows:
+                            <blockquote>
+                                $rax   : 0xaaaaaaaabbbbbbbb
+                            </blockquote>
+                        </p>
+                        
+                        <p>
+                            This instruction loads <i>0xaaaaaaaabbbbbbbb</i> into RAX.
+                        </p>
+                        
+                        <p>
+                            The next instruction to be executed is: <i>0x401031 <_start+49>      mov    ax, 0xdddd</i>.  This instruction loads <i>0xdddd</i> into bit 0 through 15 of RAX.  After this instruction executes, we can expect RAX to contain:
+                            <blockquote>
+                                $rax   : 0xaaaaaaaabbbbdddd
+                            </blockquote>
+                        </p>
+                        
+                    </div> <!-- .loose_text -->
+                    <!-- ********************************************************************* Loose Text -->
                 
                 </div> <!-- .current_project_11 -->
-            
+                
             </section> <!-- third_section -->
             <!-- ************************************************************************************* Section End ************ -->
             
@@ -824,6 +1038,10 @@
                             Running step 9
                         </p>
                         
+                        <p>
+                            Effect of executing the instruction <i>0x401031 <_start+49>      mov    ax, 0xdddd</i>
+                        </p>
+                        
                     </div> <!-- .loose_text -->
                     <!-- ********************************************************************* Loose Text -->
                     
@@ -842,6 +1060,30 @@
                             <p>
                         </div> <!-- .desc -->
                     </figure>
+                    
+                    <!-- ********************************************************************* Loose Text -->                
+                    <div class="loose_text">
+                        
+                        <p>
+                            After executing <i>0x401031 <_start+49>      mov    ax, 0xdddd</i>, RAX will be affected as follows:
+                            <blockquote>
+                                $rax   : 0xaaaaaaaabbbbdddd
+                            </blockquote>
+                        </p>
+                        
+                        <p>
+                            This instruction loads <i>0xdddd</i> into AX.  Notice that unlike loading EAX, the rest of RAX remains unmodified.
+                        </p>
+                        
+                        <p>
+                            The next instruction to be executed is: <i>0x401035 <_start+53>      mov    rbp, rax</i>.  This instruction loads the contents of RAX into RBP.  After this instruction executes, we can expect RBP to contain:
+                            <blockquote>
+                                $rbp   : 0xaaaaaaaabbbbdddd
+                            </blockquote>
+                        </p>
+                        
+                    </div> <!-- .loose_text -->
+                    <!-- ********************************************************************* Loose Text -->
                 
                 </div> <!-- .current_project_12 -->
             
@@ -866,6 +1108,10 @@
                             Running step 10
                         </p>
                         
+                        <p>
+                            Effect of executing the instruction <i>0x401035 <_start+53>      mov    rbp, rax</i>.
+                        </p>
+                        
                     </div> <!-- .loose_text -->
                     <!-- ********************************************************************* Loose Text -->
                     
@@ -884,6 +1130,30 @@
                             <p>
                         </div> <!-- .desc -->
                     </figure>
+                    
+                    <!-- ********************************************************************* Loose Text -->                
+                    <div class="loose_text">
+                        
+                        <p>
+                            After executing <i>0x401035 <_start+53>      mov    rbp, rax</i>, RBP was affected as follows:
+                            <blockquote>
+                                $rbp   : 0xaaaaaaaabbbbdddd
+                            </blockquote>
+                        </p>
+                        
+                        <p>
+                            This instruction loads the contents of RAX into RBP.
+                        </p>
+                        
+                        <p>
+                            The next instruction to be executed is: <i>0x401038 <_start+56>      mov    r10, rbp</i>.  This instruction loads the contents of RBP into R10.  After this instruction executes, we can expect R10 to contain:
+                            <blockquote>
+                                $r10   : 0xaaaaaaaabbbbdddd
+                            </blockquote>
+                        </p>
+                        
+                    </div> <!-- .loose_text -->
+                    <!-- ********************************************************************* Loose Text -->
                 
                 </div> <!-- .current_project_13 -->
             
