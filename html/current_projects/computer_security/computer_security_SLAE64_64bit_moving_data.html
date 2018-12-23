@@ -227,7 +227,7 @@
       background	: gray;
       position		: relative;
       width		: 1370px;
-      height		: 1500px;
+      height		: 2000px;
       top		: 000px;
       left		: 0px;
       float		: left;
@@ -240,7 +240,7 @@
       background	: gray;
       position		: relative;
       width		: 1370px;
-      height		: 1500px;
+      height		: 2200px;
       top		: 000px;
       left		: 0px;
       float		: left;
@@ -1178,6 +1178,10 @@
                             Running step 11
                         </p>
                         
+                        <p>
+                            Effect of executing <i>0x401038 <_start+56>      mov    r10, rbp</i>
+                        </p>
+                        
                     </div> <!-- .loose_text -->
                     <!-- ********************************************************************* Loose Text -->
                     
@@ -1196,9 +1200,33 @@
                             <p>
                         </div> <!-- .desc -->
                     </figure>
+                    
+                    <!-- ********************************************************************* Loose Text -->                
+                    <div class="loose_text">
+                        
+                        <p>
+                            After executing <i>0x401038 <_start+56>      mov    r10, rbp</i>, R10 was affected as follows:
+                            <blockquote>
+                                $r10   : 0xaaaaaaaabbbbdddd
+                            </blockquote>
+                        </p>
+                        
+                        <p>
+                            This instruction loads the contents of RBP into R10.
+                        </p>
+                        
+                        <p>
+                            The next instruction to be executed is: <i>0x40103b <_start+59>      mov    r11d, r10d</i>.  This instruction loads bits 0 to 31 of R10 into bits 0 to 31 of R11.  This is so because of the "d" suffixes after the register names.  After this instruction executes, we can expect R11 to contain:
+                            <blockquote>
+                                $r11   : 0xbbbbdddd
+                            </blockquote>
+                        </p>
+                        
+                    </div> <!-- .loose_text -->
+                    <!-- ********************************************************************* Loose Text -->
                 
                 </div> <!-- .current_project_14 -->
-            
+                
             </section> <!-- third_section -->
             <!-- ************************************************************************************* Section End ************ -->
             
@@ -1220,6 +1248,10 @@
                             Running step 12
                         </p>
                         
+                        <p>
+                            Effect of executing <i>0x40103b <_start+59>      mov    r11d, r10d</i>
+                        </p>
+                        
                     </div> <!-- .loose_text -->
                     <!-- ********************************************************************* Loose Text -->
                     
@@ -1238,6 +1270,30 @@
                             <p>
                         </div> <!-- .desc -->
                     </figure>
+                    
+                    <!-- ********************************************************************* Loose Text -->                
+                    <div class="loose_text">
+                        
+                        <p>
+                            After executing <i>0x40103b <_start+59>      mov    r11d, r10d</i>, R11 was affected as follows:
+                            <blockquote>
+                                $r11   : 0xbbbbdddd
+                            </blockquote>
+                        </p>
+                        
+                        <p>
+                            This instruction loads bits 0 to 31 of R10 into bits 0 to 31 of R11.
+                        </p>
+                        
+                        <p>
+                            The next instruction to be executed is: <i>0x40103e <_start+62>      mov    r12w, r11w</i>.  This instruction loads bits 0 to 15 of R11 into bits 0 to 15 of R12.  This is so because of the "w" suffixes after the register names.  After this instruction executes, we can expect R12 to contain:
+                            <blockquote>
+                                $r12   : 0xdddd
+                            </blockquote>
+                        </p>
+                        
+                    </div> <!-- .loose_text -->
+                    <!-- ********************************************************************* Loose Text -->
                 
                 </div> <!-- .current_project_14 -->
             
@@ -1262,6 +1318,10 @@
                             Running step 13
                         </p>
                         
+                        <p>
+                            Effect of executing <i>0x40103e <_start+62>      mov    r12w, r11w</i>
+                        </p>
+                        
                     </div> <!-- .loose_text -->
                     <!-- ********************************************************************* Loose Text -->
                     
@@ -1280,6 +1340,30 @@
                             <p>
                         </div> <!-- .desc -->
                     </figure>
+                    
+                    <!-- ********************************************************************* Loose Text -->                
+                    <div class="loose_text">
+                        
+                        <p>
+                            After executing <i>0x40103e <_start+62>      mov    r12w, r11w</i>, R12 was affected as follows:
+                            <blockquote>
+                                $r12   : 0xdddd
+                            </blockquote>
+                        </p>
+                        
+                        <p>
+                            This instruction loads bits 0 to 15 of R11 into bits 0 to 15 of R12.
+                        </p>
+                        
+                        <p>
+                            The next instruction to be executed is: <i>0x401042 <_start+66>      mov    r13b, r12b</i>.  This instruction loads bits 0 to 7 of R12 into bits 0 to 7 of R13.  This is so because of the "b" suffixes after the register names.  After this instruction executes, we can expect R13 to contain:
+                            <blockquote>
+                                $r13   : 0xdd
+                            </blockquote>
+                        </p>
+                        
+                    </div> <!-- .loose_text -->
+                    <!-- ********************************************************************* Loose Text -->
                 
                 </div> <!-- .current_project_14 -->
             
@@ -1289,7 +1373,7 @@
             <!-- ************************************************************************************* Section Start *********** -->
             <section class="section">
                 
-                <div class="current_project_14">
+                <div class="current_project_15">
                 
                     <hgroup>
                         <h2>
@@ -1302,6 +1386,10 @@
                         
                         <p>
                             Running step 14
+                        </p>
+                        
+                        <p>
+                            Effect of executing <i>0x401042 <_start+66>      mov    r13b, r12b</i>
                         </p>
                         
                     </div> <!-- .loose_text -->
@@ -1322,6 +1410,49 @@
                             <p>
                         </div> <!-- .desc -->
                     </figure>
+                    
+                    <!-- ********************************************************************* Loose Text -->                
+                    <div class="loose_text">
+                        
+                        <p>
+                            After executing <i>0x401042 <_start+66>      mov    r13b, r12b</i>, R13 was affected as follows:
+                            <blockquote>
+                                $r13   : 0xdd
+                            </blockquote>
+                        </p>
+                        
+                        <p>
+                            This instruction loads bits 0 to 7 of R12 into bits 0 to 7 of R13.
+                        </p>
+                        
+                        <p>
+                            The next instruction to be executed is: <i>0x401045 <_start+69>      mov    rsi, QWORD PTR ds:0x402008</i>.  This instruction loads the contents of memory at <i>QWORD PTR ds:0x402008</i> into RSI.  We examing the contents of memory at this location to obtain:
+                            <blockquote>
+                                gef➤  info variables<br>
+                                    All defined variables:<br>
+                                    <br>
+                                    Non-debugging symbols:<br>
+                                    0x0000000000402000  sample<br>
+                                    <b>0x0000000000402008  sample2</b><br>
+                                    0x0000000000402010  sample3Mbr>
+                                    0x0000000000402018  __bss_start<br>
+                                    0x0000000000402018  _edata<br>
+                                    0x0000000000402018  _end<br>
+                                    gef➤  x/xg &sample2<br>
+                                    <b>0x402008:	0x1122334455667788</b><br>
+                                gef➤
+                            </blockquote>
+                        </p>
+                        
+                        <p>
+                            After executing this instruction, we expect RSI to contain:
+                            <blockquote>
+                                $rsi   : 0x1122334455667788
+                            </blockquote>
+                        </p>
+                        
+                    </div> <!-- .loose_text -->
+                    <!-- ********************************************************************* Loose Text -->
                 
                 </div> <!-- .current_project_14 -->
             
@@ -1331,7 +1462,7 @@
             <!-- ************************************************************************************* Section Start *********** -->
             <section class="section">
                 
-                <div class="current_project_14">
+                <div class="current_project_16">
                 
                     <hgroup>
                         <h2>
@@ -1344,6 +1475,10 @@
                         
                         <p>
                             Running step 15
+                        </p>
+                        
+                        <p>
+                            Effect of executing <i>0x401045 <_start+69>      mov    rsi, QWORD PTR ds:0x402008</i>
                         </p>
                         
                     </div> <!-- .loose_text -->
@@ -1364,6 +1499,65 @@
                             <p>
                         </div> <!-- .desc -->
                     </figure>
+                    
+                    <!-- ********************************************************************* Loose Text -->                
+                    <div class="loose_text">
+                        
+                        <p>
+                            After executing <i>0x401045 <_start+69>      mov    rsi, QWORD PTR ds:0x402008</i>, RSI was affected as follows:
+                            <blockquote>
+                                $rsi   : 0x1122334455667788
+                            </blockquote>
+                        </p>
+                        
+                        <p>
+                            This instruction loads the contents of memory at <i>QWORD PTR ds:0x402008</i> into RSI.
+                        </p>
+                        
+                        <p>
+                            The next instruction to be executed is: <i>0x40104d <_start+77>      mov    r14d, DWORD PTR ds:0x402000</i>.  This instruction loads bits 0 to 31 of the contents of memory at <i>QWORD PTR ds:0x402000</i> into R14.  We examing the contents of memory at this location to obtain:
+                            <blockquote>
+                                gef➤  info variables<br>
+                                    All defined variables:<br>
+                                    <br>
+                                    Non-debugging symbols:<br>
+                                    <b>0x0000000000402000  sample</b><br>
+                                    0x0000000000402008  sample2<br>
+                                    0x0000000000402010  sample3Mbr>
+                                    0x0000000000402018  __bss_start<br>
+                                    0x0000000000402018  _edata<br>
+                                    0x0000000000402018  _end<br>
+                                    gef➤  x/xg &sample<br>
+                                    <b>0x402000:	0x2211ffeeddccbbaa</b><br>
+                                gef➤
+                            </blockquote>
+                        </p>
+                        
+                        <p>
+                            Recall that in the code, the variables were defined as follows:
+                            <blockquote>
+                                section .data<br>
+                                <br>
+                                sample: db 0xaa, 0xbb, 0xcc, 0xdd, 0xee, 0xff, 0x11, 0x22<br>
+                                sample2: dq 0x1122334455667788<br>
+                                sample3: times 8 db 0x00<br>
+                                <br>
+                            </blockquote>
+                        </p>
+                        
+                        <p>
+                            samples was defined as 0xaabbccddeeff1122 in the code, but was stored as 0x2211ffeeddccbbaa because of little-endianess.
+                        </p>
+                        
+                        <p>
+                            After executing this instruction, we expect R14 to contain:
+                            <blockquote>
+                                $r14   : 0xddccbbaa
+                            </blockquote>
+                        </p>
+                        
+                    </div> <!-- .loose_text -->
+                    <!-- ********************************************************************* Loose Text -->
                 
                 </div> <!-- .current_project_14 -->
             
@@ -1373,7 +1567,7 @@
             <!-- ************************************************************************************* Section Start *********** -->
             <section class="section">
                 
-                <div class="current_project_14">
+                <div class="current_project_16">
                 
                     <hgroup>
                         <h2>
@@ -1386,6 +1580,10 @@
                         
                         <p>
                             Running step 16
+                        </p>
+                        
+                        <p>
+                            Effect of executing <i>0x40104d <_start+77>      mov    r14d, DWORD PTR ds:0x402000</i>
                         </p>
                         
                     </div> <!-- .loose_text -->
