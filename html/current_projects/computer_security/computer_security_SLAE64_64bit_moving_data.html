@@ -240,7 +240,7 @@
       background	: gray;
       position		: relative;
       width		: 1370px;
-      height		: 2200px;
+      height		: 2600px;
       top		: 000px;
       left		: 0px;
       float		: left;
@@ -253,7 +253,7 @@
       background	: gray;
       position		: relative;
       width		: 1370px;
-      height		: 1500px;
+      height		: 2800px;
       top		: 000px;
       left		: 0px;
       float		: left;
@@ -1604,6 +1604,88 @@
                             <p>
                         </div> <!-- .desc -->
                     </figure>
+                    
+                    <!-- ********************************************************************* Loose Text -->                
+                    <div class="loose_text">
+                        
+                        <p>
+                            After executing <i>0x40104d <_start+77>      mov    r14d, DWORD PTR ds:0x402000</i>, R14 was affected as follows:
+                            <blockquote>
+                                $r14   : 0xddccbbaa
+                            </blockquote>
+                        </p>
+                        
+                        <p>
+                            This instruction loads a double word (32 bits) of memory at <i>DWORD PTR ds:0x402000</i> into R14.  We saw in the previous section that the contents of memory location <i>DWORD PTR ds:0x402000</i>  contains:
+                            <blockquote>
+                                gef➤  info variables<br>
+                                    All defined variables:<br>
+                                    <br>
+                                    Non-debugging symbols:<br>
+                                    <b>0x0000000000402000  sample</b><br>
+                                    0x0000000000402008  sample2<br>
+                                    0x0000000000402010  sample3Mbr>
+                                    0x0000000000402018  __bss_start<br>
+                                    0x0000000000402018  _edata<br>
+                                    0x0000000000402018  _end<br>
+                                    gef➤  x/xg &sample<br>
+                                    <b>0x402000:	0x2211ffeeddccbbaa</b><br>
+                                gef➤
+                            </blockquote>
+                        </p>
+                        
+                        <p>
+                            Therefore, loading the first 32 bits at that location would result in R14 containing:
+                            <blockquote>
+                                $r14   : 0xddccbbaa
+                            </blockquote>
+                        </p>
+                        
+                        <p>
+                            The next instruction to be executed is: <i>0x401055 <_start+85>      mov    r15w, WORD PTR ds:0x402000</i>.  This instruction loads bits 0 to 16 of the contents of memory at <i>WORD PTR ds:0x402000</i> into R15.  We examing the contents of memory at this location to obtain:
+                            <blockquote>
+                                gef➤  info variables<br>
+                                    All defined variables:<br>
+                                    <br>
+                                    Non-debugging symbols:<br>
+                                    <b>0x0000000000402000  sample</b><br>
+                                    0x0000000000402008  sample2<br>
+                                    0x0000000000402010  sample3Mbr>
+                                    0x0000000000402018  __bss_start<br>
+                                    0x0000000000402018  _edata<br>
+                                    0x0000000000402018  _end<br>
+                                    gef➤  x/xg &sample<br>
+                                    <b>0x402000:	0x2211ffeeddccbbaa</b><br>
+                                gef➤
+                            </blockquote>
+                        </p>
+                        
+                        <p>
+                            Recall that in the code, the variables were defined as follows:
+                            <blockquote>
+                                section .data<br>
+                                <br>
+                                sample: db 0xaa, 0xbb, 0xcc, 0xdd, 0xee, 0xff, 0x11, 0x22<br>
+                                sample2: dq 0x1122334455667788<br>
+                                sample3: times 8 db 0x00<br>
+                                <br>
+                            </blockquote>
+                        </p>
+                        
+                        <p>
+                            <i>samples</i> was defined as 0xaabbccddeeff1122 in the code, but was stored as 0x2211ffeeddccbbaa because of little-endianess.
+                        </p>
+                        
+                        <p>
+                            After executing this instruction, we expect R15 to contain:
+                            <blockquote>
+                                $r15   : 0xbbaa
+                            </blockquote>
+                            because only the first 16 bits were loaded from memory at location <i>WORD PTR ds:0x402000</i> into R15.
+                        </p>
+                        
+                    </div> <!-- .loose_text -->
+                    <!-- ********************************************************************* Loose Text -->
                 
                 </div> <!-- .current_project_14 -->
             
@@ -1613,7 +1695,7 @@
             <!-- ************************************************************************************* Section Start *********** -->
             <section class="section">
                 
-                <div class="current_project_14">
+                <div class="current_project_16">
                 
                     <hgroup>
                         <h2>
@@ -1626,6 +1708,10 @@
                         
                         <p>
                             Running step 17
+                        </p>
+                        
+                        <p>
+                            Effect of executing <i>0x401055 <_start+85>      mov    r15w, WORD PTR ds:0x402000</i>
                         </p>
                         
                     </div> <!-- .loose_text -->
@@ -1646,6 +1732,88 @@
                             <p>
                         </div> <!-- .desc -->
                     </figure>
+                    
+                    <!-- ********************************************************************* Loose Text -->                
+                    <div class="loose_text">
+                        
+                        <p>
+                            After executing <i>x401055 <_start+85>      mov    r15w, WORD PTR ds:0x402000</i>, R15 was affected as follows:
+                            <blockquote>
+                                $r15   : 0xbbaa
+                            </blockquote>
+                        </p>
+                        
+                        <p>
+                            This instruction loads a word (16 bits) of memory at <i>WORD PTR ds:0x402000</i> into R15.  We saw in the previous section that the contents of memory location <i>WORD PTR ds:0x402000</i>  contains:
+                            <blockquote>
+                                gef➤  info variables<br>
+                                    All defined variables:<br>
+                                    <br>
+                                    Non-debugging symbols:<br>
+                                    <b>0x0000000000402000  sample</b><br>
+                                    0x0000000000402008  sample2<br>
+                                    0x0000000000402010  sample3Mbr>
+                                    0x0000000000402018  __bss_start<br>
+                                    0x0000000000402018  _edata<br>
+                                    0x0000000000402018  _end<br>
+                                    gef➤  x/xg &sample<br>
+                                    <b>0x402000:	0x2211ffeeddccbbaa</b><br>
+                                gef➤
+                            </blockquote>
+                        </p>
+                        
+                        <p>
+                            Therefore, loading the first 16 bits at that location would result in R15 containing:
+                            <blockquote>
+                                $r15   : 0xbbaa
+                            </blockquote>
+                        </p>
+                        
+                        <p>
+                            The next instruction to be executed is: <i>0x40105e <_start+94>      mov    dil, BYTE PTR ds:0x402000</i>.  This instruction loads bits 0 to 8 of the contents of memory at <i>WORD PTR ds:0x402000</i> into bits 0 to 7 of RDI.  We examing the contents of memory at this location to obtain:
+                            <blockquote>
+                                gef➤  info variables<br>
+                                    All defined variables:<br>
+                                    <br>
+                                    Non-debugging symbols:<br>
+                                    <b>0x0000000000402000  sample</b><br>
+                                    0x0000000000402008  sample2<br>
+                                    0x0000000000402010  sample3Mbr>
+                                    0x0000000000402018  __bss_start<br>
+                                    0x0000000000402018  _edata<br>
+                                    0x0000000000402018  _end<br>
+                                    gef➤  x/xg &sample<br>
+                                    <b>0x402000:	0x2211ffeeddccbbaa</b><br>
+                                gef➤
+                            </blockquote>
+                        </p>
+                        
+                        <p>
+                            Recall that in the code, the variables were defined as follows:
+                            <blockquote>
+                                section .data<br>
+                                <br>
+                                sample: db 0xaa, 0xbb, 0xcc, 0xdd, 0xee, 0xff, 0x11, 0x22<br>
+                                sample2: dq 0x1122334455667788<br>
+                                sample3: times 8 db 0x00<br>
+                                <br>
+                            </blockquote>
+                        </p>
+                        
+                        <p>
+                            <i>samples</i> was defined as 0xaabbccddeeff1122 in the code, but was stored as 0x2211ffeeddccbbaa because of little-endianess.
+                        </p>
+                        
+                        <p>
+                            After executing this instruction, we expect RDI to contain:
+                            <blockquote>
+                                $rdi   : 0xaa
+                            </blockquote>
+                            because only the first 8 bits were loaded from memory at location <i>WORD PTR ds:0x402000</i> into RDI.
+                        </p>
+                        
+                    </div> <!-- .loose_text -->
+                    <!-- ********************************************************************* Loose Text -->
                 
                 </div> <!-- .current_project_14 -->
             
@@ -1655,7 +1823,7 @@
             <!-- ************************************************************************************* Section Start *********** -->
             <section class="section">
                 
-                <div class="current_project_14">
+                <div class="current_project_16">
                 
                     <hgroup>
                         <h2>
@@ -1668,6 +1836,10 @@
                         
                         <p>
                             Running step 18
+                        </p>
+                        
+                        <p>
+                            Effect of executing <i>0x40105e <_start+94>      mov    dil, BYTE PTR ds:0x402000</i>
                         </p>
                         
                     </div> <!-- .loose_text -->
@@ -1689,6 +1861,89 @@
                         </div> <!-- .desc -->
                     </figure>
                 
+                
+                <!-- ********************************************************************* Loose Text -->                
+                    <div class="loose_text">
+                        
+                        <p>
+                            After executing <i>0x40105e <_start+94>      mov    dil, BYTE PTR ds:0x402000</i>, RDI was affected as follows:
+                            <blockquote>
+                                $rdi   : 0xaa
+                            </blockquote>
+                        </p>
+                        
+                        <p>
+                            This instruction loads a byte (8 bits) of memory at <i>WORD PTR ds:0x402000</i> into RDI.  We saw in the previous section that the contents of memory location <i>WORD PTR ds:0x402000</i>  contains:
+                            <blockquote>
+                                gef➤  info variables<br>
+                                    All defined variables:<br>
+                                    <br>
+                                    Non-debugging symbols:<br>
+                                    <b>0x0000000000402000  sample</b><br>
+                                    0x0000000000402008  sample2<br>
+                                    0x0000000000402010  sample3Mbr>
+                                    0x0000000000402018  __bss_start<br>
+                                    0x0000000000402018  _edata<br>
+                                    0x0000000000402018  _end<br>
+                                    gef➤  x/xg &sample<br>
+                                    <b>0x402000:	0x2211ffeeddccbbaa</b><br>
+                                gef➤
+                            </blockquote>
+                        </p>
+                        
+                        <p>
+                            Therefore, loading the first 16 bits at that location would result in R15 containing:
+                            <blockquote>
+                                $rdi   : 0xaa
+                            </blockquote>
+                        </p>
+                        
+                        <p>
+                            The next instruction to be executed is: <i>0x401066 <_start+102>     mov    rax, QWORD PTR ds:0x402008</i>.  This instruction loads bits 0 to 63 of the contents of memory at <i>QWORD PTR ds:0x402008</i> into bits 0 to 63 of RAX.  We examing the contents of memory at this location to obtain:
+                            <blockquote>
+                                gef➤  info variables<br>
+                                    All defined variables:<br>
+                                    <br>
+                                    Non-debugging symbols:<br>
+                                    0x0000000000402000  sample<br>
+                                    <b>0x0000000000402008  sample2</b><br>
+                                    0x0000000000402010  sample3Mbr>
+                                    0x0000000000402018  __bss_start<br>
+                                    0x0000000000402018  _edata<br>
+                                    0x0000000000402018  _end<br>
+                                    gef➤  x/xg &sample2<br>
+                                    <b>0x402008:	0x1122334455667788</b><br>
+                                    gef➤  
+                            </blockquote>
+                        </p>
+                        
+                        <p>
+                            Recall that in the code, the variables were defined as follows:
+                            <blockquote>
+                                section .data<br>
+                                <br>
+                                sample: db 0xaa, 0xbb, 0xcc, 0xdd, 0xee, 0xff, 0x11, 0x22<br>
+                                <b>sample2: dq 0x1122334455667788</b><br>
+                                sample3: times 8 db 0x00<br>
+                                <br>
+                            </blockquote>
+                        </p>
+                        
+                        <p>
+                            <i>sample2</i> was defined as sample2: dq 0x1122334455667788 in the code, and that is the way it was stored in memory.  Therefore, when defining a quad word immediate, the way it was defined is the way it is stored in memory in terms of endianess.
+                        </p>
+                        
+                        <p>
+                            After executing this instruction, we expect RAX to contain:
+                            <blockquote>
+                                $rax   : 0x1122334455667788
+                            </blockquote>
+                            because bits 0 to 63 were loaded from memory at location <i>QWORD PTR ds:0x402008</i> into RAX.
+                        </p>
+                        
+                    </div> <!-- .loose_text -->
+                    <!-- ********************************************************************* Loose Text -->
+                
                 </div> <!-- .current_project_14 -->
             
             </section> <!-- third_section -->
@@ -1697,7 +1952,7 @@
             <!-- ************************************************************************************* Section Start *********** -->
             <section class="section">
                 
-                <div class="current_project_14">
+                <div class="current_project_17">
                 
                     <hgroup>
                         <h2>
@@ -1710,6 +1965,10 @@
                         
                         <p>
                             Running step 19
+                        </p>
+                        
+                        <p>
+                            Effect of executing <i>0x401066 <_start+102>     mov    rax, QWORD PTR ds:0x402008</i>
                         </p>
                         
                     </div> <!-- .loose_text -->
@@ -1730,6 +1989,105 @@
                             <p>
                         </div> <!-- .desc -->
                     </figure>
+                    
+                    <!-- ********************************************************************* Loose Text -->                
+                    <div class="loose_text">
+                        
+                        <p>
+                            After executing <i>0x401066 <_start+102>     mov    rax, QWORD PTR ds:0x402008</i>, RAX was affected as follows:
+                            <blockquote>
+                                $rax   : 0x1122334455667788
+                            </blockquote>
+                        </p>
+                        
+                        <p>
+                            This instruction loads a quad word (64 bits) of memory at <i>QWORD PTR ds:0x402008</i> into RAX.  We saw in the previous section that the contents of memory location <i>WORD PTR ds:0x402008</i>  contains:
+                            <blockquote>
+                                gef➤  info variables<br>
+                                    All defined variables:<br>
+                                    <br>
+                                    Non-debugging symbols:<br>
+                                    0x0000000000402000  sample<br>
+                                    <b>0x0000000000402008  sample2</b><br>
+                                    0x0000000000402010  sample3Mbr>
+                                    0x0000000000402018  __bss_start<br>
+                                    0x0000000000402018  _edata<br>
+                                    0x0000000000402018  _end<br>
+                                    gef➤  x/xg &sample2<br>
+                                    <b>0x402008:	0x1122334455667788</b><br>
+                                    gef➤
+                            </blockquote>
+                        </p>
+                        
+                        <p>
+                            Therefore, loading 64 bits at that location would result in RAX containing:
+                            <blockquote>
+                                $rax   : 0x1122334455667788
+                            </blockquote>
+                        </p>
+                        
+                        <p>
+                            The next instruction to be executed is: <i>0x40106e <_start+110>     mov    BYTE PTR ds:0x402000, al</i>.  This instruction loads bits 0 to 7 of the contents of RAX into memory at <i>BYTE PTR ds:0x402000</i>.  We examing the contents of memory at this location to obtain:
+                            <blockquote>
+                                gef➤  info variables<br>
+                                    All defined variables:<br>
+                                    <br>
+                                    Non-debugging symbols:<br>
+                                    <b>0x0000000000402000  sample</b><br>
+                                    0x0000000000402008  sample2<br>
+                                    0x0000000000402010  sample3Mbr>
+                                    0x0000000000402018  __bss_start<br>
+                                    0x0000000000402018  _edata<br>
+                                    0x0000000000402018  _end<br>
+                                    gef➤  x/xg &sample<br>
+                                    <b>0x402000:	0x2211ffeeddccbbaa</b><br>
+                                gef➤  
+                            </blockquote>
+                        </p>
+                        
+                        <p>
+                            Recall that in the code, the variables were defined as follows:
+                            <blockquote>
+                                section .data<br>
+                                <br>
+                                sample: db 0xaa, 0xbb, 0xcc, 0xdd, 0xee, 0xff, 0x11, 0x22<br>
+                                <b>sample2: dq 0x1122334455667788</b><br>
+                                sample3: times 8 db 0x00<br>
+                                <br>
+                            </blockquote>
+                        </p>
+                        
+                        <p>
+                            <i>sample</i> was defined as sample: db 0xaa, 0xbb, 0xcc, 0xdd, 0xee, 0xff, 0x11, 0x22 in the code, but it is stored in memory as: 0x2211ffeeddccbbaa due to little-endianess.
+                        </p>
+                        
+                        <p>
+                            Recall that RAX contains:
+                            <blockquote>
+                                $rax   : 0x1122334455667788
+                            </blockquote>
+                        </p>
+                        
+                        <p>
+                            Before executing this instruction, memory at BYTE PTR ds:0x402000 contains:
+                            <blockquote>
+                                gef➤  x/xg &sample<br>
+                                0x402000:	0x2211ffeeddccbbaa<br>
+                                gef➤
+                            </blockquote>
+                        </p>
+                        
+                        <p>
+                            After executing this instruction, we expect memory at BYTE PTR ds:0x402000 to contain:
+                            <blockquote>
+                                gef➤  x/xg &sample<br>
+                                0x402000:	0x2211ffeeddccbb88<br>
+                                gef➤
+                            </blockquote>
+                        </p>
+                        
+                    </div> <!-- .loose_text -->
+                    <!-- ********************************************************************* Loose Text -->
                 
                 </div> <!-- .current_project_14 -->
             
