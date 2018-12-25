@@ -253,7 +253,7 @@
       background	: gray;
       position		: relative;
       width		: 1370px;
-      height		: 2800px;
+      height		: 3000px;
       top		: 000px;
       left		: 0px;
       float		: left;
@@ -2097,7 +2097,7 @@
             <!-- ************************************************************************************* Section Start *********** -->
             <section class="section">
                 
-                <div class="current_project_14">
+                <div class="current_project_17">
                 
                     <hgroup>
                         <h2>
@@ -2110,6 +2110,10 @@
                         
                         <p>
                             Running step 20
+                        </p>
+                        
+                        <p>
+                            Effect of executing <i>0x40106e <_start+110>     mov    BYTE PTR ds:0x402000, al</i>
                         </p>
                         
                     </div> <!-- .loose_text -->
@@ -2130,6 +2134,115 @@
                             <p>
                         </div> <!-- .desc -->
                     </figure>
+                    
+                    <!-- ********************************************************************* Loose Text -->                
+                    <div class="loose_text">
+                        
+                        <p>
+                            After executing:
+                            <blockquote>
+                                <i>0x40106e <_start+110>     mov    BYTE PTR ds:0x402000, al</i>
+                            </blockquote>
+                            
+                                the memory at BYTE PTR ds:0x402000 was affected as follows:
+                            
+                            <blockquote>
+                                gef➤  x/xg &sample<br>
+                                0x402000:	0x2211ffeeddccbb88<br>
+                                gef➤
+                            </blockquote>
+                        </p>
+                        
+                        <p>
+                            This instruction loads the lower byte (8 bits) of RAX into the location memory at <i>BYTE PTR ds:0x402000</i>.  We saw in the previous section that the contents of memory location <i>WORD PTR ds:0x402000</i> contains:
+                            <blockquote>
+                                gef➤  info variables<br>
+                                    All defined variables:<br>
+                                    <br>
+                                    Non-debugging symbols:<br>
+                                    <b>0x0000000000402000  sample</b><br>
+                                    0x0000000000402008  sample2<br>
+                                    0x0000000000402010  sample3Mbr>
+                                    0x0000000000402018  __bss_start<br>
+                                    0x0000000000402018  _edata<br>
+                                    0x0000000000402018  _end<br>
+                                    gef➤  x/xg &sample<br>
+                                    <b>0x402000:	0x2211ffeeddccbbaa</b><br>
+                                    gef➤
+                            </blockquote>
+                        </p>
+                        
+                        <p>
+                            Therefore, loading the lower 8 bits of RAX into that location would result in the location containing:
+                            <blockquote>
+                                gef➤  x/xg &sample<br>
+                                <b>0x402000:	0x2211ffeeddccbb88</b><br>
+                                gef➤
+                            </blockquote>
+                        </p>
+                        
+                        <p>
+                            The next instruction to be executed is: <i>0x401075 <_start+117>     mov    WORD PTR ds:0x402000, ax</i>.  This instruction loads bits 0 to 15 of the contents of RAX into memory at <i>WORD PTR ds:0x402000</i>.  We examing the contents of memory at this location to obtain:
+                            <blockquote>
+                                gef➤  info variables<br>
+                                    All defined variables:<br>
+                                    <br>
+                                    Non-debugging symbols:<br>
+                                    <b>0x0000000000402000  sample</b><br>
+                                    0x0000000000402008  sample2<br>
+                                    0x0000000000402010  sample3Mbr>
+                                    0x0000000000402018  __bss_start<br>
+                                    0x0000000000402018  _edata<br>
+                                    0x0000000000402018  _end<br>
+                                    gef➤  x/xg &sample<br>
+                                    <b>0x402000:	0x2211ffeeddccbb88</b><br>
+                                gef➤  
+                            </blockquote>
+                        </p>
+                        
+                        <p>
+                            Recall that in the code, the variables were defined as follows:
+                            <blockquote>
+                                section .data<br>
+                                <br>
+                                <b>sample: db 0xaa, 0xbb, 0xcc, 0xdd, 0xee, 0xff, 0x11, 0x22</b><br>
+                                sample2: dq 0x1122334455667788</b><br>
+                                sample3: times 8 db 0x00<br>
+                                <br>
+                            </blockquote>
+                        </p>
+                        
+                        <p>
+                            <i>sample</i> was defined as sample: db 0xaa, 0xbb, 0xcc, 0xdd, 0xee, 0xff, 0x11, 0x22 in the code, but it is stored in memory as: 0x2211ffeeddccbbaa due to little-endianess.
+                        </p>
+                        
+                        <p>
+                            Recall that RAX contains:
+                            <blockquote>
+                                $rax   : 0x1122334455667788
+                            </blockquote>
+                        </p>
+                        
+                        <p>
+                            Before executing this instruction, memory at WORD PTR ds:0x402000 contains:
+                            <blockquote>
+                                gef➤  x/xg &sample<br>
+                                0x402000:	0x2211ffeeddccbb88<br>
+                                gef➤
+                            </blockquote>
+                        </p>
+                        
+                        <p>
+                            After executing this instruction, we expect memory at WORD PTR ds:0x402000 to contain:
+                            <blockquote>
+                                gef➤  x/xg &sample<br>
+                                0x402000:	0x2211ffeeddcc7788<br>
+                                gef➤
+                            </blockquote>
+                        </p>
+                        
+                    </div> <!-- .loose_text -->
+                    <!-- ********************************************************************* Loose Text -->
                 
                 </div> <!-- .current_project_14 -->
             
@@ -2139,7 +2252,7 @@
             <!-- ************************************************************************************* Section Start *********** -->
             <section class="section">
                 
-                <div class="current_project_14">
+                <div class="current_project_17">
                 
                     <hgroup>
                         <h2>
@@ -2152,6 +2265,10 @@
                         
                         <p>
                             Running step 21
+                        </p>
+                        
+                        <p>
+                            Effect of executing <i>0x401075 <_start+117>     mov    WORD PTR ds:0x402000, ax</i>
                         </p>
                         
                     </div> <!-- .loose_text -->
@@ -2172,6 +2289,115 @@
                             <p>
                         </div> <!-- .desc -->
                     </figure>
+                    
+                    <!-- ********************************************************************* Loose Text -->                
+                    <div class="loose_text">
+                        
+                        <p>
+                            After executing:
+                            <blockquote>
+                                <i>0x401075 <_start+117>     mov    WORD PTR ds:0x402000, ax</i>
+                            </blockquote>
+                            
+                                the memory at WORD PTR ds:0x402000 was affected as follows:
+                            
+                            <blockquote>
+                                gef➤  x/xg &sample<br>
+                                0x402000:	0x2211ffeeddcc7788<br>
+                                gef➤
+                            </blockquote>
+                        </p>
+                        
+                        <p>
+                            This instruction loads the lower word (16 bits) of RAX into the location memory at <i>WORD PTR ds:0x402000</i>.  We saw in the previous section that the contents of memory location <i>WORD PTR ds:0x402000</i> contains:
+                            <blockquote>
+                                gef➤  info variables<br>
+                                    All defined variables:<br>
+                                    <br>
+                                    Non-debugging symbols:<br>
+                                    <b>0x0000000000402000  sample</b><br>
+                                    0x0000000000402008  sample2<br>
+                                    0x0000000000402010  sample3Mbr>
+                                    0x0000000000402018  __bss_start<br>
+                                    0x0000000000402018  _edata<br>
+                                    0x0000000000402018  _end<br>
+                                    gef➤  x/xg &sample<br>
+                                    <b>0x402000:	0x2211ffeeddccbb88</b><br>
+                                    gef➤
+                            </blockquote>
+                        </p>
+                        
+                        <p>
+                            Therefore, loading the lower 16 bits of RAX into that location would result in the location containing:
+                            <blockquote>
+                                gef➤  x/xg &sample<br>
+                                <b>0x402000:	0x2211ffeeddcc7788</b><br>
+                                gef➤
+                            </blockquote>
+                        </p>
+                        
+                        <p>
+                            The next instruction to be executed is: <i>0x40107d <_start+125>     mov    DWORD PTR ds:0x402000, eax</i>.  This instruction loads bits 0 to 31 of the contents of RAX into memory at <i>DWORD PTR ds:0x402000</i>.  We examing the contents of memory at this location to obtain:
+                            <blockquote>
+                                gef➤  info variables<br>
+                                    All defined variables:<br>
+                                    <br>
+                                    Non-debugging symbols:<br>
+                                    <b>0x0000000000402000  sample</b><br>
+                                    0x0000000000402008  sample2<br>
+                                    0x0000000000402010  sample3Mbr>
+                                    0x0000000000402018  __bss_start<br>
+                                    0x0000000000402018  _edata<br>
+                                    0x0000000000402018  _end<br>
+                                    gef➤  x/xg &sample<br>
+                                    <b>0x402000:	0x2211ffeeddcc7788</b><br>
+                                gef➤  
+                            </blockquote>
+                        </p>
+                        
+                        <p>
+                            Recall that in the code, the variables were defined as follows:
+                            <blockquote>
+                                section .data<br>
+                                <br>
+                                <b>sample: db 0xaa, 0xbb, 0xcc, 0xdd, 0xee, 0xff, 0x11, 0x22</b><br>
+                                sample2: dq 0x1122334455667788</b><br>
+                                sample3: times 8 db 0x00<br>
+                                <br>
+                            </blockquote>
+                        </p>
+                        
+                        <p>
+                            <i>sample</i> was defined as sample: db 0xaa, 0xbb, 0xcc, 0xdd, 0xee, 0xff, 0x11, 0x22 in the code, but it is stored in memory as: 0x2211ffeeddccbbaa due to little-endianess.
+                        </p>
+                        
+                        <p>
+                            Recall that RAX contains:
+                            <blockquote>
+                                $rax   : 0x1122334455667788
+                            </blockquote>
+                        </p>
+                        
+                        <p>
+                            Before executing this instruction, memory at WORD PTR ds:0x402000 contains:
+                            <blockquote>
+                                gef➤  x/xg &sample<br>
+                                0x402000:	0x2211ffeeddcc7788<br>
+                                gef➤
+                            </blockquote>
+                        </p>
+                        
+                        <p>
+                            After executing this instruction, we expect memory at WORD PTR ds:0x402000 to contain:
+                            <blockquote>
+                                gef➤  x/xg &sample<br>
+                                0x402000:	0x2211ffee55667788<br>
+                                gef➤
+                            </blockquote>
+                        </p>
+                        
+                    </div> <!-- .loose_text -->
+                    <!-- ********************************************************************* Loose Text -->
                 
                 </div> <!-- .current_project_14 -->
             
@@ -2181,7 +2407,7 @@
             <!-- ************************************************************************************* Section Start *********** -->
             <section class="section">
                 
-                <div class="current_project_14">
+                <div class="current_project_17">
                 
                     <hgroup>
                         <h2>
@@ -2194,6 +2420,10 @@
                         
                         <p>
                             Running step 22
+                        </p>
+                        
+                        <p>
+                            Effect of executing <i>0x40107d <_start+125>     mov    DWORD PTR ds:0x402000, eax</i>
                         </p>
                         
                     </div> <!-- .loose_text -->
@@ -2214,6 +2444,115 @@
                             <p>
                         </div> <!-- .desc -->
                     </figure>
+                    
+                    <!-- ********************************************************************* Loose Text -->                
+                    <div class="loose_text">
+                        
+                        <p>
+                            After executing:
+                            <blockquote>
+                                <i>0x40107d <_start+125>     mov    DWORD PTR ds:0x402000, eax</i>
+                            </blockquote>
+                            
+                                the memory at DWORD PTR ds:0x402000 was affected as follows:
+                            
+                            <blockquote>
+                                gef➤  x/xg &sample<br>
+                                0x402000:	0x2211ffee55667788<br>
+                                gef➤
+                            </blockquote>
+                        </p>
+                        
+                        <p>
+                            This instruction loads the lower double-word (32 bits) of RAX into the location memory at <i>DWORD PTR ds:0x402000</i>.  We saw in the previous section that the contents of memory location <i>DWORD PTR ds:0x402000</i> contains:
+                            <blockquote>
+                                gef➤  info variables<br>
+                                    All defined variables:<br>
+                                    <br>
+                                    Non-debugging symbols:<br>
+                                    <b>0x0000000000402000  sample</b><br>
+                                    0x0000000000402008  sample2<br>
+                                    0x0000000000402010  sample3Mbr>
+                                    0x0000000000402018  __bss_start<br>
+                                    0x0000000000402018  _edata<br>
+                                    0x0000000000402018  _end<br>
+                                    gef➤  x/xg &sample<br>
+                                    <b>0x402000:	0x2211ffeeddcc7788</b><br>
+                                    gef➤
+                            </blockquote>
+                        </p>
+                        
+                        <p>
+                            Therefore, loading the lower 32 bits of RAX into that location would result in the location containing:
+                            <blockquote>
+                                gef➤  x/xg &sample<br>
+                                <b>0x402000:	0x2211ffee55667788</b><br>
+                                gef➤
+                            </blockquote>
+                        </p>
+                        
+                        <p>
+                            The next instruction to be executed is: <i>0x401084 <_start+132>     mov    QWORD PTR ds:0x402000, rax</i>.  This instruction loads bits 0 to 63 of the contents of RAX into memory at <i>QWORD PTR ds:0x402000</i>.  We examing the contents of memory at this location to obtain:
+                            <blockquote>
+                                gef➤  info variables<br>
+                                    All defined variables:<br>
+                                    <br>
+                                    Non-debugging symbols:<br>
+                                    <b>0x0000000000402000  sample</b><br>
+                                    0x0000000000402008  sample2<br>
+                                    0x0000000000402010  sample3Mbr>
+                                    0x0000000000402018  __bss_start<br>
+                                    0x0000000000402018  _edata<br>
+                                    0x0000000000402018  _end<br>
+                                    gef➤  x/xg &sample<br>
+                                    <b>0x402000:	0x2211ffee55667788</b><br>
+                                gef➤  
+                            </blockquote>
+                        </p>
+                        
+                        <p>
+                            Recall that in the code, the variables were defined as follows:
+                            <blockquote>
+                                section .data<br>
+                                <br>
+                                <b>sample: db 0xaa, 0xbb, 0xcc, 0xdd, 0xee, 0xff, 0x11, 0x22</b><br>
+                                sample2: dq 0x1122334455667788</b><br>
+                                sample3: times 8 db 0x00<br>
+                                <br>
+                            </blockquote>
+                        </p>
+                        
+                        <p>
+                            <i>sample</i> was defined as sample: db 0xaa, 0xbb, 0xcc, 0xdd, 0xee, 0xff, 0x11, 0x22 in the code, but it is stored in memory as: 0x2211ffeeddccbbaa due to little-endianess.
+                        </p>
+                        
+                        <p>
+                            Recall that RAX contains:
+                            <blockquote>
+                                $rax   : 0x1122334455667788
+                            </blockquote>
+                        </p>
+                        
+                        <p>
+                            Before executing this instruction, memory at WORD PTR ds:0x402000 contains:
+                            <blockquote>
+                                gef➤  x/xg &sample<br>
+                                0x402000:	0x2211ffee55667788<br>
+                                gef➤
+                            </blockquote>
+                        </p>
+                        
+                        <p>
+                            After executing this instruction, we expect memory at WORD PTR ds:0x402000 to contain:
+                            <blockquote>
+                                gef➤  x/xg &sample<br>
+                                0x402000:	0x1122334455667788<br>
+                                gef➤
+                            </blockquote>
+                        </p>
+                        
+                    </div> <!-- .loose_text -->
+                    <!-- ********************************************************************* Loose Text -->
                 
                 </div> <!-- .current_project_14 -->
             
@@ -2223,7 +2562,7 @@
             <!-- ************************************************************************************* Section Start *********** -->
             <section class="section">
                 
-                <div class="current_project_14">
+                <div class="current_project_16">
                 
                     <hgroup>
                         <h2>
@@ -2236,6 +2575,10 @@
                         
                         <p>
                             Running step 23
+                        </p>
+                        
+                        <p>
+                            Effect of executing <i>0x401084 <_start+132>     mov    QWORD PTR ds:0x402000, rax</i>
                         </p>
                         
                     </div> <!-- .loose_text -->
@@ -2256,6 +2599,92 @@
                             <p>
                         </div> <!-- .desc -->
                     </figure>
+                    
+                    <!-- ********************************************************************* Loose Text -->                
+                    <div class="loose_text">
+                        
+                        <p>
+                            After executing:
+                            <blockquote>
+                                <i>0x401084 <_start+132>     mov    QWORD PTR ds:0x402000, rax</i>
+                            </blockquote>
+                            
+                                the memory at QWORD PTR ds:0x402000 was affected as follows:
+                            
+                            <blockquote>
+                                gef➤  x/xg &sample<br>
+                                0x402000:	0x1122334455667788<br>
+                                gef➤
+                            </blockquote>
+                        </p>
+                        
+                        <p>
+                            This instruction loads the full quad-word (64 bits) of RAX into the location memory at <i>QWORD PTR ds:0x402000</i>.  We saw in the previous section that the contents of memory location <i>QWORD PTR ds:0x402000</i> contains:
+                            <blockquote>
+                                gef➤  info variables<br>
+                                    All defined variables:<br>
+                                    <br>
+                                    Non-debugging symbols:<br>
+                                    <b>0x0000000000402000  sample</b><br>
+                                    0x0000000000402008  sample2<br>
+                                    0x0000000000402010  sample3Mbr>
+                                    0x0000000000402018  __bss_start<br>
+                                    0x0000000000402018  _edata<br>
+                                    0x0000000000402018  _end<br>
+                                    gef➤  x/xg &sample<br>
+                                    <b>0x402000:	0x2211ffee55667788</b><br>
+                                    gef➤
+                            </blockquote>
+                        </p>
+                        
+                        <p>
+                            Therefore, loading the contents of RAX into that location would result in the location containing:
+                            <blockquote>
+                                gef➤  x/xg &sample<br>
+                                <b>0x402000:	0x1122334455667788</b><br>
+                                gef➤
+                            </blockquote>
+                        </p>
+                        
+                        <p>
+                            The next instruction to be executed is: <i>0x40108c <_start+140>     lea    rax, ds:0x402000</i>.  This instruction loads the effective address of the memory location <i>ds:0x402000</i> into RAX.  We examing the contents of memory at this location to obtain:
+                            <blockquote>
+                                gef➤  info variables<br>
+                                    All defined variables:<br>
+                                    <br>
+                                    Non-debugging symbols:<br>
+                                    <b>0x0000000000402000  sample</b><br>
+                                    0x0000000000402008  sample2<br>
+                                    0x0000000000402010  sample3Mbr>
+                                    0x0000000000402018  __bss_start<br>
+                                    0x0000000000402018  _edata<br>
+                                    0x0000000000402018  _end<br>
+                                    gef➤  x/xg &sample<br>
+                                    <b>0x402000:	0x1122334455667788</b><br>
+                                gef➤  
+                            </blockquote>
+                        </p>
+                        
+                        <p>
+                            Therefore, the address of ds:0x402000 is 0x0000000000402000, and this is what will be loaded into RAX
+                        </p>
+                        
+                        <p>
+                            Before executing this instruction, RAX contains:
+                            <blockquote>
+                                $rax   : 0x1122334455667788
+                            </blockquote>
+                        </p>
+                        
+                        <p>
+                            After executing this instruction, we expect RAX to contain:
+                            <blockquote>
+                                <b>$rax   : 0x0000000000402000</b>
+                            </blockquote>
+                        </p>
+                        
+                    </div> <!-- .loose_text -->
+                    <!-- ********************************************************************* Loose Text -->
                 
                 </div> <!-- .current_project_14 -->
             
@@ -2265,7 +2694,7 @@
             <!-- ************************************************************************************* Section Start *********** -->
             <section class="section">
                 
-                <div class="current_project_14">
+                <div class="current_project_16">
                 
                     <hgroup>
                         <h2>
@@ -2278,6 +2707,10 @@
                         
                         <p>
                             Running step 24
+                        </p>
+                        
+                        <p>
+                            Effect of executing <i>0x40108c <_start+140>     lea    rax, ds:0x402000</i>
                         </p>
                         
                     </div> <!-- .loose_text -->
@@ -2298,6 +2731,77 @@
                             <p>
                         </div> <!-- .desc -->
                     </figure>
+                    
+                    <!-- ********************************************************************* Loose Text -->                
+                    <div class="loose_text">
+                        
+                        <p>
+                            After executing:
+                            <blockquote>
+                                <i>0x40108c <_start+140>     lea    rax, ds:0x402000</i>
+                            </blockquote>
+                            
+                                RAX is loaded with the memory address ds:0x402000.
+                            
+                        </p>
+                        
+                        <p>
+                            We saw in the previous section that the defined variables were:
+                            <blockquote>
+                                gef➤  info variables<br>
+                                    All defined variables:<br>
+                                    <br>
+                                    Non-debugging symbols:<br>
+                                    <b>0x0000000000402000  sample</b><br>
+                                    0x0000000000402008  sample2<br>
+                                    0x0000000000402010  sample3Mbr>
+                                    0x0000000000402018  __bss_start<br>
+                                    0x0000000000402018  _edata<br>
+                                    0x0000000000402018  _end<br>
+                            </blockquote>
+                        </p>
+                        
+                        <p>
+                            Therefore, loading the memory address of ds:0x402000 into RAX would result in RAX containing:
+                            <blockquote>
+                                $rax   : 0x0000000000402000
+                            </blockquote>
+                        </p>
+                        
+                        <p>
+                            The next instruction to be executed is: <i>0x401094 <_start+148>     lea    rbx, [rax]</i>.  This instruction loads the effective address of what RAX points to, as indicated by the square brackets, into RBX.  We examing the contents of RAX to obtain:
+                            <blockquote>
+                                gef➤  x/xg $rax<br>
+                                0x402000:	0x1122334455667788
+                            </blockquote>
+                            
+                            and we examine the contents of RBX to obtain:
+                            <blockquote>
+                                gef➤  print $rbx<br>
+                                $1 = 0x0
+                            </blockquote>
+                        </p>
+                        
+                        <p>
+                            Therefore RAX contains 0x402000, and when treated as a memory location, the contents of RAX points memory at 0x402000 which contains the value 0x1122334455667788.  The address 0x402000 will be loaded into RBX.
+                        </p>
+                        
+                        <p>
+                            Before executing this instruction, RBX contains:
+                            <blockquote>
+                                $rbx   : 0x0
+                            </blockquote>
+                        </p>
+                        
+                        <p>
+                            After executing this instruction, we expect RBX to contain:
+                            <blockquote>
+                                <b>$rbx   : 0x0000000000402000</b>
+                            </blockquote>
+                        </p>
+                        
+                    </div> <!-- .loose_text -->
+                    <!-- ********************************************************************* Loose Text -->
                 
                 </div> <!-- .current_project_14 -->
             
@@ -2307,7 +2811,7 @@
             <!-- ************************************************************************************* Section Start *********** -->
             <section class="section">
                 
-                <div class="current_project_14">
+                <div class="current_project_15">
                 
                     <hgroup>
                         <h2>
@@ -2320,6 +2824,10 @@
                         
                         <p>
                             Running step 25
+                        </p>
+                        
+                        <p>
+                            Effect of executing <i>0x401094 <_start+148>     lea    rbx, [rax]</i>
                         </p>
                         
                     </div> <!-- .loose_text -->
@@ -2340,6 +2848,61 @@
                             <p>
                         </div> <!-- .desc -->
                     </figure>
+                    
+                    <!-- ********************************************************************* Loose Text -->                
+                    <div class="loose_text">
+                        
+                        <p>
+                            After executing:
+                            <blockquote>
+                                <i>0x401094 <_start+148>     lea    rbx, [rax]</i>
+                            </blockquote>
+                            
+                                RBX is loaded with the memory address ds:0x402000.
+                            
+                        </p>
+                        
+                        <p>
+                            We saw in the previous section that the defined variables were:
+                            <blockquote>
+                                gef➤  info variables<br>
+                                    All defined variables:<br>
+                                    <br>
+                                    Non-debugging symbols:<br>
+                                    <b>0x0000000000402000  sample</b><br>
+                                    0x0000000000402008  sample2<br>
+                                    0x0000000000402010  sample3Mbr>
+                                    0x0000000000402018  __bss_start<br>
+                                    0x0000000000402018  _edata<br>
+                                    0x0000000000402018  _end<br>
+                            </blockquote>
+                        </p>
+                        
+                        <p>
+                            Therefore, loading the effective address of what RAX points to would result in RBX containing:
+                            <blockquote>
+                                $rbx   : 0x0000000000402000
+                            </blockquote>
+                        </p>
+                        
+                        <p>
+                            The next instruction to be executed is: <i>0x401097 <_start+151>     movabs rax, 0x1234567890abcdef</i>.  This instruction simply loads the immediate <i>0x1234567890abcdef</i> into RAX.
+                            
+                            We examine the contents of RAX to obtain:
+                            <blockquote>
+                                $rax   : 0x0000000000402000
+                            </blockquote>
+                        </p>
+                        
+                        <p>
+                            After executing this instruction, we expect RAX to contain:
+                            <blockquote>
+                                <b>$rax   : 0x1234567890abcdef</b>
+                            </blockquote>
+                        </p>
+                        
+                    </div> <!-- .loose_text -->
+                    <!-- ********************************************************************* Loose Text -->
                 
                 </div> <!-- .current_project_14 -->
             
@@ -2349,7 +2912,7 @@
             <!-- ************************************************************************************* Section Start *********** -->
             <section class="section">
                 
-                <div class="current_project_14">
+                <div class="current_project_15">
                 
                     <hgroup>
                         <h2>
@@ -2362,6 +2925,10 @@
                         
                         <p>
                             Running step 26
+                        </p>
+                        
+                        <p>
+                            Effect of executing <i>0x401097 <_start+151>     movabs rax, 0x1234567890abcdef</i>
                         </p>
                         
                     </div> <!-- .loose_text -->
@@ -2382,6 +2949,36 @@
                             <p>
                         </div> <!-- .desc -->
                     </figure>
+                    
+                    <!-- ********************************************************************* Loose Text -->                
+                    <div class="loose_text">
+                        
+                        <p>
+                            After executing:
+                            <blockquote>
+                                <i>0x401097 <_start+151>     movabs rax, 0x1234567890abcdef</i>
+                            </blockquote>
+                            RAX is loaded with the immediate <i>0x1234567890abcdef</i>.
+                        </p>
+                        
+                        <p>
+                            The next instruction to be executed is: <i>0x4010a1 <_start+161>     movabs rbx, 0x9999999999999999</i>.  This instruction simply loads the immediate <i>0x9999999999999999</i> into RBX.
+                            
+                            We examing the contents of RBX to obtain:
+                            <blockquote>
+                                $rbx   : 0x0000000000402000
+                            </blockquote>
+                        </p>
+                        
+                        <p>
+                            After executing this instruction, we expect RBX to contain:
+                            <blockquote>
+                                <b>$rbx   : 0x9999999999999999</b>
+                            </blockquote>
+                        </p>
+                        
+                    </div> <!-- .loose_text -->
+                    <!-- ********************************************************************* Loose Text -->
                 
                 </div> <!-- .current_project_14 -->
             
@@ -2391,7 +2988,7 @@
             <!-- ************************************************************************************* Section Start *********** -->
             <section class="section">
                 
-                <div class="current_project_14">
+                <div class="current_project_15">
                 
                     <hgroup>
                         <h2>
@@ -2404,6 +3001,10 @@
                         
                         <p>
                             Running step 27
+                        </p>
+                        
+                        <p>
+                            Effect of executing <i>0x4010a1 <_start+161>     movabs rbx, 0x9999999999999999</i>
                         </p>
                         
                     </div> <!-- .loose_text -->
@@ -2424,6 +3025,47 @@
                             <p>
                         </div> <!-- .desc -->
                     </figure>
+                    
+                    <!-- ********************************************************************* Loose Text -->                
+                    <div class="loose_text">
+                        
+                        <p>
+                            After executing:
+                            <blockquote>
+                                <i>0x4010a1 <_start+161>     movabs rbx, 0x9999999999999999</i>
+                            </blockquote>
+                            RBX is loaded with the immediate <i>0x9999999999999999</i>.
+                        </p>
+                        
+                        <p>
+                            The next instruction to be executed is: <i>0x4010ab <_start+171>     xchg   rbx, rax</i>.  This instruction exchanges the contents of RAX with the contents of RBX.  It is an interesting question of whether the CPU has an intermediate location to store the contents of the registers as it exchanges them.
+                            
+                            We examine the contents of RAX to obtain:
+                            <blockquote>
+                                $rax   : 0x1234567890abcdef
+                            </blockquote>
+                            and we examine the contents of RBX to obtain:
+                            <blockquote>
+                                $rbx   : 0x9999999999999999
+                            </blockquote>
+                        </p>
+                        
+                        <p>
+                            After executing this instruction, we expect RAX to contain:
+                            <blockquote>
+                                <b>$rax   : 0x9999999999999999</b>
+                            </blockquote>
+                        </p>
+                        
+                        <p>
+                            And RBX to contain:
+                            <blockquote>
+                                <b>$rbx   : 0x1234567890abcdef</b>
+                            </blockquote>
+                        </p>
+                        
+                    </div> <!-- .loose_text -->
+                    <!-- ********************************************************************* Loose Text -->
                 
                 </div> <!-- .current_project_14 -->
             
@@ -2433,7 +3075,7 @@
             <!-- ************************************************************************************* Section Start *********** -->
             <section class="section">
                 
-                <div class="current_project_14">
+                <div class="current_project_15">
                 
                     <hgroup>
                         <h2>
@@ -2446,6 +3088,10 @@
                         
                         <p>
                             Running step 28
+                        </p>
+                        
+                        <p>
+                            Effect of executing <i>0x4010ab <_start+171>     xchg   rbx, rax</i>
                         </p>
                         
                     </div> <!-- .loose_text -->
@@ -2466,6 +3112,36 @@
                             <p>
                         </div> <!-- .desc -->
                     </figure>
+                    
+                    <!-- ********************************************************************* Loose Text -->                
+                    <div class="loose_text">
+                        
+                        <p>
+                            After executing:
+                            <blockquote>
+                                <i>0x4010ab <_start+171>     xchg   rbx, rax</i>
+                            </blockquote>
+                            The contents of RAX is exchanged with the contents of RBX.
+                        </p>
+                        
+                        <p>
+                            The next instruction to be executed is: <i>0x4010ad <_start+173>     mov    eax, 0x3c</i>.  This instruction simply loads the immediate <i>0x3c</i> into EAX.  This in preparation to exit gracefully back to the shell. 0x3c is the number of the system call to execute an exit.
+                            
+                            We examine the contents of RAX to obtain:
+                            <blockquote>
+                                $rax   : 0x9999999999999999
+                            </blockquote>
+                        </p>
+                        
+                        <p>
+                            After executing this instruction, we expect RAX to contain:
+                            <blockquote>
+                                <b>$rax   : 0x3c</b>
+                            </blockquote>
+                        </p>
+                        
+                    </div> <!-- .loose_text -->
+                    <!-- ********************************************************************* Loose Text -->
                 
                 </div> <!-- .current_project_14 -->
             
@@ -2475,7 +3151,7 @@
             <!-- ************************************************************************************* Section Start *********** -->
             <section class="section">
                 
-                <div class="current_project_14">
+                <div class="current_project_15">
                 
                     <hgroup>
                         <h2>
@@ -2488,6 +3164,10 @@
                         
                         <p>
                             Running step 29
+                        </p>
+                        
+                        <p>
+                            Effect of executing <i>0x4010ad <_start+173>     mov    eax, 0x3c</i>
                         </p>
                         
                     </div> <!-- .loose_text -->
@@ -2508,6 +3188,36 @@
                             <p>
                         </div> <!-- .desc -->
                     </figure>
+                    
+                    <!-- ********************************************************************* Loose Text -->                
+                    <div class="loose_text">
+                        
+                        <p>
+                            After executing:
+                            <blockquote>
+                                <i>0x4010ad <_start+173>     mov    eax, 0x3c</i>
+                            </blockquote>
+                            The contents of RAX is loaded with the immediate <i>0x3c</i>.
+                        </p>
+                        
+                        <p>
+                            The next instruction to be executed is: <i>4010b2 <_start+178>     mov    edi, 0x0</i>.  This instruction simply loads the immediate <i>0x0c</i> into RDI.  This in preparation to exit gracefully back to the shell.  The 0x0 represents the exit status of the program.
+                            
+                            We examine the contents of RDI to obtain:
+                            <blockquote>
+                                $rdi   : 0xaa
+                            </blockquote>
+                        </p>
+                        
+                        <p>
+                            After executing this instruction, we expect RDI to contain:
+                            <blockquote>
+                                <b>$rdi   : 0x0</b>
+                            </blockquote>
+                        </p>
+                        
+                    </div> <!-- .loose_text -->
+                    <!-- ********************************************************************* Loose Text -->
                 
                 </div> <!-- .current_project_14 -->
             
@@ -2517,7 +3227,7 @@
             <!-- ************************************************************************************* Section Start *********** -->
             <section class="section">
                 
-                <div class="current_project_14">
+                <div class="current_project_15">
                 
                     <hgroup>
                         <h2>
@@ -2530,6 +3240,10 @@
                         
                         <p>
                             Running step 30
+                        </p>
+                        
+                        <p>
+                            Effect of executing <i>4010b2 <_start+178>     mov    edi, 0x0</i>
                         </p>
                         
                     </div> <!-- .loose_text -->
@@ -2550,6 +3264,40 @@
                             <p>
                         </div> <!-- .desc -->
                     </figure>
+                    
+                    <!-- ********************************************************************* Loose Text -->                
+                    <div class="loose_text">
+                        
+                        <p>
+                            After executing:
+                            <blockquote>
+                                <i>4010b2 <_start+178>     mov    edi, 0x0</i>
+                            </blockquote>
+                            The contents of EDI is loaded with the immediate <i>0x0</i>.
+                        </p>
+                        
+                        <p>
+                            The next instruction to be executed is: <i>0x4010b7 <_start+183>     syscall</i>.  This instruction calls the system to execute a system call with number in RAX and parameters in RDI.
+                            
+                            We examine the contents of RAX to obtain:
+                            <blockquote>
+                                $rax   : 0x3c
+                            </blockquote>
+                        </p>
+                        
+                        <p>
+                            We examine the contents of RDI to obtain:
+                            <blockquote>
+                                $rdi   : 0x0
+                            </blockquote>
+                        </p>
+                        
+                        <p>
+                            After executing this instruction, we expect the program to exit with status 0.
+                        </p>
+                        
+                    </div> <!-- .loose_text -->
+                    <!-- ********************************************************************* Loose Text -->
                 
                 </div> <!-- .current_project_14 -->
             
@@ -2574,6 +3322,10 @@
                             Running step 31
                         </p>
                         
+                        <p>
+                            Effect of executing <i>0x4010b7 <_start+183>     syscall</i>.
+                        </p>
+                        
                     </div> <!-- .loose_text -->
                     <!-- ********************************************************************* Loose Text -->
                     
@@ -2592,6 +3344,20 @@
                             <p>
                         </div> <!-- .desc -->
                     </figure>
+                    
+                    <!-- ********************************************************************* Loose Text -->                
+                    <div class="loose_text">
+                        
+                        <p>
+                            After executing:
+                            <blockquote>
+                                <i>0x4010b7 <_start+183>     syscall</i>
+                            </blockquote>
+                            The program exits gracefully with exit status 0.
+                        </p>
+                        
+                    </div> <!-- .loose_text -->
+                    <!-- ********************************************************************* Loose Text -->
                 
                 </div> <!-- .current_project_14 -->
             
