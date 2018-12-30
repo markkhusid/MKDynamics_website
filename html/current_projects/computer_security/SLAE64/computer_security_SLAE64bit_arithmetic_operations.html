@@ -58,7 +58,7 @@
       background	: gray;
       position		: relative;
       width		: 1370px;
-      height		: 3000px;
+      height		: 2600px;
       top		: 000px;
       left		: 0px;
       float		: left;
@@ -175,7 +175,7 @@
       background	: gray;
       position		: relative;
       width		: 1370px;
-      height		: 1500px;
+      height		: 2800px;
       top		: 000px;
       left		: 0px;
       float		: left;
@@ -257,7 +257,7 @@
 
 
                 <h2>
-                    Computer Security - SLAE64 - Module 1 - The Stack
+                    Computer Security - SLAE64 - Module 1 - Arithmetic Operations
                 </h2>
             </hgroup>
     
@@ -318,7 +318,7 @@
                 
                     <hgroup>
                         <h2>
-                            The program <i>stack.nasm</i>
+                            The program <i>Arithmetic-64.nasm</i>
                         </h2>
                     </hgroup>
                     
@@ -326,7 +326,7 @@
                     <div class="loose_text">
                         
                         <p>
-                            The screenshot below displays the contents of the program <i>stack.nasm</i>.
+                            The screenshot below displays the contents of the program <i>Arithmetic-64.nasm</i>.
                         </p>
                         
                     </div> <!-- .loose_text -->
@@ -337,7 +337,7 @@
                     <figure>
                         <div class="img">
                             <img 
-                            src="../images/SLAE64/Module_1/The_stack/stack_nasm.jpg"
+                            src="../images/SLAE64/Module_1/Arithmetic_operations/arithmetic_64_nasm_kate.jpg"
                             width="1250"
                             height="900"
                             title=""
@@ -345,33 +345,15 @@
                         </div> <!-- .img -->
                         <div class="desc">
                             <p>
-                                The program <i>stack.nasm</i>
+                                The program <i>Arithmetic-64.nasm</i>
                             <p>
                         </div> <!-- .desc -->
                     </figure>
                     
                     <!-- ********************************************************************* Loose Text -->                
                     <div class="loose_text">
-                        The program pushes an immediate onto the stack.  The immediate is: <i>0x1122334455667788</i>.  It does this by first moving the immediate into RAX and then pushing RAX.
-                        </p>
-                        
                         <p>
-                            Next it pushes data labled by <i>sample</i>.  As shown in the program, this data is: <br>
-                            <blockquote>
-                                sample:	db 0xaa, 0xbb, 0xcc, 0xdd, 0xee, 0xff, 0x11, 0x22
-                            </blockquote>
-                        </p>
-                        
-                        <p>
-                            First <i>sample</i> is pushed.  What this does it push the <i>memory</i> address of sample onto the stack.  Then the contents of the memory address labled as <i>sample</i> is pushed onto the stack, as denoted by the brackets (i.e. []) around the label.
-                        </p>
-                        
-                        <p>
-                            Then the contents of the stack is popped off into R15, R14 and RBX.  The first item pushed onto the stack is the last item to come out.  Therefore, RBX will contain the contents of RAX.
-                        </p>
-                        
-                        <p>
-                            Finally, the familiar <i>exit</i> syscall is executed to gracefully exit back to the shell.
+                            The program executes a series of arithmetic operations using registers and memory.  It also manipulates the carry flag and demostrates addition and subtraction with carry and borrow respectively.  It then demostrates increments and decrements.  Finally, the program exits gracefully back to the shell with the <i>exit</i> syscall.
                         </p>
                     </div> <!-- .loose_text -->
                     <!-- ********************************************************************* Loose Text -->
@@ -383,12 +365,12 @@
                         <p>
                             The program is assembled with:
                             <blockquote>
-                                $ nasm -felf64 stack.nasm -o stack.o
+                                $ nasm -felf64 Arithmetic-64.nasm -o arithmetic-64.o
                             </blockquote>
                             
                             And linked with:
                             <blockquote>
-                                $ ld stack.o -o stack
+                                $ ld arithmetic-64.o -o arithmetic-64
                             </blockquote>
                         </p>
                         
@@ -402,7 +384,7 @@
                     <figure>
                         <div class="img">
                             <img 
-                            src="../images/SLAE64/Module_1/The_stack/assembling_linking_and_objdump_of_stack_c.jpg"
+                            src="../images/SLAE64/Module_1/Arithmetic_operations/arithmetic_operations_assemble_link_and_objdump.jpg"
                             width="1250"
                             height="900"
                             title=""
@@ -410,7 +392,7 @@
                         </div> <!-- .img -->
                         <div class="desc">
                             <p>
-                                Assembling, Linking and Executing the Program <i>stack.nasm</i>
+                                Assembling, Linking and Executing the Program <i>Arithmetic-64.nasm</i>
                             <p>
                         </div> <!-- .desc -->
                     </figure>
@@ -445,7 +427,7 @@
                     <figure>
                         <div class="img">
                             <img 
-                            src="../images/SLAE64/Module_1/The_stack/setup_GDB.jpg"
+                            src="../images/SLAE64/Module_1/Arithmetic_operations/setup_GDB.jpg"
                             width="1250"
                             height="900"
                             title=""
@@ -470,7 +452,7 @@
                 
                     <hgroup>
                         <h2>
-                            Running <i>helloworld</i> in GDB + GEF
+                            Running <i>arithmetic_64</i> in GDB + GEF
                         </h2>
                     </hgroup>
                     
@@ -487,7 +469,7 @@
                     <figure>
                         <div class="img">
                             <img 
-                            src="../images/SLAE64/Module_1/The_stack/step_1.jpg"
+                            src="../images/SLAE64/Module_1/Arithmetic_operations/step_1.jpg"
                             width="1250"
                             height="900"
                             title=""
@@ -512,7 +494,7 @@
                 
                     <hgroup>
                         <h2>
-                            Running <i>helloworld</i> in GDB + GEF
+                            Running <i>arithmetic_64</i> in GDB + GEF
                         </h2>
                     </hgroup>
                     
@@ -529,7 +511,7 @@
                     <figure>
                         <div class="img">
                             <img 
-                            src="../images/SLAE64/Module_1/The_stack/step_2.jpg"
+                            src="../images/SLAE64/Module_1/Arithmetic_operations/step_2.jpg"
                             width="1250"
                             height="900"
                             title=""
@@ -554,7 +536,7 @@
                 
                     <hgroup>
                         <h2>
-                            Running <i>helloworld</i> in GDB + GEF
+                            Running <i>arithmetic_64</i> in GDB + GEF
                         </h2>
                     </hgroup>
                     
@@ -571,7 +553,7 @@
                     <figure>
                         <div class="img">
                             <img 
-                            src="../images/SLAE64/Module_1/The_stack/step_3.jpg"
+                            src="../images/SLAE64/Module_1/Arithmetic_operations/step_3.jpg"
                             width="1250"
                             height="900"
                             title=""
@@ -596,7 +578,7 @@
                 
                     <hgroup>
                         <h2>
-                            Running <i>helloworld</i> in GDB + GEF
+                            Running <i>arithmetic_64</i> in GDB + GEF
                         </h2>
                     </hgroup>
                     
@@ -613,7 +595,7 @@
                     <figure>
                         <div class="img">
                             <img 
-                            src="../images/SLAE64/Module_1/The_stack/step_4.jpg"
+                            src="../images/SLAE64/Module_1/Arithmetic_operations/step_4.jpg"
                             width="1250"
                             height="900"
                             title=""
@@ -638,7 +620,7 @@
                 
                     <hgroup>
                         <h2>
-                            Running <i>helloworld</i> in GDB + GEF
+                            Running <i>arithmetic_64</i> in GDB + GEF
                         </h2>
                     </hgroup>
                     
@@ -655,7 +637,7 @@
                     <figure>
                         <div class="img">
                             <img 
-                            src="../images/SLAE64/Module_1/The_stack/step_5.jpg"
+                            src="../images/SLAE64/Module_1/Arithmetic_operations/step_5.jpg"
                             width="1250"
                             height="900"
                             title=""
@@ -680,7 +662,7 @@
                 
                     <hgroup>
                         <h2>
-                            Running <i>helloworld</i> in GDB + GEF
+                            Running <i>arithmetic_64</i> in GDB + GEF
                         </h2>
                     </hgroup>
                     
@@ -697,7 +679,7 @@
                     <figure>
                         <div class="img">
                             <img 
-                            src="../images/SLAE64/Module_1/The_stack/step_6.jpg"
+                            src="../images/SLAE64/Module_1/Arithmetic_operations/step_6.jpg"
                             width="1250"
                             height="900"
                             title=""
@@ -739,7 +721,7 @@
                     <figure>
                         <div class="img">
                             <img 
-                            src="../images/SLAE64/Module_1/The_stack/step_7.jpg"
+                            src="../images/SLAE64/Module_1/Arithmetic_operations/step_7.jpg"
                             width="1250"
                             height="900"
                             title=""
@@ -764,7 +746,7 @@
                 
                     <hgroup>
                         <h2>
-                            Running <i>helloworld</i> in GDB + GEF
+                            Running <i>arithmetic_64</i> in GDB + GEF
                         </h2>
                     </hgroup>
                     
@@ -781,7 +763,7 @@
                     <figure>
                         <div class="img">
                             <img 
-                            src="../images/SLAE64/Module_1/The_stack/step_8.jpg"
+                            src="../images/SLAE64/Module_1/Arithmetic_operations/step_8_a.jpg"
                             width="1250"
                             height="900"
                             title=""
@@ -789,7 +771,23 @@
                         </div> <!-- .img -->
                         <div class="desc">
                             <p>
-                                Running step 8
+                                Running step 8a
+                            <p>
+                        </div> <!-- .desc -->
+                    </figure>
+                    
+                    <figure>
+                        <div class="img">
+                            <img 
+                            src="../images/SLAE64/Module_1/Arithmetic_operations/step_8_b.jpg"
+                            width="1250"
+                            height="900"
+                            title=""
+                            >
+                        </div> <!-- .img -->
+                        <div class="desc">
+                            <p>
+                                Running step 8b
                             <p>
                         </div> <!-- .desc -->
                     </figure>
@@ -806,7 +804,7 @@
                 
                     <hgroup>
                         <h2>
-                            Running <i>helloworld</i> in GDB + GEF
+                            Running <i>arithmetic_64</i> in GDB + GEF
                         </h2>
                     </hgroup>
                     
@@ -814,7 +812,7 @@
                     <div class="loose_text">
                         
                         <p>
-                            Examining Memory
+                            Running step 9
                         </p>
                         
                     </div> <!-- .loose_text -->
@@ -831,7 +829,7 @@
                         </div> <!-- .img -->
                         <div class="desc">
                             <p>
-                                Examining Memory
+                                Running step 9
                             <p>
                         </div> <!-- .desc -->
                     </figure>
@@ -848,7 +846,7 @@
                 
                     <hgroup>
                         <h2>
-                            Running <i>helloworld</i> in GDB + GEF
+                            Running <i>arithmetic_64</i> in GDB + GEF
                         </h2>
                     </hgroup>
                     
@@ -856,7 +854,7 @@
                     <div class="loose_text">
                         
                         <p>
-                            Examining Memory
+                            Running step 10
                         </p>
                         
                     </div> <!-- .loose_text -->
@@ -865,7 +863,7 @@
                     <figure>
                         <div class="img">
                             <img 
-                            src="../images/SLAE64/Module_1/The_stack/step_10.jpg"
+                            src="../images/SLAE64/Module_1/Arithmetic_operations/step_10.jpg"
                             width="1250"
                             height="900"
                             title=""
@@ -873,7 +871,7 @@
                         </div> <!-- .img -->
                         <div class="desc">
                             <p>
-                                Examining Memory
+                                Running step 10
                             <p>
                         </div> <!-- .desc -->
                     </figure>
@@ -890,7 +888,7 @@
                 
                     <hgroup>
                         <h2>
-                            Running <i>helloworld</i> in GDB + GEF
+                            Running <i>arithmetic_64</i> in GDB + GEF
                         </h2>
                     </hgroup>
                     
@@ -898,7 +896,7 @@
                     <div class="loose_text">
                         
                         <p>
-                            Examining Memory
+                            Running step 11
                         </p>
                         
                     </div> <!-- .loose_text -->
@@ -907,7 +905,7 @@
                     <figure>
                         <div class="img">
                             <img 
-                            src="../images/SLAE64/Module_1/The_stack/step_11.jpg"
+                            src="../images/SLAE64/Module_1/Arithmetic_operations/step_11.jpg"
                             width="1250"
                             height="900"
                             title=""
@@ -915,7 +913,595 @@
                         </div> <!-- .img -->
                         <div class="desc">
                             <p>
-                                Examining Memory
+                                Running step 11
+                            <p>
+                        </div> <!-- .desc -->
+                    </figure>
+                
+                </div> <!-- .current_project_11 -->
+            
+            </section> <!-- third_section -->
+            <!-- ************************************************************************************* Section End ************ -->
+            
+            <!-- ************************************************************************************* Section Start *********** -->
+            <section class="section">
+                
+                <div class="current_project_14">
+                
+                    <hgroup>
+                        <h2>
+                            Running <i>arithmetic_64</i> in GDB + GEF
+                        </h2>
+                    </hgroup>
+                    
+                    <!-- ********************************************************************* Loose Text -->                
+                    <div class="loose_text">
+                        
+                        <p>
+                            Running step 12
+                        </p>
+                        
+                    </div> <!-- .loose_text -->
+                    <!-- ********************************************************************* Loose Text -->
+                    
+                    <figure>
+                        <div class="img">
+                            <img 
+                            src="../images/SLAE64/Module_1/Arithmetic_operations/step_12.jpg"
+                            width="1250"
+                            height="900"
+                            title=""
+                            >
+                        </div> <!-- .img -->
+                        <div class="desc">
+                            <p>
+                                Running step 12
+                            <p>
+                        </div> <!-- .desc -->
+                    </figure>
+                
+                </div> <!-- .current_project_11 -->
+            
+            </section> <!-- third_section -->
+            <!-- ************************************************************************************* Section End ************ -->
+            
+            <!-- ************************************************************************************* Section Start *********** -->
+            <section class="section">
+                
+                <div class="current_project_14">
+                
+                    <hgroup>
+                        <h2>
+                            Running <i>arithmetic_64</i> in GDB + GEF
+                        </h2>
+                    </hgroup>
+                    
+                    <!-- ********************************************************************* Loose Text -->                
+                    <div class="loose_text">
+                        
+                        <p>
+                            Running step 13
+                        </p>
+                        
+                    </div> <!-- .loose_text -->
+                    <!-- ********************************************************************* Loose Text -->
+                    
+                    <figure>
+                        <div class="img">
+                            <img 
+                            src="../images/SLAE64/Module_1/Arithmetic_operations/step_13.jpg"
+                            width="1250"
+                            height="900"
+                            title=""
+                            >
+                        </div> <!-- .img -->
+                        <div class="desc">
+                            <p>
+                                Running step 13
+                            <p>
+                        </div> <!-- .desc -->
+                    </figure>
+                
+                </div> <!-- .current_project_11 -->
+            
+            </section> <!-- third_section -->
+            <!-- ************************************************************************************* Section End ************ -->
+            
+            <!-- ************************************************************************************* Section Start *********** -->
+            <section class="section">
+                
+                <div class="current_project_14">
+                
+                    <hgroup>
+                        <h2>
+                            Running <i>arithmetic_64</i> in GDB + GEF
+                        </h2>
+                    </hgroup>
+                    
+                    <!-- ********************************************************************* Loose Text -->                
+                    <div class="loose_text">
+                        
+                        <p>
+                           Running step 14
+                        </p>
+                        
+                    </div> <!-- .loose_text -->
+                    <!-- ********************************************************************* Loose Text -->
+                    
+                    <figure>
+                        <div class="img">
+                            <img 
+                            src="../images/SLAE64/Module_1/Arithmetic_operations/step_14.jpg"
+                            width="1250"
+                            height="900"
+                            title=""
+                            >
+                        </div> <!-- .img -->
+                        <div class="desc">
+                            <p>
+                                Running step 14
+                            <p>
+                        </div> <!-- .desc -->
+                    </figure>
+                
+                </div> <!-- .current_project_11 -->
+            
+            </section> <!-- third_section -->
+            <!-- ************************************************************************************* Section End ************ -->
+            
+            <!-- ************************************************************************************* Section Start *********** -->
+            <section class="section">
+                
+                <div class="current_project_14">
+                
+                    <hgroup>
+                        <h2>
+                            Running <i>arithmetic_64</i> in GDB + GEF
+                        </h2>
+                    </hgroup>
+                    
+                    <!-- ********************************************************************* Loose Text -->                
+                    <div class="loose_text">
+                        
+                        <p>
+                            Running step 15
+                        </p>
+                        
+                    </div> <!-- .loose_text -->
+                    <!-- ********************************************************************* Loose Text -->
+                    
+                    <figure>
+                        <div class="img">
+                            <img 
+                            src="../images/SLAE64/Module_1/Arithmetic_operations/step_15.jpg"
+                            width="1250"
+                            height="900"
+                            title=""
+                            >
+                        </div> <!-- .img -->
+                        <div class="desc">
+                            <p>
+                                Running step 15
+                            <p>
+                        </div> <!-- .desc -->
+                    </figure>
+                
+                </div> <!-- .current_project_11 -->
+            
+            </section> <!-- third_section -->
+            <!-- ************************************************************************************* Section End ************ -->
+            
+            <!-- ************************************************************************************* Section Start *********** -->
+            <section class="section">
+                
+                <div class="current_project_14">
+                
+                    <hgroup>
+                        <h2>
+                            Running <i>arithmetic_64</i> in GDB + GEF
+                        </h2>
+                    </hgroup>
+                    
+                    <!-- ********************************************************************* Loose Text -->                
+                    <div class="loose_text">
+                        
+                        <p>
+                            Running step 16
+                        </p>
+                        
+                    </div> <!-- .loose_text -->
+                    <!-- ********************************************************************* Loose Text -->
+                    
+                    <figure>
+                        <div class="img">
+                            <img 
+                            src="../images/SLAE64/Module_1/Arithmetic_operations/step_16.jpg"
+                            width="1250"
+                            height="900"
+                            title=""
+                            >
+                        </div> <!-- .img -->
+                        <div class="desc">
+                            <p>
+                                Running step 16
+                            <p>
+                        </div> <!-- .desc -->
+                    </figure>
+                
+                </div> <!-- .current_project_11 -->
+            
+            </section> <!-- third_section -->
+            <!-- ************************************************************************************* Section End ************ -->
+            
+            <!-- ************************************************************************************* Section Start *********** -->
+            <section class="section">
+                
+                <div class="current_project_14">
+                
+                    <hgroup>
+                        <h2>
+                            Running <i>arithmetic_64</i> in GDB + GEF
+                        </h2>
+                    </hgroup>
+                    
+                    <!-- ********************************************************************* Loose Text -->                
+                    <div class="loose_text">
+                        
+                        <p>
+                            Running step 17
+                        </p>
+                        
+                    </div> <!-- .loose_text -->
+                    <!-- ********************************************************************* Loose Text -->
+                    
+                    <figure>
+                        <div class="img">
+                            <img 
+                            src="../images/SLAE64/Module_1/Arithmetic_operations/step_17.jpg"
+                            width="1250"
+                            height="900"
+                            title=""
+                            >
+                        </div> <!-- .img -->
+                        <div class="desc">
+                            <p>
+                                Running step 17
+                            <p>
+                        </div> <!-- .desc -->
+                    </figure>
+                
+                </div> <!-- .current_project_11 -->
+            
+            </section> <!-- third_section -->
+            <!-- ************************************************************************************* Section End ************ -->
+            
+            <!-- ************************************************************************************* Section Start *********** -->
+            <section class="section">
+                
+                <div class="current_project_14">
+                
+                    <hgroup>
+                        <h2>
+                            Running <i>arithmetic_64</i> in GDB + GEF
+                        </h2>
+                    </hgroup>
+                    
+                    <!-- ********************************************************************* Loose Text -->                
+                    <div class="loose_text">
+                        
+                        <p>
+                            Running step 18
+                        </p>
+                        
+                    </div> <!-- .loose_text -->
+                    <!-- ********************************************************************* Loose Text -->
+                    
+                    <figure>
+                        <div class="img">
+                            <img 
+                            src="../images/SLAE64/Module_1/Arithmetic_operations/step_18.jpg"
+                            width="1250"
+                            height="900"
+                            title=""
+                            >
+                        </div> <!-- .img -->
+                        <div class="desc">
+                            <p>
+                                Running step 18
+                            <p>
+                        </div> <!-- .desc -->
+                    </figure>
+                
+                </div> <!-- .current_project_11 -->
+            
+            </section> <!-- third_section -->
+            <!-- ************************************************************************************* Section End ************ -->
+            
+            <!-- ************************************************************************************* Section Start *********** -->
+            <section class="section">
+                
+                <div class="current_project_14">
+                
+                    <hgroup>
+                        <h2>
+                            Running <i>arithmetic_64</i> in GDB + GEF
+                        </h2>
+                    </hgroup>
+                    
+                    <!-- ********************************************************************* Loose Text -->                
+                    <div class="loose_text">
+                        
+                        <p>
+                            Running step 19
+                        </p>
+                        
+                    </div> <!-- .loose_text -->
+                    <!-- ********************************************************************* Loose Text -->
+                    
+                    <figure>
+                        <div class="img">
+                            <img 
+                            src="../images/SLAE64/Module_1/Arithmetic_operations/step_19.jpg"
+                            width="1250"
+                            height="900"
+                            title=""
+                            >
+                        </div> <!-- .img -->
+                        <div class="desc">
+                            <p>
+                                Running step 19
+                            <p>
+                        </div> <!-- .desc -->
+                    </figure>
+                
+                </div> <!-- .current_project_11 -->
+            
+            </section> <!-- third_section -->
+            <!-- ************************************************************************************* Section End ************ -->
+            
+            <!-- ************************************************************************************* Section Start *********** -->
+            <section class="section">
+                
+                <div class="current_project_14">
+                
+                    <hgroup>
+                        <h2>
+                            Running <i>arithmetic_64</i> in GDB + GEF
+                        </h2>
+                    </hgroup>
+                    
+                    <!-- ********************************************************************* Loose Text -->                
+                    <div class="loose_text">
+                        
+                        <p>
+                            Running step 20
+                        </p>
+                        
+                    </div> <!-- .loose_text -->
+                    <!-- ********************************************************************* Loose Text -->
+                    
+                    <figure>
+                        <div class="img">
+                            <img 
+                            src="../images/SLAE64/Module_1/Arithmetic_operations/step_20.jpg"
+                            width="1250"
+                            height="900"
+                            title=""
+                            >
+                        </div> <!-- .img -->
+                        <div class="desc">
+                            <p>
+                                Running step 20
+                            <p>
+                        </div> <!-- .desc -->
+                    </figure>
+                
+                </div> <!-- .current_project_11 -->
+            
+            </section> <!-- third_section -->
+            <!-- ************************************************************************************* Section End ************ -->
+            
+            <!-- ************************************************************************************* Section Start *********** -->
+            <section class="section">
+                
+                <div class="current_project_14">
+                
+                    <hgroup>
+                        <h2>
+                            Running <i>arithmetic_64</i> in GDB + GEF
+                        </h2>
+                    </hgroup>
+                    
+                    <!-- ********************************************************************* Loose Text -->                
+                    <div class="loose_text">
+                        
+                        <p>
+                            Running step 21
+                        </p>
+                        
+                    </div> <!-- .loose_text -->
+                    <!-- ********************************************************************* Loose Text -->
+                    
+                    <figure>
+                        <div class="img">
+                            <img 
+                            src="../images/SLAE64/Module_1/Arithmetic_operations/step_21.jpg"
+                            width="1250"
+                            height="900"
+                            title=""
+                            >
+                        </div> <!-- .img -->
+                        <div class="desc">
+                            <p>
+                                Running step 21
+                            <p>
+                        </div> <!-- .desc -->
+                    </figure>
+                
+                </div> <!-- .current_project_11 -->
+            
+            </section> <!-- third_section -->
+            <!-- ************************************************************************************* Section End ************ -->
+            
+            <!-- ************************************************************************************* Section Start *********** -->
+            <section class="section">
+                
+                <div class="current_project_14">
+                
+                    <hgroup>
+                        <h2>
+                            Running <i>arithmetic_64</i> in GDB + GEF
+                        </h2>
+                    </hgroup>
+                    
+                    <!-- ********************************************************************* Loose Text -->                
+                    <div class="loose_text">
+                        
+                        <p>
+                            Running step 22
+                        </p>
+                        
+                    </div> <!-- .loose_text -->
+                    <!-- ********************************************************************* Loose Text -->
+                    
+                    <figure>
+                        <div class="img">
+                            <img 
+                            src="../images/SLAE64/Module_1/Arithmetic_operations/step_22.jpg"
+                            width="1250"
+                            height="900"
+                            title=""
+                            >
+                        </div> <!-- .img -->
+                        <div class="desc">
+                            <p>
+                                Running step 22
+                            <p>
+                        </div> <!-- .desc -->
+                    </figure>
+                
+                </div> <!-- .current_project_11 -->
+            
+            </section> <!-- third_section -->
+            <!-- ************************************************************************************* Section End ************ -->
+            
+            <!-- ************************************************************************************* Section Start *********** -->
+            <section class="section">
+                
+                <div class="current_project_14">
+                
+                    <hgroup>
+                        <h2>
+                            Running <i>arithmetic_64</i> in GDB + GEF
+                        </h2>
+                    </hgroup>
+                    
+                    <!-- ********************************************************************* Loose Text -->                
+                    <div class="loose_text">
+                        
+                        <p>
+                            Running step 23
+                        </p>
+                        
+                    </div> <!-- .loose_text -->
+                    <!-- ********************************************************************* Loose Text -->
+                    
+                    <figure>
+                        <div class="img">
+                            <img 
+                            src="../images/SLAE64/Module_1/Arithmetic_operations/step_23.jpg"
+                            width="1250"
+                            height="900"
+                            title=""
+                            >
+                        </div> <!-- .img -->
+                        <div class="desc">
+                            <p>
+                                Running step 23
+                            <p>
+                        </div> <!-- .desc -->
+                    </figure>
+                
+                </div> <!-- .current_project_11 -->
+            
+            </section> <!-- third_section -->
+            <!-- ************************************************************************************* Section End ************ -->
+            
+            <!-- ************************************************************************************* Section Start *********** -->
+            <section class="section">
+                
+                <div class="current_project_14">
+                
+                    <hgroup>
+                        <h2>
+                            Running <i>arithmetic_64</i> in GDB + GEF
+                        </h2>
+                    </hgroup>
+                    
+                    <!-- ********************************************************************* Loose Text -->                
+                    <div class="loose_text">
+                        
+                        <p>
+                            Running step 24
+                        </p>
+                        
+                    </div> <!-- .loose_text -->
+                    <!-- ********************************************************************* Loose Text -->
+                    
+                    <figure>
+                        <div class="img">
+                            <img 
+                            src="../images/SLAE64/Module_1/Arithmetic_operations/step_24.jpg"
+                            width="1250"
+                            height="900"
+                            title=""
+                            >
+                        </div> <!-- .img -->
+                        <div class="desc">
+                            <p>
+                                Running step 24
+                            <p>
+                        </div> <!-- .desc -->
+                    </figure>
+                
+                </div> <!-- .current_project_11 -->
+            
+            </section> <!-- third_section -->
+            <!-- ************************************************************************************* Section End ************ -->
+            
+            <!-- ************************************************************************************* Section Start *********** -->
+            <section class="section">
+                
+                <div class="current_project_14">
+                
+                    <hgroup>
+                        <h2>
+                            Running <i>arithmetic_64</i> in GDB + GEF
+                        </h2>
+                    </hgroup>
+                    
+                    <!-- ********************************************************************* Loose Text -->                
+                    <div class="loose_text">
+                        
+                        <p>
+                            Running step 25
+                        </p>
+                        
+                    </div> <!-- .loose_text -->
+                    <!-- ********************************************************************* Loose Text -->
+                    
+                    <figure>
+                        <div class="img">
+                            <img 
+                            src="../images/SLAE64/Module_1/Arithmetic_operations/step_25.jpg"
+                            width="1250"
+                            height="900"
+                            title=""
+                            >
+                        </div> <!-- .img -->
+                        <div class="desc">
+                            <p>
+                                Running step 25
                             <p>
                         </div> <!-- .desc -->
                     </figure>

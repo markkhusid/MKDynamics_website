@@ -361,6 +361,10 @@
       
       <aside>
 	Status Updates<br><br>
+	12/28/2018
+	<ul>
+            <li>Updates to SLAE64 section.  Added The Stack and Arithmetic Operation in 64 Bit section.</li>
+	</ul>
 	12/22/2018
 	<ul>
             <li>Updates to SLAE64 section.  Added Moving Data in 64 bit environment section.</li>
