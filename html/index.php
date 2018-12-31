@@ -361,9 +361,13 @@
       
       <aside>
 	Status Updates<br><br>
+	12/30/2018
+	<ul>
+            <li>Added Quasi-DC Power Converter to Electronics Section.</li>
+	</ul>
 	12/28/2018
 	<ul>
-            <li>Updates to SLAE64 section.  Added The Stack and Arithmetic Operation in 64 Bit section.</li>
+            <li>Updates to SLAE64 section.  Added The Stack and Arithmetic Operations in 64 Bit section.</li>
 	</ul>
 	12/22/2018
 	<ul>
@@ -468,34 +472,7 @@
 	<ul>
             <li>Added section linking to DIY Grid.</li>
 	</ul>
-	2/23/2017
-	<ul>
-            <li>Updated Ham Radio section to include separate section for packet radio.</li>
-	</ul>
-	1/28/2017
-	<ul>
-            <li>Added video of successful pings and replies over AX.25 between two VHF radios.</li>
-	</ul>
-	1/23/2017
-	<ul>
-            <li>Added video of Raspberry Pi sending out ping packets over AX.25 over VHF radio.</li>
-	</ul>
-	1/15/2017
-	<ul>
-            <li>Added photos of inital assembly and test of 100V to 5V 10A Forward Converter.</li>
-	</ul>
-	1/11/2017
-	<ul>
-            <li> Added photos of PCB of 100V to 5V 10A Forward Converter.</li>
-	</ul>
-	1/1/2017
-	<ul>
-            <li> Happy New Year! Go Trump!</li>
-	</ul>
-	10/6/2016
-	<ul>
-            <li> Added section on hacking the TL494 LTSpice model.</li>
-	</ul>
+	
 	
 	<a href="aside_archives.html">Archives</a><br>
     </aside>
