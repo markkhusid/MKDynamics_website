@@ -1,8 +1,413 @@
+<!DOCTYPE html>
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-58919029-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
 <html>
-  <head>
-    <title></title>
-    <meta content="">
-    <style></style>
-  </head>
-  <body>This is a test</body>
+
+<head>
+  <meta content="text/html; charset=utf-8" http-equiv="content-type">
+  <meta name="robots" content="follow" />
+  
+  <title>
+    MK Dynamics - Electronics - Power Electronics - Quasi-DC Power Converter
+  </title>
+  
+  <link href="../../../css/styles.css" type = "text/css" rel = "stylesheet" />
+  
+  <style>
+    .content {
+	overflow: auto;
+	height: 80%; 
+	background: url("../../../images/galaxy1.jpg") no-repeat center center fixed;
+	background-size: cover;
+	background-position: center;
+	padding: 10px;
+	margin: 10px;
+	border: 5px solid black;
+      }
+      
+    h1, h2, h3, h4 {
+      color: white;
+      display: block;     
+    }
+    
+    .current_project_1 {
+      border		: 5px solid black;
+      background	: gray;
+      position		: relative;
+      width		: 1250px;
+      height		: 800px;
+      top		: 0px;
+      left		: 0px;
+      float		: left;
+      margin		: 10px;
+      padding-left	: 10px;
+    }
+    
+    .current_project_2 {
+      border		: 5px solid black;
+      background	: gray;
+      position		: relative;
+      width		: 1250px;
+      height		: 2500px;
+      top		: 0px;
+      left		: 0px;
+      float		: left;
+      margin		: 10px;
+      padding-left	: 10px;
+    }
+    
+    .current_project_3 {
+      border		: 5px solid black;
+      background	: gray;
+      position		: relative;
+      width		: 1250px;
+      height		: 3400px;
+      top		: 0px;
+      left		: 0px;
+      float		: left;
+      margin		: 10px;
+      padding-left	: 10px;
+    }
+    
+    .current_project_4 {
+      border		: 5px solid black;
+      background	: gray;
+      position		: relative;
+      width		: 1250px;
+      height		: 6000px;
+      top		: 0px;
+      left		: 0px;
+      float		: left;
+      margin		: 10px;
+      padding		: 10px;
+    }
+    
+    .current_project_5 {
+      border		: 5px solid black;
+      background	: gray;
+      position		: relative;
+      width		: 1250px;
+      height		: 5000px;
+      top		: 0px;
+      left		: 0px;
+      float		: left;
+      margin		: 10px;
+      padding		: 10px;
+    }
+    
+    div .img {
+      margin		: 0px;
+      padding		: 10px;
+      height		: auto;
+      width		: auto;
+      float		: left;
+    }
+    
+    div .img img {
+      display		: inline;
+      margin		: 0px;
+      padding		: 0px;
+    }
+    
+    div .desc {
+      color		: white;
+      width		: 600px;
+      margin		: 5px;
+      padding		: 10px;
+    }
+    
+    .FloatLeft {
+        float           : left;
+        margin          : 0px;
+    }
+    
+    ul {
+      color		: white;
+    }
+    
+    div .loose_text {
+      color		: white;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="wrapper">
+    <header>
+    
+      <hgroup>
+	<h1> 
+	    <big> <big> MK Dynamics </big> </big>
+	</h1>
+
+
+	<h2>
+	  Electronics - Quasi-DC Converter
+	</h2>
+      </hgroup>
+    
+      <nav>
+	<ul>
+	  <li> <a href="../../../index.php">Home</a> </li>
+	  <li> <a href="../../current_projects_electronics.html">Back</a> </li>
+	</ul>
+      </nav>
+    
+    </header>
+    
+    <section class="content">
+  
+<!-- ************************************************************************************************************ -->      
+    <section class="first_section">
+   
+        <div class="current_project_1">
+            <hgroup>
+            <h3>
+                Introduction
+            </h3>
+            </hgroup>
+
+            <div class="loose_text">
+                The item is a Quasi-DC power converter that is fed with up to 130VDC from series connected solar panels and converts this input into pulsating DC output with a 99% on-time duty-cycle.  This technique was invented and pioneered by Marvin Motsenbocker as demonstrated in the links below: <br><br>
+                <a href="http://yugeshima.com/diygrid/company/">DIY Grid Company</a><br>
+                <a href="https://www.youtube.com/watch?v=3vy1DrCNJ3I">Node Based Grids Youtube Presentation</a><br><br>
+                
+                The maximum load current is 10A.  The item is intended mainly for indoor use, but can see operation outdoors.
+                Specific requirements are shown below:
+            </div> <!-- .loose-text -->
+            
+            <hgroup>
+                <h3>
+                    Requirements:
+                </h3>
+            </hgroup>
+                <ul>
+                
+                <li>Voltage input</li>
+                <ul>
+                    <li>100V nominal</li>
+                    <li>130V maximum</li>
+                    <li>70V minimum</li>
+                </ul>
+                
+                <li>Current available</li>
+                <ul>
+                    <li>10A maximum</li>
+                </ul>
+                
+                <li>Voltage Output</li>
+                <ul>
+                    <li>Nominal output voltage: Slightly less than input voltage, pulsating DC, 99% on-time duty-cycle</li>
+                </ul>
+                
+                <li>Current Output</li>
+                <ul>
+                    <li>Minimum load: 0 Amps</li>
+                    <li>Maximum load: 10A</li>
+                </ul>
+                
+                <li>Environment</li>
+                    <ul>
+                        <li>Interfaces to household wiring</li>
+                        <li>Will see outdoor use in protected environment</li>
+                        <li>If used outdoor may be exposed to lightning</li>
+                    </ul>
+                    
+                <li>Components</li>
+                    <ul>
+                        <li>Must use the TL494 PWM IC and LM358 Op Amp IC for parts commonality</li>
+                    </ul>
+                </ul>
+
+        </div> <!-- .current_project_1 -->
+    </section> <!-- first_section -->
+<!-- ************************************************************************************************************ -->      
+
+<!-- ************************************************************************************************************ -->      
+    <section class="second_section">
+
+        <div class="current_project_2">
+
+            <hgroup>
+                <h2>
+                    Circuit Design Discussion
+                </h2>
+            </hgroup>
+
+            <div class="loose_text">
+                <p>
+                    The item is a Quasi-DC supply circuit that accepts a nominal solar panel voltage of 130V DC and outputs a pulsating DC waveform whose duty-cycle is 99% on-time. The maximum load current is 10A.
+                </p>
+
+                <p>
+                    As the inventor Marvin Mostenbocker has shown, many household items can safely be powered by pulsating DC voltage whose peak voltage is the same as the RMS voltage of common household wiring.  In the United States this RMS voltage is commonly accepted to be 120VRMS.  In other words, items such as coffee pots, electric hot plates and hot water tanks that normally run off of AC household wiring can also safely and effectively be powered by pulsating DC with a 99% on-time duty-cycle.  Powering common household items this way has great economic benefits to people who power their homes using solar power.  The reason is that there is no need to perform wasteful DC to AC power conversions.  Pulsating DC is also much softer on disconnects such as switches and bi-metallic contactors, because there is a portion of time when the contact to contact voltage is at or near zero.  Therefore, there is no commensurate spark such that occurs when diconnecting DC current.
+                </p>
+
+                <p>
+                    To demonstrate this we offer the following simulation schematics and simulation runs:
+                </p>
+
+            </div> <!-- .loose_text -->
+
+            <figure class="FloatLeft">
+                <div class="img">
+                    <img 
+                        src="../../Electronics/Images/Dual_pulser/dual_pulser_sim_10A_load.jpg"
+                        width="1200"
+                        height="800"
+                        title="dual_pulser_sim_10A_load.jpg"
+                    >
+                </div> <!-- .img -->
+
+                <div class="desc">
+                    Quasi-DC Power Converter simulation circuit at 10A load current
+                </div> <!-- .desc -->
+            </figure>
+            
+            <div class="loose_text">
+                <p>
+                    In the circuit above, the TL494 PWM IC is setup to PWM the gate of the MOSFET M1 at a 99% duty-cycle.  The exact duty cycle may be adjusted with the simulated potentiometer composed of R15 and R16.  The load is purely resistive.  In the next section we will deal with <i>slightly</i> inductive loads.  We say <i>slightly</i> because performing this switching technique with heavily inductive loads is challenging.
+                </p>
+                
+                <p>
+                    The following image shows the results of the simulation run.
+                </p>
+
+            </div> <!-- .loose_text -->
+
+            <figure class="FloatLeft">
+                <div class="img">
+                    <img 
+                        src="../../Electronics/Images/Dual_pulser/dual_pulser_sim_10A_plot.jpg"
+                        width="1200"
+                        height="800"
+                        title="dual_pulser_sim_10A_plot.jpg"
+                    >
+                </div> <!-- .img -->
+
+                <div class="desc">
+                    Quasi-DC Power Converter simulation results at 10A load current 
+                </div> <!-- .desc -->
+            </figure>
+            
+            <div class="loose_text">
+            
+                <p>
+                    In the simulation run above, the M1's gate voltage is shown, as well as the load current.  This run clearly demonstrates the theoritcal operation of this power converter running at 99% on-time duty-cycle.  The load current is just shy of 10A due to voltage drops in the MOSFET and current sense resistor.
+                </p>
+
+            </div> <!-- .loose_text -->
+            
+        </div> <!-- .current_project_2 -->
+            
+    </section> <!-- second_section --> 
+<!-- ************************************************************************************************************ -->      
+
+<!-- ************************************************************************************************************ -->           
+    <section class="third_section">
+      
+        <div class="current_project_3">
+            <hgroup>
+                <h2>
+                    Circuit Description and Simulation Output with slightly inductive loads.
+                </h2>
+            </hgroup>
+            
+            <div class="loose_text">
+                <p>
+                    To calculate the amount of inductace in the wiring, we use the online inductance calculator at: <br><br>
+                    <a href="http://chemandy.com/calculators/round-wire-inductance-calculator.htm">Round Wire Inductance Calculator</a>
+                </p>
+                
+                <p>
+                    The results are summarized in the website output shown below:
+                </p>
+            </div> <!-- .loose_text -->
+            
+            <figure class="FloatLeft">
+                <div class="img">
+                    <img 
+                        src="../../Electronics/Images/Dual_pulser/200cm_12AWG_inductace_calc.jpg"
+                        width="1200"
+                        height="800"
+                        title="200cm_12AWG_inductace_calc.jpg"
+                    >
+                </div> <!-- .img -->
+
+                <div class="desc">
+                    Calculation of wiring inductance of 200cm of 12 AWG wiring
+                </div> <!-- .desc -->
+            </figure>
+
+            <div class="loose_text">
+                <p>
+                    According to the calculation above, 200cm (approximately 6 feet) of 12 AWG wire has an inductance of about 3 microhenrys.  To run the simulation with this added inductance, we use the following simulation circuit:
+                </p>
+            </div> <!-- .loose_text -->
+            
+            <figure class="FloatLeft">
+                <div class="img">
+                    <img 
+                        src="../../Electronics/Images/Dual_pulser/dual_pulser_sim_10A_load_3micH_ind.jpg"
+                        width="1200"
+                        height="800"
+                        title="dual_pulser_sim_10A_load_3micH_ind.jpg"
+                    >
+                </div> <!-- .img -->
+
+                <div class="desc">
+                    Quasi-DC Power Converter simulation results at 10A load current and 3 microhenry wiring inductace
+                </div> <!-- .desc -->
+            </figure>
+
+            <div class="loose_text">
+            
+            <div class="loose_text">
+                <p>
+                    The simulation output is shown below:
+                </p>
+            </div> <!-- .loose_text -->
+            
+            <figure class="FloatLeft">
+                <div class="img">
+                    <img 
+                        src="../../Electronics/Images/Dual_pulser/dual_pulser_sim_10A_load_3micH_ind_plot.jpg"
+                        width="1200"
+                        height="800"
+                        title="dual_pulser_sim_10A_load_3micH_ind_plot.jpg"
+                    >
+                </div> <!-- .img -->
+
+                <div class="desc">
+                    Quasi-DC Power Converter simulation results at 10A load current and 3 microhenry wiring inductace simulation output
+                </div> <!-- .desc -->
+            </figure>
+        </div> <!-- .current_project_3 -->
+      
+    </section> <!-- .third_section -->
+    <!-- ************************************************************************************************************ -->          
+
+
+    <!-- ************************************************************************************************************ -->      
+    <section class="fourth_section">
+
+
+    </section>	<!-- .content -->
+    <!-- ************************************************************************************************************ -->      
+    
+  </div> <!-- .wrapper -->
+
+  </body>
+
 </html>
+  
