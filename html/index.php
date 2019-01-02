@@ -361,6 +361,14 @@
       
       <aside>
 	Status Updates<br><br>
+	1/2/2019
+	<ul>
+            <li>Added layout and routing for Quasi-DC Power Converter to Electronics Section.</li>
+	</ul>
+	1/1/2019
+	<ul>
+            <li>Happy New Year!</li>
+	</ul>
 	12/30/2018
 	<ul>
             <li>Added Quasi-DC Power Converter to Electronics Section.</li>
