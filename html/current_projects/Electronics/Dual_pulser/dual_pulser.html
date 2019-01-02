@@ -71,7 +71,7 @@
       background	: gray;
       position		: relative;
       width		: 1250px;
-      height		: 3400px;
+      height		: 5600px;
       top		: 0px;
       left		: 0px;
       float		: left;
@@ -366,11 +366,9 @@
                 </div> <!-- .img -->
 
                 <div class="desc">
-                    Quasi-DC Power Converter simulation results at 10A load current and 3 microhenry wiring inductace
+                    Quasi-DC Power Converter simulation results at 10A load current and 3 microhenry wiring inductance
                 </div> <!-- .desc -->
             </figure>
-
-            <div class="loose_text">
             
             <div class="loose_text">
                 <p>
@@ -389,17 +387,178 @@
                 </div> <!-- .img -->
 
                 <div class="desc">
-                    Quasi-DC Power Converter simulation results at 10A load current and 3 microhenry wiring inductace simulation output
+                    Quasi-DC Power Converter simulation results at 10A load current and 3 microhenry wiring inductance simulation output
                 </div> <!-- .desc -->
             </figure>
+            
+            <div class="loose_text">
+                <p>
+                    As can be seen from the above simulation output, there is a voltage spike at the trailing edge of the PWM waveform when the MOSFET turns off.  This is due to the rapid decrease of load current flowing through the wiring inductance, causing a back voltage spike.  The plot below displays a zoom in of the voltage spike in question to see its peak value and oscillation duration.
+                </p>
+            </div> <!-- .loose_text -->
+            
+            <figure class="FloatLeft">
+                <div class="img">
+                    <img 
+                        src="../../Electronics/Images/Dual_pulser/dual_pulser_sim_10A_load_3micH_ind_plot_zoom.jpg"
+                        width="1200"
+                        height="800"
+                        title="dual_pulser_sim_10A_load_3micH_ind_plot_zoom.jpg"
+                    >
+                </div> <!-- .img -->
+
+                <div class="desc">
+                    Quasi-DC Power Converter simulation results at 10A load current and 3 microhenry wiring inductance simulation output - zoom in
+                </div> <!-- .desc -->
+            </figure>
+            
+            <div class="loose_text">
+                <p>
+                    According to the above simulation zoom-in, the peak of the voltage spike is about 180Vpeak, and the ringing duration is about 10 microseconds.  The inductance value chosen for the wiring is conservative, and real world wiring inductance depends on numerous variables, which are difficult to predict without knowing the load type and installation.  With a MOSFET rated for 200Vmax drain voltage, this amount of wiring inductance is acceptable without additional snubbing circuitry for the prototype design.
+                </p>
+                
+                <p>
+                    In the next simulation output, we will examine the MOSFET's instantaneous power dissipation.
+                </p>
+            </div> <!-- .loose_text -->
+            
+            <figure class="FloatLeft">
+                <div class="img">
+                    <img 
+                        src="../../Electronics/Images/Dual_pulser/dual_pulser_sim_10A_load_3micH_ind_plot_zoom_MOSFET_power_diss.jpg"
+                        width="1200"
+                        height="800"
+                        title="dual_pulser_sim_10A_load_3micH_ind_plot_zoom_MOSFET_power_diss.jpg"
+                    >
+                </div> <!-- .img -->
+
+                <div class="desc">
+                    Quasi-DC Power Converter simulation results at 10A load current and 3 microhenry wiring inductace simulation output - power dissipation
+                </div> <!-- .desc -->
+            </figure>
+            
+            <div class="loose_text">
+                <p>
+                    According to the above simulation zoom-in, the peak power dissipation during the voltage spike is about 600W.  This ramp up in power has a duration of about 5 microseconds.  Treating the curve as a rectangle for margin, and taking its actual duration to fill half of the time difference between the cursors, we obtain a wattage of 600W for 2.5 microseconds, for a deposited energy of 1.5 millijoules.  The device chosen will need to have an avalanche rating of at least this amount for the prototype version of the board.
+                </p>
+                
+                <p>
+                    From the simulation, the steady-state on-time power dissipation in the MOSFET is 12W.  We estimate the average power dissipation in the MOSFET to be about 12W to 13W, due to the voltage spike and the slight amount of off time.  More detailed calculation will need to be performed for production versions.  The heatsinking chosen for this MOSFET is the heavy aluminum electrical box, whose thermal impedance is probably no more than 5 degrees Celcius per watt according to anecdotal observations.  This amounts to an approximately 65 degrees Celcius junction temperature rise above ambient, well within the MOSFET's absolute maximum junction temperature rating of 150 degrees Celcius.  It was decided to build the entire device and measure the actual temperature rise to get a better understanding of the actual thermal impedance.
+                </p>
+                
+            </div> <!-- .loose_text -->
+            
+            
         </div> <!-- .current_project_3 -->
-      
+
     </section> <!-- .third_section -->
     <!-- ************************************************************************************************************ -->          
 
 
     <!-- ************************************************************************************************************ -->      
     <section class="fourth_section">
+    
+        <div class="current_project_4">
+
+            <hgroup>
+                <h2>
+                    Printed Circuit Board Layout and Discussion
+                </h2>
+            </hgroup>
+
+            <div class="loose_text">
+                <p>
+                    
+                </p>
+
+                <p>
+                    
+                </p>
+
+                <p>
+                    
+                </p>
+
+            </div> <!-- .loose_text -->
+
+            <figure class="FloatLeft">
+                <div class="img">
+                    <img 
+                        src="../../Electronics/Images/Dual_pulser/dual_pulser_layout_V2.jpg"
+                        width="1200"
+                        height="800"
+                        title="dual_pulser_layout_V2.jpg"
+                    >
+                </div> <!-- .img -->
+
+                <div class="desc">
+                    Quasi-DC Power Converter Layout
+                </div> <!-- .desc -->
+            </figure>
+            
+            <figure class="FloatLeft">
+                <div class="img">
+                    <img 
+                        src="../../Electronics/Images/Dual_pulser/dual_pulser_V2_MK_gerbview_all_layers_on.jpg"
+                        width="1200"
+                        height="800"
+                        title="dual_pulser_V2_MK_gerbview_all_layers_on.jpg"
+                    >
+                </div> <!-- .img -->
+
+                <div class="desc">
+                    Quasi-DC Power Converter Layout
+                </div> <!-- .desc -->
+            </figure>
+            
+            <figure class="FloatLeft">
+                <div class="img">
+                    <img 
+                        src="../../Electronics/Images/Dual_pulser/dual_pulser_V2_MK_gerbview_GTL.jpg"
+                        width="1200"
+                        height="800"
+                        title="dual_pulser_V2_MK_gerbview_GTL.jpg"
+                    >
+                </div> <!-- .img -->
+
+                <div class="desc">
+                    Quasi-DC Power Converter Layout
+                </div> <!-- .desc -->
+            </figure>
+            
+            <figure class="FloatLeft">
+                <div class="img">
+                    <img 
+                        src="../../Electronics/Images/Dual_pulser/dual_pulser_V2_MK_gerbview_GBL.jpg"
+                        width="1200"
+                        height="800"
+                        title="dual_pulser_V2_MK_gerbview_GBL.jpg"
+                    >
+                </div> <!-- .img -->
+
+                <div class="desc">
+                    Quasi-DC Power Converter Layout
+                </div> <!-- .desc -->
+            </figure>
+            
+            <figure class="FloatLeft">
+                <div class="img">
+                    <img 
+                        src="../../Electronics/Images/Dual_pulser/dual_pulser_V2_MK_gerbview_GTO.jpg"
+                        width="1200"
+                        height="800"
+                        title="dual_pulser_V2_MK_gerbview_GTO.jpg"
+                    >
+                </div> <!-- .img -->
+
+                <div class="desc">
+                    Quasi-DC Power Converter Layout
+                </div> <!-- .desc -->
+            </figure>
+            
+            
+            
+        </div> <!-- current_project_4 -->
 
 
     </section>	<!-- .content -->
