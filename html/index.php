@@ -361,6 +361,10 @@
       
       <aside>
 	Status Updates<br><br>
+	1/4/2019
+	<ul>
+            <li>Added ARM section to Protostar Exploit Exercises Stack0</li>
+	</ul>
 	1/2/2019
 	<ul>
             <li>Added layout and routing for Quasi-DC Power Converter to Electronics Section.</li>
@@ -464,22 +468,7 @@
             <li>Added Python section. Updated SBC and Fortran sections.</li>
 	</ul>
 	
-	1/22/2018
-	<ul>
-            <li>Added the fist ten pages of my notes for the Security Tube's Buffer Overflow Megaprimer course.</li>
-	</ul>
-	1/7/2018
-	<ul>
-            <li>Updated Computer Security Section with The Security Tube material.</li>
-	</ul>
-	1/1/2018
-	<ul>
-            <li>HAPPY NEW YEAR! <br>Lots of fun and exciting things planned.</li>
-	</ul>
-	6/27/2017
-	<ul>
-            <li>Added section linking to DIY Grid.</li>
-	</ul>
+	
 	
 	
 	<a href="aside_archives.html">Archives</a><br>
