@@ -361,9 +361,13 @@
       
       <aside>
 	Status Updates<br><br>
+	1/5/2019
+	<ul>
+            <li>Added Disassembling Binaries to Computer Security Section.</li>
+	</ul>
 	1/4/2019
 	<ul>
-            <li>Added ARM section to Protostar Exploit Exercises Stack0</li>
+            <li>Added ARM section to Protostar Exploit Exercises Stack0.</li>
 	</ul>
 	1/2/2019
 	<ul>
