@@ -361,6 +361,10 @@
       
       <aside>
 	Status Updates<br><br>
+	1/13/2019
+	<ul>
+            <li>Added Disassembling Fortran, C, C++, and Pascal Binaries Placeholders to Computer Security Section.</li>
+	</ul>
 	1/5/2019
 	<ul>
             <li>Added Disassembling Binaries to Computer Security Section.</li>
@@ -455,25 +459,6 @@
             <li>Added subsection on shellcode development to Computer Security.</li>
             <li>Duplicated entire website onto AWS cloud at www.mkdynamics.net.</li>
 	</ul>
-	
-	8/6/2018
-        <ul>
-            <li>Rearragened Projects on Home Page by order of increased activity.</li>
-            <li>Started to use Jupyter Notebook for applicable Python scripts.</li>
-	</ul>
-	
-	7/14/2018
-	<ul>
-            <li>Added Conway's Game of Life to Python section.  Fixed the script to correct file I/O error.</li>
-	</ul>
-	
-	7/8/2018
-	<ul>
-            <li>Added Python section. Updated SBC and Fortran sections.</li>
-	</ul>
-	
-	
-	
 	
 	<a href="aside_archives.html">Archives</a><br>
     </aside>
