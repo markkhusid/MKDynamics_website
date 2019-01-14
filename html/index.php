@@ -361,6 +361,10 @@
       
       <aside>
 	Status Updates<br><br>
+	1/14/2019
+	<ul>
+            <li>Continued work on Protostar Stack0 i386.</li>
+	</ul>
 	1/13/2019
 	<ul>
             <li>Added Disassembling Fortran, C, C++, and Pascal Binaries Placeholders to Computer Security Section.</li>

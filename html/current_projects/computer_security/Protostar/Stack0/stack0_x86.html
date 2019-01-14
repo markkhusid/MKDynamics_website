@@ -481,11 +481,11 @@
                     <!-- ********************************************************************* Loose Text -->                
                     <div class="loose_text">
                         <p>
-                            In this section we start the program in GDB+GEF and see what it does.  As can be seen from the image below, the program waits for input on stdin.  After inputing four A's, it replies with "Try again?".
+                            In this section we start the program in GDB+GEF and see what it does.  As can be seen from the image below, the program waits for input on stdin.  After inputting four A's, it replies with "Try again?".
                         </p>
                         
                         <p>
-                            Clearly we need to disassemble the program to figure out what it does, and how we can change the <i>modified</i> variable.  We enter a breakpoint at *main (Note: not main).  We use *main so that we can get to the beginning of the main function with respect to the assembly code.  Otherwise, break main will bring us to the beginning of the variable assignments.  In this case we would have missed the very import function prefix, which sets up the stack.  It is through the stack that we are able to complete the challege.
+                            Clearly we need to disassemble the program to figure out what it does, and how we can change the <i>modified</i> variable.  We enter a breakpoint at *main (Note: not main).  We use *main so that we can get to the beginning of the main function with respect to the assembly code.  Otherwise, entering <i>break main</i> will bring us to the beginning of the variable assignments.  In this case we would have missed the very import function prefix, which sets up the stack.  It is through the stack that we are able to complete the challege.
                         </p>
                     </div> <!-- .loose_text -->
                     <!-- ********************************************************************* Loose Text -->
@@ -536,7 +536,7 @@
                     <!-- ********************************************************************* Loose Text -->                
                     <div class="loose_text">
                         <p>
-                            In this section we will visualize main's stack frame.  As seen in the previous section, the command line arguments to main are pushed onto the stack in reverse order.  Then main's return address to libc is pushed onto the stack.  Once the executable is ready to run, the stack pointer <i>ESP</i> points to main's return address.  This is the top of the stack.  Everything else that will be pushed onto the stack will enter into lower addresses, since the stack grows down in memory.
+                            In this section we will visualize main's stack frame.  As seen in the previous section, the command line arguments to main are pushed onto the stack in reverse order.  Then main's return address to libc is pushed onto the stack.  Once the executable is ready to run, the stack pointer <i>ESP</i> points to main's return address.  This is the top of the stack.  Everything else that will be pushed onto the stack will enter into lower addresses, since the stack grows downward in memory.
                         </p>
                         
                         <p>
@@ -600,13 +600,13 @@
                         
                         <tr>
                             <td align="center"></td>
-                            <td align="center">ARGV (Address of array of strings.  The first string is the executable fullpath, the second, third, etc. are the arguments)</td>
+                            <td align="center">ARGV (Address of array of strings.  The first string is the executable's full path, while the second, third, etc. are the arguments)</td>
                             <td align="center">4</td>
                         </tr>
                         
                         <tr>
                             <td align="center"></td>
-                            <td align="center">ARGC (number of command line arguments including executable name)</td>
+                            <td align="center">ARGC (number of command line arguments including the executable's name)</td>
                             <td align="center">4</td>
                         </tr>
                         
@@ -618,19 +618,19 @@
                         
                         <tr>
                             <td align="center"></td>
-                            <td align="center">garbage</td>
+                            <td align="center">previous function's stack frame data</td>
                             <td align="center">4</td>
                         </tr>
                         
                         <tr>
                             <td align="center"></td>
-                            <td align="center">garbage</td>
+                            <td align="center">previous function's stack frame data</td>
                             <td align="center">4</td>
                         </tr>
                         
                         <tr>
                             <td align="center"><b>Low Memory</b></td>
-                            <td align="center">garbage</td>
+                            <td align="center">previous function's stack frame data</td>
                             <td align="center">4</td>
                         </tr>
                     </table>
@@ -639,6 +639,10 @@
                     <div class="loose_text">
                         <p>
                             The arguments of main are pushed onto the stack in reverse order.  First is ARGV, the ARGC, then finally Main's return address is pushed onto the stack.
+                        </p>
+                        
+                        <p>
+                            What is referred to as "previous function's stack frame data" is the parts of the executable that execute prior to main's execution.  Those parts of the executable will have their own stack frames, which will not be considered here.
                         </p>
                     </div> <!-- .loose_text -->
                     <!-- ********************************************************************* Loose Text -->
@@ -658,7 +662,10 @@
                             Disassembling and Executing the Vulnerable C Program <i>stack0.c</i> with GDB+GEF
                         </h3>
                         <h4>
-                            Stepping From (main+0) to (main+1)
+                            Stepping From (main+0) to (main+1) 
+                        </h4>
+                        <h4>
+                            0x80483f4 <main+0>         push   ebp
                         </h4>
                     </hgroup>
                     
@@ -753,13 +760,13 @@
                         
                         <tr>
                             <td align="center"></td>
-                            <td align="center">garbage</td>
+                            <td align="center">previous function's stack frame data</td>
                             <td align="center">4</td>
                         </tr>
                         
                         <tr>
                             <td align="center"><b>Low Memory</b></td>
-                            <td align="center">garbage</td>
+                            <td align="center">previous function's stack frame data</td>
                             <td align="center">4</td>
                         </tr>
                     </table>
@@ -767,7 +774,7 @@
                     <!-- ********************************************************************* Loose Text -->                
                     <div class="loose_text">
                         <p>
-                            We can see that the stack pointer ESP was advanced four bytes down into lower memory, and Main's saved ebp is now on the stack.
+                            We can see that the stack pointer ESP was advanced four bytes down into lower memory, and main's saved ebp is now on the stack.
                         </p>
                     </div> <!-- .loose_text -->
                     <!-- ********************************************************************* Loose Text -->
@@ -787,7 +794,10 @@
                             Disassembling and Executing The Vulnerable C Program <i>stack0.c</i> with GDB+GEF
                         </h3>
                         <h4>
-                            Stepping From (main+1) to (main+3)
+                            Stepping From (main+1) to (main+3) 
+                        </h4>
+                        <h4>
+                            0x80483f5 <main+1>         mov    ebp, esp
                         </h4>
                     </hgroup>
                     
@@ -840,7 +850,10 @@
                             Disassembling and Executing The Vulnerable C Program <i>stack0.c</i> with GDB+GEF
                         </h3>
                         <h4>
-                            Stepping From (main+3) to (main+6)
+                            Stepping From (main+3) to (main+6) 
+                        </h4>
+                        <h4>
+                            0x80483f7 <main+3>         and    esp, 0xfffffff0
                         </h4>
                     </hgroup>
                     
@@ -949,7 +962,7 @@
                     <!-- ********************************************************************* Loose Text -->                
                     <div class="loose_text">
                         <p>
-                            We can see that the stack pointer ESP was advanced four bytes down into lower memory, and <i>esp</i> now points 8 bytes lower than previously.  The data on the stack, namely 0xf7f99000 repeated twice is probably from functions that ran prior to main's invocation.  We now advance another step and examine the effect on the stack.
+                            We can see that the stack pointer ESP was advanced eight bytes down into lower memory, and <i>esp</i> now points 8 bytes lower than previously.  The data on the stack, namely 0xf7f99000 repeated twice is probably from functions that ran prior to main's invocation.  We now advance another step and examine the effect on the stack.
                         </p>
                     </div> <!-- .loose_text -->
                     <!-- ********************************************************************* Loose Text -->
@@ -970,6 +983,9 @@
                         </h3>
                         <h4>
                             Stepping From (main+6) to (main+9)
+                        </h4>
+                        <h4>
+                            0x80483fa <main+6>         sub    esp, 0x60
                         </h4>
                     </hgroup>
                     
@@ -1106,6 +1122,9 @@
                         <h4>
                             Stepping From (main+9) to (main+17)
                         </h4>
+                        <h4>
+                            0x80483fd <main+9>         mov    DWORD PTR [esp+0x5c], 0x0
+                        </h4>
                     </hgroup>
                     
                     <!-- ********************************************************************* Loose Text -->                
@@ -1234,7 +1253,7 @@
                     <!-- ********************************************************************* Loose Text -->                
                     <div class="loose_text">
                         <p>
-                            We can see that the location on the stack at stack pointer ESP+92 (ESP+0x5C) was set to 0.  This is the <i>modified</i> local variable.  This is the variable that we need to change to complete the challenge.  The next few assembly instructions will allocate stack memory of the 64 byte buffer.  We now advance another step and examine the effect on the stack.
+                            We can see that the location on the stack at stack pointer ESP+92 (ESP+0x5C) was set to 0.  This is the <i>modified</i> local variable.  This is the variable that we need to change in order to complete the challenge.  The next few assembly instructions will allocate stack memory for the 64 byte buffer.  We now advance another step and examine the effects on the stack.
                         </p>
                     </div> <!-- .loose_text -->
                     <!-- ********************************************************************* Loose Text -->
@@ -1255,6 +1274,9 @@
                         </h3>
                         <h4>
                             Stepping From (main+17) to (main+21)
+                        </h4>
+                        <h4>
+                            0x8048405 <main+17>        lea    eax, [esp+0x1c]
                         </h4>
                     </hgroup>
                     
@@ -1287,7 +1309,7 @@
                     <!-- ********************************************************************* Loose Text -->                
                     <div class="loose_text">
                         <p>
-                            As can be seen from the disassembly above, the instruction <i>lea eax, [esp+0x1c]</i> was executed.  This instruction loads the effective address of what the location at ESP+0x1C (ESP+28) contains.  All this does is result in EAX containing the stack address ESP+0x1C (ESP+28).  This can be verified by issueing the following command:
+                            As can be seen from the disassembly above, the instruction <i>lea eax, [esp+0x1c]</i> was executed.  This instruction loads the effective address of what the location at ESP+0x1C (ESP+28) contains.  All this does is result in EAX containing the stack address ESP+0x1C (ESP+28).  This can be verified by issuing the following command:
                             <blockquote>
                                 gef➤    x/x $esp+0x1c <br>
                                         0xffffd11c:	0xf7f9c808<br>
@@ -1334,6 +1356,9 @@
                         <h4>
                             Stepping From (main+21) to (main+24)
                         </h4>
+                        <h4>
+                            0x8048409 <main+21>        mov    DWORD PTR [esp], eax
+                        </h4>
                     </hgroup>
                     
                     <!-- ********************************************************************* Loose Text -->                
@@ -1365,7 +1390,7 @@
                     <!-- ********************************************************************* Loose Text -->                
                     <div class="loose_text">
                         <p>
-                            Why has the compiler decided to use this instruction rather than a push EAX?  This is a good question, and may be a function of optimization or byte alignment.
+                            This instruction effectively "pushes" the contents of EAX onto the stack.  Why has the compiler decided to use this instruction rather than a push EAX?  This is a good question, and may be a function of optimization or byte alignment.
                         </p>
                         
                         <p>
