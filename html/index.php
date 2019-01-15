@@ -363,6 +363,10 @@
 	Status Updates<br><br>
 	1/14/2019
 	<ul>
+            <li>Added content to Disassembling Fortran Executable for 64-bit ARM Platform.</li>
+	</ul>
+	1/14/2019
+	<ul>
             <li>Continued work on Protostar Stack0 i386.</li>
 	</ul>
 	1/13/2019
