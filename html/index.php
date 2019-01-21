@@ -361,9 +361,13 @@
       
       <aside>
 	Status Updates<br><br>
+	1/20/2019
+	<ul>
+            <li>Added Ada Section to Computer Security -> Disassembling Binaries.</li>
+	</ul>
 	1/14/2019
 	<ul>
-            <li>Added content to Disassembling Fortran Executable for 64-bit ARM Platform.</li>
+            <li>Added content to Disassembling Fortran Executables for 64-bit ARM Platform.</li>
 	</ul>
 	1/14/2019
 	<ul>
