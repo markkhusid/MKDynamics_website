@@ -361,6 +361,10 @@
       
       <aside>
 	Status Updates<br><br>
+	1/21/2019
+	<ul>
+            <li>Added Computer Security -> Disassembling Binaries -> Ada -> ARM64 Section.</li>
+	</ul>
 	1/20/2019
 	<ul>
             <li>Added Ada Section to Computer Security -> Disassembling Binaries.</li>
@@ -450,27 +454,7 @@
             <li>Updates to Basic Linux Exploits in Computer Security Section.</li>
 	</ul>
 	
-	10/24/2018
-	<ul>
-            <li>Updated list of Useful Links in HAM Radio section.</li>
-	</ul>
 	
-	10/14/2018
-	<ul>
-            <li>Updates to Basic Linux Exploits in Computer Security Section.</li>
-	</ul>
-	
-	10/5/2018
-	<ul>
-            <li>Updated resume in About Me section.</li>
-            <li>Corrected formatting.</li>
-	</ul>
-	
-	10/2/2018
-	<ul>
-            <li>Added subsection on shellcode development to Computer Security.</li>
-            <li>Duplicated entire website onto AWS cloud at www.mkdynamics.net.</li>
-	</ul>
 	
 	<a href="aside_archives.html">Archives</a><br>
     </aside>
