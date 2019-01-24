@@ -361,6 +361,10 @@
       
       <aside>
 	Status Updates<br><br>
+	1/23/2019
+	<ul>
+            <li>Added Computer Security -> Disassembling Binaries -> C -> Splash screens.</li>
+	</ul>
 	1/21/2019
 	<ul>
             <li>Added Computer Security -> Disassembling Binaries -> Ada -> ARM64 Section.</li>
