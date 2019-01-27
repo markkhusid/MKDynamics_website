@@ -84,7 +84,7 @@
       background	: gray;
       position		: relative;
       width		: 1360px;
-      height		: 4500px;
+      height		: 7800px;
       top		: 000px;
       left		: 0px;
       float		: left;
@@ -501,50 +501,54 @@ Display information from object (file(s)).
                             The following text from the executable's objdump illustrates this:
                             <blockquote>
 <pre>
-00000000000007c4 (MAIN__):
+00010560 (MAIN__):
 program add
- 7c4:	d10043ff 	sub	sp, sp, #0x10
+   10560:	e52db004 	push	{fp}		; (str fp, [sp, #-4]!)
+   10564:	e28db000 	add	fp, sp, #0
+   10568:	e24dd014 	sub	sp, sp, #20
 
-    implicit none
+	implicit none
 
-    integer    :: a, b, c
+	integer		:: a, b, c
 
-    a = 1
- 7c8:	52800020 	mov	w0, #0x1                   	// #1
- 7cc:	b9000fe0 	str	w0, [sp, #12]
-    b = 9
- 7d0:	52800120 	mov	w0, #0x9                   	// #9
- 7d4:	b9000be0 	str	w0, [sp, #8]
+	a = 1
+   1056c:	e3a03001 	mov	r3, #1
+   10570:	e50b3008 	str	r3, [fp, #-8]
+	b = 9
+   10574:	e3a03009 	mov	r3, #9
+   10578:	e50b300c 	str	r3, [fp, #-12]
 
-    c = a + b
- 7d8:	b9400fe1 	ldr	w1, [sp, #12]
- 7dc:	b9400be0 	ldr	w0, [sp, #8]
- 7e0:	0b000020 	add	w0, w1, w0
- 7e4:	b90007e0 	str	w0, [sp, #4]
+	c = a + b
+   1057c:	e51b2008 	ldr	r2, [fp, #-8]
+   10580:	e51b300c 	ldr	r3, [fp, #-12]
+   10584:	e0823003 	add	r3, r2, r3
+   10588:	e50b3010 	str	r3, [fp, #-16]
 
 end program add
- 7e8:	d503201f 	nop
- 7ec:	910043ff 	add	sp, sp, #0x10
- 7f0:	d65f03c0 	ret
+   1058c:	e1a00000 	nop			; (mov r0, r0)
+   10590:	e28bd000 	add	sp, fp, #0
+   10594:	e49db004 	pop	{fp}		; (ldr fp, [sp], #4)
+   10598:	e12fff1e 	bx	lr
 
-00000000000007f4 (main):
- 7f4:	a9be7bfd 	stp	x29, x30, [sp, #-32]!
- 7f8:	910003fd 	mov	x29, sp
- 7fc:	b9001fa0 	str	w0, [x29, #28]
- 800:	f9000ba1 	str	x1, [x29, #16]
- 804:	f9400ba1 	ldr	x1, [x29, #16]
- 808:	b9401fa0 	ldr	w0, [x29, #28]
- 80c:	97ffff95 	bl	660 <_gfortran_set_args@plt>
- 810:	90000000 	adrp	x0, 0 <_init-0x628>
- 814:	91236000 	add	x0, x0, #0x8d8
- 818:	aa0003e1 	mov	x1, x0
- 81c:	528000e0 	mov	w0, #0x7                   	// #7
- 820:	97ffffa4 	bl	6b0 <_gfortran_set_options@plt>
- 824:	97ffffe8 	bl	7c4 <MAIN__>
- 828:	52800000 	mov	w0, #0x0                   	// #0
- 82c:	a8c27bfd 	ldp	x29, x30, [sp], #32
- 830:	d65f03c0 	ret
- 834:	00000000 	.inst	0x00000000 ; undefined
+0001059c (main):
+   1059c:	e92d4800 	push	{fp, lr}
+   105a0:	e28db004 	add	fp, sp, #4
+   105a4:	e24dd008 	sub	sp, sp, #8
+   105a8:	e50b0008 	str	r0, [fp, #-8]
+   105ac:	e50b100c 	str	r1, [fp, #-12]
+   105b0:	e51b100c 	ldr	r1, [fp, #-12]
+   105b4:	e51b0008 	ldr	r0, [fp, #-8]
+   105b8:	ebffff9b 	bl	1042c (_gfortran_set_args@plt)
+   105bc:	e59f1018 	ldr	r1, [pc, #24]	; 105dc (main+0x40)
+   105c0:	e3a00009 	mov	r0, #9
+   105c4:	ebffff95 	bl	10420 (_gfortran_set_options@plt)
+   105c8:	ebffffe4 	bl	10560 (MAIN__)
+   105cc:	e3a03000 	mov	r3, #0
+   105d0:	e1a00003 	mov	r0, r3
+   105d4:	e24bd004 	sub	sp, fp, #4
+   105d8:	e8bd8800 	pop	{fp, pc}
+   105dc:	00010650 	andeq	r0, r1, r0, asr r6
+
 
 </pre>
                             </blockquote>
@@ -564,7 +568,7 @@ Breakpoint 3 at 0xaaaaaaaaa7c4: file add.f08, line 1.
                         </p>
                         
                         <p>
-                            The aarch32 has allot of registers (36 registers visible in GEF), and it becomes necessary to zoom out the screen to see the entire output of GEF.  For easier viewing on this website, we will display the output of GEF using two screenshots.
+                            For easier viewing on this website, we will display the output of GEF using two screenshots.
                         </p>
                         
                     </div> <!-- .loose_text -->
@@ -573,7 +577,7 @@ Breakpoint 3 at 0xaaaaaaaaa7c4: file add.f08, line 1.
                     <figure>
                             <div class="img">
                                 <img 
-                                src="../../../images/Disassembling_binaries/Fortran/ARM32/running_add_Fortran_aarch32_in_GEF_showing_MAIN__1.jpg"
+                                src="../../../images/Disassembling_binaries/Fortran/ARM32/running_add_int_Fortran_ARM32_in_GEF_showing_MAIN__1.jpg"
                                 width="1250"
                                 height="900"
                                 title=""
@@ -589,7 +593,7 @@ Breakpoint 3 at 0xaaaaaaaaa7c4: file add.f08, line 1.
                     <figure>
                             <div class="img">
                                 <img 
-                                src="../../../images/Disassembling_binaries/Fortran/ARM32/running_add_Fortran_aarch32_in_GEF_showing_MAIN__2.jpg"
+                                src="../../../images/Disassembling_binaries/Fortran/ARM32/running_add_int_Fortran_ARM32_in_GEF_showing_MAIN__2.jpg"
                                 width="1250"
                                 height="900"
                                 title=""
@@ -611,75 +615,239 @@ Breakpoint 3 at 0xaaaaaaaaa7c4: file add.f08, line 1.
                         <p>
                             <blockquote>
 <pre>
-00000000000007c4 (MAIN__):
+00010560 (MAIN__):
 program add
- 7c4:	d10043ff 	sub	sp, sp, #0x10
+   10560:	e52db004 	push	{fp}		; (str fp, [sp, #-4]!)
+    // Pushes the frame pointer (R11) onto the stack.  This can also be understood as fetch SP-4, store into FP (R11) and then 
+    // perform SP-4.  The ! performs [sp, #-4] in the pre-indexing mode.
+   
+   10564:	e28db000 	add	fp, sp, #0
+    // Adds a zero to SP (R13) and stores the results into FP (R11)
+   
+    // These two instructions can be understood as saving the old frame pointer onto the stack and copying the stack pointer (R13)
+    // into the frame pointer (R11).  This sets up a stack from for the function MAIN__, 
+    // and local variables can now be accessed via the frame pointer.
+   
+   10568:	e24dd014 	sub	sp, sp, #20
+    // Subtracts 20 bytes from the stack pointer.  Each variable takes up 4 bytes, and therefore, 12 bytes for the variables a, b, and c.  
+    // The state of the stack before the first instruction in MAIN__ is executed is:
+    
+────────────────────────────────────────────────────────────────────────────────────────────────────── registers ────
+$r0  : 0x0       
+$r1  : 0x7effeeb8  →  0x00000000
+$r2  : 0x0       
+$r3  : 0x0       
+$r4  : 0x000105e0  →  (__libc_csu_init+0) push {r4,  r5,  r6,  r7,  r8,  r9,  r10,  lr}
+$r5  : 0x0       
+$r6  : 0x00010438  →  (_start+0) mov r11,  #0
+$r7  : 0x0       
+$r8  : 0x0       
+$r9  : 0x0       
+$r10 : 0x76fff000  →  0x00030f44  →  0x00000000
+$r11 : 0x7effeffc  →  0x76d15678  →  (__libc_start_main+276) bl 0x76d2ce1c (__GI_exit)
+$r12 : 0x20      
+$sp  : 0x7effeff0  →  0x7efff154  →  0x7efff2d4  →  "/home/pi/Engineering/GITHUB/Disassembling-Binaries[...]"
+$lr  : 0x000105cc  →  (main+48) mov r3,  #0
+$pc  : 0x00010560  →  (MAIN__+0) push {r11}		; (str r11,  [sp,  #-4]!)
+$cpsr: [thumb fast interrupt overflow CARRY ZERO negative]
+───────────────────────────────────────────────────────────────────────────────────────────────────── stack ────
+0x7effeff0│+0x0000: 0x7efff154  →  0x7efff2d4  →  "/home/pi/Engineering/GITHUB/Disassembling-Binaries[...]"	 ← $sp
+0x7effeff4│+0x0004: 0x00000001
+0x7effeff8│+0x0008: 0x00000000
+0x7effeffc│+0x000c: 0x76d15678  →  (__libc_start_main+276) bl 0x76d2ce1c (__GI_exit)	 ← $r11
+0x7efff000│+0x0010: 0x76e3a000  →  0x0013af20
+0x7efff004│+0x0014: 0x7efff154  →  0x7efff2d4  →  "/home/pi/Engineering/GITHUB/Disassembling-Binaries[...]"
+0x7efff008│+0x0018: 0x00000001
+0x7efff00c│+0x001c: 0x0001059c  →  (main+0) push {r11,  lr}
+────────────────────────────────────────────────────────────────────────────────────────────── code:arm:ARM ────
+      0x10554 (frame_dummy+44) b      0x104c8 (register_tm_clones)
+      0x10558 (frame_dummy+48) strdeq r0,  [r2],  -r12
+      0x1055c (frame_dummy+52) andeq  r0,  r0,  r0
+ →    0x10560 (MAIN__+0)       push   {r11}		; (str r11,  [sp,  #-4]!)
+      0x10564 (MAIN__+4)       add    r11,  sp,  #0
+      0x10568 (MAIN__+8)       sub    sp,  sp,  #20
+      0x1056c (MAIN__+12)      mov    r3,  #1
+      0x10570 (MAIN__+16)      str    r3,  [r11,  #-8]
+      0x10574 (MAIN__+20)      mov    r3,  #9
 
+    
+    // R11 is dereferenced and the contents at memory location 0x76d15678 is pushed onto the stack.
+    // The state of the stack right before execution of the instruction sub   sp, sp, #20 is:
+    
+────────────────────────────────────────────────────────────────────────────────────────────────── registers ────
+$r0  : 0x0       
+$r1  : 0x7effeeb8  →  0x00000000
+$r2  : 0x0       
+$r3  : 0x0       
+$r4  : 0x000105e0  →  (__libc_csu_init+0) push {r4,  r5,  r6,  r7,  r8,  r9,  r10,  lr}
+$r5  : 0x0       
+$r6  : 0x00010438  →  (_start+0) mov r11,  #0
+$r7  : 0x0       
+$r8  : 0x0       
+$r9  : 0x0       
+$r10 : 0x76fff000  →  0x00030f44  →  0x00000000
+$r11 : 0x7effefec  →  0x7effeffc  →  0x76d15678  →  (__libc_start_main+276) bl 0x76d2ce1c (__GI_exit)
+$r12 : 0x20      
+$sp  : 0x7effefec  →  0x7effeffc  →  0x76d15678  →  (__libc_start_main+276) bl 0x76d2ce1c (__GI_exit)
+$lr  : 0x000105cc  →  (main+48) mov r3,  #0
+$pc  : 0x00010568  →  (MAIN__+8) sub sp,  sp,  #20
+$cpsr: [thumb fast interrupt overflow CARRY ZERO negative]
+─────────────────────────────────────────────────────────────────────────────────────────────────────── stack ────
+0x7effefec│+0x0000: 0x7effeffc  →  0x76d15678  →  (__libc_start_main+276) bl 0x76d2ce1c (__GI_exit)	 ← $r11, $sp
+0x7effeff0│+0x0004: 0x7efff154  →  0x7efff2d4  →  "/home/pi/Engineering/GITHUB/Disassembling-Binaries[...]"
+0x7effeff4│+0x0008: 0x00000001
+0x7effeff8│+0x000c: 0x00000000
+0x7effeffc│+0x0010: 0x76d15678  →  (__libc_start_main+276) bl 0x76d2ce1c (__GI_exit)
+0x7efff000│+0x0014: 0x76e3a000  →  0x0013af20
+0x7efff004│+0x0018: 0x7efff154  →  0x7efff2d4  →  "/home/pi/Engineering/GITHUB/Disassembling-Binaries[...]"
+0x7efff008│+0x001c: 0x00000001
+───────────────────────────────────────────────────────────────────────────────────────────────── code:arm:ARM ────
+      0x1055c (frame_dummy+52) andeq  r0,  r0,  r0
+      0x10560 (MAIN__+0)       push   {r11}		; (str r11,  [sp,  #-4]!)
+      0x10564 (MAIN__+4)       add    r11,  sp,  #0
+ →    0x10568 (MAIN__+8)       sub    sp,  sp,  #20
+      0x1056c (MAIN__+12)      mov    r3,  #1
+      0x10570 (MAIN__+16)      str    r3,  [r11,  #-8]
+      0x10574 (MAIN__+20)      mov    r3,  #9
+      0x10578 (MAIN__+24)      str    r3,  [r11,  #-12]
+      0x1057c (MAIN__+28)      ldr    r2,  [r11,  #-8]
+
+    // We can see that SP and FP (R12) point to the same stack address.  Now we look at the state of the stack after the 
+    // the instruction sub   sp, sp, #20 is executed:
+    
+───────────────────────────────────────────────────────────────────────────────────────────────────── registers ────
+$r0  : 0x0       
+$r1  : 0x7effeeb8  →  0x00000000
+$r2  : 0x0       
+$r3  : 0x0       
+$r4  : 0x000105e0  →  (__libc_csu_init+0) push {r4,  r5,  r6,  r7,  r8,  r9,  r10,  lr}
+$r5  : 0x0       
+$r6  : 0x00010438  →  (_start+0) mov r11,  #0
+$r7  : 0x0       
+$r8  : 0x0       
+$r9  : 0x0       
+$r10 : 0x76fff000  →  0x00030f44  →  0x00000000
+$r11 : 0x7effefec  →  0x7effeffc  →  0x76d15678  →  (__libc_start_main+276) bl 0x76d2ce1c (__GI_exit)
+$r12 : 0x20      
+$sp  : 0x7effefd8  →  0x76ffecf0  →  0x00000000
+$lr  : 0x000105cc  →  (main+48) mov r3,  #0
+$pc  : 0x0001056c  →  (MAIN__+12) mov r3,  #1
+$cpsr: [thumb fast interrupt overflow CARRY ZERO negative]
+─────────────────────────────────────────────────────────────────────────────────────────────────────────── stack ────
+0x7effefd8│+0x0000: 0x76ffecf0  →  0x00000000	 ← $sp
+0x7effefdc│+0x0004: 0x00000018
+0x7effefe0│+0x0008: 0x00000000
+0x7effefe4│+0x000c: 0x00000000
+0x7effefe8│+0x0010: 0x000105e0  →  (__libc_csu_init+0) push {r4,  r5,  r6,  r7,  r8,  r9,  r10,  lr}
+0x7effefec│+0x0014: 0x7effeffc  →  0x76d15678  →  (__libc_start_main+276) bl 0x76d2ce1c (__GI_exit)	 ← $r11
+0x7effeff0│+0x0018: 0x7efff154  →  0x7efff2d4  →  "/home/pi/Engineering/GITHUB/Disassembling-Binaries[...]"
+0x7effeff4│+0x001c: 0x00000001
+───────────────────────────────────────────────────────────────────────────────────────────────────── code:arm:ARM ────
+      0x10560 (MAIN__+0)       push   {r11}		; (str r11,  [sp,  #-4]!)
+      0x10564 (MAIN__+4)       add    r11,  sp,  #0
+      0x10568 (MAIN__+8)       sub    sp,  sp,  #20
+ →    0x1056c (MAIN__+12)      mov    r3,  #1
+      0x10570 (MAIN__+16)      str    r3,  [r11,  #-8]
+      0x10574 (MAIN__+20)      mov    r3,  #9
+      0x10578 (MAIN__+24)      str    r3,  [r11,  #-12]
+      0x1057c (MAIN__+28)      ldr    r2,  [r11,  #-8]
+      0x10580 (MAIN__+32)      ldr    r3,  [r11,  #-12]
+
+    // After the instruction sub    sp, sp, #20 was executed, the stack pointer moved down by 20 bytes in memory.  
+    // R11 was pushed onto the stack and resides at SP+20 (0x14 hex).  At SP+16 (0x10 hex) we have main's  
+    // stack frame.  This is why the compiler allocted 20 bytes of memory.  From SP+0 to SP+12 are allocated 
+    // for the three local variables within MAIN__.  These variables are a, b, and c.
+
+    
     implicit none
 
-    integer    :: a, b, c
+	integer		:: a, b, c
 
-    a = 1
- 7c8:	52800020 	mov	w0, #0x1                // #1 - Moves a 1 into register w0
- 7cc:	b9000fe0 	str	w0, [sp, #12]           //  - Stores the contents of register w0 into the stack pointer + 12.  
-                                                        //  Recall that even though the machine is 64 bit, when defining a                              
-                                                        //  variable as an integer, it is 32 bits in size.  In Fortran there are 
-                                                        //  ways of changing the size of the integer as stored in memory.  
-                                                        //  The compiler set aside 4x3 = 12 bytes to store these integers.  
-                                                        //  The integer variable a is at sp + 12.
-
-    b = 9
- 7d0:	52800120 	mov	w0, #0x9                // #9 - Moves a 1 into register w0
- 7d4:	b9000be0 	str	w0, [sp, #8]            //  - Stores the contents of register w0 into stack pointer + 8.  
-                                                        // See above discussion for explanation.
-
-    c = a + b                                           //  Now that the stack contains the addends, the machine can perform the operation.
- 7d8:	b9400fe1 	ldr	w1, [sp, #12]           //  The variable a is loaded into register w1.
- 7dc:	b9400be0 	ldr	w0, [sp, #8]            //  The variable b is loaded into register w0.
- 7e0:	0b000020 	add	w0, w1, w0              //  w0 + w1 and store result into w0
- 7e4:	b90007e0 	str	w0, [sp, #4]            //  Store the value in w0 into stack pointer + 4.  
-                                                        //  Stack pointer + 4 is reserved for the integer variable c.
-
+	a = 1
+   1056c:	e3a03001 	mov	r3, #1
+   10570:	e50b3008 	str	r3, [fp, #-8]
+    // Move a 1 into R3.  Store the contents of R3 into FP-8 (R11-8).  Since local variables are referenced relative
+    // to the frame pointer, and since the frame pointer points to the address 0x7effefec, FP-8 equals 0x7effefe4
+    
+	b = 9
+   10574:	e3a03009 	mov	r3, #9
+   10578:	e50b300c 	str	r3, [fp, #-12]
+    // Move a 9 into R3.  Store the contents of R2 into FP-12 (R11-12).  Since local variables are referenced relative
+    // to the frame pointer, and since the frame pointer points to the address 0x7effefec, FP-12 equals 0x7effefe0
+    
+	c = a + b
+   1057c:	e51b2008 	ldr	r2, [fp, #-8]
+   10580:	e51b300c 	ldr	r3, [fp, #-12]
+   10584:	e0823003 	add	r3, r2, r3
+   10588:	e50b3010 	str	r3, [fp, #-16]
+    // Load the contents of FP-8 (local variable a) into R2.  Load the contents of FP-12 (local variable b) into R3.
+    // Add R3 to R2 and store the result into R3.  Store the contents of R3 (the sum result) into FP-16.
+    // Since local variables are referenced relative to the frame pointer, and since the frame pointer points to the 
+    // address 0x7effefec, FP-16 equals 0x7effefdc.
+   
 end program add
- 7e8:	d503201f 	nop                             //  No Operation.  Usied for 64 bit boundary alignment.  
-                                                        //  Interesting as to why that specific set of opcodes are used. Hmmmm....
- 7ec:	910043ff 	add	sp, sp, #0x10           //  Clean up the stack.  Subtract 16 from the stack pointer.  
-                                                        //  The additional 4 bytes beyond the three integer variables is for the base      
-                                                        //  (frame) pointer.
- 7f0:	d65f03c0 	ret                             //  Return to main by popping the return address off of 
-                                                        //  the stack into the program counter (PC).
-
+   1058c:	e1a00000 	nop			; (mov r0, r0)
+   10590:	e28bd000 	add	sp, fp, #0
+   10594:	e49db004 	pop	{fp}		; (ldr fp, [sp], #4)
+   10598:	e12fff1e 	bx	lr
+    // Perform a No Operation (NOP).  It actually copies R0 into R0.  Add 0 to the FP and store it into SP.
+    // This effectively copies the FP into SP, restoring the calling function's (main's) stack frame.
+    // Pop the saved frame pointer off of the stack and branch back to the address stored in the link register,
+    // which is the return address back to the calling function.  In this case the calling function is main.
+    
+   
+   
 </pre>
                             </blockquote>
                             
                         </p>
                         
                         <p>
-                            When stepping through the program, we can see the variables stored on the stack.  For example, in the text below, we can see at SP+4 we have 0xa (10 in decimal), which is the result of 1 + 9, or a + b.  Variable a is stored at SP + 12 and vriable b is stored at SP + 8.  I have bolded and spaced out the values on the stack for clarity.
+                            When stepping through the program, we can see the variables stored on the stack.  For example, in the text below, we can see at SP+4 we have 0xa (10 in decimal), which is the result of 1 + 9, or a + b.  Variable a is stored at SP + 12 and vriable b is stored at SP + 8.
                         </p>
                         
                         <p>
                             <blockquote>
+                            
 <pre>
-────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────── stack ────
-0x0000fffffffff250│+0x0000: 0x0000000 <b>a</b> 00000000	 ← $sp
-0x0000fffffffff258│+0x0008: 0x0000000 <b>1</b> 0000000 <b>9</b>
-0x0000fffffffff260│+0x0010: 0x0000fffffffff280  →  0x0000000000000000	 ← $x29
-0x0000fffffffff268│+0x0018: 0x0000ffffbf4956e0  →  (__libc_start_main+224) bl 0xffffbf4a9f50 (__GI_exit)
-0x0000fffffffff270│+0x0020: 0x0000fffffffff3b8  →  0x0000fffffffff5dd  →  "/home/ubuntu/Engineering/GITHUB/Disassembling-Bina[...]"
-0x0000fffffffff278│+0x0028: 0x0000000100000000
-0x0000fffffffff280│+0x0030: 0x0000000000000000
-0x0000fffffffff288│+0x0038: 0x0000aaaaaaaaa6f4  →  (_start+52) bl 0xaaaaaaaaa6a0 (abort@plt)
-────────────────────────────────────────────────────────────────────────────────────────────────────────────────── code:arm64:ARM ────
-   0xaaaaaaaaa7d8 (MAIN__+20)      ldr    w1,  [sp,  #12]
-   0xaaaaaaaaa7dc (MAIN__+24)      ldr    w0,  [sp,  #8]
-   0xaaaaaaaaa7e0 (MAIN__+28)      add    w0,  w1,  w0
- → 0xaaaaaaaaa7e4 (MAIN__+32)      str    w0,  [sp,  #4]
-   0xaaaaaaaaa7e8 (MAIN__+36)      nop    
-   0xaaaaaaaaa7ec (MAIN__+40)      add    sp,  sp,  #0x10
-   0xaaaaaaaaa7f0 (MAIN__+44)      ret    
-   0xaaaaaaaaa7f4 (main+0)         stp    x29,  x30,  [sp,  #-32]!
-   0xaaaaaaaaa7f8 (main+4)         mov    x29,  sp
+─────────────────────────────────────────────────────────────────────────────────────────── registers ────
+$r0  : 0x0       
+$r1  : 0x7effeeb8  →  0x00000000
+$r2  : 0x1       
+$r3  : 0xa       
+$r4  : 0x000105e0  →  (__libc_csu_init+0) push {r4,  r5,  r6,  r7,  r8,  r9,  r10,  lr}
+$r5  : 0x0       
+$r6  : 0x00010438  →  (_start+0) mov r11,  #0
+$r7  : 0x0       
+$r8  : 0x0       
+$r9  : 0x0       
+$r10 : 0x76fff000  →  0x00030f44  →  0x00000000
+$r11 : 0x7effefec  →  0x7effeffc  →  0x76d15678  →  (__libc_start_main+276) bl 0x76d2ce1c (__GI_exit)
+$r12 : 0x20      
+$sp  : 0x7effefd8  →  0x76ffecf0  →  0x00000000
+$lr  : 0x000105cc  →  (main+48) mov r3,  #0
+$pc  : 0x0001058c  →  (MAIN__+44) nop ; (mov r0,  r0)
+$cpsr: [thumb fast interrupt overflow CARRY ZERO negative]
+─────────────────────────────────────────────────────────────────────────────────────────────── stack ────
+0x7effefd8│+0x0000: 0x76ffecf0  →  0x00000000	 ← $sp
+0x7effefdc│+0x0004: 0x0000000a
+0x7effefe0│+0x0008: 0x00000009
+0x7effefe4│+0x000c: 0x00000001
+0x7effefe8│+0x0010: 0x000105e0  →  (__libc_csu_init+0) push {r4,  r5,  r6,  r7,  r8,  r9,  r10,  lr}
+0x7effefec│+0x0014: 0x7effeffc  →  0x76d15678  →  (__libc_start_main+276) bl 0x76d2ce1c (__GI_exit)	 ← $r11
+0x7effeff0│+0x0018: 0x7efff154  →  0x7efff2d4  →  "/home/pi/Engineering/GITHUB/Disassembling-Binaries[...]"
+0x7effeff4│+0x001c: 0x00000001
+───────────────────────────────────────────────────────────────────────────────────────── code:arm:ARM ────
+      0x10580 (MAIN__+32)      ldr    r3,  [r11,  #-12]
+      0x10584 (MAIN__+36)      add    r3,  r2,  r3
+      0x10588 (MAIN__+40)      str    r3,  [r11,  #-16]
+ →    0x1058c (MAIN__+44)      nop    ; (mov r0,  r0)
+      0x10590 (MAIN__+48)      add    sp,  r11,  #0
+      0x10594 (MAIN__+52)      pop    {r11}		; (ldr r11,  [sp],  #4)
+      0x10598 (MAIN__+56)      bx     lr
+      0x1059c (main+0)         push   {r11,  lr}
+      0x105a0 (main+4)         add    r11,  sp,  #4
+
    
 </pre>
                             </blockquote>

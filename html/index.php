@@ -361,6 +361,10 @@
       
       <aside>
 	Status Updates<br><br>
+	1/26/2019
+	<ul>
+            <li>Added content to Computer Security -> Disassembling Binaries -> Fortran -> ARM32.</li>
+	</ul>
 	1/23/2019
 	<ul>
             <li>Added Computer Security -> Disassembling Binaries -> C -> Splash screens.</li>
