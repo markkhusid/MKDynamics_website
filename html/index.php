@@ -361,6 +361,10 @@
       
       <aside>
 	Status Updates<br><br>
+	3/27/19
+	<ul>
+            <li>We are back!  Started updating file structure for Computer Security -> SLAE64.</li>
+	</ul>
 	1/26/2019
 	<ul>
             <li>Added content to Computer Security -> Disassembling Binaries -> Fortran -> ARM32.</li>
