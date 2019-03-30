@@ -361,6 +361,10 @@
       
       <aside>
 	Status Updates<br><br>
+	3/30/19
+	<ul>
+            <li>Made updates to Computer Security -> SLAE64 - > Hello World in 64 Bit Assembly.  Also cleaned up file structure some more.</li>
+	</ul>
 	3/27/19
 	<ul>
             <li>We are back!  Started updating file structure for Computer Security -> SLAE64.</li>
@@ -451,20 +455,7 @@
 	<ul>
             <li>Added new section under Computer Security titled LiveOverflow.  This section follows the videos from the Youtuber by that name.</li>
 	</ul>
-	11/11/2018
-	<ul>
-            <li>Added PHP web hit counter. </li>
-            <li>Added PHP to site that included numerous backend updates.</li>
-	</ul>
-	10/30/2108
-	<ul>
-            <li>Attended presentation by Jayson Street at my Alma Mater.  Added my notes under Computer Security.</li>
-	</ul>
 	
-	10/27/2018
-	<ul>
-            <li>Updates to Basic Linux Exploits in Computer Security Section.</li>
-	</ul>
 	
 	
 	

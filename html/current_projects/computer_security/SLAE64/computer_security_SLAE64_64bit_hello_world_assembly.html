@@ -21,13 +21,13 @@
     MK Dynamics - Computer Security - SLAE64 - SecurityTube Linux Assembly Language and Shellcoding Expert 64-Bit
   </title>
   
-  <link href="../../css/styles.css" type = "text/css" rel = "stylesheet" />
+  <link href="../../../css/styles.css" type = "text/css" rel = "stylesheet" />
   
   <style>
     .content {
 	overflow: auto;
 	height: 80%; 
-	background: url("../../images/saturn.jpg") no-repeat center center fixed;
+	background: url("../../../images/saturn.jpg") no-repeat center center fixed;
 	background-size: cover;
 	background-position: center;
 	padding: 10px;
@@ -238,8 +238,8 @@
 
             <nav>
                 <ul>
-                    <li> <a href="../../index.php">Home</a> </li>
-                    <li> <a href="computer_security_SLAE64.html">Back</a> </li>
+                    <li> <a href="../../../index.php">Home</a> </li>
+                    <li> <a href="../computer_security_SLAE64.html">Back</a> </li>
                 </ul>
             </nav>
     
@@ -301,7 +301,7 @@
                     <figure>
                         <div class="img">
                             <img 
-                            src="images/SLAE64/Module_1/Hello_world/64bit_hello_world_asm_code.jpg"
+                            src="../images/SLAE64/Module_1/Hello_world/64bit_hello_world_asm_code.jpg"
                             width="1250"
                             height="900"
                             title=""
@@ -340,7 +340,7 @@
                     <figure>
                         <div class="img">
                             <img 
-                            src="images/SLAE64/Module_1/Hello_world/64bit_hello_world_assembling_and_linking.jpg"
+                            src="../images/SLAE64/Module_1/Hello_world/64bit_hello_world_assembling_and_linking.jpg"
                             width="1250"
                             height="900"
                             title=""
@@ -352,6 +352,30 @@
                             <p>
                         </div> <!-- .desc -->
                     </figure>
+                    
+                    <!-- ********************************************************************* Loose Text -->                
+                    <div class="loose_text">
+                        
+                        <p>
+                            In the above screenshot, we assemble and link the program.  We then use the objdump tool to look at the opcodes within the .text section by using the <i>-d</i> switch.  Finally the program is run using:
+                            <blockquote>
+                                $ ./helloworld
+                            </blockquote>
+                        </p>
+                        
+                        <p>
+                            The "./" is needed because the executable is not in a directory listed in the PATH environment variable.
+                        </p>
+                        
+                        <p>
+                            In the objdump of the executable, we notice large amounts of null bytes (i.e. 00).  These are not good for shellcode, since in many cases, a victim process encountering a null byte as input understands the null byte as an end of the input.  This would prematurely end the victim program from receiving all of the shellcodes contents.
+                        </p>
+                        
+                        <p>
+                            In further videos in this course, the instructor shows how to remove these null bytes, while still maintaining the same functionality in the executable.
+                        </p>
+                    </div> <!-- .loose_text -->
+                    <!-- ********************************************************************* Loose Text -->
                    
                 </div> <!-- .current_project_2 -->
             
@@ -383,7 +407,7 @@
                     <figure>
                         <div class="img">
                             <img 
-                            src="images/SLAE64/Module_1/Hello_world/64bit_hello_world_in_GDB_before_run.jpg"
+                            src="../images/SLAE64/Module_1/Hello_world/64bit_hello_world_in_GDB_before_run.jpg"
                             width="1250"
                             height="900"
                             title=""
@@ -425,7 +449,7 @@
                     <figure>
                         <div class="img">
                             <img 
-                            src="images/SLAE64/Module_1/Hello_world/64bit_hello_world_in_GDB_after_run_step1.jpg"
+                            src="../images/SLAE64/Module_1/Hello_world/64bit_hello_world_in_GDB_after_run_step1.jpg"
                             width="1250"
                             height="900"
                             title=""
@@ -467,7 +491,7 @@
                     <figure>
                         <div class="img">
                             <img 
-                            src="images/SLAE64/Module_1/Hello_world/64bit_hello_world_in_GDB_after_run_step2.jpg"
+                            src="../images/SLAE64/Module_1/Hello_world/64bit_hello_world_in_GDB_after_run_step2.jpg"
                             width="1250"
                             height="900"
                             title=""
@@ -509,7 +533,7 @@
                     <figure>
                         <div class="img">
                             <img 
-                            src="images/SLAE64/Module_1/Hello_world/64bit_hello_world_in_GDB_after_run_step3.jpg"
+                            src="../images/SLAE64/Module_1/Hello_world/64bit_hello_world_in_GDB_after_run_step3.jpg"
                             width="1250"
                             height="900"
                             title=""
@@ -551,7 +575,7 @@
                     <figure>
                         <div class="img">
                             <img 
-                            src="images/SLAE64/Module_1/Hello_world/64bit_hello_world_in_GDB_after_run_step4.jpg"
+                            src="../images/SLAE64/Module_1/Hello_world/64bit_hello_world_in_GDB_after_run_step4.jpg"
                             width="1250"
                             height="900"
                             title=""
@@ -593,7 +617,7 @@
                     <figure>
                         <div class="img">
                             <img 
-                            src="images/SLAE64/Module_1/Hello_world/64bit_hello_world_in_GDB_after_run_step5.jpg"
+                            src="../images/SLAE64/Module_1/Hello_world/64bit_hello_world_in_GDB_after_run_step5.jpg"
                             width="1250"
                             height="900"
                             title=""
@@ -635,7 +659,7 @@
                     <figure>
                         <div class="img">
                             <img 
-                            src="images/SLAE64/Module_1/Hello_world/64bit_hello_world_in_GDB_after_run_step6.jpg"
+                            src="../images/SLAE64/Module_1/Hello_world/64bit_hello_world_in_GDB_after_run_step6.jpg"
                             width="1250"
                             height="900"
                             title=""
@@ -677,7 +701,7 @@
                     <figure>
                         <div class="img">
                             <img 
-                            src="images/SLAE64/Module_1/Hello_world/64bit_hello_world_in_GDB_after_run_step7.jpg"
+                            src="../images/SLAE64/Module_1/Hello_world/64bit_hello_world_in_GDB_after_run_step7.jpg"
                             width="1250"
                             height="900"
                             title=""
@@ -719,7 +743,7 @@
                     <figure>
                         <div class="img">
                             <img 
-                            src="images/SLAE64/Module_1/Hello_world/64bit_hello_world_in_GDB_after_run_step8.jpg"
+                            src="../images/SLAE64/Module_1/Hello_world/64bit_hello_world_in_GDB_after_run_step8.jpg"
                             width="1250"
                             height="900"
                             title=""
@@ -761,7 +785,7 @@
                     <figure>
                         <div class="img">
                             <img 
-                            src="images/SLAE64/Module_1/Hello_world/64bit_hello_world_in_GDB_examine_memory.jpg"
+                            src="../images/SLAE64/Module_1/Hello_world/64bit_hello_world_in_GDB_examine_memory.jpg"
                             width="1250"
                             height="900"
                             title=""
