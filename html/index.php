@@ -361,6 +361,10 @@
       
       <aside>
 	Status Updates<br><br>
+	3/31/19
+	<ul>
+            <li>Started updating screenshots in Computer Security -> SLAE64 -> Hello World in 64 Bit Assembly.  Added more verbage as well.</li>
+	</ul>
 	3/30/19
 	<ul>
             <li>Made updates to Computer Security -> SLAE64 - > Hello World in 64 Bit Assembly.  Also cleaned up file structure some more.</li>

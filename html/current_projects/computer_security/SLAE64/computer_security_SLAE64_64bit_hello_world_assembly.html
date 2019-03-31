@@ -84,7 +84,7 @@
       background	: gray;
       position		: relative;
       width		: 1370px;
-      height		: 1500px;
+      height		: 2500px;
       top		: 000px;
       left		: 0px;
       float		: left;
@@ -97,7 +97,7 @@
       background	: gray;
       position		: relative;
       width		: 1370px;
-      height		: 1500px;
+      height		: 2500px;
       top		: 000px;
       left		: 0px;
       float		: left;
@@ -110,7 +110,7 @@
       background	: gray;
       position		: relative;
       width		: 1370px;
-      height		: 1500px;
+      height		: 2500px;
       top		: 000px;
       left		: 0px;
       float		: left;
@@ -419,6 +419,24 @@
                             <p>
                         </div> <!-- .desc -->
                     </figure>
+                    
+                    <!-- ********************************************************************* Loose Text -->                
+                    <div class="loose_text">
+                        
+                        <p>
+                            From the disassembly of the _start function above, we can notice a difference between our written code and the disassembly of the _start function.  Namely, rather than involving the 64-bit versions of the registers, the assembler optimized away usage of those in favor of the 32-bit versions.  For example, the register RAX was replaced with EAX.
+                        </p>
+                        
+                        <p>
+                            From a functionality point of view, this is a moot point.  However, from a shellcoding perspective, it is desireable to have complete control over how the actual opcodes are produced.
+                        </p>
+                        
+                        <p>
+                            In the next sections, we will step through the code and describe what occurs.
+                        </p>
+                        
+                    </div> <!-- .loose_text -->
+                    <!-- ********************************************************************* Loose Text -->
                 
                 </div> <!-- .current_project_3 -->
             
@@ -440,7 +458,11 @@
                     <div class="loose_text">
                         
                         <p>
-                            Running step 1
+                            Running step <i><0x401000 <_start>:	mov    eax,0x1</i>
+                        </p>
+                        
+                        <p>
+                            Prior to running <i>mov eax, 0x1</i>, the state of the registers and stack is shown below:
                         </p>
                         
                     </div> <!-- .loose_text -->
@@ -449,7 +471,7 @@
                     <figure>
                         <div class="img">
                             <img 
-                            src="../images/SLAE64/Module_1/Hello_world/64bit_hello_world_in_GDB_after_run_step1.jpg"
+                            src="../images/SLAE64/Module_1/Hello_world/64bit_hello_world_in_GDB_before_running_step1.jpg"
                             width="1250"
                             height="900"
                             title=""
@@ -457,10 +479,46 @@
                         </div> <!-- .img -->
                         <div class="desc">
                             <p>
-                                Running step 1
+                                Prior to executing the instruction <i>mov eax, 0x1</i>
                             <p>
                         </div> <!-- .desc -->
                     </figure>
+                    
+                    <!-- ********************************************************************* Loose Text -->                
+                    <div class="loose_text">
+                        
+                        <p>
+                            The <i>mov eax, 0x1</i> instruction simply moves the immediate value 1 into the 32-bit register eax.
+                        </p>
+                        
+                    </div> <!-- .loose_text -->
+                    <!-- ********************************************************************* Loose Text -->
+                    
+                    <figure>
+                        <div class="img">
+                            <img 
+                            src="../images/SLAE64/Module_1/Hello_world/64bit_hello_world_in_GDB_after_running_step1.jpg"
+                            width="1250"
+                            height="900"
+                            title=""
+                            >
+                        </div> <!-- .img -->
+                        <div class="desc">
+                            <p>
+                                After executing the instruction <i>mov eax, 0x1</i>
+                            <p>
+                        </div> <!-- .desc -->
+                    </figure>
+                    
+                    <!-- ********************************************************************* Loose Text -->                
+                    <div class="loose_text">
+                        
+                        <p>
+                            The <i>mov eax, 0x1</i> instruction moved the immediate value 1 into the 64-bit register rax, as can be seen in the screen shot above.
+                        </p>
+                        
+                    </div> <!-- .loose_text -->
+                    <!-- ********************************************************************* Loose Text -->
                 
                 </div> <!-- .current_project_4 -->
             
@@ -482,7 +540,11 @@
                     <div class="loose_text">
                         
                         <p>
-                            Running step 2
+                            Running step <i>0x401005 <_start+5>:	mov    edi,0x1</i>
+                        </p>
+                        
+                        <p>
+                            Prior to running the command <i>mov    edi,0x1</i>, the state of the registers and stack are as shown below:
                         </p>
                         
                     </div> <!-- .loose_text -->
@@ -491,7 +553,7 @@
                     <figure>
                         <div class="img">
                             <img 
-                            src="../images/SLAE64/Module_1/Hello_world/64bit_hello_world_in_GDB_after_run_step2.jpg"
+                            src="../images/SLAE64/Module_1/Hello_world/64bit_hello_world_in_GDB_before_running_step2.jpg"
                             width="1250"
                             height="900"
                             title=""
@@ -499,10 +561,48 @@
                         </div> <!-- .img -->
                         <div class="desc">
                             <p>
-                                Running step 2
+                                Prior to running the command <i>mov    edi,0x1</i>
                             <p>
                         </div> <!-- .desc -->
                     </figure>
+                    
+                    <!-- ********************************************************************* Loose Text -->                
+                    <div class="loose_text">
+                        
+                        <p>
+                            The instruction <i>mov    edi,0x1</i> simply moves the immediate value 1 into the 32-bit register <i>edi</i>.
+                        </p>
+                        
+                    </div> <!-- .loose_text -->
+                    <!-- ********************************************************************* Loose Text -->
+                    
+                    <figure>
+                        <div class="img">
+                            <img 
+                            src="../images/SLAE64/Module_1/Hello_world/64bit_hello_world_in_GDB_after_running_step2.jpg"
+                            width="1250"
+                            height="900"
+                            title=""
+                            >
+                        </div> <!-- .img -->
+                        <div class="desc">
+                            <p>
+                                Prior to running the command <i>mov    edi,0x1</i>
+                            <p>
+                        </div> <!-- .desc -->
+                    </figure>
+                    
+                    
+                    <!-- ********************************************************************* Loose Text -->                
+                    <div class="loose_text">
+                        
+                        <p>
+                            The <i>mov eax, 0x1</i> instruction simply moved the immediate value 1 into the 64-bit register rax, as can be seen in the screen shot above.
+                        </p>
+                        
+                    </div> <!-- .loose_text -->
+                    <!-- ********************************************************************* Loose Text -->
+                    
                 
                 </div> <!-- .current_project_5 -->
             
@@ -524,7 +624,7 @@
                     <div class="loose_text">
                         
                         <p>
-                            Running step 3
+                            Running the instruction <i>0x40100a <_start+10>:	movabs rsi,0x402000</i>
                         </p>
                         
                     </div> <!-- .loose_text -->
@@ -533,7 +633,23 @@
                     <figure>
                         <div class="img">
                             <img 
-                            src="../images/SLAE64/Module_1/Hello_world/64bit_hello_world_in_GDB_after_run_step3.jpg"
+                            src="../images/SLAE64/Module_1/Hello_world/64bit_hello_world_in_GDB_before_running_step3.jpg"
+                            width="1250"
+                            height="900"
+                            title=""
+                            >
+                        </div> <!-- .img -->
+                        <div class="desc">
+                            <p>
+                                Running step 3
+                            <p>
+                        </div> <!-- .desc -->
+                    </figure>
+                    
+                    <figure>
+                        <div class="img">
+                            <img 
+                            src="../images/SLAE64/Module_1/Hello_world/64bit_hello_world_in_GDB_after_running_step3.jpg"
                             width="1250"
                             height="900"
                             title=""
