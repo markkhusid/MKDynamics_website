@@ -361,6 +361,14 @@
       
       <aside>
 	Status Updates<br><br>
+	4/6/2019
+	<ul>
+            <li>More updates to Computer Security -> SLAE64 -> Hello World in 64 Bit Assembly.</li>
+	</ul>
+	4/4/2019
+	<ul>
+            <li>Happy birthday to me!</li>
+	</ul>
 	3/31/19
 	<ul>
             <li>Started updating screenshots in Computer Security -> SLAE64 -> Hello World in 64 Bit Assembly.  Added more verbage as well.</li>

@@ -110,7 +110,7 @@
       background	: gray;
       position		: relative;
       width		: 1370px;
-      height		: 2500px;
+      height		: 2800px;
       top		: 000px;
       left		: 0px;
       float		: left;
@@ -390,7 +390,7 @@
                 
                     <hgroup>
                         <h2>
-                            Running <i>helloworld</i> in GDB + GEF
+                            Running <i>helloworld</i> in GDB + PEDA
                         </h2>
                     </hgroup>
                     
@@ -450,7 +450,7 @@
                 
                     <hgroup>
                         <h2>
-                            Running <i>helloworld</i> in GDB + GEF
+                            Running <i>helloworld</i> in GDB + PEDA
                         </h2>
                     </hgroup>
                     
@@ -532,7 +532,7 @@
                 
                     <hgroup>
                         <h2>
-                            Running <i>helloworld</i> in GDB + GEF
+                            Running <i>helloworld</i> in GDB + PEDA
                         </h2>
                     </hgroup>
                     
@@ -540,11 +540,11 @@
                     <div class="loose_text">
                         
                         <p>
-                            Running step <i>0x401005 <_start+5>:	mov    edi,0x1</i>
+                            Executing step <i>0x401005 <_start+5>:	mov    edi,0x1</i>
                         </p>
                         
                         <p>
-                            Prior to running the command <i>mov    edi,0x1</i>, the state of the registers and stack are as shown below:
+                            Prior to executing the instruction <i>mov    edi,0x1</i>, the state of the registers and stack are as shown below:
                         </p>
                         
                     </div> <!-- .loose_text -->
@@ -561,7 +561,7 @@
                         </div> <!-- .img -->
                         <div class="desc">
                             <p>
-                                Prior to running the command <i>mov    edi,0x1</i>
+                                Prior to executing the instruction <i>mov    edi,0x1</i>
                             <p>
                         </div> <!-- .desc -->
                     </figure>
@@ -587,7 +587,7 @@
                         </div> <!-- .img -->
                         <div class="desc">
                             <p>
-                                Prior to running the command <i>mov    edi,0x1</i>
+                                After executing the instruction <i>mov    edi,0x1</i>
                             <p>
                         </div> <!-- .desc -->
                     </figure>
@@ -616,7 +616,7 @@
                 
                     <hgroup>
                         <h2>
-                            Running <i>helloworld</i> in GDB + GEF
+                            Running <i>helloworld</i> in GDB + PEDA
                         </h2>
                     </hgroup>
                     
@@ -624,7 +624,11 @@
                     <div class="loose_text">
                         
                         <p>
-                            Running the instruction <i>0x40100a <_start+10>:	movabs rsi,0x402000</i>
+                            Executing step <i>0x40100a <_start+10>:	movabs rsi,0x402000</i>
+                        </p>
+                        
+                        <p>
+                            Prior to executing the instruction <i>0x40100a <_start+10>:	movabs rsi,0x402000</i>, the state of the registers and stack are as shown below:
                         </p>
                         
                     </div> <!-- .loose_text -->
@@ -641,10 +645,20 @@
                         </div> <!-- .img -->
                         <div class="desc">
                             <p>
-                                Running step 3
+                                Prior to executing the instruction <i>0x40100a <_start+10>:	movabs rsi,0x402000</i>
                             <p>
                         </div> <!-- .desc -->
                     </figure>
+                    
+                    <!-- ********************************************************************* Loose Text -->                
+                    <div class="loose_text">
+                        
+                        <p>
+                            The instruction <i>0x40100a <_start+10>:	movabs rsi,0x402000</i> simply moves the immediate value 0x402000 into the 64-bit register <i>rsi</i>.
+                        </p>
+                        
+                    </div> <!-- .loose_text -->
+                    <!-- ********************************************************************* Loose Text -->
                     
                     <figure>
                         <div class="img">
@@ -657,10 +671,44 @@
                         </div> <!-- .img -->
                         <div class="desc">
                             <p>
-                                Running step 3
+                                Exectuting the instruction <i>0x40100a <_start+10>:	movabs rsi,0x402000</i>
                             <p>
                         </div> <!-- .desc -->
                     </figure>
+                    
+                     <!-- ********************************************************************* Loose Text -->                
+                    <div class="loose_text">
+                        
+                        <p>
+                            What is the significance of the value 0x402000?  It is actually a memory address.  We will examine the data at this memory address to see what it is, using the command:
+                            <blockquote>
+                                gdb-peda$ x/s 0x402000<br>
+                                0x402000:	"Hello World to the SLAE-64 Course\n"<br>
+                                gdb-peda$ <br>
+                            </blockquote>
+                        </p>
+                        
+                        <p>
+                            So basically the contents of the array of addresses starting at 0x402000 contains the string "Hello World to the SLAE-64 Course\n".  We can see this more clearly by issuing the command:
+                            <blockquote>
+<pre>
+    gdb-peda$ x/34xb 0x402000
+    0x402000:	0x48	0x65	0x6c	0x6c	0x6f	0x20	0x57	0x6f
+    0x402008:	0x72	0x6c	0x64	0x20	0x74	0x6f	0x20	0x74
+    0x402010:	0x68	0x65	0x20	0x53	0x4c	0x41	0x45	0x2d
+    0x402018:	0x36	0x34	0x20	0x43	0x6f	0x75	0x72	0x73
+    0x402020:	0x65	0x0a
+    gdb-peda$ 
+</pre>
+                            </blockquote>
+                        </p>
+                        
+                        <p>
+                            These are nothing but the hexadecimal representations of the bytes that make up the letters of the string "Hello World to the SLAE-64 Course\n".  Notice the 0x0a at the end, which is the newline character.
+                        </p>
+                        
+                    </div> <!-- .loose_text -->
+                    <!-- ********************************************************************* Loose Text -->
                 
                 </div> <!-- .current_project_6 -->
             
