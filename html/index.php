@@ -361,6 +361,11 @@
       
       <aside>
 	Status Updates<br><br>
+	4/7/2019
+	<ul>
+            <li>Updates to Computer Security -> Disassembling Binaries -> Fortran ARM 32-Bit.</li>
+            <li>Updates to Computer Security -> SLAE64 -> Hello World in 64 Bit Assembly.</li>
+	</ul>
 	4/6/2019
 	<ul>
             <li>More updates to Computer Security -> SLAE64 -> Hello World in 64 Bit Assembly.</li>
@@ -451,22 +456,7 @@
             <li>Added simple shellcode for ARM platform a Raspberry Pi 2.</li>
             <li>Added section on Simulating ARM platform in QEMU under Single Board Computers Running Linux.</li>
 	</ul>
-	11/24/2018
-	<ul>
-            <li>Added unique website hit counter with hashed client IP in SQLite database to prevent client tracking by server.</li>
-	</ul>
-	11/17/2018
-	<ul>
-            <li>Added new section under Ham Radio titled Broadband Hamnet.  In this section I demonstrate a two-node Broadband Hamnet.</li>
-	</ul>
-	11/15/2018
-	<ul>
-            <li>Added new section under Computer Security titled SLAE64.  This section follows the Pentester Academy SLAE64 Assembly Language and shellcoding on Linux course.</li>
-	</ul>
-	11/14/2018
-	<ul>
-            <li>Added new section under Computer Security titled LiveOverflow.  This section follows the videos from the Youtuber by that name.</li>
-	</ul>
+	
 	
 	
 	

@@ -123,7 +123,7 @@
       background	: gray;
       position		: relative;
       width		: 1370px;
-      height		: 1500px;
+      height		: 4000px;
       top		: 000px;
       left		: 0px;
       float		: left;
@@ -730,7 +730,11 @@
                     <div class="loose_text">
                         
                         <p>
-                            Running step 4
+                            Executing step <i>0x401014 <_start+20>      mov    edx, 0x22</i>
+                        </p>
+                        
+                        <p>
+                            Prior to executing the instruction <i>0x401014 <_start+20>      mov    edx, 0x22</i>>, the state of the registers and stack are as shown below:
                         </p>
                         
                     </div> <!-- .loose_text -->
@@ -739,7 +743,7 @@
                     <figure>
                         <div class="img">
                             <img 
-                            src="../images/SLAE64/Module_1/Hello_world/64bit_hello_world_in_GDB_after_run_step4.jpg"
+                            src="../images/SLAE64/Module_1/Hello_world/64bit_hello_world_in_GDB_before_running_step4.jpg"
                             width="1250"
                             height="900"
                             title=""
@@ -747,10 +751,122 @@
                         </div> <!-- .img -->
                         <div class="desc">
                             <p>
-                                Running step 4
+                                Prior to executing the instruction <i>0x401014 <_start+20>      mov    edx, 0x22</i>>
                             <p>
                         </div> <!-- .desc -->
                     </figure>
+                    
+                    <!-- ********************************************************************* Loose Text -->                
+                    <div class="loose_text">
+                        
+                        <p>
+                            The instruction <i>0x401014 <_start+20>      mov    edx, 0x22</i>> simply moves the immediate value 0x22 into the 32-bit register <i>edx</i>.
+                        </p>
+                        
+                    </div> <!-- .loose_text -->
+                    <!-- ********************************************************************* Loose Text -->
+                    
+                    <figure>
+                        <div class="img">
+                            <img 
+                            src="../images/SLAE64/Module_1/Hello_world/64bit_hello_world_in_GDB_after_running_step4.jpg"
+                            width="1250"
+                            height="900"
+                            title=""
+                            >
+                        </div> <!-- .img -->
+                        <div class="desc">
+                            <p>
+                                After executing the instruction <i>0x401014 <_start+20>      mov    edx, 0x22</i>>
+                            <p>
+                        </div> <!-- .desc -->
+                    </figure>
+                    
+                    <!-- ********************************************************************* Loose Text -->                
+                    <div class="loose_text">
+                        
+                        <p>
+                            The instruction <i>0x401014 <_start+20>      mov    edx, 0x22</i>> moved the immediate value 0x22 into the 32-bit register <i>edx</i>.  The hex value 0x22 is 34 in decimal.  We will confirm this by using IPython for conversion and to get comfortable with incorporating more Python use for computing activities.
+                        </p>
+                        
+                    </div> <!-- .loose_text -->
+                    <!-- ********************************************************************* Loose Text -->
+                    
+                    <figure>
+                        <div class="img">
+                            <img 
+                            src="../images/SLAE64/Module_1/Hello_world/using_ipython_to_convert_ox22_to_decimal.jpg"
+                            width="640"
+                            height="260"
+                            title=""
+                            >
+                        </div> <!-- .img -->
+                        <div class="desc">
+                            <p>
+                                Using IPython to convert hex 0x22 into decimal
+                            <p>
+                        </div> <!-- .desc -->
+                    </figure>
+                    
+                    <!-- ********************************************************************* Loose Text -->                
+                    <div class="loose_text">
+                        
+                        <p>
+                            0x22 hex or 34 decimal is actually the length of the string "Hello World to the SLAE-64 Course\n", including the newline character \n.  This was actually computed by the assembler and placed into the hardcoded opcodes.  If you recall, the original assembly code was:
+                            <blockquote>
+                            <!-- Generator: GNU source-highlight 3.1.8
+by Lorenzo Bettini
+http://www.lorenzobettini.it
+http://www.gnu.org/software/src-highlite -->
+<pre><tt>global _start
+
+section <font color="#990000">.</font>text
+
+_start<font color="#990000">:</font>
+
+	<i><font color="#9A1900">; print on screen</font></i>
+	<b><font color="#0000FF">mov</font></b> rax<font color="#990000">,</font> <font color="#993399">1
+</font>
+	<b><font color="#0000FF">mov</font></b> rdi<font color="#990000">,</font> <font color="#993399">1
+</font>
+	<b><font color="#0000FF">mov</font></b> rsi<font color="#990000">,</font> hello_world
+	<b><font color="#0000FF">mov</font></b> rdx<font color="#990000">,</font> <b><font color="#0000FF
+">length</font></b>
+	syscall
+
+	<i><font color="#9A1900">; exit gracefully</font></i>
+	<b><font color="#0000FF">mov</font></b> rax<font color="#990000">,</font> <font color="#993399">60</font>
+	<b><font color="#0000FF">mov</font></b> rdi<font color="#990000">,</font> <font color="#993399">11</font>
+	syscall
+
+section <font color="#990000">.</font>data
+	hello_world<font color="#990000">:</font> <b><font color="#0000FF">db</font></b> <font color="#FF
+0000">'Hello World to the SLAE-64 Course'</font><font color="#990000">,</font><font color="#993399">0x0a</font>
+<b><font color="#000080">	length:</font></b> <b><font color="#0000FF">equ</font></b> $<font color="
+#990000">-</font>hello_world
+</tt></pre>
+
+                            </blockquote>
+                        </p>
+                        
+                        <p>
+                            There was actually a trick used to obviate the need to manually count the number of characters in the string "Hello World to the SLAE-64 Course".  This trick was to create a constant called <i>length</i>, and to equate it to the memory location just after the string "Hello World to the SLAE-64 Course", subtracted from its memory location.  This memory location math gives exactly the length of the string "Hello World to the SLAE-64 Course".  The way to obtain the memory location of the constant is to use the "$" directive in the assembly code, as cen be seen from the code snippet:
+                            <blockquote>
+                            <!-- Generator: GNU source-highlight 3.1.8
+by Lorenzo Bettini
+http://www.lorenzobettini.it
+http://www.gnu.org/software/src-highlite -->
+<pre><tt>
+<b><font color="#000080">	length:</font></b> <b><font color="#0000FF">equ</font></b> <b>$</b><font color="
+#990000">-</font>hello_world
+</tt></pre>
+
+                            </blockquote>
+                        </p>
+                        
+                    </div> <!-- .loose_text -->
+                    <!-- ********************************************************************* Loose Text -->
+                    
                 
                 </div> <!-- .current_project_7 -->
             
