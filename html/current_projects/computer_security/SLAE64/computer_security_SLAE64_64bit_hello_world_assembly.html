@@ -84,7 +84,7 @@
       background	: gray;
       position		: relative;
       width		: 1370px;
-      height		: 2500px;
+      height		: 3000px;
       top		: 000px;
       left		: 0px;
       float		: left;
@@ -136,7 +136,7 @@
       background	: gray;
       position		: relative;
       width		: 1370px;
-      height		: 1500px;
+      height		: 2500px;
       top		: 000px;
       left		: 0px;
       float		: left;
@@ -514,9 +514,42 @@
                     <div class="loose_text">
                         
                         <p>
-                            The <i>mov eax, 0x1</i> instruction moved the immediate value 1 into the 64-bit register rax, as can be seen in the screen shot above.
+                            The <i>mov eax, 0x1</i> instruction moved the immediate value 1 into the 64-bit register rax, as can be seen in the screen shot above.  The purpose of moving the immediate 1 into eax is to set up the write system call.  If you recall, the system calls are enumerated in:
+                            <blockquote>
+                                /usr/include/asm/unistd_64.h
+                            </blockquote>
                         </p>
                         
+                        <p>
+                            A portion of this file is shown below:
+                            <blockquote>
+                                <pre>
+    ┌─[mark@ubermentch]─[/usr/include/asm]
+    └──╼ $more unistd_64.h 
+    #ifndef _ASM_X86_UNISTD_64_H
+    #define _ASM_X86_UNISTD_64_H 1
+
+    #define __NR_read 0
+    #define __NR_write 1
+    #define __NR_open 2
+    #define __NR_close 3
+    #define __NR_stat 4
+    #define __NR_fstat 5
+    #define __NR_lstat 6
+    #define __NR_poll 7
+    #define __NR_lseek 8
+    #define __NR_mmap 9
+    #define __NR_mprotect 10
+    #define __NR_munmap 11
+    #define __NR_brk 12
+    #define __NR_rt_sigaction 13
+                                </pre>
+                            </blockquote>
+                        </p>
+                        
+                        <p>
+                            As can be seen from the file contents above, the number 1 is associated with the WRITE system call.  Note that I have looked at the 64 bit version of the file.  There also exists a 32-bit version, which we will not be using since this is 64-bit code.
+                        </p>
                     </div> <!-- .loose_text -->
                     <!-- ********************************************************************* Loose Text -->
                 
@@ -597,7 +630,7 @@
                     <div class="loose_text">
                         
                         <p>
-                            The <i>mov eax, 0x1</i> instruction simply moved the immediate value 1 into the 64-bit register rax, as can be seen in the screen shot above.
+                            The <i>mov edi, 0x1</i> instruction simply moved the immediate value 1 into the 32-bit register edi, as can be seen in the screen shot above.  The purpose of moving the 1 into edi is as a parameter to the WRITE system call.  The 1 represents standard output, or STDOUT.  This refers to the screen.  Therefore, the WRITE system call will be writing to the screen, as opposed to writing to a network socket, or to a file on disk.
                         </p>
                         
                     </div> <!-- .loose_text -->
@@ -704,7 +737,7 @@
                         </p>
                         
                         <p>
-                            These are nothing but the hexadecimal representations of the bytes that make up the letters of the string "Hello World to the SLAE-64 Course\n".  Notice the 0x0a at the end, which is the newline character.
+                            These are nothing but the hexadecimal representations of the bytes that make up the letters of the string "Hello World to the SLAE-64 Course\n".  Notice the 0x0a at the end, which is the newline character.  This is another bit of setup before the WRITE system call is invoked.  The WRITE system call will output the string located at 0x402000 to the screen. 
                         </p>
                         
                     </div> <!-- .loose_text -->
@@ -786,7 +819,7 @@
                     <div class="loose_text">
                         
                         <p>
-                            The instruction <i>0x401014 <_start+20>      mov    edx, 0x22</i>> moved the immediate value 0x22 into the 32-bit register <i>edx</i>.  The hex value 0x22 is 34 in decimal.  We will confirm this by using IPython for conversion and to get comfortable with incorporating more Python use for computing activities.
+                            The instruction <i>0x401014 <_start+20>      mov    edx, 0x22</i> moved the immediate value 0x22 into the 32-bit register <i>edx</i>.  The hex value 0x22 is 34 in decimal.  We will confirm this by using IPython for conversion and to get comfortable with incorporating more Python use for computing activities.
                         </p>
                         
                     </div> <!-- .loose_text -->
@@ -812,7 +845,7 @@
                     <div class="loose_text">
                         
                         <p>
-                            0x22 hex or 34 decimal is actually the length of the string "Hello World to the SLAE-64 Course\n", including the newline character \n.  This was actually computed by the assembler and placed into the hardcoded opcodes.  If you recall, the original assembly code was:
+                            0x22 hex or 34 decimal is the length of the string "Hello World to the SLAE-64 Course\n", including the newline character \n.  This was actually computed by the assembler and placed into the hardcoded opcodes.  If you recall, the original assembly code was:
                             <blockquote>
                             <!-- Generator: GNU source-highlight 3.1.8
 by Lorenzo Bettini
@@ -850,7 +883,7 @@ section <font color="#990000">.</font>data
                         </p>
                         
                         <p>
-                            There was actually a trick used to obviate the need to manually count the number of characters in the string "Hello World to the SLAE-64 Course".  This trick was to create a constant called <i>length</i>, and to equate it to the memory location just after the string "Hello World to the SLAE-64 Course", subtracted from its memory location.  This memory location math gives exactly the length of the string "Hello World to the SLAE-64 Course".  The way to obtain the memory location of the constant is to use the "$" directive in the assembly code, as cen be seen from the code snippet:
+                            There was actually a trick used to obviate the need to manually count the number of characters in the string "Hello World to the SLAE-64 Course".  This trick was to create a constant called <i>length</i>, and to equate it to the memory location just after the string "Hello World to the SLAE-64 Course", subtracted from its memory location.  This memory location math gives exactly the length of the string "Hello World to the SLAE-64 Course".  The way to obtain the memory location of the constant is to use the "$" directive in the assembly code, as can be seen from the code snippet:
                             <blockquote>
                             <!-- Generator: GNU source-highlight 3.1.8
 by Lorenzo Bettini
@@ -862,6 +895,10 @@ http://www.gnu.org/software/src-highlite -->
 </tt></pre>
 
                             </blockquote>
+                        </p>
+                        
+                        <p>
+                            This is the last bit of setup needed before invoking the WRITE system call.  The instruction <i>0x401014 <_start+20>      mov    edx, 0x22</i>, will let the WRITE system call know that the length of the string to output to the screen is 0x22 hex bytes long.  We are now ready to invoke the system call.  This will occur in the next instruction as shown in the next section.
                         </p>
                         
                     </div> <!-- .loose_text -->
@@ -880,9 +917,23 @@ http://www.gnu.org/software/src-highlite -->
                 
                     <hgroup>
                         <h2>
-                            Running <i>helloworld</i> in GDB + GEF
+                            Running <i>helloworld</i> in GDB + PEDA
                         </h2>
                     </hgroup>
+                    
+                     <!-- ********************************************************************* Loose Text -->                
+                    <div class="loose_text">
+                        
+                        <p>
+                            Executing step <i>0x401019 <_start+25>:	syscall</i>
+                        </p>
+                        
+                        <p>
+                            Prior to executing the instruction <i>0x401019 <_start+25>:	syscall</i>>, the state of the registers and stack are as shown below:
+                        </p>
+                        
+                    </div> <!-- .loose_text -->
+                    <!-- ********************************************************************* Loose Text -->
                     
                     <!-- ********************************************************************* Loose Text -->                
                     <div class="loose_text">
@@ -897,7 +948,23 @@ http://www.gnu.org/software/src-highlite -->
                     <figure>
                         <div class="img">
                             <img 
-                            src="../images/SLAE64/Module_1/Hello_world/64bit_hello_world_in_GDB_after_run_step5.jpg"
+                            src="../images/SLAE64/Module_1/Hello_world/64bit_hello_world_in_GDB_before_running_step5.jpg"
+                            width="1250"
+                            height="900"
+                            title=""
+                            >
+                        </div> <!-- .img -->
+                        <div class="desc">
+                            <p>
+                                Running step 5
+                            <p>
+                        </div> <!-- .desc -->
+                    </figure>
+                    
+                    <figure>
+                        <div class="img">
+                            <img 
+                            src="../images/SLAE64/Module_1/Hello_world/64bit_hello_world_in_GDB_after_running_step5.jpg"
                             width="1250"
                             height="900"
                             title=""
