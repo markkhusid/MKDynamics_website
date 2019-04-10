@@ -149,7 +149,7 @@
       background	: gray;
       position		: relative;
       width		: 1370px;
-      height		: 1500px;
+      height		: 3500px;
       top		: 000px;
       left		: 0px;
       float		: left;
@@ -925,21 +925,11 @@ http://www.gnu.org/software/src-highlite -->
                     <div class="loose_text">
                         
                         <p>
-                            Executing step <i>0x401019 <_start+25>:	syscall</i>
+                            Executing the instruction <i>0x401019 <_start+25>:	syscall</i>
                         </p>
                         
                         <p>
-                            Prior to executing the instruction <i>0x401019 <_start+25>:	syscall</i>>, the state of the registers and stack are as shown below:
-                        </p>
-                        
-                    </div> <!-- .loose_text -->
-                    <!-- ********************************************************************* Loose Text -->
-                    
-                    <!-- ********************************************************************* Loose Text -->                
-                    <div class="loose_text">
-                        
-                        <p>
-                            Running step 5
+                            Prior to executing the instruction <i>0x401019 <_start+25>:	syscall</i>, the state of the registers and stack are as shown below:
                         </p>
                         
                     </div> <!-- .loose_text -->
@@ -956,10 +946,20 @@ http://www.gnu.org/software/src-highlite -->
                         </div> <!-- .img -->
                         <div class="desc">
                             <p>
-                                Running step 5
+                                Prior to executing the instruction <i>0x401019 <_start+25>:	syscall</i>
                             <p>
                         </div> <!-- .desc -->
                     </figure>
+                    
+                    <!-- ********************************************************************* Loose Text -->                
+                    <div class="loose_text">
+                        
+                        <p>
+                            The <i>syscall</i> instruction invokes the Linux kernel to execute a system call.  In this case, we are invoking the WRITE system call, which will print the string "Hello World to the SLAE-64 Course" to the screen.  The results of this call are shown below.
+                        </p>
+                        
+                    </div> <!-- .loose_text -->
+                    <!-- ********************************************************************* Loose Text -->
                     
                     <figure>
                         <div class="img">
@@ -972,10 +972,20 @@ http://www.gnu.org/software/src-highlite -->
                         </div> <!-- .img -->
                         <div class="desc">
                             <p>
-                                Running step 5
+                                After executing the instruction <i>0x401019 <_start+25>:	syscall</i>
                             <p>
                         </div> <!-- .desc -->
                     </figure>
+                    
+                    <!-- ********************************************************************* Loose Text -->                
+                    <div class="loose_text">
+                        
+                        <p>
+                            It can be seen from the above screenshot that the WRITE system call was invoked properly as the string "Hello World to the SLAE-64 Course" was printed to the screen, and execution of the program is continuing normally.  The next step is to invoke the EXIT system call.  It is important to properly exit a program as the program counter may be pointing to an invalid instruction after the WRITE system call instructions.  In this case the program will crash.  Exiting properly will virtually guarantee that the program will exit gracefully back to the shell.  We will look at exiting gracefully in the next section.
+                        </p>
+                        
+                    </div> <!-- .loose_text -->
+                    <!-- ********************************************************************* Loose Text -->
                 
                 </div> <!-- .current_project_8 -->
             
@@ -989,7 +999,7 @@ http://www.gnu.org/software/src-highlite -->
                 
                     <hgroup>
                         <h2>
-                            Running <i>helloworld</i> in GDB + GEF
+                            Running <i>helloworld</i> in GDB + PEDA
                         </h2>
                     </hgroup>
                     
@@ -997,7 +1007,67 @@ http://www.gnu.org/software/src-highlite -->
                     <div class="loose_text">
                         
                         <p>
-                            Running step 6
+                            Executing the instruction 0x40101b <_start+27>:	mov    eax,0x3c
+                        </p>
+                        
+                        <p> 
+                            Prior to running the instruction 0x40101b <_start+27>:	mov    eax,0x3c, the state of the stack and registers are as shown in the following screenshot.
+                        </p>
+                        
+                        <p>
+                            As stated in the previous section, we must now have the program exit gracefully.  In order to do this, we setup an invocation to the EXIT system call.  This is done by loading eax with the system call number for the EXIT system call.  In this case, it is 0x3c hex, or 60 in decimal.  To find the correct system call number, we again look at the /usr/include/asm/unistd_64 and search for the EXIT system call.
+                        </p>
+                        
+                        <p>
+                            <blockquote>
+                                <pre>
+#define __NR_alarm 37
+#define __NR_setitimer 38
+#define __NR_getpid 39
+#define __NR_sendfile 40
+#define __NR_socket 41
+#define __NR_connect 42
+#define __NR_accept 43
+#define __NR_sendto 44
+#define __NR_recvfrom 45
+#define __NR_sendmsg 46
+#define __NR_recvmsg 47
+#define __NR_shutdown 48
+#define __NR_bind 49
+#define __NR_listen 50
+#define __NR_getsockname 51
+#define __NR_getpeername 52
+#define __NR_socketpair 53
+#define __NR_setsockopt 54
+#define __NR_getsockopt 55
+#define __NR_clone 56
+#define __NR_fork 57
+#define __NR_vfork 58
+#define __NR_execve 59
+<big><b>#define __NR_exit 60</b></big>
+#define __NR_wait4 61
+#define __NR_kill 62
+#define __NR_uname 63
+#define __NR_semget 64
+#define __NR_semop 65
+#define __NR_semctl 66
+#define __NR_shmdt 67
+#define __NR_msgget 68
+#define __NR_msgsnd 69
+#define __NR_msgrcv 70
+#define __NR_msgctl 71
+#define __NR_fcntl 72
+#define __NR_flock 73
+#define __NR_fsync 74
+#define __NR_fdatasync 75
+#define __NR_truncate 76
+                                
+                                </pre>
+                            </blockquote>
+                        </p>
+                        
+                        <p>
+                            From the above listing of the /usr/include/asm/unistd_64 file, we can see that indeed the EXIT system call number is 60, and this is the reason to load 60, or 0x3c hex into eax.
                         </p>
                         
                     </div> <!-- .loose_text -->
@@ -1006,7 +1076,7 @@ http://www.gnu.org/software/src-highlite -->
                     <figure>
                         <div class="img">
                             <img 
-                            src="../images/SLAE64/Module_1/Hello_world/64bit_hello_world_in_GDB_after_run_step6.jpg"
+                            src="../images/SLAE64/Module_1/Hello_world/64bit_hello_world_in_GDB_before_running_step6.jpg"
                             width="1250"
                             height="900"
                             title=""
@@ -1014,7 +1084,23 @@ http://www.gnu.org/software/src-highlite -->
                         </div> <!-- .img -->
                         <div class="desc">
                             <p>
-                                Running step 6
+                                Prior to executing the instruction 0x40101b <_start+27>:	mov    eax,0x3c
+                            <p>
+                        </div> <!-- .desc -->
+                    </figure>
+                    
+                    <figure>
+                        <div class="img">
+                            <img 
+                            src="../images/SLAE64/Module_1/Hello_world/64bit_hello_world_in_GDB_after_running_step6.jpg"
+                            width="1250"
+                            height="900"
+                            title=""
+                            >
+                        </div> <!-- .img -->
+                        <div class="desc">
+                            <p>
+                                After executing the instruction 0x40101b <_start+27>:	mov    eax,0x3c
                             <p>
                         </div> <!-- .desc -->
                     </figure>
