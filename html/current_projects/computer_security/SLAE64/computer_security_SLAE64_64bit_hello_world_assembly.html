@@ -162,7 +162,7 @@
       background	: gray;
       position		: relative;
       width		: 1370px;
-      height		: 1500px;
+      height		: 2800px;
       top		: 000px;
       left		: 0px;
       float		: left;
@@ -175,7 +175,7 @@
       background	: gray;
       position		: relative;
       width		: 1370px;
-      height		: 1500px;
+      height		: 4200px;
       top		: 000px;
       left		: 0px;
       float		: left;
@@ -188,7 +188,7 @@
       background	: gray;
       position		: relative;
       width		: 1370px;
-      height		: 1500px;
+      height		: 1000px;
       top		: 000px;
       left		: 0px;
       float		: left;
@@ -828,7 +828,7 @@
                     <figure>
                         <div class="img">
                             <img 
-                            src="../images/SLAE64/Module_1/Hello_world/using_ipython_to_convert_ox22_to_decimal.jpg"
+                            src="../images/SLAE64/Module_1/Hello_world/using_ipython_to_convert_0x22_to_decimal.jpg"
                             width="640"
                             height="260"
                             title=""
@@ -929,7 +929,13 @@ http://www.gnu.org/software/src-highlite -->
                         </p>
                         
                         <p>
-                            Prior to executing the instruction <i>0x401019 <_start+25>:	syscall</i>, the state of the registers and stack are as shown below:
+                            Prior to executing the instruction
+                            
+                            <blockquote
+                                <i>0x401019 <_start+25>:	syscall</i>
+                            </blockquote>    
+                            
+                            the state of the registers and stack are as shown below:
                         </p>
                         
                     </div> <!-- .loose_text -->
@@ -1011,7 +1017,13 @@ http://www.gnu.org/software/src-highlite -->
                         </p>
                         
                         <p> 
-                            Prior to running the instruction 0x40101b <_start+27>:	mov    eax,0x3c, the state of the stack and registers are as shown in the following screenshot.
+                            Prior to running the instruction
+                            
+                            <blockquote>
+                                <i>0x40101b <_start+27>:	mov    eax,0x3c</i>
+                            </blockquote>
+                            
+                            the state of the stack and registers are as shown in the following screenshot.
                         </p>
                         
                         <p>
@@ -1104,6 +1116,16 @@ http://www.gnu.org/software/src-highlite -->
                             <p>
                         </div> <!-- .desc -->
                     </figure>
+                    
+                    <!-- ********************************************************************* Loose Text -->                
+                    <div class="loose_text">
+                        
+                        <p>
+                            It can be seen from the above screenshot that the the 0x3c hex or 60 decimal was loaded into eax.  This is the first part of setting up the EXIT system call.  The last part is to tell teh EXIT system call which return value to give back to the shell.  It is really an exit status, and is arbitrary.  Usually, when there are no errors, a zero is returned back to the shell.  In our case, we wish to return 0xb hex or 11 decimal as a learning tool.  We can then check the return exit status with an appropriate command.
+                        </p>
+                        
+                    </div> <!-- .loose_text -->
+                    <!-- ********************************************************************* Loose Text -->
                 
                 </div> <!-- .current_project_9 -->
             
@@ -1117,7 +1139,7 @@ http://www.gnu.org/software/src-highlite -->
                 
                     <hgroup>
                         <h2>
-                            Running <i>helloworld</i> in GDB + GEF
+                            Running <i>helloworld</i> in GDB + PEDA
                         </h2>
                     </hgroup>
                     
@@ -1125,7 +1147,46 @@ http://www.gnu.org/software/src-highlite -->
                     <div class="loose_text">
                         
                         <p>
-                            Running step 7
+                            Executing the instruction 0x401020 <_start+32>:	mov    edi,0xb
+                        </p>
+                        
+                        <p> 
+                            Prior to executing the instruction:
+                            <blockquote>
+                                <i>0x401020 <_start+32>:	mov    edi,0xb</i>
+                            </blockquote>
+                            the state of the stack and registers are as shown in the following screenshot.
+                        </p>
+                        
+                    </div> <!-- .loose_text -->
+                    <!-- ********************************************************************* Loose Text -->
+
+                    <figure>
+                        <div class="img">
+                            <img 
+                            src="../images/SLAE64/Module_1/Hello_world/64bit_hello_world_in_GDB_before_running_step7.jpg"
+                            width="1250"
+                            height="900"
+                            title=""
+                            >
+                        </div> <!-- .img -->
+                        <div class="desc">
+                            <p>
+                                Prior to executing instruction <i>0x401020 <_start+32>:	mov    edi,0xb</i>
+                            <p>
+                        </div> <!-- .desc -->
+                    </figure>
+                    
+                     <!-- ********************************************************************* Loose Text -->                
+                    <div class="loose_text">
+                        
+                        <p>
+                            The instruction:
+                            <blockquote>
+                                <i>0x401020 <_start+32>:	mov    edi,0xb</i>
+                            </blockquote>
+                            
+                            simply moves the immediate value 0xb hex or 11 decimal into the 32-bit register edi.  This value is the return value of our executable to the calling shell.
                         </p>
                         
                     </div> <!-- .loose_text -->
@@ -1134,7 +1195,7 @@ http://www.gnu.org/software/src-highlite -->
                     <figure>
                         <div class="img">
                             <img 
-                            src="../images/SLAE64/Module_1/Hello_world/64bit_hello_world_in_GDB_after_run_step7.jpg"
+                            src="../images/SLAE64/Module_1/Hello_world/64bit_hello_world_in_GDB_after_running_step7.jpg"
                             width="1250"
                             height="900"
                             title=""
@@ -1142,10 +1203,26 @@ http://www.gnu.org/software/src-highlite -->
                         </div> <!-- .img -->
                         <div class="desc">
                             <p>
-                                Running step 7
+                                After executing the instruction <i>0x401020 <_start+32>:	mov    edi,0xb</i>
                             <p>
                         </div> <!-- .desc -->
                     </figure>
+                    
+                    <!-- ********************************************************************* Loose Text -->                
+                    <div class="loose_text">
+                        
+                        <p>
+                            After executing the instruction:
+                            <blockquote>
+                                <i>0x401020 <_start+32>:	mov    edi,0xb</i>
+                            </blockquote>
+                            
+                            0xb hex or 11 decimal was loaded into the 32-bit register edi.  We are now ready to call the kernal to invoke the EXIT system call.  This is shown in the next section.
+                            
+                        </p>
+                        
+                    </div> <!-- .loose_text -->
+                    <!-- ********************************************************************* Loose Text -->
                 
                 </div> <!-- .current_project_10 -->
             
@@ -1159,7 +1236,7 @@ http://www.gnu.org/software/src-highlite -->
                 
                     <hgroup>
                         <h2>
-                            Running <i>helloworld</i> in GDB + GEF
+                            Running <i>helloworld</i> in GDB + PEDA
                         </h2>
                     </hgroup>
                     
@@ -1167,7 +1244,15 @@ http://www.gnu.org/software/src-highlite -->
                     <div class="loose_text">
                         
                         <p>
-                            Running step 8
+                            Executing the instruction <i>0x401025 <_start+37>:	syscall</i>
+                        </p>
+                        
+                        <p> 
+                            Prior to executing the instruction:
+                            <blockquote>
+                                <i>0x401025 <_start+37>:	syscall</i>
+                            </blockquote>
+                            the state of the stack and registers are as shown in the following screenshot.
                         </p>
                         
                     </div> <!-- .loose_text -->
@@ -1176,7 +1261,7 @@ http://www.gnu.org/software/src-highlite -->
                     <figure>
                         <div class="img">
                             <img 
-                            src="../images/SLAE64/Module_1/Hello_world/64bit_hello_world_in_GDB_after_run_step8.jpg"
+                            src="../images/SLAE64/Module_1/Hello_world/64bit_hello_world_in_GDB_before_running_step8.jpg"
                             width="1250"
                             height="900"
                             title=""
@@ -1184,13 +1269,117 @@ http://www.gnu.org/software/src-highlite -->
                         </div> <!-- .img -->
                         <div class="desc">
                             <p>
-                                Running step 8
+                                Prior to executing the instruction <i>0x401025 <_start+37>:	syscall</i>
                             <p>
                         </div> <!-- .desc -->
                     </figure>
-                
+                    
+                     <!-- ********************************************************************* Loose Text -->                
+                    <div class="loose_text">
+                        
+                        <p> 
+                            After executing the instruction:
+                            
+                            <blockquote>
+                                <i>0x401025 <_start+37>:	syscall</i>
+                            </blockquote>
+                            
+                            the Linux kernel is called to invoke the EXIT system call with an exit status of 0xb or 11 decimal.
+                            
+                        </p>
+                        
+                        <p>
+                            The results of executing this command are shown in the following screenshot.
+                        </p>
+                        
+                    </div> <!-- .loose_text -->
+                    <!-- ********************************************************************* Loose Text -->
+                    
+                    <figure>
+                        <div class="img">
+                            <img 
+                            src="../images/SLAE64/Module_1/Hello_world/64bit_hello_world_in_GDB_after_running_step8.jpg"
+                            width="1250"
+                            height="900"
+                            title=""
+                            >
+                        </div> <!-- .img -->
+                        <div class="desc">
+                            <p>
+                                After executing the instruction <i>0x401025 <_start+37>:	syscall</i>
+                            <p>
+                        </div> <!-- .desc -->
+                    </figure>
+                    
+                    <!-- ********************************************************************* Loose Text -->                
+                    <div class="loose_text">
+                        
+                        <p> 
+                            We can see from the above screenshot that the process terminated with an exit code of 013.  Why is it not 0xb hex or 11 decimal?  Because apparently, GDB displays the exit code in octal.  As before, we will use Python to convert 013 octal into decimal.  This is shown in the following screenshot.
+                        </p>
+                        
+                    </div> <!-- .loose_text -->
+                    <!-- ********************************************************************* Loose Text -->
+                    
+                    <figure>
+                        <div class="img">
+                            <img 
+                            src="../images/SLAE64/Module_1/Hello_world/using_ipython_to_convert_013_octal_to_decimal.jpg"
+                            width="640"
+                            height="320"
+                            title=""
+                            >
+                        </div> <!-- .img -->
+                        <div class="desc">
+                            <p>
+                                Using Python to convert 013 octal to decimal.
+                            <p>
+                        </div> <!-- .desc -->
+                    </figure>
+                    
+                    <!-- ********************************************************************* Loose Text -->                
+                    <div class="loose_text">
+                        
+                        <p> 
+                            We can also verify the exit status of the process by using the command:
+                            <blockquote>
+                                echo $?
+                            </blockquote>
+                        
+                            This can be seen from the following screenshot.
+                        </p>
+                        
+                    </div> <!-- .loose_text -->
+                    <!-- ********************************************************************* Loose Text -->
+                    
+                    <figure>
+                        <div class="img">
+                            <img 
+                            src="../images/SLAE64/Module_1/Hello_world/cmd_line_exit_status.jpg"
+                            width="1250"
+                            height="900"
+                            title=""
+                            >
+                        </div> <!-- .img -->
+                        <div class="desc">
+                            <p>
+                                Using the Linux command line to obtain the exit status of a process.
+                            <p>
+                        </div> <!-- .desc -->
+                    </figure>
+                    
+                    <!-- ********************************************************************* Loose Text -->                
+                    <div class="loose_text">
+                        
+                        <p>
+                            We can see from the above screenshot that the exit status of the terminated process is indeed 11.
+                        </p>
+                        
+                    </div> <!-- .loose_text -->
+                    <!-- ********************************************************************* Loose Text -->
+                    
                 </div> <!-- .current_project_11 -->
-            
+                
             </section> <!-- third_section -->
             <!-- ************************************************************************************* Section End ************ -->
             
@@ -1201,7 +1390,7 @@ http://www.gnu.org/software/src-highlite -->
                 
                     <hgroup>
                         <h2>
-                            Running <i>helloworld</i> in GDB + GEF
+                            Conclusions on examining <i>helloworld</i> in GDB.
                         </h2>
                     </hgroup>
                     
@@ -1209,29 +1398,57 @@ http://www.gnu.org/software/src-highlite -->
                     <div class="loose_text">
                         
                         <p>
-                            Examining Memory
+                            In this section we looked at examining the execution of a simple 64 bit binary in GDB.  We looked at how system calls are setup and how they are invoked.  We also looked at how to obtain the exit status of a terminated process.  In the next section, we will examine why the <i>helloworld</i> executable is not suitable for being used as shellcode.  The reasons are that:
+                            <ul>
+                                <li>
+                                    The object code for the executable contains many nulls.  This is evident by examining the object file's dump:
+                                    <pre>
+    $objdump -d helloworld.o 
+
+        helloworld.o:     file format elf64-x86-64
+
+
+        Disassembly of section .text:
+
+        0000000000000000 <_start>:
+        0:	48 b8 01 00 00 00 00 	movabs $0x1,%rax
+        7:	00 00 00 
+        a:	48 bf 01 00 00 00 00 	movabs $0x1,%rdi
+        11:	00 00 00 
+        14:	48 be 00 00 00 00 00 	movabs $0x0,%rsi
+        1b:	00 00 00 
+        1e:	48 ba 22 00 00 00 00 	movabs $0x22,%rdx
+        25:	00 00 00 
+        28:	0f 05                	syscall 
+        2a:	48 b8 3c 00 00 00 00 	movabs $0x3c,%rax
+        31:	00 00 00 
+        34:	48 bf 0b 00 00 00 00 	movabs $0xb,%rdi
+        3b:	00 00 00 
+        3e:	0f 05                	syscall 
+
+    $
+                                    </pre>
+                                    
+                                    <p>
+                                        We can see from the objdump above that the code indeed includes many nulls.  These nulls make the code above unsuitable for shellcode.
+                                    </p>
+                                    
+                                </li>
+                                
+                                <li>    
+                                    The code makes use of the full 64-bit registers, which can hold very large numbers; however, the immediate numbers that we have used are relatively very small, less than then integer 100.  This is an inefficient use of resources.  In shellcoding, we want to make the shellcode as efficient and compact as possible.
+                                </li>
+                            </ul>
+                        </p>
+                        
+                        <p>
+                            In the next section, we will look at how to remove these nulls and optimize the code so that it can be suitable to be used as shellcode.
                         </p>
                         
                     </div> <!-- .loose_text -->
                     <!-- ********************************************************************* Loose Text -->
-                    
-                    <figure>
-                        <div class="img">
-                            <img 
-                            src="../images/SLAE64/Module_1/Hello_world/64bit_hello_world_in_GDB_examine_memory.jpg"
-                            width="1250"
-                            height="900"
-                            title=""
-                            >
-                        </div> <!-- .img -->
-                        <div class="desc">
-                            <p>
-                                Examining Memory
-                            <p>
-                        </div> <!-- .desc -->
-                    </figure>
                 
-                </div> <!-- .current_project_11 -->
+                </div> <!-- .current_project_12 -->
             
             </section> <!-- third_section -->
             <!-- ************************************************************************************* Section End ************ -->

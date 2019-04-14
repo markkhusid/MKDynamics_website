@@ -361,6 +361,10 @@
       
       <aside>
 	Status Updates<br><br>
+	4/14/2019
+	<ul>
+            <li>Completed updates to SLAE64 -> Hello World in 64 Bit Assembly.</li>
+	</ul>
 	4/7/2019
 	<ul>
             <li>Updates to Computer Security -> Disassembling Binaries -> Fortran ARM 32-Bit.</li>
