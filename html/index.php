@@ -361,6 +361,10 @@
       
       <aside>
 	Status Updates<br><br>
+	4/20/2019
+	<ul>
+            <li>Started on Reducing Instruction Sizes and Removing Nulls in SLAE64</li>
+	</ul>
 	4/14/2019
 	<ul>
             <li>Completed updates to SLAE64 -> Hello World in 64 Bit Assembly.</li>
