@@ -45,7 +45,7 @@
       background	: gray;
       position		: relative;
       width		: 1370px;
-      height		: 250px;
+      height		: 300px;
       top		: 0px;
       left		: 0px;
       float		: left;
@@ -262,9 +262,13 @@
                     <div class="loose_text">
                         
                         <p>
-                            In this section we will be following along with and completing course material from the Pentester Academy's SecurityTube Linux Assembly language Expert 64 Bit course.  The 
-                            third assignment is attempting to reduce the instruction size and remove nulls from the Hello World program written in the previous section.  We will show some techniquest that can be used to accomplish making the code more compact and to remove nulls.  Compact code without nulls is desireable for shellcode.  In this section, we will code, assemble, link and run the enhanced version of helloworld.nasm to verify that it still works as before.  Execution is to be monitored via GDB.  We will use the GEF or PEDA add-ons for GDB to enhance the visual presentation from GDB.
+                            In this section we will be following along with and completing course material from the Pentester Academy's SecurityTube Linux Assembly language Expert 64 Bit course.  The third assignment is attempting to reduce the instruction size and remove nulls from the Hello World program written in the previous section.  We will show some techniques that can be used to accomplish making the code more compact and to remove nulls within the opcodes.
                         </p>
+                        
+                        <p>
+                            Compact code without nulls is desireable for shellcode, since often the memory buffers that are available within vulnerabilities are limited.  In this section, we will code, assemble, link and run the enhanced version of helloworld.nasm, while making references to the original version.  We will run the enhanced version of the  shellcode to verify that it still works as before.  Execution is to be monitored via GDB.  We will use the GEF or PEDA add-ons for GDB to enhance the visual presentation from GDB.
+                        </p>
+                        
                         <p>
                             Project code is contained in my <a href="https://github.com/markkhusid/SLAE64">github</a>.
                         </p>
@@ -284,7 +288,7 @@
                 
                     <hgroup>
                         <h2>
-                            The program <i>helloworld.asm</i>
+                            The program <i>helloworld-small1_mod.nasm</i> versus the program <i>helloword.nasm</i>
                         </h2>
                     </hgroup>
                     
@@ -292,8 +296,13 @@
                     <div class="loose_text">
                         
                         <p>
-                            The screenshot below displays the contents of the program <i>helloworld-small1.nasm</i> as well as <i>helloworld.nasm</i> side by side.
+                            The screenshot below displays the contents of the program <i>helloworld-small1_mod.nasm</i> as well as <i>helloworld.nasm</i> side by side.
                         </p>
+                        
+                        <p>
+                            Note that in the course material, the instructor only modifies the first instruction to make it more compact and to remove nulls.  That version of <i>helloworld.nasm</i> is in the file name <i>helloworld-small1.nasm</i>.  What we did is to go ahead to apply changes to the rest of <i>helloworld-small1.nasm</i> so the generated opcodes are more comapct and nulls are removed to the extent possible.
+                        </p>
+                        
                     </div> <!-- .loose_text -->
                     <!-- ********************************************************************* Loose Text -->
                     
@@ -317,7 +326,7 @@
                     <div class="loose_text">
                     
                         <p>
-                            <i>helloworld.nasm</i> is shown for comparison.  What we have done to <i>helloworld.nasm</i> to make it <i>helloworld-small1.nasm</i> is to modify the instructions so that <i>helloworld-small1.nasm</i> has a reduced size from an opcodes perspective.  The screenshot below displays the objdump output of both assembled programs to elucidate this further.
+                            In the above screenshot, <i>helloworld.nasm</i> is shown for comparison to <i>helloworld-small1_mod.nasm</i>.  What we have done to <i>helloworld.nasm</i> to make it <i>helloworld-small1_mod.nasm</i> is to modify the instructions so that <i>helloworld-small1_mod.nasm</i> has a reduced size and removed nulls from an opcodes perspective.  The screenshot below displays the objdump output of both assembled programs to elucidate this further.
                         </p>
                         
                     </div> <!-- .loose_text -->
@@ -334,12 +343,32 @@
                         </div> <!-- .img -->
                         <div class="desc">
                             <p>
-                                The program <i>helloworld.asm</i>
+                                The program <i>helloworld.asm</i> and <i>helloworld-small1_mod.nasm</i> with their opcodes.
                             <p>
                         </div> <!-- .desc -->
                     </figure>
                     
-                    
+                    <!-- ********************************************************************* Loose Text -->                
+                    <div class="loose_text">
+                        
+                        <p>
+                            In the screenshot above, we show both programs as well as their generated opcodes.  We can see from the opcodes of <i>helloworld-small1_mod.nasm</i>, that the first few opcodes are:
+                            <blockquote>
+                                <i>   0:	b0 01                	mov    $0x1,%al</i>
+
+                            </blockquote>
+                            rather than the much longer and null ridden:
+                            <blockquote>
+                                <i>   0:	48 b8 01 00 00 00 00 	movabs $0x1,%rax</i>
+                            </blockquote>
+                        </p>
+                        
+                        <p>
+                            In both cases, the same action effectively occurs, the immediate 1 is moved into the register RAX; however, in the <i>helloworld-small1_mod.nasm</i> version, what was done is to move the 8 bit version of the immediate 1 into the 8 bit portion of RAX.  Therefore, both the opcode and the immediate are more compact.
+                        </p>
+                        
+                    </div> <!-- .loose_text -->
+                    <!-- ********************************************************************* Loose Text -->
                    
                 </div> <!-- .current_project_2 -->
             
