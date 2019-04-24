@@ -58,7 +58,7 @@
       background	: gray;
       position		: relative;
       width		: 1370px;
-      height		: 3000px;
+      height		: 3700px;
       top		: 000px;
       left		: 0px;
       float		: left;
@@ -364,7 +364,78 @@
                         </p>
                         
                         <p>
-                            In both cases, the same action effectively occurs, the immediate 1 is moved into the register RAX; however, in the <i>helloworld-small1_mod.nasm</i> version, what was done is to move the 8 bit version of the immediate 1 into the 8 bit portion of RAX.  Therefore, both the opcode and the immediate are more compact.
+                            In both cases, the same action effectively occurs, the immediate 1 is moved into the register RAX; however, in the <i>helloworld-small1_mod.nasm</i> version, what was done is to move the 8 bit version of the immediate 1 into the 8 bit portion of RAX.  Therefore, both the opcode and the immediate are more compact.  Actually, the compact version uses only 2 bytes, while the non-compact version uses 10 bytes, for a savings of 8 bytes.
+                        </p>
+                        
+                        <p>
+                            In the next line, we have implemented the instruction:
+                            <blockquote>
+                                 mov rdi, 1
+                            </blockquote>
+                            
+                            as:
+                            
+                            <blockquote>
+                                 mov di, ax
+                            </blockquote>
+                        </p>
+                        
+                        <p>
+                            What this instruction has done is to copy the contents of the 16-bit register ax into the 16-bit register di.  Since ax already contains the immediate value 1, this instruction effectively moves the immediate value 1 into the 16-bit register di as well.
+                        </p>
+                        
+                        <p>
+                            Looking at the opcodes from both files, the opcodes generated from <i>helloworld.nasm</i> for this instruction were:
+                            
+                            <blockquote>
+                            a:	48 bf 01 00 00 00 00 	movabs $0x1,%rdi
+                            11:	00 00 00 
+                            </blockquote>
+                            
+                            while the opcodes generated from <i>helloworld-small1_mods.nasm</i> were:
+                            <blockquote>
+                            2:	66 89 c7 mov    %ax,%di
+                            </blockquote>
+                            
+                            for a savings of 7 bytes.
+                        </p>
+                        
+                        <p>
+                            Such copying and reusing immediates from one register to another, or from the stack as we will see later, is a frequent "trick" used by shellcode composers to remove nulls and compactify code.
+                        </p>
+                        
+                        <p>
+                        
+                        <p>
+                            Note that we could have moved the immediate 1 into the 8-bit register DIL directly.  In this case, the instruction would be:
+                            
+                            <blockquote>
+                            mov dil, 1
+                            </blockquote>
+                            
+                            and the generated opcodes would be:
+                            
+                            <blockquote>
+                              2: 40 b7 01 mov    $0x1,%dil
+                            </blockquote>
+                            
+                            for a savings of 7 bytes again.  Or we could have moved the contents of the 8-bit register AL into the the 8-bit register DIL.  In this case the instruction would be:
+                            
+                            <blockquote>
+                            mov dil, al
+                            </blockquote>
+                            
+                            and the generated opcodes would be:
+                            
+                            <blockquote>
+                            2:	40 88 c7 mov    %al,%dil
+                            </blockquote>
+                            
+                            for a savings of 7 bytes in both cases.
+                        </p>
+                        
+                        <p>
+                            This brings up an obvious point.  There are many ways to accomplish the same thing.  The idea is to compactify the generated opcodes as much as possible and remove all of the nulls.
                         </p>
                         
                     </div> <!-- .loose_text -->

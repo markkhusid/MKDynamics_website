@@ -361,9 +361,13 @@
       
       <aside>
 	Status Updates<br><br>
+	4/24/2019
+	<ul>
+            <li>Continuing on Reducing Instruction Sizes and Removing Nulls in SLAE64.</li>
+	</ul>
 	4/20/2019
 	<ul>
-            <li>Started on Reducing Instruction Sizes and Removing Nulls in SLAE64</li>
+            <li>Started on Reducing Instruction Sizes and Removing Nulls in SLAE64.</li>
 	</ul>
 	4/14/2019
 	<ul>
