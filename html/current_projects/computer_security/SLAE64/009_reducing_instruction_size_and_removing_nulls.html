@@ -58,7 +58,7 @@
       background	: gray;
       position		: relative;
       width		: 1370px;
-      height		: 3700px;
+      height		: 4700px;
       top		: 000px;
       left		: 0px;
       float		: left;
@@ -354,12 +354,18 @@
                         <p>
                             In the screenshot above, we show both programs as well as their generated opcodes.  We can see from the opcodes of <i>helloworld-small1_mod.nasm</i>, that the first few opcodes are:
                             <blockquote>
-                                <i>   0:	b0 01                	mov    $0x1,%al</i>
-
+                                <pre>
+        <i>0:	b0 01                	mov    $0x1,%al</i>
+                                </pre>
                             </blockquote>
+                            
                             rather than the much longer and null ridden:
+                            
                             <blockquote>
-                                <i>   0:	48 b8 01 00 00 00 00 	movabs $0x1,%rax</i>
+                                <pre>
+        <i>0:	48 b8 01 00 00 00 00 	movabs $0x1,%rax</i>
+        <i>7:	00 00 00</i> 
+                                </pre>
                             </blockquote>
                         </p>
                         
@@ -370,13 +376,17 @@
                         <p>
                             In the next line, we have implemented the instruction:
                             <blockquote>
-                                 mov rdi, 1
+                                <pre>
+        <i> mov rdi, 1</i>
+                                </pre>
                             </blockquote>
                             
                             as:
                             
                             <blockquote>
-                                 mov di, ax
+                                <pre>
+        <i> mov di, ax</i>
+                                </pre>
                             </blockquote>
                         </p>
                         
@@ -388,13 +398,17 @@
                             Looking at the opcodes from both files, the opcodes generated from <i>helloworld.nasm</i> for this instruction were:
                             
                             <blockquote>
-                            a:	48 bf 01 00 00 00 00 	movabs $0x1,%rdi
-                            11:	00 00 00 
+                                <pre>
+        <i>a:	48 bf 01 00 00 00 00 	movabs $0x1,%rdi
+        11:	00 00 00</i>
+                                </pre>
                             </blockquote>
                             
                             while the opcodes generated from <i>helloworld-small1_mods.nasm</i> were:
                             <blockquote>
-                            2:	66 89 c7 mov    %ax,%di
+                                <pre>
+        <i>2:	66 89 c7 mov    %ax,%di</i>
+                                </pre>
                             </blockquote>
                             
                             for a savings of 7 bytes.
@@ -410,25 +424,33 @@
                             Note that we could have moved the immediate 1 into the 8-bit register DIL directly.  In this case, the instruction would be:
                             
                             <blockquote>
-                            mov dil, 1
+                                <pre>
+        <i>mov dil, 1</i>
+                                </pre>
                             </blockquote>
                             
                             and the generated opcodes would be:
                             
                             <blockquote>
-                              2: 40 b7 01 mov    $0x1,%dil
+                                <pre>
+        <i>2: 40 b7 01 mov    $0x1,%dil</i>
+                                </pre>
                             </blockquote>
                             
                             for a savings of 7 bytes again.  Or we could have moved the contents of the 8-bit register AL into the the 8-bit register DIL.  In this case the instruction would be:
                             
                             <blockquote>
-                            mov dil, al
+                                <pre>
+        <i>mov dil, al</i>
+                                </pre>
                             </blockquote>
                             
                             and the generated opcodes would be:
                             
                             <blockquote>
-                            2:	40 88 c7 mov    %al,%dil
+                                <pre>
+        <i>2:	40 88 c7 mov    %al,%dil</i>
+                                </pre>
                             </blockquote>
                             
                             for a savings of 7 bytes in both cases.
@@ -436,6 +458,66 @@
                         
                         <p>
                             This brings up an obvious point.  There are many ways to accomplish the same thing.  The idea is to compactify the generated opcodes as much as possible and remove all of the nulls.
+                        </p>
+                        
+                        <p>
+                            The astute observer will notice something else.  We have not been able to remove the nulls when it comes to operations that involve memory addresses.  Namely, the operation:
+                            <blockquote>
+                                <pre>
+        <i>mov rsi, hello_world</i>
+                                </pre>
+                            </blockquote>
+                            
+                            produces the opcodes:
+                            
+                            <blockquote>
+                                <pre>
+                                    <i>
+        5:	48 be 00 00 00 00 00 	movabs $0x0,%rsi
+        c:	00 00 00 
+                                    </i>
+                                </pre>
+                            </blockquote>
+                        </p>
+                        
+                        <p>
+                            for an operation that takes up 10 bytes.  Also notice that at this point in the compilation process, the assembler moved the immediate 0 into the register RSI, rather than the memory address of the string <i>hello_world</i>.  This is because the assembler left a placeholder for the linker to fill in the actual address when the executable is produed.  So if we look at the objdump of the executable, we get the following:
+                            
+                            <blockquote>
+                                <pre>
+$objdump -d helloworld
+
+helloworld:     file format elf64-x86-64
+
+
+Disassembly of section .text:
+
+0000000000401000 <_start>:
+  401000:	48 b8 01 00 00 00 00 	movabs $0x1,%rax
+  401007:	00 00 00 
+  40100a:	48 bf 01 00 00 00 00 	movabs $0x1,%rdi
+  401011:	00 00 00 
+  <big><b>401014:	48 be 00 20 40 00 00 	movabs $0x402000,%rsi</b></big>
+  40101b:	00 00 00 
+  40101e:	48 ba 22 00 00 00 00 	movabs $0x22,%rdx
+  401025:	00 00 00 
+  401028:	0f 05                	syscall 
+  40102a:	48 b8 3c 00 00 00 00 	movabs $0x3c,%rax
+  401031:	00 00 00 
+  401034:	48 bf 0b 00 00 00 00 	movabs $0xb,%rdi
+  40103b:	00 00 00 
+  40103e:	0f 05                	syscall 
+
+                                </pre>
+                            </blockquote>
+                        </p>
+                        
+                        <p>
+                            We can see from the above objdump that the linker has filled in the proper address for the string <i>hello_world</i>.  Notice also that the memory address of the string <i>hello_world</i> contains nulls, making these opcodes not shellcode friendly.
+                        </p>
+                        
+                        <p>
+                            There are techniques for removing nulls in memory address calls.  One such technique is the JMP-CALL-POP technique, which we will see in later sections.
                         </p>
                         
                     </div> <!-- .loose_text -->
