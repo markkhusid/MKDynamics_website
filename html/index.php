@@ -361,6 +361,11 @@
       
       <aside>
 	Status Updates<br><br>
+	5/5/2019
+	<ul>
+            <li>Finished Reducing Instruction Sizes and Removing Nulls in SLAE64.</li>
+            <li>Started on Data Types in SLAE64.</li>
+	</ul>
 	4/24/2019
 	<ul>
             <li>Continuing on Reducing Instruction Sizes and Removing Nulls in SLAE64.</li>
@@ -446,28 +451,7 @@
 	<ul>
             <li>Added Quasi-DC Power Converter to Electronics Section.</li>
 	</ul>
-	12/28/2018
-	<ul>
-            <li>Updates to SLAE64 section.  Added The Stack and Arithmetic Operations in 64 Bit section.</li>
-	</ul>
-	12/22/2018
-	<ul>
-            <li>Updates to SLAE64 section.  Added Moving Data in 64 bit environment section.</li>
-	</ul>
-	12/16/2018
-	<ul>
-            <li>Updates to SLAE64 section.  Added GDB+GEF and Radare2 Disassembly.</li>
-	</ul>
-	12/9/2018
-	<ul>
-            <li>Updates to LiveOverflow bin0x0C section.  This section goes into great detail on Protostar's stack0 exercise.</li>
-	</ul>
-	12/2/2018
-	<ul>
-            <li>Added assembly program hello world for 64 Bit x86_64 platform under SLAE64 section.</li>
-            <li>Added simple shellcode for ARM platform a Raspberry Pi 2.</li>
-            <li>Added section on Simulating ARM platform in QEMU under Single Board Computers Running Linux.</li>
-	</ul>
+	
 	
 	
 	
