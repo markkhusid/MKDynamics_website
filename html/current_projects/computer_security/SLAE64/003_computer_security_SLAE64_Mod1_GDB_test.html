@@ -44,7 +44,7 @@
       border		: 5px solid black;
       background	: gray;
       position		: relative;
-      width		: 1370px;
+      width		: 1350px;
       height		: 250px;
       top		: 0px;
       left		: 0px;
@@ -57,8 +57,8 @@
       border		: 5px solid black;
       background	: gray;
       position		: relative;
-      width		: 1370px;
-      height		: 1200px;
+      width		: 1350px;
+      height		: 1800px;
       top		: 000px;
       left		: 0px;
       float		: left;
@@ -278,14 +278,7 @@
                     <div class="loose_text">
                         
                         <p>
-                            The screenshot below displays the contents of the program <i>gdb_test.c</i>.  The program contains a string variable called <i>p</i> that hold the password "PentesterAcademyPass".  We need to run this program in GDB and trick the program into thinking that a randomly entered command line argument is the password.
-                        </p>
-                        
-                        <p>
-                            The program is compiled with:
-                            <blockquote>
-                                $ gcc -m32 -ggdb3 -zexecstack -mpreferred-stack-boundary=2 gdb_test.c -o gdb_test
-                            </blockquote>
+                            The screenshot below displays the contents of the program <i>gdb_test.c</i>.  
                         </p>
                         
                     </div> <!-- .loose_text -->
@@ -306,7 +299,42 @@
                             <p>
                         </div> <!-- .desc -->
                     </figure>
-                
+                    
+                    <!-- ********************************************************************* Loose Text -->                
+                    <div class="loose_text">
+                    
+                        <p>
+                            The program contains a string variable called <i>p</i> that holds the password "PentesterAcademyPass".  It then does a string compare of <i>p</i> with the first argument to the executable.  If the first argument is the same string as <i>p</i>, the <i>strcmp</i> function returns a zero.  The enveloping <i>if</i> statement checks for this condition and if true, executes the statement:
+                            
+                            <blockquote>
+                                printf("\nWelcome to the SLAE 64-bit course! Please proceed to the next video!\n");
+                            </blockquote>
+                            
+                            Otherwise it executes the statement:
+                            
+                            <blockquote>
+                                printf("\nIt's time to review those GDB videos again!\n");
+                            </blockquote>
+                        </p>
+                        
+                        <p>
+                            One way to crack this simple password checking routine is to run this program in GDB and trick the program into thinking that a randomly entered command line argument is the password.
+                        </p>
+                        
+                        <p>
+                            To do this, we need to first compile the program into an executable.  The program is compiled with:
+                            <blockquote>
+                                $ gcc -ggdb3 gdb_test.c -o gdb_test
+                            </blockquote>
+                        </p>
+                        
+                        <p>
+                            In the next section, we run the program in GDB + GEF
+                        </p>
+                        
+                    </div> <!-- .loose_text -->
+                    <!-- ********************************************************************* Loose Text -->
+                    
                 </div> <!-- .current_project_2 -->
             
             </section> <!-- section -->
