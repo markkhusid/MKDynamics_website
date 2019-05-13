@@ -361,6 +361,10 @@
       
       <aside>
 	Status Updates<br><br>
+	5/13/2019
+	<ul>
+            <li>Started on GDB Test in SLAE64.</li>
+	</ul>
 	5/5/2019
 	<ul>
             <li>Finished Reducing Instruction Sizes and Removing Nulls in SLAE64.</li>
