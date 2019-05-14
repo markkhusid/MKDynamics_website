@@ -548,6 +548,24 @@
                             <p>
                         </div> <!-- .desc -->
                     </figure>
+                    
+                     <!-- ********************************************************************* Loose Text -->                
+                    <div class="loose_text">
+                        
+                        <p>
+                            In the screenshot above, we can see the disassembly of the function <i>main</i> and the strcmp (string compare) highlighted.
+                        </p>
+                        
+                        <p>
+                            We see a couple of <i>mov</i> instructions prior to the string compare, and a <i>test eax, eax</i> instruction following it.  The <i>test eax, eax</i> instruction performs a bitwise <i>AND</i> on the operands and sets the zero flag.  The result of the bitwise <i>AND</i> is not stored back into the register eax.
+                        </p>
+                        
+                        <p>
+                            After the <i>test eax, eax</i> instruction, we see a <i>jne</i> or a Jump if Not Equal instruction, and then a series of <i>puts</i> function calls.  If the zero flag is not set, the program jumps to main+65, prints a string and then exits.  If they are equal, the <i>puts</i> function call at main+58 executes and then jumps to the end of the program.
+                        </p>
+                        
+                    </div> <!-- .loose_text -->
+                    <!-- ********************************************************************* Loose Text -->
                 
                 </div> <!-- .current_project_5 -->
             
