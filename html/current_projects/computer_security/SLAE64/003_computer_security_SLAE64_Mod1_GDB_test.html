@@ -110,7 +110,7 @@
       background	: gray;
       position		: relative;
       width		: 1370px;
-      height		: 1500px;
+      height		: 2700px;
       top		: 000px;
       left		: 0px;
       float		: left;
@@ -123,7 +123,7 @@
       background	: gray;
       position		: relative;
       width		: 1370px;
-      height		: 1500px;
+      height		: 4700px;
       top		: 000px;
       left		: 0px;
       float		: left;
@@ -521,6 +521,7 @@
                         <h3>
                             Highlighting the <i>strcmp</i> Instruction for Clarity 
                         </h3>
+                        
                     </hgroup>
                     
                     <!-- ********************************************************************* Loose Text -->                
@@ -557,17 +558,55 @@
                         </p>
                         
                         <p>
-                            We see a couple of <i>mov</i> instructions prior to the string compare, and a <i>test eax, eax</i> instruction following it.  The <i>test eax, eax</i> instruction performs a bitwise <i>AND</i> on the operands and sets the zero flag.  The result of the bitwise <i>AND</i> is not stored back into the register eax.
+                            We see a couple of <i>mov</i> instructions prior to the string compare, and a <i>test eax, eax</i> instruction following it.  The idea is that the <i>strcmp</i> function returns a zero into eax if the command line argument to the gdb_test executable matches the hardcoded password.  If the strings match, then the <i>test eax, eax</i> instruction performs a bitwise <i>AND</i> on the operands and sets the zero flag if the strings matched.  The result of the bitwise <i>AND</i> is not stored back into the register eax, only the zero flag is set.
                         </p>
                         
                         <p>
                             After the <i>test eax, eax</i> instruction, we see a <i>jne</i> or a Jump if Not Equal instruction, and then a series of <i>puts</i> function calls.  If the zero flag is not set, the program jumps to main+65, prints a string and then exits.  If they are equal, the <i>puts</i> function call at main+58 executes and then jumps to the end of the program.
                         </p>
                         
+                        <p>
+                            We can see a graphical visualization of this with the help of Radare2.  A screenshot this is shown below:
+                        </p>
+                        
+                    </div> <!-- .loose_text -->
+                    <!-- ********************************************************************* Loose Text -->
+                    
+                    <figure>
+                        <div class="img">
+                            <img 
+                            src="../images/SLAE64/Module_1/003_GDB_Test/radare2_disassembly_of_gdb_test.jpg"
+                            width="1250"
+                            height="900"
+                            title=""
+                            >
+                        </div> <!-- .img -->
+                        <div class="desc">
+                            <p>
+                                Disassembly of the function <i>main</i> and visualization in Radare2
+                            <p>
+                        </div> <!-- .desc -->
+                    </figure>
+                    
+                     <!-- ********************************************************************* Loose Text -->                
+                    <div class="loose_text">
+                        
+                        <p>
+                            In the screenshot above, we can see the disassembly of the function <i>main</i> in Radare2.
+                        </p>
+                        
+                        <p>
+                            In Radare2, we can clearly see the flow graph of the branching after the test for zero in eax is performed.  If we could modify eax to be a zero after this test, no matter what the command line argument was, then we can effectively always force the program to print the string that we want.
+                        </p>
+                        
+                        <p>
+                            In the next section, we will setup a breakpoint just before the <i>test eax, eax</i>.  Before executing this instruction, we will mov a zero into eax, effectively negating the results of the string compare.  The program will then continue as if the correct password was entered, effectively being cracked.
+                        </p>
+                        
                     </div> <!-- .loose_text -->
                     <!-- ********************************************************************* Loose Text -->
                 
-                </div> <!-- .current_project_5 -->
+                </div> <!-- .current_project_6 -->
             
             </section> <!-- third_section -->
             <!-- ************************************************************************************* Section End ************ -->
@@ -578,16 +617,76 @@
                 <div class="current_project_7">
                 
                     <hgroup>
+                
                         <h2>
-                            Lorem
+                            Running <i>gdbtest</i> in GDB + GEF
                         </h2>
-                    </hgroup>
+                        
+                        <h3>
+                            Setting up break point at the instruction <i>test eax, eax</i>
+                        </h3>
                     
                     <!-- ********************************************************************* Loose Text -->                
                     <div class="loose_text">
                         
                         <p>
-                            Lorem
+                            In this section we will setup a breakpoint at just before the instruction <i>test eax, eax</i>.  But first we must run the program with an arbitrary argument.  We will use the string "AAAA" for its ease of recognition in either ASCII format or its hex equivalent, 0x64646464.
+                        </p>
+                        
+                    </div> <!-- .loose_text -->
+                    <!-- ********************************************************************* Loose Text -->
+
+                    <figure>
+                        <div class="img">
+                            <img 
+                            src="../images/SLAE64/Module_1/003_GDB_Test/running_gdb_test_with_AAAA.jpg"
+                            width="1250"
+                            height="900"
+                            title=""
+                            >
+                        </div> <!-- .img -->
+                        <div class="desc">
+                            <p>
+                                Running <i>gdb_test</i> with the argument AAAA
+                            <p>
+                        </div> <!-- .desc -->
+                    </figure>
+                    
+                    <!-- ********************************************************************* Loose Text -->                
+                    <div class="loose_text">
+                        
+                        <p>
+                            In the screenshot above, we can see that <i>gdb_test</i> was run with the argument AAAA.  This has been highlighted for clarity.  The program will then execute a number of instructions that set up the stack for the local variables.  We will not go into the details here in this section, because here will concentrate on using GDB to crack the program.  What is important to note is that the arguments to the vulnerable <i>strcmp</i> function are passed through the registers RDI and RSI.  We will now set a breakpoint just before <i>test eax, eax</i> and also highlight RDI and RSI for clarity.
+                        </p>
+                        
+                    </div> <!-- .loose_text -->
+                    <!-- ********************************************************************* Loose Text -->
+                
+                    <figure>
+                        <div class="img">
+                            <img 
+                            src="../images/SLAE64/Module_1/003_GDB_Test/set_breakpoint_before_test_eax_eax.jpg"
+                            width="1250"
+                            height="900"
+                            title=""
+                            >
+                        </div> <!-- .img -->
+                        <div class="desc">
+                            <p>
+                                Breakpoint set at <i>test eax, eax</i>
+                            <p>
+                        </div> <!-- .desc -->
+                    </figure>
+                    
+                    <!-- ********************************************************************* Loose Text -->                
+                    <div class="loose_text">
+                        
+                        <p>
+                            In the screenshot above, we can see that a breakpoint was set at <i>*main+52</i>, which corresponds to the <i>test eax, eax</i> instruction.  We can also see that the two lines prior to the <i>strcmp</i> call were highlighted, to emphasize that the arguments to <i>strcmp</i> are passed via the registers RDI and RSI, per calling convention.
+                        </p>
+                        
+                        <p>
+                            We will now continue exectution until the breakpoint at <i>*main+52</i>.
                         </p>
                         
                     </div> <!-- .loose_text -->
@@ -596,7 +695,7 @@
                     <figure>
                         <div class="img">
                             <img 
-                            src="../images/SLAE64/Module_1/003_GDB_Test/set_breakpoint_before_strcpy.jpg"
+                            src="../images/SLAE64/Module_1/003_GDB_Test/before_test_eax_eax_showing_rdi_and_rsi.jpg"
                             width="1250"
                             height="900"
                             title=""
@@ -604,12 +703,44 @@
                         </div> <!-- .img -->
                         <div class="desc">
                             <p>
-                                Lorem
+                                Breakpoint hit at <i>test eax, eax</i>.  Also, RDI and RSI are highlighted for emphasis.
                             <p>
                         </div> <!-- .desc -->
                     </figure>
-                
-                </div> <!-- .current_project_6 -->
+                    
+                    <!-- ********************************************************************* Loose Text -->                
+                    <div class="loose_text">
+                        
+                        <p>
+                            In the screenshot above, we can see that the breakpoint at <i>*main+52</i> was hit.  We can also see that the two lines prior to the <i>strcmp</i> call were highlighted, to emphasize that the arguments to <i>strcmp</i> are passed via the registers RDI and RSI, per calling convention.  The RDI contains the memory address of the passed command line argument "AAAA", while RSI contains the address of the hardcoded password "PentesterAcademyPass".
+                        </p>
+                        
+                        <p>
+                            The two strings pointed to RDI and RSI are obviously different.  The result of the <i>strcmp</i> call will place a non-zero result into RAX, as shown in the screenshot below.
+                        </p>
+                        
+                    </div> <!-- .loose_text -->
+                    <!-- ********************************************************************* Loose Text -->
+                    
+                    <figure>
+                        <div class="img">
+                            <img 
+                            src="../images/SLAE64/Module_1/003_GDB_Test/result_of_strcmp_showing_rax.jpg"
+                            width="1250"
+                            height="900"
+                            title=""
+                            >
+                        </div> <!-- .img -->
+                        <div class="desc">
+                            <p>
+                                RAX highlighted to show result of the <i>strcmp</i> call.
+                            <p>
+                        </div> <!-- .desc -->
+                    </figure>
+                    
+                    
+                    
+                </div> <!-- .current_project_7 -->
             
             </section> <!-- third_section -->
             <!-- ************************************************************************************* Section End ************ -->
