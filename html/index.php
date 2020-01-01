@@ -361,6 +361,10 @@
       
       <aside>
 	Status Updates<br><br>
+	5/19/2019
+	<ul>
+            <li>Continue work on GDB Test in SLAE64.</li>
+	</ul>
 	5/13/2019
 	<ul>
             <li>Started on GDB Test in SLAE64.</li>
