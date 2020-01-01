@@ -361,6 +361,10 @@
       
       <aside>
 	Status Updates<br><br>
+	1/1/2020
+	<ul>
+            <li>Happy New Year!</li>
+	</ul>
 	5/19/2019
 	<ul>
             <li>Continue work on GDB Test in SLAE64.</li>
