@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta name="Generator" content="Kate, the KDE Advanced Text Editor" />
+<title>approx_exp.f08</title>
+</head>
+<!-- Highlighting: "Fortran" -->
+<body>
+<pre style='color:#839496;background-color:#002b36;'>
+<b><span style='color:#859900;'>module</span></b> coeff
+    <b><span style='color:#b58900;'>integer</span></b> <b><span style='color:#b58900;'>::</span></b> n
+    <b><span style='color:#b58900;'>integer</span></b>, <b><span style='color:#b58900;'>parameter</span></b> <b><span style='color:#b58900;'>::</span></b> n_max <b><span style='color:#859900;'>=</span></b> <span style='color:#2aa198;'>20</span>
+<b><span style='color:#b58900;'>    real</span></b>, <b><span style='color:#b58900;'>dimension(0 : n_max)</span></b> <b><span style='color:#b58900;'>::</span></b> b
+<b><span style='color:#859900;'>end module</span></b> coeff
+
+<b><span style='color:#859900;'>program</span></b> approx_exp
+    <b><span style='color:#859900;'>use</span></b> coeff
+    <b><span style='color:#859900;'>implicit</span></b> <b><span style='color:#859900;'>none</span></b>
+<b><span style='color:#b58900;'>    real</span></b> <b><span style='color:#b58900;'>::</span></b> x
+    <b><span style='color:#b58900;'>integer</span></b> <b><span style='color:#b58900;'>::</span></b> i
+    <b><span style='color:#859900;'>external</span></b> taylor_exp
+<b><span style='color:#b58900;'>    real</span></b>, <b><span style='color:#859900;'>external</span></b> <b><span style='color:#b58900;'>::</span></b> eval
+
+    <span style='color:#268bd2;'>write (unit</span><b><span style='color:#859900;'>=</span></b><span style='color:#268bd2;'>*</span>, <span style='color:#268bd2;'>fmt</span><b><span style='color:#859900;'>=</span></b><span style='color:#2aa198;'>&quot;(a)&quot;</span>, <span style='color:#268bd2;'>advance</span><b><span style='color:#859900;'>=</span></b><span style='color:#2aa198;'>&quot;no&quot;</span><span style='color:#268bd2;'>)</span> <span style='color:#2aa198;'>&quot;Please input order of Taylor Approximation (n &lt;= 20) -&gt; &quot;</span>
+    <span style='color:#268bd2;'>read</span> <b><span style='color:#859900;'>*</span></b>, n
+    n <b><span style='color:#859900;'>=</span></b> <b><span style='color:#cb4b16;'>min</span></b>(n, n_max)
+    <b><span style='color:#859900;'>call</span></b> taylor_exp
+
+    <b><span style='color:#859900;'>do</span></b> i <b><span style='color:#859900;'>=</span></b> <b><span style='color:#859900;'>-</span></b><span style='color:#2aa198;'>4</span>, <span style='color:#2aa198;'>4</span>
+        x <b><span style='color:#859900;'>=</span></b> <span style='color:#2aa198;'>2.0</span><b><span style='color:#859900;'>**</span></b>i
+        <span style='color:#268bd2;'>write (unit</span><b><span style='color:#859900;'>=</span></b><span style='color:#268bd2;'>*</span>, <span style='color:#268bd2;'>fmt</span><b><span style='color:#859900;'>=</span></b><span style='color:#2aa198;'>&quot;(a, tr1, f10.5, tr2, a, f15.5, tr2, a, f15.5)&quot;</span><span style='color:#268bd2;'>)</span> <span style='color:#2aa198;'>&quot;Power of e = &quot;</span>, <b><span style='color:#859900;'>&amp;</span></b>
+            x, <span style='color:#2aa198;'>&quot; exp(power of e) = &quot;</span>, <b><span style='color:#cb4b16;'>exp</span></b>(x), <span style='color:#2aa198;'>&quot; taylor approximation = &quot;</span>, eval(x)
+    <b><span style='color:#859900;'>end do</span></b>
+<b><span style='color:#859900;'>end program</span></b> approx_exp
+
+<b><span style='color:#859900;'>subroutine</span></b> taylor_exp
+    <b><span style='color:#859900;'>use</span></b> coeff
+    <b><span style='color:#859900;'>implicit</span></b> <b><span style='color:#859900;'>none</span></b>
+    <b><span style='color:#b58900;'>integer</span></b> <b><span style='color:#b58900;'>::</span></b> i
+    b(<span style='color:#2aa198;'>0</span>) <b><span style='color:#859900;'>=</span></b> <span style='color:#2aa198;'>1.0</span>
+    <b><span style='color:#859900;'>do</span></b> i <b><span style='color:#859900;'>=</span></b> <span style='color:#2aa198;'>1</span>, n
+        b(i) <b><span style='color:#859900;'>=</span></b> b(i<b><span style='color:#859900;'>-</span></b><span style='color:#2aa198;'>1</span>)<b><span style='color:#859900;'>/</span></b> <b><span style='color:#cb4b16;'>real</span></b>(i)
+        <span style='color:#268bd2;'>write (unit</span><b><span style='color:#859900;'>=</span></b><span style='color:#268bd2;'>*</span>, <span style='color:#268bd2;'>fmt</span><b><span style='color:#859900;'>=</span></b><span style='color:#2aa198;'>&quot;(a, i5, a, f10.5)&quot;</span><span style='color:#268bd2;'>)</span> <span style='color:#2aa198;'>&quot;[DEBUG] b(&quot;</span>, i, <span style='color:#2aa198;'>&quot;) = &quot;</span>, b(i)
+    <b><span style='color:#859900;'>end do</span></b>
+<b><span style='color:#859900;'>end subroutine</span></b> taylor_exp
+
+<b><span style='color:#b58900;'>real</span></b> <b><span style='color:#859900;'>function</span></b> eval(x)
+    <b><span style='color:#859900;'>use</span></b> coeff
+    <b><span style='color:#859900;'>implicit</span></b> <b><span style='color:#859900;'>none</span></b>
+<b><span style='color:#b58900;'>    real</span></b>, <b><span style='color:#b58900;'>intent(in)</span></b> <b><span style='color:#b58900;'>::</span></b> x
+    <b><span style='color:#b58900;'>integer</span></b> <b><span style='color:#b58900;'>::</span></b> i
+    eval <b><span style='color:#859900;'>=</span></b> b(n)
+    <b><span style='color:#859900;'>do</span></b> i <b><span style='color:#859900;'>=</span></b> n<b><span style='color:#859900;'>-</span></b><span style='color:#2aa198;'>1</span>, <span style='color:#2aa198;'>0</span>, <b><span style='color:#859900;'>-</span></b><span style='color:#2aa198;'>1</span>
+        eval <b><span style='color:#859900;'>=</span></b> b(i)<b><span style='color:#859900;'>+</span></b>x<b><span style='color:#859900;'>*</span></b>eval
+    <b><span style='color:#859900;'>end do</span></b>
+<b><span style='color:#859900;'>end function</span></b> eval
+</pre>
+</body>
+</html>
