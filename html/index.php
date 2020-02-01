@@ -361,6 +361,10 @@
       
       <aside>
 	Status Updates<br><br>
+	2/1/2020
+	<ul>
+            <li>Added add_int.c on AMD64 platform to Disassembling Binaries section.</li>
+	</ul>
 	1/1/2020
 	<ul>
             <li>Happy New Year!</li>
