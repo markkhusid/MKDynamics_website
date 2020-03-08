@@ -361,6 +361,10 @@
       
       <aside>
 	Status Updates<br><br>
+	3/8/2020
+	<ul>
+            <li>Fixed Guide to 2008 Fortran Programming Section.</li>
+	</ul>
 	2/1/2020
 	<ul>
             <li>Added add_int.c on AMD64 platform to Disassembling Binaries section.</li>
@@ -524,7 +528,7 @@
                 />
 	  
                 <figcaption>
-                    <a href="current_projects/FORTRAN.html">FORTRAN Programming</a><br>
+                    <a href="current_projects/Fortran/FORTRAN_main.html">FORTRAN Programming</a><br>
                 </figcaption>
             </figure>
         </div> <!-- .current_project_3 -->
