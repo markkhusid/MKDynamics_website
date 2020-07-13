@@ -354,6 +354,7 @@
 	<ul>
 		<li>Continuing to convert Guide to Fortran 2008 Programming Section in Jupyter Notebooks.</li>
 	5/16/2020
+	</ul>
 	<ul>
 		<li>Started to convert Guide to Fortran 2008 Programming Section into Jupyter Notebooks.</li>
 	</ul>
