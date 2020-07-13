@@ -353,8 +353,8 @@
 	7/12/2020
 	<ul>
 		<li>Continuing to convert Guide to Fortran 2008 Programming Section in Jupyter Notebooks.</li>
-	5/16/2020
 	</ul>
+	5/16/2020
 	<ul>
 		<li>Started to convert Guide to Fortran 2008 Programming Section into Jupyter Notebooks.</li>
 	</ul>
