@@ -3,7 +3,7 @@
 <head><meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>current_projects_3</title><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
+<title>003_computer_security_SLAE64_Mod1_GDB_test</title><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
 
 
 
@@ -14259,7 +14259,117 @@ a.anchor-link {
 
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h2 id="Looking-at-the-screenshot-above,-we-can-see-that-main's-stackframe-has-been-set-up,-and-we-are-at-the-first-assembly-instruction-in-the-C-function-main.-We-will-now-examine-the-assembly-instructions-more-closely-and-step-through-the-instructions-to-find-where-the-test-for-a-correct-password-is-performed.-At-that-point,-we-can-modify-the-results-of-the-test-within-GDB-to-trick-the-program-and-print-the-desired-message.">Looking at the screenshot above, we can see that main's stackframe has been set up, and we are at the first assembly instruction in the C function main. We will now examine the assembly instructions more closely and step through the instructions to find where the test for a correct password is performed. At that point, we can modify the results of the test within GDB to trick the program and print the desired message.<a class="anchor-link" href="#Looking-at-the-screenshot-above,-we-can-see-that-main's-stackframe-has-been-set-up,-and-we-are-at-the-first-assembly-instruction-in-the-C-function-main.-We-will-now-examine-the-assembly-instructions-more-closely-and-step-through-the-instructions-to-find-where-the-test-for-a-correct-password-is-performed.-At-that-point,-we-can-modify-the-results-of-the-test-within-GDB-to-trick-the-program-and-print-the-desired-message.">&#182;</a></h2>
+<h1 id="Introduction">Introduction<a class="anchor-link" href="#Introduction">&#182;</a></h1>
+</div>
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>In this section we will be following along with and completing course material from the Pentester Academy's SecurityTube Linux Assembly language Expert 64 Bit course. The first assignment is called gdbtest. The goal is to use GDB to modify the contents of the CPU registers so that the password checking program will allow the student to view the message: Welcome to the SLAE 64-bit course! Please proceed to the next video! Otherwise, the program will display: It's time to review those GDB videos again!</p>
+
+</div>
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>Project code is contained in my <a href="https://github.com/markkhusid/SLAE64">github</a>.</p>
+
+</div>
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h2 id="The-program-gdb_test.c">The program <i>gdb_test.c</i><a class="anchor-link" href="#The-program-gdb_test.c">&#182;</a></h2>
+</div>
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>The screenshot below displays the contents of the program <i>gdb_test.c</i>.</p>
+
+</div>
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<figure>
+    <div class="img">
+        <img 
+            src="../../images/SLAE64/Module_1/003_GDB_Test/gdb_test.c.png"
+            width="1250"
+            height="900"
+            title=""
+        >
+    </div> <!-- .img -->
+ </figure><p><div class="desc">
+    <p>
+        The test program <i>gdb_test.c</i>
+    <p>
+</div> <!-- .desc --></p>
+
+</div>
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>The program contains a string variable called p that holds the password "PentesterAcademyPass". It then does a string compare of p with the first argument to the executable. If the first argument is the same string as p, the strcmp function returns a zero. The enveloping if statement checks for this condition and if true, executes the statement:</p>
+
+</div>
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<div class="highlight"><pre><span></span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;</span><span class="se">\n</span><span class="s">Welcome to the SLAE 64-bit course! Please proceed to the next video!</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+</pre></div>
+
+</div>
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>One way to crack this simple password checking routine is to run this program in GDB and trick the program into thinking that a randomly entered command line argument is the password.</p>
+
+</div>
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>To do this, we need to first compile the program into an executable. The program is compiled with:</p>
+
+</div>
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<div class="highlight"><pre><span></span>$ gcc -ggdb3 gdb_test.c -o gdb_test
+</pre></div>
+
+</div>
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>In the next section, we run the program in GDB + GEF.</p>
+
+</div>
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h2 id="Running-gdbtest-in-GDB-+-GEF">Running <i>gdbtest</i> in GDB + GEF<a class="anchor-link" href="#Running-gdbtest-in-GDB-+-GEF">&#182;</a></h2>
+</div>
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>The screenshot below shows the executable <i>gdbtest</i> being run in GDB + GEF.</p>
+
+</div>
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<figure>
+    <div class="img">
+        <img 
+            src="../../images/SLAE64/Module_1/003_GDB_Test/running_gdb_test_in_GEF.jpg"
+            width="1920"
+            height="1200"
+            title=""
+        >
+    </div> <!-- .img -->
+    <div class="desc">
+        <p>
+            Running the executable <i>gdbtest</i> in GDB + GEF
+        <p>
+    </div> <!-- .desc -->
+</figure>
 </div>
 </div>
 </body>
