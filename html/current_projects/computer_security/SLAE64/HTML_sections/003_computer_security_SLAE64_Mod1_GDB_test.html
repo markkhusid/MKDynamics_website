@@ -14259,29 +14259,39 @@ a.anchor-link {
 
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h1 id="Introduction">Introduction<a class="anchor-link" href="#Introduction">&#182;</a></h1>
+<h1 id="Module-1-Section-3---GDB-Test"><span style="font-family:Papyrus; font-size:2em;">Module 1 Section 3 - GDB Test</span><a class="anchor-link" href="#Module-1-Section-3---GDB-Test">&#182;</a></h1><h3 id="Cracking-a-Password-Checking-Program-with-GDB"><span style="font-family:Papyrus; font-size:1em;">Cracking a Password Checking Program with GDB</span><a class="anchor-link" href="#Cracking-a-Password-Checking-Program-with-GDB">&#182;</a></h3>
 </div>
 </div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>In this section we will be following along with and completing course material from the Pentester Academy's SecurityTube Linux Assembly language Expert 64 Bit course. The first assignment is called gdbtest. The goal is to use GDB to modify the contents of the CPU registers so that the password checking program will allow the student to view the message: Welcome to the SLAE 64-bit course! Please proceed to the next video! Otherwise, the program will display: It's time to review those GDB videos again!</p>
+<h2 id="Introduction"><span style="font-family:Papyrus; font-size:2em;">Introduction</span><a class="anchor-link" href="#Introduction">&#182;</a></h2>
+</div>
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p><span style="font-family:Papyrus; font-size:1.25em;">In this section we will be following along with and completing course material from the Pentester Academy's SecurityTube Linux Assembly language Expert 64 Bit course. The first assignment is called gdbtest. The goal is to use GDB to modify the contents of the CPU registers so that the password checking program will allow the student to view the message:<span></p>
+<blockquote><p><span style="font-family:Courier; font-size:1.25em;">Welcome to the SLAE 64-bit course! Please proceed to the next video!</span></p>
+</blockquote>
+<p><span style="font-family:Papyrus; font-size:1.25em;">Otherwise, the program will display:</span></p>
+<blockquote><p><span style="font-family:Courier; font-size:1.25em;">It's time to review those GDB videos again!</span></p>
+</blockquote>
 
 </div>
 </div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>Project code is contained in my <a href="https://github.com/markkhusid/SLAE64">github</a>.</p>
+<p><span style="font-family:Papyrus; font-size:1.25em;">Project code is contained in my <a href="https://github.com/markkhusid/SLAE64">github</a>.</span></p>
 
 </div>
 </div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h2 id="The-program-gdb_test.c">The program <i>gdb_test.c</i><a class="anchor-link" href="#The-program-gdb_test.c">&#182;</a></h2>
+<h2 id="The-Program-gdb_test.c"><span style="font-family:Papyrus; font-size:1.75em;">The Program <i>gdb_test.c</i></span><a class="anchor-link" href="#The-Program-gdb_test.c">&#182;</a></h2>
 </div>
 </div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>The screenshot below displays the contents of the program <i>gdb_test.c</i>.</p>
+<p><span style="font-family:Papyrus; font-size:1.25em;">The screenshot below displays the contents of the program <i>gdb_test.c</i></span></p>
 
 </div>
 </div>
@@ -14298,7 +14308,7 @@ a.anchor-link {
     </div> <!-- .img -->
  </figure><p><div class="desc">
     <p>
-        The test program <i>gdb_test.c</i>
+        <span style="font-family:Papyrus; font-size:1em;">The program <i>gdb_test.c</i></span>
     <p>
 </div> <!-- .desc --></p>
 
@@ -14306,7 +14316,7 @@ a.anchor-link {
 </div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>The program contains a string variable called p that holds the password "PentesterAcademyPass". It then does a string compare of p with the first argument to the executable. If the first argument is the same string as p, the strcmp function returns a zero. The enveloping if statement checks for this condition and if true, executes the statement:</p>
+<p><span style="font-family:Papyrus; font-size:1.25em;">The program contains a string variable called <i>p</i> that holds the password "PentesterAcademyPass". It then does a string compare of the variable <i>p</i> with the first argument passed to the executable from the command line. If the first argument is the same string as <i>p</i>, the strcmp function returns a zero. The enveloping if statement checks for this condition and if true, executes the statement:</span></p>
 
 </div>
 </div>
@@ -14319,13 +14329,19 @@ a.anchor-link {
 </div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>One way to crack this simple password checking routine is to run this program in GDB and trick the program into thinking that a randomly entered command line argument is the password.</p>
 
 </div>
 </div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>To do this, we need to first compile the program into an executable. The program is compiled with:</p>
+<p><span style="font-family:Papyrus; font-size:1.25em;">One way to crack this simple password checking routine is to run this program in GDB and trick the program into thinking that any randomly entered command line argument is the password.  This is done by setting the register that contains the randomly entered password to the hardcoded password "PentesterAcademyPass" from within GDB.  The executable then continues running thinking that the correct password was entered.<span></p>
+<p><span style="font-family:Papyrus; font-size:1.25em;">We will now demonstrate the entire process.</span></p>
+
+</div>
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p><span style="font-family:Papyrus; font-size:1.25em;">To do this, we need to first compile the program into an executable. The program is compiled with:</span></p>
 
 </div>
 </div>
@@ -14338,18 +14354,29 @@ a.anchor-link {
 </div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>In the next section, we run the program in GDB + GEF.</p>
 
 </div>
 </div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h2 id="Running-gdbtest-in-GDB-+-GEF">Running <i>gdbtest</i> in GDB + GEF<a class="anchor-link" href="#Running-gdbtest-in-GDB-+-GEF">&#182;</a></h2>
+<p><span style="font-family:Papyrus; font-size:1.25em;">This produces an executable called <i>gdb_test</i>.</span></p>
+
 </div>
 </div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>The screenshot below shows the executable <i>gdbtest</i> being run in GDB + GEF.</p>
+<p><span style="font-family:Papyrus; font-size:1.25em;">In the next section, we run the executable <i>gdbtest</i> in GDB + GEF.</span></p>
+
+</div>
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h2 id="Running-gdbtest-in-GDB-+-GEF"><span style="font-family:Papyrus; font-size:1.75em;">Running <i>gdbtest</i> in GDB + GEF</span><a class="anchor-link" href="#Running-gdbtest-in-GDB-+-GEF">&#182;</a></h2>
+</div>
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p><span style="font-family:Papyrus; font-size:1.25em;">The screenshot below shows the executable <i>gdbtest</i> being run in GDB + GEF.</span></p>
 
 </div>
 </div>
@@ -14360,13 +14387,79 @@ a.anchor-link {
         <img 
             src="../../images/SLAE64/Module_1/003_GDB_Test/running_gdb_test_in_GEF.jpg"
             width="1920"
-            height="1200"
+            height="1800"
             title=""
         >
     </div> <!-- .img -->
     <div class="desc">
         <p>
             Running the executable <i>gdbtest</i> in GDB + GEF
+        <p>
+    </div> <!-- .desc -->
+</figure>
+</div>
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h2 id="Examining-the-Disassembly-of-Main-in-Detail"><span style="font-family:Papyrus; font-size:1.75em;">Examining the Disassembly of Main in Detail</span><a class="anchor-link" href="#Examining-the-Disassembly-of-Main-in-Detail">&#182;</a></h2>
+</div>
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p><span style="font-family:Papyrus; font-size:1.25em;">In this section, we will examine the disassembly of the function <i>main</i> in more detail.  We will use the ATT format to become accustomed to it, but generally, the Intel format seems to be more prevalent.  In the screenshot below, we show the disassembly of the function <i>main</i> in both formats.</span></p>
+
+</div>
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<figure>
+    <div class="img">
+        <img 
+        src="../../images/SLAE64/Module_1/003_GDB_Test/disassembly_of_main.jpg"
+        width="1920"
+        height="1800"
+        title=""
+        >
+    </div> <!-- .img -->
+    <div class="desc">
+        <p>
+            Disassembly of the function <i>main</i> in both Intel and ATT formats.
+        <p>
+    </div> <!-- .desc -->
+</figure>
+</div>
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p><span style="font-family:Papyrus; font-size:1.25em;">In the next section, we will zoom in to the function <i>main</i> shown in ATT format for clarity.</span></p>
+
+</div>
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h2 id="Examining-the-Disassembly-of-Main-in-ATT-Format-in-Detail"><span style="font-family:Papyrus; font-size:1.75em;">Examining the Disassembly of Main in ATT Format in Detail</span><a class="anchor-link" href="#Examining-the-Disassembly-of-Main-in-ATT-Format-in-Detail">&#182;</a></h2>
+</div>
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p><span style="font-family:Papyrus; font-size:1.25em;">In the screenshot below, we can see the disassembly of the function <i>main</i> in ATT format and zoomed in for better viewing.  When viewing the assembly instructions, one instruction stands out as particularly interesting.  It is the string compare instruction, at <i>main</i> + 44.  If we could alter the return value of this function to satisfy the test that indeed a correct password was entered, then we can crack this password checking program.</span></p>
+
+</div>
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<figure>
+    <div class="img">
+        <img 
+        src="../../images/SLAE64/Module_1/003_GDB_Test/disassembly_of_main_ATT_zoomed.jpg"
+        width="1920"
+        height="1800"
+        title=""
+        >
+    </div> <!-- .img -->
+    <div class="desc">
+        <p>
+            Disassembly of the function <i>main</i> in the ATT format and zoomed in.
         <p>
     </div> <!-- .desc -->
 </figure>
