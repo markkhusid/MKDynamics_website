@@ -14385,7 +14385,7 @@ a.anchor-link {
 <figure>
     <div class="img">
         <img 
-            src="../../images/SLAE64/Module_1/003_GDB_Test/running_gdb_test_in_GEF.jpg"
+            src="../../images/SLAE64/Module_1/003_GDB_Test/running_gdb_test_in_GEF.png"
             width="1920"
             height="1800"
             title=""
@@ -14412,10 +14412,16 @@ a.anchor-link {
 </div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p><span style="font-family:Papyrus; font-size:1.25em;">First we start with the ATT format...</span></p>
+
+</div>
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <figure>
     <div class="img">
         <img 
-        src="../../images/SLAE64/Module_1/003_GDB_Test/disassembly_of_main.jpg"
+        src="../../images/SLAE64/Module_1/003_GDB_Test/disassembly_of_main_ATT.png"
         width="1920"
         height="1800"
         title=""
@@ -14423,7 +14429,32 @@ a.anchor-link {
     </div> <!-- .img -->
     <div class="desc">
         <p>
-            Disassembly of the function <i>main</i> in both Intel and ATT formats.
+            Disassembly of the function <i>main</i> in the ATT format.
+        <p>
+    </div> <!-- .desc -->
+</figure>
+</div>
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p><span style="font-family:Papyrus; font-size:1.25em;">Next, we display the Intel format...</span></p>
+
+</div>
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<figure>
+    <div class="img">
+        <img 
+        src="../../images/SLAE64/Module_1/003_GDB_Test/disassembly_of_main_Intel.png"
+        width="1920"
+        height="1800"
+        title=""
+        >
+    </div> <!-- .img -->
+    <div class="desc">
+        <p>
+            Disassembly of the function <i>main</i> in the Intel format.
         <p>
     </div> <!-- .desc -->
 </figure>
@@ -14442,7 +14473,7 @@ a.anchor-link {
 </div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p><span style="font-family:Papyrus; font-size:1.25em;">In the screenshot below, we can see the disassembly of the function <i>main</i> in ATT format and zoomed in for better viewing.  When viewing the assembly instructions, one instruction stands out as particularly interesting.  It is the string compare instruction, at <i>main</i> + 44.  If we could alter the return value of this function to satisfy the test that indeed a correct password was entered, then we can crack this password checking program.</span></p>
+<p><span style="font-family:Papyrus; font-size:1.25em;">In the screenshot below, we can see the disassembly of the function <i>main</i> in ATT format and zoomed in for better viewing.  When viewing the assembly instructions, one instruction stands out as particularly interesting.  It is the string compare instruction, at <i>main</i> + 47.  If we could alter the return value of this function to satisfy the test that indeed a correct password was entered, then we can crack this password checking program.</span></p>
 
 </div>
 </div>
@@ -14451,7 +14482,7 @@ a.anchor-link {
 <figure>
     <div class="img">
         <img 
-        src="../../images/SLAE64/Module_1/003_GDB_Test/disassembly_of_main_ATT_zoomed.jpg"
+        src="../../images/SLAE64/Module_1/003_GDB_Test/disassembly_of_main_ATT.png"
         width="1920"
         height="1800"
         title=""
@@ -14463,6 +14494,66 @@ a.anchor-link {
         <p>
     </div> <!-- .desc -->
 </figure>
+</div>
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p><span style="font-family:Papyrus; font-size:1.25em;">In the next section, we will highlight the <i>strcmp</i> (string compare) instruction for clarity.</span></p>
+
+</div>
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h2 id="Highlighting-the-strcmp-Instruction-for-Clarity"><span style="font-family:Papyrus; font-size:1.75em;">Highlighting the <i>strcmp</i> Instruction for Clarity</span><a class="anchor-link" href="#Highlighting-the-strcmp-Instruction-for-Clarity">&#182;</a></h2>
+</div>
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p><span style="font-family:Papyrus; font-size:1.25em;">In the screenshot below, we can see the disassembly of the function <i>main</i> and the strcmp (string compare) highlighted.</span></p>
+
+</div>
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<figure>
+    <div class="img">
+        <img 
+        src="../../images/SLAE64/Module_1/003_GDB_Test/disassembly_of_main_strcpy_highlighted.png"
+        width="1920"
+        height="1800"
+        title=""
+        >
+    </div> <!-- .img -->
+    <div class="desc">
+        <p>
+            Disassembly of the function <i>main</i> and the strcmp (string compare) instruction highlighted.
+        <p>
+    </div> <!-- .desc -->
+</figure>
+</div>
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p><span style="font-family:Papyrus; font-size:1.25em;">In the screenshot above, we can see the disassembly of the function <i>main</i> and the strcmp (string compare) highlighted.</span></p>
+
+</div>
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p><span style="font-family:Papyrus; font-size:1.25em;">We see a couple of <i>mov</i> instructions prior to the string compare, and a <i>test eax, eax</i> instruction following it.  The idea is that the <i>strcmp</i> function returns a zero into eax if the command line argument to the gdb_test executable matches the hardcoded password.  If the strings match, then the <i>test eax, eax</i> instruction performs a bitwise <i>AND</i> on the operands and sets the zero flag if the strings matched.  The result of the bitwise <i>AND</i> is not stored back into the register eax, only the zero flag is set.</span></p>
+
+</div>
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p><span style="font-family:Papyrus; font-size:1.25em;">After the <i>test eax, eax</i> instruction, we see a <i>jne</i> or a Jump if Not Equal instruction, and then a series of <i>puts</i> function calls.  If the zero flag is not set, the program jumps to main+77, prints a string and then exits.  If they are equal, the <i>puts</i> function call at main+63 executes and then jumps to the end of the program.</span></p>
+
+</div>
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p><span style="font-family:Papyrus; font-size:1.25em;">We can see a graphical visualization of this with the help of Radare2.  A screenshot this is shown below:</span></p>
+
 </div>
 </div>
 </body>
