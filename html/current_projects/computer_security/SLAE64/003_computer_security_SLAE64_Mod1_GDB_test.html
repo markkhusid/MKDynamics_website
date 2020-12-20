@@ -34,7 +34,7 @@
       background	: gray;
       position		: relative;
       width			: 1350px;
-      height		: 4500px;
+      height		: 7000px;
       top			: 10px;
       left			: 10px;
       float			: center;
@@ -257,62 +257,7 @@
            
             <!-- ************************************************************************************* Section End ************ -->
             
-            <!-- ************************************************************************************* Section Start *********** -->
-            <section class="section">
-                
-                <div class="current_project_5">
-                    
-                    <hgroup>
-                
-                        <h2>
-                            Running <i>gdbtest</i> in GDB + GEF
-                        </h2>
-                        
-                        <h3>
-                            Examining the Disassembly of Main in ATT Format in Detail
-                        </h3>
-                    </hgroup>
-                    
-                    <!-- ********************************************************************* Loose Text -->                
-                    <div class="loose_text">
-                        
-                        <p>
-                            In the screenshot below, we can see the disassembly of the function <i>main</i> in ATT format and zoomed in for better viewing.  When viewing the assembly instructions, one instruction stands out as particularly interesting.  It is the string compare instruction, at main+44.  If we could alter the return value of this function to satisfy the test that indeed a correct password was entered, then we can crack this password checking program.
-                        </p>
-                        
-                    </div> <!-- .loose_text -->
-                    <!-- ********************************************************************* Loose Text -->
-                    
-                    <figure>
-                        <div class="img">
-                            <img 
-                            src="../images/SLAE64/Module_1/003_GDB_Test/disassembly_of_main_ATT_zoomed.jpg"
-                            width="1250"
-                            height="900"
-                            title=""
-                            >
-                        </div> <!-- .img -->
-                        <div class="desc">
-                            <p>
-                                Disassembly of the function <i>main</i> in the ATT format and zoomed in.
-                            <p>
-                        </div> <!-- .desc -->
-                    </figure>
-                    
-                    <!-- ********************************************************************* Loose Text -->                
-                    <div class="loose_text">
-                        
-                        <p>
-                            In the next section, we will highlight the strcmp (string compare) instruction for clarity.
-                        </p>
-                        
-                    </div> <!-- .loose_text -->
-                    <!-- ********************************************************************* Loose Text -->
-                
-                </div> <!-- .current_project_4 -->
             
-            </section> <!-- third_section -->
-            <!-- ************************************************************************************* Section End ************ -->
             
             <!-- ************************************************************************************* Section Start *********** -->
             <section class="section">
@@ -331,46 +276,7 @@
                         
                     </hgroup>
                     
-                    <!-- ********************************************************************* Loose Text -->                
-                    <div class="loose_text">
-                        
-                        <p>
-                            In the screenshot below, we can see the disassembly of the function <i>main</i> and the strcmp (string compare) highlighted.
-                        </p>
-                        
-                    </div> <!-- .loose_text -->
-                    <!-- ********************************************************************* Loose Text -->
                     
-                    <figure>
-                        <div class="img">
-                            <img 
-                            src="../images/SLAE64/Module_1/003_GDB_Test/disassembly_of_main_strcpy_highlighted.jpg"
-                            width="1250"
-                            height="900"
-                            title=""
-                            >
-                        </div> <!-- .img -->
-                        <div class="desc">
-                            <p>
-                                Disassembly of the function <i>main</i> and the strcmp (string compare) instruction highlighted.
-                            <p>
-                        </div> <!-- .desc -->
-                    </figure>
-                    
-                     <!-- ********************************************************************* Loose Text -->                
-                    <div class="loose_text">
-                        
-                        <p>
-                            In the screenshot above, we can see the disassembly of the function <i>main</i> and the strcmp (string compare) highlighted.
-                        </p>
-                        
-                        <p>
-                            We see a couple of <i>mov</i> instructions prior to the string compare, and a <i>test eax, eax</i> instruction following it.  The idea is that the <i>strcmp</i> function returns a zero into eax if the command line argument to the gdb_test executable matches the hardcoded password.  If the strings match, then the <i>test eax, eax</i> instruction performs a bitwise <i>AND</i> on the operands and sets the zero flag if the strings matched.  The result of the bitwise <i>AND</i> is not stored back into the register eax, only the zero flag is set.
-                        </p>
-                        
-                        <p>
-                            After the <i>test eax, eax</i> instruction, we see a <i>jne</i> or a Jump if Not Equal instruction, and then a series of <i>puts</i> function calls.  If the zero flag is not set, the program jumps to main+65, prints a string and then exits.  If they are equal, the <i>puts</i> function call at main+58 executes and then jumps to the end of the program.
-                        </p>
                         
                         <p>
                             We can see a graphical visualization of this with the help of Radare2.  A screenshot this is shown below:
