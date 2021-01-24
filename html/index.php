@@ -350,9 +350,13 @@
       
       <aside>
 	Status Updates<br><br>
+	1/23/2021
+	<ul>
+		<li>Rewrote Computer Security GDBTest section in Jupyter Notebook format.</li>
+	</ul>
 	7/12/2020
 	<ul>
-		<li>Continuing to convert Guide to Fortran 2008 Programming Section in Jupyter Notebooks.</li>
+		<li>Continuing to convert Guide to Fortran 2008 Programming Section into Jupyter Notebooks.</li>
 	</ul>
 	5/16/2020
 	<ul>
@@ -455,25 +459,10 @@
 	1/4/2019
 	<ul>
             <li>Added ARM section to Protostar Exploit Exercises Stack0.</li>
-	</ul>
-	1/2/2019
-	<ul>
-            <li>Added layout and routing for Quasi-DC Power Converter to Electronics Section.</li>
-	</ul>
-	1/1/2019
-	<ul>
-            <li>Happy New Year!</li>
-	</ul>
-	12/30/2018
-	<ul>
-            <li>Added Quasi-DC Power Converter to Electronics Section.</li>
+	
 	</ul>
 	
-	
-	
-	
-	
-	
+
 	<a href="aside_archives.html">Archives</a><br>
     </aside>
       
