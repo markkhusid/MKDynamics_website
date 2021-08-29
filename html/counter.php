@@ -37,7 +37,7 @@
 
 	// Open files for reading and writing
 	$total_count_my_page = ("total_hit_counter.txt");
-        $total_hits = file($total_count_my_page);
+    $total_hits = file($total_count_my_page);
 	$total_fp = fopen($total_count_my_page, "w");
 
 	$unique_count_my_page = ("unique_hit_counter.txt");
@@ -51,7 +51,7 @@
 		//echo "Updating total hit counts only... ";
 
 		// Increment total hit counter
-        	$total_hits[0] = $total_hits[0] + 1;
+    	$total_hits[0] = $total_hits[0] + 1;
 
 		// Write data to files
 		// Need to also write to unique_fp since it was also opened as write
@@ -62,7 +62,7 @@
 	// Else client_ip is not in database
 	else {
 		//echo  ("$user_hash is a new client... <br>");
- 		$logdb->exec("INSERT INTO hits (hash_client_ip) VALUES ('$user_hash')");
+		$logdb->exec("INSERT INTO hits (hash_client_ip) VALUES ('$user_hash')");
 
 		// Increment both total and unique hit counters
 		//echo "Before increment... <br>";
@@ -72,7 +72,7 @@
 		$unique_hits[0] = $unique_hits[0] + 1;
 		//echo "After increment... <br>";
 		//echo $total_hits[0]."<br>";
-                //echo $unique_hits[0]."<br>";
+        //echo $unique_hits[0]."<br>";
 
 		// Write data to files
 		fputs($total_fp, "$total_hits[0]");
@@ -84,7 +84,7 @@
 	echo "<h2> Unique page hits: $unique_hits[0] as of 11/24/2018 </h2>";
 
 	// Close files
-      	fclose($total_fp);
+	fclose($total_fp);
 	fclose($unique_fp);
 
 	// Close databse connection
