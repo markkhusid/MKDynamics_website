@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta name="Generator" content="Kate, the KDE Advanced Text Editor" />
+<title>test_swap_arrays.f08</title>
+</head>
+<!-- Highlighting: "Fortran" -->
+<body>
+<pre style='font-weight:bold;color:#b2b2b2;background-color:#333333;'>
+<b><span style='color:#dede49;'>module</span></b> swap_module
+
+    <b><span style='color:#dede49;'>implicit</span></b> <b><span style='color:#dede49;'>none</span></b>
+
+    <b><span style='color:#54ff54;'>public</span></b>          <b><span style='color:#54ff54;'>::</span></b> swap
+    <b><span style='color:#54ff54;'>private</span></b>         <b><span style='color:#54ff54;'>::</span></b> swap_reals<b>,</b> swap_integers
+
+    <b><span style='color:#dede49;'>interface</span></b> swap
+        <b><span style='color:#dede49;'>procedure</span></b> swap_reals<b>,</b> swap_integers
+    <b><span style='color:#dede49;'>end interface</span></b>
+
+<b><span style='color:#54ffff;'>contains</span></b>
+
+    <b><span style='color:#dede49;'>elemental</span></b> <b><span style='color:#dede49;'>subroutine</span></b> swap_reals <b>(</b>a<b>,</b> b<b>)</b>
+<b><span style='color:#54ff54;'>        real</span></b><b>,</b> <b><span style='color:#54ff54;'>intent (in out)</span></b>   <b><span style='color:#54ff54;'>::</span></b> a<b>,</b> b
+<b><span style='color:#54ff54;'>        real</span></b>                    <b><span style='color:#54ff54;'>::</span></b> temp
+        temp <b><span style='color:#dede49;'>=</span></b> a
+        a <b><span style='color:#dede49;'>=</span></b> b
+        b <b><span style='color:#dede49;'>=</span></b> temp
+    <b><span style='color:#dede49;'>end subroutine</span></b> swap_reals
+
+    <b><span style='color:#dede49;'>elemental</span></b> <b><span style='color:#dede49;'>subroutine</span></b> swap_integers <b>(</b>a<b>,</b> b<b>)</b>
+        <b><span style='color:#54ff54;'>integer</span></b><b>,</b> <b><span style='color:#54ff54;'>intent (in out)</span></b>    <b><span style='color:#54ff54;'>::</span></b> a<b>,</b> b
+        <b><span style='color:#54ff54;'>integer</span></b>                     <b><span style='color:#54ff54;'>::</span></b> temp
+        temp <b><span style='color:#dede49;'>=</span></b> a
+        a <b><span style='color:#dede49;'>=</span></b> b
+        b <b><span style='color:#dede49;'>=</span></b> temp
+    <b><span style='color:#dede49;'>end subroutine</span></b> swap_integers
+
+<b><span style='color:#dede49;'>end module</span></b> swap_module
+
+<b><span style='color:#dede49;'>program</span></b> test_swap_arrays
+
+    <b><span style='color:#dede49;'>use</span></b> swap_module
+    <b><span style='color:#dede49;'>implicit</span></b> <b><span style='color:#dede49;'>none</span></b>
+    <b><span style='color:#54ff54;'>integer</span></b><b>,</b> <b><span style='color:#54ff54;'>dimension (3)</span></b>          <b><span style='color:#54ff54;'>::</span></b> <b><span style='color:#dede49;'>&amp;</span></b>
+        i <b><span style='color:#dede49;'>=</span></b> <b><span style='color:#dede49;'>[</span></b><b><span style='color:#ff54ff;'>1</span></b><b>,</b> <b><span style='color:#ff54ff;'>2</span></b><b>,</b> <b><span style='color:#ff54ff;'>3</span></b><b><span style='color:#dede49;'>]</span></b><b>,</b> <b><span style='color:#dede49;'>&amp;</span></b>
+        j <b><span style='color:#dede49;'>=</span></b> <b><span style='color:#dede49;'>[</span></b><b><span style='color:#ff54ff;'>7</span></b><b>,</b> <b><span style='color:#ff54ff;'>8</span></b><b>,</b> <b><span style='color:#ff54ff;'>9</span></b><b><span style='color:#dede49;'>]</span></b>
+
+    <span style='color:#644a9b;'>print</span> <b><span style='color:#dede49;'>*</span></b><b>,</b> <b><span style='color:#af7f00;'>&quot;[*] The array i is: &quot;</span></b><b>,</b> i
+    <span style='color:#644a9b;'>print</span> <b><span style='color:#dede49;'>*</span></b><b>,</b> <b><span style='color:#af7f00;'>&quot;[*] The array j is: &quot;</span></b><b>,</b> j
+    
+    <span style='color:#644a9b;'>print</span> <b><span style='color:#dede49;'>*</span></b><b>,</b> <b><span style='color:#af7f00;'>&quot;[*] Now calling swap....&quot;</span></b>
+
+    <b><span style='color:#dede49;'>call</span></b> swap<b>(</b>i<b>,</b> j<b>)</b>
+
+    <span style='color:#644a9b;'>print</span> <b><span style='color:#dede49;'>*</span></b><b>,</b> <b><span style='color:#af7f00;'>&quot;[*] After swapping, the array i is: &quot;</span></b><b>,</b> i
+    <span style='color:#644a9b;'>print</span> <b><span style='color:#dede49;'>*</span></b><b>,</b> <b><span style='color:#af7f00;'>&quot;[*] After swapping, the array j is: &quot;</span></b><b>,</b> j
+
+<b><span style='color:#dede49;'>end program</span></b>
+
+</pre>
+</body>
+</html>
