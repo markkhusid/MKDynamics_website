@@ -350,6 +350,10 @@
       
       <aside>
 	Status Updates<br><br>
+	9/6/2021
+	<ul>
+		<li>Added Modern Fortran Section.</li>
+	</ul>
 	1/23/2021
 	<ul>
 		<li>Rewrote Computer Security GDBTest section in Jupyter Notebook format.</li>
