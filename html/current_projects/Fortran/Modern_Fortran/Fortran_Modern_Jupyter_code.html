@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+  <meta content="text/html; charset=utf-8" http-equiv="content-type">
+  <meta name="robots" content="follow" />
+  
+  <title>
+    MK Dynamics - Programming - Programming in Fortran - Guide to Fortran 2008 Programming
+  </title>
+  
+  <link href="../../../../css/styles.css" type = "text/css" rel = "stylesheet" />
+  
+  <style>
+    .content {
+	overflow: auto;
+	height: 80%; 
+	background: url("../../../../images/hubble.jpg") no-repeat center center fixed;
+	background-size: cover;
+	background-position: center;
+	padding: 10px;
+	margin: 10px;
+	border: 5px solid black;
+      }
+      
+    h1, h2, h3, h4 {
+      color: white;
+      display: block;     
+    }
+    
+    .current_project_1 {
+      border		: 5px solid black;
+      background	: gray;
+      position		: relative;
+      width		: 1250px;
+      height		: 200px;
+      top		: 0px;
+      left		: 0px;
+      float		: left;
+      margin		: 10px;
+      padding-left	: 10px;
+    }
+    
+    .current_project_2 {
+      border		: 5px solid black;
+      background	: gray;
+      position		: relative;
+      width		: 1250px;
+      height		: 200px;
+      top		: 000px;
+      left		: 0px;
+      float		: left;
+      margin		: 10px;
+      padding-left	: 10px;
+    }
+    
+    .current_project_3 {
+      border		: 5px solid black;
+      background	: gray;
+      position		: relative;
+      width			: 1250px;
+      height		: 1400px;
+      top			: 000px;
+      left			: 0px;
+      float			: left;
+      margin		: 10px;
+      padding-left	: 10px;
+    }
+    
+    .current_project_4 {
+      border		: 5px solid black;
+      background	: gray;
+      position		: relative;
+      width			: 1250px;
+      height		: 1800px;
+      top			: 10px;
+      left			: 0px;
+      float			: left;
+      margin		: 10px;
+      padding		: 10px;
+    }
+    
+    .current_project_5 {
+      border		: 5px solid black;
+      background	: gray;
+      position		: relative;
+      width		: 1250px;
+      height		: 1800px;
+      top		: 10px;
+      left		: 0px;
+      float		: left;
+      margin		: 10px;
+      padding		: 10px;
+    }
+    
+    .current_project_6 {
+      border		: 5px solid black;
+      background	: gray;
+      position		: relative;
+      width		: 1250px;
+      height		: 500px;
+      top		: 10px;
+      left		: 0px;
+      float		: left;
+      margin		: 10px;
+      padding		: 10px;
+    }
+    
+    .current_project_7 {
+      border		: 5px solid black;
+      background	: gray;
+      position		: relative;
+      width		: 1250px;
+      height		: 100px;
+      top		: 10px;
+      left		: 0px;
+      float		: left;
+      margin		: 10px;
+      padding		: 10px;
+    }
+    
+    .current_project_8 {
+      border		: 5px solid black;
+      background	: gray;
+      position		: relative;
+      width		: 1250px;
+      height		: 1000px;
+      top		: 10px;
+      left		: 0px;
+      float		: left;
+      margin		: 10px;
+      padding		: 10px;
+    }
+    
+    .current_project_9 {
+      border		: 5px solid black;
+      background	: gray;
+      position		: relative;
+      width		: 1250px;
+      height		: 1000px;
+      top		: 10px;
+      left		: 0px;
+      float		: left;
+      margin		: 10px;
+      padding		: 10px;
+    }
+    
+    .current_project_10 {
+      border		: 5px solid black;
+      background	: gray;
+      position		: relative;
+      width		: 1250px;
+      height		: 1400px;
+      top		: 10px;
+      left		: 0px;
+      float		: left;
+      margin		: 10px;
+      padding		: 10px;
+    }
+    
+    .current_project_11 {
+      border		: 5px solid black;
+      background	: gray;
+      position		: relative;
+      width		: 1250px;
+      height		: 1400px;
+      top		: 10px;
+      left		: 0px;
+      float		: left;
+      margin		: 10px;
+      padding		: 10px;
+    }
+    
+    .current_project_12 {
+      border		: 5px solid black;
+      background	: gray;
+      position		: relative;
+      width		: 1250px;
+      height		: 1800px;
+      top		: 10px;
+      left		: 0px;
+      float		: left;
+      margin		: 10px;
+      padding		: 10px;
+    }
+    
+    .current_project_13 {
+      border		: 5px solid black;
+      background	: gray;
+      position		: relative;
+      width		: 1250px;
+      height		: 1800px;
+      top		: 10px;
+      left		: 0px;
+      float		: left;
+      margin		: 10px;
+      padding		: 10px;
+    }
+    
+    div .img {
+      margin		: 0px;
+      padding		: 10px;
+      height		: auto;
+      width		: auto;
+      float		: left;
+    }
+    
+    div .img img {
+      display		: inline;
+      margin		: 0px;
+      padding		: 0px;
+    }
+    
+    div .desc {
+      color		: white;
+      width		: 600px;
+      margin		: 5px;
+      padding		: 10px;
+    }
+    
+    ul {
+      color		: white;
+    }
+    
+    div .loose_text {
+      color		: white;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="wrapper">
+    <header>
+    
+      <hgroup>
+	<h1> 
+	    <big> <big> MK Dynamics </big> </big>
+	</h1>
+
+
+	<h2>
+	  MK Dynamics - Programming - Programming in Fortran - Guide to Fortran 2008 Programming
+	</h2>
+      </hgroup>
+    
+
+      <nav>
+	<ul>
+	  <li> <a href="../../../index.php">Home</a> </li>
+	  <li> <a href="../FORTRAN_main.html">Back</a> <li>
+	</ul>
+      </nav>
+    
+    </header>
+    
+  
+  <section class="content">
+  
+  <!-- **************************************************************************************************************** -->    
+  <section class="first_section">
+  
+        <div class="current_project_1">
+      
+            <div class="loose_text">
+        
+                <hgroup>
+                    <h2>
+                        Introduction
+                    </h2>
+                <hgroup>
+        
+                <p>
+                    In this section we will be following along with the examples from "Modern Fortan" by Milan Curcic (Manning).  I have chosen to use Jupyter Lab with the GFortran Kernel to facilitate rapid production of HTML content.  The output of the Fortran code will be displayed in graphical format using Python scripts and Matplotlib.
+                </p>
+            
+            </div> <!-- .loose_text -->
+        
+        </div> <!-- .current_project_1 -->
+    </section> <!-- first_section -->
+<!-- **************************************************************************************************************** -->    
+
+<!-- **************************************************************************************************************** -->         
+    <section class="second_section">
+        <div class="current_project_2">
+            <hgroup>
+                <h2>
+                    Description
+                </h2>
+            <hgroup>
+
+            <div class="loose_text">
+                <p>
+                    The purpose of this section is to contain usefull programs for calculating items of interest to me in various projects.  These may include linear algebra, differential equations or calculus.
+                </p>
+            </div> <!-- .loose-text -->
+	
+
+	</div> <!-- .current_project_2 -->
+    </section> <!-- second_section --> 
+
+<!-- **************************************************************************************************************** -->   
+
+<!-- **************************************************************************************************************** -->   
+	<section class="third_section">
+    
+		<div class="current_project_3">
+			<hgroup>
+				<h2>
+					Program to Predict the Linear Advection of an Object, with Periodic Boundary Conditions
+	  			</h2>
+			</hgroup>
+		
+			<iframe 
+				src="Code/listing_2_14_complete_code.html"
+				width = "98%"
+				height = "90%"
+			>
+			</iframe>
+		</div> <!-- .current_project_3 -->	
+			
+    </section> <!-- .third_section -->
+<!-- **************************************************************************************************************** -->   
+
+<!-- **************************************************************************************************************** -->   
+	<section class="section">
+
+		<div class="current_project_4">
+			<hgroup>
+				<h2>
+					Output of Program to Predict the Linear Advection of an Object, with Periodic Boundary Conditions
+				</h2>
+			</hgroup>
+
+
+			<div class="loose_text">
+				<p>
+					The program above produced data that was then plotted using a Python script and Matplotlib.
+				</p>
+			</div> <!-- .loose-text -->
+
+			<iframe 
+				src="Code/listing_2_14_python_plotting_script.html"
+				width = "98%"
+				height = "90%"
+			>
+			</iframe>
+		</div> <!-- .current_project_4 -->	
+
+	</section> <!-- .section --> 
+	<!-- **************************************************************************************************************** -->   
+ 
+ 
+ </section>	<!-- .content -->
+ 
+ </div> <!-- .wrapper -->
+ 
+ </body>
+ 
+ </html>
+ 
