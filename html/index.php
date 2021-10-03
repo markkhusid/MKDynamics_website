@@ -350,6 +350,10 @@
       
       <aside>
 	Status Updates<br><br>
+	10/3/2021
+	<ul>
+		<li>Added additional entries into Modern Fortran Section.</li>
+	</ul>
 	9/6/2021
 	<ul>
 		<li>Added Modern Fortran Section.</li>
