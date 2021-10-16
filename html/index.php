@@ -350,6 +350,10 @@
       
       <aside>
 	Status Updates<br><br>
+	10/16/2021
+	<ul>
+		<li>Added Listing 4_8 into Modern Fortran Section.</li>
+	</ul>
 	10/3/2021
 	<ul>
 		<li>Added additional entries into Modern Fortran Section.</li>
@@ -464,12 +468,7 @@
 	<ul>
             <li>Added Disassembling Binaries to Computer Security Section.</li>
 	</ul>
-	1/4/2019
-	<ul>
-            <li>Added ARM section to Protostar Exploit Exercises Stack0.</li>
-	
-	</ul>
-	
+
 
 	<a href="aside_archives.html">Archives</a><br>
     </aside>
