@@ -350,6 +350,10 @@
       
       <aside>
 	Status Updates<br><br>
+	10/20/2021
+	<ul>
+		<li>Updated About Me section.</li>
+	</ul>
 	10/16/2021
 	<ul>
 		<li>Added Listing 4_8 into Modern Fortran Section.</li>
