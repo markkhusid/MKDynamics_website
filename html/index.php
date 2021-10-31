@@ -350,6 +350,10 @@
       
       <aside>
 	Status Updates<br><br>
+	10/31/2021
+	<ul>
+		<li>Added Coursera certificates to About Me section.</li>
+	</ul>
 	10/20/2021
 	<ul>
 		<li>Updated About Me section.</li>
@@ -464,16 +468,7 @@
 	<ul>
             <li>Continued work on Protostar Stack0 i386.</li>
 	</ul>
-	1/13/2019
-	<ul>
-            <li>Added Disassembling Fortran, C, C++, and Pascal Binaries Placeholders to Computer Security Section.</li>
-	</ul>
-	1/5/2019
-	<ul>
-            <li>Added Disassembling Binaries to Computer Security Section.</li>
-	</ul>
-
-
+	
 	<a href="aside_archives.html">Archives</a><br>
     </aside>
       
