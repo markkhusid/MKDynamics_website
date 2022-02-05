@@ -25,12 +25,12 @@
 	/*height: 80%;*/
         height                      : 600px;
         width                       : 1400px;
-	background: url("images/hubble.jpg") no-repeat center center fixed;
-	background-size: cover;
-	background-position: center;
-	padding: 10px;
-	margin: 10px;
-	border: 5px solid black;
+		background: url("images/hubble.jpg") no-repeat center center fixed;
+		background-size: cover;
+		background-position: center;
+		padding: 10px;
+		margin: 10px;
+		border: 5px solid black;
       }
   
 
@@ -52,11 +52,11 @@
       border		: 5px solid black;
       background	: gray;
       position		: relative;
-      width		: 450px;
+      width			: 450px;
       height		: 400px;
-      top		: 0px;
-      left		: 10px;
-      float		: left;
+      top			: 0px;
+      left			: 10px;
+      float			: left;
       margin		: 0px;
       padding		: 10px;
     }
@@ -65,11 +65,11 @@
       border		: 5px solid black;
       background	: gray;
       position		: relative;
-      width		: 450px;
+      width			: 450px;
       height		: 400px;
-      top		: 0px;
-      left		: 20px;
-      float		: left;
+      top			: 0px;
+      left			: 20px;
+      float			: left;
       margin		: 0px;
       padding		: 10px;
     }
@@ -78,11 +78,11 @@
       border		: 5px solid black;
       background	: gray;
       position		: relative;
-      width		: 450px;
+      width			: 450px;
       height		: 400px;
-      top		: 10px;
-      left		: 10px;
-      float		: left;
+      top			: 10px;
+      left			: 10px;
+      float			: left;
       margin		: 0px;
       padding		: 10px;
     }
@@ -91,11 +91,11 @@
       border		: 5px solid black;
       background	: gray;
       position		: relative;
-      width		: 450px;
+      width			: 450px;
       height		: 400px;
-      top		: 10px;
-      left		: 20px;
-      float		: left;
+      top			: 10px;
+      left			: 20px;
+      float			: left;
       margin		: 0px;
       padding		: 10px;
     }
@@ -104,11 +104,11 @@
       border		: 5px solid black;
       background	: gray;
       position		: relative;
-      width		: 450px;
+      width			: 450px;
       height		: 400px;
-      top		: 20px;
-      left		: 10px;
-      float		: left;
+      top			: 20px;
+      left			: 10px;
+      float			: left;
       margin		: 0px;
       padding		: 10px;
     }
@@ -117,11 +117,11 @@
       border		: 5px solid black;
       background	: gray;
       position		: relative;
-      width		: 450px;
+      width			: 450px;
       height		: 400px;
-      top		: 20px;
-      left		: 20px;
-      float		: left;
+      top			: 20px;
+      left			: 20px;
+      float			: left;
       margin		: 0px;
       padding		: 10px;
     }
@@ -130,11 +130,11 @@
       border		: 5px solid black;
       background	: gray;
       position		: relative;
-      width		: 450px;
+      width			: 450px;
       height		: 400px;
-      top		: 30px;
-      left		: 10px;
-      float		: left;
+      top			: 30px;
+      left			: 10px;
+      float			: left;
       margin		: 0px;
       padding		: 10px;
     }
@@ -143,11 +143,11 @@
       border		: 5px solid black;
       background	: gray;
       position		: relative;
-      width		: 450px;
+      width			: 450px;
       height		: 400px;
-      top		: 30px;
-      left		: 20px;
-      float		: left;
+      top			: 30px;
+      left			: 20px;
+      float			: left;
       margin		: 0px;
       padding		: 10px;
     }
@@ -156,11 +156,11 @@
       border		: 5px solid black;
       background	: gray;
       position		: relative;
-      width		: 450px;
+      width			: 450px;
       height		: 400px;
-      top		: 40px;
-      left		: 10px;
-      float		: left;
+      top			: 40px;
+      left			: 10px;
+      float			: left;
       margin		: 0px;
       padding		: 10px;
     }
@@ -169,11 +169,11 @@
       border		: 5px solid black;
       background	: gray;
       position		: relative;
-      width		: 450px;
+      width			: 450px;
       height		: 400px;
-      top		: 40px;
-      left		: 20px;
-      float		: left;
+      top			: 40px;
+      left			: 20px;
+      float			: left;
       margin		: 0px;
       padding		: 10px;
     }
@@ -182,11 +182,11 @@
       border		: 5px solid black;
       background	: gray;
       position		: relative;
-      width		: 450px;
+      width			: 450px;
       height		: 400px;
-      top		: 50px;
-      left		: 10px;
-      float		: left;
+      top			: 50px;
+      left			: 10px;
+      float			: left;
       margin		: 0px;
       padding		: 10px;
     }
@@ -195,11 +195,11 @@
       border		: 5px solid black;
       background	: gray;
       position		: relative;
-      width		: 450px;
+      width			: 450px;
       height		: 400px;
-      top		: 50px;
-      left		: 20px;
-      float		: left;
+      top			: 50px;
+      left			: 20px;
+      float			: left;
       margin		: 0px;
       padding		: 10px;
     }
@@ -208,11 +208,11 @@
       border		: 5px solid black;
       background	: gray;
       position		: relative;
-      width		: 450px;
+      width			: 450px;
       height		: 400px;
-      top		: 60px;
-      left		: 10px;
-      float		: left;
+      top			: 60px;
+      left			: 10px;
+      float			: left;
       margin		: 0px;
       padding		: 10px;
     }
@@ -221,11 +221,11 @@
       border		: 5px solid black;
       background	: gray;
       position		: relative;
-      width		: 450px;
+      width			: 450px;
       height		: 400px;
-      top		: 60px;
-      left		: 20px;
-      float		: left;
+      top			: 60px;
+      left			: 20px;
+      float			: left;
       margin		: 0px;
       padding		: 10px;
     }
@@ -234,11 +234,11 @@
       border		: 5px solid black;
       background	: gray;
       position		: relative;
-      width		: 450px;
+      width			: 450px;
       height		: 400px;
-      top		: 0px;
-      left		: 10px;
-      float		: left;
+      top			: 0px;
+      left			: 10px;
+      float			: left;
       margin		: 0px;
       padding		: 10px;
     }
@@ -247,19 +247,19 @@
       border		: 5px solid black;
       background	: gray;
       position		: relative;
-      width		: 450px;
+      width			: 450px;
       height		: 400px;
-      top		: 0px;
-      left		: 20px;
-      float		: left;
+      top			: 0px;
+      left			: 20px;
+      float			: left;
       margin		: 0px;
       padding		: 10px;
     }
 
     	.hitcounter {
-      		border		: 5px solid black;
+      		border			: 5px solid black;
       		background      : gray;
-		color		: blue;
+			color			: blue;
       		position        : relative;
       		width           : 1350px;
       		height          : 150px;
@@ -270,16 +270,14 @@
       		padding         : 10px;
     	}
 
-
-    
     .title {
       border		: 5px solid black;
       font-size		: 200%;
-      color		: white;
+      color			: white;
       position		: relative;
       height		: 125px;
-      width		: 1420px;
-      left		: 0px;
+      width			: 1420px;
+      left			: 0px;
       background	: gray;
       margin		: 10px;
     }
@@ -287,33 +285,31 @@
     .title_2 {
       border		: 5px solid black;
       font-size		: 200%;
-      color		: white;
+      color			: white;
       position		: relative;
       height		: 125px;
-      width		: 1380px;
-      left		: 0px;
+      width			: 1380px;
+      left			: 0px;
       background	: gray;
       margin		: 10px;
     }
     
-    
     aside {
       border		: 5px solid black;
       background	: gray;
-      width		: 280px;
+      width			: 280px;
       height		: 3020px;
-      float		: right;
-      left		: 25px;
-      top		: 25px;
+      float			: right;
+      left			: 25px;
+      top			: 25px;
       padding		: 20px 15px 20px 10px;
-      margin            : 15px;
-      color		: white;
+      margin        : 15px;
+      color			: white;
     }
     
   </style>
   
 </head>
-
 
 <body>
   <div class="wrapper">
@@ -340,7 +336,6 @@
   
       
     </header>
-      
 
         <hgroup class="title">
             <h2>
@@ -350,6 +345,10 @@
       
       <aside>
 	Status Updates<br><br>
+	2/5/2022
+	<ul>
+		<li>Added Kaggle and Tryhackme certificates to About Me section.</li>
+	</ul>
 	10/31/2021
 	<ul>
 		<li>Added Coursera certificates to About Me section.</li>
