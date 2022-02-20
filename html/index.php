@@ -329,7 +329,7 @@
             <ul>
                 <li> <a href="index.php">Home</a> </li>
                 <li> <a href="about_me/about_me.html">About me</a></li>
-                <li> <a href="misc/misc.html">Miscellaneous</a></li>
+                <li> <a href="misc/index.html">Miscellaneous</a></li>
                 <li> <a href="yugeshima/yugeshima.html">Yugeshima Trip</a></li>
             </ul>
 	</nav>
@@ -345,6 +345,11 @@
       
       <aside>
 	Status Updates<br><br>
+	2/20/2022
+	<ul>
+		<li>Started to convert Misc section to Jupyter Book.</li>
+	</ul>
+	
 	2/5/2022
 	<ul>
 		<li>Added Kaggle and Tryhackme certificates to About Me section.</li>
