@@ -37,7 +37,7 @@
 
 	// Open files for reading and writing
 	$total_count_my_page = ("total_hit_counter.txt");
-    $total_hits = file($total_count_my_page);
+        $total_hits = file($total_count_my_page);
 	$total_fp = fopen($total_count_my_page, "w");
 
 	$unique_count_my_page = ("unique_hit_counter.txt");
@@ -81,7 +81,7 @@
 
 	// Display results on website
 	echo "<h2> Total page hits: $total_hits[0] </h2>";
-	echo "<h2> Unique page hits: $unique_hits[0] as of 11/24/2018 </h2>";
+	echo "<h2> Unique page hits: $unique_hits[0] as of 3/20/2022 </h2>";
 
 	// Close files
 	fclose($total_fp);
