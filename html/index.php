@@ -345,6 +345,14 @@
       
       <aside>
 	Status Updates<br><br>
+	4/08/2022
+	<ul>
+		<li>Updated resume in About Me Section.</li>
+	</ul>
+	4/4/2022
+	<ul>
+		<li>Happy birthday to me!</li>
+	</ul>
 	2/20/2022
 	<ul>
 		<li>Started to convert Misc section to Jupyter Book.</li>
@@ -455,22 +463,6 @@
 	1/23/2019
 	<ul>
             <li>Added Computer Security -> Disassembling Binaries -> C -> Splash screens.</li>
-	</ul>
-	1/21/2019
-	<ul>
-            <li>Added Computer Security -> Disassembling Binaries -> Ada -> ARM64 Section.</li>
-	</ul>
-	1/20/2019
-	<ul>
-            <li>Added Ada Section to Computer Security -> Disassembling Binaries.</li>
-	</ul>
-	1/14/2019
-	<ul>
-            <li>Added content to Disassembling Fortran Executables for 64-bit ARM Platform.</li>
-	</ul>
-	1/14/2019
-	<ul>
-            <li>Continued work on Protostar Stack0 i386.</li>
 	</ul>
 	
 	<a href="aside_archives.html">Archives</a><br>
