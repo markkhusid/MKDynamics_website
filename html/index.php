@@ -345,6 +345,10 @@
       
       <aside>
 	Status Updates<br><br>
+	4/10/2022
+	<ul>
+		<li>Converted Modern Fortran section into Jupyter Book format.  Other Fortran sections to follow.</li>
+	</ul>
 	4/08/2022
 	<ul>
 		<li>Updated resume in About Me Section.</li>
@@ -516,7 +520,7 @@
                 />
 	  
                 <figcaption>
-                    <a href="current_projects/Fortran/FORTRAN_main.html">FORTRAN Programming</a><br>
+                    <a href="current_projects/Fortran/index.html">FORTRAN Programming</a><br>
                 </figcaption>
             </figure>
         </div> <!-- .current_project_3 -->
