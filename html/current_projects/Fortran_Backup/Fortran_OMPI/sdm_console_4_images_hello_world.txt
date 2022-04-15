@@ -1,0 +1,1563 @@
+#PTP job_id=4036
+ Data for JOB [1258,1] offset 0
+
+SDM: [master] effsize: 5, size: 4, rv: 0
+SDM: [master] Found routing file, size=4
+SDM: [4] size 5
+SDM: [4] route for 0 is {2} 
+SDM: [4] route for 1 is {} 
+SDM: [4] route for 3 is {} 
+SDM: [4] in sdm_create_sockd_map
+SDM: [4] sdm_route_get_route dest {0-4}, parent 4
+SDM: [4] adjacent nodes: {0-1,3}
+SDM: [4] adding 0 to my map
+SDM: [4] adding 1 to my map
+SDM: [4] adding 3 to my map
+SDM: [master] effsize: 5, size: 4, rv: 0
+SDM: [4] nodeID: 0, hostname: ubermentch, port: 55389
+SDM: [server] effsize: 5, size: 4, rv: 0
+SDM: [server] Found routing file, size=4
+SDM: [0] size 5
+SDM: [0] route for 2 is {} 
+SDM: [0] in sdm_create_sockd_map
+SDM: [0] sdm_route_get_route dest {0-3}, parent 4
+SDM: [0] adjacent nodes: {2}
+SDM: [0] adding 2 to my map
+SDM: [0] This node is a server!
+SDM: [server] effsize: 5, size: 4, rv: 0
+SDM: [0] nodeID: 0, hostname: ubermentch, port: 55389
+SDM: [0] found entry for node 0
+SDM: [0] found my entry
+SDM: [0] [ACCEPT] sockfd: 4
+SDM: [0] port bound: 55389
+SDM: [0] bound to port 55389
+SDM: [server] effsize: 5, size: 4, rv: 0
+SDM: [server] Found routing file, size=4
+SDM: [1] size 5
+SDM: [1] in sdm_create_sockd_map
+SDM: [1] sdm_route_get_route dest {0-3}, parent 4
+SDM: [1] adjacent nodes: {}
+SDM: [1] This node is a server!
+SDM: [server] effsize: 5, size: 4, rv: 0
+SDM: [1] nodeID: 0, hostname: ubermentch, port: 55389
+SDM: [1] found entry for node 0
+SDM: [1] nodeID: 1, hostname: ubermentch, port: 53291
+SDM: [1] found entry for node 1
+SDM: [1] found my entry
+SDM: [1] [ACCEPT] sockfd: 4
+SDM: [1] port bound: 53291
+SDM: [1] bound to port 53291
+SDM: [server] effsize: 5, size: 4, rv: 0
+SDM: [server] Found routing file, size=4
+SDM: [2] size 5
+SDM: [2] in sdm_create_sockd_map
+SDM: [2] sdm_route_get_route dest {1-3}, parent 0
+SDM: [2] adjacent nodes: {}
+SDM: [2] This node is a server!
+SDM: [server] effsize: 5, size: 4, rv: 0
+SDM: [2] nodeID: 0, hostname: ubermentch, port: 55389
+SDM: [2] found entry for node 0
+SDM: [2] nodeID: 1, hostname: ubermentch, port: 53291
+SDM: [2] found entry for node 1
+SDM: [2] nodeID: 2, hostname: ubermentch, port: 52969
+SDM: [2] found entry for node 2
+SDM: [2] found my entry
+SDM: [2] [ACCEPT] sockfd: 4
+SDM: [2] port bound: 52969
+SDM: [2] bound to port 52969
+SDM: [server] effsize: 5, size: 4, rv: 0
+SDM: [server] Found routing file, size=4
+SDM: [3] size 5
+SDM: [3] in sdm_create_sockd_map
+SDM: [3] sdm_route_get_route dest {0-3}, parent 4
+SDM: [3] adjacent nodes: {}
+SDM: [3] This node is a server!
+SDM: [server] effsize: 5, size: 4, rv: 0
+SDM: [3] nodeID: 0, hostname: ubermentch, port: 55389
+SDM: [3] found entry for node 0
+SDM: [3] nodeID: 1, hostname: ubermentch, port: 53291
+SDM: [3] found entry for node 1
+SDM: [3] nodeID: 2, hostname: ubermentch, port: 52969
+SDM: [3] found entry for node 2
+SDM: [3] nodeID: 3, hostname: ubermentch, port: 50339
+SDM: [3] found entry for node 3
+SDM: [3] found my entry
+SDM: [3] [ACCEPT] sockfd: 4
+SDM: [3] port bound: 50339
+SDM: [3] bound to port 50339
+SDM: [0] peersockfd: 5
+SDM: [0] Parent 4 successfully connected
+SDM: [server] effsize: 5, size: 4, rv: 0
+SDM: [0] nodeID: 0, hostname: ubermentch, port: 55389
+SDM: [0] nodeID: 1, hostname: ubermentch, port: 53291
+SDM: [0] nodeID: 2, hostname: ubermentch, port: 52969
+SDM: [4] Connection to child 0 successful
+SDM: [4] nodeID: 1, hostname: ubermentch, port: 53291
+SDM: [1] peersockfd: 5
+SDM: [1] Parent 4 successfully connected
+SDM: [1] This node is a leaf
+SDM: [1] Initialization successful
+SDM: starting task 1
+SDM: starting server on 1, size=5
+SDM: [4] Connection to child 1 successful
+SDM: [4] nodeID: 2, hostname: ubermentch, port: 52969
+SDM: [4] nodeID: 3, hostname: ubermentch, port: 50339
+SDM: [2] peersockfd: 5
+SDM: [2] Parent 0 successfully connected
+SDM: [2] This node is a leaf
+SDM: [2] Initialization successful
+SDM: starting task 2
+SDM: starting server on 2, size=5
+SDM: [0] Connection to child 2 successful
+SDM: [0] nodeID: 3, hostname: ubermentch, port: 50339
+SDM: [0] nodeID: 3, hostname: ubermentch, port: 50339
+SDM: [0] Initialization successful
+SDM: starting task 0
+SDM: starting server on 0, size=5
+SDM: [4] Connection to child 3 successful
+SDM: [4] nodeID: 3, hostname: ubermentch, port: 50339
+SDM: [4] Initialization successful
+SDM: starting client
+SDM: DbgMasterInit num_svrs=4
+SDM: DbgMasterCreateSession host=localhost port=43475
+SDM: [3] peersockfd: 5
+SDM: [3] Parent 4 successfully connected
+SDM: [3] This node is a leaf
+SDM: [3] Initialization successful
+SDM: starting task 3
+SDM: starting server on 3, size=5
+SDM: DbgMasterStartSession(OpenMPI_test1,/home/mark/workspace/OpenMPI_test1/Debug,)
+SDM: [4] Creating new request #0 expected replies {0-3}
+SDM: [4] sdm_route_get_route dest {0-3}, parent 4
+SDM: [4] sdm_message_send src {4} dest {0-3} route {0-1,3}
+SDM: [4] Sending len 84
+SDM: [4] Sending to 0
+SDM: [4] About to send 88
+SDM: [4] Sending to 1
+SDM: [4] About to send 88
+SDM: [4] Sending to 3
+SDM: [4] About to send 88
+SDM: [4] About to call send_complete
+SDM: [4] Leaving sdm_message_send
+SDM: [0] receiving header
+SDM: [3] receiving header
+SDM: MESSAGE_LEN:84
+SDM: [3] About to recv 84
+SDM: [3] sdm_message_progress received len 84 from 4
+SDM: [3] sdm_message_progress agg=0x0 src={4} dest={0-3}
+SDM: [3] About to call recv_callback
+SDM: [3] Enter recv_callback
+SDM: [3] got downstream message src={4}, dest={0-3}
+SDM: [3] Creating new request #0 expected replies {3}
+SDM: [3] sdm_message_deliver 
+SDM: [3] Enter deliver_callback
+SDM: MESSAGE_LEN:84
+SDM: [0] About to recv 84
+SDM: [0] sdm_message_progress received len 84 from 4
+SDM: [0] sdm_message_progress agg=0x0 src={4} dest={0-3}
+SDM: [0] About to call recv_callback
+SDM: [0] Enter recv_callback
+SDM: [0] got downstream message src={4}, dest={0-3}
+SDM: [0] Creating new request #0 expected replies {0,2}
+SDM: [0] sdm_message_deliver 
+SDM: [0] Enter deliver_callback
+SDM: [1] receiving header
+SDM: MESSAGE_LEN:84
+SDM: [1] About to recv 84
+SDM: [1] sdm_message_progress received len 84 from 4
+SDM: [1] sdm_message_progress agg=0x0 src={4} dest={0-3}
+SDM: [1] About to call recv_callback
+SDM: [1] Enter recv_callback
+SDM: [1] got downstream message src={4}, dest={0-3}
+SDM: [1] Creating new request #0 expected replies {1}
+SDM: [1] sdm_message_deliver 
+SDM: [1] Enter deliver_callback
+MI: SEND -gdb-version
+MI: SEND -gdb-version
+MI: SEND -gdb-version
+MI: RECV =thread-group-added,id="i1"
+MI: RECV =thread-group-added,id="i1"
+MI: RECV =thread-group-added,id="i1"
+MI: RECV ~"Reading symbols from /home/mark/workspace/OpenMPI_test1/Debug/OpenMPI_test1..."
+MI: RECV ~"Reading symbols from /home/mark/workspace/OpenMPI_test1/Debug/OpenMPI_test1..."
+MI: RECV ~"Reading symbols from /home/mark/workspace/OpenMPI_test1/Debug/OpenMPI_test1..."
+MI: RECV ~"done.\n"
+MI: RECV ~"done.\n"
+MI: RECV ~"done.\n"
+MI: RECV (gdb) 
+MI: RECV (gdb) 
+MI: RECV ~"GNU gdb (GDB) Fedora 7.10.1-31.fc23\n"
+MI: RECV ~"Copyright (C) 2015 Free Software Foundation, Inc.\n"
+MI: RECV ~"License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>\nThis is free software: you are free to change and redistribute it.\nThere is NO WARRANTY, to the extent permitted by law.  Type \"show copying\"\nand \"show warranty\" for details.\n"
+MI: RECV ~"This GDB was configured as \"x86_64-redhat-linux-gnu\".\nType \"show configuration\" for configuration details."
+MI: RECV ~"\nFor bug reporting instructions, please see:\n"
+MI: RECV ~"<http://www.gnu.org/software/gdb/bugs/>.\n"
+MI: RECV (gdb) 
+~"GNU gdb (GDB) Fedora 7.10.1-31.fc23\n"
+~"Copyright (C) 2015 Free Software Foundation, Inc.\n"
+MI: RECV ~"Find the GDB manual and other documentation resources online at:\n<http://www.gnu.org/software/gdb/documentation/>.\n"
+~"For help, type \"help\".\n"
+~"Type \"apropos word\" to search for commands related to \"word\".\n"
+^done
+(gdb) 
+MI: PROCESS COMMAND CALLBACK
+SDM: ------------------- gdb version: 7.100000
+MI: RECV ~"License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>\nThis is free software: you are free to change and redistribute it.\nThere is NO WARRANTY, to the extent permitted by law.  Type \"show copying\"\nand \"show warranty\" for details.\n"
+~"This GDB was configured as \"x86_64-redhat-linux-gnu\".\nType \"show configuration\" for configuration details."
+MI: RECV ~"\nFor bug reporting instructions, please see:\n"
+~"<http://www.gnu.org/software/gdb/bugs/>.\n"
+MI: RECV ~"Find the GDB manual and other documentation resources online at:\n<http://www.gnu.org/software/gdb/documentation/>.\n"
+~"For help, type \"help\".\n"
+MI: RECV ~"Type \"apropos word\" to search for commands related to \"word\".\n"
+^done
+(gdb) 
+MI: PROCESS COMMAND CALLBACK
+SDM: ------------------- gdb version: 7.100000
+MI: RECV ~"GNU gdb (GDB) Fedora 7.10.1-31.fc23\n"
+MI: RECV ~"Copyright (C) 2015 Free Software Foundation, Inc.\n"
+MI: RECV ~"License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>\nThis is free software: you are free to change and redistribute it.\nThere is NO WARRANTY, to the extent permitted by law.  Type \"show copying\"\nand \"show warranty\" for details.\n"
+MI: RECV ~"This GDB was configured as \"x86_64-redhat-linux-gnu\".\nType \"show configuration\" for configuration details."
+MI: RECV ~"\nFor bug reporting instructions, please see:\n"
+MI: RECV ~"<http://www.gnu.org/software/gdb/bugs/>.\n"
+MI: RECV ~"Find the GDB manual and other documentation resources online at:\n<http://www.gnu.org/software/gdb/documentation/>.\n"
+MI: RECV ~"For help, type \"help\".\n"
+MI: RECV ~"Type \"apropos word\" to search for commands related to \"word\".\n"
+MI: RECV ^done
+(gdb) 
+MI: PROCESS COMMAND CALLBACK
+SDM: ------------------- gdb version: 7.100000
+MI: SEND -gdb-set confirm off
+MI: RECV ^done
+(gdb) 
+MI: PROCESS COMMAND CALLBACK
+SDM: [1] Leaving deliver_callback
+SDM: [1] sdm_message_send removing me from dest
+SDM: [1] sdm_route_get_route dest {0,2-3}, parent 4
+SDM: [1] sdm_message_send src {4} dest {0,2-3} route {}
+SDM: [1] About to call send_complete
+SDM: [1] Leaving sdm_message_send
+SDM: [1] Leaving recv_callback
+SDM: [1] Finished recv_callback
+SDM: [1] server event_callback ''
+SDM: [1] sdm_aggregate_message: upstream message #0 from {1}
+SDM: [1] reply updated: src={1} replies outstanding: {}
+SDM: [1] creating new reply #5de94dab for request 0
+MI: SEND -gdb-set confirm off
+MI: SEND -gdb-set confirm off
+MI: RECV ^done
+(gdb) 
+MI: PROCESS COMMAND CALLBACK
+SDM: [0] Leaving deliver_callback
+SDM: [0] sdm_message_send removing me from dest
+SDM: [0] sdm_route_get_route dest {1-3}, parent 4
+SDM: [0] sdm_message_send src {4} dest {1-3} route {2}
+SDM: [0] Sending len 84
+SDM: [0] Sending to 2
+SDM: [0] About to send 88
+MI: RECV ^done
+(gdb) 
+MI: PROCESS COMMAND CALLBACK
+SDM: [3] Leaving deliver_callback
+SDM: [3] sdm_message_send removing me from dest
+SDM: [3] sdm_route_get_route dest {0-2}, parent 4
+SDM: [3] sdm_message_send src {4} dest {0-2} route {}
+SDM: [3] About to call send_complete
+SDM: [3] Leaving sdm_message_send
+SDM: [3] Leaving recv_callback
+SDM: [3] Finished recv_callback
+SDM: [3] server event_callback ''
+SDM: [3] sdm_aggregate_message: upstream message #0 from {3}
+SDM: [3] reply updated: src={3} replies outstanding: {}
+SDM: [3] creating new reply #5de94dab for request 0
+SDM: [2] receiving header
+SDM: MESSAGE_LEN:84
+SDM: [2] About to recv 84
+SDM: [2] sdm_message_progress received len 84 from 0
+SDM: [2] sdm_message_progress agg=0x0 src={4} dest={1-3}
+SDM: [2] About to call recv_callback
+SDM: [2] Enter recv_callback
+SDM: [2] got downstream message src={4}, dest={1-3}
+SDM: [2] Creating new request #0 expected replies {2}
+SDM: [2] sdm_message_deliver 
+SDM: [2] Enter deliver_callback
+SDM: [0] About to call send_complete
+SDM: [0] Leaving sdm_message_send
+SDM: [0] Leaving recv_callback
+SDM: [0] Finished recv_callback
+SDM: [0] server event_callback ''
+SDM: [0] sdm_aggregate_message: upstream message #0 from {0}
+SDM: [0] reply updated: src={0} replies outstanding: {2}
+SDM: [0] creating new reply #5de94dab for request 0
+SDM: [1] request 0 completed for #5de94dab
+SDM: [1] Enter aggregate_callback
+SDM: [1] sdm_route_get_route dest {4}, parent 4
+SDM: [1] sdm_message_send src {1} dest {4} route {4}
+SDM: [1] Sending len 18
+SDM: [1] Sending to 4
+SDM: [1] About to send 22
+SDM: [1] About to call send_complete
+SDM: [1] Leaving sdm_message_send
+SDM: [1] Leaving aggregate_callback
+SDM: [1] Enter free_request
+SDM: [1] Leaving free_request
+SDM: [3] request 0 completed for #5de94dab
+SDM: [3] Enter aggregate_callback
+SDM: [3] sdm_route_get_route dest {4}, parent 4
+SDM: [3] sdm_message_send src {3} dest {4} route {4}
+SDM: [3] Sending len 18
+SDM: [3] Sending to 4
+SDM: [3] About to send 22
+SDM: [3] About to call send_complete
+SDM: [3] Leaving sdm_message_send
+SDM: [3] Leaving aggregate_callback
+MI: SEND -gdb-version
+SDM: [3] Enter free_request
+SDM: [3] Leaving free_request
+SDM: [4] receiving header
+SDM: MESSAGE_LEN:18
+SDM: [4] About to recv 18
+SDM: [4] sdm_message_progress received len 18 from 3
+SDM: [4] sdm_message_progress agg=0x5de94dab src={3} dest={4}
+SDM: [4] About to call recv_callback
+SDM: [4] Enter recv_callback
+SDM: [4] got upstream message src={3}, dest={4}
+SDM: [4] sdm_aggregate_message: upstream message #0 from {3}
+SDM: [4] reply updated: src={3} replies outstanding: {0-2}
+SDM: [4] creating new reply #5de94dab for request 0
+SDM: [4] Leaving recv_callback
+SDM: [4] Finished recv_callback
+SDM: [4] receiving header
+SDM: MESSAGE_LEN:18
+SDM: [4] About to recv 18
+SDM: [4] sdm_message_progress received len 18 from 1
+SDM: [4] sdm_message_progress agg=0x5de94dab src={1} dest={4}
+SDM: [4] About to call recv_callback
+SDM: [4] Enter recv_callback
+SDM: [4] got upstream message src={1}, dest={4}
+SDM: [4] sdm_aggregate_message: upstream message #0 from {1}
+SDM: [4] reply updated: src={1} replies outstanding: {0,2}
+SDM: [4] updating reply #5de94dab with src {1} for request 0
+SDM: [4] Leaving recv_callback
+SDM: [4] Finished recv_callback
+MI: RECV =thread-group-added,id="i1"
+MI: RECV ~"Reading symbols from /home/mark/workspace/OpenMPI_test1/Debug/OpenMPI_test1..."
+MI: RECV ~"done.\n"
+MI: RECV (gdb) 
+MI: RECV ~"GNU gdb (GDB) Fedora 7.10.1-31.fc23\n"
+MI: RECV ~"Copyright (C) 2015 Free Software Foundation, Inc.\n"
+MI: RECV ~"License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>\nThis is free software: you are free to change and redistribute it.\nThere is NO WARRANTY, to the extent permitted by law.  Type \"show copying\"\nand \"show warranty\" for details.\n"
+MI: RECV ~"This GDB was configured as \"x86_64-redhat-linux-gnu\".\nType \"show configuration\" for configuration details."
+MI: RECV ~"\nFor bug reporting instructions, please see:\n"
+MI: RECV ~"<http://www.gnu.org/software/gdb/bugs/>.\n"
+MI: RECV ~"Find the GDB manual and other documentation resources online at:\n<http://www.gnu.org/software/gdb/documentation/>.\n"
+MI: RECV ~"For help, type \"help\".\n"
+MI: RECV ~"Type \"apropos word\" to search for commands related to \"word\".\n"
+MI: RECV ^done
+(gdb) 
+MI: PROCESS COMMAND CALLBACK
+SDM: ------------------- gdb version: 7.100000
+MI: SEND -gdb-set confirm off
+MI: RECV ^done
+(gdb) 
+MI: PROCESS COMMAND CALLBACK
+SDM: [2] Leaving deliver_callback
+SDM: [2] sdm_message_send removing me from dest
+SDM: [2] sdm_route_get_route dest {1,3}, parent 0
+SDM: [2] sdm_message_send src {4} dest {1,3} route {}
+SDM: [2] About to call send_complete
+SDM: [2] Leaving sdm_message_send
+SDM: [2] Leaving recv_callback
+SDM: [2] Finished recv_callback
+SDM: [2] server event_callback ''
+SDM: [2] sdm_aggregate_message: upstream message #0 from {2}
+SDM: [2] reply updated: src={2} replies outstanding: {}
+SDM: [2] creating new reply #5de94dab for request 0
+SDM: [2] request 0 completed for #5de94dab
+SDM: [2] Enter aggregate_callback
+SDM: [2] sdm_route_get_route dest {4}, parent 0
+SDM: [2] sdm_message_send src {2} dest {4} route {0}
+SDM: [2] Sending len 18
+SDM: [2] Sending to 0
+SDM: [2] About to send 22
+SDM: [2] About to call send_complete
+SDM: [2] Leaving sdm_message_send
+SDM: [2] Leaving aggregate_callback
+SDM: [2] Enter free_request
+SDM: [2] Leaving free_request
+SDM: [0] receiving header
+SDM: MESSAGE_LEN:18
+SDM: [0] About to recv 18
+SDM: [0] sdm_message_progress received len 18 from 2
+SDM: [0] sdm_message_progress agg=0x5de94dab src={2} dest={4}
+SDM: [0] About to call recv_callback
+SDM: [0] Enter recv_callback
+SDM: [0] got upstream message src={2}, dest={4}
+SDM: [0] sdm_aggregate_message: upstream message #0 from {2}
+SDM: [0] reply updated: src={2} replies outstanding: {}
+SDM: [0] updating reply #5de94dab with src {2} for request 0
+SDM: [0] Leaving recv_callback
+SDM: [0] Finished recv_callback
+SDM: [0] request 0 completed for #5de94dab
+SDM: [0] Enter aggregate_callback
+SDM: [0] sdm_route_get_route dest {4}, parent 4
+SDM: [0] sdm_message_send src {0,2} dest {4} route {4}
+SDM: [0] Sending len 18
+SDM: [0] Sending to 4
+SDM: [0] About to send 22
+SDM: [0] About to call send_complete
+SDM: [0] Leaving sdm_message_send
+SDM: [0] Leaving aggregate_callback
+SDM: [0] Enter free_request
+SDM: [0] Leaving free_request
+SDM: [4] receiving header
+SDM: MESSAGE_LEN:18
+SDM: [4] About to recv 18
+SDM: [4] sdm_message_progress received len 18 from 0
+SDM: [4] sdm_message_progress agg=0x5de94dab src={0,2} dest={4}
+SDM: [4] About to call recv_callback
+SDM: [4] Enter recv_callback
+SDM: [4] got upstream message src={0,2}, dest={4}
+SDM: [4] sdm_aggregate_message: upstream message #0 from {0,2}
+SDM: [4] reply updated: src={0,2} replies outstanding: {}
+SDM: [4] updating reply #5de94dab with src {0,2} for request 0
+SDM: [4] Leaving recv_callback
+SDM: [4] Finished recv_callback
+SDM: [4] request 0 completed for #5de94dab
+SDM: dbg_master_cmd_completed src={0-3}
+SDM: [4] Enter free_request
+SDM: [4] Leaving free_request
+SDM: DbgMasterSetFuncBreakpoint(4:0f,0,1,0,,main,,0,0)
+SDM: [4] Creating new request #4 expected replies {0-3}
+SDM: [4] sdm_route_get_route dest {0-3}, parent 4
+SDM: [4] sdm_message_send src {4} dest {0-3} route {0-1,3}
+SDM: [4] Sending len 47
+SDM: [4] Sending to 0
+SDM: [4] About to send 51
+SDM: [4] Sending to 1
+SDM: [4] About to send 51
+SDM: [4] Sending to 3
+SDM: [4] About to send 51
+SDM: [4] About to call send_complete
+SDM: [4] Leaving sdm_message_send
+SDM: [0] receiving header
+SDM: MESSAGE_LEN:47
+SDM: [0] About to recv 47
+SDM: [0] sdm_message_progress received len 47 from 4
+SDM: [0] sdm_message_progress agg=0x0 src={4} dest={0-3}
+SDM: [0] About to call recv_callback
+SDM: [0] Enter recv_callback
+SDM: [0] got downstream message src={4}, dest={0-3}
+SDM: [0] Creating new request #4 expected replies {0,2}
+SDM: [0] sdm_message_deliver 
+SDM: [0] Enter deliver_callback
+SDM: [1] receiving header
+SDM: MESSAGE_LEN:47
+SDM: [1] About to recv 47
+SDM: [1] sdm_message_progress received len 47 from 4
+SDM: [1] sdm_message_progress agg=0x0 src={4} dest={0-3}
+SDM: [1] About to call recv_callback
+SDM: [1] Enter recv_callback
+SDM: [1] got downstream message src={4}, dest={0-3}
+SDM: [1] Creating new request #4 expected replies {1}
+SDM: [1] sdm_message_deliver 
+SDM: [1] Enter deliver_callback
+SDM: [3] receiving header
+SDM: MESSAGE_LEN:47
+SDM: [3] About to recv 47
+SDM: [3] sdm_message_progress received len 47 from 4
+SDM: [3] sdm_message_progress agg=0x0 src={4} dest={0-3}
+SDM: [3] About to call recv_callback
+SDM: [3] Enter recv_callback
+SDM: [3] got downstream message src={4}, dest={0-3}
+SDM: [3] Creating new request #4 expected replies {3}
+SDM: [3] sdm_message_deliver 
+SDM: [3] Enter deliver_callback
+MI: SEND -break-insert -t MAIN__
+MI: RECV ^done,bkpt={number="1",type="breakpoint",disp="del",enabled="y",addr="0x0000000000400b46",func="hello_world",file="../OpenMPI_test1.f08",fullname="/home/mark/workspace/OpenMPI_test1/OpenMPI_test1.f08",line="5",thread-groups=["i1"],times="0",original-location="MAIN__"}
+(gdb) 
+MI: PROCESS COMMAND CALLBACK
+SDM: [0] Leaving deliver_callback
+SDM: [0] sdm_message_send removing me from dest
+SDM: [0] sdm_route_get_route dest {1-3}, parent 4
+SDM: [0] sdm_message_send src {4} dest {1-3} route {2}
+SDM: [0] Sending len 47
+SDM: [0] Sending to 2
+SDM: [0] About to send 51
+SDM: [0] About to call send_complete
+SDM: [0] Leaving sdm_message_send
+SDM: [0] Leaving recv_callback
+SDM: [0] Finished recv_callback
+SDM: [0] server event_callback ''
+SDM: [0] sdm_aggregate_message: upstream message #4 from {0}
+SDM: [0] reply updated: src={0} replies outstanding: {2}
+SDM: [0] creating new reply #5de94dab for request 4
+MI: SEND -break-insert -t MAIN__
+MI: RECV ^done,bkpt={number="1",type="breakpoint",disp="del",enabled="y",addr="0x0000000000400b46",func="hello_world",file="../OpenMPI_test1.f08",fullname="/home/mark/workspace/OpenMPI_test1/OpenMPI_test1.f08",line="5",thread-groups=["i1"],times="0",original-location="MAIN__"}
+(gdb) 
+MI: PROCESS COMMAND CALLBACK
+SDM: [1] Leaving deliver_callback
+SDM: [1] sdm_message_send removing me from dest
+SDM: [1] sdm_route_get_route dest {0,2-3}, parent 4
+SDM: [1] sdm_message_send src {4} dest {0,2-3} route {}
+SDM: [1] About to call send_complete
+SDM: [1] Leaving sdm_message_send
+SDM: [1] Leaving recv_callback
+SDM: [1] Finished recv_callback
+SDM: [1] server event_callback ''
+SDM: [1] sdm_aggregate_message: upstream message #4 from {1}
+SDM: [1] reply updated: src={1} replies outstanding: {}
+SDM: [1] creating new reply #5de94dab for request 4
+MI: SEND -break-insert -t MAIN__
+MI: RECV ^done,bkpt={number="1",type="breakpoint",disp="del",enabled="y",addr="0x0000000000400b46",func="hello_world",file="../OpenMPI_test1.f08",fullname="/home/mark/workspace/OpenMPI_test1/OpenMPI_test1.f08",line="5",thread-groups=["i1"],times="0",original-location="MAIN__"}
+(gdb) 
+MI: PROCESS COMMAND CALLBACK
+SDM: [3] Leaving deliver_callback
+SDM: [3] sdm_message_send removing me from dest
+SDM: [3] sdm_route_get_route dest {0-2}, parent 4
+SDM: [3] sdm_message_send src {4} dest {0-2} route {}
+SDM: [3] About to call send_complete
+SDM: [3] Leaving sdm_message_send
+SDM: [3] Leaving recv_callback
+SDM: [3] Finished recv_callback
+SDM: [3] server event_callback ''
+SDM: [3] sdm_aggregate_message: upstream message #4 from {3}
+SDM: [3] reply updated: src={3} replies outstanding: {}
+SDM: [3] creating new reply #5de94dab for request 4
+SDM: [2] receiving header
+SDM: MESSAGE_LEN:47
+SDM: [2] About to recv 47
+SDM: [2] sdm_message_progress received len 47 from 0
+SDM: [2] sdm_message_progress agg=0x0 src={4} dest={1-3}
+SDM: [2] About to call recv_callback
+SDM: [2] Enter recv_callback
+SDM: [2] got downstream message src={4}, dest={1-3}
+SDM: [2] Creating new request #4 expected replies {2}
+SDM: [2] sdm_message_deliver 
+SDM: [2] Enter deliver_callback
+SDM: [1] request 4 completed for #5de94dab
+SDM: [1] Enter aggregate_callback
+SDM: [1] sdm_route_get_route dest {4}, parent 4
+SDM: [1] sdm_message_send src {1} dest {4} route {4}
+SDM: [4] receiving header
+SDM: MESSAGE_LEN:18
+SDM: [4] About to recv 18
+SDM: [4] sdm_message_progress received len 18 from 1
+SDM: [4] sdm_message_progress agg=0x5de94dab src={1} dest={4}
+SDM: [4] About to call recv_callback
+SDM: [4] Enter recv_callback
+SDM: [4] got upstream message src={1}, dest={4}
+SDM: [4] sdm_aggregate_message: upstream message #4 from {1}
+SDM: [4] reply updated: src={1} replies outstanding: {0,2-3}
+SDM: [4] creating new reply #5de94dab for request 4
+SDM: [4] Leaving recv_callback
+SDM: [4] Finished recv_callback
+SDM: [1] Sending len 18
+SDM: [1] Sending to 4
+SDM: [1] About to send 22
+SDM: [1] About to call send_complete
+SDM: [1] Leaving sdm_message_send
+SDM: [1] Leaving aggregate_callback
+SDM: [1] Enter free_request
+SDM: [1] Leaving free_request
+SDM: [3] request 4 completed for #5de94dab
+SDM: [3] Enter aggregate_callback
+SDM: [3] sdm_route_get_route dest {4}, parent 4
+SDM: [3] sdm_message_send src {3} dest {4} route {4}
+SDM: [3] Sending len 18
+SDM: [3] Sending to 4
+SDM: [3] About to send 22
+SDM: [3] About to call send_complete
+SDM: [3] Leaving sdm_message_send
+SDM: [3] Leaving aggregate_callback
+SDM: [3] Enter free_request
+SDM: [3] Leaving free_request
+MI: SEND -break-insert -t MAIN__
+MI: RECV ^done,bkpt={number="1",type="breakpoint",disp="del",enabled="y",addr="0x0000000000400b46",func="hello_world",file="../OpenMPI_test1.f08",fullname="/home/mark/workspace/OpenMPI_test1/OpenMPI_test1.f08",line="5",thread-groups=["i1"],times="0",original-location="MAIN__"}
+(gdb) 
+MI: PROCESS COMMAND CALLBACK
+SDM: [2] Leaving deliver_callback
+SDM: [2] sdm_message_send removing me from dest
+SDM: [2] sdm_route_get_route dest {1,3}, parent 0
+SDM: [2] sdm_message_send src {4} dest {1,3} route {}
+SDM: [2] About to call send_complete
+SDM: [2] Leaving sdm_message_send
+SDM: [2] Leaving recv_callback
+SDM: [2] Finished recv_callback
+SDM: [2] server event_callback ''
+SDM: [2] sdm_aggregate_message: upstream message #4 from {2}
+SDM: [2] reply updated: src={2} replies outstanding: {}
+SDM: [2] creating new reply #5de94dab for request 4
+SDM: [4] receiving header
+SDM: MESSAGE_LEN:18
+SDM: [4] About to recv 18
+SDM: [4] sdm_message_progress received len 18 from 3
+SDM: [4] sdm_message_progress agg=0x5de94dab src={3} dest={4}
+SDM: [4] About to call recv_callback
+SDM: [4] Enter recv_callback
+SDM: [4] got upstream message src={3}, dest={4}
+SDM: [4] sdm_aggregate_message: upstream message #4 from {3}
+SDM: [4] reply updated: src={3} replies outstanding: {0,2}
+SDM: [4] updating reply #5de94dab with src {3} for request 4
+SDM: [4] Leaving recv_callback
+SDM: [4] Finished recv_callback
+SDM: [2] request 4 completed for #5de94dab
+SDM: [2] Enter aggregate_callback
+SDM: [2] sdm_route_get_route dest {4}, parent 0
+SDM: [2] sdm_message_send src {2} dest {4} route {0}
+SDM: [2] Sending len 18
+SDM: [2] Sending to 0
+SDM: [2] About to send 22
+SDM: [2] About to call send_complete
+SDM: [2] Leaving sdm_message_send
+SDM: [2] Leaving aggregate_callback
+SDM: [2] Enter free_request
+SDM: [2] Leaving free_request
+SDM: [0] receiving header
+SDM: MESSAGE_LEN:18
+SDM: [0] About to recv 18
+SDM: [0] sdm_message_progress received len 18 from 2
+SDM: [0] sdm_message_progress agg=0x5de94dab src={2} dest={4}
+SDM: [0] About to call recv_callback
+SDM: [0] Enter recv_callback
+SDM: [0] got upstream message src={2}, dest={4}
+SDM: [0] sdm_aggregate_message: upstream message #4 from {2}
+SDM: [0] reply updated: src={2} replies outstanding: {}
+SDM: [0] updating reply #5de94dab with src {2} for request 4
+SDM: [0] Leaving recv_callback
+SDM: [0] Finished recv_callback
+SDM: [0] request 4 completed for #5de94dab
+SDM: [0] Enter aggregate_callback
+SDM: [0] sdm_route_get_route dest {4}, parent 4
+SDM: [0] sdm_message_send src {0,2} dest {4} route {4}
+SDM: [0] Sending len 18
+SDM: [0] Sending to 4
+SDM: [0] About to send 22
+SDM: [0] About to call send_complete
+SDM: [0] Leaving sdm_message_send
+SDM: [0] Leaving aggregate_callback
+SDM: [0] Enter free_request
+SDM: [0] Leaving free_request
+SDM: [4] receiving header
+SDM: MESSAGE_LEN:18
+SDM: [4] About to recv 18
+SDM: [4] sdm_message_progress received len 18 from 0
+SDM: [4] sdm_message_progress agg=0x5de94dab src={0,2} dest={4}
+SDM: [4] About to call recv_callback
+SDM: [4] Enter recv_callback
+SDM: [4] got upstream message src={0,2}, dest={4}
+SDM: [4] sdm_aggregate_message: upstream message #4 from {0,2}
+SDM: [4] reply updated: src={0,2} replies outstanding: {}
+SDM: [4] updating reply #5de94dab with src {0,2} for request 4
+SDM: [4] Leaving recv_callback
+SDM: [4] Finished recv_callback
+SDM: [4] request 4 completed for #5de94dab
+SDM: dbg_master_cmd_completed src={0-3}
+SDM: [4] Enter free_request
+SDM: [4] Leaving free_request
+SDM: DbgMasterGo(4:0f)
+SDM: [4] Creating new request #8 expected replies {0-3}
+SDM: [4] sdm_route_get_route dest {0-3}, parent 4
+SDM: [4] sdm_message_send src {4} dest {0-3} route {0-1,3}
+SDM: [4] Sending len 16
+SDM: [4] Sending to 0
+SDM: [4] About to send 20
+SDM: [4] Sending to 1
+SDM: [4] About to send 20
+SDM: [4] Sending to 3
+SDM: [4] About to send 20
+SDM: [4] About to call send_complete
+SDM: [4] Leaving sdm_message_send
+SDM: [0] receiving header
+SDM: MESSAGE_LEN:16
+SDM: [0] About to recv 16
+SDM: [0] sdm_message_progress received len 16 from 4
+SDM: [0] sdm_message_progress agg=0x186a0 src={4} dest={0-3}
+SDM: [0] About to call recv_callback
+SDM: [0] Enter recv_callback
+SDM: [0] got downstream message src={4}, dest={0-3}
+SDM: [0] Creating new request #8 expected replies {0,2}
+SDM: [0] sdm_message_deliver 
+SDM: [0] Enter deliver_callback
+SDM: [1] receiving header
+SDM: MESSAGE_LEN:16
+SDM: [1] About to recv 16
+SDM: [1] sdm_message_progress received len 16 from 4
+SDM: [1] sdm_message_progress agg=0x186a0 src={4} dest={0-3}
+SDM: [1] About to call recv_callback
+SDM: [1] Enter recv_callback
+SDM: [1] got downstream message src={4}, dest={0-3}
+SDM: [1] Creating new request #8 expected replies {1}
+SDM: [1] sdm_message_deliver 
+SDM: [1] Enter deliver_callback
+SDM: [3] receiving header
+SDM: MESSAGE_LEN:16
+SDM: [3] About to recv 16
+SDM: [3] sdm_message_progress received len 16 from 4
+SDM: [3] sdm_message_progress agg=0x186a0 src={4} dest={0-3}
+SDM: [3] About to call recv_callback
+SDM: [3] Enter recv_callback
+SDM: [3] got downstream message src={4}, dest={0-3}
+SDM: [3] Creating new request #8 expected replies {3}
+SDM: [3] sdm_message_deliver 
+SDM: [3] Enter deliver_callback
+MI: SEND -exec-run
+MI: RECV =thread-group-started,id="i1",pid="4073"
+=thread-created,id="1",group-id="i1"
+MI: SEND -exec-run
+MI: SEND -exec-run
+MI: RECV =thread-group-started,id="i1",pid="4076"
+=thread-created,id="1",group-id="i1"
+MI: RECV =thread-group-started,id="i1",pid="4074"
+=thread-created,id="1",group-id="i1"
+MI: RECV =library-loaded,id="/lib64/ld-linux-x86-64.so.2",target-name="/lib64/ld-linux-x86-64.so.2",host-name="/lib64/ld-linux-x86-64.so.2",symbols-loaded="0",thread-group="i1"
+MI: RECV =library-loaded,id="/lib64/ld-linux-x86-64.so.2",target-name="/lib64/ld-linux-x86-64.so.2",host-name="/lib64/ld-linux-x86-64.so.2",symbols-loaded="0",thread-group="i1"
+MI: RECV =library-loaded,id="/lib64/ld-linux-x86-64.so.2",target-name="/lib64/ld-linux-x86-64.so.2",host-name="/lib64/ld-linux-x86-64.so.2",symbols-loaded="0",thread-group="i1"
+MI: RECV ^running
+*running,thread-id="all"
+(gdb) 
+MI: PROCESS COMMAND CALLBACK
+SDM: [3] Leaving deliver_callback
+SDM: [3] sdm_message_send removing me from dest
+SDM: [3] sdm_route_get_route dest {0-2}, parent 4
+SDM: [3] sdm_message_send src {4} dest {0-2} route {}
+SDM: [3] About to call send_complete
+SDM: [3] Leaving sdm_message_send
+SDM: [3] Leaving recv_callback
+SDM: [3] Finished recv_callback
+SDM: [3] server event_callback ''
+SDM: [3] sdm_aggregate_message: upstream message #8 from {3}
+SDM: [3] reply updated: src={3} replies outstanding: {}
+SDM: [3] creating new reply #5de94dab for request 8
+MI: RECV ^running
+*running,thread-id="all"
+(gdb) 
+MI: PROCESS COMMAND CALLBACK
+SDM: [0] Leaving deliver_callback
+SDM: [0] sdm_message_send removing me from dest
+SDM: [0] sdm_route_get_route dest {1-3}, parent 4
+SDM: [0] sdm_message_send src {4} dest {1-3} route {2}
+SDM: [0] Sending len 16
+SDM: [0] Sending to 2
+SDM: [0] About to send 20
+SDM: [0] About to call send_complete
+SDM: [0] Leaving sdm_message_send
+SDM: [0] Leaving recv_callback
+SDM: [0] Finished recv_callback
+SDM: [0] server event_callback ''
+SDM: [0] sdm_aggregate_message: upstream message #8 from {0}
+SDM: [0] reply updated: src={0} replies outstanding: {2}
+SDM: [0] creating new reply #5de94dab for request 8
+SDM: [2] receiving header
+SDM: MESSAGE_LEN:16
+SDM: [2] About to recv 16
+SDM: [2] sdm_message_progress received len 16 from 0
+SDM: [2] sdm_message_progress agg=0x186a0 src={4} dest={1-3}
+SDM: [2] About to call recv_callback
+SDM: [2] Enter recv_callback
+SDM: [2] got downstream message src={4}, dest={1-3}
+SDM: [2] Creating new request #8 expected replies {2}
+SDM: [2] sdm_message_deliver 
+SDM: [2] Enter deliver_callback
+MI: RECV ^running
+*running,thread-id="all"
+(gdb) 
+MI: PROCESS COMMAND CALLBACK
+SDM: [1] Leaving deliver_callback
+SDM: [1] sdm_message_send removing me from dest
+SDM: [1] sdm_route_get_route dest {0,2-3}, parent 4
+SDM: [1] sdm_message_send src {4} dest {0,2-3} route {}
+SDM: [1] About to call send_complete
+SDM: [1] Leaving sdm_message_send
+SDM: [1] Leaving recv_callback
+SDM: [1] Finished recv_callback
+SDM: [1] server event_callback ''
+SDM: [1] sdm_aggregate_message: upstream message #8 from {1}
+SDM: [1] reply updated: src={1} replies outstanding: {}
+SDM: [1] creating new reply #5de94dab for request 8
+SDM: [3] request 8 completed for #5de94dab
+SDM: [3] Enter aggregate_callback
+SDM: [3] sdm_route_get_route dest {4}, parent 4
+SDM: [3] sdm_message_send src {3} dest {4} route {4}
+SDM: [3] Sending len 18
+SDM: [3] Sending to 4
+SDM: [3] About to send 22
+SDM: [3] About to call send_complete
+MI: SEND -exec-run
+SDM: [1] request 8 completed for #5de94dab
+SDM: [1] Enter aggregate_callback
+SDM: [1] sdm_route_get_route dest {4}, parent 4
+SDM: [1] sdm_message_send src {1} dest {4} route {4}
+SDM: [1] Sending len 18
+SDM: [1] Sending to 4
+SDM: [1] About to send 22
+SDM: [1] About to call send_complete
+SDM: [1] Leaving sdm_message_send
+SDM: [1] Leaving aggregate_callback
+SDM: [1] Enter free_request
+SDM: [1] Leaving free_request
+SDM: [3] Leaving sdm_message_send
+SDM: [3] Leaving aggregate_callback
+SDM: [3] Enter free_request
+SDM: [3] Leaving free_request
+MI: RECV =thread-group-started,id="i1",pid="4086"
+=thread-created,id="1",group-id="i1"
+SDM: [4] receiving header
+SDM: MESSAGE_LEN:18
+SDM: [4] About to recv 18
+SDM: [4] sdm_message_progress received len 18 from 3
+SDM: [4] sdm_message_progress agg=0x5de94dab src={3} dest={4}
+SDM: [4] About to call recv_callback
+SDM: [4] Enter recv_callback
+SDM: [4] got upstream message src={3}, dest={4}
+SDM: [4] sdm_aggregate_message: upstream message #8 from {3}
+SDM: [4] reply updated: src={3} replies outstanding: {0-2}
+SDM: [4] creating new reply #5de94dab for request 8
+SDM: [4] Leaving recv_callback
+SDM: [4] Finished recv_callback
+SDM: [4] receiving header
+SDM: MESSAGE_LEN:18
+SDM: [4] About to recv 18
+SDM: [4] sdm_message_progress received len 18 from 1
+SDM: [4] sdm_message_progress agg=0x5de94dab src={1} dest={4}
+SDM: [4] About to call recv_callback
+SDM: [4] Enter recv_callback
+SDM: [4] got upstream message src={1}, dest={4}
+SDM: [4] sdm_aggregate_message: upstream message #8 from {1}
+SDM: [4] reply updated: src={1} replies outstanding: {0,2}
+SDM: [4] updating reply #5de94dab with src {1} for request 8
+SDM: [4] Leaving recv_callback
+SDM: [4] Finished recv_callback
+MI: RECV =library-loaded,id="/lib64/ld-linux-x86-64.so.2",target-name="/lib64/ld-linux-x86-64.so.2",host-name="/lib64/ld-linux-x86-64.so.2",symbols-loaded="0",thread-group="i1"
+MI: RECV ^running
+*running,thread-id="all"
+(gdb) 
+MI: PROCESS COMMAND CALLBACK
+SDM: [2] Leaving deliver_callback
+SDM: [2] sdm_message_send removing me from dest
+SDM: [2] sdm_route_get_route dest {1,3}, parent 0
+SDM: [2] sdm_message_send src {4} dest {1,3} route {}
+SDM: [2] About to call send_complete
+SDM: [2] Leaving sdm_message_send
+SDM: [2] Leaving recv_callback
+SDM: [2] Finished recv_callback
+SDM: [2] server event_callback ''
+SDM: [2] sdm_aggregate_message: upstream message #8 from {2}
+SDM: [2] reply updated: src={2} replies outstanding: {}
+SDM: [2] creating new reply #5de94dab for request 8
+SDM: [2] request 8 completed for #5de94dab
+SDM: [2] Enter aggregate_callback
+SDM: [2] sdm_route_get_route dest {4}, parent 0
+SDM: [2] sdm_message_send src {2} dest {4} route {0}
+SDM: [2] Sending len 18
+SDM: [2] Sending to 0
+SDM: [2] About to send 22
+SDM: [2] About to call send_complete
+SDM: [0] receiving header
+SDM: MESSAGE_LEN:18
+SDM: [0] About to recv 18
+SDM: [0] sdm_message_progress received len 18 from 2
+SDM: [0] sdm_message_progress agg=0x5de94dab src={2} dest={4}
+SDM: [0] About to call recv_callback
+SDM: [0] Enter recv_callback
+SDM: [0] got upstream message src={2}, dest={4}
+SDM: [0] sdm_aggregate_message: upstream message #8 from {2}
+SDM: [0] reply updated: src={2} replies outstanding: {}
+SDM: [2] Leaving sdm_message_send
+SDM: [2] Leaving aggregate_callback
+SDM: [0] updating reply #5de94dab with src {2} for request 8
+SDM: [2] Enter free_request
+SDM: [2] Leaving free_request
+SDM: [0] Leaving recv_callback
+SDM: [0] Finished recv_callback
+SDM: [0] request 8 completed for #5de94dab
+SDM: [0] Enter aggregate_callback
+SDM: [0] sdm_route_get_route dest {4}, parent 4
+SDM: [0] sdm_message_send src {0,2} dest {4} route {4}
+SDM: [0] Sending len 18
+SDM: [0] Sending to 4
+SDM: [0] About to send 22
+SDM: [0] About to call send_complete
+SDM: [0] Leaving sdm_message_send
+SDM: [0] Leaving aggregate_callback
+SDM: [0] Enter free_request
+SDM: [0] Leaving free_request
+SDM: [4] receiving header
+SDM: MESSAGE_LEN:18
+SDM: [4] About to recv 18
+SDM: [4] sdm_message_progress received len 18 from 0
+SDM: [4] sdm_message_progress agg=0x5de94dab src={0,2} dest={4}
+SDM: [4] About to call recv_callback
+SDM: [4] Enter recv_callback
+SDM: [4] got upstream message src={0,2}, dest={4}
+SDM: [4] sdm_aggregate_message: upstream message #8 from {0,2}
+SDM: [4] reply updated: src={0,2} replies outstanding: {}
+SDM: [4] updating reply #5de94dab with src {0,2} for request 8
+SDM: [4] Leaving recv_callback
+SDM: [4] Finished recv_callback
+SDM: [4] request 8 completed for #5de94dab
+SDM: dbg_master_cmd_completed src={0-3}
+SDM: [4] Enter free_request
+SDM: [4] Leaving free_request
+MI: RECV =library-loaded,id="/usr/local/lib/libmpi_usempif08.so.0",target-name="/usr/local/lib/libmpi_usempif08.so.0",host-name="/usr/local/lib/libmpi_usempif08.so.0",symbols-loaded="0",thread-group="i1"
+=library-loaded,id="/usr/local/lib/libmpi_usempi_ignore_tkr.so.0",target-name="/usr/local/lib/libmpi_usempi_ignore_tkr.so.0",host-name="/usr/local/lib/libmpi_usempi_ignore_tkr.so.0",symbols-loaded="0",thread-group="i1"
+MI: RECV =library-loaded,id="/usr/local/lib/libmpi_usempif08.so.0",target-name="/usr/local/lib/libmpi_usempif08.so.0",host-name="/usr/local/lib/libmpi_usempif08.so.0",symbols-loaded="0",thread-group="i1"
+MI: RECV =library-loaded,id="/usr/local/lib/libmpi_usempif08.so.0",target-name="/usr/local/lib/libmpi_usempif08.so.0",host-name="/usr/local/lib/libmpi_usempif08.so.0",symbols-loaded="0",thread-group="i1"
+=library-loaded,id="/usr/local/lib/libmpi_usempi_ignore_tkr.so.0",target-name="/usr/local/lib/libmpi_usempi_ignore_tkr.so.0",host-name="/usr/local/lib/libmpi_usempi_ignore_tkr.so.0",symbols-loaded="0",thread-group="i1"
+MI: RECV =library-loaded,id="/usr/local/lib/libmpi_usempif08.so.0",target-name="/usr/local/lib/libmpi_usempif08.so.0",host-name="/usr/local/lib/libmpi_usempif08.so.0",symbols-loaded="0",thread-group="i1"
+=library-loaded,id="/usr/local/lib/libmpi_usempi_ignore_tkr.so.0",target-name="/usr/local/lib/libmpi_usempi_ignore_tkr.so.0",host-name="/usr/local/lib/libmpi_usempi_ignore_tkr.so.0",symbols-loaded="0",thread-group="i1"
+MI: RECV =library-loaded,id="/usr/local/lib/libmpi_usempi_ignore_tkr.so.0",target-name="/usr/local/lib/libmpi_usempi_ignore_tkr.so.0",host-name="/usr/local/lib/libmpi_usempi_ignore_tkr.so.0",symbols-loaded="0",thread-group="i1"
+MI: RECV =library-loaded,id="/usr/local/lib/libmpi_mpifh.so.2",target-name="/usr/local/lib/libmpi_mpifh.so.2",host-name="/usr/local/lib/libmpi_mpifh.so.2",symbols-loaded="0",thread-group="i1"
+MI: RECV =library-loaded,id="/usr/local/lib/libmpi_mpifh.so.2",target-name="/usr/local/lib/libmpi_mpifh.so.2",host-name="/usr/local/lib/libmpi_mpifh.so.2",symbols-loaded="0",thread-group="i1"
+MI: RECV =library-loaded,id="/usr/local/lib/libmpi_mpifh.so.2",target-name="/usr/local/lib/libmpi_mpifh.so.2",host-name="/usr/local/lib/libmpi_mpifh.so.2",symbols-loaded="0",thread-group="i1"
+MI: RECV =library-loaded,id="/usr/local/lib/libmpi_mpifh.so.2",target-name="/usr/local/lib/libmpi_mpifh.so.2",host-name="/usr/local/lib/libmpi_mpifh.so.2",symbols-loaded="0",thread-group="i1"
+MI: RECV =library-loaded,id="/usr/local/lib/libmpi.so.1",target-name="/usr/local/lib/libmpi.so.1",host-name="/usr/local/lib/libmpi.so.1",symbols-loaded="0",thread-group="i1"
+=library-loaded,id="/lib64/libgfortran.so.3",target-name="/lib64/libgfortran.so.3",host-name="/lib64/libgfortran.so.3",symbols-loaded="0",thread-group="i1"
+=library-loaded,id="/lib64/libm.so.6",target-name="/lib64/libm.so.6",host-name="/lib64/libm.so.6",symbols-loaded="0",thread-group="i1"
+=library-loaded,id="/lib64/libgcc_s.so.1",target-name="/lib64/libgcc_s.so.1",host-name="/lib64/libgcc_s.so.1",symbols-loaded="0",thread-group="i1"
+=library-loaded,id="/lib64/libquadmath.so.0",target-name="/lib64/libquadmath.so.0",host-name="/lib64/libquadmath.so.0",symbols-loaded="0",thread-group="i1"
+=library-loaded,id="/lib64/libpthread.so.0",target-name="/lib64/libpthread.so.0",host-name="/lib64/libpthread.so.0",symbols-loaded="0",thread-group="i1"
+MI: RECV =library-loaded,id="/usr/local/lib/libmpi.so.1",target-name="/usr/local/lib/libmpi.so.1",host-name="/usr/local/lib/libmpi.so.1",symbols-loaded="0",thread-group="i1"
+MI: RECV =library-loaded,id="/usr/local/lib/libmpi.so.1",target-name="/usr/local/lib/libmpi.so.1",host-name="/usr/local/lib/libmpi.so.1",symbols-loaded="0",thread-group="i1"
+=library-loaded,id="/lib64/libgfortran.so.3",target-name="/lib64/libgfortran.so.3",host-name="/lib64/libgfortran.so.3",symbols-loaded="0",thread-group="i1"
+=library-loaded,id="/lib64/libm.so.6",target-name="/lib64/libm.so.6",host-name="/lib64/libm.so.6",symbols-loaded="0",thread-group="i1"
+=library-loaded,id="/lib64/libgcc_s.so.1",target-name="/lib64/libgcc_s.so.1",host-name="/lib64/libgcc_s.so.1",symbols-loaded="0",thread-group="i1"
+=library-loaded,id="/lib64/libquadmath.so.0",target-name="/lib64/libquadmath.so.0",host-name="/lib64/libquadmath.so.0",symbols-loaded="0",thread-group="i1"
+=library-loaded,id="/lib64/libpthread.so.0",target-name="/lib64/libpthread.so.0",host-name="/lib64/libpthread.so.0",symbols-loaded="0",thread-group="i1"
+MI: RECV =library-loaded,id="/usr/local/lib/libmpi.so.1",target-name="/usr/local/lib/libmpi.so.1",host-name="/usr/local/lib/libmpi.so.1",symbols-loaded="0",thread-group="i1"
+=library-loaded,id="/lib64/libgfortran.so.3",target-name="/lib64/libgfortran.so.3",host-name="/lib64/libgfortran.so.3",symbols-loaded="0",thread-group="i1"
+=library-loaded,id="/lib64/libm.so.6",target-name="/lib64/libm.so.6",host-name="/lib64/libm.so.6",symbols-loaded="0",thread-group="i1"
+=library-loaded,id="/lib64/libgcc_s.so.1",target-name="/lib64/libgcc_s.so.1",host-name="/lib64/libgcc_s.so.1",symbols-loaded="0",thread-group="i1"
+=library-loaded,id="/lib64/libquadmath.so.0",target-name="/lib64/libquadmath.so.0",host-name="/lib64/libquadmath.so.0",symbols-loaded="0",thread-group="i1"
+=library-loaded,id="/lib64/libpthread.so.0",target-name="/lib64/libpthread.so.0",host-name="/lib64/libpthread.so.0",symbols-loaded="0",thread-group="i1"
+MI: RECV =library-loaded,id="/lib64/libc.so.6",target-name="/lib64/libc.so.6",host-name="/lib64/libc.so.6",symbols-loaded="0",thread-group="i1"
+MI: RECV =library-loaded,id="/lib64/libgfortran.so.3",target-name="/lib64/libgfortran.so.3",host-name="/lib64/libgfortran.so.3",symbols-loaded="0",thread-group="i1"
+=library-loaded,id="/lib64/libm.so.6",target-name="/lib64/libm.so.6",host-name="/lib64/libm.so.6",symbols-loaded="0",thread-group="i1"
+=library-loaded,id="/lib64/libgcc_s.so.1",target-name="/lib64/libgcc_s.so.1",host-name="/lib64/libgcc_s.so.1",symbols-loaded="0",thread-group="i1"
+=library-loaded,id="/lib64/libquadmath.so.0",target-name="/lib64/libquadmath.so.0",host-name="/lib64/libquadmath.so.0",symbols-loaded="0",thread-group="i1"
+=library-loaded,id="/lib64/libpthread.so.0",target-name="/lib64/libpthread.so.0",host-name="/lib64/libpthread.so.0",symbols-loaded="0",thread-group="i1"
+=library-loaded,id="/lib64/libc.so.6",target-name="/lib64/libc.so.6",host-name="/lib64/libc.so.6",symbols-loaded="0",thread-group="i1"
+MI: RECV =library-loaded,id="/lib64/libc.so.6",target-name="/lib64/libc.so.6",host-name="/lib64/libc.so.6",symbols-loaded="0",thread-group="i1"
+MI: RECV =library-loaded,id="/lib64/libc.so.6",target-name="/lib64/libc.so.6",host-name="/lib64/libc.so.6",symbols-loaded="0",thread-group="i1"
+MI: RECV =library-loaded,id="/usr/local/lib/libopen-rte.so.7",target-name="/usr/local/lib/libopen-rte.so.7",host-name="/usr/local/lib/libopen-rte.so.7",symbols-loaded="0",thread-group="i1"
+MI: RECV =library-loaded,id="/usr/local/lib/libopen-rte.so.7",target-name="/usr/local/lib/libopen-rte.so.7",host-name="/usr/local/lib/libopen-rte.so.7",symbols-loaded="0",thread-group="i1"
+MI: RECV =library-loaded,id="/usr/local/lib/libopen-rte.so.7",target-name="/usr/local/lib/libopen-rte.so.7",host-name="/usr/local/lib/libopen-rte.so.7",symbols-loaded="0",thread-group="i1"
+MI: RECV =library-loaded,id="/usr/local/lib/libopen-rte.so.7",target-name="/usr/local/lib/libopen-rte.so.7",host-name="/usr/local/lib/libopen-rte.so.7",symbols-loaded="0",thread-group="i1"
+MI: RECV =library-loaded,id="/usr/local/lib/libopen-pal.so.6",target-name="/usr/local/lib/libopen-pal.so.6",host-name="/usr/local/lib/libopen-pal.so.6",symbols-loaded="0",thread-group="i1"
+=library-loaded,id="/lib64/libdl.so.2",target-name="/lib64/libdl.so.2",host-name="/lib64/libdl.so.2",symbols-loaded="0",thread-group="i1"
+=library-loaded,id="/lib64/librt.so.1",target-name="/lib64/librt.so.1",host-name="/lib64/librt.so.1",symbols-loaded="0",thread-group="i1"
+=library-loaded,id="/lib64/libutil.so.1",target-name="/lib64/libutil.so.1",host-name="/lib64/libutil.so.1",symbols-loaded="0",thread-group="i1"
+MI: RECV =library-loaded,id="/usr/local/lib/libopen-pal.so.6",target-name="/usr/local/lib/libopen-pal.so.6",host-name="/usr/local/lib/libopen-pal.so.6",symbols-loaded="0",thread-group="i1"
+=library-loaded,id="/lib64/libdl.so.2",target-name="/lib64/libdl.so.2",host-name="/lib64/libdl.so.2",symbols-loaded="0",thread-group="i1"
+=library-loaded,id="/lib64/librt.so.1",target-name="/lib64/librt.so.1",host-name="/lib64/librt.so.1",symbols-loaded="0",thread-group="i1"
+=library-loaded,id="/lib64/libutil.so.1",target-name="/lib64/libutil.so.1",host-name="/lib64/libutil.so.1",symbols-loaded="0",thread-group="i1"
+MI: RECV =library-loaded,id="/usr/local/lib/libopen-pal.so.6",target-name="/usr/local/lib/libopen-pal.so.6",host-name="/usr/local/lib/libopen-pal.so.6",symbols-loaded="0",thread-group="i1"
+=library-loaded,id="/lib64/libdl.so.2",target-name="/lib64/libdl.so.2",host-name="/lib64/libdl.so.2",symbols-loaded="0",thread-group="i1"
+=library-loaded,id="/lib64/librt.so.1",target-name="/lib64/librt.so.1",host-name="/lib64/librt.so.1",symbols-loaded="0",thread-group="i1"
+=library-loaded,id="/lib64/libutil.so.1",target-name="/lib64/libutil.so.1",host-name="/lib64/libutil.so.1",symbols-loaded="0",thread-group="i1"
+MI: RECV =library-loaded,id="/usr/local/lib/libopen-pal.so.6",target-name="/usr/local/lib/libopen-pal.so.6",host-name="/usr/local/lib/libopen-pal.so.6",symbols-loaded="0",thread-group="i1"
+=library-loaded,id="/lib64/libdl.so.2",target-name="/lib64/libdl.so.2",host-name="/lib64/libdl.so.2",symbols-loaded="0",thread-group="i1"
+=library-loaded,id="/lib64/librt.so.1",target-name="/lib64/librt.so.1",host-name="/lib64/librt.so.1",symbols-loaded="0",thread-group="i1"
+=library-loaded,id="/lib64/libutil.so.1",target-name="/lib64/libutil.so.1",host-name="/lib64/libutil.so.1",symbols-loaded="0",thread-group="i1"
+MI: RECV ~"[Thread debugging using libthread_db enabled]\n"
+MI: RECV ~"[Thread debugging using libthread_db enabled]\n"
+MI: RECV ~"[Thread debugging using libthread_db enabled]\n"
+MI: RECV ~"[Thread debugging using libthread_db enabled]\n"
+~"Using host libthread_db library \"/lib64/libthread_db.so.1\".\n"
+MI: RECV ~"Using host libthread_db library \"/lib64/libthread_db.so.1\".\n"
+MI: RECV ~"Using host libthread_db library \"/lib64/libthread_db.so.1\".\n"
+MI: RECV ~"Using host libthread_db library \"/lib64/libthread_db.so.1\".\n"
+MI: RECV =breakpoint-modified,bkpt={number="1",type="breakpoint",disp="del",enabled="y",addr="0x0000000000400b46",func="hello_world",file="../OpenMPI_test1.f08",fullname="/home/mark/workspace/OpenMPI_test1/OpenMPI_test1.f08",line="5",thread-groups=["i1"],times="1",original-location="MAIN__"}
+MI: RECV =breakpoint-modified,bkpt={number="1",type="breakpoint",disp="del",enabled="y",addr="0x0000000000400b46",func="hello_world",file="../OpenMPI_test1.f08",fullname="/home/mark/workspace/OpenMPI_test1/OpenMPI_test1.f08",line="5",thread-groups=["i1"],times="1",original-location="MAIN__"}
+MI: RECV =breakpoint-modified,bkpt={number="1",type="breakpoint",disp="del",enabled="y",addr="0x0000000000400b46",func="hello_world",file="../OpenMPI_test1.f08",fullname="/home/mark/workspace/OpenMPI_test1/OpenMPI_test1.f08",line="5",thread-groups=["i1"],times="1",original-location="MAIN__"}
+MI: RECV =breakpoint-modified,bkpt={number="1",type="breakpoint",disp="del",enabled="y",addr="0x0000000000400b46",func="hello_world",file="../OpenMPI_test1.f08",fullname="/home/mark/workspace/OpenMPI_test1/OpenMPI_test1.f08",line="5",thread-groups=["i1"],times="1",original-location="MAIN__"}
+~"\nTemporary breakpoint "
+~"1, hello_world () at ../OpenMPI_test1.f08:5\n"
+~"5\t      call MPI_INIT ( ierr )\n"
+*stopped,reason="breakpoint-hit",disp="del",bkptno="1",frame={addr="0x0000000000400b46",func="hello_world",args=[],file="../OpenMPI_test1.f08",fullname="/home/mark/workspace/OpenMPI_test1/OpenMPI_test1.f08",line="5"},thread-id="1",stopped-threads="all",core="0"
+=breakpoint-deleted,id="1"
+(gdb) 
+MI: RECV ~"\nTemporary breakpoint "
+~"1, hello_world () at ../OpenMPI_test1.f08:5\n"
+~"5\t      call MPI_INIT ( ierr )\n"
+*stopped,reason="breakpoint-hit",disp="del",bkptno="1",frame={addr="0x0000000000400b46",func="hello_world",args=[],file="../OpenMPI_test1.f08",fullname="/home/mark/workspace/OpenMPI_test1/OpenMPI_test1.f08",line="5"},thread-id="1",stopped-threads="all",core="2"
+=breakpoint-deleted,id="1"
+(gdb) 
+MI: RECV ~"\nTemporary breakpoint "
+~"1, hello_world () at ../OpenMPI_test1.f08:5\n"
+~"5\t      call MPI_INIT ( ierr )\n"
+*stopped,reason="breakpoint-hit",disp="del",bkptno="1",frame={addr="0x0000000000400b46",func="hello_world",args=[],file="../OpenMPI_test1.f08",fullname="/home/mark/workspace/OpenMPI_test1/OpenMPI_test1.f08",line="5"},thread-id="1",stopped-threads="all",core="1"
+=breakpoint-deleted,id="1"
+(gdb) 
+MI: RECV ~"\nTemporary breakpoint "
+~"1, hello_world () at ../OpenMPI_test1.f08:5\n"
+~"5\t      call MPI_INIT ( ierr )\n"
+*stopped,reason="breakpoint-hit",disp="del",bkptno="1",frame={addr="0x0000000000400b46",func="hello_world",args=[],file="../OpenMPI_test1.f08",fullname="/home/mark/workspace/OpenMPI_test1/OpenMPI_test1.f08",line="5"},thread-id="1",stopped-threads="all",core="3"
+=breakpoint-deleted,id="1"
+(gdb) 
+MI: SEND -stack-info-depth
+MI: RECV ^done,depth="4"
+(gdb) 
+MI: PROCESS COMMAND CALLBACK
+MI: SEND -stack-info-depth
+MI: SEND -stack-info-depth
+MI: SEND -stack-info-depth
+MI: RECV ^done,depth="4"
+(gdb) 
+MI: PROCESS COMMAND CALLBACK
+MI: RECV ^done,depth="4"
+(gdb) 
+MI: PROCESS COMMAND CALLBACK
+MI: RECV ^done,depth="4"
+(gdb) 
+MI: PROCESS COMMAND CALLBACK
+MI: SEND -var-update *
+MI: RECV ^done,changelist=[]
+(gdb) 
+MI: PROCESS COMMAND CALLBACK
+SDM: [2] server event_callback ''
+SDM: [2] sdm_aggregate_message: upstream message #8 from {2}
+SDM: [2] sdm_aggregate_message: message is unsolicited
+SDM: [2] Creating new request #8 expected replies {2}
+SDM: [2] reply updated: src={2} replies outstanding: {}
+SDM: [2] creating new reply #32b5dea4 for request 8
+MI: SEND -var-update *
+MI: RECV ^done,changelist=[]
+(gdb) 
+MI: PROCESS COMMAND CALLBACK
+SDM: [3] server event_callback ''
+SDM: [3] sdm_aggregate_message: upstream message #8 from {3}
+SDM: [3] sdm_aggregate_message: message is unsolicited
+SDM: [3] Creating new request #8 expected replies {3}
+SDM: [3] reply updated: src={3} replies outstanding: {}
+SDM: [3] creating new reply #32b5dea4 for request 8
+MI: SEND -var-update *
+MI: RECV ^done,changelist=[]
+(gdb) 
+MI: PROCESS COMMAND CALLBACK
+SDM: [1] server event_callback ''
+SDM: [1] sdm_aggregate_message: upstream message #8 from {1}
+SDM: [1] sdm_aggregate_message: message is unsolicited
+SDM: [1] Creating new request #8 expected replies {1}
+SDM: [1] reply updated: src={1} replies outstanding: {}
+SDM: [1] creating new reply #32b5dea4 for request 8
+MI: SEND -var-update *
+MI: RECV ^done,changelist=[]
+(gdb) 
+MI: PROCESS COMMAND CALLBACK
+SDM: [0] server event_callback ''
+SDM: [0] sdm_aggregate_message: upstream message #8 from {0}
+SDM: [0] sdm_aggregate_message: message is unsolicited
+SDM: [0] Creating new request #8 expected replies {0,2}
+SDM: [0] reply updated: src={0} replies outstanding: {2}
+SDM: [0] creating new reply #32b5dea4 for request 8
+SDM: [2] request 8 completed for #32b5dea4
+SDM: [2] Enter aggregate_callback
+SDM: [2] sdm_route_get_route dest {4}, parent 0
+SDM: [2] sdm_message_send src {2} dest {4} route {0}
+SDM: [2] Sending len 100
+SDM: [2] Sending to 0
+SDM: [2] About to send 104
+SDM: [2] About to call send_complete
+SDM: [2] Leaving sdm_message_send
+SDM: [2] Leaving aggregate_callback
+SDM: [2] Enter free_request
+SDM: [2] Leaving free_request
+SDM: [0] receiving header
+SDM: MESSAGE_LEN:100
+SDM: [0] About to recv 100
+SDM: [0] sdm_message_progress received len 100 from 2
+SDM: [0] sdm_message_progress agg=0x32b5dea4 src={2} dest={4}
+SDM: [0] About to call recv_callback
+SDM: [0] Enter recv_callback
+SDM: [0] got upstream message src={2}, dest={4}
+SDM: [0] sdm_aggregate_message: upstream message #8 from {2}
+SDM: [0] reply updated: src={2} replies outstanding: {}
+SDM: [0] updating reply #32b5dea4 with src {2} for request 8
+SDM: [0] Leaving recv_callback
+SDM: [0] Finished recv_callback
+SDM: [0] request 8 completed for #32b5dea4
+SDM: [0] Enter aggregate_callback
+SDM: [0] sdm_route_get_route dest {4}, parent 4
+SDM: [0] sdm_message_send src {0,2} dest {4} route {4}
+SDM: [0] Sending len 100
+SDM: [0] Sending to 4
+SDM: [0] About to send 104
+SDM: [0] About to call send_complete
+SDM: [0] Leaving sdm_message_send
+SDM: [0] Leaving aggregate_callback
+SDM: [0] Enter free_request
+SDM: [0] Leaving free_request
+SDM: [4] receiving header
+SDM: MESSAGE_LEN:100
+SDM: [4] About to recv 100
+SDM: [4] sdm_message_progress received len 100 from 0
+SDM: [4] sdm_message_progress agg=0x32b5dea4 src={0,2} dest={4}
+SDM: [4] About to call recv_callback
+SDM: [4] Enter recv_callback
+SDM: [4] got upstream message src={0,2}, dest={4}
+SDM: [4] sdm_aggregate_message: upstream message #8 from {0,2}
+SDM: [4] sdm_aggregate_message: message is unsolicited
+SDM: [4] Creating new request #8 expected replies {0-3}
+SDM: [4] reply updated: src={0,2} replies outstanding: {1,3}
+SDM: [4] creating new reply #32b5dea4 for request 8
+SDM: [4] Leaving recv_callback
+SDM: [4] Finished recv_callback
+SDM: [3] request 8 completed for #32b5dea4
+SDM: [3] Enter aggregate_callback
+SDM: [3] sdm_route_get_route dest {4}, parent 4
+SDM: [3] sdm_message_send src {3} dest {4} route {4}
+SDM: [3] Sending len 100
+SDM: [3] Sending to 4
+SDM: [3] About to send 104
+SDM: [3] About to call send_complete
+SDM: [3] Leaving sdm_message_send
+SDM: [3] Leaving aggregate_callback
+SDM: [3] Enter free_request
+SDM: [3] Leaving free_request
+SDM: [1] request 8 completed for #32b5dea4
+SDM: [1] Enter aggregate_callback
+SDM: [1] sdm_route_get_route dest {4}, parent 4
+SDM: [1] sdm_message_send src {1} dest {4} route {4}
+SDM: [1] Sending len 100
+SDM: [1] Sending to 4
+SDM: [1] About to send 104
+SDM: [1] About to call send_complete
+SDM: [1] Leaving sdm_message_send
+SDM: [1] Leaving aggregate_callback
+SDM: [1] Enter free_request
+SDM: [1] Leaving free_request
+SDM: [4] receiving header
+SDM: MESSAGE_LEN:100
+SDM: [4] About to recv 100
+SDM: [4] sdm_message_progress received len 100 from 3
+SDM: [4] sdm_message_progress agg=0x32b5dea4 src={3} dest={4}
+SDM: [4] About to call recv_callback
+SDM: [4] Enter recv_callback
+SDM: [4] got upstream message src={3}, dest={4}
+SDM: [4] sdm_aggregate_message: upstream message #8 from {3}
+SDM: [4] reply updated: src={3} replies outstanding: {1}
+SDM: [4] updating reply #32b5dea4 with src {3} for request 8
+SDM: [4] Leaving recv_callback
+SDM: [4] Finished recv_callback
+SDM: [4] receiving header
+SDM: MESSAGE_LEN:100
+SDM: [4] About to recv 100
+SDM: [4] sdm_message_progress received len 100 from 1
+SDM: [4] sdm_message_progress agg=0x32b5dea4 src={1} dest={4}
+SDM: [4] About to call recv_callback
+SDM: [4] Enter recv_callback
+SDM: [4] got upstream message src={1}, dest={4}
+SDM: [4] sdm_aggregate_message: upstream message #8 from {1}
+SDM: [4] reply updated: src={1} replies outstanding: {}
+SDM: [4] updating reply #32b5dea4 with src {1} for request 8
+SDM: [4] Leaving recv_callback
+SDM: [4] Finished recv_callback
+SDM: [4] request 8 completed for #32b5dea4
+SDM: dbg_master_cmd_completed src={0-3}
+SDM: [4] Enter free_request
+SDM: [4] Leaving free_request
+SDM: DbgMasterListInfoThreads(4:01)
+SDM: [4] Creating new request #15 expected replies {0}
+SDM: [4] sdm_route_get_route dest {0}, parent 4
+SDM: [4] sdm_message_send src {4} dest {0} route {0}
+SDM: [4] Sending len 14
+SDM: [4] Sending to 0
+SDM: [4] About to send 18
+SDM: [4] About to call send_complete
+SDM: [4] Leaving sdm_message_send
+SDM: [0] receiving header
+SDM: MESSAGE_LEN:14
+SDM: [0] About to recv 14
+SDM: [0] sdm_message_progress received len 14 from 4
+SDM: [0] sdm_message_progress agg=0x0 src={4} dest={0}
+SDM: [0] About to call recv_callback
+SDM: [0] Enter recv_callback
+SDM: [0] got downstream message src={4}, dest={0}
+SDM: [0] Creating new request #15 expected replies {0}
+SDM: [0] sdm_message_deliver 
+SDM: [0] Enter deliver_callback
+MI: SEND info threads
+MI: RECV &"info threads\n"
+MI: RECV ~"  Id   Target Id         Frame \n"
+MI: RECV ~"* 1    Thread 0x7ffff7fac700 (LWP 4073) \"OpenMPI_test1\" hello_world () at ../OpenMPI_test1.f08:5\n"
+MI: RECV ^done
+(gdb) 
+MI: PROCESS COMMAND CALLBACK
+SDM: [0] Leaving deliver_callback
+SDM: [0] sdm_message_send removing me from dest
+SDM: [0] sdm_route_get_route dest {}, parent 4
+SDM: [0] sdm_message_send src {4} dest {} route {}
+SDM: [0] About to call send_complete
+SDM: [0] Leaving sdm_message_send
+SDM: [0] Leaving recv_callback
+SDM: [0] Finished recv_callback
+SDM: [0] server event_callback ''
+SDM: [0] sdm_aggregate_message: upstream message #15 from {0}
+SDM: [0] reply updated: src={0} replies outstanding: {}
+SDM: [0] creating new reply #23020d67 for request 15
+SDM: [0] request 15 completed for #23020d67
+SDM: [0] Enter aggregate_callback
+SDM: [0] sdm_route_get_route dest {4}, parent 4
+SDM: [0] sdm_message_send src {0} dest {4} route {4}
+SDM: [0] Sending len 26
+SDM: [4] receiving header
+SDM: MESSAGE_LEN:26
+SDM: [4] About to recv 26
+SDM: [4] sdm_message_progress received len 26 from 0
+SDM: [4] sdm_message_progress agg=0x23020d67 src={0} dest={4}
+SDM: [4] About to call recv_callback
+SDM: [4] Enter recv_callback
+SDM: [4] got upstream message src={0}, dest={4}
+SDM: [4] sdm_aggregate_message: upstream message #15 from {0}
+SDM: [4] reply updated: src={0} replies outstanding: {}
+SDM: [4] creating new reply #23020d67 for request 15
+SDM: [4] Leaving recv_callback
+SDM: [4] Finished recv_callback
+SDM: [4] request 15 completed for #23020d67
+SDM: dbg_master_cmd_completed src={0}
+SDM: [4] Enter free_request
+SDM: [4] Leaving free_request
+SDM: [0] Sending to 4
+SDM: [0] About to send 30
+SDM: [0] About to call send_complete
+SDM: [0] Leaving sdm_message_send
+SDM: [0] Leaving aggregate_callback
+SDM: [0] Enter free_request
+SDM: [0] Leaving free_request
+SDM: DbgMasterStackInfoDepth(4:01)
+SDM: [4] Creating new request #17 expected replies {0}
+SDM: [4] sdm_route_get_route dest {0}, parent 4
+SDM: [4] sdm_message_send src {4} dest {0} route {0}
+SDM: [4] Sending len 14
+SDM: [4] Sending to 0
+SDM: [4] About to send 18
+SDM: [4] About to call send_complete
+SDM: [4] Leaving sdm_message_send
+SDM: [0] receiving header
+SDM: MESSAGE_LEN:14
+SDM: [0] About to recv 14
+SDM: [0] sdm_message_progress received len 14 from 4
+SDM: [0] sdm_message_progress agg=0x0 src={4} dest={0}
+SDM: [0] About to call recv_callback
+SDM: [0] Enter recv_callback
+SDM: [0] got downstream message src={4}, dest={0}
+SDM: [0] Creating new request #17 expected replies {0}
+SDM: [0] sdm_message_deliver 
+SDM: [0] Enter deliver_callback
+MI: SEND -stack-info-depth
+MI: RECV ^done,depth="4"
+(gdb) 
+MI: PROCESS COMMAND CALLBACK
+SDM: [0] Leaving deliver_callback
+SDM: [0] sdm_message_send removing me from dest
+SDM: [0] sdm_route_get_route dest {}, parent 4
+SDM: [0] sdm_message_send src {4} dest {} route {}
+SDM: [0] About to call send_complete
+SDM: [0] Leaving sdm_message_send
+SDM: [0] Leaving recv_callback
+SDM: [0] Finished recv_callback
+SDM: [0] server event_callback ''
+SDM: [0] sdm_aggregate_message: upstream message #17 from {0}
+SDM: [0] reply updated: src={0} replies outstanding: {}
+SDM: [0] creating new reply #ab50a755 for request 17
+SDM: [0] request 17 completed for #ab50a755
+SDM: [0] Enter aggregate_callback
+SDM: [0] sdm_route_get_route dest {4}, parent 4
+SDM: [0] sdm_message_send src {0} dest {4} route {4}
+SDM: [0] Sending len 22
+SDM: [0] Sending to 4
+SDM: [0] About to send 26
+SDM: [4] receiving header
+SDM: MESSAGE_LEN:22
+SDM: [4] About to recv 22
+SDM: [4] sdm_message_progress received len 22 from 0
+SDM: [4] sdm_message_progress agg=0xab50a755 src={0} dest={4}
+SDM: [4] About to call recv_callback
+SDM: [4] Enter recv_callback
+SDM: [4] got upstream message src={0}, dest={4}
+SDM: [4] sdm_aggregate_message: upstream message #17 from {0}
+SDM: [4] reply updated: src={0} replies outstanding: {}
+SDM: [4] creating new reply #ab50a755 for request 17
+SDM: [4] Leaving recv_callback
+SDM: [4] Finished recv_callback
+SDM: [4] request 17 completed for #ab50a755
+SDM: dbg_master_cmd_completed src={0}
+SDM: [4] Enter free_request
+SDM: [4] Leaving free_request
+SDM: [0] About to call send_complete
+SDM: [0] Leaving sdm_message_send
+SDM: [0] Leaving aggregate_callback
+SDM: [0] Enter free_request
+SDM: [0] Leaving free_request
+SDM: DbgMasterListStackframes(4:01,0,4)
+SDM: [4] Creating new request #19 expected replies {0}
+SDM: [4] sdm_route_get_route dest {0}, parent 4
+SDM: [4] sdm_message_send src {4} dest {0} route {0}
+SDM: [4] Sending len 22
+SDM: [4] Sending to 0
+SDM: [4] About to send 26
+SDM: [4] About to call send_complete
+SDM: [4] Leaving sdm_message_send
+SDM: [0] receiving header
+SDM: MESSAGE_LEN:22
+SDM: [0] About to recv 22
+SDM: [0] sdm_message_progress received len 22 from 4
+SDM: [0] sdm_message_progress agg=0x0 src={4} dest={0}
+SDM: [0] About to call recv_callback
+SDM: [0] Enter recv_callback
+SDM: [0] got downstream message src={4}, dest={0}
+SDM: [0] Creating new request #19 expected replies {0}
+SDM: [0] sdm_message_deliver 
+SDM: [0] Enter deliver_callback
+MI: SEND -stack-list-frames 0 4
+MI: RECV ^done,stack=[frame={level="0",addr="0x0000000000400b46",func="hello_world",file="../OpenMPI_test1.f08",fullname="/home/mark/workspace/OpenMPI_test1/OpenMPI_test1.f08",line="5"},frame={level="1",addr="0x0000000000400c10",func="main",file="../OpenMPI_test1.f08",fullname="/home/mark/workspace/OpenMPI_test1/OpenMPI_test1.f08",line="10"},frame={level="2",addr="0x00007ffff642e580",func="__libc_start_main",from="/lib64/libc.so.6"},frame={level="3",addr="0x0000000000400a19",func="_start"}]
+(gdb) 
+MI: PROCESS COMMAND CALLBACK
+SDM: [0] Leaving deliver_callback
+SDM: [0] sdm_message_send removing me from dest
+SDM: [0] sdm_route_get_route dest {}, parent 4
+SDM: [0] sdm_message_send src {4} dest {} route {}
+SDM: [0] About to call send_complete
+SDM: [0] Leaving sdm_message_send
+SDM: [0] Leaving recv_callback
+SDM: [0] Finished recv_callback
+SDM: [0] server event_callback 'P'
+SDM: [0] sdm_aggregate_message: upstream message #19 from {0}
+SDM: [0] reply updated: src={0} replies outstanding: {}
+SDM: [0] creating new reply #af3c02b for request 19
+SDM: [0] request 19 completed for #af3c02b
+SDM: [0] Enter aggregate_callback
+SDM: [0] sdm_route_get_route dest {4}, parent 4
+SDM: [4] receiving header
+SDM: [0] sdm_message_send src {0} dest {4} route {4}
+SDM: [0] Sending len 1251
+SDM: [0] Sending to 4
+SDM: [0] About to send 1255
+SDM: MESSAGE_LEN:1251
+SDM: [4] About to recv 1251
+SDM: [4] sdm_message_progress received len 1251 from 0
+SDM: [4] sdm_message_progress agg=0xaf3c02b src={0} dest={4}
+SDM: [4] About to call recv_callback
+SDM: [4] Enter recv_callback
+SDM: [4] got upstream message src={0}, dest={4}
+SDM: [4] sdm_aggregate_message: upstream message #19 from {0}
+SDM: [4] reply updated: src={0} replies outstanding: {}
+SDM: [4] creating new reply #af3c02b for request 19
+SDM: [4] Leaving recv_callback
+SDM: [4] Finished recv_callback
+SDM: [4] request 19 completed for #af3c02b
+SDM: [0] About to call send_complete
+SDM: [0] Leaving sdm_message_send
+SDM: [0] Leaving aggregate_callback
+SDM: [0] Enter free_request
+SDM: [0] Leaving free_request
+SDM: dbg_master_cmd_completed src={0}
+SDM: [4] Enter free_request
+SDM: [4] Leaving free_request
+SDM: DbgMasterListArguments(4:01,0,0)
+SDM: [4] Creating new request #21 expected replies {0}
+SDM: [4] sdm_route_get_route dest {0}, parent 4
+SDM: [4] sdm_message_send src {4} dest {0} route {0}
+SDM: [4] Sending len 22
+SDM: [4] Sending to 0
+SDM: [4] About to send 26
+SDM: [4] About to call send_complete
+SDM: [4] Leaving sdm_message_send
+SDM: [0] receiving header
+SDM: MESSAGE_LEN:22
+SDM: [0] About to recv 22
+SDM: [0] sdm_message_progress received len 22 from 4
+SDM: [0] sdm_message_progress agg=0x0 src={4} dest={0}
+SDM: [0] About to call recv_callback
+SDM: [0] Enter recv_callback
+SDM: [0] got downstream message src={4}, dest={0}
+SDM: [0] Creating new request #21 expected replies {0}
+SDM: [0] sdm_message_deliver 
+SDM: [0] Enter deliver_callback
+MI: SEND -stack-list-arguments 0 0 0
+MI: RECV ^done,stack-args=[frame={level="0",args=[]}]
+(gdb) 
+MI: PROCESS COMMAND CALLBACK
+SDM: [0] Leaving deliver_callback
+SDM: [0] sdm_message_send removing me from dest
+SDM: [0] sdm_route_get_route dest {}, parent 4
+SDM: [0] sdm_message_send src {4} dest {} route {}
+SDM: [0] About to call send_complete
+SDM: [0] Leaving sdm_message_send
+SDM: [0] Leaving recv_callback
+SDM: [0] Finished recv_callback
+SDM: [0] server event_callback ''
+SDM: [0] sdm_aggregate_message: upstream message #21 from {0}
+SDM: [0] reply updated: src={0} replies outstanding: {}
+SDM: [0] creating new reply #5ff67aa8 for request 21
+SDM: [0] request 21 completed for #5ff67aa8
+SDM: [0] Enter aggregate_callback
+SDM: [0] sdm_route_get_route dest {4}, parent 4
+SDM: [0] sdm_message_send src {0} dest {4} route {4}
+SDM: [0] Sending len 22
+SDM: [0] Sending to 4
+SDM: [0] About to send 26
+SDM: [4] receiving header
+SDM: MESSAGE_LEN:22
+SDM: [4] About to recv 22
+SDM: [4] sdm_message_progress received len 22 from 0
+SDM: [4] sdm_message_progress agg=0x5ff67aa8 src={0} dest={4}
+SDM: [4] About to call recv_callback
+SDM: [4] Enter recv_callback
+SDM: [4] got upstream message src={0}, dest={4}
+SDM: [4] sdm_aggregate_message: upstream message #21 from {0}
+SDM: [4] reply updated: src={0} replies outstanding: {}
+SDM: [4] creating new reply #5ff67aa8 for request 21
+SDM: [4] Leaving recv_callback
+SDM: [4] Finished recv_callback
+SDM: [4] request 21 completed for #5ff67aa8
+SDM: [0] About to call send_complete
+SDM: dbg_master_cmd_completed src={0}
+SDM: [0] Leaving sdm_message_send
+SDM: [0] Leaving aggregate_callback
+SDM: [4] Enter free_request
+SDM: [0] Enter free_request
+SDM: [4] Leaving free_request
+SDM: [0] Leaving free_request
+SDM: DbgMasterListLocalVariables(4:01)
+SDM: [4] Creating new request #23 expected replies {0}
+SDM: [4] sdm_route_get_route dest {0}, parent 4
+SDM: [4] sdm_message_send src {4} dest {0} route {0}
+SDM: [4] Sending len 14
+SDM: [4] Sending to 0
+SDM: [4] About to send 18
+SDM: [4] About to call send_complete
+SDM: [4] Leaving sdm_message_send
+SDM: [0] receiving header
+SDM: MESSAGE_LEN:14
+SDM: [0] About to recv 14
+SDM: [0] sdm_message_progress received len 14 from 4
+SDM: [0] sdm_message_progress agg=0x0 src={4} dest={0}
+SDM: [0] About to call recv_callback
+SDM: [0] Enter recv_callback
+SDM: [0] got downstream message src={4}, dest={0}
+SDM: [0] Creating new request #23 expected replies {0}
+SDM: [0] sdm_message_deliver 
+SDM: [0] Enter deliver_callback
+MI: SEND -stack-list-locals 0
+MI: RECV ^done,locals=[name="ierr"]
+(gdb) 
+MI: PROCESS COMMAND CALLBACK
+SDM: [0] Leaving deliver_callback
+SDM: [0] sdm_message_send removing me from dest
+SDM: [0] sdm_route_get_route dest {}, parent 4
+SDM: [0] sdm_message_send src {4} dest {} route {}
+SDM: [0] About to call send_complete
+SDM: [0] Leaving sdm_message_send
+SDM: [0] Leaving recv_callback
+SDM: [0] Finished recv_callback
+SDM: [0] server event_callback ''
+SDM: [0] sdm_aggregate_message: upstream message #23 from {0}
+SDM: [0] reply updated: src={0} replies outstanding: {}
+SDM: [0] creating new reply #3c5339b9 for request 23
+SDM: [4] receiving header
+SDM: MESSAGE_LEN:29
+SDM: [4] About to recv 29
+SDM: [4] sdm_message_progress received len 29 from 0
+SDM: [0] request 23 completed for #3c5339b9
+SDM: [4] sdm_message_progress agg=0x3c5339b9 src={0} dest={4}
+SDM: [4] About to call recv_callback
+SDM: [4] Enter recv_callback
+SDM: [4] got upstream message src={0}, dest={4}
+SDM: [0] Enter aggregate_callback
+SDM: [4] sdm_aggregate_message: upstream message #23 from {0}
+SDM: [4] reply updated: src={0} replies outstanding: {}
+SDM: [4] creating new reply #3c5339b9 for request 23
+SDM: [0] sdm_route_get_route dest {4}, parent 4
+SDM: [4] Leaving recv_callback
+SDM: [4] Finished recv_callback
+SDM: [4] request 23 completed for #3c5339b9
+SDM: [0] sdm_message_send src {0} dest {4} route {4}
+SDM: [0] Sending len 29
+SDM: dbg_master_cmd_completed src={0}
+SDM: [0] Sending to 4
+SDM: [4] Enter free_request
+SDM: [0] About to send 33
+SDM: [4] Leaving free_request
+SDM: [0] About to call send_complete
+SDM: [0] Leaving sdm_message_send
+SDM: [0] Leaving aggregate_callback
+SDM: [0] Enter free_request
+SDM: [0] Leaving free_request
+SDM: DbgMasterEvaluatePartialExpression(4:01,ierr,,0,0)
+SDM: [4] Creating new request #25 expected replies {0}
+SDM: [4] sdm_route_get_route dest {0}, parent 4
+SDM: [4] sdm_message_send src {4} dest {0} route {0}
+SDM: [4] Sending len 32
+SDM: [4] Sending to 0
+SDM: [4] About to send 36
+SDM: [4] About to call send_complete
+SDM: [4] Leaving sdm_message_send
+SDM: [0] receiving header
+SDM: MESSAGE_LEN:32
+SDM: [0] About to recv 32
+SDM: [0] sdm_message_progress received len 32 from 4
+SDM: [0] sdm_message_progress agg=0x0 src={4} dest={0}
+SDM: [0] About to call recv_callback
+SDM: [0] Enter recv_callback
+SDM: [0] got downstream message src={4}, dest={0}
+SDM: [0] Creating new request #25 expected replies {0}
+SDM: [0] sdm_message_deliver 
+SDM: [0] Enter deliver_callback
+SDM: ---------------------- GDBGetPartialAIF expr: ierr, var_id: , list_child: 0, exp: 0
+MI: SEND -var-create - * ierr
+MI: RECV ^done,name="var1",numchild="0",value="0",type="integer(kind=4)",thread-id="1",has_more="0"
+(gdb) 
+MI: PROCESS COMMAND CALLBACK
+MI: SEND -var-info-num-children var1
+MI: RECV ^done,numchild="0"
+(gdb) 
+MI: PROCESS COMMAND CALLBACK
+SDM: ---------------------- GetPartialAIF (ierr, integer(kind=4))
+SDM: ---------------------- GetSimpleAIF (integer(kind=4))
+MI: SEND -var-evaluate-expression var1
+MI: RECV ^done,value="0"
+(gdb) 
+MI: PROCESS COMMAND CALLBACK
+SDM: ---------------------- GDBGetPartialAIF found key: var1, format: is4
+SDM: [0] Leaving deliver_callback
+SDM: [0] sdm_message_send removing me from dest
+SDM: [0] sdm_route_get_route dest {}, parent 4
+SDM: [0] sdm_message_send src {4} dest {} route {}
+SDM: [0] About to call send_complete
+SDM: [0] Leaving sdm_message_send
+SDM: [0] Leaving recv_callback
+SDM: [0] Finished recv_callback
+SDM: [0] server event_callback ''
+SDM: [0] sdm_aggregate_message: upstream message #25 from {0}
+SDM: [0] reply updated: src={0} replies outstanding: {}
+SDM: [0] creating new reply #f1d4348f for request 25
+SDM: [0] request 25 completed for #f1d4348f
+SDM: [4] receiving header
+SDM: MESSAGE_LEN:59
+SDM: [4] About to recv 59
+SDM: [4] sdm_message_progress received len 59 from 0
+SDM: [4] sdm_message_progress agg=0xf1d4348f src={0} dest={4}
+SDM: [4] About to call recv_callback
+SDM: [4] Enter recv_callback
+SDM: [4] got upstream message src={0}, dest={4}
+SDM: [4] sdm_aggregate_message: upstream message #25 from {0}
+SDM: [4] reply updated: src={0} replies outstanding: {}
+SDM: [4] creating new reply #f1d4348f for request 25
+SDM: [4] Leaving recv_callback
+SDM: [4] Finished recv_callback
+SDM: [4] request 25 completed for #f1d4348f
+SDM: dbg_master_cmd_completed src={0}
+SDM: [4] Enter free_request
+SDM: [4] Leaving free_request
+SDM: [0] Enter aggregate_callback
+SDM: [0] sdm_route_get_route dest {4}, parent 4
+SDM: [0] sdm_message_send src {0} dest {4} route {4}
+SDM: [0] Sending len 59
+SDM: [0] Sending to 4
+SDM: [0] About to send 63
+SDM: [0] About to call send_complete
+SDM: [0] Leaving sdm_message_send
+SDM: [0] Leaving aggregate_callback
+SDM: [0] Enter free_request
+SDM: [0] Leaving free_request
