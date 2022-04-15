@@ -347,7 +347,7 @@
 	Status Updates<br><br>
 	4/15/2022
 	<ul>
-		<li>Started converting Introduction to Programming Using Fortran in Jupyter Book.</li>
+		<li>Started converting Introduction to Programming Using Fortran into Jupyter Book.</li>
 	</ul>
 	4/10/2022
 	<ul>
