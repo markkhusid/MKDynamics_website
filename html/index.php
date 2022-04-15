@@ -345,6 +345,10 @@
       
       <aside>
 	Status Updates<br><br>
+	4/15/2022
+	<ul>
+		<li>Started converting Introduction to Programming Using Fortran in Jupyter Book.</li>
+	</ul>
 	4/10/2022
 	<ul>
 		<li>Converted Modern Fortran section into Jupyter Book format.  Other Fortran sections to follow.</li>
@@ -459,14 +463,6 @@
 	3/27/19
 	<ul>
             <li>We are back!  Started updating file structure for Computer Security -> SLAE64.</li>
-	</ul>
-	1/26/2019
-	<ul>
-            <li>Added content to Computer Security -> Disassembling Binaries -> Fortran -> ARM32.</li>
-	</ul>
-	1/23/2019
-	<ul>
-            <li>Added Computer Security -> Disassembling Binaries -> C -> Splash screens.</li>
 	</ul>
 	
 	<a href="aside_archives.html">Archives</a><br>
