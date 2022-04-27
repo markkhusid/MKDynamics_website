@@ -345,6 +345,10 @@
       
       <aside>
 	Status Updates<br><br>
+	4/27/2022
+	<ul>
+		<li>Updated resume in About Me page.</li>
+	</ul>
 	4/15/2022
 	<ul>
 		<li>Started converting Introduction to Programming Using Fortran into Jupyter Book.</li>
