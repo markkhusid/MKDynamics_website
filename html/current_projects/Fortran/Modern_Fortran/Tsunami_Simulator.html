@@ -48,6 +48,8 @@
     <script src="../_static/togglebutton.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
     <script>
         const thebe_selector = ".thebe"
@@ -178,6 +180,16 @@
     </a>
    </li>
    <li class="toctree-l2">
+    <a class="reference internal" href="../Introduction_to_Programming_Using_Fortran/Section_9_3_SOS_Difference.html">
+     Section 9.3: Difference Between Sum of Squares and Square of Sums
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Introduction_to_Programming_Using_Fortran/Section_12_8_Line_Numbers.html">
+     Section 12.8: Line Numbers
+    </a>
+   </li>
+   <li class="toctree-l2">
     <a class="reference internal" href="../Introduction_to_Programming_Using_Fortran/Section_14_Pi_Estimation.html">
      Section 14: Pi Estimation
     </a>
@@ -290,6 +302,11 @@
             <nav id="bd-toc-nav" aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#the-advection-equation">
+   The Advection Equation
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#program-to-predict-the-linear-advection-of-an-object-with-periodic-boundary-conditions">
    Program to Predict the Linear Advection of an Object, with Periodic Boundary Conditions
   </a>
@@ -315,6 +332,11 @@
                         <nav aria-label="Page">
                             <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#the-advection-equation">
+   The Advection Equation
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#program-to-predict-the-linear-advection-of-an-object-with-periodic-boundary-conditions">
    Program to Predict the Linear Advection of an Object, with Periodic Boundary Conditions
   </a>
@@ -332,6 +354,19 @@
 <h1>Tsunami Simulator<a class="headerlink" href="#tsunami-simulator" title="Permalink to this headline">¶</a></h1>
 <p>The following program simulates a tsunami water wave. <br>
 Adapted from: “Modern Fortan” by Milan Curcic (Manning)</p>
+<p>The tsunami water wave height and speed will be calculated using the advection equation.</p>
+<p>From <a class="reference external" href="https://en.wikipedia.org/wiki/Advection">wikipedia</a>:</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>In the field of physics, engineering, and earth sciences, advection is the transport of a substance or quantity by bulk motion of a fluid.</p>
+</div>
+<section id="the-advection-equation">
+<h2>The Advection Equation<a class="headerlink" href="#the-advection-equation" title="Permalink to this headline">¶</a></h2>
+<div class="math notranslate nohighlight">
+\[
+\Large \frac{\delta u}{\delta t} + c\frac{\delta u}{\delta x} = 0
+\]</div>
+</section>
 <section id="program-to-predict-the-linear-advection-of-an-object-with-periodic-boundary-conditions">
 <h2>Program to Predict the Linear Advection of an Object, with Periodic Boundary Conditions<a class="headerlink" href="#program-to-predict-the-linear-advection-of-an-object-with-periodic-boundary-conditions" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-fortran notranslate"><div class="highlight"><pre><span></span><span class="k">program </span><span class="n">tsunami</span><span class="w"></span>
