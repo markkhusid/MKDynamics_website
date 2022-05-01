@@ -345,6 +345,10 @@
       
       <aside>
 	Status Updates<br><br>
+	5/1/2022
+	<ul>
+		<li>Added Section 2 to Guide to Fortran 2008 Programming.  Updated resume with new Coursera certificate.</li>
+	</ul>
 	4/27/2022
 	<ul>
 		<li>Updated resume in About Me page.</li>
@@ -464,10 +468,7 @@
 	<ul>
             <li>Made updates to Computer Security -> SLAE64 - > Hello World in 64 Bit Assembly.  Also cleaned up file structure some more.</li>
 	</ul>
-	3/27/19
-	<ul>
-            <li>We are back!  Started updating file structure for Computer Security -> SLAE64.</li>
-	</ul>
+	
 	
 	<a href="aside_archives.html">Archives</a><br>
     </aside>
