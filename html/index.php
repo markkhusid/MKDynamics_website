@@ -345,6 +345,10 @@
       
       <aside>
 	Status Updates<br><br>
+	7/31/2022
+	<ul>
+		<li>Updated About Me Section with new Coursera and Kaggle certificates.</li>
+	</ul>
 	5/1/2022
 	<ul>
 		<li>Added Section 2 to Guide to Fortran 2008 Programming.  Updated resume with new Coursera certificate.</li>
