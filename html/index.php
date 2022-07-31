@@ -468,11 +468,7 @@
 	<ul>
             <li>Started updating screenshots in Computer Security -> SLAE64 -> Hello World in 64 Bit Assembly.  Added more verbage as well.</li>
 	</ul>
-	3/30/19
-	<ul>
-            <li>Made updates to Computer Security -> SLAE64 - > Hello World in 64 Bit Assembly.  Also cleaned up file structure some more.</li>
-	</ul>
-	
+		
 	
 	<a href="aside_archives.html">Archives</a><br>
     </aside>
