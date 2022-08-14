@@ -345,6 +345,10 @@
       
       <aside>
 	Status Updates<br><br>
+	8/14/2022
+	<ul>
+		<li>Updated About Me Section with new resume, Coursera and Kaggle certificates.</li>
+	</ul>
 	7/31/2022
 	<ul>
 		<li>Updated About Me Section with new Coursera and Kaggle certificates.</li>
@@ -464,11 +468,7 @@
 	<ul>
             <li>Happy birthday to me!</li>
 	</ul>
-	3/31/19
-	<ul>
-            <li>Started updating screenshots in Computer Security -> SLAE64 -> Hello World in 64 Bit Assembly.  Added more verbage as well.</li>
-	</ul>
-		
+			
 	
 	<a href="aside_archives.html">Archives</a><br>
     </aside>
