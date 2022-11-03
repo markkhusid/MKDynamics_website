@@ -345,6 +345,10 @@
       
       <aside>
 	Status Updates<br><br>
+	11/2/2022
+	<ul>
+		<li>Added section for C++</li>
+	</ul>
 	8/14/2022
 	<ul>
 		<li>Updated About Me Section with new resume, Coursera and Kaggle certificates.</li>
@@ -527,6 +531,23 @@
         </div> <!-- .current_project_3 -->
         
         <div class="current_project_4">
+        	<figure>
+        		<img
+        			src="current_projects/images/current_projects_CPP.jpeg" 
+					height="300px"
+					width="375px"
+					alt="current_projects_CPP.jpeg"
+					title="current_projects_CPP.jpeg"
+					class="align-center"
+				/>
+		
+				<figcaption>
+					<a href="current_projects/CPP/index.html">C++ Programming</a><br>
+				</figcaption>
+			</figure>
+		</div> <!-- .current_project_4 -->
+        
+        <div class="current_project_5">
             <figure>
                 <img
                     src="current_projects/images/python.png"
@@ -541,9 +562,9 @@
                     <a href="current_projects/Python/python.html">Python Programming</a><br>
                 </figcaption>
             </figure>
-        </div> <!-- .current_project_4 -->
+        </div> <!-- .current_project_5 -->
         
-        <div class="current_project_5">
+        <div class="current_project_6">
             <figure>
                 <img
                     src="current_projects/images/dual_diode_box.jpg" 
@@ -559,9 +580,9 @@
                     
                 </figcaption>
             </figure>
-        </div> <!-- .current_project_5 -->
+        </div> <!-- .current_project_6 -->
         
-        <div class="current_project_6">
+        <div class="current_project_7">
             <figure>
                 <img
                     src="current_projects/images/c64_assembly.jpg" 
@@ -577,9 +598,9 @@
                     
                 </figcaption>
             </figure>
-        </div> <!-- .current_project_6 -->
+        </div> <!-- .current_project_7 -->
       
-        <div class="current_project_7">
+        <div class="current_project_8">
             <figure>
                 <img
                     src="current_projects/images/php-development.jpg" 
@@ -594,9 +615,9 @@
                     <a href="current_projects/PHP/PHP_Programming.html">PHP Programming</a>
                 </figcaption>
             </figure>
-        </div> <!-- .current_project_7 -->
+        </div> <!-- .current_project_8 -->
         
-        <div class="current_project_8">
+        <div class="current_project_9">
             <figure>
                 <img
                     src="current_projects/images/Javascript.png" 
@@ -612,44 +633,44 @@
                     
                 </figcaption>
             </figure>
-        </div> <!-- .current_project_8 -->
+        </div> <!-- .current_project_9 -->
       
       
-      <div class="current_project_9">
-	<figure>
-	  <img
-	    src="current_projects/images/thermal_study.jpeg" 
-	    height="300px"
-	    width="375px"
-	    alt="Thermal Analysis Using CAELinux"
-	    title="Thermal Analysis Using CAELinux"
-	    class="align-center"
-	  />
+      	<div class="current_project_10">
+			<figure>
+	  			<img
+	    			src="current_projects/images/thermal_study.jpeg" 
+	    			height="300px"
+	    			width="375px"
+	    			alt="Thermal Analysis Using CAELinux"
+	    			title="Thermal Analysis Using CAELinux"
+	    			class="align-center"
+	  			/>
 	  
-	  <figcaption>
-	    <a href="current_projects/CAELinux.html">Exploring CAELinux for Thermal Analysis</a><br>
-	  </figcaption>
-	</figure>
-      </div> <!-- .current_project_9 -->
+				<figcaption>
+	    			<a href="current_projects/CAELinux.html">Exploring CAELinux for Thermal Analysis</a><br>
+	  			</figcaption>
+			</figure>
+      	</div> <!-- .current_project_10 -->
       
-      <div class="current_project_10">
-	<figure>
-	  <img
-	    src="current_projects/images/20_meter_dipole_pattern_multicolor.jpeg" 
-	    height="300px"
-	    width="375px"
-	    alt="Antenna Simulation using 4NEC2"
-	    title="Antenna Simulation using 4NEC2"
-	    class="align-center"
-	  />
+      	<div class="current_project_11">
+			<figure>
+	  			<img
+	    			src="current_projects/images/20_meter_dipole_pattern_multicolor.jpeg" 
+	    			height="300px"
+	    			width="375px"
+	    			alt="Antenna Simulation using 4NEC2"
+	    			title="Antenna Simulation using 4NEC2"
+	    			class="align-center"
+	  			/>
 	  
-	  <figcaption>
-	    <a href="current_projects/4NEC2.html">Antenna Simulation using 4NEC2</a><br>
-	  </figcaption>
-	</figure>
-      </div> <!-- .current_project_10 -->
+	  			<figcaption>
+	    			<a href="current_projects/4NEC2.html">Antenna Simulation using 4NEC2</a><br>
+	  			</figcaption>
+			</figure>
+      	</div> <!-- .current_project_11 -->
       
-        <div class="current_project_11">
+        <div class="current_project_12">
             <figure>
                 <img
                     src="current_projects/SBC_Linux/images/cubietruck1.jpg" 
@@ -664,9 +685,9 @@
                     <a href="current_projects/current_projects_SBC_Linux.html">Single Board Computers Running Linux</a><br>
                 </figcaption>
             </figure>
-        </div> <!-- .current_project_11 -->
+        </div> <!-- .current_project_12 -->
       
-      <div class="current_project_12">
+      <div class="current_project_13">
         <figure>
             <img
                 src="current_projects/images/RADIOSHACKB1956.jpg" 
@@ -681,9 +702,9 @@
 	    <a href="current_projects/HAM_radio/hamradio_main.html">HAM Radio</a><br>
 	  </figcaption>
 	</figure>    
-      </div> <!-- .current_project_12 -->
+      </div> <!-- .current_project_13 -->
       
-    <div class="current_project_13">
+    	<div class="current_project_14">
             <figure>
                 <img
                     src="images/LTC3891.jpeg" 
@@ -698,24 +719,24 @@
                     <a href="current_projects/current_projects_electronics.html">Electronic Circuits</a><br>
                 </figcaption>
             </figure>
-        </div> <!-- .current_project_13 -->
+        </div> <!-- .current_project_14 -->
         
-        <div class="current_project_14">
-	<figure>
-	  <img
-	    src="current_projects/images/cray.jpg" 
-	    height="300px"
-	    width="375px"
-	    alt="Raspberry Pi 3 Supercomputer"
-	    title="Raspberry Pi 3 Supercomputer"
-	    class="align-center"
-	  />
+        <div class="current_project_15">
+			<figure>
+	  			<img
+	    			src="current_projects/images/cray.jpg" 
+	    			height="300px"
+	    			width="375px"
+	    			alt="Raspberry Pi 3 Supercomputer"
+	    			title="Raspberry Pi 3 Supercomputer"
+	    			class="align-center"
+	  			/>
 	  
-	  <figcaption>
-	    <a href="current_projects/rpi3_supercomputer.html">Raspberry Pi 3 Supercomputer</a>
-	  </figcaption>
-	</figure>
-      </div> <!-- .current_project_14 -->
+	  			<figcaption>
+	    			<a href="current_projects/rpi3_supercomputer.html">Raspberry Pi 3 Supercomputer</a>
+	  			</figcaption>
+			</figure>
+      	</div> <!-- .current_project_15 -->
     
     
     </section> <!-- .content -->
