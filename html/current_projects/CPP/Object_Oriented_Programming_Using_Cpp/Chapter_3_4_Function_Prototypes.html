@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>Function Definitions &#8212; C++ Programming</title>
+    <title>Function Prototypes &#8212; C++ Programming</title>
     
   <!-- Loaded before other Sphinx assets -->
   <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -53,7 +53,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Markdown Files" href="../markdown.html" />
-    <link rel="prev" title="Function Invocations" href="Chapter_3_1_1_Function_Invocation.html" />
+    <link rel="prev" title="The Return Statement" href="Chapter_3_3_The_Return_Statement.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -159,9 +159,19 @@ const thebe_selector_output = ".output, .cell_output"
      Function Invocations
     </a>
    </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Chapter_3_2_Function_Definition.html">
+     Function Definitions
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Chapter_3_3_The_Return_Statement.html">
+     The Return Statement
+    </a>
+   </li>
    <li class="toctree-l2 current active">
     <a class="current reference internal" href="#">
-     Function Definitions
+     Function Prototypes
     </a>
    </li>
   </ul>
@@ -252,7 +262,7 @@ title="Toggle navigation"
   <div class="menu-dropdown__content">
     <ul>
       <li>
-        <a href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/Object_Oriented_Programming_Using_Cpp/Chapter_3_2_Function_Definition.ipynb"
+        <a href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/Object_Oriented_Programming_Using_Cpp/Chapter_3_4_Function_Prototypes.ipynb"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -295,7 +305,7 @@ title="Fullscreen mode"
   <div class="menu-dropdown__content">
     <ul>
       <li>
-        <a href="../_sources/Object_Oriented_Programming_Using_Cpp/Chapter_3_2_Function_Definition.ipynb"
+        <a href="../_sources/Object_Oriented_Programming_Using_Cpp/Chapter_3_4_Function_Prototypes.ipynb"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -355,8 +365,8 @@ title="Print to PDF"
     <nav id="bd-toc-nav" aria-label="Page">
         <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#program-that-demonstrates-function-definitions-in-c">
-   Program that demonstrates function definitions in C++
+  <a class="reference internal nav-link" href="#program-that-demonstrates-function-prototypes-in-c">
+   Program that demonstrates function prototypes in C++
   </a>
  </li>
 </ul>
@@ -368,7 +378,7 @@ title="Print to PDF"
         <div class="col pl-md-3 pl-lg-5 content-container">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1>Function Definitions</h1>
+                <h1>Function Prototypes</h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
@@ -379,8 +389,8 @@ title="Print to PDF"
                         <nav aria-label="Page">
                             <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#program-that-demonstrates-function-definitions-in-c">
-   Program that demonstrates function definitions in C++
+  <a class="reference internal nav-link" href="#program-that-demonstrates-function-prototypes-in-c">
+   Program that demonstrates function prototypes in C++
   </a>
  </li>
 </ul>
@@ -393,32 +403,41 @@ title="Print to PDF"
                 
               <div>
                 
-  <section class="tex2jax_ignore mathjax_ignore" id="function-definitions">
-<h1>Function Definitions<a class="headerlink" href="#function-definitions" title="Permalink to this headline">#</a></h1>
+  <section class="tex2jax_ignore mathjax_ignore" id="function-prototypes">
+<h1>Function Prototypes<a class="headerlink" href="#function-prototypes" title="Permalink to this headline">#</a></h1>
 <p>Adapted from: “Object-Oriented Programming Using C++” by Ira Pohl (Addison- Wesley)</p>
-<section id="program-that-demonstrates-function-definitions-in-c">
-<h2>Program that demonstrates function definitions in C++<a class="headerlink" href="#program-that-demonstrates-function-definitions-in-c" title="Permalink to this headline">#</a></h2>
-<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="c1">// Repeated bell ringing</span>
+<section id="program-that-demonstrates-function-prototypes-in-c">
+<h2>Program that demonstrates function prototypes in C++<a class="headerlink" href="#program-that-demonstrates-function-prototypes-in-c" title="Permalink to this headline">#</a></h2>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="c1">// Add three ints - illustrating function prototypes</span>
 <span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
 
-<span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="n">BELL</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="sc">&#39;\a&#39;</span><span class="p">;</span><span class="w"></span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">add3</span><span class="p">(</span><span class="kt">int</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="p">);</span><span class="w"></span>
+<span class="kt">double</span><span class="w"> </span><span class="nf">average</span><span class="p">(</span><span class="kt">int</span><span class="p">);</span><span class="w"></span>
 
-<span class="kt">void</span><span class="w"> </span><span class="nf">ring</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">k</span><span class="p">)</span><span class="w"></span>
+<span class="k">using</span><span class="w"> </span><span class="k">namespace</span><span class="w"> </span><span class="nn">std</span><span class="p">;</span><span class="w"></span>
+
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"></span>
 <span class="p">{</span><span class="w"></span>
-<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">score_1</span><span class="p">,</span><span class="w"> </span><span class="n">score_2</span><span class="p">,</span><span class="w"> </span><span class="n">score_3</span><span class="p">,</span><span class="w"> </span><span class="n">sum</span><span class="p">;</span><span class="w"></span>
 
-<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">&lt;</span><span class="n">k</span><span class="p">;</span><span class="w"> </span><span class="o">++</span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">        </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">BELL</span><span class="p">;</span><span class="w"></span>
-<span class="w">        </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;Ring!&quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span><span class="w"></span>
-<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="w">    </span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;</span><span class="se">\n</span><span class="s">Enter 3 scores: &quot;</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">cin</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">score_1</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">score_2</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">score_3</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">sum</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">add3</span><span class="p">(</span><span class="n">score_1</span><span class="p">,</span><span class="w"> </span><span class="n">score_2</span><span class="p">,</span><span class="w"> </span><span class="n">score_3</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;</span><span class="se">\n</span><span class="s">Their sum is &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">sum</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;</span><span class="se">\n</span><span class="s">Their average is &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">average</span><span class="p">(</span><span class="n">sum</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="n">sum</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">add3</span><span class="p">(</span><span class="mf">1.5</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">score_1</span><span class="p">,</span><span class="w"> </span><span class="n">score_2</span><span class="p">,</span><span class="w"> </span><span class="mf">0.5</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">score_3</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;</span><span class="se">\n</span><span class="s">Their weighted sum is &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">sum</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;.&quot;</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;</span><span class="se">\n</span><span class="s">Their weighted average is &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">average</span><span class="p">(</span><span class="n">sum</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;.&quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">endl</span><span class="p">;</span><span class="w"></span>
 <span class="p">}</span><span class="w"></span>
 
-<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="w"> </span><span class="p">()</span><span class="w"></span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">add3</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">b</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">c</span><span class="p">)</span><span class="w"></span>
 <span class="p">{</span><span class="w"></span>
-<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="p">;</span><span class="w"></span>
-<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;</span><span class="se">\n</span><span class="s">Input a small positive integer: &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span><span class="w"></span>
-<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">cin</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">n</span><span class="p">;</span><span class="w"></span>
-<span class="w">    </span><span class="n">ring</span><span class="p">(</span><span class="n">n</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="p">(</span><span class="n">a</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">c</span><span class="p">);</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+
+<span class="kt">double</span><span class="w"> </span><span class="nf">average</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">s</span><span class="p">)</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="p">(</span><span class="n">s</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mf">3.0</span><span class="p">);</span><span class="w"></span>
 <span class="p">}</span><span class="w"></span>
 </pre></div>
 </div>
@@ -433,7 +452,7 @@ title="Print to PDF"
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">code_dir</span> <span class="o">=</span> <span class="n">root_dir</span> <span class="o">+</span> <span class="s2">&quot;/&quot;</span> <span class="o">+</span> <span class="s2">&quot;Cpp_Code/Chapter_3_2_Function_Definition&quot;</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">code_dir</span> <span class="o">=</span> <span class="n">root_dir</span> <span class="o">+</span> <span class="s2">&quot;/&quot;</span> <span class="o">+</span> <span class="s2">&quot;Cpp_Code/Chapter_3_4_Function_Prototypes&quot;</span>
 </pre></div>
 </div>
 </div>
@@ -447,29 +466,39 @@ title="Print to PDF"
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">build_command</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">system</span><span class="p">(</span><span class="s2">&quot;g++ bellmltl.cpp -w -o bellmltl&quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">build_command</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">system</span><span class="p">(</span><span class="s2">&quot;g++ add3.cpp -w -o add3&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">exec_status</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">system</span><span class="p">(</span><span class="s2">&quot;echo </span><span class="se">\&quot;</span><span class="s2">10</span><span class="se">\&quot;</span><span class="s2"> | ./bellmltl&quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">exec_status</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">system</span><span class="p">(</span><span class="s2">&quot;echo </span><span class="se">\&quot;</span><span class="s2">10 20 30</span><span class="se">\&quot;</span><span class="s2"> | ./add3&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Input a small positive integer: 
-Ring!
-Ring!
-Ring!
-Ring!
-Ring!
-Ring!
-Ring!
-Ring!
-Ring!
-Ring!
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Enter 3 scores: 
+Their sum is 60
+Their average is 20
+Their weighted sum is 50.
+Their weighted average is 16.6667.
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">exec_status</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">system</span><span class="p">(</span><span class="s2">&quot;echo </span><span class="se">\&quot;</span><span class="s2">1210 8750 54360</span><span class="se">\&quot;</span><span class="s2"> | ./add3&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Enter 3 scores: 
+Their sum is 64320
+Their average is 21440
+Their weighted sum is 37745.
+Their weighted average is 12581.7.
 </pre></div>
 </div>
 </div>
@@ -504,11 +533,11 @@ title="Print to PDF"
                 
     <!-- Previous / next buttons -->
 <div class='prev-next-area'>
-    <a class='left-prev' id="prev-link" href="Chapter_3_1_1_Function_Invocation.html" title="previous page">
+    <a class='left-prev' id="prev-link" href="Chapter_3_3_The_Return_Statement.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">Function Invocations</p>
+            <p class="prev-next-title">The Return Statement</p>
         </div>
     </a>
     <a class='right-next' id="next-link" href="../markdown.html" title="next page">
