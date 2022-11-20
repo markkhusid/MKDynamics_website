@@ -734,7 +734,7 @@
             </figure>
         </div> <!-- .current_project_14 -->
         
-        <div class="current_project_15">
+<!--        <div class="current_project_15">
 			<figure>
 	  			<img
 	    			src="current_projects/images/cray.jpg" 
@@ -749,7 +749,7 @@
 	    			<a href="current_projects/rpi3_supercomputer.html">Raspberry Pi 3 Supercomputer</a>
 	  			</figcaption>
 			</figure>
-      	</div> <!-- .current_project_15 -->
+      	</div>  .current_project_15 --> 
     
     
     </section> <!-- .content -->
