@@ -229,6 +229,19 @@
       margin		: 0px;
       padding		: 10px;
     }
+
+    .current_project_15 {
+      border		: 5px solid black;
+      background	: gray;
+      position		: relative;
+      width			: 450px;
+      height		: 400px;
+      top			: 60px;
+      left			: 20px;
+      float			: left;
+      margin		: 0px;
+      padding		: 10px;
+    }
     
     .current_project_900 {
       border		: 5px solid black;
