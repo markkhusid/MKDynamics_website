@@ -6,7 +6,7 @@
 
 ## Resources and Textbooks Used
 
-In this section we will be programming in Fortran using examples and techniques found in these books and resources: <br>
+In this section we will be programming in C++ using examples and techniques found in these books and resources: <br>
 
 ### "Object-Oriented Programming Using C++" by Ira Pohl
 This book may be purchased here: <br>
