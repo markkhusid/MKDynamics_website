@@ -1,0 +1,35 @@
+format: jb-book
+root: intro
+parts:
+- caption: Object Oriented Programming Using C++
+  chapters:
+  - file: Object_Oriented_Programming_Using_Cpp/Object_Oriented_Programming_Using_Cpp
+    sections:
+    - file: Object_Oriented_Programming_Using_Cpp/Hello_Cpp
+    - file: Object_Oriented_Programming_Using_Cpp/Chapter_1_5_Overloading
+    - file: Object_Oriented_Programming_Using_Cpp/Chapter_1_7_The_Standard_Template_Library
+    - file: Object_Oriented_Programming_Using_Cpp/Chapter_2_3_Program_Structure
+    - file: Object_Oriented_Programming_Using_Cpp/Chapter_2_5_The_Traditional_Conversions
+    - file: Object_Oriented_Programming_Using_Cpp/Chapter_3_1_1_Function_Invocation
+    - file: Object_Oriented_Programming_Using_Cpp/Chapter_3_2_Function_Definition
+    - file: Object_Oriented_Programming_Using_Cpp/Chapter_3_3_The_Return_Statement
+    - file: Object_Oriented_Programming_Using_Cpp/Chapter_3_4_Function_Prototypes
+    - file: Object_Oriented_Programming_Using_Cpp/Chapter_3_6_Overloading_Functions
+    - file: Object_Oriented_Programming_Using_Cpp/Chapter_3_10_Pointer_Types
+    - file: Object_Oriented_Programming_Using_Cpp/Chapter_3_12_Arrays_and_Pointers
+    - file: Object_Oriented_Programming_Using_Cpp/Chapter_3_16_Assertions_and_Program_Correctness
+    - file: Object_Oriented_Programming_Using_Cpp/Chapter_3_19_Free_Store_Operators_new_and_delete
+    - file: Object_Oriented_Programming_Using_Cpp/Chapter_4_3_An_Example_Stack
+    - file: Object_Oriented_Programming_Using_Cpp/Chapter_4_7_Bit_Fields
+    - file: Object_Oriented_Programming_Using_Cpp/Chapter_4_8_Two_Dimensional_Dynamic_Arrays
+    - file: Object_Oriented_Programming_Using_Cpp/Chapter_5_2_Access_Private_and_Public
+    - file: Object_Oriented_Programming_Using_Cpp/Chapter_5_7_The_This_Pointer
+    - file: Object_Oriented_Programming_Using_Cpp/Chapter_5_8_Static_and_Const_Member_Functions
+    - file: Object_Oriented_Programming_Using_Cpp/Chapter_5_9_Containers_and_Item_Access
+    
+- caption: Miscellaneous
+  chapters:
+    - file: markdown
+    - file: notebooks
+    - file: markdown-notebooks
+    - file: README.md
