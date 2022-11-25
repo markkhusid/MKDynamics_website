@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>Access: Private and Public &#8212; C++ Programming</title>
+    <title>Classes with Constructors &#8212; C++ Programming</title>
     
   <!-- Loaded before other Sphinx assets -->
   <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -52,8 +52,8 @@ const thebe_selector_output = ".output, .cell_output"
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="The THIS Pointer" href="Chapter_5_7_The_This_Pointer.html" />
-    <link rel="prev" title="Chapter 5: Data Hiding and Member Functions" href="Object_Oriented_Programming_Using_Cpp_Ch_5.html" />
+    <link rel="next" title="Constructors as Conversions" href="Chapter_6_1_3_Constructors_as_Conversions.html" />
+    <link rel="prev" title="Chapter 6: Object Creation and Destruction" href="Object_Oriented_Programming_Using_Cpp_Ch_6.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -286,19 +286,19 @@ const thebe_selector_output = ".output, .cell_output"
   Chapter 5 - Data Hiding and Member Functions
  </span>
 </p>
-<ul class="current nav bd-sidenav">
- <li class="toctree-l1 current active has-children">
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1 has-children">
   <a class="reference internal" href="Object_Oriented_Programming_Using_Cpp_Ch_5.html">
    Chapter 5: Data Hiding and Member Functions
   </a>
-  <input checked="" class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
+  <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
   <label for="toctree-checkbox-5">
    <i class="fas fa-chevron-down">
    </i>
   </label>
-  <ul class="current">
-   <li class="toctree-l2 current active">
-    <a class="current reference internal" href="#">
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Chapter_5_2_Access_Private_and_Public.html">
      Access: Private and Public
     </a>
    </li>
@@ -336,19 +336,19 @@ const thebe_selector_output = ".output, .cell_output"
   Chapter 6 - Object Creation and Destructions
  </span>
 </p>
-<ul class="nav bd-sidenav">
- <li class="toctree-l1 has-children">
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1 current active has-children">
   <a class="reference internal" href="Object_Oriented_Programming_Using_Cpp_Ch_6.html">
    Chapter 6: Object Creation and Destruction
   </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
   <label for="toctree-checkbox-6">
    <i class="fas fa-chevron-down">
    </i>
   </label>
-  <ul>
-   <li class="toctree-l2">
-    <a class="reference internal" href="Chapter_6_1_0_Classes_with_Constructors.html">
+  <ul class="current">
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
      Classes with Constructors
     </a>
    </li>
@@ -450,7 +450,7 @@ title="Toggle navigation"
   <div class="menu-dropdown__content">
     <ul>
       <li>
-        <a href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/Object_Oriented_Programming_Using_Cpp/Chapter_5_2_Access_Private_and_Public.ipynb"
+        <a href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/Object_Oriented_Programming_Using_Cpp/Chapter_6_1_0_Classes_with_Constructors.ipynb"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -493,7 +493,7 @@ title="Fullscreen mode"
   <div class="menu-dropdown__content">
     <ul>
       <li>
-        <a href="../_sources/Object_Oriented_Programming_Using_Cpp/Chapter_5_2_Access_Private_and_Public.ipynb"
+        <a href="../_sources/Object_Oriented_Programming_Using_Cpp/Chapter_6_1_0_Classes_with_Constructors.ipynb"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -553,8 +553,8 @@ title="Print to PDF"
     <nav id="bd-toc-nav" aria-label="Page">
         <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#program-that-demonstrates-private-and-public-access-of-object-items-in-c">
-   Program that demonstrates private and public access of object items in C++
+  <a class="reference internal nav-link" href="#program-that-demonstrates-classes-with-constructors-in-c">
+   Program that demonstrates classes with constructors in C++
   </a>
  </li>
 </ul>
@@ -566,7 +566,7 @@ title="Print to PDF"
         <div class="col pl-md-3 pl-lg-5 content-container">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1>Access: Private and Public</h1>
+                <h1>Classes with Constructors</h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
@@ -577,8 +577,8 @@ title="Print to PDF"
                         <nav aria-label="Page">
                             <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#program-that-demonstrates-private-and-public-access-of-object-items-in-c">
-   Program that demonstrates private and public access of object items in C++
+  <a class="reference internal nav-link" href="#program-that-demonstrates-classes-with-constructors-in-c">
+   Program that demonstrates classes with constructors in C++
   </a>
  </li>
 </ul>
@@ -591,63 +591,56 @@ title="Print to PDF"
                 
               <div>
                 
-  <section class="tex2jax_ignore mathjax_ignore" id="access-private-and-public">
-<h1>Access: Private and Public<a class="headerlink" href="#access-private-and-public" title="Permalink to this headline">#</a></h1>
+  <section class="tex2jax_ignore mathjax_ignore" id="classes-with-constructors">
+<h1>Classes with Constructors<a class="headerlink" href="#classes-with-constructors" title="Permalink to this headline">#</a></h1>
 <p>Adapted from: “Object-Oriented Programming Using C++” by Ira Pohl (Addison- Wesley)</p>
-<section id="program-that-demonstrates-private-and-public-access-of-object-items-in-c">
-<h2>Program that demonstrates private and public access of object items in C++<a class="headerlink" href="#program-that-demonstrates-private-and-public-access-of-object-items-in-c" title="Permalink to this headline">#</a></h2>
-<p>ch_stac3.cpp</p>
-<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="c1">// Reverse a string with a ch_stack.</span>
-<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
-<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;ch_stac3.h&quot;</span><span class="cp"></span>
+<section id="program-that-demonstrates-classes-with-constructors-in-c">
+<h2>Program that demonstrates classes with constructors in C++<a class="headerlink" href="#program-that-demonstrates-classes-with-constructors-in-c" title="Permalink to this headline">#</a></h2>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="cm">/*********************************************************************</span>
+
+<span class="cm">  Filename:  modulo.cpp</span>
+<span class="cm">  Chapter:   6      Object Creation and Destruction</span>
+<span class="cm">  Section:   6.1    Classes with Constructors</span>
+<span class="cm">  Compiler:  Borland C++     Version 5.0       Summer 1996</span>
+<span class="cm">  Object Oriented Programming Using C++, Edition 2   By Ira Pohl</span>
+
+<span class="cm">*********************************************************************/</span><span class="w"></span>
+
+<span class="c1">//Modulo numbers and constructor initialization</span>
+
+<span class="cp">#include</span><span class="w">  </span><span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
 
 <span class="k">using</span><span class="w"> </span><span class="k">namespace</span><span class="w"> </span><span class="nn">std</span><span class="p">;</span><span class="w"></span>
 
-<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="w"> </span><span class="p">()</span><span class="w"></span>
-<span class="p">{</span><span class="w"></span>
-<span class="w">    </span><span class="n">ch_stack</span><span class="w"> </span><span class="n">s</span><span class="p">;</span><span class="w"></span>
-<span class="w">    </span><span class="kt">char</span><span class="w"> </span><span class="n">str</span><span class="p">[</span><span class="mi">40</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="s">&quot;My name is Don Knuth!&quot;</span><span class="p">};</span><span class="w"></span>
-<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
+<span class="k">const</span><span class="w"> </span><span class="kt">int</span><span class="w">  </span><span class="n">modulus</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">60</span><span class="p">;</span><span class="w"></span>
 
-<span class="w">    </span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">str</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">endl</span><span class="p">;</span><span class="w"></span>
-<span class="w">    </span><span class="n">s</span><span class="p">.</span><span class="n">reset</span><span class="p">();</span><span class="w">  </span><span class="c1">// s.top = EMPTY would be illegal</span>
-
-<span class="w">    </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">str</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="o">!</span><span class="n">s</span><span class="p">.</span><span class="n">full</span><span class="p">())</span><span class="w"></span>
-<span class="w">    </span><span class="p">{</span><span class="w"></span>
-<span class="w">        </span><span class="n">s</span><span class="p">.</span><span class="n">push</span><span class="p">(</span><span class="n">str</span><span class="p">[</span><span class="n">i</span><span class="o">++</span><span class="p">]);</span><span class="w"></span>
-<span class="w">    </span><span class="p">}</span><span class="w"></span>
-
-<span class="w">    </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">s</span><span class="p">.</span><span class="n">empty</span><span class="p">())</span><span class="w">      </span><span class="c1">// print the reverse</span>
-<span class="w">    </span><span class="p">{</span><span class="w"></span>
-<span class="w">        </span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">s</span><span class="p">.</span><span class="n">pop</span><span class="p">();</span><span class="w"></span>
-<span class="w">    </span><span class="p">}</span><span class="w"></span>
-
-<span class="w">    </span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">endl</span><span class="p">;</span><span class="w"></span>
-<span class="p">}</span><span class="w"></span>
-</pre></div>
-</div>
-<p>ch_stac3.h</p>
-<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="k">struct</span><span class="w"> </span><span class="nc">ch_stack</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">    </span><span class="k">public</span><span class="o">:</span><span class="w"></span>
-<span class="w">        </span><span class="kt">void</span><span class="w"> </span><span class="n">reset</span><span class="w"> </span><span class="p">()</span><span class="w">       </span><span class="p">{</span><span class="w"> </span><span class="n">top</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">EMPTY</span><span class="p">;</span><span class="w"> </span><span class="p">}</span><span class="w"></span>
-<span class="w">        </span><span class="kt">void</span><span class="w"> </span><span class="n">push</span><span class="w"> </span><span class="p">(</span><span class="kt">char</span><span class="w"> </span><span class="n">c</span><span class="p">)</span><span class="w">  </span><span class="p">{</span><span class="w"> </span><span class="n">top</span><span class="o">++</span><span class="p">;</span><span class="w"> </span><span class="n">s</span><span class="p">[</span><span class="n">top</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">c</span><span class="p">;</span><span class="w"> </span><span class="p">}</span><span class="w"></span>
-<span class="w">        </span><span class="kt">char</span><span class="w"> </span><span class="n">pop</span><span class="w"> </span><span class="p">()</span><span class="w">         </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">s</span><span class="p">[</span><span class="n">top</span><span class="o">--</span><span class="p">];</span><span class="w"> </span><span class="p">}</span><span class="w"></span>
-<span class="w">        </span><span class="kt">char</span><span class="w"> </span><span class="n">top_of</span><span class="w"> </span><span class="p">()</span><span class="w">      </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">s</span><span class="p">[</span><span class="n">top</span><span class="p">];</span><span class="w"> </span><span class="p">}</span><span class="w"></span>
-<span class="w">        </span><span class="kt">bool</span><span class="w"> </span><span class="n">empty</span><span class="w"> </span><span class="p">()</span><span class="w">       </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">top</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">EMPTY</span><span class="w"> </span><span class="p">);</span><span class="w"> </span><span class="p">}</span><span class="w"></span>
-<span class="w">        </span><span class="kt">bool</span><span class="w"> </span><span class="n">full</span><span class="w"> </span><span class="p">()</span><span class="w">        </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">top</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">FULL</span><span class="w">  </span><span class="p">);</span><span class="w"> </span><span class="p">}</span><span class="w"></span>
-
-<span class="w">    </span><span class="k">private</span><span class="o">:</span><span class="w"></span>
-<span class="w">        </span><span class="k">enum</span><span class="w"> </span>
-<span class="w">        </span><span class="p">{</span><span class="w">  </span>
-<span class="w">            </span><span class="n">max_len</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">100</span><span class="p">,</span><span class="w"></span>
-<span class="w">            </span><span class="n">EMPTY</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">-1</span><span class="p">,</span><span class="w"></span>
-<span class="w">            </span><span class="n">FULL</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">max_len</span><span class="mi">-1</span><span class="w"></span>
-<span class="w">                </span>
-<span class="w">        </span><span class="p">};</span><span class="w"></span>
-
-<span class="w">        </span><span class="kt">char</span><span class="w"> </span><span class="n">s</span><span class="p">[</span><span class="n">max_len</span><span class="p">];</span><span class="w"></span>
-<span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="n">top</span><span class="p">;</span><span class="w"></span>
+<span class="c1">// Modulo numbers and constructor initialization</span>
+<span class="k">class</span><span class="w">  </span><span class="nc">mod_int</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="k">public</span><span class="o">:</span><span class="w"></span>
+<span class="w">   </span><span class="n">mod_int</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="p">);</span><span class="w">     </span><span class="c1">//constructor declaration</span>
+<span class="w">   </span><span class="kt">void</span><span class="w">  </span><span class="nf">assign</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">v</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="n">modulus</span><span class="p">;</span><span class="w"> </span><span class="p">}</span><span class="w"></span>
+<span class="w">   </span><span class="kt">void</span><span class="w">  </span><span class="nf">print</span><span class="p">()</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">v</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="sc">&#39;\t&#39;</span><span class="p">;</span><span class="w"> </span><span class="p">}</span><span class="w"></span>
+<span class="w">   </span><span class="k">const</span><span class="w"> </span><span class="k">static</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">modulus</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">60</span><span class="p">;</span><span class="w"></span>
+<span class="k">private</span><span class="o">:</span><span class="w"></span>
+<span class="w">   </span><span class="kt">int</span><span class="w">  </span><span class="n">v</span><span class="p">;</span><span class="w"></span>
 <span class="p">};</span><span class="w"></span>
+
+<span class="kr">inline</span><span class="w">  </span><span class="n">mod_int</span><span class="o">::</span><span class="n">mod_int</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="n">v</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="n">modulus</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+<span class="k">const</span><span class="w"> </span><span class="kt">int</span><span class="w">  </span><span class="n">mod_int</span><span class="o">::</span><span class="n">modulus</span><span class="p">;</span><span class="w"></span>
+
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">   </span><span class="kt">int</span><span class="w">      </span><span class="n">seconds</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">400</span><span class="p">;</span><span class="w"></span>
+<span class="w">   </span><span class="n">mod_int</span><span class="w">  </span><span class="n">z</span><span class="p">(</span><span class="n">seconds</span><span class="p">);</span><span class="w"></span>
+
+<span class="w">   </span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">seconds</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot; seconds equals &quot;</span><span class="w"></span>
+<span class="w">        </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">seconds</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mi">60</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot; minutes &quot;</span><span class="p">;</span><span class="w"></span>
+<span class="w">   </span><span class="n">z</span><span class="p">.</span><span class="n">print</span><span class="p">();</span><span class="w"></span>
+<span class="w">   </span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot; seconds&quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">endl</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
 </pre></div>
 </div>
 <p>The above program is compiled and run using Gnu Compiler Collection (g++):</p>
@@ -661,7 +654,8 @@ title="Print to PDF"
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">code_dir</span> <span class="o">=</span> <span class="n">root_dir</span> <span class="o">+</span> <span class="s2">&quot;/&quot;</span> <span class="o">+</span> <span class="s2">&quot;Cpp_Code/Chapter_5_2_Access_Private_and_Public&quot;</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">code_dir</span> <span class="o">=</span> <span class="n">root_dir</span> <span class="o">+</span> <span class="s2">&quot;/&quot;</span> <span class="o">+</span> \
+    <span class="s2">&quot;Cpp_Code/Chapter_6_1_0_Classes_with_Constructors&quot;</span>
 </pre></div>
 </div>
 </div>
@@ -675,20 +669,19 @@ title="Print to PDF"
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">build_command</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">system</span><span class="p">(</span><span class="s2">&quot;g++ ch_stac3.cpp -w -o ch_stac3&quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">build_command</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">system</span><span class="p">(</span><span class="s2">&quot;g++ modulo.cpp -w -o modulo&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">exec_status</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">system</span><span class="p">(</span><span class="s2">&quot;./ch_stac3&quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">exec_status</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">system</span><span class="p">(</span><span class="s2">&quot;./modulo&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>My name is Don Knuth!
-!htunK noD si eman yM
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>400 seconds equals 6 minutes 40	 seconds
 </pre></div>
 </div>
 </div>
@@ -723,17 +716,17 @@ title="Print to PDF"
                 
     <!-- Previous / next buttons -->
 <div class='prev-next-area'>
-    <a class='left-prev' id="prev-link" href="Object_Oriented_Programming_Using_Cpp_Ch_5.html" title="previous page">
+    <a class='left-prev' id="prev-link" href="Object_Oriented_Programming_Using_Cpp_Ch_6.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">Chapter 5: Data Hiding and Member Functions</p>
+            <p class="prev-next-title">Chapter 6: Object Creation and Destruction</p>
         </div>
     </a>
-    <a class='right-next' id="next-link" href="Chapter_5_7_The_This_Pointer.html" title="next page">
+    <a class='right-next' id="next-link" href="Chapter_6_1_3_Constructors_as_Conversions.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">The <em>THIS</em> Pointer</p>
+        <p class="prev-next-title">Constructors as Conversions</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>
