@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>Chapter 6: Object Creation and Destruction &#8212; C++ Programming</title>
+    <title>Chapter 6.6: Members that Are Class Types &#8212; C++ Programming</title>
     
   <!-- Loaded before other Sphinx assets -->
   <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -52,8 +52,8 @@ const thebe_selector_output = ".output, .cell_output"
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Classes with Constructors" href="Chapter_6_1_0_Classes_with_Constructors.html" />
-    <link rel="prev" title="Containers and Item Access" href="Chapter_5_9_Containers_and_Item_Access.html" />
+    <link rel="next" title="Markdown Files" href="../markdown.html" />
+    <link rel="prev" title="A Class Vect" href="Chapter_6_5_A_Class_Vect.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -338,7 +338,7 @@ const thebe_selector_output = ".output, .cell_output"
 </p>
 <ul class="current nav bd-sidenav">
  <li class="toctree-l1 current active has-children">
-  <a class="current reference internal" href="#">
+  <a class="reference internal" href="Object_Oriented_Programming_Using_Cpp_Ch_6.html">
    Chapter 6: Object Creation and Destruction
   </a>
   <input checked="" class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
@@ -346,7 +346,7 @@ const thebe_selector_output = ".output, .cell_output"
    <i class="fas fa-chevron-down">
    </i>
   </label>
-  <ul>
+  <ul class="current">
    <li class="toctree-l2">
     <a class="reference internal" href="Chapter_6_1_0_Classes_with_Constructors.html">
      Classes with Constructors
@@ -377,8 +377,8 @@ const thebe_selector_output = ".output, .cell_output"
      A Class Vect
     </a>
    </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="Chapter_6_6_Members_that_Are_Class_Types.html">
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
      Chapter 6.6: Members that Are Class Types
     </a>
    </li>
@@ -470,7 +470,7 @@ title="Toggle navigation"
   <div class="menu-dropdown__content">
     <ul>
       <li>
-        <a href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/Object_Oriented_Programming_Using_Cpp/Object_Oriented_Programming_Using_Cpp_Ch_6.ipynb"
+        <a href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/Object_Oriented_Programming_Using_Cpp/Chapter_6_6_Members_that_Are_Class_Types.ipynb"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -513,7 +513,7 @@ title="Fullscreen mode"
   <div class="menu-dropdown__content">
     <ul>
       <li>
-        <a href="../_sources/Object_Oriented_Programming_Using_Cpp/Object_Oriented_Programming_Using_Cpp_Ch_6.ipynb"
+        <a href="../_sources/Object_Oriented_Programming_Using_Cpp/Chapter_6_6_Members_that_Are_Class_Types.ipynb"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -550,23 +550,80 @@ title="Print to PDF"
     </ul>
   </div>
 </div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
 
     </div>
 </div>
 
 <!-- Table of contents -->
 <div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#program-that-class-members-that-are-class-types-in-c">
+   Program that class members that are class types in C++
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#compilation-process">
+   Compilation Process
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#execution-process">
+   Execution Process
+  </a>
+ </li>
+</ul>
+
+    </nav>
 </div>
     </div>
     <div class="article row">
         <div class="col pl-md-3 pl-lg-5 content-container">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1>Chapter 6: Object Creation and Destruction</h1>
+                <h1>Chapter 6.6: Members that Are Class Types</h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
                         
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#program-that-class-members-that-are-class-types-in-c">
+   Program that class members that are class types in C++
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#compilation-process">
+   Compilation Process
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#execution-process">
+   Execution Process
+  </a>
+ </li>
+</ul>
+
+                        </nav>
                     </div>
                 </div>
             </div>
@@ -574,11 +631,150 @@ title="Print to PDF"
                 
               <div>
                 
-  <section class="tex2jax_ignore mathjax_ignore" id="chapter-6-object-creation-and-destruction">
-<h1>Chapter 6: Object Creation and Destruction<a class="headerlink" href="#chapter-6-object-creation-and-destruction" title="Permalink to this headline">#</a></h1>
-<p>In this section we will be following along with the examples from “Object Oriented Programming Using C++” by Ira Pohl (Addison Wesley). We will use Jupyter Lab and Jupyter Book to facilitate rapid production of HTML content. Where appropriate, the output of the C++ code will be displayed in graphical format using Python scripts and Matplotlib.</p>
-<div class="toctree-wrapper compound">
+  <section class="tex2jax_ignore mathjax_ignore" id="chapter-6-6-members-that-are-class-types">
+<h1>Chapter 6.6: Members that Are Class Types<a class="headerlink" href="#chapter-6-6-members-that-are-class-types" title="Permalink to this headline">#</a></h1>
+<p>Adapted from: “Object-Oriented Programming Using C++” by Ira Pohl (Addison - Wesley)</p>
+<section id="program-that-class-members-that-are-class-types-in-c">
+<h2>Program that class members that are class types in C++<a class="headerlink" href="#program-that-class-members-that-are-class-types-in-c" title="Permalink to this headline">#</a></h2>
+<p>In file vect1.h</p>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="cm">/*********************************************************************</span>
+
+<span class="cm">  Filename:  vect1.h</span>
+<span class="cm">  Chapter:   6      Object Creation and Destruction</span>
+<span class="cm">  Section:   6.5    A class vect</span>
+<span class="cm">  Compiler:  Borland C++     Version 5.0       Summer 1996</span>
+<span class="cm">  Object Oriented Programming Using C++, Edition 2   By Ira Pohl</span>
+
+<span class="cm">*********************************************************************/</span><span class="w"></span>
+
+<span class="c1">//Implementation of a safe array type vect</span>
+
+<span class="cp">#include</span><span class="w">  </span><span class="cpf">&lt;iostream&gt;</span><span class="c1">                      // changed iostream.h to iostream. MK.</span><span class="cp"></span>
+<span class="cp">#include</span><span class="w">  </span><span class="cpf">&lt;assert.h&gt;</span><span class="cp"></span>
+
+<span class="c1">//Implementation of a safe array type vect</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">vect</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="k">public</span><span class="o">:</span><span class="w"></span>
+<span class="w">   </span><span class="k">explicit</span><span class="w"> </span><span class="n">vect</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">10</span><span class="p">);</span><span class="w"></span>
+<span class="w">   </span><span class="o">~</span><span class="n">vect</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">delete</span><span class="w"> </span><span class="p">[]</span><span class="n">p</span><span class="p">;</span><span class="w"> </span><span class="p">}</span><span class="w"></span>
+<span class="w">   </span><span class="kt">int</span><span class="o">&amp;</span><span class="w">  </span><span class="n">element</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="p">);</span><span class="w">                 </span><span class="c1">//access p[i]</span>
+<span class="w">   </span><span class="kt">int</span><span class="w">  </span><span class="nf">ub</span><span class="p">()</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="p">{</span><span class="k">return</span><span class="w"> </span><span class="p">(</span><span class="n">size</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">);}</span><span class="w">  </span><span class="c1">//upper bound</span>
+<span class="k">private</span><span class="o">:</span><span class="w"></span>
+<span class="w">   </span><span class="kt">int</span><span class="o">*</span><span class="w">  </span><span class="n">p</span><span class="p">;</span><span class="w"></span>
+<span class="w">   </span><span class="kt">int</span><span class="w">   </span><span class="n">size</span><span class="p">;</span><span class="w"></span>
+<span class="p">};</span><span class="w"></span>
+
+<span class="n">vect</span><span class="o">::</span><span class="n">vect</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="p">)</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">size</span><span class="p">(</span><span class="n">n</span><span class="p">)</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">   </span><span class="n">assert</span><span class="p">(</span><span class="n">n</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">0</span><span class="p">);</span><span class="w"></span>
+<span class="w">   </span><span class="n">p</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="kt">int</span><span class="p">[</span><span class="n">size</span><span class="p">];</span><span class="w"></span>
+<span class="w">   </span><span class="n">assert</span><span class="p">(</span><span class="n">p</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="mi">0</span><span class="p">);</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+
+<span class="kt">int</span><span class="o">&amp;</span><span class="w"> </span><span class="n">vect</span><span class="o">::</span><span class="n">element</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="p">)</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">   </span><span class="n">assert</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">size</span><span class="p">);</span><span class="w"></span>
+<span class="w">   </span><span class="k">return</span><span class="w"> </span><span class="n">p</span><span class="p">[</span><span class="n">i</span><span class="p">];</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</pre></div>
 </div>
+<p>In file pairvect.cpp</p>
+<div class="highlight-C++ notranslate"><div class="highlight"><pre><span></span><span class="cm">/*********************************************************************</span>
+
+<span class="cm">  Filename:  vect1.h</span>
+<span class="cm">  Chapter:   6      Object Creation and Destruction</span>
+<span class="cm">  Section:   6.5    A class vect</span>
+<span class="cm">  Compiler:  Borland C++     Version 5.0       Summer 1996</span>
+<span class="cm">  Object Oriented Programming Using C++, Edition 2   By Ira Pohl</span>
+
+<span class="cm">*********************************************************************/</span><span class="w"></span>
+
+<span class="c1">//Implementation of a safe array type vect</span>
+
+<span class="cp">#include</span><span class="w">  </span><span class="cpf">&lt;iostream&gt;</span><span class="c1">                      // changed iostream.h to iostream. MK.</span><span class="cp"></span>
+<span class="cp">#include</span><span class="w">  </span><span class="cpf">&lt;assert.h&gt;</span><span class="cp"></span>
+
+<span class="c1">//Implementation of a safe array type vect</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">vect</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="k">public</span><span class="o">:</span><span class="w"></span>
+<span class="w">   </span><span class="k">explicit</span><span class="w"> </span><span class="n">vect</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">10</span><span class="p">);</span><span class="w"></span>
+<span class="w">   </span><span class="o">~</span><span class="n">vect</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">delete</span><span class="w"> </span><span class="p">[]</span><span class="n">p</span><span class="p">;</span><span class="w"> </span><span class="p">}</span><span class="w"></span>
+<span class="w">   </span><span class="kt">int</span><span class="o">&amp;</span><span class="w">  </span><span class="n">element</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="p">);</span><span class="w">                 </span><span class="c1">//access p[i]</span>
+<span class="w">   </span><span class="kt">int</span><span class="w">  </span><span class="nf">ub</span><span class="p">()</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="p">{</span><span class="k">return</span><span class="w"> </span><span class="p">(</span><span class="n">size</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">);}</span><span class="w">  </span><span class="c1">//upper bound</span>
+<span class="k">private</span><span class="o">:</span><span class="w"></span>
+<span class="w">   </span><span class="kt">int</span><span class="o">*</span><span class="w">  </span><span class="n">p</span><span class="p">;</span><span class="w"></span>
+<span class="w">   </span><span class="kt">int</span><span class="w">   </span><span class="n">size</span><span class="p">;</span><span class="w"></span>
+<span class="p">};</span><span class="w"></span>
+
+<span class="n">vect</span><span class="o">::</span><span class="n">vect</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="p">)</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">size</span><span class="p">(</span><span class="n">n</span><span class="p">)</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">   </span><span class="n">assert</span><span class="p">(</span><span class="n">n</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">0</span><span class="p">);</span><span class="w"></span>
+<span class="w">   </span><span class="n">p</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="kt">int</span><span class="p">[</span><span class="n">size</span><span class="p">];</span><span class="w"></span>
+<span class="w">   </span><span class="n">assert</span><span class="p">(</span><span class="n">p</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="mi">0</span><span class="p">);</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+
+<span class="kt">int</span><span class="o">&amp;</span><span class="w"> </span><span class="n">vect</span><span class="o">::</span><span class="n">element</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="p">)</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">   </span><span class="n">assert</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">size</span><span class="p">);</span><span class="w"></span>
+<span class="w">   </span><span class="k">return</span><span class="w"> </span><span class="n">p</span><span class="p">[</span><span class="n">i</span><span class="p">];</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</pre></div>
+</div>
+</section>
+<section id="compilation-process">
+<h2>Compilation Process<a class="headerlink" href="#compilation-process" title="Permalink to this headline">#</a></h2>
+<p>The above program is compiled and run using Gnu Compiler Collection (g++):</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
+<span class="n">root_dir</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">getcwd</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">code_dir</span> <span class="o">=</span> <span class="n">root_dir</span> <span class="o">+</span> <span class="s2">&quot;/&quot;</span> <span class="o">+</span> \
+    <span class="s2">&quot;Cpp_Code/Chapter_6_6_Members_that_Are_Class_Types&quot;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">os</span><span class="o">.</span><span class="n">chdir</span><span class="p">(</span><span class="n">code_dir</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">build_command</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">system</span><span class="p">(</span><span class="s2">&quot;g++ pairvect.cpp -w -o pairvect&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="execution-process">
+<h2>Execution Process<a class="headerlink" href="#execution-process" title="Permalink to this headline">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">exec_status</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">system</span><span class="p">(</span><span class="s2">&quot;./pairvect&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>table of age, weight
+21,135
+22,136
+23,137
+24,138
+25,139
+</pre></div>
+</div>
+</div>
+</div>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -608,17 +804,17 @@ title="Print to PDF"
                 
     <!-- Previous / next buttons -->
 <div class='prev-next-area'>
-    <a class='left-prev' id="prev-link" href="Chapter_5_9_Containers_and_Item_Access.html" title="previous page">
+    <a class='left-prev' id="prev-link" href="Chapter_6_5_A_Class_Vect.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">Containers and Item Access</p>
+            <p class="prev-next-title">A Class Vect</p>
         </div>
     </a>
-    <a class='right-next' id="next-link" href="Chapter_6_1_0_Classes_with_Constructors.html" title="next page">
+    <a class='right-next' id="next-link" href="../markdown.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Classes with Constructors</p>
+        <p class="prev-next-title">Markdown Files</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>
