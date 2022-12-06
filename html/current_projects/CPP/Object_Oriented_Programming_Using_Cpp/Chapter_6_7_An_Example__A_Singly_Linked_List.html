@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>Chapter 6.6: Members that Are Class Types &#8212; C++ Programming</title>
+    <title>Chapter 6.7: An Example: A Singly Linked List &#8212; C++ Programming</title>
     
   <!-- Loaded before other Sphinx assets -->
   <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -52,8 +52,8 @@ const thebe_selector_output = ".output, .cell_output"
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Chapter 6.7: An Example: A Singly Linked List" href="Chapter_6_7_An_Example__A_Singly_Linked_List.html" />
-    <link rel="prev" title="A Class Vect" href="Chapter_6_5_A_Class_Vect.html" />
+    <link rel="next" title="Markdown Files" href="../markdown.html" />
+    <link rel="prev" title="Chapter 6.6: Members that Are Class Types" href="Chapter_6_6_Members_that_Are_Class_Types.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -377,13 +377,13 @@ const thebe_selector_output = ".output, .cell_output"
      A Class Vect
     </a>
    </li>
-   <li class="toctree-l2 current active">
-    <a class="current reference internal" href="#">
+   <li class="toctree-l2">
+    <a class="reference internal" href="Chapter_6_6_Members_that_Are_Class_Types.html">
      Chapter 6.6: Members that Are Class Types
     </a>
    </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="Chapter_6_7_An_Example__A_Singly_Linked_List.html">
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
      Chapter 6.7: An Example: A Singly Linked List
     </a>
    </li>
@@ -475,7 +475,7 @@ title="Toggle navigation"
   <div class="menu-dropdown__content">
     <ul>
       <li>
-        <a href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/Object_Oriented_Programming_Using_Cpp/Chapter_6_6_Members_that_Are_Class_Types.ipynb"
+        <a href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/Object_Oriented_Programming_Using_Cpp/Chapter_6_7_An_Example__A_Singly_Linked_List.ipynb"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -518,7 +518,7 @@ title="Fullscreen mode"
   <div class="menu-dropdown__content">
     <ul>
       <li>
-        <a href="../_sources/Object_Oriented_Programming_Using_Cpp/Chapter_6_6_Members_that_Are_Class_Types.ipynb"
+        <a href="../_sources/Object_Oriented_Programming_Using_Cpp/Chapter_6_7_An_Example__A_Singly_Linked_List.ipynb"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -578,8 +578,8 @@ title="Print to PDF"
     <nav id="bd-toc-nav" aria-label="Page">
         <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#program-that-demonstrates-class-members-that-are-class-types-in-c">
-   Program that demonstrates class members that are class types in C++
+  <a class="reference internal nav-link" href="#program-that-demonstrates-a-singly-linked-list-using-classes-in-c">
+   Program that demonstrates a singly linked list using classes in C++
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
@@ -601,7 +601,7 @@ title="Print to PDF"
         <div class="col pl-md-3 pl-lg-5 content-container">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1>Chapter 6.6: Members that Are Class Types</h1>
+                <h1>Chapter 6.7: An Example: A Singly Linked List</h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
@@ -612,8 +612,8 @@ title="Print to PDF"
                         <nav aria-label="Page">
                             <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#program-that-demonstrates-class-members-that-are-class-types-in-c">
-   Program that demonstrates class members that are class types in C++
+  <a class="reference internal nav-link" href="#program-that-demonstrates-a-singly-linked-list-using-classes-in-c">
+   Program that demonstrates a singly linked list using classes in C++
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
@@ -636,92 +636,106 @@ title="Print to PDF"
                 
               <div>
                 
-  <section class="tex2jax_ignore mathjax_ignore" id="chapter-6-6-members-that-are-class-types">
-<h1>Chapter 6.6: Members that Are Class Types<a class="headerlink" href="#chapter-6-6-members-that-are-class-types" title="Permalink to this headline">#</a></h1>
+  <section class="tex2jax_ignore mathjax_ignore" id="chapter-6-7-an-example-a-singly-linked-list">
+<h1>Chapter 6.7: An Example: A Singly Linked List<a class="headerlink" href="#chapter-6-7-an-example-a-singly-linked-list" title="Permalink to this headline">#</a></h1>
 <p>Adapted from: “Object-Oriented Programming Using C++” by Ira Pohl (Addison - Wesley)</p>
-<section id="program-that-demonstrates-class-members-that-are-class-types-in-c">
-<h2>Program that demonstrates class members that are class types in C++<a class="headerlink" href="#program-that-demonstrates-class-members-that-are-class-types-in-c" title="Permalink to this headline">#</a></h2>
-<p>In file vect1.h</p>
+<section id="program-that-demonstrates-a-singly-linked-list-using-classes-in-c">
+<h2>Program that demonstrates a singly linked list using classes in C++<a class="headerlink" href="#program-that-demonstrates-a-singly-linked-list-using-classes-in-c" title="Permalink to this headline">#</a></h2>
+<p>In file slist.cpp</p>
 <div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="cm">/*********************************************************************</span>
 
-<span class="cm">  Filename:  vect1.h</span>
+<span class="cm">  Filename:  slist.cpp</span>
 <span class="cm">  Chapter:   6      Object Creation and Destruction</span>
-<span class="cm">  Section:   6.5    A class vect</span>
+<span class="cm">  Section:   6.7    An Example:  A Singly Linked List</span>
 <span class="cm">  Compiler:  Borland C++     Version 5.0       Summer 1996</span>
 <span class="cm">  Object Oriented Programming Using C++, Edition 2   By Ira Pohl</span>
 
 <span class="cm">*********************************************************************/</span><span class="w"></span>
 
-<span class="c1">//Implementation of a safe array type vect</span>
+<span class="c1">//A singly linked list</span>
 
-<span class="cp">#include</span><span class="w">  </span><span class="cpf">&lt;iostream&gt;</span><span class="c1">                      // changed iostream.h to iostream. MK.</span><span class="cp"></span>
-<span class="cp">#include</span><span class="w">  </span><span class="cpf">&lt;assert.h&gt;</span><span class="cp"></span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span><span class="c1">         // Changed iostream.h to iostream. MK.</span><span class="cp"></span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;assert.h&gt;</span><span class="cp"></span>
 
-<span class="c1">//Implementation of a safe array type vect</span>
-<span class="k">class</span><span class="w"> </span><span class="nc">vect</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="k">public</span><span class="o">:</span><span class="w"></span>
-<span class="w">   </span><span class="k">explicit</span><span class="w"> </span><span class="n">vect</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">10</span><span class="p">);</span><span class="w"></span>
-<span class="w">   </span><span class="o">~</span><span class="n">vect</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">delete</span><span class="w"> </span><span class="p">[]</span><span class="n">p</span><span class="p">;</span><span class="w"> </span><span class="p">}</span><span class="w"></span>
-<span class="w">   </span><span class="kt">int</span><span class="o">&amp;</span><span class="w">  </span><span class="n">element</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="p">);</span><span class="w">                 </span><span class="c1">//access p[i]</span>
-<span class="w">   </span><span class="kt">int</span><span class="w">  </span><span class="nf">ub</span><span class="p">()</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="p">{</span><span class="k">return</span><span class="w"> </span><span class="p">(</span><span class="n">size</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">);}</span><span class="w">  </span><span class="c1">//upper bound</span>
-<span class="k">private</span><span class="o">:</span><span class="w"></span>
-<span class="w">   </span><span class="kt">int</span><span class="o">*</span><span class="w">  </span><span class="n">p</span><span class="p">;</span><span class="w"></span>
-<span class="w">   </span><span class="kt">int</span><span class="w">   </span><span class="n">size</span><span class="p">;</span><span class="w"></span>
+<span class="k">using</span><span class="w"> </span><span class="k">namespace</span><span class="w"> </span><span class="nn">std</span><span class="p">;</span><span class="w">       </span><span class="c1">// Added. MK.</span>
+
+<span class="k">struct</span><span class="w"> </span><span class="nc">slistelem</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">   </span><span class="kt">char</span><span class="w">       </span><span class="n">data</span><span class="p">;</span><span class="w"></span>
+<span class="w">   </span><span class="n">slistelem</span><span class="o">*</span><span class="w">  </span><span class="n">next</span><span class="p">;</span><span class="w"></span>
 <span class="p">};</span><span class="w"></span>
 
-<span class="n">vect</span><span class="o">::</span><span class="n">vect</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="p">)</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">size</span><span class="p">(</span><span class="n">n</span><span class="p">)</span><span class="w"></span>
-<span class="p">{</span><span class="w"></span>
-<span class="w">   </span><span class="n">assert</span><span class="p">(</span><span class="n">n</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">0</span><span class="p">);</span><span class="w"></span>
-<span class="w">   </span><span class="n">p</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="kt">int</span><span class="p">[</span><span class="n">size</span><span class="p">];</span><span class="w"></span>
-<span class="w">   </span><span class="n">assert</span><span class="p">(</span><span class="n">p</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="mi">0</span><span class="p">);</span><span class="w"></span>
-<span class="p">}</span><span class="w"></span>
-
-<span class="kt">int</span><span class="o">&amp;</span><span class="w"> </span><span class="n">vect</span><span class="o">::</span><span class="n">element</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="p">)</span><span class="w"></span>
-<span class="p">{</span><span class="w"></span>
-<span class="w">   </span><span class="n">assert</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">size</span><span class="p">);</span><span class="w"></span>
-<span class="w">   </span><span class="k">return</span><span class="w"> </span><span class="n">p</span><span class="p">[</span><span class="n">i</span><span class="p">];</span><span class="w"></span>
-<span class="p">}</span><span class="w"></span>
-</pre></div>
-</div>
-<p>In file pairvect.cpp</p>
-<div class="highlight-C++ notranslate"><div class="highlight"><pre><span></span><span class="cm">/*********************************************************************</span>
-
-<span class="cm">  Filename:  vect1.h</span>
-<span class="cm">  Chapter:   6      Object Creation and Destruction</span>
-<span class="cm">  Section:   6.5    A class vect</span>
-<span class="cm">  Compiler:  Borland C++     Version 5.0       Summer 1996</span>
-<span class="cm">  Object Oriented Programming Using C++, Edition 2   By Ira Pohl</span>
-
-<span class="cm">*********************************************************************/</span><span class="w"></span>
-
-<span class="c1">//Implementation of a safe array type vect</span>
-
-<span class="cp">#include</span><span class="w">  </span><span class="cpf">&lt;iostream&gt;</span><span class="c1">                      // changed iostream.h to iostream. MK.</span><span class="cp"></span>
-<span class="cp">#include</span><span class="w">  </span><span class="cpf">&lt;assert.h&gt;</span><span class="cp"></span>
-
-<span class="c1">//Implementation of a safe array type vect</span>
-<span class="k">class</span><span class="w"> </span><span class="nc">vect</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="k">class</span><span class="w"> </span><span class="nc">slist</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="c1">//a singly linked list</span>
 <span class="k">public</span><span class="o">:</span><span class="w"></span>
-<span class="w">   </span><span class="k">explicit</span><span class="w"> </span><span class="n">vect</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">10</span><span class="p">);</span><span class="w"></span>
-<span class="w">   </span><span class="o">~</span><span class="n">vect</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">delete</span><span class="w"> </span><span class="p">[]</span><span class="n">p</span><span class="p">;</span><span class="w"> </span><span class="p">}</span><span class="w"></span>
-<span class="w">   </span><span class="kt">int</span><span class="o">&amp;</span><span class="w">  </span><span class="n">element</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="p">);</span><span class="w">                 </span><span class="c1">//access p[i]</span>
-<span class="w">   </span><span class="kt">int</span><span class="w">  </span><span class="nf">ub</span><span class="p">()</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="p">{</span><span class="k">return</span><span class="w"> </span><span class="p">(</span><span class="n">size</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">);}</span><span class="w">  </span><span class="c1">//upper bound</span>
+<span class="w">   </span><span class="n">slist</span><span class="p">()</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">h</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">};</span><span class="w">        </span><span class="c1">//0 denotes empty slist</span>
+<span class="w">   </span><span class="o">~</span><span class="n">slist</span><span class="p">();</span><span class="w">                  </span><span class="c1">// alternative { release(); }</span>
+<span class="w">   </span><span class="kt">void</span><span class="w">  </span><span class="nf">prepend</span><span class="p">(</span><span class="kt">char</span><span class="w"> </span><span class="n">c</span><span class="p">);</span><span class="w">     </span><span class="c1">//adds to front of slist</span>
+<span class="w">   </span><span class="kt">void</span><span class="w">  </span><span class="nf">del</span><span class="p">();</span><span class="w"></span>
+<span class="w">   </span><span class="n">slistelem</span><span class="o">*</span><span class="w">  </span><span class="nf">first</span><span class="p">()</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">h</span><span class="p">;</span><span class="w"> </span><span class="p">};</span><span class="w"></span>
+<span class="w">   </span><span class="kt">void</span><span class="w">  </span><span class="nf">print</span><span class="p">()</span><span class="w"> </span><span class="k">const</span><span class="p">;</span><span class="w"></span>
+<span class="w">   </span><span class="kt">void</span><span class="w">  </span><span class="nf">release</span><span class="p">();</span><span class="w"></span>
 <span class="k">private</span><span class="o">:</span><span class="w"></span>
-<span class="w">   </span><span class="kt">int</span><span class="o">*</span><span class="w">  </span><span class="n">p</span><span class="p">;</span><span class="w"></span>
-<span class="w">   </span><span class="kt">int</span><span class="w">   </span><span class="n">size</span><span class="p">;</span><span class="w"></span>
+<span class="w">   </span><span class="n">slistelem</span><span class="o">*</span><span class="w">  </span><span class="n">h</span><span class="p">;</span><span class="w">           </span><span class="c1">//head of slist</span>
 <span class="p">};</span><span class="w"></span>
 
-<span class="n">vect</span><span class="o">::</span><span class="n">vect</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="p">)</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">size</span><span class="p">(</span><span class="n">n</span><span class="p">)</span><span class="w"></span>
+
+<span class="kt">void</span><span class="w"> </span><span class="nf">slist::prepend</span><span class="p">(</span><span class="kt">char</span><span class="w"> </span><span class="n">c</span><span class="p">)</span><span class="w"></span>
 <span class="p">{</span><span class="w"></span>
-<span class="w">   </span><span class="n">assert</span><span class="p">(</span><span class="n">n</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">0</span><span class="p">);</span><span class="w"></span>
-<span class="w">   </span><span class="n">p</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="kt">int</span><span class="p">[</span><span class="n">size</span><span class="p">];</span><span class="w"></span>
-<span class="w">   </span><span class="n">assert</span><span class="p">(</span><span class="n">p</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="mi">0</span><span class="p">);</span><span class="w"></span>
+<span class="w">   </span><span class="n">slistelem</span><span class="o">*</span><span class="w">  </span><span class="n">temp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">slistelem</span><span class="p">;</span><span class="c1">//create element</span>
+<span class="w">   </span><span class="n">assert</span><span class="p">(</span><span class="n">temp</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="mi">0</span><span class="p">);</span><span class="w"></span>
+<span class="w">   </span><span class="n">temp</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">next</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">h</span><span class="p">;</span><span class="w">                </span><span class="c1">//link to slist</span>
+<span class="w">   </span><span class="n">temp</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">data</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">c</span><span class="p">;</span><span class="w"></span>
+<span class="w">   </span><span class="n">h</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">temp</span><span class="p">;</span><span class="w">                 </span><span class="c1">//update head of slist</span>
 <span class="p">}</span><span class="w"></span>
 
-<span class="kt">int</span><span class="o">&amp;</span><span class="w"> </span><span class="n">vect</span><span class="o">::</span><span class="n">element</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="p">)</span><span class="w"></span>
+<span class="kt">void</span><span class="w"> </span><span class="nf">slist::del</span><span class="p">()</span><span class="w"></span>
 <span class="p">{</span><span class="w"></span>
-<span class="w">   </span><span class="n">assert</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">size</span><span class="p">);</span><span class="w"></span>
-<span class="w">   </span><span class="k">return</span><span class="w"> </span><span class="n">p</span><span class="p">[</span><span class="n">i</span><span class="p">];</span><span class="w"></span>
+<span class="w">   </span><span class="n">slistelem</span><span class="o">*</span><span class="w">  </span><span class="n">temp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">h</span><span class="p">;</span><span class="w"></span>
+
+<span class="w">   </span><span class="n">h</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">h</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">next</span><span class="p">;</span><span class="w">     </span><span class="c1">//presumes an non-empty slist</span>
+<span class="w">   </span><span class="k">delete</span><span class="w"> </span><span class="n">temp</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+
+<span class="kt">void</span><span class="w"> </span><span class="n">slist</span><span class="o">::</span><span class="n">print</span><span class="p">()</span><span class="w"> </span><span class="k">const</span><span class="w">   </span><span class="c1">//object is unchanged</span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">   </span><span class="n">slistelem</span><span class="o">*</span><span class="w">  </span><span class="n">temp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">h</span><span class="p">;</span><span class="w"></span>
+
+<span class="w">   </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">temp</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">     </span><span class="c1">//detect end of slist</span>
+<span class="w">      </span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">temp</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">data</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot; -&gt; &quot;</span><span class="p">;</span><span class="w"></span>
+<span class="w">      </span><span class="n">temp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">temp</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">next</span><span class="p">;</span><span class="w"></span>
+<span class="w">   </span><span class="p">}</span><span class="w"></span>
+<span class="w">   </span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;</span><span class="se">\n</span><span class="s">###&quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">endl</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+
+<span class="c1">//elements returned to free store</span>
+<span class="kt">void</span><span class="w"> </span><span class="n">slist</span><span class="o">::</span><span class="n">release</span><span class="p">()</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">   </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">h</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"></span>
+<span class="w">      </span><span class="n">del</span><span class="p">();</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+
+<span class="n">slist</span><span class="o">::</span><span class="w"> </span><span class="o">~</span><span class="n">slist</span><span class="p">()</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">   </span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;destructor invoked&quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">endl</span><span class="p">;</span><span class="w"></span>
+<span class="w">   </span><span class="n">release</span><span class="p">();</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+
+<span class="kt">int</span><span class="w"> </span><span class="n">main</span><span class="p">()</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">   </span><span class="n">slist</span><span class="o">*</span><span class="w">  </span><span class="n">p</span><span class="p">;</span><span class="w"></span>
+<span class="w">   </span><span class="p">{</span><span class="w"></span>
+<span class="w">      </span><span class="n">slist</span><span class="w">  </span><span class="n">w</span><span class="p">;</span><span class="w"></span>
+
+<span class="w">      </span><span class="n">w</span><span class="p">.</span><span class="n">prepend</span><span class="p">(</span><span class="sc">&#39;A&#39;</span><span class="p">);</span><span class="w"></span>
+<span class="w">      </span><span class="n">w</span><span class="p">.</span><span class="n">prepend</span><span class="p">(</span><span class="sc">&#39;B&#39;</span><span class="p">);</span><span class="w"></span>
+<span class="w">      </span><span class="n">w</span><span class="p">.</span><span class="n">print</span><span class="p">();</span><span class="w"></span>
+<span class="w">      </span><span class="n">w</span><span class="p">.</span><span class="n">del</span><span class="p">();</span><span class="w"></span>
+<span class="w">      </span><span class="n">w</span><span class="p">.</span><span class="n">print</span><span class="p">();</span><span class="w"></span>
+<span class="w">      </span><span class="n">p</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">&amp;</span><span class="n">w</span><span class="p">;</span><span class="w"></span>
+<span class="w">      </span><span class="n">p</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">print</span><span class="p">();</span><span class="w"></span>
+<span class="w">      </span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;exiting inner block&quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">endl</span><span class="p">;</span><span class="w"></span>
+<span class="w">   </span><span class="p">}</span><span class="w"></span>
+<span class="w">   </span><span class="c1">//p -&gt; print();  gives system dependent behavior</span>
+<span class="w">   </span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;exiting outer block&quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">endl</span><span class="p">;</span><span class="w"></span>
 <span class="p">}</span><span class="w"></span>
 </pre></div>
 </div>
@@ -740,7 +754,7 @@ title="Print to PDF"
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">code_dir</span> <span class="o">=</span> <span class="n">root_dir</span> <span class="o">+</span> <span class="s2">&quot;/&quot;</span> <span class="o">+</span> \
-    <span class="s2">&quot;Cpp_Code/Chapter_6_6_Members_that_Are_Class_Types&quot;</span>
+    <span class="s2">&quot;Cpp_Code/Chapter_6_7_An_Example__A_Singly_Linked_List&quot;</span>
 </pre></div>
 </div>
 </div>
@@ -754,7 +768,7 @@ title="Print to PDF"
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">build_command</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">system</span><span class="p">(</span><span class="s2">&quot;g++ pairvect.cpp -w -o pairvect&quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">build_command</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">system</span><span class="p">(</span><span class="s2">&quot;g++ slist.cpp -w -o slist&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -764,17 +778,20 @@ title="Print to PDF"
 <h2>Execution Process<a class="headerlink" href="#execution-process" title="Permalink to this headline">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">exec_status</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">system</span><span class="p">(</span><span class="s2">&quot;./pairvect&quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">exec_status</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">system</span><span class="p">(</span><span class="s2">&quot;./slist&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>table of age, weight
-21,135
-22,136
-23,137
-24,138
-25,139
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>B -&gt; A -&gt; 
+###
+A -&gt; 
+###
+A -&gt; 
+###
+exiting inner block
+destructor invoked
+exiting outer block
 </pre></div>
 </div>
 </div>
@@ -809,17 +826,17 @@ title="Print to PDF"
                 
     <!-- Previous / next buttons -->
 <div class='prev-next-area'>
-    <a class='left-prev' id="prev-link" href="Chapter_6_5_A_Class_Vect.html" title="previous page">
+    <a class='left-prev' id="prev-link" href="Chapter_6_6_Members_that_Are_Class_Types.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">A Class Vect</p>
+            <p class="prev-next-title">Chapter 6.6: Members that Are Class Types</p>
         </div>
     </a>
-    <a class='right-next' id="next-link" href="Chapter_6_7_An_Example__A_Singly_Linked_List.html" title="next page">
+    <a class='right-next' id="next-link" href="../markdown.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Chapter 6.7: An Example: A Singly Linked List</p>
+        <p class="prev-next-title">Markdown Files</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>
