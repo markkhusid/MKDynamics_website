@@ -1,10 +1,10 @@
 
 <!DOCTYPE html>
 
-<html>
+<html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
     <title>Constructors as Conversions &#8212; C++ Programming</title>
     
@@ -34,6 +34,7 @@
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../_static/doctools.js"></script>
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
@@ -52,10 +53,10 @@ const thebe_selector_output = ".output, .cell_output"
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="An Example: Dynamically Allocated Strings" href="Chapter_6_4_An_Example__Dynamically_Allocated_Strings.html" />
+    <link rel="next" title="The Copy Constructor" href="Chapter_6_2_1_The_Copy_Constructor.html" />
     <link rel="prev" title="Classes with Constructors" href="Chapter_6_1_0_Classes_with_Constructors.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="None">
+    <meta name="docsearch:language" content="en">
     
 
     <!-- Google Analytics -->
@@ -358,8 +359,38 @@ const thebe_selector_output = ".output, .cell_output"
     </a>
    </li>
    <li class="toctree-l2">
+    <a class="reference internal" href="Chapter_6_2_1_The_Copy_Constructor.html">
+     The Copy Constructor
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Chapter_6_3_Classes_with_Destructors.html">
+     6.3 Classes with Destructors
+    </a>
+   </li>
+   <li class="toctree-l2">
     <a class="reference internal" href="Chapter_6_4_An_Example__Dynamically_Allocated_Strings.html">
      An Example:  Dynamically Allocated Strings
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Chapter_6_5_A_Class_Vect.html">
+     A Class Vect
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Chapter_6_6_Members_that_Are_Class_Types.html">
+     Chapter 6.6: Members that Are Class Types
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Chapter_6_7_An_Example__A_Singly_Linked_List.html">
+     Chapter 6.7: An Example: A Singly Linked List
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Chapter_6_8_Two_Dimensional_Arrays.html">
+     Chapter 6.8: Two - Dimensional Arrays
     </a>
    </li>
   </ul>
@@ -612,10 +643,10 @@ title="Print to PDF"
               <div>
                 
   <section class="tex2jax_ignore mathjax_ignore" id="constructors-as-conversions">
-<h1>Constructors as Conversions<a class="headerlink" href="#constructors-as-conversions" title="Permalink to this headline">#</a></h1>
+<h1>Constructors as Conversions<a class="headerlink" href="#constructors-as-conversions" title="Permalink to this heading">#</a></h1>
 <p>Adapted from: “Object-Oriented Programming Using C++” by Ira Pohl (Addison - Wesley)</p>
 <section id="program-that-demonstrates-conversions-with-constructors-in-c">
-<h2>Program that demonstrates conversions with constructors in C++<a class="headerlink" href="#program-that-demonstrates-conversions-with-constructors-in-c" title="Permalink to this headline">#</a></h2>
+<h2>Program that demonstrates conversions with constructors in C++<a class="headerlink" href="#program-that-demonstrates-conversions-with-constructors-in-c" title="Permalink to this heading">#</a></h2>
 <div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="cm">/*********************************************************************</span>
 
 <span class="cm">  Filename:  printabl.cpp</span>
@@ -672,7 +703,7 @@ title="Print to PDF"
 </div>
 </section>
 <section id="compilation-process">
-<h2>Compilation Process<a class="headerlink" href="#compilation-process" title="Permalink to this headline">#</a></h2>
+<h2>Compilation Process<a class="headerlink" href="#compilation-process" title="Permalink to this heading">#</a></h2>
 <p>The above program is compiled and run using Gnu Compiler Collection (g++):</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -706,7 +737,7 @@ title="Print to PDF"
 </div>
 </section>
 <section id="execution-process">
-<h2>Execution Process<a class="headerlink" href="#execution-process" title="Permalink to this headline">#</a></h2>
+<h2>Execution Process<a class="headerlink" href="#execution-process" title="Permalink to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">exec_status</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">system</span><span class="p">(</span><span class="s2">&quot;./printabl&quot;</span><span class="p">)</span>
@@ -882,10 +913,10 @@ del
             <p class="prev-next-title">Classes with Constructors</p>
         </div>
     </a>
-    <a class='right-next' id="next-link" href="Chapter_6_4_An_Example__Dynamically_Allocated_Strings.html" title="next page">
+    <a class='right-next' id="next-link" href="Chapter_6_2_1_The_Copy_Constructor.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">An Example:  Dynamically Allocated Strings</p>
+        <p class="prev-next-title">The Copy Constructor</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>

@@ -1,10 +1,10 @@
 
 <!DOCTYPE html>
 
-<html>
+<html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
     <title>Free Store Operators new and delete &#8212; C++ Programming</title>
     
@@ -34,6 +34,7 @@
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../_static/doctools.js"></script>
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
@@ -55,7 +56,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="next" title="Chapter 4: Implementing ADTs in the Base Language" href="Object_Oriented_Programming_Using_Cpp_Ch_4.html" />
     <link rel="prev" title="Assertions and Program Correctness" href="Chapter_3_16_Assertions_and_Program_Correctness.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="None">
+    <meta name="docsearch:language" content="en">
     
 
     <!-- Google Analytics -->
@@ -358,8 +359,38 @@ const thebe_selector_output = ".output, .cell_output"
     </a>
    </li>
    <li class="toctree-l2">
+    <a class="reference internal" href="Chapter_6_2_1_The_Copy_Constructor.html">
+     The Copy Constructor
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Chapter_6_3_Classes_with_Destructors.html">
+     6.3 Classes with Destructors
+    </a>
+   </li>
+   <li class="toctree-l2">
     <a class="reference internal" href="Chapter_6_4_An_Example__Dynamically_Allocated_Strings.html">
      An Example:  Dynamically Allocated Strings
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Chapter_6_5_A_Class_Vect.html">
+     A Class Vect
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Chapter_6_6_Members_that_Are_Class_Types.html">
+     Chapter 6.6: Members that Are Class Types
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Chapter_6_7_An_Example__A_Singly_Linked_List.html">
+     Chapter 6.7: An Example: A Singly Linked List
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Chapter_6_8_Two_Dimensional_Arrays.html">
+     Chapter 6.8: Two - Dimensional Arrays
     </a>
    </li>
   </ul>
@@ -608,10 +639,10 @@ title="Print to PDF"
               <div>
                 
   <section class="tex2jax_ignore mathjax_ignore" id="free-store-operators-new-and-delete">
-<h1>Free Store Operators <strong>new</strong> and <strong>delete</strong><a class="headerlink" href="#free-store-operators-new-and-delete" title="Permalink to this headline">#</a></h1>
+<h1>Free Store Operators <strong>new</strong> and <strong>delete</strong><a class="headerlink" href="#free-store-operators-new-and-delete" title="Permalink to this heading">#</a></h1>
 <p>Adapted from: “Object-Oriented Programming Using C++” by Ira Pohl (Addison- Wesley)</p>
 <section id="program-that-demonstrates-the-free-store-operators-new-and-delete-in-c">
-<h2>Program that demonstrates the free store operators <em>new</em> and <em>delete</em> in C++<a class="headerlink" href="#program-that-demonstrates-the-free-store-operators-new-and-delete-in-c" title="Permalink to this headline">#</a></h2>
+<h2>Program that demonstrates the free store operators <em>new</em> and <em>delete</em> in C++<a class="headerlink" href="#program-that-demonstrates-the-free-store-operators-new-and-delete-in-c" title="Permalink to this heading">#</a></h2>
 <div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
 <span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;assert.h&gt;</span><span class="cp"></span>
 <span class="k">using</span><span class="w"> </span><span class="k">namespace</span><span class="w"> </span><span class="nn">std</span><span class="p">;</span><span class="w"></span>
@@ -686,7 +717,9 @@ title="Print to PDF"
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Enter array size: 
-Enter data at position 0 -&gt; 
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Enter data at position 0 -&gt; 
 Enter data at position 1 -&gt; 
 Enter data at position 2 -&gt; 
 Enter data at position 3 -&gt; 
