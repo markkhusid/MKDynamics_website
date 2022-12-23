@@ -433,6 +433,50 @@ const thebe_selector_output = ".output, .cell_output"
      </li>
     </ul>
    </li>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="../Fortran_MOOC/Section_Call_By_Semantics.html">
+     Section: Call By Semantics
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/>
+    <label for="toctree-checkbox-7">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../Fortran_MOOC/Section_Call_By_Semantics_Call_By_In_Reference.html">
+       Section Call By Semantics: Call By In Reference
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../Fortran_MOOC/Section_Call_By_Semantics_Call_By_Reference.html">
+       Section Call By Semantics: Call By Reference
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../Fortran_MOOC/Section_Call_By_Semantics_Call_By_Value.html">
+       Section Call By Semantics: Call By Value
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="../Fortran_MOOC/Section_Computing_Pi.html">
+     Section: Computing Pi
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/>
+    <label for="toctree-checkbox-8">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../Fortran_MOOC/Section_Computing_Pi_Compute_Pi.html">
+       Section Computing Pi: Compute Pi
+      </a>
+     </li>
+    </ul>
+   </li>
   </ul>
  </li>
 </ul>
@@ -702,12 +746,7 @@ title="Print to PDF"
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">build_status</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">system</span><span class="p">(</span><span class="s2">&quot;fpm build &gt; /dev/null&quot;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Project is up to date
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">build_status</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">system</span><span class="p">(</span><span class="s2">&quot;fpm build 2&gt;/dev/null&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -715,12 +754,12 @@ title="Print to PDF"
 <p>fpm run output is piped into sed to suppress the status of the run command and only print the output of the executable.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">exec_status</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">system</span><span class="p">(</span><span class="s2">&quot;fpm run | sed 1,1d&quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">exec_status</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">system</span><span class="p">(</span><span class="s2">&quot;fpm run 2&gt;/dev/null&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Project is up to date
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> Temperature after    24.0000000     hours is    18.0000000     degrees
 </pre></div>
 </div>
 </div>
