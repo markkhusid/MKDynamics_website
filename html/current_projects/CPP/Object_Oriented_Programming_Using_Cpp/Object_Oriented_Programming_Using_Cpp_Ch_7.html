@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>Chapter 6: Object Creation and Destruction &#8212; C++ Programming</title>
+    <title>Chapter 7: Ad Hoc Polymorphism &#8212; C++ Programming</title>
     
   <!-- Loaded before other Sphinx assets -->
   <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -53,8 +53,8 @@ const thebe_selector_output = ".output, .cell_output"
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Classes with Constructors" href="Chapter_6_1_0_Classes_with_Constructors.html" />
-    <link rel="prev" title="Containers and Item Access" href="Chapter_5_9_Containers_and_Item_Access.html" />
+    <link rel="next" title="Chapter 7.1: ADT Conversions" href="Chapter_7_1_ADT_Conversions.html" />
+    <link rel="prev" title="Chapter 6.11: No Constructor, Copy Constructor, and Other Mysteries" href="Chapter_6_11_No_Constructor_Copy_Constructor_and_Other_Mysteries.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en">
     
@@ -337,12 +337,12 @@ const thebe_selector_output = ".output, .cell_output"
   Chapter 6 - Object Creation and Destructions
  </span>
 </p>
-<ul class="current nav bd-sidenav">
- <li class="toctree-l1 current active has-children">
-  <a class="current reference internal" href="#">
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="Object_Oriented_Programming_Using_Cpp_Ch_6.html">
    Chapter 6: Object Creation and Destruction
   </a>
-  <input checked="" class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
+  <input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
   <label for="toctree-checkbox-6">
    <i class="fas fa-chevron-down">
    </i>
@@ -406,6 +406,30 @@ const thebe_selector_output = ".output, .cell_output"
    <li class="toctree-l2">
     <a class="reference internal" href="Chapter_6_11_No_Constructor_Copy_Constructor_and_Other_Mysteries.html">
      Chapter 6.11: No Constructor, Copy Constructor, and Other Mysteries
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Chapter 7 - Ad Hoc Polymorphism
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1 current active has-children">
+  <a class="current reference internal" href="#">
+   Chapter 7: Ad Hoc Polymorphism
+  </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/>
+  <label for="toctree-checkbox-7">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Chapter_7_1_ADT_Conversions.html">
+     Chapter 7.1: ADT Conversions
     </a>
    </li>
   </ul>
@@ -496,7 +520,7 @@ title="Toggle navigation"
   <div class="menu-dropdown__content">
     <ul>
       <li>
-        <a href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/Object_Oriented_Programming_Using_Cpp/Object_Oriented_Programming_Using_Cpp_Ch_6.ipynb"
+        <a href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/Object_Oriented_Programming_Using_Cpp/Object_Oriented_Programming_Using_Cpp_Ch_7.ipynb"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -539,7 +563,7 @@ title="Fullscreen mode"
   <div class="menu-dropdown__content">
     <ul>
       <li>
-        <a href="../_sources/Object_Oriented_Programming_Using_Cpp/Object_Oriented_Programming_Using_Cpp_Ch_6.ipynb"
+        <a href="../_sources/Object_Oriented_Programming_Using_Cpp/Object_Oriented_Programming_Using_Cpp_Ch_7.ipynb"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -588,7 +612,7 @@ title="Print to PDF"
         <div class="col pl-md-3 pl-lg-5 content-container">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1>Chapter 6: Object Creation and Destruction</h1>
+                <h1>Chapter 7: Ad Hoc Polymorphism</h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
@@ -600,23 +624,12 @@ title="Print to PDF"
                 
               <div>
                 
-  <section class="tex2jax_ignore mathjax_ignore" id="chapter-6-object-creation-and-destruction">
-<h1>Chapter 6: Object Creation and Destruction<a class="headerlink" href="#chapter-6-object-creation-and-destruction" title="Permalink to this heading">#</a></h1>
+  <section class="tex2jax_ignore mathjax_ignore" id="chapter-7-ad-hoc-polymorphism">
+<h1>Chapter 7: Ad Hoc Polymorphism<a class="headerlink" href="#chapter-7-ad-hoc-polymorphism" title="Permalink to this heading">#</a></h1>
 <p>In this section we will be following along with the examples from “Object Oriented Programming Using C++” by Ira Pohl (Addison Wesley). We will use Jupyter Lab and Jupyter Book to facilitate rapid production of HTML content. Where appropriate, the output of the C++ code will be displayed in graphical format using Python scripts and Matplotlib.</p>
 <div class="toctree-wrapper compound">
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="Chapter_6_1_0_Classes_with_Constructors.html">Classes with Constructors</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Chapter_6_1_3_Constructors_as_Conversions.html">Constructors as Conversions</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Chapter_6_2_1_The_Copy_Constructor.html">The Copy Constructor</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Chapter_6_3_Classes_with_Destructors.html">6.3 Classes with Destructors</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Chapter_6_4_An_Example__Dynamically_Allocated_Strings.html">An Example:  Dynamically Allocated Strings</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Chapter_6_5_A_Class_Vect.html">A Class Vect</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Chapter_6_6_Members_that_Are_Class_Types.html">Chapter 6.6: Members that Are Class Types</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Chapter_6_7_An_Example__A_Singly_Linked_List.html">Chapter 6.7: An Example: A Singly Linked List</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Chapter_6_8_Two_Dimensional_Arrays.html">Chapter 6.8: Two - Dimensional Arrays</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Chapter_6_9_Polynomials_as_a_Linked_List.html">Chapter 6.9: Polynomials as a Linked List</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Chapter_6_10_Strings_Using_Reference_Semantics.html">Chapter 6.10: Strings Using Reference Semantics</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Chapter_6_11_No_Constructor_Copy_Constructor_and_Other_Mysteries.html">Chapter 6.11: No Constructor, Copy Constructor, and Other Mysteries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Chapter_7_1_ADT_Conversions.html">Chapter 7.1: ADT Conversions</a></li>
 </ul>
 </div>
 </section>
@@ -648,17 +661,17 @@ title="Print to PDF"
                 
     <!-- Previous / next buttons -->
 <div class='prev-next-area'>
-    <a class='left-prev' id="prev-link" href="Chapter_5_9_Containers_and_Item_Access.html" title="previous page">
+    <a class='left-prev' id="prev-link" href="Chapter_6_11_No_Constructor_Copy_Constructor_and_Other_Mysteries.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">Containers and Item Access</p>
+            <p class="prev-next-title">Chapter 6.11: No Constructor, Copy Constructor, and Other Mysteries</p>
         </div>
     </a>
-    <a class='right-next' id="next-link" href="Chapter_6_1_0_Classes_with_Constructors.html" title="next page">
+    <a class='right-next' id="next-link" href="Chapter_7_1_ADT_Conversions.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Classes with Constructors</p>
+        <p class="prev-next-title">Chapter 7.1: ADT Conversions</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>
