@@ -481,15 +481,6 @@
             <li>Updates to Computer Security -> Disassembling Binaries -> Fortran ARM 32-Bit.</li>
             <li>Updates to Computer Security -> SLAE64 -> Hello World in 64 Bit Assembly.</li>
 	</ul>
-	4/6/2019
-	<ul>
-            <li>More updates to Computer Security -> SLAE64 -> Hello World in 64 Bit Assembly.</li>
-	</ul>
-	4/4/2019
-	<ul>
-            <li>Happy birthday to me!</li>
-	</ul>
-			
 	
 	<a href="aside_archives.html">Archives</a><br>
     </aside>
