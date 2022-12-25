@@ -358,6 +358,10 @@
       
       <aside>
 	Status Updates<br><br>
+	12/25/2022
+	<ul>
+		<li>Major additions / updates to Fortran and C++ section.</li>
+	</ul>
 	11/2/2022
 	<ul>
 		<li>Added section for C++</li>
