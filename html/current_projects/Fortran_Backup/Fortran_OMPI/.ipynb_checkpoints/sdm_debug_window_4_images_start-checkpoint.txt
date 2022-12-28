@@ -1,0 +1,26 @@
+OpenMPI_test1 [Parallel Application]	
+	Process 0 (Suspended)	
+		Thread [1] (Suspended)	
+			4 hello_world() OpenMPI_test1.f08:5 400b46	
+			3 main() OpenMPI_test1.f08:10 400c10	
+			2 __libc_start_main()  7ffff642e580	
+			1 _start()  400a19	
+	Process 1 (Suspended)	
+		Thread [1] (Suspended)	
+			4 hello_world() OpenMPI_test1.f08:5 400b46	
+			3 main() OpenMPI_test1.f08:10 400c10	
+			2 __libc_start_main()  7ffff642e580	
+			1 _start()  400a19	
+	Process 2 (Suspended)	
+		Thread [1] (Suspended)	
+			4 hello_world() OpenMPI_test1.f08:5 400b46	
+			3 main() OpenMPI_test1.f08:10 400c10	
+			2 __libc_start_main()  7ffff642e580	
+			1 _start()  400a19	
+	Process 3 (Suspended)	
+		Thread [1] (Suspended)	
+			4 hello_world() OpenMPI_test1.f08:5 400b46	
+			3 main() OpenMPI_test1.f08:10 400c10	
+			2 __libc_start_main()  7ffff642e580	
+			1 _start()  400a19	
+	Runtime process 4036	

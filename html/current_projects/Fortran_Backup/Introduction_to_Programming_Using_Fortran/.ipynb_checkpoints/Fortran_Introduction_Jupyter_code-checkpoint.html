@@ -1,0 +1,751 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+  <meta content="text/html; charset=utf-8" http-equiv="content-type">
+  <meta name="robots" content="follow" />
+  
+  <title>
+    MK Dynamics - Programming - Programming in FORTRAN
+  </title>
+  
+  <link href="../../../css/styles.css" type = "text/css" rel = "stylesheet" />
+  
+  <style>
+    .content {
+	overflow: auto;
+	height: 80%; 
+	background: url("../../images/hubble.jpg") no-repeat center center fixed;
+	background-size: cover;
+	background-position: center;
+	padding: 10px;
+	margin: 10px;
+	border: 5px solid black;
+      }
+      
+    h1, h2, h3, h4 {
+      color: white;
+      display: block;     
+    }
+    
+    .current_project_1 {
+      border		: 5px solid black;
+      background	: gray;
+      position		: relative;
+      width		: 1250px;
+      height		: 1050px;
+      top		: 0px;
+      left		: 0px;
+      float		: left;
+      margin		: 10px;
+      padding-left	: 10px;
+    }
+    
+    .current_project_2 {
+      border		: 5px solid black;
+      background	: gray;
+      position		: relative;
+      width		: 1250px;
+      height		: 200px;
+      top		: 000px;
+      left		: 0px;
+      float		: left;
+      margin		: 10px;
+      padding-left	: 10px;
+    }
+    
+    .current_project_3 {
+      border		: 5px solid black;
+      background	: gray;
+      position		: relative;
+      width		: 1250px;
+      height		: 1000px;
+      top		: 000px;
+      left		: 0px;
+      float		: left;
+      margin		: 10px;
+      padding-left	: 10px;
+    }
+    
+    .current_project_4 {
+      border		: 5px solid black;
+      background	: gray;
+      position		: relative;
+      width		: 1250px;
+      height		: 1000px;
+      top		: 10px;
+      left		: 0px;
+      float		: left;
+      margin		: 10px;
+      padding		: 10px;
+    }
+    
+    .current_project_5 {
+      border		: 5px solid black;
+      background	: gray;
+      position		: relative;
+      width		: 1250px;
+      height		: 1000px;
+      top		: 10px;
+      left		: 0px;
+      float		: left;
+      margin		: 10px;
+      padding		: 10px;
+    }
+    
+    .current_project_6 {
+      border		: 5px solid black;
+      background	: gray;
+      position		: relative;
+      width		: 1250px;
+      height		: 500px;
+      top		: 10px;
+      left		: 0px;
+      float		: left;
+      margin		: 10px;
+      padding		: 10px;
+    }
+    
+    .current_project_7 {
+      border		: 5px solid black;
+      background	: gray;
+      position		: relative;
+      width		: 1250px;
+      height		: 100px;
+      top		: 10px;
+      left		: 0px;
+      float		: left;
+      margin		: 10px;
+      padding		: 10px;
+    }
+    
+    .current_project_8 {
+      border		: 5px solid black;
+      background	: gray;
+      position		: relative;
+      width		: 1250px;
+      height		: 1000px;
+      top		: 10px;
+      left		: 0px;
+      float		: left;
+      margin		: 10px;
+      padding		: 10px;
+    }
+    
+    .current_project_9 {
+      border		: 5px solid black;
+      background	: gray;
+      position		: relative;
+      width		: 1250px;
+      height		: 1000px;
+      top		: 10px;
+      left		: 0px;
+      float		: left;
+      margin		: 10px;
+      padding		: 10px;
+    }
+    
+    .current_project_10 {
+      border		: 5px solid black;
+      background	: gray;
+      position		: relative;
+      width		: 1250px;
+      height		: 1400px;
+      top		: 10px;
+      left		: 0px;
+      float		: left;
+      margin		: 10px;
+      padding		: 10px;
+    }
+    
+    .current_project_11 {
+      border		: 5px solid black;
+      background	: gray;
+      position		: relative;
+      width		: 1250px;
+      height		: 1400px;
+      top		: 10px;
+      left		: 0px;
+      float		: left;
+      margin		: 10px;
+      padding		: 10px;
+    }
+    
+    .current_project_12 {
+      border		: 5px solid black;
+      background	: gray;
+      position		: relative;
+      width		: 1250px;
+      height		: 1800px;
+      top		: 10px;
+      left		: 0px;
+      float		: left;
+      margin		: 10px;
+      padding		: 10px;
+    }
+    
+    .current_project_13 {
+      border		: 5px solid black;
+      background	: gray;
+      position		: relative;
+      width		: 1250px;
+      height		: 1800px;
+      top		: 10px;
+      left		: 0px;
+      float		: left;
+      margin		: 10px;
+      padding		: 10px;
+    }
+    
+    div .img {
+      margin		: 0px;
+      padding		: 10px;
+      height		: auto;
+      width		: auto;
+      float		: left;
+    }
+    
+    div .img img {
+      display		: inline;
+      margin		: 0px;
+      padding		: 0px;
+    }
+    
+    div .desc {
+      color		: white;
+      width		: 600px;
+      margin		: 5px;
+      padding		: 10px;
+    }
+    
+    ul {
+      color		: white;
+    }
+    
+    div .loose_text {
+      color		: white;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="wrapper">
+    <header>
+    
+      <hgroup>
+	<h1> 
+	    <big> <big> MK Dynamics </big> </big>
+	</h1>
+
+
+	<h2>
+	  Programming - FORTRAN
+	</h2>
+      </hgroup>
+    
+
+      <nav>
+	<ul>
+	  <li> <a href="../../../index.php">Home</a> </li>
+	</ul>
+      </nav>
+    
+    </header>
+    
+  
+  <section class="content">
+  
+  <section class="first_section">
+  
+      <div class="current_project_1">
+      
+	<div class="img">
+	    <img
+	      src="../Images/fortran_reunion.jpeg"
+	      width="1200"
+	      height="800"
+	      title="fortran_reunion.jpeg"
+	    >
+	</div> <!-- .img -->
+	  
+        <div class="loose_text">
+            <a href="http://www-03.ibm.com/ibm/history/ibm100/us/en/icons/fortran/">History of FORTRAN</a>
+        </div> <!-- .loose_text -->
+        
+      </div> <!-- .current_project_1 -->
+    </section> <!-- first_section -->
+    
+     
+    <section class="second_section">
+      <div class="current_project_2">
+	<hgroup>
+	  <h2>
+	    Description
+	  </h2>
+	  <h3>
+	    Introduction
+	  </h3>
+	<hgroup>
+
+	<div class="loose_text">
+	  The purpose of this section is to contain usefull programs for calculating items of interest to me in various projects.  These may include linear algebra, differential equations or calculus.
+	</div> <!-- .loose-text -->
+	
+
+	</div> <!-- .current_project_2 -->
+      </section> <!-- second_section --> 
+    
+
+    <section class="third_section">
+    
+      <div class="current_project_3">
+	<hgroup>
+	  <h2>
+	    Simple Program to Compute Positive and Negative Averages
+	  </h2>
+	</hgroup>
+	  <div class="img">
+	    <img
+	      src="../Images/fortran_code_average.jpeg"
+	      width="1200"
+	      height="800"
+	      title="fortran_code_average.jpeg"
+	    >
+	  </div> <!-- .img -->
+	  <div class="loose_text">
+	    This simple FORTRAN program uses an allocatable array to store a series of user entered reals numbers.  It then uses the built-in SUM function to easily sum over all of the elements in the array.  The SUM command makes FORTRAN extremely powerful for computing series expansions or series sum calculations.  It is also extremely useful for numerical calculations of integrals and convolution integrals in control systems engineering.
+	    <a href="https://en.wikipedia.org/wiki/Fortran">https://en.wikipedia.org/wiki/Fortran</a>
+	  </div> <!-- .loose_text -->
+
+      </div> <!-- .current_project_3 -->
+    </section> <!-- .third_section -->
+
+    <section class="fourth_section">
+    
+      <div class="current_project_4">
+	<hgroup>
+	  <h2>
+	    Program Run - Simple Program to Compute Positive and Negative Averages
+	  </h2>
+	</hgroup>
+	  <div class="img">
+	    <img 
+	      src="../Images/fortran_code_average_output.jpeg"
+	      width="1200"
+	      height="800"
+	      title="fortran_code_average_output.jpeg"
+	    >
+	  </div> <!-- .img -->
+	  <div class="loose_text">
+	    The program first inputs the number of elements to average over, and then inputs the data as reals.  It then computes separately the positive and negative averages.
+	  </div> <!-- .loose_text -->
+
+      </div> <!-- .current_project_4 -->
+    </section> <!-- .fourth_section -->
+
+    <section class="fifth_section">
+        <div class="current_project_5">
+            <hgroup>
+            <h2>
+                Program - Simple Program to Calculate Integrals via Trapezoidal Sums
+            </h2>
+            </hgroup>
+            <div class="img">
+                <img 
+                src="../Images/fortran_code_integrate.jpeg"
+                width="1200"
+                height="800"
+                title="fortran_code_integrate.jpeg"
+                >
+            </div> <!-- .img -->
+            <div class="loose_text">
+                The function that is integrated is x^2, and it is hardcoded in.  The limits of integration are 0 to 1.  The program makes use of a module to define the function to integrate, and then this function acts a parameter for the integrate function.  The function interface is defined in the integrate_module. <br>
+                <a href="code_fortran/integrate.f95">Download integrate.f95 code</a>
+            </div> <!-- .loose_text -->
+
+        </div> <!-- .current_project_5 -->
+      
+    </section> <!-- .fifth_section -->
+    
+    <section class="sixth_section">
+        <div class="current_project_6">
+            <hgroup>
+            <h2>
+                Program Run - Simple Program to Calculate Integrals via Trapezoidal Sums
+            </h2>
+            </hgroup>
+            <div class="img">
+                <img 
+                src="../Images/fortran_code_integrate_output.jpeg"
+                width="1200"
+                height="300"
+                title="fortran_code_integrate_output.jpeg"
+                >
+            </div> <!-- .img -->
+            <div class="loose_text">
+                The integral of y=x^2 from x=0 to x=1 is 1/3.   
+            </div> <!-- .loose_text -->
+
+        </div> <!-- .current_project_6 -->
+      
+    </section> <!-- .fifth_section -->
+    
+<!-- *************************************************************************************************** -->
+    
+    <section class="seventh_section">
+        
+        <div class="current_project_7">
+        
+            <div class="loose_text">
+                For more sophisticated projects, we will be using the Eclipse Development Environment.  It can be downloaded from the following link: <br>
+                <a href="http://www.eclipse.org/">http://www.eclipse.org/</a>
+            </div> <!-- .loose_text -->
+        
+        </div> <!-- .current_project_7 -->
+        
+    </section> <!-- .seventh_section -->
+        
+<!-- *************************************************************************************************** -->
+
+    <section class="eigth_section">
+        
+        <div class="current_project_8">
+        
+            <hgroup>
+                <h2>
+                    Program Simple Program to Calculate Area of Circle Using Module Files
+                </h2>
+            </hgroup>
+            
+            <hgroup>
+                <h3>
+                    Main File
+                </h3>
+            </hgroup>
+        
+            <div class="loose_text">
+        
+            <!-- HTML generated using hilite.me --><div style="background: #000000; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><table><tr><td><pre style="margin: 0; line-height: 125%"> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14</pre></td><td><pre style="margin: 0; line-height: 125%"><span style="color: #cdcd00">program </span><span style="color: #00cdcd">circle</span>
+
+    <span style="color: #cdcd00">use </span><span style="color: #00cdcd">math_module</span>
+
+    <span style="color: #cdcd00">implicit none</span>
+
+<span style="color: #cdcd00">    </span><span style="color: #00cd00">real</span><span style="color: #cccccc">,</span> <span style="color: #cdcd00">parameter</span> <span style="color: #00cd00">::</span> <span style="color: #00cdcd">radius</span> <span style="color: #3399cc">=</span> <span style="color: #cd00cd">2.2</span>
+    <span style="color: #00cd00">real</span>            <span style="color: #00cd00">::</span> <span style="color: #00cdcd">area</span>
+
+    <span style="color: #00cdcd">area</span> <span style="color: #3399cc">=</span> <span style="color: #00cdcd">pi</span> <span style="color: #3399cc">*</span> <span style="color: #00cdcd">radius</span> <span style="color: #3399cc">**</span> <span style="color: #cd00cd">2</span>
+
+    <span style="color: #cdcd00">print</span> <span style="color: #3399cc">*</span><span style="color: #cccccc">,</span> <span style="color: #cd0000">&quot;The area is: &quot;</span><span style="color: #cccccc">,</span> <span style="color: #00cdcd">area</span>
+
+<span style="color: #cdcd00">end program </span><span style="color: #00cdcd">circle</span>
+</pre></td></tr></table></div>
+
+
+            </div> <!-- .loose_text -->
+            
+            <hgroup>
+                <h3>
+                    Module File
+                </h3>
+            </hgroup>            
+            
+            <div class="loose_text">
+ <!-- HTML generated using hilite.me --><div style="background: #000000; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><table><tr><td><pre style="margin: 0; line-height: 125%"> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11</pre></td><td><pre style="margin: 0; line-height: 125%"><span style="color: #cdcd00">module </span><span style="color: #00cdcd">math_module</span>
+
+    <span style="color: #cdcd00">implicit none</span>
+
+<span style="color: #cdcd00">    private</span>
+
+<span style="color: #cdcd00">    </span><span style="color: #00cd00">real</span><span style="color: #cccccc">,</span> <span style="color: #cdcd00">public</span><span style="color: #cccccc">,</span> <span style="color: #cdcd00">parameter</span> <span style="color: #00cd00">::</span> <span style="color: #00cdcd">pi</span> <span style="color: #3399cc">=</span> <span style="color: #cd00cd">3.141592653</span>
+    <span style="color: #00cd00">real</span><span style="color: #cccccc">,</span> <span style="color: #cdcd00">public</span><span style="color: #cccccc">,</span> <span style="color: #cdcd00">parameter</span> <span style="color: #00cd00">::</span> <span style="color: #00cdcd">e</span> <span style="color: #3399cc">=</span> <span style="color: #cd00cd">2.7182818284</span>
+    <span style="color: #00cd00">real</span><span style="color: #cccccc">,</span> <span style="color: #cdcd00">public</span><span style="color: #cccccc">,</span> <span style="color: #cdcd00">parameter</span> <span style="color: #00cd00">::</span> <span style="color: #00cdcd">gamma</span> <span style="color: #3399cc">=</span> <span style="color: #cd00cd">0.577215664</span>
+
+<span style="color: #cdcd00">end module </span><span style="color: #00cdcd">math_module</span>
+</pre></td></tr></table></div>
+
+          
+            </div> <!-- .loose_text -->
+            
+            <div class="loose_text">
+            The program is compiled by specifying the module files before the main file in the gfortran command line.
+            
+            <p>
+                [mark@ubermentch Fortran Programs]$ gfortran math_module.f08 circle.f08 
+            </p>
+            
+            <p>
+                The program is run by entering <b>./a.out</b> into the command prompt.
+            </p>
+            
+            <p>
+                [mark@ubermentch Fortran Programs]$ ./a.out <br>
+                The area is:    15.2053089 <br>
+                [mark@ubermentch Fortran Programs]$ <br> 
+            </p>
+          
+           </div> <!-- .loose_text -->
+        
+        </div> <!-- .current_project_8 -->
+        
+    </section> <!-- .eigth_section -->
+
+
+<!-- *************************************************************************************************** -->
+    <section class="ninth_section">
+        
+        <div class="current_project_9">
+        
+            <hgroup>
+                <h2>
+                    Program to calculate the value of the natural logarithm base, also known as e
+                </h2>
+            </hgroup>
+            
+            <hgroup>
+                <h3>
+                    Exercise 2.6.8
+                </h3>
+            </hgroup>
+        
+            <div class="loose_text">
+                This program calculates the value of e, using the expression (1+1/x)^(x) using successive powers of 2 and 3 with varying precision as well as S(n=0, inf)[1/x!] using successive additional terms with varying precision, where S is the capital Greek sigma, meaning summation, and x! is x factorial.
+            </div> <!-- .loose_text -->
+            
+            <iframe
+                src="Code/exercise_2_6_8.f08.html" 
+                height="800" 
+                width="1000">
+            </iframe>
+
+        </div> <!-- .current_project_9 -->
+        
+    </section> <!-- .ninth_section -->
+<!-- *************************************************************************************************** -->
+
+
+<!-- *************************************************************************************************** -->
+    <section class="tenth_section">
+        
+        <div class="current_project_10">
+        
+            <hgroup>
+                <h2>
+                    Program to calculate the median of three entered numbers.
+                </h2>
+            </hgroup>
+            
+            <hgroup>
+                <h3>
+                    Exercise 3.6.1
+                </h3>
+            </hgroup>
+        
+            <div class="loose_text">
+                <p>
+                    This program ask the user to enter three numbers and finds the median.  It uses a contains block, rather than putting the functions and procedures in a module.  This is done to be proficient in both methods of function incorporation into programs.
+                </p>
+                <p>
+                    First, in order to facilitate sorting, a subrouting "swap" is written.  Its arguments have the attributes "in out", so they are passed by reference, so they are directly modified within the subroutine.  Basically the subroutine swaps the arguments a with b.
+                </p>
+                <p>
+                    The subroutine "sort" essentially uses the swap subroutine to perform a selection sort, by swapping the minimum value to the front of the list.
+                </p>
+                <p>
+                    Finally, the function medianOf3 makes use of the sort subroutine to find the middle value and return it.  The arguments to sort are passed by reference, and the names or the arguments with respect to the sort subroutine are named explicitly in the subroutine call.
+                </p>
+            </div> <!-- .loose_text -->
+            
+            <iframe
+                src="Code/Exercise 3_6_1.f08.html" 
+                height="1000" 
+                width="1000">
+            </iframe>
+
+        </div> <!-- .current_project_10 -->
+        
+    </section> <!-- .section -->
+<!-- ************************************************************************************************** -->
+
+<!-- *************************************************************************************************** -->
+    <section class="section">
+        
+        <div class="current_project_11">
+        
+            <hgroup>
+                <h2>
+                    Example from Page 219 in "Guide to Fortran 2008 Programming"
+                </h2>
+            </hgroup>
+            
+            <hgroup>
+                <h3>
+                    
+                </h3>
+            </hgroup>
+        
+            <div class="loose_text">
+                <p>
+                    
+                </p>
+                <p>
+                    
+                </p>
+                <p>
+                    
+                </p>
+                <p>
+                    
+                </p>
+            </div> <!-- .loose_text -->
+            
+            <iframe
+                src="Code/example_p219_test_swap_arrays.f08.html" 
+                height="1000" 
+                width="1000">
+            </iframe>
+
+        </div> <!-- .current_project_11 -->
+        
+    </section> <!-- .section -->
+<!-- *************************************************************************************************** -->
+        
+
+<!-- *************************************************************************************************** -->
+    <section class="section">
+        
+        <div class="current_project_12">
+        
+            <hgroup>
+                <h2>
+                    Approximate Exponential Using Taylor Expansions
+                </h2>
+            </hgroup>
+            
+            <hgroup>
+                <h3>
+                    From "Introduction to Programming using Fortran"
+                </h3>
+            </hgroup>
+        
+            <div class="loose_text">
+                <p>
+                    
+                </p>
+                <p>
+                    
+                </p>
+                <p>
+                    
+                </p>
+                <p>
+                    
+                </p>
+            </div> <!-- .loose_text -->
+            
+            <iframe
+                src="Code/approx_exp.f08.html" 
+                height="800" 
+                width="1000">
+            </iframe>
+            
+            <div class="img">
+                <img 
+                src="images/fortran/approx_exp.jpg"
+                width="1000"
+                height="600"
+                title="approx_exp.jpg"
+                >
+            </div> <!-- .img -->
+
+        </div> <!-- .current_project_12 -->
+        
+    </section> <!-- .section -->
+<!-- *************************************************************************************************** -->
+
+<!-- *************************************************************************************************** -->
+    <section class="section">
+        
+        <div class="current_project_13">
+        
+            <hgroup>
+                <h2>
+                    Approximate Pi Using Monte Carlo Analysis
+                </h2>
+            </hgroup>
+            
+            <hgroup>
+                <h3>
+                    From "Introduction to Programming using Fortran"
+                </h3>
+            </hgroup>
+        
+            <div class="loose_text">
+                <p>
+                    
+                </p>
+                <p>
+                    
+                </p>
+                <p>
+                    
+                </p>
+                <p>
+                    
+                </p>
+            </div> <!-- .loose_text -->
+            
+            <iframe
+                src="code_fortran/pi_estimation.f08.html" 
+                height="800" 
+                width="1000">
+            </iframe>
+            
+            <div class="img">
+                <img 
+                src="images/fortran/pi_estimation.jpg"
+                width="1000"
+                height="600"
+                title="pi_estimation.jpg"
+                >
+            </div> <!-- .img -->
+
+        </div> <!-- .current_project_13 -->
+        
+    </section> <!-- .section -->
+<!-- *************************************************************************************************** -->
+
+        
+        </section>	<!-- .content -->
+    
+  </div> <!-- .wrapper -->
+
+  </body>
+
+</html>
+  
+
