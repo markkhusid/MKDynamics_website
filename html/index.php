@@ -358,9 +358,13 @@
       
       <aside>
 	Status Updates<br><br>
+  1/1/2023
+  <ul>
+    <li>Happy New Year!</li>
+  </ul>
 	12/25/2022
 	<ul>
-		<li>Major additions / updates to Fortran and C++ section.</li>
+		<li>Major additions / updates to Fortran and C++ sections.</li>
 	</ul>
 	11/2/2022
 	<ul>
@@ -748,9 +752,7 @@
     
     
     </section> <!-- .content -->
-    
-   
-        
+  
     <section class="content_2">
         
         <hgroup class="title_2">
