@@ -182,6 +182,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="../Modern_Fortran/Tsunami_Simulator_with_Modules.html">Tsunami Simulator with Modules</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Modern_Fortran/Tsunami_Simulator_with_Modules_Plotter.html">Tsunami Simulator with Modules Plotter</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Modern_Fortran/Print_Compiler_Version.html">Print Compiler Version</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Modern_Fortran/Analyzing_Time_Series_Data_with_Arrays.html">Analyzing Time Series Data with Arrays</a></li>
 </ul>
 </li>
 </ul>
@@ -548,19 +549,6 @@ document.write(`
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[  0%] libSection_Computing_Pi_Comput
-[ 33%] libSection_Computing_Pi_Comput  done.
-[ 33%] section_computing_pi_compute_p
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[ 66%] section_computing_pi_compute_p  done.
-[ 66%] Section_Computing_Pi_Compute_P
-[100%] Section_Computing_Pi_Compute_P  done.
-[100%] Project compiled successfully.
-</pre></div>
-</div>
-</div>
 </div>
 </section>
 <section id="run-the-program-using-fpm-fortran-package-manager">
@@ -574,6 +562,12 @@ document.write(`
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>After         10 loops, Pi =         3.304518326248318
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>After         10 loops, Pi =         3.304518326248318
+After         10 loops, Pi =         3.304518326248318
+After         10 loops, Pi =         3.304518326248318
+After         10 loops, Pi =         3.304518326248318
 After         10 loops, Pi =         3.304518326248318
 </pre></div>
 </div>
@@ -582,18 +576,8 @@ After         10 loops, Pi =         3.304518326248318
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>After         10 loops, Pi =         3.304518326248318
 After         10 loops, Pi =         3.304518326248318
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>After         10 loops, Pi =         3.304518326248318
 After         10 loops, Pi =         3.304518326248318
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>After         10 loops, Pi =         3.304518326248318
-After         10 loops, Pi =         3.304518326248318
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>After         10 loops, Pi =         3.304518326248318
-40.5 ms ± 16.4 ms per loop (mean ± std. dev. of 10 runs, 1 loop each)
+35.9 ms ± 10.9 ms per loop (mean ± std. dev. of 10 runs, 1 loop each)
 </pre></div>
 </div>
 </div>
@@ -607,11 +591,6 @@ After         10 loops, Pi =         3.304518326248318
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>After        100 loops, Pi =         3.160417031779042
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>After        100 loops, Pi =         3.160417031779042
-After        100 loops, Pi =         3.160417031779042
-After        100 loops, Pi =         3.160417031779042
 After        100 loops, Pi =         3.160417031779042
 </pre></div>
 </div>
@@ -620,11 +599,18 @@ After        100 loops, Pi =         3.160417031779042
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>After        100 loops, Pi =         3.160417031779042
 After        100 loops, Pi =         3.160417031779042
+After        100 loops, Pi =         3.160417031779042
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>After        100 loops, Pi =         3.160417031779042
 After        100 loops, Pi =         3.160417031779042
-38.9 ms ± 13.1 ms per loop (mean ± std. dev. of 10 runs, 1 loop each)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>After        100 loops, Pi =         3.160417031779042
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>After        100 loops, Pi =         3.160417031779042
+35.4 ms ± 5.88 ms per loop (mean ± std. dev. of 10 runs, 1 loop each)
 </pre></div>
 </div>
 </div>
@@ -639,13 +625,9 @@ After        100 loops, Pi =         3.160417031779042
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>After       1000 loops, Pi =         3.143555466911022
 After       1000 loops, Pi =         3.143555466911022
-After       1000 loops, Pi =         3.143555466911022
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>After       1000 loops, Pi =         3.143555466911022
-After       1000 loops, Pi =         3.143555466911022
-After       1000 loops, Pi =         3.143555466911022
-After       1000 loops, Pi =         3.143555466911022
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>After       1000 loops, Pi =         3.143555466911022
@@ -653,7 +635,15 @@ After       1000 loops, Pi =         3.143555466911022
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>After       1000 loops, Pi =         3.143555466911022
-38.2 ms ± 13.8 ms per loop (mean ± std. dev. of 10 runs, 1 loop each)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>After       1000 loops, Pi =         3.143555466911022
+After       1000 loops, Pi =         3.143555466911022
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>After       1000 loops, Pi =         3.143555466911022
+After       1000 loops, Pi =         3.143555466911022
+35 ms ± 6.43 ms per loop (mean ± std. dev. of 10 runs, 1 loop each)
 </pre></div>
 </div>
 </div>
@@ -667,8 +657,20 @@ After       1000 loops, Pi =         3.143555466911022
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>After      10000 loops, Pi =         3.141791477611602
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>After      10000 loops, Pi =         3.141791477611602
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>After      10000 loops, Pi =         3.141791477611602
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>After      10000 loops, Pi =         3.141791477611602
 After      10000 loops, Pi =         3.141791477611602
 After      10000 loops, Pi =         3.141791477611602
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>After      10000 loops, Pi =         3.141791477611602
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>After      10000 loops, Pi =         3.141791477611602
@@ -676,13 +678,7 @@ After      10000 loops, Pi =         3.141791477611602
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>After      10000 loops, Pi =         3.141791477611602
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>After      10000 loops, Pi =         3.141791477611602
-After      10000 loops, Pi =         3.141791477611602
-After      10000 loops, Pi =         3.141791477611602
-After      10000 loops, Pi =         3.141791477611602
-33.6 ms ± 5.36 ms per loop (mean ± std. dev. of 10 runs, 1 loop each)
+35 ms ± 6.56 ms per loop (mean ± std. dev. of 10 runs, 1 loop each)
 </pre></div>
 </div>
 </div>
@@ -696,13 +692,6 @@ After      10000 loops, Pi =         3.141791477611602
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>After     100000 loops, Pi =         3.141612616406209
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>After     100000 loops, Pi =         3.141612616406209
-After     100000 loops, Pi =         3.141612616406209
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>After     100000 loops, Pi =         3.141612616406209
 After     100000 loops, Pi =         3.141612616406209
 After     100000 loops, Pi =         3.141612616406209
 </pre></div>
@@ -711,9 +700,18 @@ After     100000 loops, Pi =         3.141612616406209
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>After     100000 loops, Pi =         3.141612616406209
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>After     100000 loops, Pi =         3.141612616406209
 After     100000 loops, Pi =         3.141612616406209
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>After     100000 loops, Pi =         3.141612616406209
 After     100000 loops, Pi =         3.141612616406209
-34.4 ms ± 5.89 ms per loop (mean ± std. dev. of 10 runs, 1 loop each)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>After     100000 loops, Pi =         3.141612616406209
+34.2 ms ± 3.28 ms per loop (mean ± std. dev. of 10 runs, 1 loop each)
 </pre></div>
 </div>
 </div>
@@ -727,15 +725,6 @@ After     100000 loops, Pi =         3.141612616406209
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>After    1000000 loops, Pi =         3.141594652402481
-After    1000000 loops, Pi =         3.141594652402481
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>After    1000000 loops, Pi =         3.141594652402481
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>After    1000000 loops, Pi =         3.141594652402481
-After    1000000 loops, Pi =         3.141594652402481
-After    1000000 loops, Pi =         3.141594652402481
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>After    1000000 loops, Pi =         3.141594652402481
@@ -743,10 +732,21 @@ After    1000000 loops, Pi =         3.141594652402481
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>After    1000000 loops, Pi =         3.141594652402481
+After    1000000 loops, Pi =         3.141594652402481
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>After    1000000 loops, Pi =         3.141594652402481
-35.1 ms ± 3.34 ms per loop (mean ± std. dev. of 10 runs, 1 loop each)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>After    1000000 loops, Pi =         3.141594652402481
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>After    1000000 loops, Pi =         3.141594652402481
+After    1000000 loops, Pi =         3.141594652402481
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>After    1000000 loops, Pi =         3.141594652402481
+38.1 ms ± 4.27 ms per loop (mean ± std. dev. of 10 runs, 1 loop each)
 </pre></div>
 </div>
 </div>
@@ -763,6 +763,7 @@ After    1000000 loops, Pi =         3.141594652402481
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>After   10000000 loops, Pi =         3.141592854147901
+After   10000000 loops, Pi =         3.141592854147901
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>After   10000000 loops, Pi =         3.141592854147901
@@ -772,22 +773,15 @@ After    1000000 loops, Pi =         3.141594652402481
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>After   10000000 loops, Pi =         3.141592854147901
+After   10000000 loops, Pi =         3.141592854147901
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>After   10000000 loops, Pi =         3.141592854147901
+After   10000000 loops, Pi =         3.141592854147901
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>After   10000000 loops, Pi =         3.141592854147901
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>After   10000000 loops, Pi =         3.141592854147901
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>After   10000000 loops, Pi =         3.141592854147901
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>After   10000000 loops, Pi =         3.141592854147901
-60.5 ms ± 3.88 ms per loop (mean ± std. dev. of 10 runs, 1 loop each)
+64.6 ms ± 5.16 ms per loop (mean ± std. dev. of 10 runs, 1 loop each)
 </pre></div>
 </div>
 </div>
@@ -810,7 +804,6 @@ After    1000000 loops, Pi =         3.141594652402481
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>After  100000000 loops, Pi =         3.141592668260093
-After  100000000 loops, Pi =         3.141592668260093
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>After  100000000 loops, Pi =         3.141592668260093
@@ -826,7 +819,10 @@ After  100000000 loops, Pi =         3.141592668260093
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>After  100000000 loops, Pi =         3.141592668260093
-277 ms ± 15.8 ms per loop (mean ± std. dev. of 10 runs, 1 loop each)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>After  100000000 loops, Pi =         3.141592668260093
+269 ms ± 5.96 ms per loop (mean ± std. dev. of 10 runs, 1 loop each)
 </pre></div>
 </div>
 </div>
@@ -867,7 +863,7 @@ After  100000000 loops, Pi =         3.141592668260093
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>After 1000000000 loops, Pi =         3.141592665675041
-2.31 s ± 31.6 ms per loop (mean ± std. dev. of 10 runs, 1 loop each)
+2.38 s ± 72.7 ms per loop (mean ± std. dev. of 10 runs, 1 loop each)
 </pre></div>
 </div>
 </div>

@@ -180,6 +180,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="../Modern_Fortran/Tsunami_Simulator_with_Modules.html">Tsunami Simulator with Modules</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Modern_Fortran/Tsunami_Simulator_with_Modules_Plotter.html">Tsunami Simulator with Modules Plotter</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Modern_Fortran/Print_Compiler_Version.html">Print Compiler Version</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Modern_Fortran/Analyzing_Time_Series_Data_with_Arrays.html">Analyzing Time Series Data with Arrays</a></li>
 </ul>
 </li>
 </ul>
@@ -537,17 +538,6 @@ document.write(`
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[  0%]  libSection_Arrays_Normalize.a
-[ 33%]  libSection_Arrays_Normalize.a  done.
-[ 33%]   section_arrays_normalize.f90
-[ 66%]   section_arrays_normalize.f90  done.
-[ 66%]       Section_Arrays_Normalize
-[100%]       Section_Arrays_Normalize  done.
-[100%] Project compiled successfully.
-</pre></div>
-</div>
-</div>
 </div>
 </section>
 <section id="run-the-program-using-fpm-fortran-package-manager">
@@ -560,17 +550,17 @@ document.write(`
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>original:
-   0.2536397   0.8198217   0.7364528   0.5203637
-   0.3387981   0.0025567   0.8586085   0.4309156
-   0.6882431   0.1006906   0.8076488   0.7759556
-norm:   2.3302779   1.6308789   2.3725381
-   2.3302779   2.3302779   2.3302779   2.3302779
-   1.6308789   1.6308789   1.6308789   1.6308789
-   2.3725381   2.3725381   2.3725381   2.3725381
+   0.8293838   0.1139258   0.4177145   0.0374929
+   0.2155182   0.1689540   0.3796477   0.4260428
+   0.5117221   0.9454935   0.6684213   0.5002689
+norm:   1.3985169   1.1901626   2.6259058
+   1.3985169   1.3985169   1.3985169   1.3985169
+   1.1901626   1.1901626   1.1901626   1.1901626
+   2.6259058   2.6259058   2.6259058   2.6259058
 row-normalized::
-   0.1088453   0.3518128   0.3160365   0.2233054
-   0.2077396   0.0015677   0.5264698   0.2642229
-   0.2900873   0.0424400   0.3404155   0.3270571
+   0.5930452   0.0814619   0.2986839   0.0268090
+   0.1810830   0.1419587   0.3189881   0.3579702
+   0.1948745   0.3600637   0.2545489   0.1905129
 norm:   1.0000000   1.0000000   1.0000000
 </pre></div>
 </div>
@@ -584,17 +574,17 @@ norm:   1.0000000   1.0000000   1.0000000
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>original:
-   0.1727873   0.1115047   0.5990667   0.7414672
-   0.7256073   0.2742975   0.8957321   0.8823952
-   0.3386251   0.7122332   0.2812473   0.9609102
-norm:   1.6248259   2.7780321   2.2930158
-   1.6248259   1.6248259   1.6248259   1.6248259
-   2.7780321   2.7780321   2.7780321   2.7780321
-   2.2930158   2.2930158   2.2930158   2.2930158
+   0.7368228   0.2698034   0.6994587   0.9126290
+   0.2074554   0.5535973   0.4277875   0.7786999
+   0.6243368   0.2352757   0.0609272   0.6187311
+norm:   2.6187138   1.9675402   1.5392708
+   2.6187138   2.6187138   2.6187138   2.6187138
+   1.9675402   1.9675402   1.9675402   1.9675402
+   1.5392708   1.5392708   1.5392708   1.5392708
 row-normalized::
-   0.1063421   0.0686256   0.3686959   0.4563364
-   0.2611947   0.0987381   0.3224340   0.3176332
-   0.1476767   0.3106098   0.1226539   0.4190596
+   0.2813682   0.1030290   0.2671001   0.3485028
+   0.1054390   0.2813652   0.2174225   0.3957733
+   0.4056056   0.1528488   0.0395819   0.4019638
 norm:   1.0000000   1.0000000   1.0000000
 </pre></div>
 </div>
@@ -608,17 +598,17 @@ norm:   1.0000000   1.0000000   1.0000000
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>original:
-   0.3760261   0.8740406   0.2532821   0.6564410
-   0.5658171   0.4380095   0.3233891   0.2617259
-   0.7901664   0.3365058   0.8442626   0.5218137
-norm:   2.1597899   1.5889416   2.4927485
-   2.1597899   2.1597899   2.1597899   2.1597899
-   1.5889416   1.5889416   1.5889416   1.5889416
-   2.4927485   2.4927485   2.4927485   2.4927485
+   0.5168560   0.0105620   0.9305305   0.0767178
+   0.8050648   0.8470298   0.5571889   0.9999875
+   0.5225480   0.5996254   0.3740573   0.9601092
+norm:   1.5346664   3.2092709   2.4563399
+   1.5346664   1.5346664   1.5346664   1.5346664
+   3.2092709   3.2092709   3.2092709   3.2092709
+   2.4563399   2.4563399   2.4563399   2.4563399
 row-normalized::
-   0.1741031   0.4046878   0.1172717   0.3039374
-   0.3560968   0.2756612   0.2035249   0.1647171
-   0.3169860   0.1349939   0.3386874   0.2093327
+   0.3367872   0.0068823   0.6063406   0.0499899
+   0.2508560   0.2639322   0.1736185   0.3115933
+   0.2127344   0.2441133   0.1522824   0.3908699
 norm:   1.0000000   1.0000000   1.0000000
 </pre></div>
 </div>
