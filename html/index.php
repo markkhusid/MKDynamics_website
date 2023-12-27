@@ -358,6 +358,10 @@
       
       <aside>
 	Status Updates<br><br>
+  12/27/2023
+  <ul>
+    <li>Updated C++, Fortran and Python sections.</li>
+  </ul>
   1/1/2023
   <ul>
     <li>Happy New Year!</li>
@@ -480,11 +484,7 @@
 	<ul>
             <li>Completed updates to SLAE64 -> Hello World in 64 Bit Assembly.</li>
 	</ul>
-	4/7/2019
-	<ul>
-            <li>Updates to Computer Security -> Disassembling Binaries -> Fortran ARM 32-Bit.</li>
-            <li>Updates to Computer Security -> SLAE64 -> Hello World in 64 Bit Assembly.</li>
-	</ul>
+	
 	
 	<a href="aside_archives.html">Archives</a><br>
     </aside>
@@ -571,7 +571,7 @@
                 />
 	  
                 <figcaption>
-                    <a href="current_projects/Python/python.html">Python Programming</a><br>
+                    <a href="current_projects/Python/index.html">Python Programming</a><br>
                 </figcaption>
             </figure>
         </div> <!-- .current_project_5 -->
