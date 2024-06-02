@@ -362,6 +362,10 @@
       
       <aside>
 	Status Updates<br><br>
+  6/1/2024
+  <ul>
+    <li>Updated resume.  Work continuing on version 2 of this website.</li>
+  </ul>
   12/27/2023
   <ul>
     <li>Updated C++, Fortran and Python sections.</li>
